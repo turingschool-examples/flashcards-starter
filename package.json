@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["oop", "javascript", "testing", "data manipulation"],
+  "author": "Turing School of Software & Design",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
