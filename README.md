@@ -26,7 +26,7 @@ Running `node index.js` from the root of your project should result in the follo
 Node server running on port 3000
 ```
 
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running `npm test`*
+*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
 
 
 ## Where to Add Your Code
@@ -37,7 +37,6 @@ Node server running on port 3000
 
 We will be using the `module.exports` and `require` syntax to share code across files.
 
-
 ## How to View Your Code in Action
 
 Once you are working through Iteration 3, you will want to start your server to test your functionality.
@@ -47,7 +46,7 @@ In the terminal, run:
 node index.js
 ```
 
-When the game is funtioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards, like so:
+When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
 
 ![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
 
