@@ -12,28 +12,28 @@ const genList = (round) => {
   return {
     type: 'rawlist',
     message: card.question,
-    name: 'orders',
+    name: 'answers',
     choices: choices
   };
 }
 
-const getQuestions = (round) => {
+const getRound = (round) => {
   return Promise.resolve(round);
 }
 
 const confirmUpdate = (id, round) => {
   const feedback = round.takeTurn(id);
   return {
-    name: 'toUpdate',
+    name: 'feedback',
     message: `Your answer of ${id} is ${feedback}`
   }
 }
 
 async function main(round) {
 
-  const questions = await getQuestions(round);
-  const getOrder = await inquirer.prompt(genList(questions));
-  const getConfirm = await inquirer.prompt(confirmUpdate(getOrder.orders, round));
+  const currentRound = await getRound(round);
+  const getAnswer = await inquirer.prompt(genList(currentRound));
+  const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
     if(!round.returnCurrentCard()) {
       round.endRound();
