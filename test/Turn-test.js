@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Turns = require('../src/Turns');
+const Turns = require('../src/Turn');
 
 describe('Turns', function() {
 
@@ -16,8 +16,9 @@ describe('Turns', function() {
   }); 
 
   it('should be instantiated with two arguments', function() {
-    const turns = new Turns(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(turns.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    const turns = new Turns('blah', card);
+    expect(turns.userGuess).to.equal('blah');
+    expect(turns.currentCard).to.equal(card);
   });  
 
   it('should have a method that returns the guess', function() {

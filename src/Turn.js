@@ -1,4 +1,4 @@
-class Turns {
+class Turn {
   constructor(userGuess, currentCard) {
     this.userGuess = userGuess || null;
     this.currentCard = currentCard || new Card;
@@ -31,4 +31,4 @@ class Turns {
   }
 }
 
-module.exports = Turns;
+module.exports = Turn;
