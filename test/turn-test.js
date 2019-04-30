@@ -40,6 +40,11 @@ describe('Turn', function() {
     expect(turn.returnCard()).to.equal(card);
   });
 
+  it('should have a evaluateGuess function', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn("object", card)
+    expect(turn.evaluateGuess()).to.equal(true);
+  });
 
 
 
