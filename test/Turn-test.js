@@ -22,14 +22,14 @@ describe('Turn', function() {
 	});
 
 	it('should take a card as an argument', function() {
-		const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-		const turn = new Turn('object', card.id);
-		expect(turn.card).to.equal(1);
+		const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+		const turn = new Turn('object', card1);
+		expect(turn.card).to.equal(card1);
 	});
 
 	it('should return the players guess', function() {
-		const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-		const turn = new Turn('object', card);
+		const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+		const turn = new Turn('object', card1);
 
 		expect(turn.returnGuess()).to.equal('object');
 	});
@@ -38,9 +38,22 @@ describe('Turn', function() {
 		const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 		const turn = new Turn('object', card1);
 		
-		expect(turn.returnCard()).to.equal(card1);
+		expect(turn.returnCard(card1)).to.equal(card1);
 	});
 
-	
+	it('should evaluate if guess matches the correct answer', function() {
+		const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+		const turn = new Turn('object', card1);
+
+		expect(turn.evaluateGuess()).to.equal(true);
+	});
+
+	it('should return a message of correct or not based on evaluated guess', function() {
+		const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+		const turn = new Turn('object', card1);
+
+		expect(turn.evaluateGuess()).to.equal(true);
+		expect(turn.giveFeedback()).to.equal('Correct!')
+	});
 
 });
