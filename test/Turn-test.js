@@ -16,19 +16,21 @@ describe('Turns', function() {
   }); 
 
   it('should be instantiated with two arguments', function() {
-    const turns = new Turns('blah', card);
-    expect(turns.userGuess).to.equal('blah');
+    const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, dickhead!'], 'all of the above!!!');
+    const turns = new Turns('yeah!', card);
+    expect(turns.userGuess).to.equal('yeah!');
     expect(turns.currentCard).to.equal(card);
   });  
 
   it('should have a method that returns the guess', function() {
-    const turns = new Turns(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(turns.answers).to.deep.equal(['object', 'array', 'function']);
+    const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, dickhead!'], 'all of the above!!!');
+    const turns = new Turns('yeah!', card);
+    expect(turns.returnGuess()).to.equal('yeah!');
   });  
 
   it('should have a method that returns the Card', function() {
-    const turns = new Turns(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(turns.correctAnswer).to.equal('object');
+    const turns = new Turns('blah', card);
+    expect(turns.returnCard()).to.equal(card);
   });
 
   it('should have a method that returns a boolean indicating if the user’s guess matches the correct answer on the card', function() {
