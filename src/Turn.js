@@ -13,15 +13,11 @@ class Turn {
   }
 
   evaluateGuess() {
-    // let answer;
     if (this.currentCard.correctAnswer === this.userGuess) {
-      // answer = true;
       return true;
     } else {
-      // answer = false;
       return false;
     }
-    // giveFeedback(answer);
   }
 
   giveFeedback(answer) {
