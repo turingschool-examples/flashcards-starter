@@ -27,4 +27,11 @@ describe('Turn', function() {
     const turn = new Turn(card.answers[0], card);
     expect(turn.returnGuess()).to.deep.equal(card.answers[0])
   });
+
+  it('returnCard should return the card', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn(card.answers[0], card);
+    expect(turn.returnCard()).to.deep.equal(card)
+  });
+
 });
