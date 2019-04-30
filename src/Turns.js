@@ -5,7 +5,7 @@ class Turns {
   }
 
   returnGuess() {
-    return this.currentCard.possibleAnswers[i];
+    return this.userGuess;
   }
 
   returnCard() {
@@ -13,11 +13,13 @@ class Turns {
   };
 
   evaluateGuess() {
-    if (this.currentCard.correctAnswer === this.userGuess) {
-      return true;
+    let answer;
+    if (this.currentCard.answer === this.userGuess) {
+      answer = true;
     } else {
-      return false;
+      answer = false;
     }
+    giveFeedback(answer);
   }
 
   giveFeedback(boolean) {
@@ -28,3 +30,5 @@ class Turns {
     }
   }
 }
+
+module.exports = Turns;
