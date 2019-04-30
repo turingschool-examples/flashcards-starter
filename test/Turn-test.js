@@ -40,4 +40,16 @@ describe('Turn', function() {
     expect(turn.evaluateGuess()).to.be.a('boolean')
   });
 
+  it('giveFeedback should return‘correct!’', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn(card.answers[0], card);
+    expect(turn.giveFeedback()).to.equal('correct!')
+  });
+
+  it('giveFeedback should return ‘incorrect!’', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn(card.answers[1], card);
+    expect(turn.giveFeedback()).to.equal('incorrect!')
+  });
+
 });
