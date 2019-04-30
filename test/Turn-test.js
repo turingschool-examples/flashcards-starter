@@ -1,43 +1,49 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Turns = require('../src/Turn');
+const Turn = require('../src/Turn');
+const Card = require('../src/Card');
 
-describe('Turns', function() {
+describe('Turn', function() {
 
   it('should be a function', function() {
-    const turns = new Turns();
-    expect(turns).to.be.a('function');
+    const turn = new Turn();
+    expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Turns', function() {
-    const turns = new Turns();
-    expect(turns).to.be.an.instanceof(Turns);
+  it('should be an instance of Turn', function() {
+    const turn = new Turn();
+    expect(turn).to.be.an.instanceof(Turn);
   }); 
 
   it('should be instantiated with two arguments', function() {
-    const turns = new Turns('blah', card);
-    expect(turns.userGuess).to.equal('blah');
-    expect(turns.currentCard).to.equal(card);
-  });  
+    const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, dickhead!'], 'fuck yeah!');
+    const turn = new Turn('yeah!', card);
+    expect(turn.userGuess).to.equal('yeah!');
+    expect(turn.currentCard).to.equal(card);
+  });   
 
   it('should have a method that returns the guess', function() {
-    const turns = new Turns(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(turns.answers).to.deep.equal(['object', 'array', 'function']);
+    const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, dickhead!'], 'fuck yeah!');
+    const turn = new Turn('yeah!', card);
+    expect(turn.returnGuess()).to.equal('yeah!');
   });  
 
   it('should have a method that returns the Card', function() {
-    const turns = new Turns(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(turns.correctAnswer).to.equal('object');
+    const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, dickhead!'], 'fuck yeah!');
+    const turn = new Turn('yeah!', card);
+    expect(turn.returnCard()).to.equal(card);
   });
 
   it('should have a method that returns a boolean indicating if the user’s guess matches the correct answer on the card', function() {
-    const turns = new Turns(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(turns.correctAnswer).to.equal('object');
+    const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, dickhead!'], 'fuck yeah!');
+    const turn = new Turn('yeah!', card);
+    expect(turn.evaluateGuess()).to.equal(false);
   });
 
   it('should have a method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not', function() {
-    const turns = new Turns(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(turns.correctAnswer).to.equal('object');
+    const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, dickhead!'], 'fuck yeah!');
+    const turn = new Turn('yeah!', card);
+    expect(turn.giveFeedback()).to.equal('Incorrect!');
   });
 });
