@@ -66,4 +66,10 @@ describe('Turn', function() {
     const turn = new Turn('my guess', card);
     expect(turn.returnGuess()).to.equal('my guess')
   })
+
+  it('should be able to return the card object', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    const turn = new Turn('my guess', card);
+    expect(turn.returnCard()).to.equal(card)
+  })
 });
