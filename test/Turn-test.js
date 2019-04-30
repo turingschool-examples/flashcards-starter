@@ -34,4 +34,10 @@ describe('Turn', function() {
     expect(turn.returnCard()).to.deep.equal(card)
   });
 
+  it('evaluateGuess should return boolean indicating if guess matches correct answer', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn(card.answers[0], card);
+    expect(turn.evaluateGuess()).to.be.a('boolean')
+  });
+
 });
