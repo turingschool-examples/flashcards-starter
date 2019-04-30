@@ -31,16 +31,16 @@ describe('Turn', function() {
 		const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 		const turn = new Turn('object', card);
 
-		expect(turn.returnGuess(), card.correctAnswer);
-		console.log(turn.guess)
+		expect(turn.returnGuess()).to.equal('object');
 	});
 
 	it('should return the card', function() {
 		const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 		const turn = new Turn('object', card1);
 		
-		expect(turn.returnCard(), card1)
-		console.log(card1)
+		expect(turn.returnCard()).to.equal(card1);
 	});
+
+	
 
 });
