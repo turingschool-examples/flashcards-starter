@@ -9,6 +9,7 @@ class Turn {
   }
 
   returnCard() {
+    // console.log(this.card)
     return this.card;
   }
 

@@ -8,10 +8,18 @@ class Round {
   returnCurrentCard() {
     return this.deck.cards[0]
   }
-  takeTurn() {
+  takeTurn(guess, card) {
     this.turns += 1
-    const turn = new Turn()
-    return turn
+    const turn = this.instantiateTurn(guess, card)
+    turn.returnGuess()
+    turn.returnCard()
+    // turn.giveFeedback()
+    // console.log(answer)
+    // return turn
+  }
+
+  instantiateTurn(guess, card) {
+    return new Turn(guess, card)
   }
 }
 

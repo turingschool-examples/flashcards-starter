@@ -51,7 +51,7 @@ describe('Round', function() {
     const deck = new Deck([card]);
     const round = new Round(deck);
     round.takeTurn()
-    expect(round.takeTurn()).to.be.an.instanceof(Turn);
+    expect(round.instantiateTurn()).to.be.an.instanceof(Turn);
   });
 
   it('should update Turn count', () => {
@@ -65,12 +65,23 @@ describe('Round', function() {
     expect(round.turns).to.equal(4)
   });
 
-  it.skip('should make next card in deck the current card', () => {
-
+  it('should evaluate guess, incorrect guess ID is stored', () => {
+    //Turn class give true or false
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('sea otter', card1)
+    // expect(turn.giveFeedback()).to.equal('correct!')
   });
 
-  it.skip('should evaluate guess, incorrect guess ID is stored', () => {
-    //Turn class give true or false
+  it.skip('should make next card in deck the current card', () => {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
   });
 
   it.skip('should return feedback of correct or incorrect', () => {
