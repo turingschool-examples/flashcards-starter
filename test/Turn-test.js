@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Turn = require('../src/Game');
-const Card = require('../src/Card')
+const Card = require('../src/Card');
 
 describe('Turn', function() {
   it('should be a function', function() {
@@ -21,8 +21,8 @@ describe('Turn', function() {
   });
 
   it('should store a card', function() {
-    const newCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('pug', newCard);
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
     expect(turn.card).to.deep.equal({ id: 1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'});
   });
 
@@ -32,23 +32,23 @@ describe('Turn', function() {
   });
 
   it('should return a card', function() {
-    const newCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('pug', newCard);
-    expect(turn,.returnCard()).to.equal(newCard);
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
+    expect(turn,.returnCard()).to.equal(card);
   });
 
   it('should evaluate a guess', function() {
-    const newCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turnTrue = new Turn('sea otter', newCard);
-    const turnFalse = new Turn('pug', newCard);
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turnTrue = new Turn('sea otter', card);
+    const turnFalse = new Turn('pug', card);
     expect(turnTrue.evaluateGuess()).to.equal(true);
     expect(turnFalse.evaluateGuess()).to.equal(false);
   });
 
   it('should give feedback on the guess', function() {
-    const newCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turnTrue = new Turn('sea otter', newCard);
-    const turnFalse = new Turn('pug', newCard);
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turnTrue = new Turn('sea otter', card);
+    const turnFalse = new Turn('pug', card);
     expect(turnTrue.giveFeedback()).to.equal('correct!');
     expect(turnFalse.giveFeedback()).to.equal('incorrect!');
   });
