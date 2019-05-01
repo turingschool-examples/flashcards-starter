@@ -28,6 +28,10 @@ class Round {
   calculatePercentCorrect() {
     return Math.floor((this.correctGuesses.length / this.turn) * 100)
   }
+
+  endRound() {
+    console.log(`**Round Over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+  }
 }
 
 module.exports = Round;
