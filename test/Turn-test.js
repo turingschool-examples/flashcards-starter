@@ -23,7 +23,8 @@ describe('Turn', function() {
   }); 
   it('should return card object', function() {
     const card = new Card(2, 'What is Travis\' middle name?', ['Fred', 'William', 'Peter'], 'William');
-    const turn = new Turn('Lawrence', card);
+    const turn = new Turn('Peter', card);
+    //console.log(turn);
     expect(turn.returnCard()).to.equal(card);
   });
   it('should return true/false based on guess', function() {
