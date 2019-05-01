@@ -23,7 +23,7 @@ describe('Round', function() {
 		const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
 		const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 		const deck = new Deck([card1, card2, card3]);
-		const round = new Round(deck.cards, deck.cards[0]);
+		const round = new Round(deck.cards);
 
 		expect(round.currentCard).to.equal(deck.cards[0]);
 	});
@@ -43,9 +43,9 @@ describe('Round', function() {
 	it('should create a new instance of turn when a turn is taken', function() {
 		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 		const deck = new Deck([card1]);
-		const round = new Round(deck.cards, deck.cards[0]);
+		const round = new Round(deck.cards);
 
-		round.takeTurn('sea otter');
+		round.takeTurn('sea otter')
 	});
 
 })
