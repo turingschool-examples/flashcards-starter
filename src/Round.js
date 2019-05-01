@@ -4,7 +4,8 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.turn = 0;
-    this.incorrectGuesses = []
+    this.incorrectGuesses = [];
+    this.correctGuesses = [];
   }
 
   returnCurrentCard() {
@@ -15,10 +16,18 @@ class Round {
     const turn = new Turn(currentGuess, this.deck.cards[0]);
     this.turn++
     this.deck.cards.shift()
-    this.incorrectGuesses.push(currentGuess)
+    if (turn.evaluateGuess()) {
+      this.correctGuesses.push(currentGuess)
+    } else {
+      this.incorrectGuesses.push(currentGuess)
+    }
     return turn.giveFeedback()
+
   }
 
+  calculatePercentCorrect() {
+
+  }
 }
 
 module.exports = Round;
