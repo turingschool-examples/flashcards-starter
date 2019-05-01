@@ -62,6 +62,16 @@ describe('Round', function() {
     expect(round.takeTurn('yeah!')).to.equal('Incorrect!');
   });
 
+  it('should have a method that if a guess is "Incorrect!", it should be stored (via the id) in an array', function() {
+    const card1 = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, there friend!'], 'fuck yeah!');
+    const card2 = new Card(2, 'Does Jev like burgers?', ['yeah!', 'fuck yeah!', 'hell yeah there, friend!'], 'hell yeah there, friend!');
+    const cards = [card1, card2];
+    const deck = new Deck(cards);
+    const round = new Round(deck);
+    expect(round.takeTurn('yeah!')).to.equal('Incorrect!');
+    expect(round.incorrectGuesses.length).to.equal(1);
+  });
+
   it('should have a method that returns the percentage of correct answers', function() {
     const card1 = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, there friend!'], 'fuck yeah!');
     const card2 = new Card(2, 'Does Jev like burgers?', ['yeah!', 'fuck yeah!', 'hell yeah there, friend!'], 'hell yeah there, friend!');
@@ -71,5 +81,16 @@ describe('Round', function() {
     round.takeTurn('yeah!');
     round.takeTurn('hell yeah there, friend!')
     expect(round.calculatePercentCorrect()).to.equal('50%');
+  });
+
+  it('should have a method that prints "** Round over! ** You answered <>% of the questions correctly!"', function () {
+    const card1 = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, there friend!'], 'fuck yeah!');
+    const card2 = new Card(2, 'Does Jev like burgers?', ['yeah!', 'fuck yeah!', 'hell yeah there, friend!'], 'hell yeah there, friend!');
+    const cards = [card1, card2];
+    const deck = new Deck(cards);
+    const round = new Round(deck);
+    round.takeTurn('yeah!');
+    round.takeTurn('hell yeah there, friend!')
+    expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!');
   });
 });
