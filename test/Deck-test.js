@@ -23,12 +23,12 @@ describe('Deck', function () {
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
-    //function here to push cards into array variable, to be parameter below?
-    //use several tests to show dynamic counting capabilities? e.g., array of one, then two, then three
-
     const deck = new Deck([card1, card2, card3]);
-    //deck.cardCount();
-    expect(deck.count).to.equal(3);
+
+    deck.countCards();
+    expect(deck.cards.length).to.equal(3);
   });
 
-});
+  it.skip('should ')
+
+})
