@@ -53,7 +53,7 @@ describe('Round', function() {
     expect(round.takeTurn('fuck yeah!')).to.equal('Correct!');
   });
 
-  it('should have a method that returns "Incorrect!" if the guess is correct', function() {
+  it('should have a method that returns "Incorrect!" if the guess is incorrect', function() {
     const card1 = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, there friend!'], 'fuck yeah!');
     const card2 = new Card(2, 'Does Jev like burgers?', ['yeah!', 'fuck yeah!', 'hell yeah there, friend!'], 'hell yeah there, friend!');
     const cards = [card1, card2];
