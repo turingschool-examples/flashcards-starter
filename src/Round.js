@@ -1,10 +1,11 @@
 class Round {
-	constructor() {
+	constructor(cards, currentCard) {
+		this.cards = cards;
 		this.currentCard = currentCard;
 	}
 
 	returnCurrentCard() {
-		this.currentCard = deck.cards.shift();
+		this.currentCard = this.cards.shift();
 		return this.currentCard;
 	}
 }
