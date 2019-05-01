@@ -25,10 +25,10 @@ describe('Round', function() {
     expect(round.deck).to.equal(deck)
   })
 
-  it.skip('should return current card being played', () => {
-    const round = new Round;
-    expect(round.returnCurrentCard()).to.equal()
-
+  it('should return current card being played', () => {
+    const deck = new Deck(Data.prototypeData);
+    const round = new Round(deck);
+    expect(round.returnCurrentCard()).to.equal(deck.cards[0])
   })
 
 });
