@@ -14,4 +14,15 @@ describe('Game', function() {
     expect(Game).to.be.a('function');
   });
 
+  it('start should be a function', function() {
+    const game = new Game();
+    expect(game.start).to.be.a('function');
+  });
+
+  
+
+
+
+
+
 });
