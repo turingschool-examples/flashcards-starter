@@ -18,6 +18,8 @@ class Turn {
 
   giveFeedback() {
     return this.currentCard.correctAnswer === this.userGuess ? 'Correct!' : 'Incorrect!';
+  }
+
 }
 
 module.exports = Turn;
