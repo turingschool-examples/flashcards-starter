@@ -41,7 +41,13 @@ describe('Turn', function() {
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
-  it('should have a method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not', function() {
+  it('should have a method that returns ‘correct!’ based on whether the guess is correct or not', function() {
+    const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, guy!'], 'yeah!');
+    const turn = new Turn('yeah!', card);
+    expect(turn.giveFeedback()).to.equal('Correct!');
+  });
+
+  it('should have a method that returns either ‘incorrect!’ based on whether the guess is correct or not', function() {
     const card = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, guy!'], 'fuck yeah!');
     const turn = new Turn('yeah!', card);
     expect(turn.giveFeedback()).to.equal('Incorrect!');

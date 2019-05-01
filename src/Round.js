@@ -1,5 +1,30 @@
 class Round {
-  constructor() {
-    
+  constructor(deck) {
+    this.turns = 0;
+    this.deck = deck;
+    this.currentCard = this.deck[this.round];
+    this.incorrectGuesses = [];
+    this.correctGuesses = [];
+  }
+
+  returnCurrentCard() {
+    return this.currentCard;
+  }
+
+  takeTurn(userGuess) {
+    this.turns++;
+    const turn = new Turn(userGuess, this.currentCard);
+    if (turn.evaluateGuess()) {
+      this.correctGuesses.push(this.currentCard.id);
+      return turn.giveFeedback();
+    } else {
+      this.incorrectGuesses.push(this.currentCard.id);
+    }
+  }
+
+  calculatePercentCorrect() {
+    return Math.floor((this.incorrectGuesses.length / this.turns) * 100);
   }
 }
+
+module.exports = Round;
