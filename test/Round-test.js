@@ -25,13 +25,12 @@ describe('Round', function () {
   const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
   const deck = new Deck([card1, card2, card3]);
-
   const round = new Round(deck);
 
   round.deck   // => [card1, card2, card3];
     //Test that contents of round.deck match above.
 
-  round.returnCurrentCard() // => { id: 1,
+ //round.returnCurrentCard() // => { id: 1,
   //      question: 'What is Robbie\'s favorite animal',
   //      answers: ['sea otter', 'pug', 'capybara'],
   //      correctAnswer: 'sea otter' 
@@ -50,7 +49,7 @@ describe('Round', function () {
 
   round.incorrectGuesses     // => [14]
 
-  round.currentCard()    // => { id: 12,
+  //round.currentCard()    // => { id: 12,
   //      question: 'What is Travis\'s favorite stress reliever?',
   //      answers: ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
   //      correctAnswer: 'playing with bubble wrap' 

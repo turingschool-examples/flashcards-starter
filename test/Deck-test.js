@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Round = require('../src/Round');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
@@ -26,7 +27,7 @@ describe('Deck', function () {
     //use several tests to show dynamic counting capabilities? e.g., array of one, then two, then three
 
     const deck = new Deck([card1, card2, card3]);
-    deck.cardCount();
+    //deck.cardCount();
     expect(deck.count).to.equal(3);
   });
 

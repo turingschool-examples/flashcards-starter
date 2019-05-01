@@ -9,19 +9,15 @@ class Turn {
   }
 
   returnCard() {
-    console.log("card, as object: ", this.card);
     return this.card;
-    //return this.card with id, question, guess, all answers
   }
 
   evaluateGuess() {
-    console.log('evaluate for match:', (this.guess === card.correctAnswer ? true : false))
-    return this.guess === this.card.correctAnswer ? true : false;
-    //ternary returns Boolean if this.guess === this.card
+    return (this.guess === this.card.correctAnswer) ? true : false;
   }
+
   giveFeedback() {
-    return this.guess === this.card.correctAnswer ? 'correct!' : 'incorrect!';
-    //conditional/ternary returns either ‘incorrect!’ or ‘correct!’
+    return (this.guess === this.card.correctAnswer) ? 'correct!' : 'incorrect!';
   }
 
 }
