@@ -54,8 +54,15 @@ describe('Round', function() {
     expect(round.takeTurn()).to.be.an.instanceof(Turn);
   });
 
-  it.skip('should update Turn count', () => {
-
+  it('should update Turn count', () => {
+    const round = new Round()
+    expect(round.turns).to.equal(0)
+    round.takeTurn()
+    expect(round.turns).to.equal(1)
+    round.takeTurn()
+    round.takeTurn()
+    round.takeTurn()
+    expect(round.turns).to.equal(4)
   });
 
   it.skip('should make next card in deck the current card', () => {

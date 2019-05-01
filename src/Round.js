@@ -9,6 +9,7 @@ class Round {
     return this.deck.cards[0]
   }
   takeTurn() {
+    this.turns += 1
     const turn = new Turn()
     return turn
   }
