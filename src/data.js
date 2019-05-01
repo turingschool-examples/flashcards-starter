@@ -150,6 +150,30 @@ const prototypeData = [{
   "correctAnswer": "prototype method"
 }]
 
+const roundTwoQuestions = [
+  {
+    "id": 1,
+    "question": "first question",
+    "answers": ["answer 1", "answer 2", "answer 3"],
+    "correctAnswer": "answer 1"
+  },   {
+    "id": 2,
+    "question": "second question",
+    "answers": ["answer 1", "answer 2", "answer 3"],
+    "correctAnswer": "answer 2"
+  },   {
+    "id": 3,
+    "question": "third question",
+    "answers": ["answer 1", "answer 2", "answer 3"],
+    "correctAnswer": "answer 3"
+  },   {
+    "id": 4,
+    "question": "fourth question",
+    "answers": ["answer 1", "answer 2", "answer 3"],
+    "correctAnswer": "answer 1"
+  }
+]
 module.exports = {
-  prototypeData 
+  prototypeData,
+  roundTwoQuestions 
 }

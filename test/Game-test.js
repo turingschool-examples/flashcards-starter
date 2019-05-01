@@ -12,10 +12,4 @@ describe('Game', function() {
     const game = new Game()
     expect(game.start).to.be.a('function')
   })
-
-  it('should add all the cards to the deck', function() {
-    const game = new Game();
-    game.start();
-    expect(deck.cards.length).to.equal(30)
-  })
 })
