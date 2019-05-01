@@ -1,9 +1,9 @@
 class Deck {
-  constructor(card) {
-    this.card = card || []
+  constructor(cards) {
+    this.cards = cards || []
   }
   countCards() {
-    return this.card.length
+    return this.cards.length
   }
 }
 
