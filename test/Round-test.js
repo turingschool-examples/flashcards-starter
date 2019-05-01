@@ -52,7 +52,6 @@ describe('Round', function() {
     const turn = new Turn("object", card1)
     const deck = new Deck([card1, card2, card3])
     const round = new Round(deck)
-    console.log(round.incorrectGuesses)
     round.takeTurn('object')
     expect(round.incorrectGuesses).to.eql([1]);
   });
