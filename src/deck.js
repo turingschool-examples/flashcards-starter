@@ -10,3 +10,5 @@ class Deck {
     //return the this.count number
   }
 }
+
+module.exports = Deck;
