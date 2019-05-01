@@ -68,6 +68,9 @@ describe('Round', function() {
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = new Deck([card1,card2,card3]);
     const round = new Round(deck);
-    
+    round.takeTurn('sea otter')
+    expect(round.calculatePercentCorrect()).to.equal(100)
+    round.takeTurn('my guess')
+    expect(round.calculatePercentCorrect()).to.equal(50)
   })
 });
