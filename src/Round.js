@@ -17,6 +17,11 @@ class Round {
     turn.evaluateGuess() ? null : this.incorrectGuesses.push(turn.card.id)
     return turn.giveFeedback()
   }
+
+  calculatePercentCorrect() {
+    return (Math.floor(100 - (this.incorrectGuesses.length/this.turns * 100)))
+  }
+
 }
 
 module.exports = Round
