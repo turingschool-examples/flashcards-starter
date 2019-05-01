@@ -4,6 +4,7 @@ const expect = chai.expect;
 const Round = require('../src/Round');
 const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
+const Card = require('../src/Card');
 
 describe('Round', function() {
 
@@ -17,11 +18,21 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   }); 
 
-  it('should have a method that test the number of cards in the Deck', function() {
-    const card1 = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, guy!'], 'fuck yeah!');
-    const card2 = new Card(2, 'Does Jev like burgers?', ['yeah!', 'fuck yeah!', 'hell yeah, guy!'], 'hell yeah, guy!');
+  it('should return the current card from the deck', function() {
+    const card1 = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, there friend!'], 'fuck yeah!');
+    const card2 = new Card(2, 'Does Jev like burgers?', ['yeah!', 'fuck yeah!', 'hell yeah, there friend!'], 'hell yeah, there friend!');
     const cards = [card1, card2];
-    const round = new Round(cards);
-    expect(round.countCards()).to.equal(2);
-  });   
+    const deck = new Deck(cards);
+    const round = new Round(deck);
+    expect(round.returnCurrentCard()).to.equal(card1);
+    round.takeTurn();
+    expect(round.returnCurrentCard()).to.equal(card2);
+  });
+
+  it('should increment this.turns by one', function() {
+    const round = new Round();
+    expect(round.turns).to.equal(0);
+    round.turnCounter();
+    expect(round.turns).to.equal(1);
+  }); 
 });

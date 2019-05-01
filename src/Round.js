@@ -1,25 +1,27 @@
 class Round {
   constructor(deck) {
     this.turns = 0;
-    this.deck = deck;
-    this.currentCard = this.deck[this.round];
+    this.deck = deck || {};
     this.incorrectGuesses = [];
-    this.correctGuesses = [];
   }
 
   returnCurrentCard() {
-    return this.currentCard;
+    return this.deck.cardDeck[this.turns];
   }
 
   takeTurn(userGuess) {
-    turnCounter();
-    const turn = new Turn(userGuess, this.currentCard);
+    this.turnCounter();
+    let turn = this.createNewTurn(userGuess);
     if (turn.evaluateGuess()) {
       this.correctGuesses.push(this.currentCard.id);
       return turn.giveFeedback();
     } else {
       this.incorrectGuesses.push(this.currentCard.id);
     }
+  }
+
+  createNewTurn(userGuess) {
+    return new Turn(userGuess, this.returnCurrentCard());
   }
 
   turnCounter() {
