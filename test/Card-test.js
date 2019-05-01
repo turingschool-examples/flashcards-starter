@@ -30,3 +30,4 @@ describe('Card', function() {
     expect(card.correctAnswer).to.equal('object');
   });
 });
+
