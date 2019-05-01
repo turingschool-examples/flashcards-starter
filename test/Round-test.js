@@ -5,6 +5,7 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Data = require('../src/Data');
 const Round = require('../src/Round');
+const Turn = require('../src/Turn');
 
 
 describe('Round', function() {
@@ -32,23 +33,25 @@ describe('Round', function() {
   });
 
   it('turns should start at 0', () => {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const deck = new Deck([card1]);
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const deck = new Deck([card]);
     const round = new Round(deck);
     expect(round.turns).to.deep.equal(0)
   })
 
   it('incorrectGuesses should be an empty array', () => {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const deck = new Deck([card1]);
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const deck = new Deck([card]);
     const round = new Round(deck);
     expect(round.incorrectGuesses).to.deep.equal([])
   })
 
-  it.skip('should make a new Turn instance', () => {
-    const deck = new Deck(Data.prototypeData);
+  it('takeTurn should make a new Turn instance', () => {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const deck = new Deck([card]);
     const round = new Round(deck);
-
+    round.takeTurn()
+    expect(round.takeTurn()).to.be.an.instanceof(Turn);
   });
 
   it.skip('should update Turn count', () => {
