@@ -40,6 +40,12 @@ describe('Round', function() {
 		expect(round.returnCurrentCard()).to.equal(deck.cards[0])
 	});
 
-	it('should ')
+	it('should create a new instance of turn when a turn is taken', function() {
+		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+		const deck = new Deck([card1]);
+		const round = new Round(deck.cards, deck.cards[0]);
+
+		round.takeTurn('sea otter');
+	});
 
 })
