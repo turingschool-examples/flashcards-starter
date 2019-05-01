@@ -13,20 +13,11 @@ class Turn {
   }
 
   evaluateGuess() {
-    if (this.currentCard.correctAnswer === this.userGuess) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.currentCard.correctAnswer === this.userGuess ? true : false;
   }
 
   giveFeedback() {
-    if (this.currentCard.correctAnswer === this.userGuess) {
-      return 'Correct!';
-    } else {
-      return 'Incorrect!';
-    }
-  }
+    return this.currentCard.correctAnswer === this.userGuess ? 'Correct!' : 'Incorrect!';
 }
 
 module.exports = Turn;
