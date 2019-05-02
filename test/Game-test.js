@@ -27,11 +27,4 @@ describe('Game', function() {
     game.start();
     expect(game.currentRound).to.eql(round);
   });
-
-  it('should have a start method that starts everything', function() {
-    const deck = new Deck(prototypeQuestions);
-    const round = new Round(deck);
-    const game = new Game();
-    expect(game.start)
-  });
 });
