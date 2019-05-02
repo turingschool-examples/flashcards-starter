@@ -1,5 +1,15 @@
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
+const util = require('./util');
+const Card = require('./Card');
+
 class Deck {
-  constructor() {
+  constructor(cards) {
+    this.cards = cards;
+  }
+
+  countCards(cards) {
+    return this.cards.length;
   }
 
 }
