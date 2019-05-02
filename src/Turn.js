@@ -15,6 +15,7 @@ class Turn {
   evaluateGuess() {
     return this.userGuess === this.currentCard.correctAnswer ? true : false;
   }
+  
   giveFeedback() {
     return this.userGuess === this.currentCard.correctAnswer ? 'correct!' : 'incorrect!';
   }
