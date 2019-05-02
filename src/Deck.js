@@ -1,6 +1,6 @@
 class Deck{
-  constructor(cards) {
-    this.cards = cards || [];
+  constructor(cardInstance) {
+    this.cards = cardInstance || [];
   }
   countCards() {
     return this.cards.length;
