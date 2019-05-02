@@ -30,39 +30,33 @@ describe('Card', function() {
 
 describe('Turn', function() {
   const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+  const turn = new Turn('my guess', card);
 
   it('should be a function', function() {
-    const turn = new Turn();
     expect(Turn).to.be.a('function')
   });
 
   it('should be an instance of Turn', function() {
-    const turn = new Turn();
     expect(turn).to.be.an.instanceOf(Turn)
   });
 
   it('should store the user\'s guess', function() {
-    const turn = new Turn('my guess');
     expect(turn.userGuess).to.equal('my guess')
   });
 
   it('should store the current card object', function() {
-    const turn = new Turn('my guess', card);
     expect(turn.currentCard).to.equal(card)
   });
   
   it('should have a function called returnGuess', function() {
-    const turn = new Turn('my guess', card);
     expect(turn.returnGuess).to.be.a('function')
   });
 
   it('should be able to return the users guess', function() {
-    const turn = new Turn('my guess', card);
     expect(turn.returnGuess()).to.equal('my guess')
   });
 
   it('should be able to return the card object', function() {
-    const turn = new Turn('my guess', card);
     expect(turn.returnCard()).to.equal(card)
   });
 
