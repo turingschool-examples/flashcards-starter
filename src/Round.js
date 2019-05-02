@@ -31,8 +31,8 @@ class Round {
   }
 
   endRound() {
-    return this.turns === this.deck.cardDeck.length ? `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!` : null;
-  }  
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`);
+  }
 }
 
 module.exports = Round;

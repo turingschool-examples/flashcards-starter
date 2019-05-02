@@ -82,15 +82,4 @@ describe('Round', function() {
     round.takeTurn('hell yeah there, friend!')
     expect(round.calculatePercentCorrect()).to.equal('50%');
   });
-
-  it('should have a method that prints "** Round over! ** You answered <>% of the questions correctly!"', function () {
-    const card1 = new Card(1, 'Is Jev cool?', ['yeah!', 'fuck yeah!', 'hell yeah, there friend!'], 'fuck yeah!');
-    const card2 = new Card(2, 'Does Jev like burgers?', ['yeah!', 'fuck yeah!', 'hell yeah there, friend!'], 'hell yeah there, friend!');
-    const cards = [card1, card2];
-    const deck = new Deck(cards);
-    const round = new Round(deck);
-    round.takeTurn('yeah!');
-    round.takeTurn('hell yeah there, friend!')
-    expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!');
-  });
 });
