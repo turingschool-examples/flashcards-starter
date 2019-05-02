@@ -78,7 +78,7 @@ describe('Game', function() {
       newGame.currentRound.takeTurn("true");
     };
 
-    newGame.currentRound.endRound();
+    newGame.currentRound.endRound(); 
     expect(newGame.roundNumber).to.equal(1);
     expect(newGame.currentRound.deck.cards.length).to.equal(30);
   });
