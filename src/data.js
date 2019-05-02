@@ -31,8 +31,8 @@ const prototypeData = [{
 }, {
   "id": 7,
   "question": "Which array prototype is not an accessor method?",
-  "answers": ["splice()"],
-  "correctAnswer": ["join()", "slice()", "splice()"]
+  "answers": ["join()", "slice()", "splice()"],
+  "correctAnswer": "splice()",
 }, {
   "id": 8,
   "question": "What do iterator methods take in as their first argument?",
