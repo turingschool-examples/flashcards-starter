@@ -8,21 +8,21 @@ const Round = require('../src/Round')
 
 class Game {
   constructor() {
-  	this.currentRound = ['dick'];
+    this.currentRound = [''];
   }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 
   start() {
   	var cards = prototypeData.map((el) => {
-  		var card = new Card(el.id, el.question, el.answers, el,correctAnswer);
+  	  var card = new Card(el.id, el.question, el.answers, el.correctAnswer);
   		return card;
   	});
   	var deck = new Deck(cards);
