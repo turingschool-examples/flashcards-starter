@@ -47,7 +47,7 @@ describe('Round', function() {
     const deck = new Deck([card1,card2,card3]);
     const round = new Round(deck);
     round.takeTurn('my guess');
-    expect(round.incorrectGuesses[0]).to.equal('my guess')
+    expect(round.incorrectGuesses[0]).to.equal(1)
     round.takeTurn('my second guess')
     expect(round.incorrectGuesses.length).to.equal(2)
   });

@@ -1,4 +1,4 @@
-const prototypeData = [{
+const prototypeData = [[{
   "id": 1,
   "question": "What allows you to define a set of related information using key-value pairs?",
   "answers": ["object", "array", "function"],
@@ -31,8 +31,8 @@ const prototypeData = [{
 }, {
   "id": 7,
   "question": "Which array prototype is not an accessor method?",
-  "answers": ["splice()"],
-  "correctAnswer": ["join()", "slice()", "splice()"]
+  "answers": ["splice()", "slice()", "join()"],
+  "correctAnswer": ["splice()"]
 }, {
   "id": 8,
   "question": "What do iterator methods take in as their first argument?",
@@ -46,7 +46,7 @@ const prototypeData = [{
 }, {
   "id": 10,
   "question": "Which iteration method returns the first array element where the callback function returns true",
-  "answers": ["find", "filter()", "forEach()"],
+  "answers": ["find()", "filter()", "forEach()"],
   "correctAnswer": "find()"
 }, {
   "id": 11,
@@ -56,7 +56,7 @@ const prototypeData = [{
 }, {
   "id": 12,
   "question": "Which iteration method returns an array of the same length as the original array?",
-  "answers": ["map", "forEach()", "reduce()"],
+  "answers": ["map()", "forEach()", "reduce()"],
   "correctAnswer": "map()"
 }, {
   "id": 13,
@@ -148,32 +148,28 @@ const prototypeData = [{
   "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
   "answers": ["prototype method", "object", "callback function"],
   "correctAnswer": "prototype method"
-}]
+}],[  {
+  "id": 1,
+  "question": "first question",
+  "answers": ["answer 1", "answer 2", "answer 3"],
+  "correctAnswer": "answer 1"
+},   {
+  "id": 2,
+  "question": "second question",
+  "answers": ["answer 1", "answer 2", "answer 3"],
+  "correctAnswer": "answer 2"
+},   {
+  "id": 3,
+  "question": "third question",
+  "answers": ["answer 1", "answer 2", "answer 3"],
+  "correctAnswer": "answer 3"
+},   {
+  "id": 4,
+  "question": "fourth question",
+  "answers": ["answer 1", "answer 2", "answer 3"],
+  "correctAnswer": "answer 1"
+}]]
 
-const roundTwoQuestions = [
-  {
-    "id": 1,
-    "question": "first question",
-    "answers": ["answer 1", "answer 2", "answer 3"],
-    "correctAnswer": "answer 1"
-  },   {
-    "id": 2,
-    "question": "second question",
-    "answers": ["answer 1", "answer 2", "answer 3"],
-    "correctAnswer": "answer 2"
-  },   {
-    "id": 3,
-    "question": "third question",
-    "answers": ["answer 1", "answer 2", "answer 3"],
-    "correctAnswer": "answer 3"
-  },   {
-    "id": 4,
-    "question": "fourth question",
-    "answers": ["answer 1", "answer 2", "answer 3"],
-    "correctAnswer": "answer 1"
-  }
-]
 module.exports = {
   prototypeData,
-  roundTwoQuestions 
 }
