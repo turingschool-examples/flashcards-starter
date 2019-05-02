@@ -36,6 +36,10 @@ class Round {
   guessFalse() {
     this.incorrectGuesses.push(this.currentCard.id)
   }
+
+  calculatePercentCorrect() {
+    return Math.round((this.correctGuesses / this.deck.cards.length) * 100) + '%'
+  }
 }
 
 module.exports = Round;
