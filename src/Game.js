@@ -21,7 +21,8 @@ class Game {
   }
 
   start() {
-  	var cards = prototypeData.map((el) => {
+    console.log(prototypeQuestions);
+  	var cards = prototypeQuestions.map((el) => {
   	  var card = new Card(el.id, el.question, el.answers, el.correctAnswer);
   		return card;
   	});
