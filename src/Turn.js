@@ -10,24 +10,25 @@ class Turn {
     this.card = Card;
   }
 
-  returnGuess(guess){
-    return this.guess;
+  returnGuess(input){
+    return this.guess = input;
   }
 
-  returnCard(card){
+  returnCard(id, question, answers, correctAnswer ){
+    this.card = new Card(id, question, answers, correctAnswer);
     return this.card;
   }
 
-  evaluateGuess(guess){
+  evaluateGuess(){
     if(this.guess !== Card.correctAnswer){
-      return false;
+      return this.giveFeedback(false);
     } else {
-      return true;
+      return this.giveFeedback(true);
     }
   }
 
-  giveFeedback(guess){
-    if(this.guess === Card.correctAnswer){
+  giveFeedback(answerInput){
+    if(answerInput === Card.correctAnswer){
       return 'Correct!';
     } else {
       return 'Incorrect!';
