@@ -18,6 +18,15 @@ describe('Round', function () {
     expect(round).to.be.an.instanceof(Round);
   });
 
+  it('should record the player\'s guesses', function () {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const deck = new Deck([card]);
+    const turn = new Turn(card, 'capybara');
+    const round = new Round(deck, turn);
+
+    expect(round.playerGuess).to.equal('capybara');
+  })
+
   it('should be able to show you all the cards in the deck', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -56,7 +65,7 @@ describe('Round', function () {
     expect(round.turns).to.equal(1);
   });
 
-  it('should be able to update the current card as turns are taken', function () {
+  it('should update the current card as turns are taken', function () {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -75,7 +84,9 @@ describe('Round', function () {
     expect(round.turns).to.equal(2);
   });
 
-  it.skip('should update the turns count, evaluate the guess, give feedback, store ids of incorrect guesses, and print messages', function() {
+  //takeTurn() begins here
+
+  it.skip('should update the turns count when a turn is taken', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -83,7 +94,40 @@ describe('Round', function () {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
     const turn = new Turn('pug', card1);
-    turn.evaluateGuess();
-  })
+
+    expect(round.turns).to.equal(1);
+  });
+
+  it.skip('should evaluate the guess', function () {
+    expect((turn.guess == card.correctAnswer)).to.equal(false);
+  });
+
+  it.skip('should give feedback', function () {
+
+  });
+
+  it.skip('should store ids of incorrect guesses', function () {
+
+  });
+
+  it.skip('should make the next card become the current card', function() {
+
+  });
+
+  it.skip('should record the player\'s guess', function() {
+
+  });
+
+  //calculatePercentCorrect() begins here
+
+  it.skip('should calculate and return the percentage of correct guesses', function () {
+
+  });
+
+  //endRound() begins here, unless there's nothing to test!
+
+  it.skip('should print messages to the console', function () {
+    //delete if this is just a console.log, per Robbie
+  });
 
 });
