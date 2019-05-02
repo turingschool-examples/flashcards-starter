@@ -1,52 +1,88 @@
 const chai = require('chai');
 const expect = chai.expect;
+const inquirer = require('inquirer');
 
-const Round = require('../src/Round');
-const Deck = require('../src/Deck');
+const Game = require('../src/Game');
 const Card = require('../src/Card');
-const Turn = require('../src/Turn');
+const Deck = require('../src/Deck');
+const Round = require('../src/Round');
+const data = require('../src/data');
+const util = require('../src/util');
+const prototypeQuestions = data.prototypeData;
 
-describe('Round', function() {
+
+
+const newCards = []
+  for (let i = 0; i < 100; i++) {
+     newCards.push({"id": i, "question": "Test question", "answers": ["true", "false"], "correctAnswer": "true"});
+  };
+  prototypeQuestions.unshift(newCards);
+
+describe('Game', function() {
 
   it('should be a function', function() {
-    const round = new Round();
-    expect(Round).to.be.a('function');
+    const game = new Game();
+    expect(Game).to.be.a('function');
   });
 
-  it('should be an instance of Round', function() {
-    const round = new Round();
-    expect(round).to.be.an.instanceof(Round);
+  it('should be an instance of Game', function() {
+    const game = new Game();
+    expect(game).to.be.an.instanceof(Game);
   }); 
 
-  it('should be able to return the current card', function() {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-    
-    const deck = new Deck([card1, card2, card3]);
-    
-    const round = new Round(deck);
+  it('Should create cards and add to a deck', function() {
+    const game = new Game();
 
-    expect(round.returnCurrentCard()).to.equal(card1);
-    expect(round.turns).to.equal(0);
-  }); 
-
-  it('should be able to return the current card', function() {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-    
-    const deck = new Deck([card1, card2, card3]);
-    
-    const round = new Round(deck);
-
-    expect(round.incorrectGuesses).to.eql([]);
-    const turn1 = new Turn('capybara', card1);
-    const turn2 = new Turn('spleen', card2);
-    expect(round.takeTurn('sea otter')).to.equal('correct!'); 
-    expect(round.takeTurn('spleen')).to.equal('incorrect!');
-    expect(round.turns).to.equal(2);
-    expect(round.incorrectGuesses).to.eql([14]);
-    expect(round.returnCurrentCard()).to.eql({ id: 12, question: 'What is Travis\'s favorite stress reliever?', answers: ['listening to music', 'watching Netflix', 'playing with bubble wrap'], correctAnswer: 'playing with bubble wrap'});
+    game.start();
+    expect(game.currentRound.deck.cards.length).to.eql(100)
   });
+
+  it('Should restart round with deck of only incorrect answers if above 90% correct', function() {
+    const newGame = new Game();
+    newGame.start();
+
+    for (let i = 0; i < 91; i++) {
+      newGame.currentRound.takeTurn("true");
+    };
+
+    for (let i = 0; i < 9; i++) {
+      newGame.currentRound.takeTurn("false");
+    };
+
+    newGame.currentRound.endRound();
+    expect(newGame.roundNumber).to.equal(0);
+    expect(newGame.currentRound.deck.cards.length).to.equal(9);
+  });
+
+  it('Should restart round with full deck if below 90% correct', function() {
+    const newGame = new Game();
+    newGame.start();
+
+    for (let i = 0; i < 50; i++) {
+      newGame.currentRound.takeTurn("true");
+    };
+
+    for (let i = 0; i < 50; i++) {
+      newGame.currentRound.takeTurn("false");
+    };
+
+    expect(newGame.currentRound.incorrectGuesses.length).to.equal(50);
+    newGame.currentRound.endRound();
+    expect(newGame.roundNumber).to.equal(0);
+    expect(newGame.currentRound.deck.cards.length).to.equal(100);
+  });
+
+  it('Should move to the next deck when game ends', function() {
+    const newGame = new Game();
+    newGame.start();
+
+    for (let i = 0; i < 100; i++) {
+      newGame.currentRound.takeTurn("true");
+    };
+
+    newGame.currentRound.endRound();
+    expect(newGame.roundNumber).to.equal(1);
+    expect(newGame.currentRound.deck.cards.length).to.equal(30);
+  });
+
 });
