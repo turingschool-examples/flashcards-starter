@@ -23,9 +23,8 @@ class Round {
     return answer;
     
   }
-  returnCurrentCard(testDeck) {
-   // console.log(testDeck);
-        return testDeck.cards[this.currentCardIdx];
+  returnCurrentCard() {
+        return this.deck.cards[this.currentCardIdx];
   }
 
   calculatePercentCorrect() {
@@ -34,8 +33,8 @@ class Round {
    // result=Math.round(original*100)/100 
   }
   endRound(){
-   // console.log('*** Round Over! ***You answered <>% of the questions correctly!');
-    return '*** Round Over! ***You answered <>% of the questions correctly!';
+   console.log('** Round Over! **You answered <>% of the questions correctly!');
+   // return '*** Round Over! ***You answered <>% of the questions correctly!';
   }
 }
 

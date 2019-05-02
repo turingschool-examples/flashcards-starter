@@ -11,6 +11,7 @@ class Turn {
   returnCard(){
     return (this.userCard);
   }
+  
   evaluateGuess(newGuess){
     // console.log('Turn.guess is: ' + newGuess);
     // console.log('this.correctAnswer is: ' + this.userCard.correctAnswer);
