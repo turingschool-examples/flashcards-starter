@@ -13,7 +13,7 @@ class Round {
     return this.deck[this.turns];
   }
 
-  takeTurn(guess, card) {
+  takeTurn(guess) {
     const turn = new Turn(guess, this.returnCurrentCard());
     this.turns++; //needs to be below the instantiation, or it'll skip Card #1
 
@@ -22,12 +22,6 @@ class Round {
       //push the false ones' ids into the array
       this.incorrectGuesses.push(turn.card.id)
     }
-
-    
-    //method that updates turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses
-    //The next card becomes current card
-    //Guess is evaluated / recorded. Incorrect guesses will be stored(via the id) in an array of incorrectGuesses - turn.evaluateGuess();
-    //Feedback is returned regarding whether the guess is incorrect or correct - turn.giveFeedback();
 
     return turn.giveFeedback();
   }

@@ -25,7 +25,7 @@ describe('Round', function () {
     const round = new Round(deck, turn);
 
     expect(round.playerGuess).to.equal('capybara');
-  })
+  });
 
   it('should be able to show you all the cards in the deck', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -33,8 +33,8 @@ describe('Round', function () {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
     const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck);
-    const turn = new Turn('pug', card1);
+    const turn = new Turn(card1, 'pug');
+    const round = new Round(deck, turn);
 
     expect(round.deck).to.eql([card1, card2, card3]);
   });
@@ -45,8 +45,8 @@ describe('Round', function () {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
     const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck);
-    const turn = new Turn('pug', card1);
+    const turn = new Turn(card1, 'pug');
+    const round = new Round(deck, turn);
 
     expect(round.returnCurrentCard()).to.equal(card1);
   });
@@ -57,8 +57,8 @@ describe('Round', function () {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
     const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck);
-    const turn = new Turn('pug', card1);
+    const turn = new Turn(card1, 'pug');
+    const round = new Round(deck, turn);
 
     expect(round.turns).to.equal(0);
     round.takeTurn();
@@ -71,8 +71,8 @@ describe('Round', function () {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
     const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck);
-    const turn = new Turn('pug', card1);
+    const turn = new Turn(card1, 'pug');
+    const round = new Round(deck, turn);
 
     expect(round.returnCurrentCard()).to.equal(card1);
     expect(round.turns).to.equal(0);
@@ -86,35 +86,35 @@ describe('Round', function () {
 
   //takeTurn() begins here
 
-  it.skip('should update the turns count when a turn is taken', function() {
+  it('should update the turns count when takeTurn is invoked', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
     const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck);
-    const turn = new Turn('pug', card1);
+    const turn = new Turn(card1, 'pug');
+    const round = new Round(deck, turn);
 
     expect(round.turns).to.equal(1);
   });
 
-  it.skip('should evaluate the guess', function () {
+  it.skip('should evaluate the guess when takeTurn is invoked', function () {
     expect((turn.guess == card.correctAnswer)).to.equal(false);
   });
 
-  it.skip('should give feedback', function () {
+  it.skip('should give feedback when takeTurn is invoked', function () {
 
   });
 
-  it.skip('should store ids of incorrect guesses', function () {
+  it.skip('should store ids of incorrect guesses when TakeTurn is invoked', function () {
 
   });
 
-  it.skip('should make the next card become the current card', function() {
+  it.skip('should make the next card become the current card, when takeTurn is invoked', function() {
 
   });
 
-  it.skip('should record the player\'s guess', function() {
+  it.skip('should record the player\'s guess when takeTurn is invoked', function() {
 
   });
 
