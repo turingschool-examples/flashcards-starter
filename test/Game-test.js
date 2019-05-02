@@ -11,14 +11,12 @@ const util = require('../src/util');
 const prototypeQuestions = data.prototypeData;
 
 
-
-const newCards = []
+describe('Game', function() {
+  const newCards = []
   for (let i = 0; i < 100; i++) {
      newCards.push({"id": i, "question": "Test question", "answers": ["true", "false"], "correctAnswer": "true"});
   };
   prototypeQuestions.unshift(newCards);
-
-describe('Game', function() {
 
   it('should be a function', function() {
     const game = new Game();
@@ -80,9 +78,8 @@ describe('Game', function() {
       newGame.currentRound.takeTurn("true");
     };
 
-    newGame.currentRound.endRound();
+    newGame.currentRound.endRound(); 
     expect(newGame.roundNumber).to.equal(1);
     expect(newGame.currentRound.deck.cards.length).to.equal(30);
   });
-
 });
