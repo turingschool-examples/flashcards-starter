@@ -17,14 +17,22 @@ class Round {
     return this.deck;
   }
 
-  takeTurn(guess, card) {
-    const turn = new Turn(guess, card);
+  createNewTurn(guess) {
+    const card = this.returnCurrentCard;
+    return new Turn(guess, card);
+  }
+
+  takeTurn(guess) {
     this.turns++;
     this.nextCard();
   }
 
   calculatePercentageCorrect() {
+    return((this.turns - this.incorrectGuesses.length / this.turns) * 100);
+  }
 
+  endRound() {
+    console.log(`** Round over! ** You answered ${this.calculatePercentageCorrect()}% of the questions correctly!`) 
   }
 
 }

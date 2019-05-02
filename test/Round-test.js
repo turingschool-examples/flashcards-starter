@@ -34,6 +34,7 @@ describe('Round', function () {
     const round = new Round(deck);
     round.returnCurrentCard();
     expect(round.returnCurrentCard()).to.equal(card1);
+    expect(round.turns).to.equal(0);
   });
 
   it('should increment the number of turns', function() {
