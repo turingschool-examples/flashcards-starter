@@ -5,6 +5,7 @@ class Round {
     this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
+    this.currentCard = this.deck.cards[this.turns];
   }
 
   returnCurrentCard() {
@@ -12,12 +13,17 @@ class Round {
   }
 
   takeTurn(guess) {
-    const turn = this.instantiateTurn(guess, this.deck.cards[this.turns])
+    const turn = this.instantiateTurn(guess, this.currentCard)
     if (turn.evaluateGuess() === false) {
-      this.incorrectGuesses.push(this.deck.cards[this.turns].id)
+      this.incorrectGuesses.push(this.currentCard.id)
     }
-    this.turns += 1
+    this.incrementTurn()
     return turn.giveFeedback()
+  }
+
+  incrementTurn() {
+    this.turns += 1;
+    this.currentCard = this.deck.cards[this.turns];
   }
 
   instantiateTurn(guess, card) {

@@ -11,12 +11,14 @@ const Turn = require('../src/Turn');
 describe('Round', function() {
 
   it('should be a function', function() {
-    const round = new Round();
+    const deck = new Deck(Data.prototypeData);
+    const round = new Round(deck);
     expect(Round).to.be.a('function');
   });
 
   it('should be an instance of Round', function() {
-    const round = new Round();
+    const deck = new Deck(Data.prototypeData);
+    const round = new Round(deck);
     expect(round).to.be.an.instanceof(Round);
   }); 
 
@@ -78,7 +80,9 @@ describe('Round', function() {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
+    expect(round.currentCard).to.equal(card1)
     round.takeTurn(card1.answers[0])
+    expect(round.currentCard).to.equal(card2)
   });
 
   it.skip('should return feedback of correct or incorrect', () => {
