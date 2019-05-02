@@ -1,8 +1,12 @@
 const Turn = require('../src/Turn');
+const Game = require('../src/Game');
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
 
 class Round {
-	constructor(deck) {
+	constructor(deck, game) {
 		this.deck = deck || [];
+		this.game = game;
 		this.turns = 0;
 		this.incorrectGuesses = [];
 	}
@@ -31,7 +35,17 @@ class Round {
 		return ((this.turns - this.incorrectGuesses.length) / this.turns) * 100;
 	}
 	endRound() {
-		console.log(`** Round over! ** You answered ${calculatePercentCorrect()}% of the questions correctly!`);
+		console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+		if(this.game.roundNumber < prototypeQuestions.length && this.calculatePercentCorrect() === 100) {
+			this.game.roundNumber++;
+			this.game.start();
+		} else if (this.calculatePercentCorrect() >= 90) {
+			this.game.start(prototypeQuestions[this.game.roundNumber].filter(el => this.incorrectGuesses.includes(el.id)));
+		} else if (this.calculatePercentCorrect() < 90) {
+			this.game.start(prototypeQuestions[this.game.roundNumber]);
+		} else {
+			console.log('Game over buddy');
+		}
 	}
 }
 
