@@ -1,4 +1,5 @@
 const Turn = require('../src/Turn');
+const Card = require('../src/Card');
 class Round {
   constructor(deck) {
     this.deck = deck;
@@ -11,11 +12,10 @@ class Round {
   takeTurn(guess, card) {
     this.turns += 1
     const turn = this.instantiateTurn(guess, card)
-    turn.returnGuess()
-    turn.returnCard()
-    // turn.giveFeedback()
-    // console.log(answer)
-    // return turn
+    turn.evaluateGuess()
+    if (turn.evaluateGuess() === false) {
+      this.incorrectGuesses.push(card.id)
+    }
   }
 
   instantiateTurn(guess, card) {
