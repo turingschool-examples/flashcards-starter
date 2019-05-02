@@ -5,7 +5,7 @@ class Round {
     this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
-    this.currentCard = this.deck.cards[this.turns];
+    this.currentCard = this.deck.cards[this.turns]; //Why doesn't this update with this.turns
   }
 
   returnCurrentCard() {
@@ -18,6 +18,7 @@ class Round {
       this.incorrectGuesses.push(this.currentCard.id)
     }
     this.incrementTurn()
+    console.log(turn.giveFeedback())
     return turn.giveFeedback()
   }
 
