@@ -7,21 +7,21 @@ const Round = require('../src/Round');
 
 class Game {
   constructor() {
-    this.currentRound = this.start();
+    this.currentRound = {};
   }
 
   start() {
     const cards = this.createNewCard();
     const deck = this.createNewDeck(cards);
     const round = this.createNewRound(deck);
+    this.currentRound = round;
     this.printMessage(deck);
     this.printQuestion(round);
   }
 
   createNewCard() {
     return prototypeQuestions.map(el => {
-      const card = new Card(el.id, el.question, el.answers, el.correctAnswer);
-      return card;
+      return new Card(el.id, el.question, el.answers, el.correctAnswer);
     });
   }
 

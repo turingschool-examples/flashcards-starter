@@ -14,16 +14,12 @@ class Round {
   takeTurn(userGuess) {
     const turn = this.createNewTurn(userGuess);
     this.turnCounter();
-    if (turn.evaluateGuess()) {
-      return turn.giveFeedback();
-    } else {
-      this.incorrectGuesses.push(this.deck.cardDeck[this.turns].id);
-      return turn.giveFeedback();
-    }
+    !turn.evaluateGuess() ? this.incorrectGuesses.push(this.deck.cardDeck[this.turns].id) : null;
+    return turn.giveFeedback();
   }
 
   createNewTurn(userGuess) {
-    return new Turn(userGuess, this.returnCurrentCard());
+    return new Turn(userGuess, this.returnCurrentCard()); 
   }
 
   turnCounter() {
@@ -35,7 +31,7 @@ class Round {
   }
 
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`
+    return this.turns === this.deck.cardDeck.length ? `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!` : null;
   }  
 }
 
