@@ -13,11 +13,15 @@ class Round {
     //console.log(turn);
     this.currentCardIdx++;
     //console.log(newCard.question);
-    return turn.giveFeedback(newGuess);
-    // console.log('turnCount is: ' + this.turnCount);
-    // return answer;
+    const answer = turn.giveFeedback(newGuess);
+    if(answer === 'Incorrect!') {
+      //console.log('Yahoo!!!');
+      this.incorrectGuesses.push(newCard.cardId);
+     // console.log('incorrectGuesses is: ' + this.incorrectGuesses);
+    }
+      // console.log('turnCount is: ' + this.turnCount);
+    return answer;
     
-
   }
   returnCurrentCard(testDeck) {
    // console.log(testDeck);
@@ -25,10 +29,13 @@ class Round {
   }
 
   calculatePercentCorrect() {
-
+   // console.log( this.incorrectGuesses.length / this.turnCount);
+    return Math.round((1 - this.incorrectGuesses.length / this.turnCount)* 10000)/10000;
+   // result=Math.round(original*100)/100 
   }
   endRound(){
-
+   // console.log('*** Round Over! ***You answered <>% of the questions correctly!');
+    return '*** Round Over! ***You answered <>% of the questions correctly!';
   }
 }
 
