@@ -6,11 +6,11 @@ class Round {
     this.turns = 0;
     this.correctGuesses = 0
     this.incorrectGuesses = [];
-    this.currentCard = this.deck.cards[this.turns]; //Why doesn't this update with this.turns
+    this.currentCard = this.deck.cards[this.turns]; 
   }
 
   returnCurrentCard() {
-    return this.deck.cards[0]
+    return this.deck.cards[this.turns]
   }
 
   takeTurn(guess) {
@@ -40,9 +40,10 @@ class Round {
   calculatePercentCorrect() {
     return Math.round((this.correctGuesses / this.deck.cards.length) * 100)
   }
-
+  
   endRound() {
-    return `** Round over! ** You answered <${this.calculatePercentCorrect()}>% of the questions correctly!`
+    console.log(`** Round over! ** You answered <${this.calculatePercentCorrect()}>% of the questions correctly!`)
+    // return `** Round over! ** You answered <${this.calculatePercentCorrect()}>% of the questions correctly!`
   }
 }
 

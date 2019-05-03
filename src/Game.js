@@ -10,12 +10,9 @@ class Game {
   constructor() {
     this.currentRound = {}
   }
-
+  
   start() {
-    let cards = prototypeQuestions.map(x => {
-      let card = new Card(x.id, x.question, x.answers, x.correctAnswer)
-      return card
-    })
+    let cards = prototypeQuestions
     let deck = new Deck(cards)
     let round = new Round(deck)
     this.printMessage(deck, round)
