@@ -13,19 +13,13 @@ class Turn {
 	}
 
 	evaluateGuess() {
-		if (this.userGuess === this.currentCard.correctAnswer) {
-			return true;
-		}
+		return this.currentCard.correctAnswer === this.userGuess;
 	}
 
 	giveFeedback() {
-		if (this.userGuess === this.currentCard.correctAnswer) {
-			this.message = 'correct!'
-		} else {
-			this.message = 'incorrect!'
-		}
-		return this.message;
+		return this.evaluateGuess() ? 'correct!' : 'incorrect!';
 	}
+
 }
 
 module.exports = Turn;
