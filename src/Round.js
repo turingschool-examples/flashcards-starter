@@ -14,12 +14,14 @@ class Round {
   takeTurn(userGuess) {
     const turn = this.createNewTurn(userGuess);
     this.turnCounter();
-    !turn.evaluateGuess() ? this.incorrectGuesses.push(this.deck.cardDeck[this.turns].id) : null;
+    if (!turn.evaluateGuess()) {
+      this.incorrectGuesses.push(this.deck.cardDeck[this.turns].id);
+    }
     return turn.giveFeedback();
   }
 
   createNewTurn(userGuess) {
-    return new Turn(userGuess, this.returnCurrentCard()); 
+    return new Turn(userGuess, this.returnCurrentCard());
   }
 
   turnCounter() {
@@ -27,7 +29,7 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    return `${(this.incorrectGuesses.length * 100) / this.turns}%`;
+    return `${Math.round((this.incorrectGuesses.length * 100) / this.turns)}%`;
   }
 
   endRound() {
