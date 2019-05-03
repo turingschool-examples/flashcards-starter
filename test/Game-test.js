@@ -7,8 +7,11 @@ const data = require('../src/data');
 const prototypeQuestions = data.prototypeData;
 
 describe('Game', function() {
-  const game = new Game()
-  game.start()    
+  let game;
+  beforeEach(function() {
+    game = new Game()
+    game.start()
+  })   
 
   it('should have a start function', function() {
     expect(game.start).to.be.a('function')
@@ -42,12 +45,10 @@ describe('Game', function() {
   });
 
   it('should return the current deck if below 90%', function() {
-    const game1 = new Game()
-    game1.start()
-    expect(game1.currentRound.deck.cards.length).to.equal(30)
-    game1.currentRound.takeTurn('object')
-    game1.currentRound.takeTurn('my guess')
-    expect(game1.currentRound.calculatePercentCorrect()).to.equal(50)
-    game1.currentRound.endRound()
+    expect(game.currentRound.deck.cards.length).to.equal(30)
+    game.currentRound.takeTurn('object')
+    game.currentRound.takeTurn('my guess')
+    expect(game.currentRound.calculatePercentCorrect()).to.equal(50)
+    game.currentRound.endRound()
   })
 })

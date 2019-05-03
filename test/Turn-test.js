@@ -5,8 +5,12 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe('Turn', function() {
-  const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-  const turn = new Turn('my guess', card);
+  let card, turn;
+  beforeEach(function() {
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    turn = new Turn('my guess', card);
+  
+  })
 
   it('should be a function', function() {
     expect(Turn).to.be.a('function')
