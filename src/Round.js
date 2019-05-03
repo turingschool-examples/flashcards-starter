@@ -5,12 +5,20 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.turn = 0;
+    this.incorrectCardIds = [];
     this.percentage = 0;
   }
 
   returnCurrentCard(deck){
-    return this.deck.cards[0];
-    //if this.deck.length === 3
+    if(this.deck.length === 3) {
+      return this.deck.cards[0];
+    } else if (this.deck.length === 2){
+      return this.deck.cards[1];
+    } else if (this.deck.length === 1){
+      return this.deck.cards[2];
+    } else {
+      let round = new Round(deck);
+    }
   }
 
   takeTurn(){
@@ -18,17 +26,15 @@ class Round {
     increaseTurnCount();
     turn.evaluateGuess(guess, card); 
     turn.giveFeedback();
-
-
-// The next card becomes current card
-// Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
+    returnCurrentCard();
   }
+
   increaseTurnCount(){
     this.turn++;
   }
+
   calculatePercentCorrect(){
-    // method that calculates and returns the percentage of correct guesses
-     this.percentage = incorrectCardIds.length/3;
+     this.percentage = this.incorrectCardIds.length/3;
   }
 
   endRound(){
