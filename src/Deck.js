@@ -1,4 +1,4 @@
-class Deck{
+class Deck {
   constructor(cardInstance) {
     this.cards = cardInstance || [];
   }

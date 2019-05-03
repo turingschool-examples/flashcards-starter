@@ -33,7 +33,7 @@ describe('Turn', function() {
   expect(turn.evaluateGuess()).to.equal(false);
   });  
 
-  it('should determine if user guess is correct', function() {
+  it('should return feedback if user guess is or isn\'t correct', function() {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
   expect(turn.giveFeedback()).to.equal("Incorrect!");
