@@ -14,6 +14,16 @@ describe('Game', function() {
     expect(Game).to.be.a('function');
   });
 
+  it('should be an instance of Deck', function() {
+    const game = new Deck();
+    expect(game).to.be.an.instanceOf(Deck);
+  });
+  
+  it('should be an instance of Round', function() {
+    const game = new Round();
+    expect(game).to.be.an.instanceOf(Round);
+  });
+
   it('should be an instance of Game', function() {
     const game = new Game();
     expect(game).to.be.an.instanceOf(Game);
