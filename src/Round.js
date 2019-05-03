@@ -20,8 +20,8 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    console.log('in round: ', this.turns);
-    console.log('in round: ', this.incorrectGuesses.length);
+    console.log('in round, this.turns: ', this.turns);
+    console.log('in round, this.incorrectGuesses.length: ', this.incorrectGuesses.length);
     return (this.incorrectGuesses.length / this.turns * 100)
   }
 
