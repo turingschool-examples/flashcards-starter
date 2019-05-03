@@ -27,6 +27,7 @@ class Turn {
     if(this.isCorrect === true) {
       return "Correct!"
     }else{
+      game.incorrectCardIds.push(this.card.id);
       return "Incorrect!"
     }
   }

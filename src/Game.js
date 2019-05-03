@@ -4,7 +4,7 @@ const util = require('./util');
 
 class Game {
   constructor() {
-
+    this.incorrectCardIds = [];
   }
 
   printMessage(deck, round) {
