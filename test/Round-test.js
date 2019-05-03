@@ -64,10 +64,25 @@ describe('Round', function() {
 		const deck = new Deck([card1, card2, card3]);
 		const round = new Round(deck);
 
-		round.takeTurn('pug');
-		expect(round.takeTurn()).to.equal('incorrect!');
+    console.log('0', round.returnCurrentCard());  
+		round.takeTurn('sea otter');
+		console.log('1', round.returnCurrentCard());
+		expect(round.takeTurn()).to.equal('correct!');
+
+		console.log('2', round.returnCurrentCard());
+
+
 		// round.takeTurn('gallbladder');
+
+		// console.log('3', round.returnCurrentCard());
+
 		// expect(round.takeTurn()).to.equal('correct!');
 
+		// console.log('4', round.returnCurrentCard());
 	}) 
+
+	it('should calculate the percentage of correct guesses', function() {
+
+	})
+
 })
