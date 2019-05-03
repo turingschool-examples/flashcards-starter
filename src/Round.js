@@ -23,10 +23,9 @@ class Round {
 		return feedback;
 	}
 
-	// returnFeedBack(feedback) {
-	// 	return turn.giveFeedback() ? this.turns++ :
-	// }
-
+	calculatePercentCorrect() {
+		
+	}
 
 }
 
