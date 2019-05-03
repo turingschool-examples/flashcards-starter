@@ -1,6 +1,5 @@
 const chai = require('chai');
 const expect = chai.expect;
-//const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
@@ -10,7 +9,6 @@ const Deck = require('../src/Deck');
 describe('Round', function() {
 
   it('should be a function', function() {
-    //const round = new Round();
     expect(Round).to.be.a('function');
   });
 
@@ -119,7 +117,7 @@ describe('Round', function() {
     round.takeTurn("spleen")
     round.takeTurn("playing with bubble wrap")
     ///this test is here just to run the method endRound()
-    expect(round.endRound()).to.equal();
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 67% of the questions correctly!`);
     
   });
 

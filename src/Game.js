@@ -29,9 +29,9 @@ class Game {
     return new Deck(this.currentRound)
   }
 
-  // createRound() {
-  //   return new Round(this.createDeck())
-  // }
+  createRound() {
+    return new Round(this.createDeck())
+  }
  
 
   printMessage(deck) {

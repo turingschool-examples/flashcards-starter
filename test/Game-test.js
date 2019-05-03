@@ -5,10 +5,11 @@ const expect = chai.expect;
 const data = require('../src/data');
 const prototypeQuestions = data.prototypeData;
 
-const Round = require('../src/Round');
 const Game = require('../src/Game');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
+const Round = require('../src/Round');
+const Turn = require("../src/Turn");
 
 
 describe('Game', function() {
@@ -32,5 +33,17 @@ describe('Game', function() {
     const deck = new Deck(prototypeQuestions);
     expect(deck.cards).to.eql(prototypeQuestions);
   });
+
+  it("should return new round", function() {
+    const deck = new Deck(prototypeQuestions);
+    const round = new Round(deck);
+    expect(round.returnCurrentCard()).to.eql({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    });
+  });
+
 
 });
