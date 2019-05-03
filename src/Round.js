@@ -1,12 +1,10 @@
 const Turn = require('../src/Turn');
 
 class Round {
-  constructor(deck, turn) {
-    //create the inherent OBJECT here
+  constructor(deck) {
     this.deck = deck === undefined ? [] : deck.cards;
     this.turns = 0;
     this.incorrectGuesses = [];
-    this.playerGuess = turn.guess;
   }
 
   returnCurrentCard() {
@@ -15,24 +13,21 @@ class Round {
 
   takeTurn(guess) {
     const turn = new Turn(guess, this.returnCurrentCard());
-    this.turns++; //needs to be below the instantiation, or it'll skip Card #1
+    this.turns++;
 
-    
-    if (turn.evaluateGuess() === false) {
-      //push the false ones' ids into the array
-      this.incorrectGuesses.push(turn.card.id)
-    }
-
+    turn.evaluateGuess() ? null : this.incorrectGuesses.push(turn.card.id);
     return turn.giveFeedback();
   }
 
   calculatePercentCorrect() {
-    //method that calculates and returns the percentage of correct guesses
+    console.log('in round: ', this.turns);
+    console.log('in round: ', this.incorrectGuesses.length);
+    return (this.incorrectGuesses.length / this.turns * 100)
   }
 
   endRound() {
-    //method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
-}
+  console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+  }
 
 };
 
