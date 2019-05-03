@@ -9,19 +9,19 @@ class Round {
   returnCurrentCard() {
     return this.deck.cards[this.turns];
   }
-  takeTurn(guess, card) {
+  takeTurn(guess) {
+    const turn = new Turn(guess, this.returnCurrentCard());
     this.turns++;
-    const turn = new Turn(guess, card);
-    turn.evaluateGuess() ? null : this.incorrectGuesses.push(card.id);
-    turn.giveFeedback();
+    turn.evaluateGuess() ? null : this.incorrectGuesses.push(turn.card.id);
+    return turn.giveFeedback();
   }
   calculatePercentCorrect() {
     return this.incorrectGuesses.length / this.turns * 100
   }
   endRound() {
-    return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
   }
 }
-
+ 
 
 module.exports = Round;

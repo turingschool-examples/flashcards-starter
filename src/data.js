@@ -22,7 +22,7 @@ const prototypeData = [{
   "id": 5,
   "question": "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
   "answers": ["mutator method", "accessor method", "iteration method"],
-  "correctAnswer": "iteration method"
+  "correctAnswer": "iteration method" 
 }, {
   "id": 6,
   "question": "What is an example of a mutator method?",
@@ -31,8 +31,8 @@ const prototypeData = [{
 }, {
   "id": 7,
   "question": "Which array prototype is not an accessor method?",
-  "answers": ["splice()"],
-  "correctAnswer": ["join()", "slice()", "splice()"]
+  "answers": ["join()", "slice()", "splice()"],
+  "correctAnswer": "splice()"
 }, {
   "id": 8,
   "question": "What do iterator methods take in as their first argument?",
@@ -46,7 +46,7 @@ const prototypeData = [{
 }, {
   "id": 10,
   "question": "Which iteration method returns the first array element where the callback function returns true",
-  "answers": ["find", "filter()", "forEach()"],
+  "answers": ["find()", "filter()", "forEach()"],
   "correctAnswer": "find()"
 }, {
   "id": 11,
@@ -56,7 +56,7 @@ const prototypeData = [{
 }, {
   "id": 12,
   "question": "Which iteration method returns an array of the same length as the original array?",
-  "answers": ["map", "forEach()", "reduce()"],
+  "answers": ["map()", "forEach()", "reduce()"],
   "correctAnswer": "map()"
 }, {
   "id": 13,
