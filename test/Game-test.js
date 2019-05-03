@@ -16,9 +16,7 @@ describe('Game', function() {
 
   it('should be an instance of Game', function() {
     const game = new Game();
-    expect(game).to.an.instanceOf(Game)
-
-    game.start()
+    expect(game).to.an.instanceOf(Game);
   });
 
 });
