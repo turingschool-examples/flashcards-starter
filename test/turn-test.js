@@ -1,6 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Round = require('../src/Round');
+const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
@@ -29,24 +31,21 @@ describe('Turn', function () {
     expect(turn.guess).to.equal('function');
   });
 
-  //it should return the whole card instance
   it('should return the current card object to the player', function () {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn(card, 'function');
-    turn.returnCard(card);
-    expect(turn.card).to.equal({ id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object' });
+    turn.returnCard();
+    expect(turn.card).to.be.an('object');
   });
 
-  //it should return a boolean if the guess matches or not
-  it.skip('should evaluate a true/false comparison of the player\'s guess and the correct answer', function () {
+  it('should evaluate a true/false comparison of the player\'s guess and the correct answer', function () {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn(card, 'function');
     turn.evaluateGuess();
-    expect((turn.guess === card.correctAnswer)).to.equal(true);
+    expect((turn.guess == card.correctAnswer)).to.equal(false);
   });
 
-  //it should give feedback
-  it.skip('should give correct! or incorrect! feedback to the player', function () {
+  it('should give correct! or incorrect! feedback to the player', function () {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn(card, 'function');
     turn.giveFeedback();
