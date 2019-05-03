@@ -18,15 +18,19 @@ describe('Game', function() {
   });
 
   it('should be an instance of Game', function() {
-    const game = new (Game);
+    const game = new Game();
     expect(game).to.be.an.instanceof(Game);
   });
 
   it('should keep track of the current round', function() {
     const game = new Game();
-    expect(game.currentRound).to.eql([]);
-    game.createCards();
+    game.createCards()
     expect(game.currentRound).to.eql(prototypeQuestions);
   })
+
+  it("should return new deck with the number of cards", function() {
+    const deck = new Deck(prototypeQuestions);
+    expect(deck.cards).to.eql(prototypeQuestions);
+  });
 
 });
