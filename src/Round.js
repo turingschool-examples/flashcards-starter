@@ -25,7 +25,14 @@ class Round {
 
 	calculatePercentCorrect() {
 		const totalIncorrect = Math.floor(this.incorrectGuesses/this.turns*100);
-		return Math.floor(100) - totalIncorrect;
+		const totalCorrect = Math.floor(100) - totalIncorrect;
+		return totalCorrect;
+	}
+
+	endRound() {
+		if(this.turns >= this.cardDeck.cards.length) {
+			return `** Round Over! ** You answered ${this.calculatePercentCorrect()} % of the questions correctly!`
+		}
 	}
 
 }

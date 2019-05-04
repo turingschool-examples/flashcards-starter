@@ -67,7 +67,7 @@ describe('Round', function() {
 		
 		expect(round.takeTurn('sea otter')).to.equal('correct!');
 		expect(round.takeTurn('gallbladder')).to.equal('correct!');
-	}) 
+	}); 
 
 	it('should calculate the percentage of correct guesses', function() {
 		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -80,6 +80,20 @@ describe('Round', function() {
 		round.takeTurn('gallbladder');
 		round.takeTurn('Fitzgerald');
 		expect(round.calculatePercentCorrect()).to.equal(67)
+	});
+
+	it('should indicate to the user that the round is over and output a message', function() {
+		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+		const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+		const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+		const deck = new Deck([card1, card2, card3]);
+		const round = new Round(deck);
+
+		round.takeTurn('pug');
+		round.takeTurn('gallbladder');
+		round.takeTurn('Fitzgerald');
+		console.log(round.returnCurrentCard())
+		expect(round.endRound()).to.equal(`** Round Over! ** You answered ${round.calculatePercentCorrect()} % of the questions correctly!`);
 	})
 
 })
