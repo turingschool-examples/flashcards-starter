@@ -114,6 +114,6 @@ describe('Round', function() {
     round.takeTurn('sea otter');
     round.takeTurn('spleen');
     round.calculatePercentCorrect();
-  expect(round.endRound()).to.eql(`** Round over! ** You answered ${50}% of the questions correctly!`);
+  expect(round.endRound()).to.eql(`** Round over! ** You answered 50% of the questions correctly!`);
   });
 })
