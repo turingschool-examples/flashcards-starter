@@ -79,7 +79,7 @@ describe('Round', function() {
 		round.takeTurn('pug');
 		round.takeTurn('gallbladder');
 		round.takeTurn('Fitzgerald');
-		expect(round.calculatePercentCorrect()).to.equal(66)
+		expect(round.calculatePercentCorrect()).to.equal(67)
 	})
 
 })
