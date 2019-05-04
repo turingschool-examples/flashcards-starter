@@ -42,8 +42,16 @@ class Round {
   }
   
   endRound() {
-    console.log(`** Round over! ** You answered <${this.calculatePercentCorrect()}>% of the questions correctly!`)
-    // return `** Round over! ** You answered <${this.calculatePercentCorrect()}>% of the questions correctly!`
+    console.log(this.incorrectGuesses)
+    if (this.incorrectGuesses.length === 0) {
+    // eslint-disable-next-line no-console
+      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    } else {
+      // eslint-disable-next-line no-console
+      console.log(`** Looks like you missed a few!`)
+      return `** Looks like you missed a few!`
+    }
   }
 }
 
