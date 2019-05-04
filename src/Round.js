@@ -24,7 +24,10 @@ class Round {
   }
 
   endRound() {
-    this.turns === this.deck.cards.length ? console.log(`** Round over! ** You answered ${this.calculatePercentCorrect().toFixed()}% of the questions correctly!`) : null;
+    // eslint-disable-next-line no-console
+    this.turns === this.deck.cards.length ? console.log(`** Round over! ** You
+    answered ${this.calculatePercentCorrect().toFixed()}% of the questions
+    correctly!`) : null;
   }
 }
 

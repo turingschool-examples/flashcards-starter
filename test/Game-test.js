@@ -1,32 +1,22 @@
-const chai = require('chai');
+const chai = require("chai");
 const expect = chai.expect;
-
-
-const data = require('../src/data');
+const data = require("../src/data");
 const prototypeQuestions = data.prototypeData;
+const Game = require("../src/Game");
+const Deck = require("../src/Deck");
+const Round = require("../src/Round");
 
-const Game = require('../src/Game');
-//const Card = require('../src/Card');
-const Deck = require('../src/Deck');
-const Round = require('../src/Round');
-
-
-describe.skip('Game', function() {
-
-  it('should be a function', function() {
-    expect(Game).to.be.a('function');
+describe("Game", function() {
+  it("should be a function", function() {
+    expect(Game).to.be.a("function");
   });
 
-  it('should be an instance of Game', function() {
-    const game = new Game();
-    expect(game).to.be.an.instanceof(Game);
-  });
 
-  it('should keep track of the current round', function() {
+  it("should keep track of the current round", function() {
     const game = new Game();
-    game.createCards()
+    game.createCards();
     expect(game.currentRound).to.eql(prototypeQuestions);
-  })
+  });
 
   it("should return new deck with the number of cards", function() {
     const deck = new Deck(prototypeQuestions);
@@ -37,10 +27,11 @@ describe.skip('Game', function() {
     const deck = new Deck(prototypeQuestions);
     const round = new Round(deck);
     expect(round.returnCurrentCard()).to.eql({
-      "id": 1,
-      "question": "What allows you to define a set of related information using key-value pairs?",
-      "answers": ["object", "array", "function"],
-      "correctAnswer": "object"
+      id: 1,
+      question:
+        "What allows you to define a set of related information using key-value pairs?",
+      answers: ["object", "array", "function"],
+      correctAnswer: "object"
     });
   });
 });

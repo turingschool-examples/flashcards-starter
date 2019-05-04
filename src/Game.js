@@ -19,11 +19,11 @@ class Game {
     this.printQuestion(this.createRound())
   }
 
-  // createCards() {
-  //   this.currentRound = prototypeQuestions.map(el => {
-  //     return new Card(el.id, el.question, el.answers, el.correctAnswer)
-  //   })
-  // }
+  createCards() {
+    this.currentRound = prototypeQuestions.map(el => {
+      return new Card(el.id, el.question, el.answers, el.correctAnswer)
+    })
+  }
 
   createDeck() {
     return new Deck(this.currentRound)
@@ -34,7 +34,9 @@ class Game {
   }
  
   printMessage(deck) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    // eslint-disable-next-line no-console
+    console.log(`Welcome to FlashCards! You are playing with
+    ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
