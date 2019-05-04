@@ -38,7 +38,7 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
 
     const round = new Round(deck);
-    expect(round.returnCurrentCard(deck)).equal(round.deck.cards[0]);
+    expect(round.returnCurrentCard(deck)).equal(round.deck.card[0]);
   });
 
   it('should allow for turns', function() {
