@@ -7,7 +7,6 @@ class Round {
     this.turns = 0;
   }
   returnCurrentCard() {
-    console.log(this.incorrectGuesses)
     return this.deck[this.turns];
   }
   takeTurn(guess) {
@@ -22,6 +21,9 @@ class Round {
   }
   calculatePercentCorrect() {
     return (this.incorrectGuesses.length / this.turns) * 100
+  }
+  endRound() {
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 
 }
