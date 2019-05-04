@@ -24,7 +24,8 @@ class Round {
 	}
 
 	calculatePercentCorrect() {
-		
+		const totalIncorrect = Math.floor(this.incorrectGuesses/this.turns*100);
+		return 100 - totalIncorrect;
 	}
 
 }
