@@ -13,10 +13,10 @@ class Round {
 
   takeTurn(userGuess) {
     const turn = this.createNewTurn(userGuess);
-    this.turnCounter();
     if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.deck.cardDeck[this.turns].id);
     }
+    this.turnCounter();
     return turn.giveFeedback();
   }
 
@@ -29,7 +29,7 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    return `${Math.round((this.incorrectGuesses.length * 100) / this.turns)}%`;
+    return `${Math.round(100 - (this.incorrectGuesses.length * 100) / this.turns)}%`;
   }
 
   endRound() {

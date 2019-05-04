@@ -1,4 +1,4 @@
-const prototypeData = [{
+const prototypeData = [[{
   "id": 1,
   "question": "What allows you to define a set of related information using key-value pairs?",
   "answers": ["object", "array", "function"],
@@ -148,8 +148,35 @@ const prototypeData = [{
   "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
   "answers": ["prototype method", "object", "callback function"],
   "correctAnswer": "prototype method"
-}]
+}],
+
+[{"id": 31,
+"question": "What allows you to define a set of related information using key-value pairs?",
+"answers": ["object", "array", "function"],
+"correctAnswer": "object"
+}, {
+"id": 32,
+"question": "What is a comma-separated list of related values?",
+"answers": ["array", "object", "function"],
+"correctAnswer": "array"
+}, {
+"id": 33,
+"question": "What type of prototype method directly modifies the existing array?",
+"answers": ["mutator method", "accessor method", "iteration method"],
+"correctAnswer": "mutator method"
+}, {
+"id": 34,
+"question": "What type of prototype method does not modify the existing array but returns a particular representation of the array?",
+"answers": ["mutator method", "accessor method", "iteration method"],
+"correctAnswer": "accessor method"
+}, {
+"id": 35,
+"question": "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
+"answers": ["mutator method", "accessor method", "iteration method"],
+"correctAnswer": "iteration method"
+}]]
+
 
 module.exports = {
-  prototypeData 
+  prototypeData
 }
