@@ -2,19 +2,21 @@ const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Card = require('./Card');
+const Round = require('./Round');
 
 class Turn {
-  constructor(guess, card) {
+  constructor(guess, card, round) {
     this.guess = guess;
     this.card = card;
     this.isCorrect = false;
+    this.round = round;
   }
 
-  returnGuess(guess) {
+  returnGuess() {
     return this.guess;
   }
 
-  returnCard(card) {
+  returnCard() {
     return this.card;
 
   }
@@ -25,9 +27,10 @@ class Turn {
   }
   giveFeedback(){
     if(this.isCorrect === true) {
+      
       return "Correct!"
     }else{
-      game.incorrectCardIds.push(this.card.id);
+      this.round.incorrectCardIds.push(this.card.id);
       return "Incorrect!"
     }
   }

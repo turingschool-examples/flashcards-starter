@@ -3,6 +3,8 @@ const expect = chai.expect;
 
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
+const Round = require('../src/Round');
+const Deck = require('../src/Deck');
 
 describe('Turn', function() {
 
@@ -54,8 +56,14 @@ describe('Turn', function() {
   }); 
   
   it('should give feedback on the guess', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
-    const turn = new Turn('pug', card);
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    const turn = new Turn('pug', card1, round);
+
     expect(turn.giveFeedback()).equal("Incorrect!");
   }); 
 });
