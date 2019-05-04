@@ -7,6 +7,7 @@ class Round {
     this.correctGuesses = 0
     this.incorrectGuesses = [];
     this.currentCard = this.deck.cards[this.turns]; 
+    this.reviewCards = [];
   }
 
   returnCurrentCard() {
@@ -42,17 +43,31 @@ class Round {
   }
   
   endRound() {
-    console.log(this.incorrectGuesses)
+    // console.log(this.incorrectGuesses)
     if (this.incorrectGuesses.length === 0) {
     // eslint-disable-next-line no-console
       console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
       return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
     } else {
+      this.reviewIncorrect()
       // eslint-disable-next-line no-console
       console.log(`** Looks like you missed a few!`)
       return `** Looks like you missed a few!`
     }
   }
+
+  reviewIncorrect() {
+    this.deck.cards.filter(card => {
+      this.incorrectGuesses.filter(x => {
+        if (card.id === x) {
+          this.reviewCards.push(card)
+        } 
+      })
+    })
+  }
+
+
+
 }
 
 module.exports = Round;
