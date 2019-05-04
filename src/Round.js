@@ -12,13 +12,21 @@ class Round {
   takeTurn(guess) {
     const turn = new Turn(guess, this.deck[this.turns]);
     this.turns++;
-    if (turn.evaluateGuess() === null) {
-      this.incorrectGuesses.push()
+    if (!turn.evaluateGuess()) {
+      this.incorrectGuesses.push(turn.card.id)
       return turn.giveFeedback()
     } else {
       return turn.giveFeedback();
     }
   }
+  calculatePercentCorrect() {
+    return (this.incorrectGuesses.length / this.turns) * 100
+  }
+  endRound() {
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+  }
+
 }
 
 module.exports = Round;
+
