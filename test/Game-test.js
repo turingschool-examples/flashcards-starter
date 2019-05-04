@@ -20,3 +20,14 @@ describe('Game', function () {
   });
 
 });
+
+
+
+
+
+
+//refactor all tests
+//let card, turn (or ehatever on each page);
+//beforeEach(function() {
+  //all of the repetiive instantiations
+//})
