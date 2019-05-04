@@ -1,8 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Round = require('../src/Round');
-const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
@@ -42,7 +40,7 @@ describe('Turn', function () {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn(card, 'function');
     turn.evaluateGuess();
-    expect((turn.guess == card.correctAnswer)).to.equal(false);
+    expect((turn.guess === card.correctAnswer)).to.equal(false);
   });
 
   it('should give correct! or incorrect! feedback to the player', function () {

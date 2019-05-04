@@ -12,16 +12,16 @@ class Round {
   }
 
   takeTurn(guess) {
-    const turn = new Turn(guess, this.returnCurrentCard());
+    const turn = new Turn(this.returnCurrentCard(), guess);
     this.turns++;
 
-    turn.evaluateGuess() ? null : this.incorrectGuesses.push(turn.card.id);
+    if (!turn.evaluateGuess()) {
+      this.incorrectGuesses.push(turn.card.id)
+    }
     return turn.giveFeedback();
   }
 
   calculatePercentCorrect() {
-    console.log('in round, this.turns: ', this.turns);
-    console.log('in round, this.incorrectGuesses.length: ', this.incorrectGuesses.length);
     return (this.incorrectGuesses.length / this.turns * 100)
   }
 
@@ -29,6 +29,6 @@ class Round {
   console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
   }
 
-};
+}
 
 module.exports = Round;

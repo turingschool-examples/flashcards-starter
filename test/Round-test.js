@@ -100,7 +100,7 @@ describe('Round', function () {
     const round = new Round(deck, turn);
 
     round.takeTurn(card1, 'pug');
-    expect((turn.guess == card1.correctAnswer)).to.equal(true);
+    expect((turn.guess === card1.correctAnswer)).to.equal(true);
   });
 
   it('should store ids of incorrect guesses when TakeTurn is invoked', function () {
@@ -109,23 +109,11 @@ describe('Round', function () {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
     const deck = new Deck([card1, card2, card3]);
-    const turn = new Turn(card1, 'pug');
+    const turn = new Turn();
     const round = new Round(deck, turn);
 
     round.takeTurn(card1, 'pug');
     expect(round.incorrectGuesses.length).to.equal(1);
-  });
-
-  it('should make the next card become the current card, when takeTurn is invoked', function() {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-
-    const deck = new Deck([card1, card2, card3]);
-    const turn = new Turn(card1, 'pug');
-    const round = new Round(deck, turn);
-
-    expect()
   });
 
   //calculatePercentCorrect() begins here
@@ -136,12 +124,12 @@ describe('Round', function () {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
     const deck = new Deck([card1, card2, card3]);
-    const turn = new Turn(card1, 'pug');
+    const turn = new Turn();
     const round = new Round(deck, turn);
-    round.takeTurn(card1, 'pug');
-    round.takeTurn(card1, 'sea otter');
-    round.endRound();
-    expect(round.incorrectGuesses.length / round.turns * 100).to.equal(50);
+    round.takeTurn('pug');
+    round.takeTurn('gallbladder');
+    //round.endRound();
+    expect(round.calculatePercentCorrect()).to.equal(50);
   });
 
 });
