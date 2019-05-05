@@ -10,7 +10,6 @@ const Card = require('../src/Card');
 describe('Round', function () {
 
   it('should be a function', function () {
-    const round = new Round();
     expect(Round).to.be.a('function');
   });
 
@@ -76,8 +75,6 @@ describe('Round', function () {
     expect(round.turns).to.equal(2);
   });
 
-  //takeTurn() begins here
-
   it('should update the turns count when takeTurn is invoked', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -117,8 +114,6 @@ describe('Round', function () {
     expect(round.incorrectGuesses.length).to.equal(1);
   });
 
-  //calculatePercentCorrect() begins here
-
   it('should calculate and return the percentage of correct guesses', function () {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -129,7 +124,7 @@ describe('Round', function () {
     const round = new Round(deck, turn);
     round.takeTurn('pug');
     round.takeTurn('gallbladder');
-    //round.endRound();
+    round.endRound();
     expect(round.calculatePercentCorrect()).to.equal(50);
   });
 
