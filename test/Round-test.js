@@ -24,10 +24,28 @@ describe('Round', function() {
     const round = new Round();
     const deck = [card1, card2, card3]
     expect(round.returnCurrentCard).to.be.a('function');
-    round.returnCurrentCard(deck);
-    expect(round.returnCurrentCard).to.equal
+    // round.returnCurrentCard(deck);
+    // expect(round.returnCurrentCard).to.equal()
   })
 
+  it('should track each turn', function() {
+    const round = new Round();
+    expect(round.takeTurn).to.be.a('function');
+  })
 
+  it('should make a new turn for each new card', function() {
+    const round = new Round();
+    expect(round.createTurn).to.be.a('function');
+  })
+
+  it('should calculate the percentage of correct answers', function() {
+    const round = new Round();
+    expect(round.calculatePercentCorrect).to.be.a('function');
+  })
+
+  it('should end a round when finished', function() {
+    const round = new Round();
+    expect(round.endRound).to.be.a('function');
+  })
 
   });

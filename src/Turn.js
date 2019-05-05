@@ -21,10 +21,12 @@ class Turn {
   evaluateGuess() {
     if (this.guess === this.card.correctAnswer) {
       this.isCorrect = true;
+    } else {
+      this.isCorrect = false;
+    }
       // giveFeedback();
-    } 
   }
-  
+
   giveFeedback() {
     if (this.isCorrect === true) {
       return "Correct!";
