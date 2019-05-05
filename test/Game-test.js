@@ -19,4 +19,6 @@ describe('Game', function() {
     expect(game).to.an.instanceOf(Game);
   });
 
+  it('should')
+
 });
