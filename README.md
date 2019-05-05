@@ -77,3 +77,11 @@ Run the command in your terminal `npm run lint` to run the linter on your JavaSc
 Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
 
 ---
+
+
+README requirements:
+Abstract at the top (A sentence or two describing the project)
+A GIF of the working application
+Install/Setup instructions
+
+![flashcards gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
