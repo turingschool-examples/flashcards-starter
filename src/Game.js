@@ -8,28 +8,28 @@ const Round = require('../src/Round');
 
 class Game {
   constructor() {
-  this.currentRound = {};
+    this.currentRound = {};
   }
 
-  start(){
-    const cards = prototypeQuestions.map(function(el){
-    const card = new Card(el.id, el.question, el.answers, el.correctAnswer)
-    return card;
+  start() {
+    const cards = prototypeQuestions.map(function(el) {
+      const card = new Card(el.id, el.question, el.answers, el.correctAnswer)
+      return card;
     })
     const deck = new Deck(cards)
     const round = new Round(deck) 
     this.currentRound = round;
-    this.printMessage(deck,round);
+    this.printMessage(deck, round);
     this.printQuestion(round);
   }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 
