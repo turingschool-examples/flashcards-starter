@@ -8,16 +8,16 @@ const Deck = require('./Deck');
 class Game {
   constructor() {
     this.currentRound = [];
-    //this.start = this.startGame();    
+    this.start = this.startGame();    
   }
 
-  // startGame() {
-  //   this.createCards();
-  //   this.createDeck();
-  //   this.createRound();
-  //   this.printMessage(this.createDeck())
-  //   this.printQuestion(this.createRound())
-  // }
+  startGame() {
+    this.createCards();
+    this.createDeck();
+    this.createRound();
+    this.printMessage(this.createDeck())
+    this.printQuestion(this.createRound())
+  }
 
   createCards() {
     this.currentRound = prototypeQuestions.map(el => {
@@ -33,17 +33,16 @@ class Game {
     return new Round(this.createDeck())
   }
  
-
   printMessage(deck) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    // eslint-disable-next-line no-console
+    console.log(`Welcome to FlashCards! You are playing with
+    ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
     util.main(round);
   }
-
-
 }
 
 module.exports = Game;
