@@ -32,12 +32,16 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    return `${Math.round(100 - (this.incorrectGuesses.length * 100) / this.turns)}%`;
+    return Math.round(100 - (this.incorrectGuesses.length * 100) / this.turns);
   }
 
   endRound() {
-    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`);
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
     this.game.roundCounter++;
+    if (this.calculatePercentCorrect() < 90) {
+      this.game.roundCounter--;
+      console.log(`Not bad, but until you answer 90% or better, you'll have to replay this round; you can do it!!!`)
+    }
     if (this.game.roundCounter < prototypeQuestions.length) {
       this.game.start();
     } else {

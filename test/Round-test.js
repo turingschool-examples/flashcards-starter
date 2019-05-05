@@ -80,6 +80,6 @@ describe('Round', function() {
     const round = new Round(deck);
     round.takeTurn('yeah!');
     round.takeTurn('hell yeah there, friend!')
-    expect(round.calculatePercentCorrect()).to.equal('50%');
+    expect(round.calculatePercentCorrect()).to.equal(50);
   });
 });
