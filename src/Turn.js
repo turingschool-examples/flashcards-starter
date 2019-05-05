@@ -1,3 +1,5 @@
+// const Game = require('../src/Game');
+
 class Turn {
   constructor(userGuess, card) {
     this.userGuess = userGuess;

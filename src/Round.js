@@ -1,7 +1,10 @@
+const data = require('./data');
 const Turn = require('../src/Turn');
+const prototypeQuestions = data.prototypeData;
 
 class Round {
-  constructor(deck) {
+  constructor(deck, game) {
+    this.game = game;
     this.turns = 0;
     this.deck = deck || [];
     this.incorrectGuesses = [];
@@ -34,7 +37,14 @@ class Round {
 
   endRound() {
     console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`);
+    this.game.gameCounter++;
+    if (this.game.gameCounter < prototypeQuestions.length) {
+      this.game.start();
+    } else {
+      console.log(`You finished ${this.game.gameCounter} rounds, now go home!!!`);
+    }
   }
+
 }
 
 module.exports = Round;

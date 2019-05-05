@@ -6,30 +6,14 @@ const Round = require('../src/Round');
 
 class Game {
   constructor() {
-    this.currentRound = prototypeQuestions;
-    this.start();
+    this.roundCounter = 0;
   }
 
   start() {
-    const deck = this.createNewDeck(this.currentRound[0]);
-    const round = this.createNewRound(deck);
-    this.currentRound = round;
+    const deck = new Deck(prototypeQuestions[this.roundCounter]);
+    const round = new Round(deck, this);
     this.printMessage(deck);
     this.printQuestion(round);
-  }
-
-  // createNewCards() {
-  //   this.currentRound = prototypeQuestions.map(el => {
-  //     return new Card(el.id, el.question, el.answers, el.correctAnswer);
-  //   });
-  // }
-
-  createNewDeck(cards) {
-    return new Deck(cards);
-  }
-
-  createNewRound(deck) {
-    return new Round(deck);
   }
 
   printMessage(deck) {
