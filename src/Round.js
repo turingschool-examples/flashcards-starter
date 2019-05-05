@@ -20,7 +20,7 @@ class Round {
   }
   endRound() {
     let winLoss = this.calculatePercentCorrect();
-    return `** Round over! ** You answered ${winLoss}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${winLoss}% of the questions correctly!`);
   }
 }
 
