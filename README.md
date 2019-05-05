@@ -84,4 +84,4 @@ Abstract at the top (A sentence or two describing the project)
 A GIF of the working application
 Install/Setup instructions
 
-![flashcards gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
+![flashcards gif](https://github.com/kawilliams8/flashcards/blob/master/Flashcards%202.gif)
