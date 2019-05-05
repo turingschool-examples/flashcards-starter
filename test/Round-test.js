@@ -4,7 +4,7 @@ const expect = chai.expect;
 const Card = 	require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
-const Turn = require('../src/Round');
+const Turn = require('../src/Turn');
 
 
 describe('Round', function() {
@@ -92,7 +92,6 @@ describe('Round', function() {
 		round.takeTurn('pug');
 		round.takeTurn('gallbladder');
 		round.takeTurn('Fitzgerald');
-		console.log(round.returnCurrentCard())
 		expect(round.endRound()).to.equal(`** Round Over! ** You answered ${round.calculatePercentCorrect()} % of the questions correctly!`);
 	})
 
