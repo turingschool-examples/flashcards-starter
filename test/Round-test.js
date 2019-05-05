@@ -11,7 +11,7 @@ describe('Round', function() {
     expect(Round).to.be.a('function');
   });
 
-  it('should be an instinct of round', function() {
+  it('should be an instance of round', function() {
     const round = new Round;
     expect(round).to.be.an.instanceof(Round);
   });
