@@ -1,7 +1,6 @@
 const data = require('./data');
 const Turn = require('../src/Turn');
 const prototypeQuestions = data.prototypeData;
-// const Game = require('../src/Game');
 
 class Round {
   constructor(deck, game) {
@@ -42,7 +41,7 @@ class Round {
     if (this.game.gameCounter < prototypeQuestions.length) {
       this.game.start();
     } else {
-      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly! You finished ${this.game.gameCounter} rounds!!!`);
+      console.log(`You finished ${this.game.gameCounter} rounds, now go home!!!`);
     }
   }
 
