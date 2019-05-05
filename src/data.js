@@ -168,7 +168,7 @@ const javascriptTrivia = [{
   "id": 3,
   "question": "Where should most JavaScript links go in the HTML file.?",
   "answers": ["top of the <body>", "<main>", "bottom of the <body>"],
-    "correctAnswer": "bottom of the <body>"
+  "correctAnswer": "bottom of the <body>"
 }, {
   "id": 4,
   "question": "What attribute creates the link between the <script> tag and the actual JavaScript file?",
@@ -192,13 +192,13 @@ const javascriptTrivia = [{
 }, {
   "id": 8,
   "question": "True or False: A function expression begins with the keyword 'expression'.",
-    "answers": ["true", "false"],
-    "correctAnswer": "false"
+  "answers": ["true", "false"],
+  "correctAnswer": "false"
 }, {
   "id": 9,
   "question": "True or False: (i == 5) is equivalent to (i === 5)",
-    "answers": ["true", "false"],
-    "correctAnswer": "false"
+  "answers": ["true", "false"],
+  "correctAnswer": "false"
 }, {
   "id": 10,
   "question": "Which characters are used to make a multiline comments in a JavaScript file?",
@@ -247,13 +247,63 @@ const javascriptTrivia = [{
 }, {
   "id": 19,
   "question": "Which of the following are falsy?",
-    "answers": ["boolean", "(new Date())", "undefined"],
+  "answers": ["boolean", "(new Date())", "undefined"],
   "correctAnswer": "boolean"
 }, {
   "id": 20,
-    "question": "Which paradigm uses objects to model real world things that we want to represent inside our programs?",
+  "question": "Which paradigm uses objects to model real world things that we want to represent inside our programs?",
   "answers": ["object oriented programming", "function oriented programming"],
   "correctAnswer": "false"
+}, {
+  "id": 21,
+    "question": "What term is used for allowing new objects to take on the data and behavior of their parent classes?",
+  "answers": ["requirement", "map()", "inheritance"],
+  "correctAnswer": "inheritance"
+}, {
+  "id": 22,
+  "question": "Which is preferred practice in object oriented programming, coupled or decoupled functions?",
+  "answers": ["coupled", "decoupled", "parent/child"],
+  "correctAnswer": "decoupled"
+}, {
+  "id": 23,
+  "question": "True or False: An array is a data structure that allows us to group related information and behaviors into key-value pairs.",
+  "answers": ["true", "object", "false"],
+  "correctAnswer": "false"
+}, {
+  "id": 24,
+  "question": "True or False: A class is the template for each instance, and each instance is an object based off of the class template",
+  "answers": ["true", "false"],
+  "correctAnswer": "true"
+}, {
+  "id": 25,
+  "question": "When objects of one class inherit or extends many traits from another class, the inheriting classes are called...",
+  "answers": ["sub sandwiches", "child classes", "parent classes"],
+  "correctAnswer": "child classes"
+}, {
+  "id": 26,
+  "question": "Which keyword is used to access and invoke methods on a parent class?",
+  "answers": ["super", "duper", "this.method"],
+  "correctAnswer": "super"
+}, {
+  "id": 27,
+  "question": "What is it called when values are scoped to a specific instance of an object?",
+  "answers": ["encapsulation", "decoupling", "separation"],
+  "correctAnswer": "encapsulation"
+}, {
+  "id": 28,
+  "question": "Which general problem-solving framework involves working backwards from a desired result?",
+  "answers": ["trial and error", "heuristic", "reverse engineer"],
+  "correctAnswer": "heuristic"
+}, {
+  "id": 29,
+  "question": "When called on to whiteboard a problem, what should be in your non-dominant hand?",
+  "answers": ["a second marker", "a turkey club", "an eraser"],
+  "correctAnswer": "eraser"
+}, {
+  "id": 30,
+  "question": "What term is used for the tendency to focus on one particular piece of information when making decisions or problem-solving?",
+  "answers": ["anchoring bias", "availability bias", "mental set"],
+  "correctAnswer": "anchoring bias"
 }]
 
 module.exports = {
