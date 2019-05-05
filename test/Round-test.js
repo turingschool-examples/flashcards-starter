@@ -82,7 +82,7 @@ describe('Round', function() {
     const round = new Round(deck);
     round.takeTurn('sea otter');
     round.takeTurn('spleen');
-    expect(round.calculatePercentCorrect).to.equal(50);
+    expect(round.calculatePercentCorrect()).to.equal(50);
   });
 
   it('should print a message to the console when the round ends', function() {
@@ -94,8 +94,7 @@ describe('Round', function() {
     const round = new Round(deck);
     round.takeTurn('sea otter');
     round.takeTurn('spleen');
-    expect(round.calculatePercentCorrect).to.equal(50);
-    let winLoss = round.calculatePercentCorrect();
-    expect(round.endRound()).to.equal(`** Round over! ** You answered ${winLoss}% of the questions correctly!`);
+    expect(round.calculatePercentCorrect()).to.equal(50);
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`);
   });
 });
