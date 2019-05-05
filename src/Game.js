@@ -6,14 +6,17 @@ const Round = require('../src/Round');
 
 class Game {
   constructor() {
-    this.currentRound = prototypeQuestions;
-    this.start();
+    this.gameCounter = 0;
+    // this.currentRound;
+    // this.start();
   }
 
   start() {
-    const deck = this.createNewDeck(this.currentRound[0]);
-    const round = this.createNewRound(deck);
-    this.currentRound = round;
+    const deck = new Deck(prototypeQuestions[this.gameCounter]);
+    // console.log(deck);
+    console.log(this.gameCounter);
+    const round = new Round(deck, this);
+    // console.log(round);
     this.printMessage(deck);
     this.printQuestion(round);
   }
@@ -23,14 +26,6 @@ class Game {
   //     return new Card(el.id, el.question, el.answers, el.correctAnswer);
   //   });
   // }
-
-  createNewDeck(cards) {
-    return new Deck(cards);
-  }
-
-  createNewRound(deck) {
-    return new Round(deck);
-  }
 
   printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
