@@ -36,17 +36,15 @@ describe.only('Game', function() {
 	});
 
 	it('should keep track of the current round', function() {
-		 const cards = prototypeQuestions.map(function(currentCard){
+		const cards = prototypeQuestions.map(function(currentCard){
       let card = new Card(currentCard.id, currentCard.question, currentCard.answers, currentCard.correctAnswer)
       return card;
     });
     const deck = new Deck(cards);
     const round = new Round(deck);
     const game = new Game();
-    console.log(game)
     expect(game.currentRound).to.eql({});
     game.start();
-    console.log(game)
     expect(game.currentRound).to.eql(round);
 	});
 
