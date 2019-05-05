@@ -1,34 +1,34 @@
 class Turn {
-constructor(guess, currentCard) {
-this.guess = guess;
-this.currentCard = currentCard;
-}
+  constructor(guess, currentCard) {
+    this.guess = guess;
+    this.currentCard = currentCard;
+    }
 
-returnGuess() {
- return this.guess;
-}
-
-returnCard() {
-return this.currentCard;
-}
-
-evaluateGuess(){
-  if(this.guess === this.currentCard.correctAnswer) {
-    return true;
-  } else {
-    return false;
+  returnGuess() {
+    return this.guess;
   }
-}
 
-giveFeedback() {
-  if(this.guess === this.currentCard.correctAnswer) {
-    return 'correct!';
-  } else {
-    return 'incorrect!';
+  returnCard() {
+    return this.currentCard;
   }
-}
 
-};
+  evaluateGuess() {
+    if (this.guess === this.currentCard.correctAnswer) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  giveFeedback() {
+    if (this.guess === this.currentCard.correctAnswer) {
+      return 'correct!';
+    } else {
+      return 'incorrect!';
+    }
+  }
+
+}
 
 
 

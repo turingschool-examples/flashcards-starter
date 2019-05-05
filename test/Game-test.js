@@ -15,11 +15,11 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game);
   }); 
 
-  it('should keep track of the current round', function(){
-    const cards = prototypeQuestions.map(function(el){
+  it('should start the game and keep track of the current round', function() {
+    const cards = prototypeQuestions.map(function(el) {
       const card = new Card(el.id, el.question, el.answers, el.correctAnswer)
       return card;
-      })
+    })
     const deck = new Deck(cards)
     const round = new Round(deck) 
     const game = new Game();
@@ -27,5 +27,7 @@ describe('Game', function() {
     game.start();
     expect(game.currentRound).to.eql(round);
   });
+
+
 
 });
