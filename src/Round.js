@@ -33,6 +33,7 @@ class Round {
 
   endRound() {
     console.log(`**Round Over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    this.game.stopTimer()
     if (this.game.roundNumber < prototypeQuestions.length && this.calculatePercentCorrect() === 100) {
       this.game.addRound()
       this.game.start()
