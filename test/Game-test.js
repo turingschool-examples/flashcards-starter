@@ -19,7 +19,9 @@ describe('Game', function() {
 
   it('should keep track of the current round', function() {
     const game = new Game();
-    expect(game.currentRound.turns).to.equal(0);
-    expect(game.currentRound.incorrectGuesses).to.equal([]);
+    game.start();
+    let thisRound = game.currentRound;
+    expect(thisRound.turns).to.equal(0);
+    expect(thisRound.incorrectGuesses).to.eql([]);
   });
 });
