@@ -37,11 +37,11 @@ class Round {
 
   endRound() {
     console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`);
-    this.game.gameCounter++;
-    if (this.game.gameCounter < prototypeQuestions.length) {
+    this.game.roundCounter++;
+    if (this.game.roundCounter < prototypeQuestions.length) {
       this.game.start();
     } else {
-      console.log(`You finished ${this.game.gameCounter} rounds, now go home!!!`);
+      console.log(`You finished ${this.game.roundCounter} rounds, and that's all the questions I've prepped, now get off the computer!!!`);
     }
   }
 

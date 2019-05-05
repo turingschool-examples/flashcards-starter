@@ -149,35 +149,37 @@ const prototypeData = [[{
   "answers": ["prototype method", "object", "callback function"],
   "correctAnswer": "prototype method"
 }],
+
 [{"id": 31,
-"question": "What allows you to define a set of related information using key-value pairs?",
-"answers": ["object", "array", "function"],
-"correctAnswer": "object"
+"question": "What of the 'Big Three' web developement tools is considered the 'bones' of the webpage?",
+"answers": ["CSS", "HTML", "JavaScript"],
+"correctAnswer": "JavaScript"
 }, {
 "id": 32,
-"question": "What is a comma-separated list of related values?",
-"answers": ["array", "object", "function"],
-"correctAnswer": "array"
+"question": "What of the 'Big Three' web developement tools styles the webpage?",
+"answers": ["CSS", "HTML", "JavaScript"],
+"correctAnswer": "CSS"
 }, {
 "id": 33,
-"question": "What type of prototype method directly modifies the existing array?",
-"answers": ["mutator method", "accessor method", "iteration method"],
-"correctAnswer": "mutator method"
+"question": "What of the 'Big Three' web developement tools is behind the 'interactivity' of the webpage?",
+"answers": ["CSS", "HTML", "JavaScript"],
+"correctAnswer": "JavaScript"
 }, {
 "id": 34,
-"question": "What type of prototype method does not modify the existing array but returns a particular representation of the array?",
-"answers": ["mutator method", "accessor method", "iteration method"],
-"correctAnswer": "accessor method"
+"question": "What is the one complex data type in JavaScript?",
+"answers": ["Array", "Object", "Object-like Array"],
+"correctAnswer": "Object"
 }, {
 "id": 35,
-"question": "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
-"answers": ["mutator method", "accessor method", "iteration method"],
-"correctAnswer": "iteration method"
+"question": "How many atttributes can a standard HTMP <p/> element hold?",
+"answers": ["1", "Up to 10", "As many as desired"],
+"correctAnswer": "As many as desired"
 }],
-[{"id": 31,
-"question": "What allows you to define a set of related information using key-value pairs?",
-"answers": ["object", "array", "function"],
-"correctAnswer": "object"
+
+[{"id": 36,
+"question": "What makes up a Javascript property?",
+"answers": ["A hug and a highfive", "A key-value pair", "A unicorn and a werewolf"],
+"correctAnswer": "A key-value pair"
 }]]
 
 
