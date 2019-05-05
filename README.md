@@ -7,15 +7,17 @@ Flashcards is the first project in Mod 2 of the Front End Engineering program at
 Katherine A. Williams ([kawilliams8](https://github.com/kawilliams8))
 
 ## Learning Goals
-The Flashcards project is designed to reinforce the principles of Test Driven Developement, as introduced in the Mythical Creatures project of Mod 1 at Turing. Some files, including the initial dataset, were provided in a repo created by our Turing instructors. Most tests and classes, however, were created by the students. Flashcards also requires proficient use of Git and GitHub to track feature changes.
+Flashcards is a multiple choice quiz game that runs on the command line interface. The player is presented a question with three possible answers. After they choose, they are informed if they guessed correctly. The questions in the game's dataset all pertain to prototype methods and general vocabulary.
+
+The Flashcards project is designed to reinforce the principles of Test Driven Developement, as introduced in the Mythical Creatures project of Mod 1 at Turing. This project also builds on our knowledge of Object Oriented Programming, and is our first project that links several files with separate classes. Students were provided a 'starter kit' to work from, and tasked with writing most of the tests and classes/methods. This project also requires proficient use of Git and GitHub to track feature changes.
 
 ## Results
 
 ![flashcards gif](https://github.com/kawilliams8/flashcards/blob/master/Flashcards%202.gif)
 
 ## Installation Instructions
-1. Clone down the repository
-2. From the Terminal command line, type `node index.js`. (You should see a message that the server is running on port 3000.)
+1. Clone down the Flashcards repository.
+2. From the command line interface, type `node index.js`. (You should see a message that the server is running on port 3000.)
 3. Use arrow or number keys to choose an answer to the quiz question.
 4. Press `enter` to submit your answer.
 5. Press `enter` to continue to the next question.
