@@ -4,12 +4,11 @@ const util = require('./util');
 const Card = require('./Card');
 
 class Deck {
-  constructor(Card, cardArray){
-    this.card = Card;
+  constructor(cardArray){
     this.cardArray = cardArray || [];
   }
-  countCards(card1,card2){
-    this.cardArray.push(card1,card2)
+  countCards(){
+    return this.cardArray.length
   }
 }
 

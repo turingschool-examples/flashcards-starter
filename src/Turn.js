@@ -5,9 +5,8 @@ const Card = require('./Card');
 
 
 class Turn {
-  constructor(guess, Card) {
+  constructor(guess) {
     this.guess = guess;
-    this.card = Card;
   }
 
   returnGuess(input){

@@ -1,4 +1,4 @@
-const chai = require('chai');
+ const chai = require('chai');
 const expect = chai.expect;
 
 const Turn = require('../src/Turn');
@@ -17,40 +17,30 @@ describe('Turn', function(){
   });
   
   it('should take in a guess', function() {
-    const turn = new Turn('array')
+    const turn = new Turn('array', Card)
     expect(turn.guess).to.equal('array')
-  })
-
-  it('should store a card', function() {
-    const turn = new Turn('array', Card);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    expect(card).to.equal(card)
   })
 
   it('should return the users guess', function() {
     const turn = new Turn('array', Card);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    turn.returnGuess('array');
-    expect('array').to.equal('array')
+    turn.returnGuess('array')
+    expect(turn.guess).to.equal('array')
   })
 
   it('should return the card for that turn', function() {
     const turn = new Turn('array', Card);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    turn.returnCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn.returnCard();
     expect(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object').to.equal(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
   })
 
   it('should check the users answer', function() {
     const turn = new Turn('array', Card);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     turn.evaluateGuess();
     expect(false).to.equal(false)
   })
 
   it('should let the user know if their answer is correct', function() {
     const turn = new Turn('array', Card);
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     turn.giveFeedback('array');
     expect('Incorrect!').to.equal('Incorrect!')
   })
