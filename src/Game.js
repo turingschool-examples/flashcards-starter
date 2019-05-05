@@ -5,7 +5,7 @@ const turn = require('./Turn');
 
 class Game {
   constructor() {
-
+    
   }
 
   printMessage(deck, round) {
