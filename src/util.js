@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const index = require('../index');
 
 const genList = (round) => {
   let card = round.returnCurrentCard();
@@ -37,6 +38,10 @@ async function main(round) {
 
     if(!round.returnCurrentCard()) {
       round.endRound();
+      if (round.calculatePercentCorrect() < 90){
+        console.log("I NEED A BIG HAT!!!!")
+        index.restartGame();
+      }
     } else {
       main(round);
     }
