@@ -2,8 +2,6 @@ const Turn = require('./Turn');
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 
-// const Game = require('./Game');
-
 class Round {
   constructor(deck, game) {
     this.game = game;
@@ -20,7 +18,9 @@ class Round {
     const card = this.returnCurrentCard();
     const turn = new Turn(guess, card);
     this.turns++;
-    !turn.evaluateGuess() ? this.incorrectGuesses.push(card.id) : null;
+    if (!turn.evaluateGuess()) {
+      this.incorrectGuesses.push(card.id)
+    }
     return turn.giveFeedback();
   }
 
