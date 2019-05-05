@@ -21,5 +21,5 @@ node index.js
 ```
 Example of game running:
 
-![Anneke's Flashcards Game](src/flashcards_GIF.gif)
+![Anneke's Flashcards Game](https://github.com/annekemcgrady/flashcards-starter/blob/master/Flashcards%20GIF.gif)
 
