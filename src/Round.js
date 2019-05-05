@@ -1,7 +1,12 @@
 const Turn = require('./Turn');
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
+
+// const Game = require('./Game');
 
 class Round {
-  constructor(deck) {
+  constructor(deck, game) {
+    this.game = game;
     this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
@@ -24,10 +29,17 @@ class Round {
   }
 
   endRound() {
-    // eslint-disable-next-line no-console
-    this.turns === this.deck.cards.length ? console.log(`** Round over! ** You
+    this.game.roundCounter++;
+    if (this.game.roundCounter < prototypeQuestions.length) {
+      console.log(`** Round ${this.game.roundCounter} is over! ** You
     answered ${this.calculatePercentCorrect().toFixed()}% of the questions
-    correctly!`) : null;
+    correctly! and now round ${this.game.roundCounter + 1} starts`);
+      this.game.start();
+    } else {
+      console.log(`** You finished the last round ** for this round You
+      answered ${this.calculatePercentCorrect().toFixed()}% of the questions
+      correctly!`)
+    }
   }
 }
 
