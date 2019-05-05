@@ -2,10 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Game = require('../src/Game');
-const Round = require('../src/Round');
-const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
-const Card = require('../src/Card');
+
 
 describe('Game', function () {
 
@@ -19,15 +16,12 @@ describe('Game', function () {
     expect(game).to.be.an.instanceof(Game);
   });
 
+  it('should invoke game.start and begin the game', function () {
+    const game = new Game();
+    game.start();
+    expect(game.currentRound).to.equal()
+    //test for a matching question, correct answer, etc
+    //test for this array length vs the known length
+  });
+
 });
-
-
-
-
-
-
-//refactor all tests
-//let card, turn (or ehatever on each page);
-//beforeEach(function() {
-  //all of the repetiive instantiations
-//})
