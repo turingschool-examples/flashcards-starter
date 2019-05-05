@@ -4,7 +4,7 @@ Flashcards is the first project of FE Mod 2 for the 1903 cohort.  This project u
 
 Flashcards is a multiple choice quiz game designed to test the player's knowledge of Javascript concepts and vocabulary.  The game runs in the terminal and is played by selecting the number of the correct answer form the given list and hitting return. The result of each anwer is given - correct or incorrect.  After all the questions have been answered the player will be given their percentage of correct answers.
 
-* Playing the Game*
+**Playing the Game**
 
 Clone this repo. 
 
@@ -13,13 +13,13 @@ Running `node index.js` from the root of the repo directory should result in the
 ```bash
 Node server running on port 3000
 ```
-* To start the game in the terminal:*
+**To start the game in the terminal:**
 In the terminal, run:
 
 ```bash
 node index.js
 ```
-Example of game running:
+**Example of game running:**
 
 ![Anneke's Flashcards Game](https://github.com/annekemcgrady/flashcards-starter/blob/master/Flashcards%20GIF.gif)
 
