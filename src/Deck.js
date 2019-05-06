@@ -3,9 +3,8 @@ class Deck {
 		this.cards = cards;
 	}
 
-	countCards(cardAmount) {
-		this.cards = cardAmount;
-		return this.cards;
+	countCards() {
+		return this.cards.length;
 	}
 
 }
