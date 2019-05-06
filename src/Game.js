@@ -34,4 +34,4 @@ class Game {
 module.exports = Game;
 
 // UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'answers' of undefined
-//     at genList 
+//     at genList @ util 6
