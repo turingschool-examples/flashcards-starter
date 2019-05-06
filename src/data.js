@@ -154,6 +154,8 @@ module.exports = {
   prototypeData 
 }
 
+/*
+
 const javascriptTrivia = [{
   "id": 1,
   "question": "Which HTML element is used for JavaScript?",
@@ -307,5 +309,6 @@ const javascriptTrivia = [{
 }]
 
 module.exports = {
-  javascriptTrivia;
+  javascriptTrivia
 }
+*/
