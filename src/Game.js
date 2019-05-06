@@ -22,7 +22,6 @@ class Game {
 
   start(currentDeck = prototypeQuestions[this.roundNumber]) {
     this.startTimer()
-    this.counter
     var deck = new Deck(currentDeck.map(question => new Card(question.id, question.question, question.answers, question.correctAnswer)))
     var round = new Round(deck, this)
     this.currentRound = round;
@@ -32,7 +31,7 @@ class Game {
 
   addRound() {
     this.roundNumber ++
-  }
+  } 
 
   startTimer() {
     this.counter = setInterval(() => this.addSecond(), 1000)
