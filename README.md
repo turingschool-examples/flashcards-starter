@@ -11,7 +11,7 @@ This is the first solo project of module two at the Turing School of Software an
 -Implement a robust testing suite using TDD
 
 
-![flash cards example gif](http://www.giphy.com/gifs/ft5qmqoRYDX3cmk2Cu)
+![flash cards example gif](https://media.giphy.com/media/ft5qmqoRYDX3cmk2Cu/source.gif)
 
 ## Set-up
 
