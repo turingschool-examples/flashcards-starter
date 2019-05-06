@@ -1,4 +1,4 @@
-const prototypeData = [{
+const prototypeData = [[{
   "id": 1,
   "question": "What allows you to define a set of related information using key-value pairs?",
   "answers": ["object", "array", "function"],
@@ -148,7 +148,32 @@ const prototypeData = [{
   "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
   "answers": ["prototype method", "object", "callback function"],
   "correctAnswer": "prototype method"
-}]
+}], [{
+  "id": 1,
+  "question": "Bacon?",
+  "answers": ["nah", "no thank you", "yes"],
+  "correctAnswer": "yes"
+}, {
+  "id": 2,
+  "question": "Your brain hurts.",
+  "answers": ["true", "false"],
+  "correctAnswer": "true"
+}, {
+  "id": 3,
+  "question": "Pepsi or Coke?",
+  "answers": ["Pepsi", "Coke", "Depends on the alcohol"],
+  "correctAnswer": "Coke"
+}, {
+  "id": 4,
+  "question": "Wanna go home?",
+  "answers": ["I mean...I guess...", "omg yaaass", "Turing is home"],
+  "correctAnswer": "Turing is home"
+}, {
+  "id": 5,
+  "question": "What array prototype method best describes you?",
+  "answers": ["pop()", "push()", "overwhelm()"],
+  "correctAnswer": "overwhelm()"
+}]]
 
 module.exports = {
   prototypeData 
