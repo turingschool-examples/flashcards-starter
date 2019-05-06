@@ -24,19 +24,16 @@ describe('Turn', function() {
   it('should return card object', function() {
     const card = new Card(2, 'What is Travis\' middle name?', ['Fred', 'William', 'Peter'], 'William');
     const turn = new Turn('Peter', card);
-    //console.log(turn);
     expect(turn.returnCard()).to.equal(card);
   });
   it('should return true/false based on guess', function() {
     const card = new Card(2, 'What is Travis\' middle name?', ['Fred', 'William', 'Peter'], 'Peter');
     const turn = new Turn('Peter', card);
     expect(turn.evaluateGuess('Peter')).to.equal(true);
-   // expect(turn.evaluateGuess('William')).to.equal(false);
   });
   it('should return correct/incorrect based on guess', function() {
     const card = new Card(2, 'What is Travis\' middle name?', ['Fred', 'William', 'Peter'], 'Peter');
     const turn = new Turn('Fred', card);
-    //expect(turn.giveFeedback('Peter')).to.equal('Correct!');
     expect(turn.giveFeedback('William')).to.equal('Incorrect!');
   });
 });
