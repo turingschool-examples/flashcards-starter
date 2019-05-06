@@ -1,4 +1,4 @@
-const prototypeData = [{
+const prototypeData = [[{
   "id": 1,
   "question": "What allows you to define a set of related information using key-value pairs?",
   "answers": ["object", "array", "function"],
@@ -31,8 +31,8 @@ const prototypeData = [{
 }, {
   "id": 7,
   "question": "Which array prototype is not an accessor method?",
-  "answers": ["splice()"],
-  "correctAnswer": ["join()", "slice()", "splice()"]
+  "answers": ["join()", "slice()", "splice()"],
+  "correctAnswer": "splice()"
 }, {
   "id": 8,
   "question": "What do iterator methods take in as their first argument?",
@@ -46,7 +46,7 @@ const prototypeData = [{
 }, {
   "id": 10,
   "question": "Which iteration method returns the first array element where the callback function returns true",
-  "answers": ["find", "filter()", "forEach()"],
+  "answers": ["find()", "filter()", "forEach()"],
   "correctAnswer": "find()"
 }, {
   "id": 11,
@@ -56,7 +56,7 @@ const prototypeData = [{
 }, {
   "id": 12,
   "question": "Which iteration method returns an array of the same length as the original array?",
-  "answers": ["map", "forEach()", "reduce()"],
+  "answers": ["map()", "forEach()", "reduce()"],
   "correctAnswer": "map()"
 }, {
   "id": 13,
@@ -148,7 +148,32 @@ const prototypeData = [{
   "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
   "answers": ["prototype method", "object", "callback function"],
   "correctAnswer": "prototype method"
-}]
+}], [{
+  "id": 1,
+  "question": "Bacon?",
+  "answers": ["nah", "no thank you", "yes"],
+  "correctAnswer": "yes"
+}, {
+  "id": 2,
+  "question": "Your brain hurts.",
+  "answers": ["true", "false"],
+  "correctAnswer": "true"
+}, {
+  "id": 3,
+  "question": "Pepsi or Coke?",
+  "answers": ["Pepsi", "Coke", "Depends on the alcohol"],
+  "correctAnswer": "Coke"
+}, {
+  "id": 4,
+  "question": "Wanna go home?",
+  "answers": ["I mean...I guess...", "omg yaaass", "Turing is home"],
+  "correctAnswer": "Turing is home"
+}, {
+  "id": 5,
+  "question": "What array prototype method best describes you?",
+  "answers": ["pop()", "push()", "overwhelm()"],
+  "correctAnswer": "overwhelm()"
+}]]
 
 module.exports = {
   prototypeData 

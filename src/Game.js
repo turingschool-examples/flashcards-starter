@@ -8,21 +8,23 @@ const Card = require('../src/Card');
 class Game {
   constructor() {
     this.currentRound = {};
+    this.roundCounter = 0;
   }
   start() {
-    let cards = prototypeQuestions.map((obj) => {
-      let card = new Card(obj.id, obj.question, obj.answers, obj.correctAnswer);
-      return card;
-    });
-    let deck = new Deck(cards);
-    this.currentRound = new Round(deck);
+    let deck = new Deck(prototypeQuestions[this.roundCounter]);
+    this.currentRound = new Round(deck, this);
     this.printMessage(deck, this.currentRound);
     this.printQuestion(this.currentRound);
   }
 
   printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    if (round.game.roundCounter === 0) {
+      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
+    } else {
+      console.log(`Welcome to FlashCards BONUS ROUND #${this.roundCounter}! You are playing with ${deck.countCards()} cards.
+-----------------------------------------------------------------------`)
+    }
   }
 
   printQuestion(round) {
