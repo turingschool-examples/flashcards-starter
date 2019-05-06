@@ -2,8 +2,9 @@ const Turn = require('../src/Turn');
 const Game = require('../src/Game');
 
 class Round {
-  constructor(deck) {
+  constructor(deck, game) {
     this.deck = deck || {cards: []};
+    this.game = game;
     this.turns = 0;
     this.incorrectGuesses = [];
   }
@@ -22,6 +23,16 @@ class Round {
   endRound() {
     let winLoss = this.calculatePercentCorrect();
     console.log(`** Round over! ** You answered ${winLoss}% of the questions correctly!`);
+    this.game.roundCounter++;
+    if (winLoss < 90) {
+      game.roundCounter--;
+      return;
+    }
+    if (this.game.roundCounter < prototypeQuestions.length) {
+      this.game.start();
+    } else {
+      console.log('good job...go home, nerd.');
+    }
   }
 }
 
