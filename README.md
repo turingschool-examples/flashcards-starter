@@ -25,3 +25,6 @@ Running `node index.js` from the root of your project should result in the follo
 ```bash
 Node server running on port 3000
 ```
+## Code in Action
+
+![flashcards gif](https://media.giphy.com/media/J2fdl4hMn5SlSvaxdE/giphy.gif)
