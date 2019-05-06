@@ -24,7 +24,7 @@ class Turn {
     } else {
       this.isCorrect = false;
     }
-      // giveFeedback();
+      giveFeedback();
   }
 
   giveFeedback() {

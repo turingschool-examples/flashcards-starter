@@ -24,8 +24,7 @@ describe('Round', function() {
     const round = new Round();
     const deck = [card1, card2, card3]
     expect(round.returnCurrentCard).to.be.a('function');
-    // round.returnCurrentCard(deck);
-    // expect(round.returnCurrentCard).to.equal()
+    round.returnCurrentCard(deck);
   })
 
   it('should track each turn', function() {
