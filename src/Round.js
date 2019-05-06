@@ -21,7 +21,7 @@ class Round {
     / this.turns * 100);
   }
   endRound() {
-    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
   }
 }
 
