@@ -2,15 +2,17 @@ const Turn = require('../src/Turn');
 
 class Round {
   constructor(deck) {
-    this.deck = deck.cards;
+    this.deck = deck;
     this.incorrectGuesses = [];
     this.turns = 0;
   }
+
   returnCurrentCard() {
-    return this.deck[this.turns];
+    return this.deck.cards[this.turns];
   }
+
   takeTurn(guess) {
-    const turn = new Turn(guess, this.deck[this.turns]);
+    const turn = new Turn(guess, this.deck.cards[this.turns]);
     this.turns++;
     if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(turn.card.id)
@@ -19,9 +21,11 @@ class Round {
       return turn.giveFeedback();
     }
   }
+
   calculatePercentCorrect() {
     return (this.incorrectGuesses.length / this.turns) * 100
   }
+
   endRound() {
     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
