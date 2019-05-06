@@ -13,12 +13,16 @@ class Round {
     this.incorrectGuesses = []
   }
 
-  returnCurrentCard(){
-    this.currentCard = this.deck.cardArray.shift()
-    return this.currentCard;
+  returnCurrentCard() {
+    this.currentCard = this.deck.cardArray.shift();
+    if(this.currentCard === []){
+      this.endRound()
+    } else {
+      return this.currentCard;
+    }
   }
 
-  takeTurn(guess){
+  takeTurn(guess) {
     if(guess === this.currentCard.correctAnswer){
       this.turns ++;
       return 'Correct!';
@@ -29,7 +33,7 @@ class Round {
     }
   }
 
-  newCurrentCard(){
+  newCurrentCard() {
     return this.returnCurrentCard()
   }
 

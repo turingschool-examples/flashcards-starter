@@ -3,7 +3,6 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Card = require('./Card');
 const Deck = require('./Deck');
-const Turn = require('./Turn');
 const Round = require('./Round');
 
 class Game {
@@ -23,13 +22,16 @@ class Game {
   }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 
 module.exports = Game;
+
+// UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'answers' of undefined
+//     at genList 
