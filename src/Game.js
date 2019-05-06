@@ -18,8 +18,13 @@ class Game {
   }
 
   printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    if (round.game.roundCounter === 0) {
+      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
+    } else {
+      console.log(`Welcome to FlashCards BONUS ROUND #${this.roundCounter}! You are playing with ${deck.countCards()} cards.
+-----------------------------------------------------------------------`)
+    }
   }
 
   printQuestion(round) {
