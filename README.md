@@ -7,7 +7,7 @@
 Flashcards is a game that is operated in the Terminal command line that poses multiple choice questions for the user to answer. For the developer, this game build out drives practice and experience in TDD and OOP, as well as tests their knowledge in array prototype methods and complex data types once the game can be played.
 
 ## The Game in Action
-![flash cards example gif](file:///Users/taylorjordan/Turing_Sites/flashcards/FlashCards-Gif.gif)
+![flash cards example gif](FlashCards-Gif.gif)
 
 
 ## Install/Setup Instructions
