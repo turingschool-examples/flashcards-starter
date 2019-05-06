@@ -1,5 +1,6 @@
 const Turn = require('../src/Turn');
-const Game = require('../src/Game');
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
 
 class Round {
   constructor(deck, game) {
@@ -25,8 +26,9 @@ class Round {
     console.log(`** Round over! ** You answered ${winLoss}% of the questions correctly!`);
     this.game.roundCounter++;
     if (winLoss < 90) {
-      game.roundCounter--;
-      return;
+      this.game.roundCounter--;
+      console.log(`Unfortunately, ${winLoss}% is not good enough. git tryAgain --force ... try HARDER.`);
+      '....'.split('').forEach(dot => console.log(dot.padStart(10)));
     }
     if (this.game.roundCounter < prototypeQuestions.length) {
       this.game.start();

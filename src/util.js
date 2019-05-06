@@ -1,5 +1,4 @@
 const inquirer = require('inquirer');
-const index = require('../index');
 
 const genList = (round) => {
   let card = round.returnCurrentCard();
@@ -51,12 +50,6 @@ async function main(round) {
       }, 2250);
       setTimeout(() => {
         round.endRound();
-        if(round.calculatePercentCorrect() < 90) {
-          let score = round.calculatePercentCorrect();
-          console.log(`Unfortunately, ${score}% is not good enough. git tryAgain --force ... try HARDER.`)
-          '....'.split('').forEach(dot => console.log(dot.padStart(10)));
-          index.runner();
-        }
       }, 3000);
     } else {
       main(round);
