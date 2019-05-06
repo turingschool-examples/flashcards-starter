@@ -1,4 +1,6 @@
 const Turn = require('../src/Turn');
+const util = require('./util');
+const Deck = require('../src/Deck');
 
 class Round {
   constructor(deck) {
@@ -43,31 +45,39 @@ class Round {
   }
   
   endRound() {
-    // console.log(this.incorrectGuesses)
-    if (this.incorrectGuesses.length === 0) {
-    // eslint-disable-next-line no-console
-      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
-      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
-    } else {
-      this.reviewIncorrect()
-      // eslint-disable-next-line no-console
-      console.log(`** Looks like you missed a few!`)
-      return `** Looks like you missed a few!`
-    }
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    // if (this.incorrectGuesses.length === 0) {
+    // // eslint-disable-next-line no-console
+    //   console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    //   return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    // } else {
+    //   this.reviewIncorrect()
+    //   // eslint-disable-next-line no-console
+    //   console.log(`** Looks like you missed a few!`)
+    //   return `** Looks like you missed a few!`
+    // }
   }
-
-  reviewIncorrect() {
-    this.deck.cards.filter(card => {
-      this.incorrectGuesses.filter(x => {
-        if (card.id === x) {
-          this.reviewCards.push(card)
-        } 
-      })
-    })
-  }
-
-
+  // reviewIncorrect() {
+  //   this.deck.cards.filter(card => {
+  //     this.incorrectGuesses.filter(x => {
+  //       if (card.id === x) {
+  //         this.reviewCards.push(card)
+  //       } 
+  //     })
+  //   })
+  //   console.log(this.deck)
+  //   console.log(this.reviewCards)
+  //   let deck = new Deck(this.reviewCards)
+  //   this.deck = deck
+  //   // this.turns = 0;
+  //   // this.currentCard = this.deck.cards[0];
+  //   util.main(this.round)
+  //   // console.log(this.returnCurrentCard())
+  // }
 
 }
+
+
 
 module.exports = Round;

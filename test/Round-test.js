@@ -143,7 +143,7 @@ describe('Round', function() {
     expect(round.endRound()).to.equal(`** Round over! ** You answered 100% of the questions correctly!`)
   });
 
-  it('should not end round if there are any incorrect guesses', () => {
+  it.skip('should not end round if there are any incorrect guesses', () => {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -156,7 +156,7 @@ describe('Round', function() {
     expect(round.endRound()).to.equal(`** Looks like you missed a few!`)
   })
 
-  it('should return cards from incorrect guesses', () => {
+  it.skip('should return cards from incorrect guesses', () => {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -167,6 +167,19 @@ describe('Round', function() {
     round.takeTurn(card3.answers[2])
     round.endRound()
     expect(round.reviewCards).to.deep.equal([card1, card2])
+  })
+
+  it.skip('deck should be equal to reviewCards', () => {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn(card1.answers[1])
+    round.takeTurn(card2.answers[1])
+    round.takeTurn(card3.answers[2])
+    round.endRound()
+    expect(round.deck).to.deep.equal(round.reviewCards)
   })
 
 });
