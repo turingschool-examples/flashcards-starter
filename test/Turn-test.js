@@ -25,6 +25,7 @@ describe('Turn', function () {
   it('should return the card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn(card, 'object');
+
     turn.returnCard()
     expect(turn.returnCard()).to.equal(card)
   })
