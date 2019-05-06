@@ -5,7 +5,7 @@ const turn = require('./Turn');
 
 class Game {
   constructor() {
-    
+    this.currentRound = 0;
   }
 
   printMessage(deck, round) {
@@ -20,10 +20,11 @@ class Game {
   start(currentDeck = prototypeQuestions[this.roundNumber]) {
     let deck = new Deck(currentDeck.map(card => 
       card = new Card(card.id, card.question, card.answers, card.correctAnswer)));
+    
     let round = new Round(deck, this);
     this.currentRound = round;
-    this.printMessage(deck, round);
-    this.printQuestion(round);
+    printMessage(deck, round);
+    printQuestion(round);
   }
 }
 

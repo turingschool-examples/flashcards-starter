@@ -1,7 +1,7 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
-const turn = require('./Turn');
+const deck = require('./Deck');
 
 class Card {
   constructor(id, question, answers, correctAnswer) {
