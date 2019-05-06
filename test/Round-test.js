@@ -44,7 +44,7 @@ describe('Round', function () {
     expect(round.incorrectGuesses.length).to.equal(1)
 
   })
-  it('should calculate and return the percentage of correct guesses, function', function () {
+  it('should calculate and return the percentage of correct guesses', function () {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(2, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(3, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -57,7 +57,7 @@ describe('Round', function () {
     round.takeTurn('Fitzgerald')
     expect(round.calculatePercentCorrect()).to.equal(66)
   })
-  it('should print a message with the percent correct to the console', function () {
+  it('should print a message with the percent correct to the console once you run out of cards in the deck', function () {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(2, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(3, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -68,6 +68,12 @@ describe('Round', function () {
     round.takeTurn('pug')
     round.takeTurn('gallbladder')
     round.takeTurn('William')
-    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
+    expect(round.deck.card.length).to.equal(3)
+    expect(round.turns).to.equal(3)
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 33% of the questions correctly!`)
+  })
+
+  it('will end the round once there are no more cards left in the deck', function () {
+
   })
 })
