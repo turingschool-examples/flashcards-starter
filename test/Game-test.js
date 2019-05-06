@@ -8,7 +8,6 @@ const Round = require('../src/Round');
 describe('Game', function () {
   
   it('should be a function', function () {
-    const game = new Game();
     expect(Game).to.be.a('function');
   });
 
@@ -18,6 +17,10 @@ describe('Game', function () {
   }); 
 
   it('should start a new game', function () {
-       
+    const game = new Game();
+    game.start()
+    let round = game.currentRound;
+    expect(round.turns).to.equal(0);
+    expect(round.incorrectGuesses).to.eql([]);
   })
 });
