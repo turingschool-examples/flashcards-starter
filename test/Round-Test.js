@@ -5,6 +5,9 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
+const Game = require('../src/Game');
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
 
 describe('Round', function() {
 
@@ -12,18 +15,6 @@ describe('Round', function() {
     const round = new Round();
     expect(Round).to.be.a('function');
   });
-  // it('the current card should be the first card in the deck', function() {
-  //   const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  //   const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //   const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-  //   const turn = new Turn('pug', card1)
-  //   const deck1 = new Deck([card1, card2, card3]);
-  //   const deck2 = new Deck([card2, card3]);
-  //   const round1 = new Round(deck1)
-  //   const round2 = new Round(deck2)
-  //   expect(round1.currentCard).to.equal(deck1.cards[0]);
-  //   expect(round2.currentCard).to.equal(deck2.cards[0]);
-  // });
 
     it('the current card should be the first card in the deck', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -94,6 +85,10 @@ describe('Round', function() {
     round1.takeTurn('Fitzgerald')
     expect(round1.calculatePercentCorrect()).to.equal(33)
   });
+  it('will repeat incorrect questions', function() {
+    
+  });
+
 });
 
 

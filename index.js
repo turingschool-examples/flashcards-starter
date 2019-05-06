@@ -1,6 +1,8 @@
 const http = require('http');
 let app = http.createServer();
 const Game = require('./src/Game');
+const Round = require('./src/round');
+const data = require('./src/data');
 
 
 // Start the server on port 3000
