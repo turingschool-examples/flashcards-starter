@@ -1,6 +1,7 @@
 const Card = require('./Card');
 const Deck = require('./Deck');
 const Turn = require('./Turn');
+const Game = require('./Game');
 
 class Round {
   constructor(deck) {
@@ -12,12 +13,12 @@ class Round {
   }
 
   returnCurrentCard(deck){
-    if(this.deck.cards.length === 3) {
-      return this.deck.cards[0];
-    } else if (this.deck.cards.length === 2){
-      return this.deck.cards[1];
-    } else if (this.deck.cards.length === 1){
-      return this.deck.cards[2];
+    if(this.deck.card.length === 3) {
+      return this.deck.card[0];
+    } else if (this.deck.card.length === 2){
+      return this.deck.card[1];
+    } else if (this.deck.card.length === 1){
+      return this.deck.card[2];
     } else {
       let round = new Round(deck);
     }
@@ -41,6 +42,7 @@ class Round {
   }
 
   endRound() {
+    Game.currentRound++;
     return `** Round over! ** You answered ${this.percentage}% of the questions correctly!`
   }
 }
