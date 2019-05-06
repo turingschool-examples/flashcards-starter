@@ -46,7 +46,7 @@ const prototypeData = [{
 }, {
   "id": 10,
   "question": "Which iteration method returns the first array element where the callback function returns true",
-  "answers": ["find", "filter()", "forEach()"],
+  "answers": ["find()", "filter()", "forEach()"],
   "correctAnswer": "find()"
 }, {
   "id": 11,
