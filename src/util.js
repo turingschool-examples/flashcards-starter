@@ -39,7 +39,7 @@ async function main(round) {
     if(!round.returnCurrentCard()) {
       round.endRound();
       if (round.calculatePercentCorrect() < 90){
-        console.log("I NEED A BIG HAT!!!!")
+        console.log("Restart the game and improve your score")
         index.restartGame();
       }
     } else {

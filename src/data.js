@@ -150,38 +150,6 @@ const prototypeData = [{
   "correctAnswer": "prototype method"
 }]
 
-// , [{
-//   "id": 31,
-//   "question": "How many days are in a week?",
-//   "answers": [7, 6, 5],
-//   "correctAnswer": 7
-// }, {
-//   "id": 32,
-//   "question": "How many hours are in a day?",
-//   "answers": [24, 25, 20],
-//   "correctAnswer": 24
-// }, {
-//   "id": 33,
-//   "question": "Where is Denver located?",
-//   "answers": ["Colorado", "Texas", "Iowa"],
-//   "correctAnswer": "Colorado"
-// }, {
-//   "id": 34,
-//   "question": "What is the first month of the calendar year?",
-//   "answers": ["January", "June", "October"],
-//   "correctAnswer": "January"
-// }, {
-//   "id": 35,
-//   "question": "Which mountains are close to Denver?",
-//   "answers": ["Rocky Mountains", "Alps", "Carpathians"],
-//   "correctAnswer": "Rocky Mountains"
-// }, {
-//   "id": 36,
-//   "question": "What is 2+2?",
-//   "answers": [5, 4, 22],
-//   "correctAnswer": 4
-// }]
-
 
 
 module.exports = {
