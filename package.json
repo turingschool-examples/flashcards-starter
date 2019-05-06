@@ -21,6 +21,7 @@
     "mocha": "^6.1.4"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "inquirer": "^6.3.1"
   }
 }
