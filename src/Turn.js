@@ -10,10 +10,10 @@ class Turn {
     return this.card;
   }
   evaluateGuess() {
-    return this.card.correctAnswer === this.guess ? true : false;
+    return this.card.correctAnswer === this.guess;
   }
   giveFeedback() {
-    return this.evaluateGuess() ? 'correct!' : 'incorrect';
+    return this.evaluateGuess() ? 'correct!' : 'incorrect!';
   }
 }
 
