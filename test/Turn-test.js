@@ -30,15 +30,29 @@ describe('Turn', function(){
   it('should have a method to return guess', function() {
     const card = new Card(1, 'Where is Turing Located?', 'Denver');
     const turn = new Turn('Denver', card);
-    expect(turn.returnGuess(), 'Denver');
+    expect(turn.returnGuess()).to.equal('Denver');
   });
 
   it('should have a method to return card', function() {
     const card = new Card(1, 'Where is Turing Located?', ['Denver', 'Chicago', 'New York'], 'Denver');
     const turn = new Turn('Denver', card);
-    expect(turn.returnCard(), {id: 1, question: 'Where is Turing Located?', answers: ['Denver', 'Chicago', 'New York'], correctAnswer: 'Denver'})
+    expect(turn.returnCard()).to.deep.equal({id: 1, question: 'Where is Turing Located?', answers: ['Denver', 'Chicago', 'New York'], correctAnswer: 'Denver'})
   });
 
-  
+  it('should have a method to evaluate guess', function() {
+    const card = new Card(1, 'Where is Turing Located?', ['Denver', 'Chicago', 'New York'], 'Denver');
+    const turn1 = new Turn('Denver', card);
+    expect(turn1.evaluateGuess()).to.equal(true);
+    const turn2 = new Turn('Chicago', card);
+    expect(turn2.evaluateGuess()).to.equal(false);
+  })
+
+  it('should give feedback on guess', function() {
+    const card = new Card(1, 'Where is Turing Located?', ['Denver', 'Chicago', 'New York'], 'Denver');
+    const turn1 = new Turn('Denver', card);
+    expect(turn1.giveFeedback()).to.equal('correct!');
+    const turn2 = new Turn('Chicago', card);
+    expect(turn2.giveFeedback()).to.equal('incorrect!');
+  });
 
 });

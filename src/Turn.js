@@ -9,15 +9,15 @@ class Turn {
   };
 
   returnCard() {
-
+    return this.card;
   };
 
   evaluateGuess() {
-
+    return this.guess === this.card.correctAnswer ? true : false;
   };
 
   giveFeedback() {
-
+    return this.evaluateGuess() === true ? 'correct!' : 'incorrect!'
   };
 }
 
