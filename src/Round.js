@@ -7,6 +7,10 @@ class Round {
   returnCurrentCard() {
     return this.deck.cards[0];
   }
+
+  takeTurn() {
+
+  }
 }
 
 module.exports = Round;
