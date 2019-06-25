@@ -9,16 +9,16 @@ class Turn {
 	}
 
 	returnCard() {
-		return this.card;
+		return this.currentCard;
 	}
 
 	evaluateGuess() {
 		return this.currentCard.correctAnswer === this.userGuess;
-
 	}
 
+
 	giveFeedback() {
-		this.currentCard.correctAnswer === this.userGuess ? 'Correct!' : 'Incorrect!'
+		return this.evaluateGuess() ? 'Correct!' : 'Incorrect!'
 	}
 
 }
@@ -28,5 +28,4 @@ class Turn {
 
  module.exports = Turn;
 
- 
-s 
+
