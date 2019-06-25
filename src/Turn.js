@@ -21,7 +21,7 @@ class Turn {
   }
 
   giveFeedback() {
-    if (this.evaluateGuess() === true) {
+    if (this.evaluateGuess()) {
       return "Great Job! You're a rockstar!"
     } else {
       return 'Try again.'
