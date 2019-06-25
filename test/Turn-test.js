@@ -46,7 +46,7 @@ describe('Turn', function(){
     const turn1 = new Turn('object', card);
     const turn2 = new Turn('string', card);
 
-    expect(turn1.giveFeedback()).to.equal('That is correct! Cheers!!');
+    expect(turn1.giveFeedback()).to.equal('That is correct! Cheers!!!');
     expect(turn2.giveFeedback()).to.equal('Nope! Try again!');
   })
 

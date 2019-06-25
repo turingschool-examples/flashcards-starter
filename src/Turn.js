@@ -3,10 +3,10 @@ class Turn {
     this.guess = guess;
     this.card = card;
   }
-  returnGuess(guess) {
+  returnGuess() {
     return this.guess;
   }
-  returnCard(card) {
+  returnCard() {
     return this.card;
   }
   evaluateGuess() {
