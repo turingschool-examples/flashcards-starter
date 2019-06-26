@@ -13,12 +13,12 @@ class Turn{
 
 	returnCard(){
 		return this.currentCard;
+		console.log(currentCard)
 	}
 
-	evaluateGuess(){
+	evaluateGuess(currentCard, userGuess){
 		return this.currentCard.correctAnswer === this.userGuess;
 	}
-
 
 	giveFeedback(){
 		return this.evaluateGuess() ? 'Correct!' : 'Incorrect!'
