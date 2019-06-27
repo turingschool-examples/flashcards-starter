@@ -8,6 +8,8 @@ const Round = require('../src/Round');
 const Game = require('../src/Game');
 const prototypeData = require('../src/data.js')
 
+var card, deck, round, game;
+
 describe('Game', function() {
 
   it('should be a function', () => {
