@@ -46,9 +46,6 @@ describe('Round', function() {
     expect(round.turns).to.eql(2)
      });
 
-    
-
-
     it('should evaluate each guess', () => {
       round.takeTurn('sea otter') 
       expect(round.takeTurn('gallbladder')).to.eql('correct!');

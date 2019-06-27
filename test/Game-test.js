@@ -8,8 +8,7 @@ const Round = require('../src/Round');
 const Game = require('../src/Game');
 const prototypeData = require('../src/data.js')
 
-var card, deck, round, game;
-
+var game;
 
 describe('Game', function() {
 
@@ -30,5 +29,6 @@ describe('Game', function() {
     game.startRound();
     expect(game.currentRound).to.eql(1);
   });
+
 });
 });
