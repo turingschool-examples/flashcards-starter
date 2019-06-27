@@ -35,6 +35,7 @@ async function main(round) {
 
     if(!round.returnCurrentCard()) {
       round.endRound();
+      console.log(round.endRound());
     } else {
       main(round);
     }
