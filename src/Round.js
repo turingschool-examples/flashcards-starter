@@ -19,7 +19,7 @@ class Round {
     this.incorrectGuesses.push(card.id);
     }
     this.turns++;
-    let percentage = this.calculatePercentCorrect();
+    // let percentage = this.calculatePercentCorrect();
     return feedback;
   }
 
@@ -27,8 +27,8 @@ class Round {
     return Math.floor((this.turns - this.incorrectGuesses.length)/this.turns * 100);
   }
 
-  endRound(percentage) {
-    return `** Round over! ** You answered ${percentage}% of the questions correctly!`
+  endRound() {
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
 
