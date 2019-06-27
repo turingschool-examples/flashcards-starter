@@ -5,6 +5,8 @@ const Round = require('../src/Round');
 const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
+const Game = require('../src/Game');
+
 
 describe('Round', function() {
 
@@ -86,6 +88,7 @@ describe('Round', function() {
   		const deck = new Deck([card1, card2, card3]);
     	const round = new Round(deck);
 
+
     	round.takeTurn('pug');
     	round.takeTurn('gallbladder');
     	round.takeTurn('Lex'); 
@@ -93,6 +96,20 @@ describe('Round', function() {
     	expect(round.endRound()).to.equal('Round over! ** You answered 33% of the questions correctly!')
 
   	});
+
+  // 	it('should increment the game round counter by 1 every time we end a round', function(){
+  // 		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+		// const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+  // 		const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+  // 		const deck = new Deck([card1, card2, card3]);
+  //   	const round = new Round(deck);
+  //   	const game = new Game(round);
+
+  // 		expect(game.currentRound.length).to.equal(0);
+  //   	round.endRound();
+  //   	expect(game.currentRound.length).to.equal(1);
+
+  // 	});
 
 
   	});
