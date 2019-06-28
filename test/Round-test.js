@@ -48,7 +48,7 @@ describe('Round', function() {
   });
 
   it('should save a list of incorrect guesses by their id', function() {
-  const card1 = new Card({id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object'});
+    const card1 = new Card({id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object'});
     const card2 = new Card({id: 2, question: 'What is a comma-separated list of related values?', answers: ['array', 'object', 'function'], correctAnswer: 'array'});
     const card3 = new Card({id: 3, question: 'What type of prototype method directly modifies the existing array?', answers: ['mutator method', 'accessor method', 'iteration method'], correctAnswer: 'mutator method'});
     const deck = new Deck([card1, card2, card3]);

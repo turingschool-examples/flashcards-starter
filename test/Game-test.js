@@ -14,9 +14,4 @@ describe('Game', function() {
     const game = new Game();
     expect(game).to.be.an.instanceOf(Game);
   });
-
-  it('should keep track of the current Round', function() {
-    const game = new Game();
-    
-  });
 })
