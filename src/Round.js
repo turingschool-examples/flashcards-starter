@@ -1,36 +1,40 @@
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
+const Game = require('../src/Game');
 
 class Round { 
-	constructor(deck) { 
+	constructor(deck, game) { 
 		this.deck = deck.cards;
 		this.turns = 0;
 		this.incorrectGuesses = [];
+		this.game = game;
 
 	}
 	returnCurrentCard() {
 		return this.deck[this.turns]
 	}
 
-	takeTurn(turn) {
-		this.returnCurrentCard();
-		turn.giveFeedback();
-		if (turn.giveFeedback() === 'incorrect!') { 
+	takeTurn(guess) {
+		const currentCard = this.returnCurrentCard();
+		const newTurn = new Turn(guess, currentCard)
+		newTurn.giveFeedback();
+		if (newTurn.giveFeedback() === 'incorrect!') { 
 			this.incorrectGuesses.push(this.deck[this.turns].id)
 			}
 		this.turns++
-		if (this.turns === this.deck.length) {
-			this.endRound();
-		}
+		return newTurn.giveFeedback();
 	}
 
 	calculatePercentCorrect() {
-		return parseInt((this.turns-this.incorrectGuesses.length)/this.turns * 100)
+		return parseInt((this.turns-this.incorrectGuesses.length)/this.turns * 100);
 	}
 
 	endRound() {
-		console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+		console.log(`\n\n\n**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+		if (this.calculatePercentCorrect() < 90) {
+			this.game.start();
+		}
 	}
 
 }
