@@ -1,8 +1,14 @@
-# FlashCards Starter Kit
+# FlashCards
 
-## Fork This Repo
+Flashcards is the initial project for the second module of 1904 Front End Engineering Cohort at the Turing School of Software and Design, with a dual focus on Object Oriented Programming and Test Driven Development. The testing framework used for this project is Mocha, using the Chai assertion library. 
 
-On the top right corner of this page, click the **Fork** button.
+Played entirely through the command line interface (CLI), alternately referred to as the terminal or the command prompt, it prompts the player to answer a series of 30 questions about foundational javascript objects and prototype methods, and displays the percent of questions answered correctly upon completion. Players who score less than 90% are given the opportunity to play through the set of questions again. 
+
+## Play Example
+
+Here is what a typical run-through of the game will look like (with slight differences, depending on how your command line is displayed!): 
+
+![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
 
 ## Setup
 
@@ -25,55 +31,3 @@ Running `node index.js` from the root of your project should result in the follo
 ```bash
 Node server running on port 3000
 ```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
----
