@@ -1,5 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
+
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
@@ -45,9 +46,9 @@ describe('Round', function() {
 		const turn = new Turn('pug', card1);
 		const round = new Round(deck1);
 		expect(round.returnCurrentCard()).to.equal(card1);
-		round.takeTurn(turn);
+		round.takeTurn('pug');
 		expect(round.returnCurrentCard()).to.equal(card2);
-		round.takeTurn(turn);
+		round.takeTurn('pug');
 		expect(round.returnCurrentCard()).to.equal(card3);
 	});
 
@@ -61,11 +62,11 @@ describe('Round', function() {
 		const round = new Round(deck1);
 		expect(round.turns).to.equal(0);
 		expect(round.incorrectGuesses.length).to.equal(0);
-		round.takeTurn(turn1);
+		round.takeTurn('wrong');
 		expect(turn1.giveFeedback()).to.equal('incorrect!');
 		expect(round.turns).to.equal(1);
 		expect(round.incorrectGuesses.length).to.equal(1);
-		round.takeTurn(turn2);
+		round.takeTurn('gallbladder');
 		expect(turn2.giveFeedback()).to.equal('correct!');
 		expect(round.turns).to.equal(2);
 		expect(round.incorrectGuesses.length).to.equal(1);
@@ -76,12 +77,11 @@ describe('Round', function() {
 		const card2 = new Card({id: 14, question: 'What organ is Khalid missing?', answers: ['spleen', 'appendix', 'gallbladder'], correctAnswer: 'gallbladder'});
 		const card3 = new Card({id: 12, question: 'What is Travis\'s middle name?', answers: ['Lex', 'William', 'Fitzgerald'], correctAnswer: 'Fitzgerald'});
 		const deck1 = new Deck([card1, card2, card3]);
-		const turn1 = new Turn('wrong', card1);
-		const turn2 = new Turn('gallbladder', card2)
 		const round = new Round(deck1);
-		round.takeTurn(turn1);
+		
+		round.takeTurn('wrong');
 		expect(round.calculatePercentCorrect()).to.equal(0);
-		round.takeTurn(turn2)
+		round.takeTurn('gallbladder')
 		expect(round.calculatePercentCorrect()).to.equal(50)
 	});
 
@@ -94,9 +94,9 @@ describe('Round', function() {
 		const turn2 = new Turn('gallbladder', card2);
 		const turn3 = new Turn('Fitzgerald', card3);
 		const round = new Round(deck1);
-		round.takeTurn(turn1);
-		round.takeTurn(turn2);
-		round.takeTurn(turn3);
+		round.takeTurn('wrong');
+		round.takeTurn('gallbladder');
+		round.takeTurn('Fitzgerald');
 		expect(round.turns).to.equal(round.deck.length);
 	});
 

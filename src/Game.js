@@ -4,14 +4,17 @@ const util = require('./util');
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
-const Round =  require('../src/Round');
+const Round = require('../src/Round');
+
 
 class Game {
-  constructor() {}
+  constructor() {
+
+  }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+      console.log(`\n\nWelcome to FlashCards! You are playing with ${deck.countCards()} cards.\n\n
+-----------------------------------------------------------------------\n`)
   }
 
   printQuestion(round) {
@@ -19,10 +22,11 @@ class Game {
   }
 
   start() {
-  	const newDeck = new Deck(prototypeQuestions.map(el=>new Card({...el})));
-  	const newRound = new Round(newDeck);
-  	printMessage(newDeck, newRound);
-  	// printQuestion(newRound);
+    const newDeck = new Deck(prototypeQuestions.map(el=>new Card({...el})));
+    const newGame = new Game();
+  	const newRound = new Round(newDeck, this);
+  	this.printMessage(newDeck, newRound);
+  	this.printQuestion(newRound);
   }
 
 }
