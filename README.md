@@ -8,8 +8,8 @@ In this project, we allow the user to test their knowledge by answering question
 
 ###Live Demo Of The Game
 ****
-
-https://github.com/Jessiewithani/flashcards-starter/blob/master/Flash-Card-Game.gif
+![demo of flash card game](https://github.com/Jessiewithani/flashcards-starter/blob/master/Flash-Card-Game.gif)
+<!-- https://github.com/Jessiewithani/flashcards-starter/blob/master/Flash-Card-Game.gif -->
 
 ###Set Up
 ****
