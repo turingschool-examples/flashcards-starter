@@ -2,9 +2,6 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Game = require('../src/Game');
-const Round = require('../src/Round');
-const Deck = require('../src/Deck');
-const Card = require('../src/Card');
 
 describe('Game', function() {
 
@@ -20,5 +17,6 @@ describe('Game', function() {
 
   it('should keep track of the current Round', function() {
     const game = new Game();
+    
   });
 })
