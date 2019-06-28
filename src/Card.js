@@ -1,12 +1,11 @@
 // const data = require('./data')
 
 class Card {
-  constructor(id, question, answers, string) {
-    this.id = id; 
-    this.question = question;
-    this.answers = answers || [];
-    this.correctAnswer = string;
-
+  constructor(obj = {}) {
+    this.id = obj.id; 
+    this.question = obj.question;
+    this.answers = obj.answers || [];
+    this.correctAnswer = obj.correctAnswer;
   }
 }
 

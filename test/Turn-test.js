@@ -24,7 +24,7 @@ describe('Turn', function(){
   });
 
   it('should return the card', function(){
-    const card = new Card(14, 'Which iteration method can turn an array into a single value of any data type?', ['reduce()', 'map()', 'filter()'],'reduce()');
+    const card = new Card({id:14, question:'Which iteration method can turn an array into a single value of any data type?', answers:['reduce()', 'map()', 'filter()'],correctAnswer:'reduce()'});
    
     const turn = new Turn('map()', card);
 
@@ -35,14 +35,14 @@ describe('Turn', function(){
   });
 
   it('should return boolean if user matches the answer', function(){
-    const card = new Card(16, 'What does the callback function for reduce() return?', ['the accumulator', 'the current element', 'the initializer'],'the accumulator');
+    const card = new Card({id:16, question:'What does the callback function for reduce() return?',answers: ['the accumulator', 'the current element', 'the initializer'],correctAnswer:'the accumulator'});
     const turn = new Turn('the accumulator', card);
 
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
   it('should return either incorrect or correct based the guess is correct or not', function(){
-    const card = new Card(11, 'Which iteration method returns a new array with all elements that match a given condition?', ['filter()', 'find()', 'map()'],'filter()');
+    const card = new Card({id:11, question:'Which iteration method returns a new array with all elements that match a given condition?', answers:['filter()', 'find()', 'map()'],correctAnswer:'filter()'});
     const turn = new Turn('filter()', card);
 
     expect(turn.giveFeedback()).to.equal('correct');
