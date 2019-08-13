@@ -42,6 +42,14 @@ describe('Round', () => {
   it('should return the current card', function() {
     expect(round.returnCurrentCard()).to.equal(card);
   });
+
+  it('should have turns', function() {
+    expect(round.turns).to.equal(0);
+  });
+
+  it('should have incorrect guesses', function() {
+    expect(round.incorrectGuesses).to.eql([]);
+  });
 });
 
 

@@ -31,11 +31,7 @@ describe('Turn', () => {
   });
 
   it('should return a card', function() {
-    expect(turn.returnCard()).to.eql({
-      'id':1, 
-      'question':'What allows you to define a set of related information using key-value pairs?', 
-      'answers':['object', 'array', 'function'],
-      'correctAnswer': 'object'});
+    expect(turn.returnCard()).to.eql(card);
   });
 
   it('should evaluate a guess', function() {
