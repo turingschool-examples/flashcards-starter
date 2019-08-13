@@ -59,5 +59,21 @@ describe('Turn', function() {
         turn.evaluateGuess(card);
         expect(turn.evaluateGuess(card)).to.equal(true);
     });
+
+    it('should evaluate if guess is correct or not again', function() {
+        const card = new Card({id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object'});
+        const turn = new Turn('object', card);
+
+        turn.evaluateGuess(card);
+        expect(turn.evaluateGuess(card)).to.equal(true);
+    });
+
+    it('should tell user if guess is correct or incorrect', function() {
+        const card = new Card({id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object'});
+        const turn = new Turn('object', card);
+
+        turn.giveFeedback(card);
+        expect(turn.giveFeedback(card)).to.equal('correct!');
+    });
 });
 
