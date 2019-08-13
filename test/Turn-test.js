@@ -75,5 +75,6 @@ describe('Turn', function() {
         turn.giveFeedback(card);
         expect(turn.giveFeedback(card)).to.equal('correct!');
     });
+    
 });
 
