@@ -13,7 +13,7 @@ class Turn {
     return this.guess === this.cardObj.correctAnswer ? true : false;
   }
   giveFeedback() {
-    return this.guess === this.cardObj.correctAnswer ? ‘correct!’ : ‘incorrect!’;
+    return this.guess === this.cardObj.correctAnswer ? ("correct!") : ("incorrect!");
   }
 }
 
