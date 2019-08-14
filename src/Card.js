@@ -7,5 +7,13 @@ class Card {
   }
 }
 
+// anothe way to write this, but have to fix all my tests
+// constructor(cardObj) {
+//   this.id = cardObj.id;
+//   this.question = cardObj.question;
+//   this.answers = cardObj.possibleAnswers;
+//   this.correctAnswer = cardObj.correctAnswer;
+//   }
+// }
 
 module.exports = Card;
