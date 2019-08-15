@@ -50,8 +50,7 @@ describe('Game', () => {
 
   it('should know what is current round',() => {
     game.start();
-    game.start();
-      expect(game.currentRound).to.equal(2)
+      expect(game.currentRound).to.equal(1)
   });
 
 });
