@@ -1,4 +1,3 @@
-const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 class Round {
