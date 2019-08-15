@@ -8,18 +8,28 @@ class Round {
     // console.log(this.currentCard)
   }
   returnCurrentCard() {
-    return this.deck[this.turnCount];
+    return this.deck[this.turn];
   }
-  takeTurn(guess){
+
+  takeTurn(guess) {
     var currentCard = this.returnCurrentCard();
     const turn = new Turn(guess, currentCard);
-    console.log('turn.eval', turn.evaluateGuess())
-    if (turn.evaluateGuess() === false){
-      this.incorrectGuess.unshift(currentCard.id);
+    if (turn.evaluateGuess() === false) {
+      this.incorrectGuess.unshift(currentCard.id);  
     }
     this.turn ++; 
     return turn.giveFeedback();
   };
+  calculatePercentageCorrect() {
+    // const incorrect = this.incorrectGuess.length;
+    // return Math.round(incorrect / this.turn * 100);
+    let percent = (this.turn - this.incorrectGuess.length) / this.turn;
+    return percent === 0 ? 0 : parseInt((percent * 100).toFixed(0)); 
+  };
+  endRound() {
+    console.log(this.calculatePercentageCorrect());
+    return `You answered ${this.calculatePercentageCorrect()}% of the questions correctly`;
+  }
 };
 module.exports = Round; 
 
