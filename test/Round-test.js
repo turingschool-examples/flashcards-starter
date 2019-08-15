@@ -31,7 +31,7 @@ describe('Round', () => {
       "correctAnswer": "mutator method"});
     
     deck = new Deck([card, card2, card3]);
-
+    turn = new Turn('object',card);
     round = new Round(deck);
   });
 
@@ -41,14 +41,46 @@ describe('Round', () => {
 
   it('should return the current card', function() {
     expect(round.returnCurrentCard()).to.equal(card);
+    round.takeTurn('turn');
+    expect(round.returnCurrentCard()).to.equal(card2);
   });
 
   it('should have turns', function() {
-    expect(round.turns).to.equal(0);
+    round.takeTurn('guess');
+    expect(round.turns).to.equal(1);
   });
 
   it('should have incorrect guesses', function() {
     expect(round.incorrectGuesses).to.eql([]);
+  });
+
+  it('should push incorrect guesses into array by id', function() {
+    round.takeTurn('array')
+    round.takeTurn('object')
+    expect(round.incorrectGuesses).to.eql([1,2]);
+  });
+
+  it('give feedback on each turn', function() {
+    round.takeTurn('object')
+    round.takeTurn('array')
+    expect(turn.giveFeedback()).to.equal('correct!');
+  });
+
+  it('should be able to calculate percentage correct', function() {
+    round.takeTurn('object')
+    round.takeTurn('array')
+    round.takeTurn('foster')
+    round.calculatePercentCorrect();
+    expect(round.calculatePercentCorrect()).to.eql(67);
+  });
+
+
+  it('should print message to console at end of round', function() {
+    round.takeTurn('object')
+    round.takeTurn('array')
+    round.takeTurn('foster')
+    round.calculatePercentCorrect();
+    expect(round.endRound()).to.equal('Round over! You answered 67% of the questions correctly!')
   });
 });
 
