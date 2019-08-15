@@ -4,11 +4,12 @@ const util = require('./util');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
-const Turn = require('../src/Card');
 
 class Game {
-  constructor() {}
+  constructor() {
 
+  }
+  
   start() {
     let cards = prototypeQuestions.map(cardObjLiteral => {
       const card = new Card(cardObjLiteral.id, cardObjLiteral.question,           cardObjLiteral.answers, cardObjLiteral.correctAnswer)
