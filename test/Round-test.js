@@ -43,7 +43,7 @@ describe('Round', function () {
     const round = new Round(deck);
     round.takeTurn('array');
     expect(round.incorrectGuesses.length).to.equal(1);
-  }) 
+  }); 
 
   it('should give a percentage of correct answers for a round', function () {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -55,5 +55,5 @@ describe('Round', function () {
     round.takeTurn('array');
     round.takeTurn('accessor method');
     expect(round.calculatePercentCorrect()).to.equal(66);
-  })
+  });
 });
