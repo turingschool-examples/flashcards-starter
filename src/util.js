@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+let startTime = Date.now();
 
 const genList = (round) => {
   let card = round.returnCurrentCard();
@@ -37,9 +38,38 @@ async function main(round) {
 
     if(!round.returnCurrentCard()) {
       round.endRound();
+      gameTimerHandler();
+      failedGameHandler(round);
     } else {
       main(round);
     }
+}
+
+const failedGameHandler = (round) => {
+  let percent = round.calculatePercentCorrect();
+
+  if(percent < 90) {
+    console.log('** Try Again! You need to score atleast 90%! **')
+    startTime = Date.now();
+    resetGame(round);
+  }
+}
+
+const resetGame = (round) => {
+  round.turns = 0;
+  round.incorrectGuesses = [];
+  main(round);
+}
+
+const gameTimerHandler = () => {
+  const endTime = Date.now();
+  const totalTime = (endTime - startTime);
+
+  let minutes = Math.floor(totalTime / 60000);
+  let seconds = ((totalTime % 60000) / 1000).toFixed(0); 
+  let time = (seconds === 60 ? `${minutes++}:00` : `${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`);
+   
+  console.log(`Time Elapsed: ${time}`);
 }
 
 module.exports.main = main;

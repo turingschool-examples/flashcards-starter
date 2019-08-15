@@ -1,79 +1,21 @@
-# FlashCards Starter Kit
+# Flash Cards Terminal Game
 
-## Fork This Repo
+## Abstract
 
-On the top right corner of this page, click the **Fork** button.
+Flashcard game that runs in the terminal. It presents a welcome message and prints the first card when the game starts. Each flashcard has three possible answers. Upon a users answer it will return whether or not the answer is correct or incorrect. At the end of the game it will print a message saying the game is over, the percentage of correct answers for the round, and the time elapsed for the round. If the user gets less than 90% the game will reset and make the user go through all of the flashcards again, until atleast 90% is reached.
 
-## Setup
+## GIF
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+![](flashcard-game.gif)
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+## Installation
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+If you don't have homebrew installed copy and paste this command into your terminal. `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-```bash
-npm install
-```
+### Requirements
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
+You must have homebrew installed, which includes the node package.
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+### Play The Game
 
-```bash
-Node server running on port 3000
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
----
+To start the game open your terminal and navigate to the root of the flashcards game folder. Once you are at the root of the game folder, run `node index.js`. The game should begin in your terminal. To exit out of the game once you are done playing use `control + c`.
