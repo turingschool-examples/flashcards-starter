@@ -10,7 +10,7 @@ const Card = require('./Card');
 class Game {
   constructor() {
     this.cards = [];
-    this.createCards(prototypeQuestions2);
+    this.createCards(prototypeQuestions);
     this.deck = new Deck(this.cards);
     this.round = new Round(this.deck);
     this.printMessage(this.deck, this.round);

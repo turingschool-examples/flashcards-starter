@@ -15,6 +15,12 @@ describe('Deck', () => {
     expect(deck).to.be.an.instanceof(Deck);
   });
 
+  it('should have a property of cards', () => {
+    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const deck = new Deck([card1]);
+    expect(deck.cards).to.deep.equal([card1]); 
+  });
+
   it('should return the number of cards in the deck', () => {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const card2 = new Card(2, 'What is Brady\'s favorite activity?', ['biking','snowboarding','hiking','camping'], 'snowboarding');

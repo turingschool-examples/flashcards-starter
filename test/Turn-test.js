@@ -15,7 +15,7 @@ describe('Turn', () => {
     expect(turn).to.be.a.instanceof(Turn);
   });
 
-  it('should take in guess and a card to guess on for parameters', () => {
+  it('should take have a guess and card property', () => {
     const card = new Card(1,'what is 2 + 2?', [1,2,3,4], 4);
     const turn = new Turn(4, card);
     expect(turn.guess).to.equal(4);
