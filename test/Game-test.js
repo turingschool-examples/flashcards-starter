@@ -39,12 +39,20 @@ describe('Game', () => {
     game = new Game();
   }); 
 
-   it('should be a function', function() {
+  it('should be a function', () => {
     expect(Game).to.be.a('function');
   });
 
-    it('should create a new card', function() {
-      game.start();
+  it('should be an instance of Game',() => {
+      const game = new Game();
+      expect(game).to.be.an.instanceOf(Game)
   });
+
+  it('should know what is current round',() => {
+    game.start();
+    game.start();
+      expect(game.currentRound).to.equal(2)
+  });
+
 });
 

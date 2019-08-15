@@ -39,34 +39,34 @@ describe('Round', () => {
     expect(Round).to.be.a('function');
   });
 
-  it('should return the current card', function() {
+  it('should return the current card', () => {
     expect(round.returnCurrentCard()).to.equal(card);
     round.takeTurn('turn');
     expect(round.returnCurrentCard()).to.equal(card2);
   });
 
-  it('should have turns', function() {
+  it('should have turns', () => {
     round.takeTurn('guess');
     expect(round.turns).to.equal(1);
   });
 
-  it('should have incorrect guesses', function() {
+  it('should have incorrect guesses', () => {
     expect(round.incorrectGuesses).to.eql([]);
   });
 
-  it('should push incorrect guesses into array by id', function() {
+  it('should push incorrect guesses into array by id', () => {
     round.takeTurn('array')
     round.takeTurn('object')
     expect(round.incorrectGuesses).to.eql([1,2]);
   });
 
-  it('give feedback on each turn', function() {
+  it('give feedback on each turn', () => {
     round.takeTurn('object')
     round.takeTurn('array')
     expect(turn.giveFeedback()).to.equal('correct!');
   });
 
-  it('should be able to calculate percentage correct', function() {
+  it('should be able to calculate percentage correct', () => {
     round.takeTurn('object')
     round.takeTurn('array')
     round.takeTurn('foster')
@@ -74,8 +74,7 @@ describe('Round', () => {
     expect(round.calculatePercentCorrect()).to.eql(67);
   });
 
-
-  it('should print message to console at end of round', function() {
+  it('should print message to console at end of round', () => {
     round.takeTurn('object')
     round.takeTurn('array')
     round.takeTurn('foster')

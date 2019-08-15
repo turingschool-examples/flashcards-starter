@@ -31,15 +31,15 @@ describe('Deck', () => {
     deck = new Deck([card, card2, card3]);
   });
 
-    it('should be a function', function() {
+  it('should be a function', function() {
     expect(Deck).to.be.a('function');
   });
     
-    it('should be able to store an array', function(){
+  it('should be able to store an array', function(){
     expect(deck.cards).to.eql([card, card2, card3]);
   });
 
-    it('should know how many cards are in the deck', function() {
+  it('should know how many cards are in the deck', function() {
     expect(deck.countCards()).to.equal(deck.cards.length);
   });
 });

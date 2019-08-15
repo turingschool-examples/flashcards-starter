@@ -18,27 +18,27 @@ describe('Turn', () => {
     turn = new Turn('object',card)
   });
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Turn', function() {
+  it('should be an instance of Turn', () => {
     expect(turn).to.be.an.instanceof(Turn);
   }); 
 
-  it('should return a guess', function() {
+  it('should return a guess', () => {
     expect(turn.returnGuess()).to.equal('object');
   });
 
-  it('should return a card', function() {
+  it('should return a card', () => {
     expect(turn.returnCard()).to.eql(card);
   });
 
-  it('should evaluate a guess', function() {
+  it('should evaluate a guess', () => {
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
-   it('should give feedback', function() {
+   it('should give feedback', () => {
     expect(turn.giveFeedback()).to.equal('correct!', 'incorrect!');
   });    
 
