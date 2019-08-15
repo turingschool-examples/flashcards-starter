@@ -24,7 +24,6 @@ class Round {
   }
 
   calculatePercentage() {
-
     let num = Math.round(this.incorrectGuesses.length / this.deck.cards.length * 100)
 
     return 100 - num;
