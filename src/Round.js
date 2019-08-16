@@ -27,7 +27,7 @@ class Round {
     return percent === 0 ? 0 : parseInt((percent * 100).toFixed(0)); 
   };
   endRound() {
-    console.log(this.calculatePercentageCorrect());
+    console.log(`You answered ${this.calculatePercentageCorrect()}% of the questions correctly`);
     return `You answered ${this.calculatePercentageCorrect()}% of the questions correctly`;
   }
 };
