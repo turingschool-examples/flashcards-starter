@@ -11,7 +11,7 @@ describe('Deck', function() {
   });
 
   it('should be a new instance of', function() {
-    var deck = new Deck();
+    let deck = new Deck();
     expect(deck).to.be.an.instanceOf(Deck);
   });
 
@@ -20,7 +20,7 @@ describe('Deck', function() {
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
-    var deck = new Deck( [card1, card2, card3] );
+    let deck = new Deck( [card1, card2, card3] );
 
     deck.cardCount();
     expect(deck.cardCount()).to.equal(3);
