@@ -10,18 +10,18 @@ class Turn {
   returnCard() {
     return this.card;
   }
-  evaluateGuess() {
-    if (this.guess === this.card.correctAnswer) {
-      this.guessStatus = true;
-    }
-    giveFeedback(guessStatus);
-  }
-  giveFeedback(status) {
-    if (status === false) {
+  giveFeedback() {
+    if (this.guessStatus === false) {
       return 'incorrect!';
     } else {
       return 'correct!';
     }
+  }
+  evaluateGuess() {
+    if (this.guess === this.card.correctAnswer) {
+      this.guessStatus = true;
+    }
+    this.giveFeedback();
   }
 }
 
