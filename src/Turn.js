@@ -1,6 +1,6 @@
 class Turn {
   constructor(guess, card) {
-
+    
   };
 
   returnGuess() {
