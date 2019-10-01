@@ -10,17 +10,19 @@ class Turn {
     return this.currentCard;
   }
   evaluateGuess() {
-    if (this.userGuess === this.currentCard.correctGuess) {
+    if (this.userGuess === this.currentCard.correctAnswer) {
       return true;
     } else {
       return false;
     }
   }
   giveFeedback() {
-    if (evaluateGuess() === true) {
+    if (this.evaluateGuess() === true) {
       return 'correct!'
     } else {
       return 'incorrect!'
     }
   }
 }
+
+module.exports = Turn;
