@@ -16,8 +16,8 @@ class Turn {
       return false;
     }
   }
-  giveFeedback(evaluateGuess) {
-    if (true) {
+  giveFeedback() {
+    if (evaluateGuess() === true) {
       return 'correct!'
     } else {
       return 'incorrect!'
