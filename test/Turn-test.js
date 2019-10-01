@@ -69,5 +69,5 @@ describe ('Turn', function() {
     const turn = new Turn('object', card);
     expect(turn.returnCard()).to.equal(turn.card);
   });
-  
+
 });
