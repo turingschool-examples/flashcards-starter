@@ -83,12 +83,21 @@ describe ('Round', function() {
      expect(round.incorrectGuesses[0]).to.equal(card1.id);
    });
 
-   it('should return feedback on the guess', function() {
+   it.skip('should return feedback on the guess', function() {
      const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
      const deck = new Deck([card1]);
      const round = new Round(deck);
      round.takeTurn('I have no clue');
-     expect(turn.giveFeedback()).to.deep.equal('incorrect!');
+     expect(turn.giveFeedback()).to.equal('incorrect!');
+   });
+
+   it('should return the correct percentage when the round is over', function() {
+     const card1 = new Card(1);
+     const card2 = new Card(2);
+     const deck = new Deck([card1, card2]);
+     const round = new Round(deck);
+     round.incorrectGuesses.push(card1);
+     expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!')
    });
 
 });
