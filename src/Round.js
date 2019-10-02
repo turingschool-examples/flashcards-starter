@@ -17,17 +17,18 @@ class Round {
     turn.evaluateGuess();
     if (turn.guessStatus === false) {
       this.incorrectGuesses.push(this.currentCard.id);
-    } else {
-        this.index++;
-        this.currentCard = this.deck[this.index];
     }
+    this.index++;
+    this.currentCard = this.deck[this.index];
+    // somehow return the value of turn.evaluateGuess?
+    // return turn; // can probably remove before submission
   }
   calculatePercentCorrect() {
     let percentCorrect = Math.floor((this.incorrectGuesses.length / this.deck.length) * 100);
-    return `${percentCorrect}%`
+    return percentCorrect;
   }
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 }
 

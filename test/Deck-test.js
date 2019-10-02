@@ -17,5 +17,5 @@ describe ('Deck', function() {
     const card2 = new Card();
     const deck = new Deck([card1, card2]);
     expect(deck.countCards()).to.equal(2);
-  })
+  });
 });
