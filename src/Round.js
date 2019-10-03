@@ -17,7 +17,7 @@ class Round {
     this.turns++;
     if (turn.giveFeedback() === 'incorrect!') {
       this.incorrectGuesses.push(currentCard.id);
-    };
+    }
     this.deck.cards.shift();
     return turn.giveFeedback();  
   }
