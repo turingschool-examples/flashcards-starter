@@ -9,7 +9,8 @@ class Turn {
   }
 
   returnCard() {
-    return this.card
+    return this.card;
+    
   }
 
   evaluateGuess() {

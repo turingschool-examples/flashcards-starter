@@ -82,10 +82,11 @@ describe('Round', function() {
     round.takeTurn('pug');
     round.takeTurn('gallbladder');
     round.takeTurn('playing with bubble wrap');
+
+    let actual = round.endRound();
+    let expected = `**Round over!** You answered 66% of the questions correctly!`
     
-    console.log(round.incorrectGuesses.length);
-    console.log(round.calculatePercentCorrect());
-    expect(round.endRound()).to.equal(`** Round over! ** You answered 66% of the questions correctly!`);
+    expect(actual).to.equal(expected);
   });
   
   

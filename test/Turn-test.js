@@ -19,29 +19,55 @@ describe('Turn', function() {
   it('should return the guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
-    expect(turn.returnGuess()).to.equal('object');
+
+    let expected = 'object';
+    let actual = turn.returnGuess();
+
+    expect(actual).to.equal(expected);
   });
 
   it('should return the card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
-    expect(turn.returnCard()).to.equal(card);
+
+    let expected = card;
+    let actual = turn.returnCard();
+
+    expect(actual).to.equal(expected);
   });
 
   it('should evalulate the user guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+
     const turn1 = new Turn('object', card);
     const turn2 = new Turn('array', card);
-    expect(turn1.evaluateGuess()).to.equal(true);
-    expect(turn2.evaluateGuess()).to.equal(false);
+
+
+    let expected1 = turn1.evaluateGuess();
+    let actual1 = true;
+
+    let expected2 = turn2.evaluateGuess();
+    let actual2 = false;
+    
+    expect(expected1).to.equal(actual1);
+    expect(expected2).to.equal(actual2);
   });
 
   it('should give feedback on user guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+
     const turn1 = new Turn('object', card);
     const turn2 = new Turn('array', card);
-    expect(turn1.giveFeedback()).to.equal('correct!');
-    expect(turn2.giveFeedback()).to.equal('incorrect!');
+
+
+    let expected1 = turn1.giveFeedback();
+    let actual1 = 'correct!';
+
+    let expected2 = turn2.giveFeedback();
+    let actual2 = 'incorrect!';
+
+    expect(expected1).to.equal(actual1);
+    expect(expected2).to.equal(actual2);
   });
 
 });
