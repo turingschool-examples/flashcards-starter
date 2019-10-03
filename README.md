@@ -23,10 +23,10 @@ Clone down repo (from this GitHub). Since you don't want to name the game "flash
 `bash
 git clone [remote-address] [what you want to name the repo]`
 
-Once you have cloned the repo, change into the directory:
+Once you have cloned the repo, change into the directory:<br>
 `bash
 cd [whatever you named the directory]`
 
-Running node index.js from the root of the directory to start the game:
+Running node index.js from the root of the directory to start the game:<br>
 `bash
 node index.js`
