@@ -14,5 +14,5 @@ In the terminal, run the following command:
 ### Gameplay:
 ![2019-10-03 15 58 23](https://user-images.githubusercontent.com/52764657/66167221-c1f0a580-e5f6-11e9-95f3-f4a00771e021.gif)
 
-The ending:
+The ending:<br>
 <img width="717" alt="Screen Shot 2019-10-03 at 4 00 20 PM" src="https://user-images.githubusercontent.com/52764657/66167297-fbc1ac00-e5f6-11e9-938e-4725146ab644.png">
