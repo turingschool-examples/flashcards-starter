@@ -4,7 +4,7 @@
 
 ### Description
 
-Flashcards is a terminal based app that has a deck of 30 cards, each with a question, collection of answers, and a correct answer. The user navigates through the terminal answering questions, and is shown the percentage of correct answers once all cards have been asked. 
+Flashcards is a terminal based app that has a deck of 30 cards, each with a question, collection of answers, and a correct answer. The user navigates through the terminal answering questions, and is shown the percentage of correct answers once all cards have been asked. This focus of this project is to work with classes and objects, manipulate the data and have the object classes interact with each other. This project also focuses heavily on testing, using the Mocha testing framework and the chai assertion library. 
 
 ### How to begin:
 
