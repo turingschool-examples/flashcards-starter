@@ -5,29 +5,25 @@ class Round {
     this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
-    this.currentCard = deck.cards[0];
   }
-
+  
   returnCurrentCard() {
-    return this.currentCard;
+    return this.deck.cards[0];
   }
 
   takeTurn(guess) {
-    const turn = new Turn(guess, this.currentCard);
+    let currentCard = this.returnCurrentCard();
+    const turn = new Turn(guess, currentCard);
     this.turns++;
     if (turn.giveFeedback() === 'incorrect!') {
-      this.incorrectGuesses.push(this.currentCard.id);
+      this.incorrectGuesses.push(currentCard.id);
     };
     this.deck.cards.shift();
     
-    
-    
-    
-
   }
 
   calculatePercentCorrect() {
-    return (this.incorrectGuesses.length / this.turns) * 100;
+    return Math.floor(100 - ((this.incorrectGuesses.length / this.turns) * 100));
   }
 
   endRound() {

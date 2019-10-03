@@ -35,9 +35,59 @@ describe('Round', function() {
   it('should return the current card being played', function() {
     round.returnCurrentCard();
 
-    expect(round.currentCard).to.equal(card1);
+    let expected = card1
+    let actual = round.returnCurrentCard();
+
+    expect(actual).to.equal(expected);
   });
 
-  it('')
+  it('increase the turn count', function() {
+    round.takeTurn('pug');
 
+    let actual = round.turns;
+    let expected = 1;
+
+    expect(actual).to.equal(expected);
+  });
+
+  it('should add incorrect guess to array', function() {
+    round.takeTurn('pug');
+
+    let actual = round.incorrectGuesses.length;
+    let expected = 1;
+
+    expect(actual).to.equal(expected);
+  });
+
+  it('should remove card from deck', function() {
+    round.takeTurn('pug');
+
+    let actual = round.returnCurrentCard();
+    let expected = card2;
+
+    expect(actual).to.equal(expected);
+  });
+
+  it('should calculate the correct guess percentage', function() {
+    round.takeTurn('pug');
+    round.takeTurn('gallbladder')
+
+    let actual = round.calculatePercentCorrect();
+    let expected = 50;
+
+    expect(actual).to.equal(expected);
+  });
+
+  it('should print Round Over statement', function() {
+    round.takeTurn('pug');
+    round.takeTurn('gallbladder');
+    round.takeTurn('playing with bubble wrap');
+    
+    console.log(round.incorrectGuesses.length);
+    console.log(round.calculatePercentCorrect());
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 66% of the questions correctly!`);
+  });
+  
+  
+  
 })
