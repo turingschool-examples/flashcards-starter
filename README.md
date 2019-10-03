@@ -16,3 +16,14 @@ In the terminal, run the following command:
 
 The ending:<br>
 <img width="717" alt="Screen Shot 2019-10-03 at 4 00 20 PM" src="https://user-images.githubusercontent.com/52764657/66167297-fbc1ac00-e5f6-11e9-938e-4725146ab644.png">
+
+### Setup!
+Clone down repo (from this GitHub). Since you don't want to name the game "flashcards-starter", you can use an optional argument when you run git clone (you replace the [...] with the terminal command arguments):
+bash
+git clone [remote-address] [what you want to name the repo]
+Once you have cloned the repo, change into the directory:
+bash
+cd [whatever you named the directory]
+Running node index.js from the root of the directory to start the game:
+bash
+node index.js
