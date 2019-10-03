@@ -19,11 +19,14 @@ The ending:<br>
 
 ### Setup!
 Clone down repo (from this GitHub). Since you don't want to name the game "flashcards-starter", you can use an optional argument when you run git clone (you replace the [...] with the terminal command arguments):
-bash
-git clone [remote-address] [what you want to name the repo]
+
+`bash
+git clone [remote-address] [what you want to name the repo]`
+
 Once you have cloned the repo, change into the directory:
-bash
-cd [whatever you named the directory]
+`bash
+cd [whatever you named the directory]`
+
 Running node index.js from the root of the directory to start the game:
-bash
-node index.js
+`bash
+node index.js`
