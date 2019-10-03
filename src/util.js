@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const Round = require('../src/Round');
+
 
 const genList = (round) => {
   let card = round.returnCurrentCard();

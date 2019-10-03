@@ -23,10 +23,11 @@ class Round {
     return turn.giveFeedback();
   }
   calculatePercentageCorrect() {
-    let percentage =  (100 - ((this.incorrectGuesses / this.turns) * 100));
+    let percentage =  (100 - ((this.incorrectGuesses.length / this.turns) * 100));
     return Math.round(percentage);
   }
   endRound() {
+    console.log(`** Round over! ** You answered ${this.calculatePercentageCorrect()}% of the questions correctly!`)
     return (`** Round over! ** You answered ${this.calculatePercentageCorrect()}% of the questions correctly!`)
   }
 }
