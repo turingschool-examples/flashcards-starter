@@ -14,4 +14,4 @@ describe('Turn', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   }); 
-}
+});
