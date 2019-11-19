@@ -6,12 +6,21 @@ const Turn = require('../src/Turn');
 
 describe ('Turn', function() {
 
+  beforeEach( () => {
+  card = new Card({id: 1,
+    question: `A score of one better than par on a golf hole is called what?`,
+    answers: ['birdie', 'bogey', 'eagle'],
+    correctAnswer: 'birdie'});
+
+  turn = new Turn('pug', card);
+});
+
   it('should be a function', function() {
     expect(Turn).to.be.a('function');
    });
 
   it('should be an instance of Turn', function() {
-    const turn = new Turn();
+    // const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   });
 
