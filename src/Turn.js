@@ -5,18 +5,24 @@ class Turn {
   }
 
   returnGuess() {
-
+    return this.guess;
   }
 
   returnCard() {
-
+    return this.card;
   }
 
   evaluateGuess() {
-
+    if(this.guess === card.correctAnswer) {
+      return true;
+    } else{
+      return false;
+    }
   }
 
   giveFeedback() {
-    
+    if(this.guess === card.correctAnswer) {
+      return 'Correct!'
+    } else return 'Incorrect!'
   }
 }
