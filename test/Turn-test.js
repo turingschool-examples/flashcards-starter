@@ -37,4 +37,11 @@ describe('Turn', function() {
 
     expect(turn.evaluateGuess()).to.deep.equal(false);
   });
+
+  it('should give feedback', function() {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
+
+    expect(turn.giveFeedback()).to.deep.equal('Incorrect!');
+  });
 });
