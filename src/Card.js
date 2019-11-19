@@ -5,6 +5,8 @@ class Card {
     this.answers = answers;
     this.correctAnswer = correctAnswer;
   }
+
+  testFunction();
 }
 
 module.exports = Card;
