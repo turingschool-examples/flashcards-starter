@@ -26,3 +26,5 @@ class Turn {
     } else return 'Incorrect!'
   }
 }
+
+module.exports = Turn;
