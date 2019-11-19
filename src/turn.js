@@ -1,12 +1,20 @@
 class Turn {
-  constructor (guess, card) {
-    this.guess = card.answers;
-    this.card = card.correctAnswer;
+  constructor (guess, answer) {
+    this.guess = guess;
+    this.answer = answer;
   }
 
-  returnGuess();
-  returnCard();
-  evaluateGuess();
-  giveFeedback();
+  returnGuess() {
+  }
 
+  returnCard() {
+  }
+
+  evaluateGuess() {
+  }
+
+  giveFeedback() {
+  }
 }
+
+module.exports = Turn;
