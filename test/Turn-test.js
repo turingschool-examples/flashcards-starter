@@ -15,7 +15,8 @@ describe ('Turn', function() {
   });
 
   turn = new Turn('user\'s guess', card);
-});
+
+  });
 
   it('should be a function', function() {
     expect(Turn).to.be.a('function');
@@ -28,7 +29,6 @@ describe ('Turn', function() {
   it('should take a card object and a user\'s guess', function() {
     expect(turn.guess).to.equal('user\'s guess');
     expect(turn.card).to.equal(card);
-    console.log(turn.card)
     expect(turn.card.question).to.equal(`A score of one better than par on a golf hole is called what?`);
     expect(turn.card.answers).to.deep.equal(['birdie', 'bogey', 'eagle']);
     expect(turn.card.correctAnswer).to.equal('birdie');
@@ -49,7 +49,5 @@ describe ('Turn', function() {
   it('should have a giveFeedback method', function() {
  expect(turn.giveFeedback).to.be.a('function');
 });
-
-
 
 });
