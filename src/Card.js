@@ -5,5 +5,6 @@ class Card {
     this.options = options;
     this.answer = answer;
   }
-
 }
+
+module.exports = Card;
