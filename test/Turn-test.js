@@ -46,8 +46,8 @@ describe('Turn', function() {
   });
 
   it('should be able to return incorrect if your guess is wrong', function() {
-    const card = new Card(4, 'What is Cody\'s favorite band', ['Blink-182', 'Coldplay', 'Nickleback'], 'Blink-182');
-    const turn = new Turn("Nickleback", card);
-    expect(turn.evaluateGuess()).to.equal(false);
+    const card = new Card(4, 'What is Baron\'s favorite rapper', ['Drake', 'Abhi the Nomad', 'The Weeknd'], 'The Weeknd');
+    const turn = new Turn("The Weeknd", card);
+    expect(turn.giveFeedback()).to.equal("Correct!");
   });
 });
