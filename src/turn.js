@@ -19,7 +19,6 @@ class Turn {
     return card;
   }
 
-
   giveFeedback() {
     if (this.guess === this.answer) {
       return `YAAS QUEEN`;
