@@ -1,7 +1,9 @@
 class Round {
-  constructor() {
-
+  constructor(deck) {
+    this.deck = deck;
   }
+
+  
 }
 
 module.exports = Round;
