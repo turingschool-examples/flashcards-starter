@@ -14,7 +14,7 @@ describe ('Turn', function() {
     correctAnswer: 'birdie',
   });
 
-  turn = new Turn();
+  turn = new Turn('user\'s guess', card);
 });
 
   it('should be a function', function() {
@@ -23,6 +23,15 @@ describe ('Turn', function() {
 
   it('should be an instance of Turn', function() {
     expect(turn).to.be.an.instanceof(Turn);
+  });
+
+  it('should take a card object and a user\'s guess', function() {
+    expect(turn.guess).to.equal('user\'s guess');
+    expect(turn.card).to.equal(card);
+    console.log(turn.card)
+    expect(turn.card.question).to.equal(`A score of one better than par on a golf hole is called what?`);
+    expect(turn.card.answers).to.deep.equal(['birdie', 'bogey', 'eagle']);
+    expect(turn.card.correctAnswer).to.equal('birdie');
   });
 
   it('should have a returnGuess method', function() {
