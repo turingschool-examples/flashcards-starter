@@ -19,7 +19,15 @@ describe('Turn', function() {
   it('should return guess', function() {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
-    console.log(turn)
-    expect(turn.guess).to.equal('pug');
+
+    expect(turn.returnGuess()).to.deep.equal('pug');
+  });
+
+  it('should return card', function() {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
+
+    expect(turn.returnCard()).to.deep.equal({ id: 1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'
+    });
   });
 });
