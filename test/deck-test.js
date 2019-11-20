@@ -43,5 +43,5 @@ describe('Deck', function() {
     "mutator method")
     const deck = new Deck(card1, card2, card3);
     expect(deck.countCards()).to.equal(deck.cards.length);
-  })
+  });
 });
