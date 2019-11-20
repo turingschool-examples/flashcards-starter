@@ -62,5 +62,19 @@ describe('Round', function() {
     expect(round.takeTurn(turn)).to.equal(3);
   });
 
+  it('should store incorrect answers', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const turn1 = new Turn('pug', card1)
+    const turn2 = new Turn('capybera', card1);
+    const round = new Round(deck, turn1);
+    round.takeTurn(turn1);
+    expect(round.incorrectGuess).to.deep.equal(['pug']);
+    round.takeTurn(turn2);
+    expect(round.incorrectGuess).to.deep.equal(['pug', 'capybera']);
+  });
+
 
 });
