@@ -1,11 +1,15 @@
 class Deck {
   constructor(cards) {
     this.cards = [];
+    this.totalCards;
   }
 
   addCards(newCard) {
     this.cards.push(newCard);
-    console.log(this.cards);
+  }
+
+  countCards() {
+    this.totalCards = this.cards.length;
   }
 }
 

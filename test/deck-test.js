@@ -38,6 +38,7 @@ describe('Deck', function() {
     deck.addCards(card1);
     deck.addCards(card2);
     deck.addCards(card3);
+    deck.countCards();
 
     expect(deck.cards.length).to.equal(3);
   });
