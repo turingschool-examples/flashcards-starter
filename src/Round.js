@@ -22,5 +22,8 @@ class Round {
       this.deck.shift()
     }
   }
+  calculatePercentCorrect() {
+    
+  }
 }
 module.exports = Round
