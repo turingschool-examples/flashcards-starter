@@ -21,15 +21,20 @@ class Round {
       turn.giveFeedback();
     } else {
       this.deck.shift()
-      turn.evalugiveFeedback();
+      turn.giveFeedback();
     }
   }
   calculatePercentCorrect() {
     var average = Math.floor((this.turns - this.incorrectGuesses.length) / (this.turns) * (100))
-    return `${average}%`
+    if (this.deck.length === 0) {
+      this.endRound(average)
+      return `${average}%`  
+    } else {
+      return `${average}%`
+    }
   }
-  endRound() {
-    
+  endRound(average) {
+    return `** Round over! ** You answered ${average} of the questions correctly!`
   }
 }
 module.exports = Round

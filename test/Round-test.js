@@ -95,9 +95,8 @@ describe('Round', function() {
 
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
-    const card4 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
-    const deck = new Deck([card1, card2, card3, card4]);
+    const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
 
     round.takeTurn('array');
@@ -108,4 +107,20 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal('66%')
   })
 
+  it('has an endRound method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’', () => {
+    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+
+    round.takeTurn('object');
+    round.takeTurn('gallbladder');
+    round.takeTurn('Fitzgerald');
+    expect(round.endRound('100%')).to.equal('** Round over! ** You answered 100% of the questions correctly!');
+
+  })
 })
