@@ -106,7 +106,6 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal('50%')
     round.takeTurn('Fitzgerald');
     expect(round.calculatePercentCorrect()).to.equal('66%')
-
   })
 
 })
