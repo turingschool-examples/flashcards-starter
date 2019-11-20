@@ -13,7 +13,7 @@ class Round {
 }
 
   takeTurn(guess) {
-    const turn = new Turn(guess, this.returnCurrentCard())
+    const turn = new Turn(guess, this.returnCurrentCard());
     this.turnCount++;
     const guessEval = turn.evaluateGuess();
     if (guessEval === false) {
@@ -23,6 +23,17 @@ class Round {
       this.deck.shift();
     }
     return turn.giveFeedback();
+  }
+
+  calculatePercentCorrect() {
+    var score =  ((this.turnCount - this.incorrectGuesses.length) / this.turnCount) * 100;
+    return Math.round(score);
+  }
+
+  endRound() {
+    if (this.deck.length === 0) {
+      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly`
+    }
   }
 }
 
