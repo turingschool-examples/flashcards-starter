@@ -62,7 +62,7 @@ describe('Round', function() {
     expect(round.takeTurn(turn)).to.equal(3);
   });
 
-  it('should store incorrect answers', function() {
+  it('should store incorrect guesses', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -100,6 +100,23 @@ describe('Round', function() {
     round.takeTurn(turn3);
     expect(round.incorrectGuess).to.deep.equal(['spleen', 'appendix']);
     expect(turn3.giveFeedback()).to.deep.equal('YAAS QUEEN');
+  });
+
+  it('should store correct guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const turn1 = new Turn('spleen', card2)
+    const turn2 = new Turn('appendix', card2);
+    const turn3 = new Turn('gallbladder', card2);
+    const round = new Round(deck, turn1);
+    round.takeTurn(turn1);
+    expect(round.correctGuess).to.deep.equal([]);
+    round.takeTurn(turn2);
+    expect(round.correctGuess).to.deep.equal([]);
+    round.takeTurn(turn3);
+    expect(round.correctGuess).to.deep.equal(['gallbladder']);
   });
 
 
