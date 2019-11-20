@@ -69,11 +69,17 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
     const turn1 = new Turn('pug', card1)
     const turn2 = new Turn('capybera', card1);
+    const turn3 = new Turn('sea otter', card1);
     const round = new Round(deck, turn1);
     round.takeTurn(turn1);
     expect(round.incorrectGuess).to.deep.equal(['pug']);
+    expect(turn1.giveFeedback()).to.deep.equal('FAIL');
     round.takeTurn(turn2);
     expect(round.incorrectGuess).to.deep.equal(['pug', 'capybera']);
+    expect(turn2.giveFeedback()).to.deep.equal('FAIL');
+    round.takeTurn(turn3);
+    expect(round.incorrectGuess).to.deep.equal(['pug', 'capybera']);
+    expect(turn3.giveFeedback()).to.deep.equal('YAAS QUEEN');
   });
 
 

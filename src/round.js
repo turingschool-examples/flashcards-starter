@@ -16,9 +16,6 @@ class Round {
     return this.turns;
   }
 
-  //  takeTurn: method that updates turns count,
-  //  evaluates guesses, gives feedback,
-  //  and stores ids of incorrect guesses
 
   returnCurrentCard() {
     for(var i = 0; i < this.deck.cards.length; i++) {
