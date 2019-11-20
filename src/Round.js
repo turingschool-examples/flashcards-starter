@@ -1,17 +1,29 @@
+const data = require("./data");
+const Turn = require('../src/Turn');
+
 class Round {
   constructor(deck) {
-    this.deck = deck ? deck.cards : [];
+    this.deck = deck.cards
     this.turnCount = 0;
-    // this.currentCard = deck.cards[0];
+    this.incorrectGuesses = [];
   }
 
   returnCurrentCard() {
-  //   for (var i = 0; i < this.deck.length; i++) {
-  //     console.log("heloooo", deck.length)
-  //     return deck[i];
-  //   }
+    return this.deck[0];
+}
+
+  takeTurn(guess) {
+    const turn = new Turn(guess, this.returnCurrentCard())
+    this.turnCount++;
+    const guessEval = turn.evaluateGuess();
+    if (guessEval === false) {
+      this.incorrectGuesses.push(this.deck[0].id);
+      this.deck.shift();
+    } else {
+      this.deck.shift();
+    }
+    return turn.giveFeedback();
   }
-  // this.currentCard = this.currentCard 
 }
 
 module.exports = Round;
