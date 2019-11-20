@@ -17,13 +17,13 @@ describe('Turn', function() {
   });
 
   it('should receive the current card in play', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('User guess', card);
     expect(turn.card).to.equal(card);
   });
 
   it('should return the guess the user made', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('User guess', card);
 
     turn.returnGuess();
@@ -32,7 +32,7 @@ describe('Turn', function() {
   });
 
   it('should return the card currently in play', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('User guess', card);
 
     turn.returnCard();
@@ -41,8 +41,8 @@ describe('Turn', function() {
   });
 
   it('should evaluate true if the guess matches the correct answer', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('sea otter', card);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
 
     turn.returnGuess();
     turn.returnCard();
@@ -52,8 +52,8 @@ describe('Turn', function() {
   });
 
   it('should evaluate false if the guess does not match the correct answer', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('pug', card);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('array', card);
 
     turn.returnGuess();
     turn.returnCard();
@@ -63,8 +63,8 @@ describe('Turn', function() {
   });
 
   it('should state correct if it is a match', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('sea otter', card);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
 
     turn.returnGuess();
     turn.returnCard();
@@ -75,8 +75,8 @@ describe('Turn', function() {
   });
 
   it('should state incorrect if it is not a match', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('pug', card);
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('array', card);
 
     turn.returnGuess();
     turn.returnCard();
