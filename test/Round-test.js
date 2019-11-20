@@ -63,6 +63,10 @@ describe('Round', function() {
   it.skip('round.takeTurn() should create a new instance of Turn', function() {
     // expect(round.takeTurn('bogey')).to.equal('incorrect!');
     // expect(round.takeTurn('green')).to.equal('correct!');
+
+    // maybe try using different exection and assertion tests to make this work since we arent returning anything. call takeTurn but then assert round.turns and check instead of asserting round.takeTurn() and looking for a value. see box example from today's lesson
+
+    // pay attention to what we need to update and what we are just returning. need to update stuff and not just return new value sometimes
   })
 
   it.skip('round.takeTurn() should increase round.turns each time it is called', function() {
