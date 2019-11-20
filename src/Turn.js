@@ -6,6 +6,17 @@ class Turn {
   returnGuess() {
     return this.guess;
   }
+  returnCard() {
+    return this.card;
+  }
+  evaluateGuess() {
+    if (this.guess !== this.card.correctAnswer) {
+      return false;
+    }
+  }
+  giveFeedback() {
+    return (this.evaluateGuess() ? 'Correct!' : 'Incorrect!');
+  }
 }
 
 module.exports = Turn;
