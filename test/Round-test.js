@@ -65,8 +65,20 @@ describe('Round', function() {
     // expect(round.takeTurn('green')).to.equal('correct!');
   })
 
-  it('round.takeTurn() should increase round.turns each time it is called', function() {
-    expect(round.takeTurn()).to.deep.equal(1);
+  it.skip('round.takeTurn() should increase round.turns each time it is called', function() {
   });
+
+  it.skip('round.takeTurn() should change the current card to the next one in the deck', function() {
+
+  });
+
+  it.skip('round.takeTurn() should push the id of incorrect guesses into an array', function() {
+
+  });
+
+  it.skip('round.takeTurn() should return feedback to the user based on their guess', function() {
+
+  });
+
 
 })
