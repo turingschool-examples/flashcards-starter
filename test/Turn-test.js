@@ -5,6 +5,8 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe ('Turn', function() {
+  var turn;
+  var card;
 
   beforeEach( () => {
   card = new Card({
@@ -38,16 +40,39 @@ describe ('Turn', function() {
    expect(turn.returnGuess).to.be.a('function');
  });
 
+  it('turn.returnGuess() should return the user\'s guess', function() {
+    expect(turn.returnGuess()).to.deep.equal('user\'s guess');
+  });
+
   it('should have a returnCard method', function() {
   expect(turn.returnCard).to.be.a('function');
+});
+
+  it('turn.returnCard() should return the card obj', function() {
+  expect(turn.returnCard()).to.deep.equal(card);
 });
 
   it('should have a evaluateGuess method', function() {
  expect(turn.evaluateGuess).to.be.a('function');
 });
 
+  it('turn.evaluateGuess() should return false based on the user\'s guess', function() {
+    expect(turn.evaluateGuess()).to.deep.equal(false)
+  });
+
+  it('turn.evaluateGuess() should return true if the user\'s guess is correct', function() {
+    var turn2 = new Turn('birdie', card);
+    expect(turn2.evaluateGuess()).to.deep.equal(true)
+  });
+
   it('should have a giveFeedback method', function() {
  expect(turn.giveFeedback).to.be.a('function');
 });
+
+  it('turn.giveFeedback() should return a string of \'incorrect!\' or \'correct!\' based on the user\'s guess', function() {
+    expect(turn.giveFeedback()).to.deep.equal('incorrect!')
+    var turn2 = new Turn('birdie', card);
+    expect(turn2.giveFeedback()).to.deep.equal('correct!')
+  })
 
 });
