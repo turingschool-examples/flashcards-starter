@@ -1,6 +1,13 @@
 class Round {
-  constructor(deck) {
+  constructor(deck, turn) {
     this.deck = deck;
+    this.turns = 0;
+    this.turn = turn;
+  }
+
+  takeTurn(turn) {
+    this.turns++;
+    return this.turns;
   }
 
   returnCurrentCard() {
