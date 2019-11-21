@@ -46,7 +46,7 @@ describe('Turn', function() {
       const turn = new Turn('object', card);
       // const turn2 = new Turn('array', card);
       // const turn3 = new Turn('function', card);
-      expect(turn.giveFeedback()).to.equal('YAAS QUEEN');
+      expect(turn.giveFeedback()).to.equal('YAAS');
       // expect(turn2.giveFeedback()).to.equal('FAIL');
       // expect(turn3.giveFeedback()).to.equal('FAIL');
     });

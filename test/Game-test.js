@@ -19,5 +19,4 @@ describe('Game', function() {
     const game = new Game();
     expect(game).to.be.an.instanceof(Game);
   });
-
 });
