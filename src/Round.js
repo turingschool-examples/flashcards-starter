@@ -27,8 +27,9 @@ class Round {
     return average
   }
 
-  endRound(calculatePercentCorrect) {
-    return `** Round over! ** You answered ${calculatePercentCorrect} of the questions correctly!`
+  endRound() {
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
 module.exports = Round
