@@ -37,7 +37,7 @@ class Round {
   endRound() {
     var message = `** Round Over!! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly.`;
     console.log(message);
-    return message; // not sure I like this, since I don't need to return anything
+    return message; // not sure I like this, since I don't need to return anything 
   }
 }
 
