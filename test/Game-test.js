@@ -9,6 +9,7 @@ const Game = require('../src/Game.js');
 
 describe('Game', function() {
   var game = new Game();
+  var round = new Round();
 
   it('should keep track of currentRound', function() {
     expect(game.currentGame).to.equal(null);
@@ -17,7 +18,7 @@ describe('Game', function() {
   it('should start the game', function() {
     expect(game.currentGame).to.equal(null);
     game.start();
-    // expect(game.currentGame).to.equal(round);
+    expect(game.currentGame).to.equal(round);
   });
 
 

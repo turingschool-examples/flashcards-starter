@@ -20,18 +20,15 @@ class Game {
   start() {
     for (var i = 0; i < prototypeQuestions.length; i ++) {
       let cards = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
+      console.log(cards);
       let deckOfCards = new Deck(cards);
-      // let turn = new Turn();
       let round = new Round(deckOfCards);
       return deckOfCards;
     }
-    // for loop over this to get into each card
-    // let deck = new card( card.propertys)
-    // return that deckofCards
 
-    // let deck = new decklet round = new ROund of deck
-    // call the two functions to start the game - print message and print question
-
+    this.printMessage(deck, round);
+    this.printQuestion(round);
+    currentGame = round;
   }
 
   printQuestion(round) {
