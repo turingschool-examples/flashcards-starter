@@ -5,8 +5,8 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe ('Turn', function() {
-  var turn;
-  var card;
+  let turn;
+  let card;
 
   beforeEach( () => {
   card = new Card({
@@ -71,7 +71,7 @@ describe ('Turn', function() {
 
   it('turn.giveFeedback() should return a string of \'incorrect!\' or \'correct!\' based on the user\'s guess', function() {
     expect(turn.giveFeedback()).to.deep.equal('incorrect!')
-    var turn2 = new Turn('birdie', card);
+    let turn2 = new Turn('birdie', card);
     expect(turn2.giveFeedback()).to.deep.equal('correct!')
   })
 
