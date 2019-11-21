@@ -16,7 +16,6 @@ class Round {
     const turn = new Turn(guess, this.returnCurrentCard());
     !turn.evaluateGuess() ? this.incorrectGuesses.push(this.returnCurrentCard().id) : null;
     this.turns ++;
-    console.log(this.incorrectGuesses);
     return turn.giveFeedBack();
   }
 
