@@ -11,9 +11,6 @@ class Game {
     this.currentRound = null
   }
   start() {
-    // for (var i = 0; i < prototypeQuestions.length; i++) {
-    //   var cards = new Card(prototypeQuestions[i].id, prototypeQuestions[i].questions, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer)
-    // }
     let deckOfCards = prototypeQuestions.map(card => {
       return new Card(card.id, card.question, card.answers, card.correctAnswer)
     })
