@@ -5,14 +5,14 @@ const Deck = require('../src/deck');
 const Card = require('../src/Card');
 const Round = require('../src/round');
 
-
-
-
 class Game {
   constructor() {
     var cards = [];
+
     for (var i = 0; i < prototypeQuestions.length; i++) {
-      var card = prototypeQuestions[i]
+      var card = new Card(prototypeQuestions[i].id,
+        prototypeQuestions[i].question, prototypeQuestions[i].answers,
+        prototypeQuestions[i].correctAnswer)
       cards.push(card)
     }
     this.deck = new Deck(cards);
@@ -21,22 +21,19 @@ class Game {
   }
 
   start() {
-
     this.printMessage(this.deck, this.round);
     this.printQuestion(this.round);
-    // console.log(this.round)
-    console.log('correct', this.round.correctGuesses)
-    console.log('incorrect', this.round.incorrectGuesses)
     return this.deck.cards.length;
   }
 
-  printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+  printMessage(deck) {
+    console.log(`Welcome to FlashCards! You are playing with
+        ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 

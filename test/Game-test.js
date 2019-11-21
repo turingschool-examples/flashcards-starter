@@ -7,8 +7,8 @@ const Game = require('../src/Game');
 describe('Game', function() {
 
   it('should create cards', function() {
-      const game = new Game();
+    const game = new Game();
 
-      expect(game.start()).to.equal(30);
+    expect(game.start()).to.equal(30);
   });
 });
