@@ -14,7 +14,7 @@ class Round {
     let turn = new Turn(guess, cardPlayed);
     // console.log(guess);
     this.counter++;
-    console.log(guess)
+    console.log('turn console:', guess)
     if (turn.evaluateGuess()) {
       this.correctGuess.push(guess);
     } else {
