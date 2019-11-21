@@ -23,9 +23,10 @@ const getRound = (round) => {
 
 const confirmUpdate = (id, round) => {
   const feedback = round.takeTurn(id);
+  const reportCard = round.incorrectGuess;
   return {
     name: 'feedback',
-    message: `Your answer of ${id} gets a ${feedback}`
+    message: `Your answer of ${id} gets a ${feedback} and you have ${reportCard.length} questions wrong`,
   }
 }
 
@@ -37,6 +38,8 @@ async function main(round) {
 
     if(!round.returnCurrentCard()) {
       round.endRound();
+      round.reportNumber();
+      round.printReportCard();
     } else {
       main(round);
     }
