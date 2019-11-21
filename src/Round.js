@@ -8,7 +8,7 @@ class Round {
     this.currentCard = deck.cards[0];
     this.turns = 0;
     this.incorrectGuesses = [];
-    
+
 
   }
   returnCurrentCard() {
@@ -17,6 +17,14 @@ class Round {
   takeTurn(guess) {
     var turn = new Turn(guess, this.currentCard);
     this.turns++;
+    // if (turn.evaluateGuess() === false) {
+    //   this.incorrectGuesses.push(this.currentCard.id);
+    // }
+
+    // this is hella janky but it works
+    var cardIndex = (this.deck.cards.indexOf(this.currentCard) + 1);
+    this.currentCard = this.deck.cards[cardIndex];
+
   }
 }
 
