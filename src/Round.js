@@ -18,10 +18,11 @@ class Round {
     return turn.giveFeedback();
   }
   calculatePercentCorrect() {
-    return (this.deck.length - this.incorrectGuesses.length) / this.deck.length * 100;
+    return parseInt(Math.round((this.deck.length - this.incorrectGuesses.length) / this.deck.length * 100));
   }
   endRound() {
-    return `** Round Over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(`** Round Over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    process.exit();
   }
 }
 
