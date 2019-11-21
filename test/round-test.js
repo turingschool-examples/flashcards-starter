@@ -34,44 +34,26 @@ describe('Round', function() {
   });
 
   it('should return the current card', function() {
-    // const turn = new Turn('sea otter', card1);
     const round1 = new Round(deck1);
-    // const round2 = new Round(deck1);
     expect(round1.returnCurrentCard()).to.equal(card1);
     round1.takeTurn('sea otter');
     expect(round1.returnCurrentCard()).to.equal(card2);
   });
 
   it('should keep track of turns', function() {
-    // const turn = new Turn('sea otter', card1)
     const round = new Round(deck1);
     expect(round.takeTurn('sea otter')).to.equal(1);
-    // expect(round.takeTurn(turn)).to.equal(2);
-    // expect(round.takeTurn(turn)).to.equal(3);
   });
 
   it('should store incorrect guesses', function() {
     const turn = new Turn('pug', card1)
-    // const turn2 = new Turn('capybera', card1);
-    // const turn3 = new Turn('sea otter', card1);
     const round = new Round(deck1);
     round.takeTurn('pug');
     expect(round.incorrectGuess).to.deep.equal(['pug']);
-    // expect(turn1.giveFeedback()).to.deep.equal('FAIL');
-    // round.takeTurn('capybera');
-    // expect(round.incorrectGuess).to.deep.equal(['pug', 'capybera']);
-    // expect(turn2.giveFeedback()).to.deep.equal('FAIL');
-    // round.takeTurn('sea otter');
-    // expect(round.incorrectGuess).to.deep.equal(['pug', 'capybera']);
-    // expect(round.correctGuess).to.deep.equal(['sea otter'])
-    // expect(turn3.giveFeedback()).to.deep.equal('YAAS QUEEN');
   });
 
   it('should store correct guesses', function () {
    const round = new Round(deck1);
-   // console.log(round)
-   // console.log(round.correctGuess)
-   // console.log(round.takeTurn());
    round.takeTurn();
    round.takeTurn('gallbladder');
    expect(round.correctGuess).to.deep.equal(['gallbladder']);
@@ -79,27 +61,12 @@ describe('Round', function() {
 
   it('should give proper feedback', function() {
     const turn = new Turn('spleen', card2);
-    // const turn2 = new Turn('appendix', card2);
-    // const turn3 = new Turn('gallbladder', card2);
     const round = new Round(deck1);
-    // console.log(round);
-    // console.log(round.correctGuess);
     round.takeTurn('spleen');
     expect(turn.giveFeedback()).to.equal('FAIL');
-    // expect(round.incorrectGuess).to.deep.equal(['spleen']);
-    // expect(turn1.giveFeedback()).to.deep.equal('FAIL');
-    // round.takeTurn(turn2);
-    // expect(round.incorrectGuess).to.equal(['spleen', 'appendix']);
-    // expect(turn2.giveFeedback()).to.deep.equal('FAIL');
-    // round.takeTurn(turn3);
-    // expect(round.incorrectGuess).to.equal(['spleen', 'appendix']);
-    // expect(turn3.giveFeedback()).to.deep.equal('YAAS QUEEN');
   });
 
   it('should calculate percent correct', function() {
-    // const turn1 = new Turn('spleen', card2)
-    // const turn2 = new Turn('gallbladder', card2);
-    // const turn3 = new Turn('appendix', card2);
     const round = new Round(deck1);
     round.takeTurn('spleen');
     round.takeTurn('gallbladder');
