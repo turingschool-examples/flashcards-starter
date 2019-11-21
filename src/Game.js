@@ -19,8 +19,8 @@ class Game {
       let card = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
       deckOfCards.push(card);
     }
-    round = new Round(deckOfCards);
     deckOfCards = new Deck(deckOfCards);
+    round = new Round(deckOfCards);
     this.printMessage(deckOfCards, round);
     this.printQuestion(round);
     this.currentGame = round;
