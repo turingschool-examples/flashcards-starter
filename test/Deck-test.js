@@ -11,30 +11,30 @@ describe('Deck', function() {
   });
 
   it('should be an instance of Deck', function() {
-    var deck = new Deck();
+    const deck = new Deck();
     expect(deck).to.be.an.instanceof(Deck);
   });
 
   it('should be initialized with an array of Cards', function() {
-    var card1 = {
+    let card1 = {
       "id": 1,
       "question": `A score of one better than par on a golf hole is called what?`,
       "answers": ['birdie', 'bogey', 'eagle'],
       "correctAnswer": 'birdie'
     };
-    var card2 = {
+    let card2 = {
       "id": 2,
       "question": `What is my favorite color?`,
       "answers": ['green', 'blue', 'orange'],
       "correctAnswer": 'green'
     };
-    var card3 = {
+    let card3 = {
       "id": 3,
       "question": `How many toes do I have on my right foot?`,
       "answers": [6, 5, 10],
       "correctAnswer": 5
     };
-    var deck = new Deck([card1, card2, card3]);
+    const deck = new Deck([card1, card2, card3]);
 
     expect(deck.cards[0]).to.equal(card1);
     expect(deck.cards[1]).to.equal(card2);
@@ -43,30 +43,30 @@ describe('Deck', function() {
   });
 
   it('should have a countCards method', function() {
-    var deck = new Deck();
+    const deck = new Deck();
     expect(deck.countCards).to.be.a('function');
   });
 
   it('deck.countCards() should return the number of cards in the deck', function() {
-    var card1 = {
+    let card1 = {
       "id": 1,
       "question": `A score of one better than par on a golf hole is called what?`,
       "answers": ['birdie', 'bogey', 'eagle'],
       "correctAnswer": 'birdie'
     };
-    var card2 = {
+    let card2 = {
       "id": 2,
       "question": `What is my favorite color?`,
       "answers": ['green', 'blue', 'orange'],
       "correctAnswer": 'green'
     };
-    var card3 = {
+    let card3 = {
       "id": 3,
       "question": `How many toes do I have on my right foot?`,
       "answers": [6, 5, 10],
       "correctAnswer": 5
     };
-    var deck = new Deck([card1, card2, card3]);
+    const deck = new Deck([card1, card2, card3]);
 
     expect(deck.countCards()).to.equal(3);
   });
