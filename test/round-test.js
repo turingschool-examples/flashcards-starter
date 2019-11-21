@@ -38,7 +38,7 @@ describe('Round', function() {
   });
 
   it('should keep track of turns', function() {
-    expect(round.takeTurn('sea otter')).to.equal(1);
+    expect(round.takeTurn('sea otter')).to.eql('YAAS');
   });
 
   describe('check guess', function() {

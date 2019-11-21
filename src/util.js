@@ -25,7 +25,7 @@ const confirmUpdate = (id, round) => {
   const feedback = round.takeTurn(id);
   return {
     name: 'feedback',
-    message: `Your answer of ${id} is ${feedback}`
+    message: `Your answer of ${id} gets a ${feedback}`
   }
 }
 
