@@ -2,7 +2,7 @@ const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Deck = require('../src/deck');
-const Card = require('../src/Card');
+// const Card = require('../src/Card');
 const Round = require('../src/round');
 
 
@@ -24,9 +24,6 @@ class Game {
 
     this.printMessage(this.deck, this.round);
     this.printQuestion(this.round);
-    // console.log(this.round)
-    console.log('correct', this.round.correctGuesses)
-    console.log('incorrect', this.round.incorrectGuesses)
     return this.deck.cards.length;
   }
 
