@@ -2,7 +2,7 @@
 
 I was tasked with creating classes of objects that interact with each other in order to implement a game you can play in the console.
 
-
+img.src = ''
 
 ### Setup
 
