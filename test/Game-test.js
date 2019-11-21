@@ -4,13 +4,13 @@ const expect = chai.expect;
 const data = require('../src/data');
 const prototypeQuestions = data.prototypeData;
 
-var Game = require('../src/Game');
-var Deck = require('../src/Deck');
-var Card = require('../src/Card');
-var Round = require('../src/Round');
+const Game = require('../src/Game');
+const Deck = require('../src/Deck');
+const Card = require('../src/Card');
+const Round = require('../src/Round');
 
 describe('Game', function() {
-  var game;
+  let game;
 
   beforeEach( () => {
     game = new Game();
