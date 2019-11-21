@@ -51,7 +51,7 @@ describe('Round', function() {
   });
 
   it('should store incorrect guesses', function() {
-    // const turn = new Turn('pug', card1)
+    const turn = new Turn('pug', card1)
     // const turn2 = new Turn('capybera', card1);
     // const turn3 = new Turn('sea otter', card1);
     const round = new Round(deck1);
@@ -67,21 +67,6 @@ describe('Round', function() {
     // expect(turn3.giveFeedback()).to.deep.equal('YAAS QUEEN');
   });
 
-  it('should give proper feedback', function() {
-    // const turn1 = new Turn('spleen', card2);
-    // const turn2 = new Turn('appendix', card2);
-    // const turn3 = new Turn('gallbladder', card2);
-    const round = new Round(deck1);
-    expect(round.takeTurn('spleen')).to.equal('FAIL')
-    // expect(round.incorrectGuess).to.deep.equal(['spleen']);
-    // expect(turn1.giveFeedback()).to.deep.equal('FAIL');
-    // round.takeTurn(turn2);
-    // expect(round.incorrectGuess).to.equal(['spleen', 'appendix']);
-    // expect(turn2.giveFeedback()).to.deep.equal('FAIL');
-    // round.takeTurn(turn3);
-    // expect(round.incorrectGuess).to.equal(['spleen', 'appendix']);
-    // expect(turn3.giveFeedback()).to.deep.equal('YAAS QUEEN');
-  });
 
   it('should store correct guesses', function() {
     // const turn1 = new Turn('spleen', card2)
@@ -94,6 +79,23 @@ describe('Round', function() {
     // expect(round.correctGuess).to.deep.equal([]);
     round.takeTurn('gallbladder');
     expect(round.correctGuess).to.deep.equal(['gallbladder']);
+  });
+
+  it('should give proper feedback', function() {
+    const turn = new Turn('spleen', card2);
+    // const turn2 = new Turn('appendix', card2);
+    // const turn3 = new Turn('gallbladder', card2);
+    const round = new Round(deck1);
+    round.takeTurn('spleen');
+    expect(turn.giveFeedback()).to.equal('FAIL');
+    // expect(round.incorrectGuess).to.deep.equal(['spleen']);
+    // expect(turn1.giveFeedback()).to.deep.equal('FAIL');
+    // round.takeTurn(turn2);
+    // expect(round.incorrectGuess).to.equal(['spleen', 'appendix']);
+    // expect(turn2.giveFeedback()).to.deep.equal('FAIL');
+    // round.takeTurn(turn3);
+    // expect(round.incorrectGuess).to.equal(['spleen', 'appendix']);
+    // expect(turn3.giveFeedback()).to.deep.equal('YAAS QUEEN');
   });
 
   it('should calculate percent correct', function() {
