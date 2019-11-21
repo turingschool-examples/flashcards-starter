@@ -22,6 +22,9 @@ class Round {
     this.turns = 0;
     this.incorrectGuesses = [];
     this.correctGuesses = [];
+    if (this.turns === 30) {
+      endRound();
+    }
   }
 
 
@@ -31,14 +34,14 @@ class Round {
   }
 
   takeTurn(guess) {
-    var turn = new Turn(guess, this.currentDeck.cards.correctAnswer)
+    var turn = new Turn(guess, this.currentDeck.cards[0].correctAnswer)
     this.turns += 1;
     if (turn.guess === this.currentDeck.cards[0].correctAnswer) {
       var correctCard = this.currentDeck.cards.shift();
-      this.correctGuesses.push(correctCard);
-      return turn.giveFeedback(turn.guess, this.correctGuesses[0]);
+      this.correctGuesses.unshift(correctCard);
+        return turn.giveFeedback(turn.guess, this.correctGuesses[0]);
     } else var incorrectCard = this.currentDeck.cards.shift();
-      this.incorrectGuesses.push(incorrectCard);
+      this.incorrectGuesses.unshift(incorrectCard);
       return turn.giveFeedback(turn.guess, this.incorrectGuesses[0]);
   }
 
@@ -53,7 +56,8 @@ class Round {
     var worthPerQuestion = (100 / ((this.correctGuesses.length || 0) + (this.incorrectGuesses.length || 0)))
     var percentIncorrect = ((this.incorrectGuesses.length || 0) * worthPerQuestion)
     var percentCorrect = 100 - percentIncorrect;
-    return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${percentCorrect.toFixed(2)}% of the questions correctly!`);
+    return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`;
   }
 }
 
