@@ -11,18 +11,10 @@ describe('Game', function() {
     game = new Game();
   });
 
-  // it('should have the currentRound method', function() {
-  //   expect(game.returnCurrentRound).to.be.a('function');
-  // });
-  //
-  // it('game.currentRound() should keep track of the current round', function() {
-  //   expect(game.returnCurrentRound()).to.equal(0);
-  // });
-
   it('should keep track of the current round', function() {
-    expect(game.currentRound).to.equal(0);
+    expect(game.currentRound).to.equal('');
   });
-
+  
   it('should have the startGame method', function() {
     expect(game.startGame).to.be.a('function');
   });
