@@ -60,19 +60,17 @@ describe('Round', function() {
     expect(round.takeTurn).to.be.a('function');
   });
 
-  it.skip('round.takeTurn() should create a new instance of Turn', function() {
-    // expect(round.takeTurn('bogey')).to.equal('incorrect!');
-    // expect(round.takeTurn('green')).to.equal('correct!');
-
-    // maybe try using different exection and assertion tests to make this work since we arent returning anything. call takeTurn but then assert round.turns and check instead of asserting round.takeTurn() and looking for a value. see box example from today's lesson
-
-    // pay attention to what we need to update and what we are just returning. need to update stuff and not just return new value sometimes
+  it('round.takeTurn() should create a new instance of Turn', function() {
+    expect(round.takeTurn('bogey')).to.equal('incorrect!');
+    expect(round.takeTurn('green')).to.equal('correct!');
   })
 
   it('round.takeTurn() should increase round.turns each time it is called', function() {
     expect(round.turns).to.equal(0);
     round.takeTurn();
     expect(round.turns).to.equal(1);
+    round.takeTurn();
+    expect(round.turns).to.equal(2);
   });
 
   it('round.takeTurn() should change the current card to the next one in the deck', function() {
@@ -83,13 +81,49 @@ describe('Round', function() {
     expect(round.currentCard).to.equal(card3);
   });
 
-  it.skip('round.takeTurn() should push the id of incorrect guesses into an array', function() {
+  it('round.takeTurn() should push the id of incorrect guesses into an array', function() {
+    round.takeTurn('birdie');
+    expect(round.incorrectGuesses).to.deep.equal([])
 
+    round.takeTurn('blue');
+    expect(round.incorrectGuesses).to.deep.equal([2])
+
+    round.takeTurn('blue');
+    expect(round.incorrectGuesses).to.deep.equal([2, 3])
   });
 
-  it.skip('round.takeTurn() should return feedback to the user based on their guess', function() {
-
+  it('round.takeTurn() should return feedback to the user based on their guess', function() {
+    expect(round.takeTurn('bogey')).to.equal('incorrect!');
+    expect(round.takeTurn('green')).to.equal('correct!');
+    expect(round.takeTurn(5)).to.equal('correct!');
   });
 
+  it('should have a calculatePercentCorrect method', function() {
+      expect(round.calculatePercentCorrect).to.be.a('function');
+  });
+
+  it('round.calculatePercentCorrect() should return the % of correct guesses', function() {
+    round.takeTurn('birdie');
+    expect(round.calculatePercentCorrect()).to.equal(100);
+    round.takeTurn('blue');
+    expect(round.calculatePercentCorrect()).to.equal(50)
+    round.takeTurn('7');
+    expect(round.calculatePercentCorrect()).to.equal(33)
+  });
+
+  it('should have a endRound method', function() {
+      expect(round.endRound).to.be.a('function');
+  });
+
+  it('round.endRound() should print the correct message', function() {
+      round.takeTurn('birdie');
+      expect(round.endRound()).to.equal(`** Round Over!! ** You answered 100% of the questions correctly.`);
+
+      round.takeTurn('red');
+      expect(round.endRound()).to.equal(`** Round Over!! ** You answered 50% of the questions correctly.`);
+
+      round.takeTurn(7);
+      expect(round.endRound()).to.equal(`** Round Over!! ** You answered 33% of the questions correctly.`);
+  });
 
 })
