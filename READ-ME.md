@@ -2,7 +2,7 @@
 
 I was tasked with creating classes of objects that interact with each other in order to implement a game you can play in the console.
 
-
+![](https://i.ibb.co/gPg7496/Screen-Shot-2019-11-21-at-3-56-38-PM.png)
 
 ### Setup
 
