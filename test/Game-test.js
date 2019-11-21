@@ -9,18 +9,18 @@ const Game = require('../src/Game.js');
 
 describe('Game', function() {
   var game = new Game();
+  var round = new Round();
+
+  it('should be a function', function() {
+    expect(Game).to.be.a('function');
+  });
 
   it('should keep track of currentRound', function() {
     expect(game.currentGame).to.equal(null);
   });
 
-  it('should start the game', function() {
-    expect(game.currentGame).to.equal(null);
-    game.start();
-    // expect(game.currentGame).to.equal(round);
+  it('should be an instance of Game', function() {
+    const game = new Game();
+    expect(game).to.be.an.instanceof(Game);
   });
-
-
-
-
 });

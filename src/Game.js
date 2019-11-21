@@ -12,26 +12,23 @@ class Game {
     this.currentGame = null;
   }
 
-  printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+  start() {
+    let deckOfCards = [];
+    let round;
+    for (var i = 0; i < prototypeQuestions.length; i ++) {
+      let card = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
+      deckOfCards.push(card);
+    }
+    deckOfCards = new Deck(deckOfCards);
+    round = new Round(deckOfCards);
+    this.printMessage(deckOfCards, round);
+    this.printQuestion(round);
+    this.currentGame = round;
   }
 
-  start() {
-    for (var i = 0; i < prototypeQuestions.length; i ++) {
-      let cards = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
-      let deckOfCards = new Deck(cards);
-      // let turn = new Turn();
-      let round = new Round(deckOfCards);
-      return deckOfCards;
-    }
-    // for loop over this to get into each card
-    // let deck = new card( card.propertys)
-    // return that deckofCards
-
-    // let deck = new decklet round = new ROund of deck
-    // call the two functions to start the game - print message and print question
-
+  printMessage(deck, round) {
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
