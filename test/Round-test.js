@@ -6,11 +6,11 @@ const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
 describe('Round', function() {
-  var card1;
-  var card2;
-  var card3;
-  var deck;
-  var round;
+  let card1;
+  let card2;
+  let card3;
+  let deck;
+  let round;
 
   beforeEach( () => {
     card1 = new Card ({

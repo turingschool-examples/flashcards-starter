@@ -1,5 +1,3 @@
-// this object will take in responses and record guesses.
-// methods = returnCurrentCard, takeTurn, calculatePercentCorrect, endRound
 const Turn = require('../src/Turn');
 
 class Round {
@@ -8,21 +6,19 @@ class Round {
     this.currentCard = deck.cards[0];
     this.turns = 0;
     this.incorrectGuesses = [];
-
-
   }
   returnCurrentCard() {
     return this.currentCard;
   };
   takeTurn(guess) {
-    var turn = new Turn(guess, this.currentCard);
+    const turn = new Turn(guess, this.currentCard);
     this.turns++;
     if (turn.evaluateGuess() === false) {
       this.incorrectGuesses.push(this.currentCard.id);
     }
 
     // this is hella janky but it works
-    var cardIndex = (this.deck.cards.indexOf(this.currentCard) + 1);
+    let cardIndex = (this.deck.cards.indexOf(this.currentCard) + 1);
     this.currentCard = this.deck.cards[cardIndex];
     return turn.giveFeedback(guess);
 
@@ -35,9 +31,9 @@ class Round {
     }
   }
   endRound() {
-    var message = `** Round Over!! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly.`;
+    let message = `** Round Over!! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly.`;
     console.log(message);
-    return message; // not sure I like this, since I don't need to return anything 
+    return message; // not sure I like this, since I don't need to return anything
   }
 }
 
