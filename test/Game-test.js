@@ -15,13 +15,9 @@ describe('Game', function() {
     expect(game.currentGame).to.equal(null);
   });
 
-  it('should start the game', function() {
-    expect(game.currentGame).to.equal(null);
-    game.start();
-    expect(game.currentGame).to.equal(round);
+  it('should be an instance of Game', function() {
+    const game = new Game();
+    expect(game).to.be.an.instanceof(Game);
   });
-
-
-
 
 });

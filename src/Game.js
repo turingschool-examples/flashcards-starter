@@ -12,23 +12,23 @@ class Game {
     this.currentGame = null;
   }
 
-  printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+  start() {
+    let deckOfCards = [];
+    let round;
+    for (var i = 0; i < prototypeQuestions.length; i ++) {
+      let card = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
+      deckOfCards.push(card);
+    }
+    round = new Round(deckOfCards);
+    deckOfCards = new Deck(deckOfCards);
+    this.printMessage(deckOfCards, round);
+    this.printQuestion(round);
+    this.currentGame = round;
   }
 
-  start() {
-    for (var i = 0; i < prototypeQuestions.length; i ++) {
-      let cards = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
-      console.log(cards);
-      let deckOfCards = new Deck(cards);
-      let round = new Round(deckOfCards);
-      return deckOfCards;
-    }
-
-    this.printMessage(deck, round);
-    this.printQuestion(round);
-    currentGame = round;
+  printMessage(deck, round) {
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
