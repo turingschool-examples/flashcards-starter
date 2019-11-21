@@ -8,7 +8,7 @@ class Round {
     this.currentCard = deck.cards[0];
     this.turns = 0;
     this.incorrectGuesses = [];
-    
+
 
   }
   returnCurrentCard() {
@@ -17,6 +17,27 @@ class Round {
   takeTurn(guess) {
     var turn = new Turn(guess, this.currentCard);
     this.turns++;
+    if (turn.evaluateGuess() === false) {
+      this.incorrectGuesses.push(this.currentCard.id);
+    }
+
+    // this is hella janky but it works
+    var cardIndex = (this.deck.cards.indexOf(this.currentCard) + 1);
+    this.currentCard = this.deck.cards[cardIndex];
+    return turn.giveFeedback(guess);
+
+  }
+  calculatePercentCorrect() {
+    if (this.incorrectGuesses.length === 0) {
+      return 100;
+    } else {
+      return Math.round((1 - (this.incorrectGuesses.length / this.turns)) * 100);
+    }
+  }
+  endRound() {
+    var message = `** Round Over!! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly.`;
+    console.log(message);
+    return message; // not sure I like this, since I don't need to return anything
   }
 }
 
