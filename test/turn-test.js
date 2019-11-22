@@ -30,21 +30,27 @@ describe('Turn', function() {
     expect(turn.returnCard()).to.equal(card);
   });
 
-  it('should have a method called evaluateGuess', function() {
-    expect(turn.evaluateGuess('hi', card)).to.equal(false);
+  describe('turn.evaluateGuess()', function() {
+
+    it('should have a method called evaluateGuess', function() {
+      expect(turn.evaluateGuess('hi', card)).to.equal(false);
+    });
+
+    it('should return true if the guess is correct', function() {
+      expect(turn.evaluateGuess('object', card)).to.equal(true);
+    });
   });
 
-  it('should return true if the guess is correct', function() {
-    expect(turn.evaluateGuess('object', card)).to.equal(true);
-  });
+  describe('turn.giveFeedback()', function() {
 
-  it('should have a method called giveFeedback', function() {
-    expect(turn.giveFeedback('object', card)).to.equal('correct!');
-  });
+    it('should have a method called giveFeedback', function() {
+      expect(turn.giveFeedback('object', card)).to.equal('correct!');
+    });
 
-  it('should return incorrect if wrong', function() {
-    const incorrectTurn = new Turn('hi', card);
-
-    expect(incorrectTurn.giveFeedback('hi', card)).to.equal('incorrect!');
+    it('should return incorrect if wrong', function() {
+      const incorrectTurn = new Turn('hi', card);
+      
+      expect(incorrectTurn.giveFeedback('hi', card)).to.equal('incorrect!');
+    });
   });
 });

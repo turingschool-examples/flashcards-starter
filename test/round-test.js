@@ -43,14 +43,27 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.equal(card1)
   });
 
-  it('should start with a turn count of 0', function() {
-    expect(round.turns).to.equal(0);
-  });
+  describe('round.takeTurn() and round.turns', function() {
 
-  it('should increment each time takeTurn is invoked', function() {
-    round.takeTurn('object');
-    round.takeTurn('object');
-    expect(round.turns).to.equal(2);
+    it('should start with a turn count of 0', function() {
+      expect(round.turns).to.equal(0);
+    });
+
+    it('should increment each time takeTurn is invoked', function() {
+      round.takeTurn('object');
+      round.takeTurn('object');
+      expect(round.turns).to.equal(2);
+    });
+
+    it('should return correct! after a correct guess is made', function() {
+      expect(round.takeTurn('object')).to.equal('correct!');
+    });
+
+    it('should return incorrect! after a incorrect guess is made', function() {
+      const round = new Round(deck, turn);
+
+      expect(round.takeTurn('hi')).to.equal('incorrect!');
+    });
   });
 
   it('should start with an empty array called incorrectGuesses', function() {
@@ -62,15 +75,6 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.equal(card2);
   });
 
-  it('should return correct! after a correct guess is made', function() {
-    expect(round.takeTurn('object')).to.equal('correct!');
-  });
-
-  it('should return incorrect! after a incorrect guess is made', function() {
-    const round = new Round(deck, turn);
-    expect(round.takeTurn('hi')).to.equal('incorrect!');
-  });
-
   it('should calculate the percent correct', function() {
     round.takeTurn('object');
     expect(round.calculatePercentCorrect()).to.equal(100);
@@ -79,7 +83,7 @@ describe('Round', function() {
   it('should log a message after the game ends', function() {
     round.takeTurn('object');
     round.takeTurn('object');
-    expect(round.endRound()).to.equal(console.log('** Round over!'
-    + ' ** You answered 50.00% of the questions correctly!'));
+    expect(round.endRound()).to.equal('** Round over! ** You answered 50.00% of'
+    + ' the questions correctly!');
   });
 });
