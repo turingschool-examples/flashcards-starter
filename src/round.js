@@ -8,7 +8,6 @@ class Round {
     this.correctGuess = [];
     this.storedQuestion = [];
     this.storedCard = [];
-    this.correctAnswers = [];
     this.grade = [];
   }
 
@@ -18,9 +17,7 @@ class Round {
     this.counter += 1;
     turn.evaluateGuess() ? this.correctGuess.push(guess) : this.incorrectGuess.push(guess);
     turn.evaluateGuess() ? null : this.storedQuestion.push(turn.returnCard(cardPlayed).id);
-    // turn.evaluateGuess() ? null : this.storedCard.push(turn.returnCard(cardPlayed).question);
     turn.evaluateGuess() ? null : this.storedCard.push(turn.returnCard(cardPlayed).correctAnswer);
-    console.log(this.storedCard);
     this.deck.cards.shift();
     this.counter;
     return turn.giveFeedback();
