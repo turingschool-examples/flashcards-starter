@@ -8,6 +8,8 @@ class Round {
     this.correctGuess = [];
     this.storedQuestion = [];
     this.storedCard = [];
+    this.correctAnswers = [];
+    this.grade = [];
   }
 
   takeTurn(guess) {
@@ -16,7 +18,9 @@ class Round {
     this.counter += 1;
     turn.evaluateGuess() ? this.correctGuess.push(guess) : this.incorrectGuess.push(guess);
     turn.evaluateGuess() ? null : this.storedQuestion.push(turn.returnCard(cardPlayed).id);
-    turn.evaluateGuess() ? null : this.storedCard.push(turn.returnCard(cardPlayed).question);
+    // turn.evaluateGuess() ? null : this.storedCard.push(turn.returnCard(cardPlayed).question);
+    turn.evaluateGuess() ? null : this.storedCard.push(turn.returnCard(cardPlayed).correctAnswer);
+    console.log(this.storedCard);
     this.deck.cards.shift();
     this.counter;
     return turn.giveFeedback();
@@ -42,9 +46,10 @@ class Round {
   }
 
   printReportCard() {
-    console.log(`You answered: ${this.incorrectGuess} for the wrong questions.`);
-    console.table([`${this.storedQuestion}`], ['Questions Missed']);
-    console.table([`${this.storedQuestion}`]);
+    for (var i =0; i < this.storedQuestion.length; i++) {
+      this.grade = {cardID: `${this.storedQuestion[i] }`, AnswerGiven: `${this.incorrectGuess[i]}`, correctAnswer: `${this.storedCard[i]}`};
+      console.table(this.grade);
+    }
     return `** Round over! ** Questions are: ${this.storedQuestion }`;
   }
 }
