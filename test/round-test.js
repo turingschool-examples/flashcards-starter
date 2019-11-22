@@ -89,7 +89,7 @@ describe('Round', function() {
   it('should log a message after the game ends', function() {
     round.takeTurn('object');
     round.takeTurn('object');
-    expect(round.endRound()).to.equal('** Round over! ** You answered 50.00% of'
-    + ' the questions correctly!');
+    expect(round.endRound()).to.equal('** Round over! ** You answered' +
+     ' 50.00% of the questions correctly!');
   });
 });

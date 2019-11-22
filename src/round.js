@@ -37,10 +37,10 @@ class Round {
 
   endRound() {
     var percentCorrectLog = this.calculatePercentCorrect();
-    console.log('** Round over! ** You answered ' + percentCorrectLog.toFixed(2)
-    + '% of the questions correctly!');
-    return '** Round over! ** You answered ' + percentCorrectLog.toFixed(2)
-    + '% of the questions correctly!';
+    console.log('** Round over! ** You answered ' +
+    percentCorrectLog.toFixed(2) + '% of the questions correctly!');
+    return '** Round over! ** You answered ' +
+    percentCorrectLog.toFixed(2) + '% of the questions correctly!';
   }
 }
 
