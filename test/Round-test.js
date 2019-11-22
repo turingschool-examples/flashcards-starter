@@ -14,7 +14,7 @@ describe('Round', function() {
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = new Deck([card1, card2, card3])
     const round = new Round(deck);
-    expect(Round).to.be.a('function');
+    expect(round).to.be.a('function');
   })
 
   it('should have a method called returnCurrentCard which returns the current card being played', function() {

@@ -6,7 +6,6 @@ const Round = require('../src/Round');
 
 describe('Game', () => {
   it('should be a function', () => {
-    const game = new Game();
     expect(Game).to.be.a('function')
   })
   it('should keep track of the current round', () =>{

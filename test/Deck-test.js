@@ -7,7 +7,6 @@ const Turn = require('../src/Turn');
 
 describe('Deck', function() {
   it('should be a function', function() {
-    const deck = new Deck();
     expect(Turn).to.be.a('function');
   });
   it('should take an array of cards', function() {
