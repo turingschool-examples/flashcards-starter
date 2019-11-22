@@ -49,7 +49,6 @@ describe('Turn', function() {
 
     it('should return incorrect if wrong', function() {
       const incorrectTurn = new Turn('hi', card);
-      
       expect(incorrectTurn.giveFeedback('hi', card)).to.equal('incorrect!');
     });
   });
