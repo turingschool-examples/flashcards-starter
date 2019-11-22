@@ -13,15 +13,15 @@ class Game {
   }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 
-	start() {
+  start() {
     let cards = prototypeQuestions.map(cardObjLiteral => {
       const card = new Card(cardObjLiteral.id, cardObjLiteral.question, cardObjLiteral.answers, cardObjLiteral.correctAnswer);
       return card;
