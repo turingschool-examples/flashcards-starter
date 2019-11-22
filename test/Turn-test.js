@@ -27,19 +27,19 @@ describe('Turn', function() {
   it('should evaluate the users guess', function() {
   	const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
   	const turn = new Turn('pug', card);
-    expect(turn.evaluateGuess()).to.deep.equal('false')
+    expect(turn.evaluateGuess()).to.deep.equal(false)
   });
 
   it('should give user feedback on turn', function() {
   	const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
   	const turn = new Turn('pug', card);
-    expect(turn.evaluateGuess()).to.deep.equal('false')
+    expect(turn.evaluateGuess()).to.deep.equal(false)
   });
 
   it('should give user feedback if correct', function() {
   	const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
   	const turn = new Turn('sea otter', card);
-    expect(turn.evaluateGuess()).to.deep.equal('true')
+    expect(turn.evaluateGuess()).to.deep.equal(true)
   });
 
 
