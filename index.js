@@ -2,6 +2,7 @@ const http = require('http');
 let app = http.createServer();
 
 const Game = require('./src/Game');
+const Round = require('./src/round')
 
 var game = new Game();
 game.start();
