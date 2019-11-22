@@ -4,6 +4,7 @@ const util = require('./util');
 const Deck = require('../src/deck');
 const Card = require('../src/Card');
 const Round = require('../src/round');
+
 class Game {
   constructor() {
     var cards = [];

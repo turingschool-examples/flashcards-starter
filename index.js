@@ -1,8 +1,8 @@
 const http = require('http');
-let app = http.createServer();
-
 const Game = require('./src/Game');
-const Round = require('./src/round')
+const Round = require('./src/round');
+
+let app = http.createServer();
 
 var game = new Game();
 game.start();

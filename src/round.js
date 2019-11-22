@@ -6,9 +6,6 @@ class Round {
     this.turns = 0;
     this.incorrectGuesses = [];
     this.correctGuesses = [];
-    if (this.turns === 1) {
-      this.endRound();
-    }
   }
 
   returnCurrentCard() {
@@ -39,9 +36,11 @@ class Round {
   }
 
   endRound() {
-    var percentCorrect = this.calculatePercentCorrect();
-    console.log('** Round over! ** You answered ' + percentCorrect.toFixed(2)
+    var percentCorrectLog = this.calculatePercentCorrect();
+    console.log('** Round over! ** You answered ' + percentCorrectLog.toFixed(2)
     + '% of the questions correctly!');
+    return '** Round over! ** You answered ' + percentCorrectLog.toFixed(2)
+    + '% of the questions correctly!';
   }
 }
 
