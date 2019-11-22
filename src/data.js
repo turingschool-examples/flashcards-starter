@@ -137,7 +137,7 @@ const prototypeData = [{
   "id": 28,
   "question": "Which prototype method returns an array of an object's property values?",
   "answers": ["Object.keys()", "Object.values()", "Object.assign()"],
-  "correctAnswer": "Object.keys()"
+  "correctAnswer": "Object.values()"
 }, {
   "id": 29,
   "question": "map() takes in two optional arguments: the index of the current element, and the array that map was called upon",
