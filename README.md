@@ -45,7 +45,7 @@ node index.js
 
 When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
 
-![flash cards example gif](https://giphy.com/gifs/SA69fGfkpkbwdEPm9P)
+![flash cards example gif](https://media.giphy.com/media/SA69fGfkpkbwdEPm9P/giphy.gif)
 
 ---
 
