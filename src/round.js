@@ -43,7 +43,7 @@ class Round {
   }
 
   printReportCard() {
-    for (var i =0; i < this.storedQuestion.length; i++) {
+    for (var i = 0; i < this.storedQuestion.length; i++) {
       this.grade = {cardID: `${this.storedQuestion[i] }`, AnswerGiven: `${this.incorrectGuess[i]}`, correctAnswer: `${this.storedCard[i]}`};
       console.table(this.grade);
     }

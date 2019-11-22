@@ -44,16 +44,15 @@ describe('Round', function() {
   describe('check guess', function() {
 
     it('should store incorrect guesses', function() {
-      const turn = new Turn('pug', card1)
       round.takeTurn('pug');
       expect(round.incorrectGuess).to.deep.equal(['pug']);
     });
 
     it('should store correct guesses', function () {
-     round.takeTurn();
-     round.takeTurn('gallbladder');
-     expect(round.correctGuess).to.deep.equal(['gallbladder']);
-   });
+      round.takeTurn();
+      round.takeTurn('gallbladder');
+      expect(round.correctGuess).to.deep.equal(['gallbladder']);
+    });
 
     it('should give proper feedback', function() {
       const turn = new Turn('spleen', card2);
