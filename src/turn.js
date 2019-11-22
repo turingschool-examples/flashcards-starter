@@ -14,11 +14,13 @@ class Turn {
   evaluateGuess(guess, correctAnswer) {
     if (guess === correctAnswer.correctAnswer) {
       return true;
-    } else return false;
+    } else {
+      return false;
+    }
   }
 
   giveFeedback(guess, answer) {
-    if (guess == answer.correctAnswer) {
+    if (guess === answer.correctAnswer) {
       return 'correct!';
     } else if (guess !== answer) {
       return 'incorrect!';
