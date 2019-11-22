@@ -39,7 +39,7 @@ describe('Round', function() {
   })
 
   it('should return a response for the incorrect guess', function() {
-  	expect(round.takeTurn('spleen')).to.equal('correct!')
+  	expect(round.takeTurn('spleen')).to.equal('incorrect!')
   })
 
   it('should be able to count turns', function() {
@@ -63,8 +63,8 @@ describe('Round', function() {
   })
 
   it('should return the users percent of correct guesses', function() {
-    round.takeTurn('capybara');
     round.takeTurn('sea otter');
+    round.takeTurn('capybara');
   	expect(round.calculatePercentCorrect()).to.equal(50);
   })
 
