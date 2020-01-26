@@ -3,10 +3,11 @@ class Round {
     this.deck = deck.cards;
     this.turns = 0;
     this.incorrectGuesses = [];
+    this.currentCard = deck[0]
   }
 
   returnCurrentCard() {
-    return this.deck[0];
+    return this.currentCard;
   }
 
   takeTurn(guess) {
