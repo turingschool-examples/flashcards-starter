@@ -2,16 +2,26 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Round = require('../src/Round');
+const Card = require('../src/Card');
+const Deck = require('../src/Deck');
 
 describe('Round', function() {
 
   it('should be a function', function() {
-    const round = new Round();
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
     expect(Round).to.be.a('function');
   });
 
   it('should be an instance of Round', function() {
-    const round = new Round();
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
     expect(round).to.be.an.instanceof(Round);
   });
 
@@ -24,7 +34,7 @@ describe('Round', function() {
     expect(round.deck).to.deep.equal([card1, card2, card3]);
   });
 
-  it('should be able to return its current card', function() {
+  it.skip('should be able to return its current card', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -34,7 +44,7 @@ describe('Round', function() {
     expect(currentCard).to.equal(card1);
   });
 
-  it('should be able to take turns', function() {
+  it.skip('should be able to take turns', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -54,7 +64,7 @@ describe('Round', function() {
     expect(currentCard).to.equal(card3);
   });
 
-  it('should be able to calculate the percentage of currect guesses', function() {
+  it.skip('should be able to calculate the percentage of currect guesses', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -64,5 +74,19 @@ describe('Round', function() {
     round.takeTurn('spleen');
     const percentCorrect = round.calculatePercentCorrect();
     expect(percentCorrect).to.equal(50);
-  }
+  });
+
+  it.skip('should be able to end a round', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    round.takeTurn('Fitzgerald');
+    const percentCorrect = round.calculatePercentCorrect();
+    const roundOver = round.endRound();
+    expect(roundOver).to.equal(`** Round over! ** You answered ${percentCorrect}% of the questions correctly!`);
+  });
 });
