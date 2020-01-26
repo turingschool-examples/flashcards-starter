@@ -40,7 +40,7 @@ describe('Round', function() {
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    const currentCard = round.returnCurrentCard();
+    let currentCard = round.returnCurrentCard();
     expect(round.turns).to.equal(0);
     expect(round.incorrectGuesses).to.deep.equal([])
     expect(currentCard).to.equal(card1);
@@ -53,4 +53,16 @@ describe('Round', function() {
     currentCard = round.returnCurrentCard();
     expect(currentCard).to.equal(card3);
   });
+
+  it('should be able to calculate the percentage of currect guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    const percentCorrect = round.calculatePercentCorrect();
+    expect(percentCorrect).to.equal(50);
+  }
 });
