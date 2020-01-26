@@ -5,7 +5,8 @@ class Round {
     this.deck = deck.cards;
     this.turns = 0;
     this.incorrectGuesses = [];
-    this.currentCard = this.deck[0]
+    this.currentCardIndex = 0;
+    this.currentCard = this.deck[this.currentCardIndex]
   }
 
   returnCurrentCard() {
@@ -18,8 +19,8 @@ class Round {
       this.incorrectGuesses.push(this.currentCard.id);
     }
     this.turns++;
-    this.deck.shift();
-    this.currentCard = this.deck[0];
+    this.currentCardIndex++
+    this.currentCard = this.deck[this.currentCardIndex];
     return currentTurn.giveFeedback();
   }
 
