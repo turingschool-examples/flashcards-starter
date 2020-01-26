@@ -34,7 +34,7 @@ describe('Round', function() {
     expect(round.deck).to.deep.equal([card1, card2, card3]);
   });
 
-  it.skip('should be able to return its current card', function() {
+  it('should be able to return its current card', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -44,7 +44,7 @@ describe('Round', function() {
     expect(currentCard).to.equal(card1);
   });
 
-  it.skip('should be able to take turns', function() {
+  it('should be able to take turns', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
