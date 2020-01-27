@@ -21,9 +21,8 @@ class Turn {
     }
   }
 
-
   giveFeedback() {
-    if (this.guess = true){
+    if (this.guess === this.card.correctAnswer){
       return 'You got it!'
     } else {
       return 'Try again...'
@@ -31,3 +30,5 @@ class Turn {
   }
 
 }
+
+module.exports = Turn;
