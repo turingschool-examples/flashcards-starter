@@ -35,4 +35,18 @@ describe('Turn', function() {
 
     assert.deepEqual(turn.returnCard(), card);
   });
+
+  it('should have an evaluateGuess method that returns true if a guess is correct', function() {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('sea otter', card);
+
+    assert.equal(turn.evaluateGuess(), true);
+  });
+
+  it('should have an evaluateGuess method that returns false if a guess is incorrect', function() {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('capybara', card);
+
+    assert.equal(turn.evaluateGuess(), false);
+  });
 });
