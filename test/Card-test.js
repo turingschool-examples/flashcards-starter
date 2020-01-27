@@ -25,15 +25,29 @@ describe('Card', function() {
     expect(card.question).to.equal('Which is of these is a reserved word in Javascript?');
   })
 
-
   it('should store a list of possible answers', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
   });
 
+  it('should be able to store different answers', function() {
+    const card = new Card(3, 'Which of these is NOT a reserved word in Javascript?', ['if', 'same', 'false'], 'same');
+    expect(card.answers).to.deep.equal(['if', 'same', 'false']);
+  });
+
+  it('should be able to store different answers', function() {
+    const card = new Card(2, 'Which is NOT a keyword you can use to declare a variable in Javascript?', ['var', 'let', 'variable', 'const'], 'variable');
+    expect(card.answers).to.deep.equal(['var', 'let', 'variable', 'const']);
+  });
+
   it('should store the correct answer', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     expect(card.correctAnswer).to.equal('object');
+  });
+
+  it('should be able to store a different correct answer', function() {
+    const card = new Card(4, 'A locally scoped variable is accessible to all function within the file.', ['true', 'false'], 'false');
+    expect(card.correctAnswer).to.equal('false');
   });
 
   it('should have an id', function () {
