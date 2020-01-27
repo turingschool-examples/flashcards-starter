@@ -20,6 +20,11 @@ describe('Card', function() {
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
   });
 
+  it('should be able to store a different question', function() {
+    const card = new Card(2, 'Which is of these is a reserved word in Javascript?', ['this', 'never', 'mocha'], 'this');
+    expect(card.question).to.equal('Which is of these is a reserved word in Javascript?');
+  })
+
 
   it('should store a list of possible answers', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
