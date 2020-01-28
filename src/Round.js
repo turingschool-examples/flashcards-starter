@@ -16,7 +16,7 @@ class Round {
     if (currentTurn.giveFeedback() !== 'correct!') {
       this.incorrectGuesses.push(this.deck.cards[this.turns].id);
     }
-    this.turns += 1;
+    this.turns++;
     return currentTurn.giveFeedback();
   }
 
