@@ -93,7 +93,9 @@ const prototypeData = [{
   "question": "What does the callback function for filter() return?",
   "answers": ["boolean", "an array of the same length", "a single value of any data type"],
   "correctAnswer": "boolean"
-}, {
+}]
+
+const prototypeDataTwo = [{
   "id": 20,
   "question": "forEach() returns an array",
   "answers": ["true", "false"],
@@ -151,5 +153,6 @@ const prototypeData = [{
 }]
 
 module.exports = {
-  prototypeData 
+  prototypeData,
+  prototypeDataTwo
 }
