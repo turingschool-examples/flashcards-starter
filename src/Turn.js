@@ -13,7 +13,7 @@ class Turn {
   }
 
   evaluateGuess() {
-    return this.guess == this.card.correctAnswer ? true : false;
+    return this.guess === this.card.correctAnswer;
   }
 
   giveFeedback() {
