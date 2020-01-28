@@ -11,7 +11,7 @@ class Round {
     return this.deck[0];
   }
 
-  movefirstCardToLast() {
+  moveFirstCardToLast() {
     const firstCard = this.deck.shift();
     this.deck.push(firstCard);
   }
