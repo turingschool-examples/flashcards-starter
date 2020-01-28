@@ -41,7 +41,7 @@ describe('Game', function() {
 
     expect(game.currentRound).to.be.an.instanceof(Round);
   });
-  it.skip('testing grounds', function() {
+  it('testing grounds', function() {
     const game = new Game();
 
     game.start();
