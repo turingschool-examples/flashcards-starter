@@ -49,4 +49,18 @@ describe('Turn', function() {
 
     assert.equal(turn.evaluateGuess(), false);
   });
+
+  it('should give feedback based on a correct answer', function() {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('sea otter', card);
+
+    assert.equal(turn.giveFeedback(), 'Correct!');
+  });
+
+  it('should give feedback based on an incorrect answer', function() {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('capybara', card);
+
+    assert.equal(turn.giveFeedback(), 'Incorrect!');
+  });
 });
