@@ -1,5 +1,5 @@
-var Deck = require('./Deck.js');
-var Game = require('./Game.js');
+// var Deck = require('./Deck.js');
+// var Game = require('./Game.js');
 
 class Card {
   constructor(id, question, answers, correctAnswer) {

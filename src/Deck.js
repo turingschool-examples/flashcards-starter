@@ -1,9 +1,11 @@
-var Card = require('./Card.js');
-var Game = require('./Game.js');
+// var Card = require('./Card.js');
 
 class Deck {
-  constructor() {
-
+  constructor(cards) {
+    this.cards = cards;
+  }
+  countCards() {
+    return this.cards.length;
   }
 }
 

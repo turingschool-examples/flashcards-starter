@@ -1,10 +1,21 @@
-var card = require('./Card.js');
-var deck = require('./Deck.js');
-var game = require('./Game.js');
+var Game = require('./Game.js');
 
 class Turn {
-  constructor() {
-
+  constructor(guess, card) {
+    this.guess = guess;
+    this.card = card;
+  }
+  returnGuess() {
+    return this.guess;
+  }
+  returnCard() {
+    return this.card;
+  }
+  evaluateGuess() {
+    return this.guess === this.card.correctAnswer
+  }
+  giveFeedback() {
+    return this.guess === this.card.correctAnswer ? 'Correct!' : 'Incorrect';
   }
 }
 
