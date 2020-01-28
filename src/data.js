@@ -2,98 +2,98 @@ const prototypeData = [{
   "id": 1,
   "question": "What allows you to define a set of related information using key-value pairs?",
   "answers": ["object", "array", "function"],
-  "correctAnswer": "object"}];
-// }, {
-//   "id": 2,
-//   "question": "What is a comma-separated list of related values?",
-//   "answers": ["array", "object", "function"],
-//   "correctAnswer": "array"
-// }, {
-//   "id": 3,
-//   "question": "What type of prototype method directly modifies the existing array?",
-//   "answers": ["mutator method", "accessor method", "iteration method"],
-//   "correctAnswer": "mutator method"
-// }, {
-//   "id": 4,
-//   "question": "What type of prototype method does not modify the existing array but returns a particular representation of the array?",
-//   "answers": ["mutator method", "accessor method", "iteration method"],
-//   "correctAnswer": "accessor method"
-// }, {
-//   "id": 5,
-//   "question": "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
-//   "answers": ["mutator method", "accessor method", "iteration method"],
-//   "correctAnswer": "iteration method"
-// }, {
-//   "id": 6,
-//   "question": "What is an example of a mutator method?",
-//   "answers": ["sort()", "map()", "join()"],
-//   "correctAnswer": "sort()"
-// }, {
-//   "id": 7,
-//   "question": "Which array prototype is not an accessor method?",
-//   "answers": ["join()", "slice()", "splice()"],
-//   "correctAnswer": "splice()"
-// }, {
-//   "id": 8,
-//   "question": "What do iterator methods take in as their first argument?",
-//   "answers": ["callback function", "current element", "an array"],
-//   "correctAnswer": "callback function"
-// }, {
-//   "id": 9,
-//   "question": "What does the callback function for find() return?",
-//   "answers": ["boolean", "array", "object"],
-//   "correctAnswer": "boolean"
-// }, {
-//   "id": 10,
-//   "question": "Which iteration method returns the first array element where the callback function returns true",
-//   "answers": ["find()", "filter()", "forEach()"],
-//   "correctAnswer": "find()"
-// }, {
-//   "id": 11,
-//   "question": "Which iteration method returns a new array with all elements that match a given condition?",
-//   "answers": ["filter()", "find()", "map()"],
-//   "correctAnswer": "filter()"
-// }, {
-//   "id": 12,
-//   "question": "Which iteration method returns an array of the same length as the original array?",
-//   "answers": ["map()", "forEach()", "reduce()"],
-//   "correctAnswer": "map()"
-// }, {
-//   "id": 13,
-//   "question": "The callback function for map() returns a modified version of the current element.",
-//   "answers": ["true", "false"],
-//   "correctAnswer": "true"
-// }, {
-//   "id": 14,
-//   "question": "Which iteration method can turn an array into a single value of any data type?",
-//   "answers": ["reduce()", "map()", "filter()"],
-//   "correctAnswer": "reduce()"
-// }, {
-//   "id": 15,
-//   "question": "The callback function for reduce() takes in an accumulator and a current element.",
-//   "answers": ["true", "false"],
-//   "correctAnswer": "true"
-// }, {
-//   "id": 16,
-//   "question": "What does the callback function for reduce() return?",
-//   "answers": ["the accumulator", "the current element", "the initializer"],
-//   "correctAnswer": "the accumulator"
-// }, {
-//   "id": 17,
-//   "question": "What does the reduce() method take in?",
-//   "answers": ["callback function and initializer", "callback function and current element", "callback function and accumulator"],
-//   "correctAnswer": "callback function and initializer"
-// }, {
-//   "id": 18,
-//   "question": "What does the callback function for the map() method take in?",
-//   "answers": ["current element", "initializer", "boolean"],
-//   "correctAnswer": "current element"
-// }, {
-//   "id": 19,
-//   "question": "What does the callback function for filter() return?",
-//   "answers": ["boolean", "an array of the same length", "a single value of any data type"],
-//   "correctAnswer": "boolean"
-// }]
+  "correctAnswer": "object"
+}, {
+  "id": 2,
+  "question": "What is a comma-separated list of related values?",
+  "answers": ["array", "object", "function"],
+  "correctAnswer": "array"
+}, {
+  "id": 3,
+  "question": "What type of prototype method directly modifies the existing array?",
+  "answers": ["mutator method", "accessor method", "iteration method"],
+  "correctAnswer": "mutator method"
+}, {
+  "id": 4,
+  "question": "What type of prototype method does not modify the existing array but returns a particular representation of the array?",
+  "answers": ["mutator method", "accessor method", "iteration method"],
+  "correctAnswer": "accessor method"
+}, {
+  "id": 5,
+  "question": "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
+  "answers": ["mutator method", "accessor method", "iteration method"],
+  "correctAnswer": "iteration method"
+}, {
+  "id": 6,
+  "question": "What is an example of a mutator method?",
+  "answers": ["sort()", "map()", "join()"],
+  "correctAnswer": "sort()"
+}, {
+  "id": 7,
+  "question": "Which array prototype is not an accessor method?",
+  "answers": ["join()", "slice()", "splice()"],
+  "correctAnswer": "splice()"
+}, {
+  "id": 8,
+  "question": "What do iterator methods take in as their first argument?",
+  "answers": ["callback function", "current element", "an array"],
+  "correctAnswer": "callback function"
+}, {
+  "id": 9,
+  "question": "What does the callback function for find() return?",
+  "answers": ["boolean", "array", "object"],
+  "correctAnswer": "boolean"
+}, {
+  "id": 10,
+  "question": "Which iteration method returns the first array element where the callback function returns true",
+  "answers": ["find()", "filter()", "forEach()"],
+  "correctAnswer": "find()"
+}, {
+  "id": 11,
+  "question": "Which iteration method returns a new array with all elements that match a given condition?",
+  "answers": ["filter()", "find()", "map()"],
+  "correctAnswer": "filter()"
+}, {
+  "id": 12,
+  "question": "Which iteration method returns an array of the same length as the original array?",
+  "answers": ["map()", "forEach()", "reduce()"],
+  "correctAnswer": "map()"
+}, {
+  "id": 13,
+  "question": "The callback function for map() returns a modified version of the current element.",
+  "answers": ["true", "false"],
+  "correctAnswer": "true"
+}, {
+  "id": 14,
+  "question": "Which iteration method can turn an array into a single value of any data type?",
+  "answers": ["reduce()", "map()", "filter()"],
+  "correctAnswer": "reduce()"
+}, {
+  "id": 15,
+  "question": "The callback function for reduce() takes in an accumulator and a current element.",
+  "answers": ["true", "false"],
+  "correctAnswer": "true"
+}, {
+  "id": 16,
+  "question": "What does the callback function for reduce() return?",
+  "answers": ["the accumulator", "the current element", "the initializer"],
+  "correctAnswer": "the accumulator"
+}, {
+  "id": 17,
+  "question": "What does the reduce() method take in?",
+  "answers": ["callback function and initializer", "callback function and current element", "callback function and accumulator"],
+  "correctAnswer": "callback function and initializer"
+}, {
+  "id": 18,
+  "question": "What does the callback function for the map() method take in?",
+  "answers": ["current element", "initializer", "boolean"],
+  "correctAnswer": "current element"
+}, {
+  "id": 19,
+  "question": "What does the callback function for filter() return?",
+  "answers": ["boolean", "an array of the same length", "a single value of any data type"],
+  "correctAnswer": "boolean"
+}]
 
 const prototypeDataTwo = [{
   "id": 20,

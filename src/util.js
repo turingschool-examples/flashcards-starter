@@ -1,8 +1,10 @@
 const inquirer = require('inquirer');
+const game = require('../index.js');
+const Game = require('./Game');
 
 const genList = (round) => {
   let card = round.returnCurrentCard();
-  
+
   let choices = card.answers.map((answer, index) => {
     return {
       key: index,
@@ -37,6 +39,8 @@ async function main(round) {
 
     if(!round.returnCurrentCard()) {
       round.endRound();
+      var gameInstance = game.game;
+      gameInstance.start();
     } else {
       main(round);
     }

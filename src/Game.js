@@ -25,6 +25,9 @@ class Game {
   }
 
   getQuestions() {
+    if (questions[this.questionsIndex] === undefined) {
+      this.questionsIndex = 0;
+    }
     let questionSet = questions[this.questionsIndex];
     this.questionsIndex += 1;
     return questionSet;
