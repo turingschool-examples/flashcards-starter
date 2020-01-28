@@ -24,6 +24,11 @@ class Round {
     this.movefirstCardToLast();
     return turn.giveFeedback();
   }
+
+  calculatePercentageCorrect() {
+    const totalCorrect = this.turns - this.incorrectGuesses.length;
+    return totalCorrect / this.turns * 100;
+  }
 }
 
 module.exports = Round;
