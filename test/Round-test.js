@@ -20,6 +20,16 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   });
 
+  it('should count turns and incorrect guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const deck = new Deck([card1]);
+
+    const round = new Round(deck);
+
+    assert.equal(round.turns, 0);
+    assert.deepEqual(round.incorrectGuess, []);
+  });
+
   it('should store an array of cards', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
