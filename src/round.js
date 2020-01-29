@@ -4,7 +4,7 @@ class Round {
   constructor(cardDeck) {
     this.currentCard = cardDeck.cardsInDeck[0];
     this.turns = 0;
-    // this.incorrectGuesses = [];
+    this.incorrectGuesses = [];
   }
 
   returnCurrentCard() {
@@ -12,10 +12,22 @@ class Round {
   }
 
   takeTurns(userGuess, cardDeck) {
-    var turn = new Turn(userGuess, this.currentCard);
+    let turn = new Turn(userGuess, this.currentCard);
     this.turns += 1;
+    if(turn.evaluateGuess() === false) {
+      this.incorrectGuesses.push(this.currentCard.id);
+    };
     this.currentCard = cardDeck.cardsInDeck[this.turns];
-    // return turn.giveFeedback();
+    return turn.giveFeedback();
+  }
+
+  calculatePercentCorrect(cardDeck) {
+    let numberCorrect = cardDeck.cardsInDeck.length - this.incorrectGuesses.length;
+    return `${Math.floor(numberCorrect / cardDeck.cardsInDeck.length * 100)}%`
+  }
+
+  endRound(cardDeck) {
+    return `**Round over!** You answered ${this.calculatePercentCorrect(cardDeck)} of the questions correctly!`
   }
 }
 
