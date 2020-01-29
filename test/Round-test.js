@@ -24,10 +24,17 @@ describe('Round', function() {
   const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
   const deck = new Deck([card1, card2, card3]);
-
   const round = new Round(deck);
   expect(round.returnCurrentCard()).to.equal(card1);
-  })
+  });
+
+  it('should have a default of no incorrect or correct guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const deck = new Deck([card1]);
+    const round = new Round(deck);
+    expect(round.incorrectGuesses).to.deep.equal([]);
+    expect(round.correctGuesses).to.deep.equal([]);
+  });
 
   it('should be able to give feedback when a guess is made', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
