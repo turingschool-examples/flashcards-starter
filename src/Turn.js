@@ -9,15 +9,15 @@ class Turn {
   returnCard() {
     return this.card;
   }
-  evaluateGuess(card) {
-    if(this.guess === card.correctAnswer) {
+  evaluateGuess() {
+    if(this.guess === this.card.correctAnswer) {
       return true;
     } else {
       return false;
     }
   }
-  giveFeedback(card) {
-    if(this.guess === card.correctAnswer) {
+  giveFeedback() {
+    if(this.guess === this.card.correctAnswer) {
       return 'correct!';
     } else {
       return 'incorrect!';
