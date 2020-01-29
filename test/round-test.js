@@ -54,23 +54,47 @@ describe('Round', function() {
     expect(round.currentCard).to.equal(card3);
   });
 
-  it.skip('should record/evaluate a user\'s guess', function() {
+  describe('should record/evaluate a user\'s guess', function() {
+    it('should start off with an empty array to store incorrect guesses', function() {
+      expect(round.incorrectGuesses).to.deep.equal([]);
+    });
 
-    expect()
-  })
+    it('should push the card\'s id of the incorrect guesses in the array storing incorrect guesses', function() {
+      round.returnCurrentCard(deck);
+      expect(round.currentCard).to.equal(card1);
+      round.takeTurns('array', deck);
+      expect(round.incorrectGuesses).to.deep.equal([1]);
+    });
 
-  it.skip('should be able to give feedback regarding whether a guess is correct or incorrect', function() {
-    //this should happen on the takeTurns method
+    it('should be able to give feedback regarding whether a guess is correct or incorrect', function() {
+      //this should happen on the takeTurns method
+      round.returnCurrentCard(deck);
+      expect(round.currentCard).to.equal(card1);
+      round.takeTurns('array', deck);
+      expect(round.takeTurns('array', deck)).to.equal('incorrect');
+    });
   });
 
-  it.skip('should be able to calculate the percentage of correct guesses', function() {
-
-    expect(round.calculatePercentCorrect()).to.equal();
+  it('should be able to calculate the percentage of correct guesses', function() {
+    round.returnCurrentCard(deck);
+    expect(round.currentCard).to.equal(card1);
+    round.takeTurns('array', deck);
+    expect(round.currentCard).to.equal(card2);
+    round.takeTurns('this', deck);
+    expect(round.currentCard).to.equal(card3);
+    round.takeTurns('same', deck);
+    expect(round.calculatePercentCorrect(deck)).to.equal('66%');
   });
 
-  it.skip('should be able to let a user know that the round is over', function() {
-
-    expect(round.endRound()).to.equal('**Round over!** You answered <>% of the questions correctly!');
+  it('should be able to let a user know that the round is over', function() {
+    round.returnCurrentCard(deck);
+    expect(round.currentCard).to.equal(card1);
+    round.takeTurns('array', deck);
+    expect(round.currentCard).to.equal(card2);
+    round.takeTurns('this', deck);
+    expect(round.currentCard).to.equal(card3);
+    round.takeTurns('same', deck);
+    expect(round.calculatePercentCorrect(deck)).to.equal('66%');
+    expect(round.endRound(deck)).to.equal('**Round over!** You answered 66% of the questions correctly!');
   });
-
 });
