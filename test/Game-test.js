@@ -24,7 +24,6 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game);
 
     game.start();
-
     expect(game.currentRound).to.be.an.instanceof(Round);
   })
 
