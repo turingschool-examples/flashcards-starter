@@ -19,8 +19,16 @@ class Round{
   currentCard(){
     return this.deck.cards[this.turn];
   }
+  returnCurrentCard(){
+    return this.deck.cards[this.turn];
+  }
   calculatePercentCorrect(){
     return (this.incorrectGuesses.length/this.turn)*100;
+  }
+  endRound(){
+        console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+
   }
 
 }
