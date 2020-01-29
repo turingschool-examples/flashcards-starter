@@ -1,5 +1,76 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Card = require('../src/Card')
 const Turn = require('../src/turn');
-const Deck = require('../src/round');
+const Deck = require('../src/deck');
+const Round = require('../src/round');
+
+describe('Round', function() {
+  let card1, card2, card3, deck, round;
+
+  beforeEach(() => {
+    card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    card2 = new Card(2, 'Which is of these is a reserved word in Javascript?', ['this', 'never', 'mocha'], 'this');
+    card3 = new Card(3, 'Which of these is NOT a reserved word in Javascript?', ['if', 'same', 'false'], 'same');
+
+    deck = new Deck([card1, card2, card3]);
+
+    round = new Round(deck);
+  });
+
+  it('should be a function', function() {
+    // const round = new Round();
+    expect(Round).to.be.a('function');
+  });
+
+  it('should instantite a new round', function() {
+    // const round = new Round();
+    expect(round).to.be.an.instanceof(Round);
+  });
+
+  it('should return the first card in the deck as the current card', function() {
+
+    expect(round.returnCurrentCard(deck)).to.equal(card1);
+  });
+
+  it('should start of with 0 turns taken', function() {
+
+    expect(round.turns).to.equal(0);
+    round.takeTurns('object', deck);
+    expect(round.turns).to.equal(1);
+    round.takeTurns('mocha', deck);
+    round.takeTurns('same', deck);
+    expect(round.turns).to.equal(3);
+  });
+
+  it('should have the next card become the new current card', function() {
+
+    round.returnCurrentCard(deck);
+    expect(round.currentCard).to.equal(card1);
+    round.takeTurns('array', deck);
+    expect(round.currentCard).to.equal(card2);
+    round.takeTurns('this', deck);
+    expect(round.currentCard).to.equal(card3);
+  });
+
+  it.skip('should record/evaluate a user\'s guess', function() {
+
+    expect()
+  })
+
+  it.skip('should be able to give feedback regarding whether a guess is correct or incorrect', function() {
+    //this should happen on the takeTurns method
+  });
+
+  it.skip('should be able to calculate the percentage of correct guesses', function() {
+
+    expect(round.calculatePercentCorrect()).to.equal();
+  });
+
+  it.skip('should be able to let a user know that the round is over', function() {
+
+    expect(round.endRound()).to.equal('**Round over!** You answered <>% of the questions correctly!');
+  });
+
+});
