@@ -13,10 +13,9 @@ class Turn {
   }
   evaluateGuess() {
     return this.guess === this.card.correctAnswer
-    // console.log(this.guess);
   }
   giveFeedback() {
-    return this.guess === this.card.correctAnswer ? 'Correct!' : 'Incorrect';
+    return this.guess === this.card.correctAnswer ? 'Correct!' : 'Incorrect!';
   }
 }
 

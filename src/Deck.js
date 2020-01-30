@@ -1,5 +1,3 @@
-// var Card = require('./Card.js');
-
 class Deck {
   constructor(cards) {
     this.cards = cards;
