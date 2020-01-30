@@ -30,6 +30,18 @@ class Round {
     return percentageCorrect;
   }
 
+  timer() {
+  global.second = 0;
+  global.minute = 0;
+  let interval = setInterval(function() {
+    global.second++;
+    if (global.second == 60){
+      global.minute++;
+      global.second = 0;
+    }
+  }, 1000);
+}
+
   endRound() {
     let incorrect = this.incorrectGuesses.length;
     let percentageCorrect = Math.round(incorrect / this.turn * 100);
