@@ -10,10 +10,10 @@ describe('Deck', function() {
     expect(Deck).to.be.a('function');
   });
 
-  it('should be instantiated with an empty array by default', function() {
-    const deck = new Deck([]);
-    expect(deck.cardsInDeck).to.deep.equal([]);
-  })
+  // it('should be instantiated with an empty array by default', function() {
+  //   const deck = new Deck([]);
+  //   expect(deck.cardsInDeck).to.deep.equal([]);
+  // })
 
   it('should also be able to be instantiated with an array of card objects', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');

@@ -46,18 +46,14 @@ describe('Round', function() {
 
   it('should have the next card become the new current card', function() {
 
-    round.returnCurrentCard(deck);
     expect(round.currentCard).to.equal(card1);
-    round.takeTurns('array', deck);
+    round.takeTurns('array', deck.cardsInDeck);
     expect(round.currentCard).to.equal(card2);
-    round.takeTurns('this', deck);
+    round.takeTurns('this', deck.cardsInDeck);
     expect(round.currentCard).to.equal(card3);
   });
 
   describe('should record/evaluate a user\'s guess', function() {
-    it('should start off with an empty array to store incorrect guesses', function() {
-      expect(round.incorrectGuesses).to.deep.equal([]);
-    });
 
     it('should push the card\'s id of the incorrect guesses in the array storing incorrect guesses', function() {
       round.returnCurrentCard(deck);
@@ -95,6 +91,6 @@ describe('Round', function() {
     expect(round.currentCard).to.equal(card3);
     round.takeTurns('same', deck);
     expect(round.calculatePercentCorrect(deck)).to.equal('66%');
-    expect(round.endRound(deck)).to.equal('**Round over!** You answered 66% of the questions correctly!');
+    expect(round.endRound(deck)).to.equal(console.log('**Round over!** You answered 66% of the questions correctly!'));
   });
 });

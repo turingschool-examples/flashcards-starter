@@ -8,6 +8,7 @@ const Round = require('../src/Round');
 
 class Game {
   constructor() {
+    this.currentRound = undefined;
   }
 
   printMessage(deck, round) {
@@ -20,21 +21,17 @@ class Game {
   }
 
   start() {
-    console.log(prototypeQuestions);
     let cards = prototypeQuestions.map(data => {
-    return new Card(data.id, data.question, data.answers, card.correctAnswer);
+    return new Card(data.id, data.question, data.answers, data.correctAnswer)
   });
-    console.log(cards);
-    // let deckInstance = new Deck();
-    // let deck = new Deck(cards);
-    // let roundInstance = new Round();
-    // let round = new Round(deck);
-    // this.currentRound = round;
-    // this.printMessage(deck, round);
-    // this.printQuestion(round);
+    let deck = new Deck(cards);
+    let round = new Round(deck);
+    console.log('round', round);
+    this.currentRound = round;
+    this.printMessage(deck, round);
+    this.printQuestion(round);
+
   }
 }
 
 module.exports = Game;
-
-//instantiate new cards, deck, turn, round here???
