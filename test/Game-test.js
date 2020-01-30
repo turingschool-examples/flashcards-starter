@@ -1,11 +1,11 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
-const Game = require('../src/Game');
 const Round = require('../src/Round');
-const Turn = require('../src/Turn');
+const Game = require('../src/Game');
 
 describe('Game', function() {
   beforeEach(function() {
@@ -18,5 +18,11 @@ describe('Game', function() {
 
   it('should be an instance of Game', function() {
     expect(game).to.be.an.instanceof(Game);
+  });
+
+  it('should be able to create random cards', function() {
+    randomDeck = game.createCards();
+
+    expect(randomDeck.length).to.deep.equal(10);
   });
 });
