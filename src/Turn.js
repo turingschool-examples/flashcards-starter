@@ -1,33 +1,24 @@
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
+const util = require('./util');
+
 class Turn {
   constructor(guess, card) {
     this.guess = guess;
     this.card = card;
   }
-
   returnGuess() {
     return this.guess;
   }
-
   returnCard() {
     return this.card;
   }
-
   evaluateGuess() {
-    if(this.guess === this.card.correctAnswer) {
-      return true;
-    } else {
-      return false;
-    }
+    return (this.guess === this.card.correctAnswer) ? true : false;
   }
-
   giveFeedback() {
-    if(this.guess === this.correctAnswer) {
-      return "Correct!";
-    } else {
-      return "Incorrect!";
-    }
+    return (this.evaluateGuess()) ? 'correct!' : 'incorrect!';
   }
 }
-
 
 module.exports = Turn;
