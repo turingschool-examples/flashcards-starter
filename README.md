@@ -1,19 +1,19 @@
 # FlashCards
 
 ## Abstract
-Flashcards is an application that runs from the terminal. As there is no DOM, a user uses the keyboard to select the correct answers..
+Flashcards is a command line based application. When the application starts, the user is given one flashcard a time with a questions and multiple choice answers. As there is no DOM, the user uses the keyboard to select their answer. After each answer, the user is given feedback on whether or not the answer they selected was **correct** or **incorrect**. When the user answers the question to the last flashcard, 
 
-## The Working Application in Action
+## The Application in Action
 
 ![Gif of flashcards](https://media.giphy.com/media/UWWWUaMuUYqYUbZyfZ/giphy.gif)
 
-##Install Instructions
+## Install Instructions
 
 From your terminal do the following:
 * `git clone <ssh> or <https>`clone down this repository
 * `cd flashcards` change into the flashcards directory
 * `node index.js` begins the game
 
-Once you have completed the game, or to exit out of the application at any time use `ctrl + c`
+Once you have completed the game, or to exit out of the game at any time use `ctrl + c`
 
 
