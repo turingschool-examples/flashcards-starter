@@ -1,31 +1,55 @@
-const data = require('./data');
-const prototypeQuestions = data.prototypeData;
-const util = require('./util');
 const Turn = require('../src/Turn');
 
 class Round {
   constructor(deck) {
     this.deck = deck;
-    this.currentCard = this.deck.cards[0];
-    this.turns = 0;
+    this.turn = 0;
     this.incorrectGuesses = [];
   }
+
   returnCurrentCard() {
-    if (this.currentCard) {
-      return this.currentCard
+    return this.deck.cards[this.turn];
+  }
+
+  takeTurn(guess) {
+    let currentCard = this.returnCurrentCard();
+    let turn = new Turn(guess, currentCard);
+    let evalGuess = turn.evaluateGuess(guess, currentCard);
+    this.turn ++;
+
+    if(evalGuess === true) {
+      return turn.giveFeedback();
     } else {
-      false
+      this.incorrectGuesses.push(currentCard.id);
     }
   }
-  takeTurn(guess) {
-    let turn = new Turn(guess, this.currentCard);
-    if (!turn.evaluateGuess()) this.incorrectGuesses.push(this.currentCard.id);
-    this.feedback = turn.giveFeedback();
-    this.turns += 1
-    this.currentCard = this.deck.cards[this.turns];
-    return this.feedback
+
+  calculatePercentCorrect() {
+    let incorrect = this.incorrectGuesses.length;
+    let percentageCorrect = Math.round(incorrect / this.turn * 100);
+    return percentageCorrect;
   }
-  calculatePercentScore() {
-    let score = (this.turns - this.incorrectGuesses.length) / this.turns * 100;
-    return +score.toFixed(2);
+
+  timer() {
+  global.second = 0;
+  global.minute = 0;
+  let interval = setInterval(function() {
+    global.second++;
+    if (global.second == 60){
+      global.minute++;
+      global.second = 0;
+    }
+  }, 1000);
+}
+
+  endRound() {
+    let incorrect = this.incorrectGuesses.length;
+    let percentageCorrect = Math.round(incorrect / this.turn * 100);
+    return `** Round over! ** You answered ${percentageCorrect}% of the questions correctly!`;
   }
+
+}
+
+
+
+module.exports = Round;
