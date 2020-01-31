@@ -38,7 +38,7 @@ class Round {
   }
 
   endRound(cardDeck) {
-    console.log(`**Round over!** You answered ${this.calculatePercentCorrect(cardDeck)} of the questions correctly!`) 
+    console.log(`**Round over!** You answered ${this.calculatePercentCorrect(cardDeck)} of the questions correctly! Press <ctrl + c> to exit.`) 
   }
 }
 
