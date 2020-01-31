@@ -1,35 +1,69 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
+const myNewData = data.myNewData;
+const rawQuestions = [];
 const util = require('./util');
 const Deck = require('./Deck');
 const Round = require('./Round');
 const Card = require('./Card');
-
+// let decks =[];
 
 class Game {
   constructor() {
     this.currentRound = 0;
+    this.decks = [];
+    this.currentDeck = this.decks[0];
   }
-  start(){
-    let deck = new Deck(this.newDeck(prototypeQuestions));
-    let round = new Round(deck);
-    this.printMessage(deck,round);
+  start() {
+    let deck = new Deck(this.newDeck(prototypeQuestions), 'prototype');
+    let deck2 = new Deck(this.newDeck(myNewData), 'NewData');
+    this.decks.push(deck, deck2);
+    let round = this.newRound(deck)
+    this.printMessage(deck, round);
     this.printQuestion(round);
   }
-  newDeck(data){
-    let newDeck =[];
-    data.forEach(function(element,index){
-      newDeck.push(new Card(element.id,element.question,element.answers,element.correctAnswer))
+  newRound(deck) {
+    return new Round(deck);
+  }
+  getIndex(name) {
+    var deckIndex = 0;
+    var arrayIterator = this.decks.keys()
+    this.decks.forEach(function(element, index, placeholder) {
+      if (element.name == name.decks) {
+        deckIndex = index;
+      }
+    });
+    this.currentRound = deckIndex;
+    return deckIndex;
+  }
+  newDeck(data) {
+    let newDeck = [];
+    data.forEach(function(element, index) {
+      newDeck.push(new Card(element.id, element.question, element.answers, element.correctAnswer))
     });
     return newDeck;
   }
-  printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+  chooseRound() {
+
+  }
+  nextRound() {
+    console.log(`
+      -----------------------------------------------------------------------
+                           Welcome to the Next Round!!
+      -----------------------------------------------------------------------`)
+    console.log(this.currentRound);
+    let round = new Round(this.decks[this.currentRound]);
+    this.printQuestion(round);
+  }
+  printMessage(deck) {
+    console.log(`
+        -----------------------------------------------------------------------
+                             Welcome to FlashCards!
+        -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.asyncHelper(round, this.decks, this);
   }
 }
 

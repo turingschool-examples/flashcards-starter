@@ -73,83 +73,84 @@ const prototypeData = [{
   "question": "The callback function for reduce() takes in an accumulator and a current element.",
   "answers": ["true", "false"],
   "correctAnswer": "true"
-}, {
-  "id": 16,
-  "question": "What does the callback function for reduce() return?",
-  "answers": ["the accumulator", "the current element", "the initializer"],
-  "correctAnswer": "the accumulator"
-}, {
-  "id": 17,
-  "question": "What does the reduce() method take in?",
-  "answers": ["callback function and initializer", "callback function and current element", "callback function and accumulator"],
-  "correctAnswer": "callback function and initializer"
-}, {
-  "id": 18,
-  "question": "What does the callback function for the map() method take in?",
-  "answers": ["current element", "initializer", "boolean"],
-  "correctAnswer": "current element"
-}, {
-  "id": 19,
-  "question": "What does the callback function for filter() return?",
-  "answers": ["boolean", "an array of the same length", "a single value of any data type"],
-  "correctAnswer": "boolean"
-}, {
-  "id": 20,
-  "question": "forEach() returns an array",
-  "answers": ["true", "false"],
-  "correctAnswer": "false"
-}, {
-  "id": 21,
-  "question": "Which iteration method is best for DOM manipulation?",
-  "answers": ["forEach()", "map()", "reduce()"],
-  "correctAnswer": "forEach()"
-}, {
-  "id": 22,
-  "question": "Which prototype method is used to iterate over each property of an object?",
-  "answers": ["Object.keys()", "Object.values()", "reduce()"],
-  "correctAnswer": "Object.keys()"
-}, {
-  "id": 23,
-  "question": "Which prototype method can make a copy of a pre-existing object or merge two or more objects together?",
-  "answers": ["Object.assign()", "Object.keys()", "filter()"],
-  "correctAnswer": "Object.assign()"
-}, {
-  "id": 24,
-  "question": "Object.assign() can take in an indefinite amount of arguments",
-  "answers": ["true", "false"],
-  "correctAnswer": "true"
-}, {
-  "id": 25,
-  "question": "Arrays are specialized objects where the keys are ordered numbers.",
-  "answers": ["true", "false"],
-  "correctAnswer": "true"
-}, {
-  "id": 26,
-  "question": "shift(), unshift(), pop(), and push() are examples of what type of array property method?",
-  "answers": ["mutator method", "accessor method", "iteration method"],
-  "correctAnswer": "mutator method"
-}, {
-  "id": 27,
-  "question": "Accessor methods permanently modify the original array, mutator methods do not.",
-  "answers": ["true", "false"],
-  "correctAnswer": "false"
-}, {
-  "id": 28,
-  "question": "Which prototype method returns an array of an object's property values?",
-  "answers": ["Object.keys()", "Object.values()", "Object.assign()"],
-  "correctAnswer": "Object.keys()"
-}, {
-  "id": 29,
-  "question": "map() takes in two optional arguments: the index of the current element, and the array that map was called upon",
-  "answers": ["true", "false"],
-  "correctAnswer": "true"
-}, {
-  "id": 30,
-  "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
-  "answers": ["prototype method", "object", "callback function"],
-  "correctAnswer": "prototype method"
 }]
-
+const myNewData = [
+  {
+   "id": 16,
+   "question": "What does the callback function for reduce() return?",
+   "answers": ["the accumulator", "the current element", "the initializer"],
+   "correctAnswer": "the accumulator"
+ }, {
+   "id": 17,
+   "question": "What does the reduce() method take in?",
+   "answers": ["callback function and initializer", "callback function and current element", "callback function and accumulator"],
+   "correctAnswer": "callback function and initializer"
+ }, {
+   "id": 18,
+   "question": "What does the callback function for the map() method take in?",
+   "answers": ["current element", "initializer", "boolean"],
+   "correctAnswer": "current element"
+ }, {
+   "id": 19,
+   "question": "What does the callback function for filter() return?",
+   "answers": ["boolean", "an array of the same length", "a single value of any data type"],
+   "correctAnswer": "boolean"
+ }, {
+   "id": 20,
+   "question": "forEach() returns an array",
+   "answers": ["true", "false"],
+   "correctAnswer": "false"
+ }, {
+   "id": 21,
+   "question": "Which iteration method is best for DOM manipulation?",
+   "answers": ["forEach()", "map()", "reduce()"],
+   "correctAnswer": "forEach()"
+ }, {
+   "id": 22,
+   "question": "Which prototype method is used to iterate over each property of an object?",
+   "answers": ["Object.keys()", "Object.values()", "reduce()"],
+   "correctAnswer": "Object.keys()"
+ }, {
+   "id": 23,
+   "question": "Which prototype method can make a copy of a pre-existing object or merge two or more objects together?",
+   "answers": ["Object.assign()", "Object.keys()", "filter()"],
+   "correctAnswer": "Object.assign()"
+ }, {
+   "id": 24,
+   "question": "Object.assign() can take in an indefinite amount of arguments",
+   "answers": ["true", "false"],
+   "correctAnswer": "true"
+ }, {
+   "id": 25,
+   "question": "Arrays are specialized objects where the keys are ordered numbers.",
+   "answers": ["true", "false"],
+   "correctAnswer": "true"
+ }, {
+   "id": 26,
+   "question": "shift(), unshift(), pop(), and push() are examples of what type of array property method?",
+   "answers": ["mutator method", "accessor method", "iteration method"],
+   "correctAnswer": "mutator method"
+ }, {
+   "id": 27,
+   "question": "Accessor methods permanently modify the original array, mutator methods do not.",
+   "answers": ["true", "false"],
+   "correctAnswer": "false"
+ }, {
+   "id": 28,
+   "question": "Which prototype method returns an array of an object's property values?",
+   "answers": ["Object.keys()", "Object.values()", "Object.assign()"],
+   "correctAnswer": "Object.keys()"
+ }, {
+   "id": 29,
+   "question": "map() takes in two optional arguments: the index of the current element, and the array that map was called upon",
+   "answers": ["true", "false"],
+   "correctAnswer": "true"
+ }, {
+   "id": 30,
+   "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
+   "answers": ["prototype method", "object", "callback function"],
+   "correctAnswer": "prototype method"
+ }]
 module.exports = {
-  prototypeData 
+  prototypeData , myNewData
 }
