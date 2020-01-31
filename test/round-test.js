@@ -91,6 +91,6 @@ describe('Round', function() {
     expect(round.currentCard).to.equal(card3);
     round.takeTurns('same', deck);
     expect(round.calculatePercentCorrect(deck)).to.equal('66%');
-    expect(round.endRound(deck)).to.equal(console.log('**Round over!** You answered 66% of the questions correctly!'));
+    expect(round.endRound(deck)).to.equal(console.log('**Round over!** You answered 66% of the questions correctly!Press <ctrl + c> to exit'));
   });
 });
