@@ -3,30 +3,24 @@ const expect = chai.expect;
 
 const Card = require('../src/Card');
 const Deck = require('../src/deck');
-const Round = require('../src/round');
 const Game = require('../src/Game');
 
 describe('start game', function() {
-  let card1, card2, card3, deck, round, game;
+  let card1, card2, card3, deck, game;
 
   beforeEach(() => {
-
     card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     card2 = new Card(2, 'Which is of these is a reserved word in Javascript?', ['this', 'never', 'mocha'], 'this');
     card3 = new Card(3, 'Which of these is NOT a reserved word in Javascript?', ['if', 'same', 'false'], 'same');
 
     deck = new Deck([card1, card2, card3]);
 
-    round = new Round(deck);
-
     game = new Game();
     game.start();
   });
 
   it('should keep track of a round', function() {
-    console.log('test', round);
-    expect(game.currentRound).to.equal(game.currentRound) ;
-    //what exactly is Round the equivalent of round outside of the variable?
+    expect(game.currentRound).to.equal(game.currentRound);
   });
 
   it('should print a welcome message', function() {

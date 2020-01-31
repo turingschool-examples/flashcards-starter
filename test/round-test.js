@@ -2,7 +2,6 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card')
-const Turn = require('../src/turn');
 const Deck = require('../src/deck');
 const Round = require('../src/round');
 
@@ -20,22 +19,18 @@ describe('Round', function() {
   });
 
   it('should be a function', function() {
-    // const round = new Round();
     expect(Round).to.be.a('function');
   });
 
   it('should instantite a new round', function() {
-    // const round = new Round();
     expect(round).to.be.an.instanceof(Round);
   });
 
   it('should return the first card in the deck as the current card', function() {
-
     expect(round.returnCurrentCard(deck)).to.equal(card1);
   });
 
   it('should start of with 0 turns taken', function() {
-
     expect(round.turns).to.equal(0);
     round.takeTurns('object', deck);
     expect(round.turns).to.equal(1);
@@ -45,7 +40,6 @@ describe('Round', function() {
   });
 
   it('should have the next card become the new current card', function() {
-
     expect(round.currentCard).to.equal(card1);
     round.takeTurns('array', deck.cardsInDeck);
     expect(round.currentCard).to.equal(card2);
@@ -54,7 +48,6 @@ describe('Round', function() {
   });
 
   describe('should record/evaluate a user\'s guess', function() {
-
     it('should push the card\'s id of the incorrect guesses in the array storing incorrect guesses', function() {
       round.returnCurrentCard(deck);
       expect(round.currentCard).to.equal(card1);
@@ -63,7 +56,6 @@ describe('Round', function() {
     });
 
     it('should be able to give feedback regarding whether a guess is correct or incorrect', function() {
-      //this should happen on the takeTurns method
       round.returnCurrentCard(deck);
       expect(round.currentCard).to.equal(card1);
       round.takeTurns('array', deck);
