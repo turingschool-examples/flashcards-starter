@@ -15,6 +15,6 @@ From your terminal do the following:
 * `cd flashcards` change into the flashcards directory
 * `node index.js` begins the game
 
-Once you have completed the game, or to exit out of the game at any time use `ctrl + c`
+* Once you have completed the game, or to exit out of the game at any time use `ctrl + c`
 
 
