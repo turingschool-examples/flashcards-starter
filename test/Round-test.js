@@ -24,7 +24,7 @@ describe('Round', function() {
   let card3;
   let deck;
   let round;
-  beforeEach(function(){
+  beforeEach(function() {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -32,30 +32,30 @@ describe('Round', function() {
     round = new Round(deck);
   })
 
-  it('should have a deck for the round',function(){
+  it('should have a deck for the round', function() {
     expect(round.deck).to.be.a('object');
   });
 
-  it('should keep track of the current card in play', function(){
+  it('should keep track of the current card in play', function() {
 
     expect(round.currentCard()).to.deep.equal(card1);
   });
 
-  it('should be able to take a turn',function(){
+  it('should be able to take a turn', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 
     expect(round.takeTurn('sea otter')).to.equal('Correct!')
     expect(round.takeTurn('spleen')).to.equal('Incorrect!')
   });
 
-  it('should keep track of turns',function(){
+  it('should keep track of turns', function() {
 
     round.takeTurn('sea otter');
     round.takeTurn('spleen')
     expect(round.turn).to.equal(2);
   });
 
-  it('should be able to calculate the Percent Correct',function(){
+  it('should be able to calculate the Percent Correct', function() {
 
     round.takeTurn('sea otter');
     round.takeTurn('spleen')

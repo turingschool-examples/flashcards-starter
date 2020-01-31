@@ -1,7 +1,6 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const myNewData = data.myNewData;
-const rawQuestions = [];
 const util = require('./util');
 const Deck = require('./Deck');
 const Round = require('./Round');
@@ -27,9 +26,8 @@ class Game {
   }
   getIndex(name) {
     var deckIndex = 0;
-    var arrayIterator = this.decks.keys()
-    this.decks.forEach(function(element, index, placeholder) {
-      if (element.name == name.decks) {
+    this.decks.forEach(function(element, index) {
+      if (element.name === name.decks) {
         deckIndex = index;
       }
     });
@@ -38,7 +36,7 @@ class Game {
   }
   newDeck(data) {
     let newDeck = [];
-    data.forEach(function(element, index) {
+    data.forEach(function(element) {
       newDeck.push(new Card(element.id, element.question, element.answers, element.correctAnswer))
     });
     return newDeck;
