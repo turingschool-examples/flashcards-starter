@@ -18,19 +18,23 @@ class Game {
     let deck = new Deck(this.newDeck(prototypeQuestions), 'prototype');
     let deck2 = new Deck(this.newDeck(myNewData), 'NewData');
     this.decks.push(deck, deck2);
-    let round = new Round(deck);
+    let round = this.newRound(deck)
     this.printMessage(deck, round);
     this.printQuestion(round);
   }
-  // getGameId(id){
-  //   return this.currentDecks
-  // }
+  newRound(deck) {
+    return new Round(deck);
+  }
   getIndex(name) {
-    this.decks.forEach(function(element, index) {
-      if (element.name === name) {
-        return index;
+    var deckIndex = 0;
+    var arrayIterator = this.decks.keys()
+    this.decks.forEach(function(element, index, placeholder) {
+      if (element.name == name.decks) {
+        deckIndex = index;
       }
-    })
+    });
+    this.currentRound = deckIndex;
+    return deckIndex;
   }
   newDeck(data) {
     let newDeck = [];
@@ -47,6 +51,7 @@ class Game {
       -----------------------------------------------------------------------
                            Welcome to the Next Round!!
       -----------------------------------------------------------------------`)
+    console.log(this.currentRound);
     let round = new Round(this.decks[this.currentRound]);
     this.printQuestion(round);
   }

@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 
 async function asyncHelper(round, decks, game) {
   await choose(game);
+  round = game.newRound(decks[game.currentRound]);
   await main(round, decks, game);
 }
 
@@ -39,11 +40,8 @@ async function main(round, decks, game) {
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
   if (!round.returnCurrentCard()) {
-    if (game.currentRound < decks.length - 1) {
-      game.nextRound();
-    } else {
-      round.endRound();
-    }
+    round.endRound();
+    game.nextRound();
   } else {
     main(round, decks, game);
   }
@@ -59,7 +57,7 @@ const getGame = (game) => {
   return Promise.resolve(game);
 }
 const confirmDeck = (id, game) => {
-  const deckIndex = game.getIndex(id.decks);
+  const deckIndex = game.getIndex(id);
   return {
     name: 'feedback',
     message: `Your chosen deck is ${id.decks}
