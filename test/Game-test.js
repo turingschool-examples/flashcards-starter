@@ -23,17 +23,17 @@ describe('start game', function() {
     game.start();
   });
 
-  it.skip('should keep track of a round', function() {
+  it('should keep track of a round', function() {
     console.log('test', round);
     expect(game.currentRound).to.equal(game.currentRound) ;
     //what exactly is Round the equivalent of round outside of the variable?
   });
 
-  it.skip('should print a welcome message', function() {
+  it('should print a welcome message', function() {
     expect(game.start()).to.equal(console.log('Welcome to FlashCards! You are playing with 30 cards.'));
   });
 
-  it.skip('should print a question to allow interation with the CLI', function() {
+  it('should print a question to allow interation with the CLI', function() {
     expect(game.start()).to.equal(console.log(deck.cardsInDeck[0].question));
   });
 });
