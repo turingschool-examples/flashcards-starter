@@ -1,4 +1,4 @@
-class Card{
+class Card {
   constructor(id, question, answers = [], correctAnswer){
     this.id = id;
     this.question = question;
@@ -7,5 +7,4 @@ class Card{
   }
 }
 
-
-module.exports = Card
+module.exports = Card;
