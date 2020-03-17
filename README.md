@@ -2,7 +2,7 @@
 
 ## Abstract
 
-## install
+## Install
 
 ## Setup
 
