@@ -115,7 +115,7 @@ describe('Round', function() {
     expect(turn1).to.be.an.instanceof(Turn)
   })
 
-  it.skip('should rotate cards', function() {
+  it('should rotate cards', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     const card6 = new Card(6, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
     const card13 = new Card(13, 'The callback function for map() returns a modified version of the current element.', ['true', 'false'], 'true' )
@@ -133,9 +133,9 @@ describe('Round', function() {
     expect(round.currentCard).to.deep.equal({id: 13, question: 'The callback function for map() returns a modified version of the current element.', answers: ['true', 'false'], correctAnswer: 'true' })
   })
 
-  it.skip('should evaluate guess', function() {
-    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    const card6 = new Card(6, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
+  it('should evaluate guess', function() {
+    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object' )
+    const card6 = new Card(6, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()' )
     const card13 = new Card(13, 'The callback function for map() returns a modified version of the current element.', ['true', 'false'], 'true' )
     const deck = new Deck([card1, card6, card13])
     const round = new Round(deck)
@@ -145,7 +145,7 @@ describe('Round', function() {
     expect(round.takeTurn('true')).to.equal('correct!');
   })
 
-  it.skip('should track incorrect guesses', function() {
+  it('should track incorrect guesses', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     const card6 = new Card(6, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
     const card13 = new Card(13, 'The callback function for map() returns a modified version of the current element.', ['true', 'false'], 'true' )
@@ -164,7 +164,7 @@ describe('Round', function() {
     expect(round.incorrectGuesses.length).to.equal(3)
   })
 
-  it.skip('should keep track of questions incorrectly guessed', function() {
+  it('should keep track of questions incorrectly guessed', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     const card6 = new Card(6, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
     const card13 = new Card(13, 'The callback function for map() returns a modified version of the current element.', ['true', 'false'], 'true' )
@@ -177,10 +177,23 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([1, 13])
   })
 
-  it.skip('should calculate the perecent of correct answers', function() {
+  it('should keep track of questions correctly guessed', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     const card6 = new Card(6, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
+    const card13 = new Card(13, 'The callback function for map() returns a modified version of the current element.', ['true', 'false'], 'true' )
     const deck = new Deck([card1, card6, card13])
+    const round = new Round(deck)
+
+    round.takeTurn('object')
+    round.takeTurn('sort()')
+    round.takeTurn('false')
+    expect(round.correctGuesses).to.deep.equal([1, 6])
+  })
+
+  it('should calculate the perecent of correct answers', function() {
+    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    const card6 = new Card(6, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
+    const deck = new Deck([card1, card6])
     const round = new Round(deck)
 
     round.takeTurn('array')
@@ -188,10 +201,10 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal(50)
   })
 
-  it.skip('should notify when a round is over', function() {
+  it('should notify when a round is over', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     const card6 = new Card(6, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
-    const deck = new Deck([card1, card6, card13])
+    const deck = new Deck([card1, card6])
     const round = new Round(deck)
 
     round.takeTurn('array')
