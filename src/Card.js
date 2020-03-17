@@ -1,13 +1,13 @@
 // Card represents a single flashcard
-import prototypeData from './data.js'
+// import prototypeData from './data.js'
 
 class Card {
-  constructor() {
+  constructor(id, question, answers, correctAnswer) {
     this.id = id
     this.question = question
-    this.answers = possibleAnswers
+    this.answers = answers
     this.correctAnswer = correctAnswer
   }
 }
 
-module.exports = card
+module.exports = Card
