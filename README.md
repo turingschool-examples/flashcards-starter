@@ -1,10 +1,10 @@
-## 1. About this project:
+# 1. About this project:
 Flash Card game that interacts with command line
 
 Main idea of writing this game is to practice implementing ES6 classes, writing modular, reusable code that follows SRP and implementing a robust testing suite using TDD
 
 
-## 2. A GIF of the working application:
+# 2. A GIF of the working application:
 
 
 # 3. FlashCards Starter Kit:
