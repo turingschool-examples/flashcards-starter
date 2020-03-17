@@ -20,13 +20,13 @@ describe('Turn', function() {
 
   it('should take a users guess', function() {
     const turn = new Turn('boolean!');
-    const turn2 = new Turn(false);
-    const turn3 = new Turn(31);
+    const turn2 = new Turn('false');
+    const turn3 = new Turn('31');
     const turn4 = new Turn('guess')
 
     expect(turn.guess).to.equal('boolean!');
-    expect(turn2.guess).to.equal(false);
-    expect(turn3.guess).to.equal(31);
+    expect(turn2.guess).to.equal('false');
+    expect(turn3.guess).to.equal('31');
     expect(turn4.guess).to.equal('guess')
   })
 
