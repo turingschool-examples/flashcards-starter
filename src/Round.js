@@ -1,6 +1,8 @@
 const Turn = require('../src/Turn')
+const Game = require('../src/Game')
+
 class Round {
-  constructor(deck) {
+  constructor(deck, round = 1) {
     this.turns = 0;
     this.deck = deck.cards;
     this.currentCard = this.deck[0];
@@ -8,39 +10,37 @@ class Round {
     this.totalCorrects = 0;
     this.incorrectGuesses = []
     this.correctGuesses = []
+    this.round = round
   }
 
   takeTurn(guess) {
     this.turns++
+    console.log(this.currentCard)
     var turn = new Turn(guess, this.currentCard)
     // console.log(turn.evaluateGuess())
-    if (turn.evaluateGuess() === false) {
+    if (!turn.evaluateGuess()) {
       this.totalIncorrects++
       this.incorrectGuesses.push(this.currentCard.id)
+      this.rotateCards()
+
     } else {
       this.totalCorrects++
       this.correctGuesses.push(this.currentCard.id)
+      this.deck.shift()
+      this.currentCard = this.deck[0]
     }
-    this.rotateCards()
+    // console.log(this.totalCorrects)
+    // console.log(this.deck.length)
+    // if (this.deck.length === this.totalCorrects) {
+    //   // console.log('end round!!!')
+    //   this.endRound()
+    // }
+    console.log(this.currentCard)
     return turn.giveFeedback()
     // return turn;
   }
-  // takeTurn(guess) {
-  //   this.turns++
-  //   var turn = new Turn(guess, this.currentCard)
-  //   // console.log(turn.evaluateGuess())
-  //   if (turn.evaluateGuess() === false) {
-  //     this.totalIncorrects++
-  //     this.incorrectGuesses.push(this.currentCard.id)
-  //     this.rotateCards()
-  //   } else {
-  //     this.totalCorrects++
-  //     this.correctGuesses.push(this.currentCard.id)
-  //     this.deck.shift()
-  //   }
-  //   return turn.giveFeedback()
-  //   // return turn;
-  // }
+
+
   rotateCards() {
     this.deck.shift(this.currentCard)
     this.deck.push(this.currentCard)
@@ -56,8 +56,22 @@ class Round {
   }
 
   endRound() {
-    return `**Round Over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    // console.log('end round function!')
+    console.log(`**Round Over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    this.round++;
+    let currentRound = this.round
+
+    // var game = new Game()
+    // game.start()
+    // game.start()
+    // newRound(currentRound)
   }
+
+  // startNewRound() {
+  //   console.log('round', this.round)
+  //   let newRound = this.round
+  //   var game = new Game(newRound)
+  // }
 
 }
 
