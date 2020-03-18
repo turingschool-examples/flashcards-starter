@@ -17,7 +17,7 @@ class Turn {
   }
 
   giveFeedback() {
-    return !this.evaluateGuess() ? 'incorrect!' : 'correct!';
+    return this.evaluateGuess() ? 'correct!' : 'incorrect!';
   }
 }
 
