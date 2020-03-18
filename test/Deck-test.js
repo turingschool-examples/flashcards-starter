@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
@@ -23,12 +24,8 @@ describe('Deck', function() {
   
     const deck = new Deck([card1, card2, card3]);
 
-    expect(deck.cards).to.equal([card1, card2, card3]);
+    expect(deck.cards).to.deep.equal([card1, card2, card3]);
   });
-
-  //tried [card1, card2, card3]
-  //tried [card1.value, card2.value, card3.value]
-  //tried [Card(...), Card(...), Card(...)]
 
   it('should be able to count cards in the deck', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
