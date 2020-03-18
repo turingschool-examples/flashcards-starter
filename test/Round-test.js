@@ -109,7 +109,7 @@ describe ('Round', function(){
     round.takeTurn('gallbladder');
     round.takeTurn('playing with bubble wrap');
 
-    expect(round.calculatePercentCorrect()).to.equal(100);
+    expect(round.calculatePercentCorrect()).to.equal(100.00);
   });
 
   it('should deliver a message when the game is complete', function() {
@@ -122,9 +122,9 @@ describe ('Round', function(){
     round.returnCurrentCard();
     round.takeTurn('sea otter');
     round.takeTurn('gallbladder');
-    round.takeTurn('playing with bubble wrap');
-    expect(round.calculatePercentCorrect()).to.equal(100);
+    round.takeTurn('s');
+    expect(round.calculatePercentCorrect()).to.equal(66.67);
 
-    expect(round.endRound()).to.equal('** Round over! ** You answered 100% of the questions correctly!')
+    expect(round.endRound()).to.equal('** Round over! ** You answered 66.67% of the questions correctly!')
   });
 });

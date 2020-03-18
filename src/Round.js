@@ -23,7 +23,7 @@ class Round {
   calculatePercentCorrect() {
     let correct = this.deck.length - this.incorrectGuesses.length;
     let percentCorrect = (correct/this.deck.length) * 100;
-    return percentCorrect
+    return Number(percentCorrect.toFixed(2))
   }
 
   endRound() {
