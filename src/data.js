@@ -8,11 +8,11 @@ const prototypeData = [{
   "question": "What is a comma-separated list of related values?",
   "answers": ["array", "object", "function"],
   "correctAnswer": "array"
-// }, {
-//   "id": 3,
-//   "question": "What type of prototype method directly modifies the existing array?",
-//   "answers": ["mutator method", "accessor method", "iteration method"],
-//   "correctAnswer": "mutator method"
+}, {
+  "id": 3,
+  "question": "What type of prototype method directly modifies the existing array?",
+  "answers": ["mutator method", "accessor method", "iteration method"],
+  "correctAnswer": "mutator method"
 // }, {
 //   "id": 4,
 //   "question": "What type of prototype method does not modify the existing array but returns a particular representation of the array?",

@@ -73,6 +73,10 @@ class Round {
   }
 
   displayReportCard() {
+    console.log('REPORT CARD')
+    if (this.calculatePercentCorrect() === 100) {
+      console.log('GREAT JOB! You got every question correct on the first attempt!')
+    }
     let allCards = []
     for (let i = 0; i < prototypeQuestions.length; i++) {
       var newCard = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer)
@@ -88,12 +92,24 @@ class Round {
       }
     })
     for (let i = 1; i <= allCards.length; i++) {
-      console.log(typeof incorrectTracker[i])
+      // console.log(typeof incorrectTracker[i])
       let attempts = incorrectTracker[i] + 1
-      console.log(`Question #${i}: ${allCards[i -1].question}  Total Attempts = ${attempts}`)
-    // console.log(incorrectTracker)
+      if (incorrectTracker[i] === undefined) {
+        attempts = 1
+      }
+      if (attempts > 1) {
+        console.log(`!!!Question #${i} Needs More Practice!!!`)
+        console.log(`You needed ${attempts} attempts to get it correct...`)
+        console.log(`Question #${i}: ${allCards[i -1].question}`)
+        console.log(' ')
+    // } else {
+    //   console.log(`**Great Job On Question #${i}**`)
+    //   console.log(`Question #${i}: ${allCards[i -1].question}`)
+    // // console.log(incorrectTracker)
+    //   }
     }
   }
+}
 
 
 
