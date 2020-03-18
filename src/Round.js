@@ -22,10 +22,15 @@ class Round {
 
     this.turns++;
     turn.giveFeedback();
-    console.log(turn.giveFeedback());
+  
   }
 
-  round.calculatePercentCorrect()
+  calculatePercentCorrect() {
+    // let incorrect = this.incorrectGuesses.length;
+    let correctGuess = this.turns - this.incorrectGuesses.length;
+    let correctPercentage = (correctGuess / this.turns) * 100;
+    return correctPercentage;
+  }
 }
 
 module.exports = Round;
