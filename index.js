@@ -9,6 +9,7 @@ const Game = require('./src/Game.js')
 // const Round = require('/Users/davepernitz/turing/mod2/projects/flash-cards/src/Round.js')
 // const round
 const game = new Game()
+
 game.start()
 
 function newRound(currentRound) {
