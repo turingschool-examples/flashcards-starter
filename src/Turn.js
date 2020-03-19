@@ -20,7 +20,7 @@ class Turn {
 
   giveFeedback() {
     if (this.guess === this.card.correctAnswer) {
-      return "You got it!"
+      return "correct! You got it!"
     }
     return "incorrect!"
   }

@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 const Turn = require('../src/Turn');
 const Card = require('../src/Card')
+
 describe('Turn', function() {
 
   it('the turn should hold a users guess', function() {
