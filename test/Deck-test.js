@@ -11,7 +11,6 @@ describe('Deck', function() {
   const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
   it('should be a function', function() {
-    const deck = new Deck();
     expect(Deck).to.be.a('function');
   });
 

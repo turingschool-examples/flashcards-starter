@@ -26,7 +26,6 @@ class Game {
     }, []);
 
     const deck = new Deck(cards);
-    console.log(deck);
     this.currentRound = new Round(deck);
     this.printMessage(this.currentRound.deck, this.currentRound);
     this.printQuestion(this.currentRound);
