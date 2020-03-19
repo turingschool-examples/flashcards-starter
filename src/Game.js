@@ -15,9 +15,11 @@ class Game {
     prototypeQuestions.forEach(el => {
       const indexPos = prototypeQuestions.indexOf(el)
       var newCard =
-         new Card(prototypeQuestions[indexPos].id, prototypeQuestions[indexPos].question,
-           prototypeQuestions[indexPos].answers, prototypeQuestions[indexPos].correctAnswer)
-       cards.push(newCard)
+         new Card(prototypeQuestions[indexPos].id,
+           prototypeQuestions[indexPos].question,
+           prototypeQuestions[indexPos].answers,
+           prototypeQuestions[indexPos].correctAnswer)
+      cards.push(newCard)
     })
     var deck = new Deck(cards)
     var round = new Round(deck)
@@ -26,7 +28,7 @@ class Game {
     this.printQuestion(round)
   }
 
-  printMessage(deck, round) {
+  printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with
       ${deck.countCards()} cards.----------------------------
       -------------------------------------------`)

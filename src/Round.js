@@ -29,12 +29,6 @@ class Round {
     return turn.giveFeedback()
   }
 
-  // rotateCards() {
-  //   this.deck.shift(this.currentCard)
-  //   this.deck.push(this.currentCard)
-  //   this.currentCard = this.deck[0]
-  // }
-
   returnCurrentCard() {
     this.deck.shift(this.currentCard)
     this.deck.push(this.currentCard)
@@ -66,9 +60,11 @@ class Round {
     prototypeQuestions.forEach(el => {
       const indexPos = prototypeQuestions.indexOf(el)
       var newCard =
-         new Card(prototypeQuestions[indexPos].id, prototypeQuestions[indexPos].question,
-           prototypeQuestions[indexPos].answers, prototypeQuestions[indexPos].correctAnswer)
-       allCards.push(newCard)
+         new Card(prototypeQuestions[indexPos].id,
+           prototypeQuestions[indexPos].question,
+           prototypeQuestions[indexPos].answers,
+           prototypeQuestions[indexPos].correctAnswer)
+      allCards.push(newCard)
     })
     let incorrectTracker = {};
     this.incorrectGuesses.forEach(el => {
@@ -93,13 +89,13 @@ class Round {
   }
 
   displayTime() {
-    let seconds = ((Date.now() - this.start)/1000)
+    let seconds = ((Date.now() - this.start) / 1000)
     console.log('')
     console.log(`Total time: ${seconds} seconds`)
   }
   startTimer() {
     this.start = Date.now();
-  };
+  }
 
 }
 
