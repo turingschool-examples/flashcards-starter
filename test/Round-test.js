@@ -36,6 +36,79 @@ describe('Round', function() {
     });
   });
 
+  it('should update turns count', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('gallbladder');
+    expect(round.turns).to.equal(1);
 
+  });
+
+  it('should evaluate the guess', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('gallbladder');
+    round.takeTurn('sea otter');
+    expect(round.takeTurn('sea otter')).to.equal('incorrect!');
+  });
+
+  it('should update current card with the next card in the deck', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('pug');
+    round.takeTurn('gallbladder');
+    expect(round.returnCurrentCard()).to.deep.equal({
+      id: 12,
+      question: 'What is Travis\'s favorite stress reliever?',
+      answers: ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
+      correctAnswer: 'playing with bubble wrap'
+    });
+  });
+
+  it('should store the current card id if the guess is incorrect', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('pug');
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+    round.takeTurn('sea otter');
+    expect(round.incorrectGuesses).to.deep.equal([1, 14]);
+  });
+
+  it('should return the percentage of correct guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('pug');
+    round.takeTurn('gallbladder');
+    round.takeTurn('playing with bubble wrap');
+    round.calculatePercentCorrect();
+    expect(round.calculatePercentCorrect()).to.deep.equal('67');
+  });
+
+  it('should return a message communicating the end of the round', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('sea otter');
+    round.calculatePercentCorrect();
+    round.endRound();
+    expect(round.endRound()).to.deep.equal('** Round over! ** You answered 100% of the questions correctly!');
+  });
 
 });

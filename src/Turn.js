@@ -10,7 +10,7 @@ class Turn {
     return this.card;
   }
   evaluateGuess() {
-    return this.userGuess === this.card.correctAnswer
+    return this.userGuess === this.card.correctAnswer;
   }
   giveFeedback() {
     if (!this.evaluateGuess()) {
@@ -20,7 +20,6 @@ class Turn {
     }
   }
 }
-
 
 
 module.exports = Turn;
