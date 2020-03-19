@@ -207,6 +207,6 @@ describe('Round', function() {
 
     var correctAnswers = round.calculatePercentCorrect();
 
-    expect(round.endRound()).to.equal(`** Round over! ** You answered ${correctAnswers} of the questions correctly!`);
+    expect(round.endRound()).to.equal(`** Round over! ** You answered ${correctAnswers}% of the questions correctly!`);
   })
 });
