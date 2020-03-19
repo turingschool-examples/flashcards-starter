@@ -36,6 +36,12 @@ describe('Game', function() {
 
   it('should create cards', function() {
     game.start();
-    expect(deck.allCards).to.deep.equal([card1, card2, card3])
+    expect(deck.allCards).to.deep.equal([card1, card2, card3]);
   });
+
+  // it('should create a new round', function() {
+  //   game.start();
+  //
+  //   expect(game.round).to.deep.equal([round]);
+  // })
 });
