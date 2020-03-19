@@ -1,11 +1,11 @@
 ## 1. About this project:
-Flash Card game that interacts with command line
+Flash Card is the game that interacts with command line. There is deck of cards and each card stores a question, three possible answers and one correct answer. User is asked to select one of tree answers to each question, when there are no cards remaining in the deck - user sees percentage of questions that were correct.
 
-Main idea of writing this game is to practice implementing ES6 classes, writing modular, reusable code that follows SRP and implementing a robust testing suite using TDD
+Main idea of writing this game is to practice implementing ES6 classes, writing modular, reusable code that follows SRP and implementing a robust testing suite using TDD.
 
 
-## 2. A GIF of the working application:
-
+## 2. A screenshot of the working application:
+![picture](img/screenshot.png)
 
 # 3. FlashCards Starter Kit:
 
