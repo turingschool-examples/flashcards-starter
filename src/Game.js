@@ -4,6 +4,7 @@ const util = require('./util');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
+// const Timer = require('../src/Round')
 
 class Game {
   constructor(currentRound = 1) {
@@ -12,13 +13,6 @@ class Game {
 
   start() {
     let cards = []
-    // for (let i = 0; i < prototypeQuestions.length; i++) {
-    //   var newCard =
-    //     new Card(prototypeQuestions[i].id, prototypeQuestions[i].question,
-    //       prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer)
-    //   cards.push(newCard)
-    // }
-
     prototypeQuestions.forEach(el => {
       const indexPos = prototypeQuestions.indexOf(el)
       var newCard =
@@ -28,6 +22,8 @@ class Game {
     })
     var deck = new Deck(cards)
     var round = new Round(deck)
+    // var timer = new Timer()
+    round.startTimer()
     this.printMessage(deck, round)
     this.printQuestion(round)
   }

@@ -8,9 +8,11 @@ class Round {
     this.turns = 0;
     this.deck = deck.cards;
     this.currentCard = this.deck[0];
-    this.incorrectGuesses = []
-    this.correctGuesses = []
-    this.round = round
+    this.incorrectGuesses = [];
+    this.correctGuesses = [];
+    this.round = round;
+    this.start = 0;
+    // this.end = 0;
   }
 
   takeTurn(guess) {
@@ -44,9 +46,9 @@ class Round {
 
   endRound() {
     console.log('')
-    console.log(`**Round Over!** You answered
-      ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    console.log(`**Round Over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
     this.round++;
+    this.displayTime()
     this.displayReportCard()
   }
 
@@ -92,8 +94,19 @@ class Round {
       }
     }
   }
-}
+
+  displayTime() {
+    let seconds = ((Date.now() - this.start)/1000)
+    console.log('')
+    console.log(`Total time: ${seconds} seconds`)
+  }
+  startTimer() {
+    this.start = Date.now();
+  };
+
 
 }
+
+
 
 module.exports = Round;

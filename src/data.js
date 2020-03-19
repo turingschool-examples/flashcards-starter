@@ -13,7 +13,6 @@ const prototypeData = [{
   "question": "What type of prototype method directly modifies the existing array?",
   "answers": ["mutator method", "accessor method", "iteration method"],
   "correctAnswer": "mutator method"
-<<<<<<< HEAD
 }, {
   "id": 4,
   "question": "What type of prototype method does not modify the existing array but returns a particular representation of the array?",
@@ -24,7 +23,6 @@ const prototypeData = [{
   "question": "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
   "answers": ["mutator method", "accessor method", "iteration method"],
   "correctAnswer": "iteration method"
-=======
 // }, {
 //   "id": 4,
 //   "question": "What type of prototype method does not modify the existing array but returns a particular representation of the array?",
@@ -35,7 +33,6 @@ const prototypeData = [{
 //   "question": "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
 //   "answers": ["mutator method", "accessor method", "iteration method"],
 //   "correctAnswer": "iteration method"
->>>>>>> master
 // }, {
 //   "id": 6,
 //   "question": "What is an example of a mutator method?",
