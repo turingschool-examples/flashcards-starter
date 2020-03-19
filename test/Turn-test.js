@@ -3,11 +3,13 @@ const expect = chai.expect;
 
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
+const Round = require('../src/Round');
+const Deck = require('../src/Deck');
 
 describe('Turn', function() {
   it('should be a function', function() {
     const turn = new Turn();
-    expect(Card).to.be.a('function');
+    expect(Turn).to.be.a('function');
   });
 
   it('should be an instance of Turn', function() {
@@ -16,16 +18,31 @@ describe('Turn', function() {
   });
 
   it('should accept a guess', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('pug');
-    expect(turn.guess).to.equal('pug');
+    const card = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    });
+    const turn = new Turn('object');
+    expect(turn.guess).to.equal('object');
   })
 
   it('should also accept a Card instance', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    });
     const turn = new Turn('pug', card);
 
-    expect(turn.cardInstance).to.eql({id: 1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'});
+    expect(turn.cardInstance).to.eql({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    });
   })
 
   it('should return the guess', function() {
@@ -39,10 +56,20 @@ describe('Turn', function() {
   })
 
   it('should return the Card', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+      });
     const turn = new Turn('pug', card);
 
-    expect(card).to.eql({id: 1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'});
+    expect(card).to.eql({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+      });
     const currentCard = turn.returnCard();
     expect(currentCard, card);
 
