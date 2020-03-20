@@ -33,7 +33,6 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.equal('cheetah');
   });
 
-//why does this work with eql but not equal??
   it('should return a card', function() {
     const card = new Card(1, 'What is Andrew\'s favorite animal', ['wolf', 'bear', 'monkey'], 'wolf');
     const turn = new Turn('bear', card);
