@@ -49,7 +49,7 @@ describe('Round', function () {
 
   });
 
-  it('Should store the id of the card when the guess doe not match', function () {
+  it('Should store the id of the card if the guess does not match', function () {
 
     round.takeTurn()
 
