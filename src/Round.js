@@ -24,13 +24,13 @@ class Round {
   }
   calculatePercentCorrect() {
     let correctGuesses = this.turns - this.incorrectGuesses.length
-    return `${Math.round((correctGuesses/this.turns) * 100)}`
+    return `${Math.round((correctGuesses / this.turns) * 100)}`
   }
   endRound() {
-    console.log("** Round over! ** You answered " + `${this.calculatePercentCorrect()}%` +
-    " of the questions correctly!")
-    return "** Round over! ** You answered " + `${this.calculatePercentCorrect()}%` +
-    " of the questions correctly!"
+    console.log("** Round over! ** You answered " +
+      `${this.calculatePercentCorrect()}%` + " of the questions correctly!")
+    return "** Round over! ** You answered " +
+      `${this.calculatePercentCorrect()}%` + " of the questions correctly!"
   }
 }
 

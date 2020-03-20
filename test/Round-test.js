@@ -8,16 +8,16 @@ const Card = require('../src/Card');
 
 describe('Round', function() {
 
-let deck, round, card1, card2, card3;
+  let deck, round, card1, card2, card3;
 
   beforeEach(function() {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter',
-    'pug', 'capybara'], 'sea otter');
+      'pug', 'capybara'], 'sea otter');
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix',
-    'gallbladder'], 'gallbladder');
+      'gallbladder'], 'gallbladder');
     card3 = new Card(12, 'What is Travis\'s favorite stress reliever?',
-    ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
-    'playing with bubble wrap');
+      ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
+      'playing with bubble wrap');
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
   });
@@ -58,7 +58,8 @@ let deck, round, card1, card2, card3;
     expect(round.returnCurrentCard()).to.deep.equal({
       id: 12,
       question: 'What is Travis\'s favorite stress reliever?',
-      answers: ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
+      answers: ['listening to music', 'watching Netflix', 'playing with bubble'
+      + ' wrap'],
       correctAnswer: 'playing with bubble wrap'
     });
   });
@@ -82,7 +83,8 @@ let deck, round, card1, card2, card3;
     round.takeTurn('sea otter');
     round.calculatePercentCorrect();
     round.endRound();
-    expect(round.endRound()).to.deep.equal('** Round over! ** You answered 100% of the questions correctly!');
+    expect(round.endRound()).to.deep.equal('** Round over! ** You answered 100%'
+    + ' of the questions correctly!');
   });
 
 });

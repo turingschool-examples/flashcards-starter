@@ -12,22 +12,24 @@ class Game {
   }
 
   start() {
-  const cards = prototypeQuestions.map(card => card = new Card (card['id'], card['question'], card['answers'], card['correctAnswer']));
-  const deck = new Deck(cards);
-  const currentRound = new Round(deck);
-  this.printMessage(deck, currentRound);
-  this.printQuestion(currentRound);
+    const cards = prototypeQuestions.map(card => card = new Card (card['id'],
+      card['question'], card['answers'], card['correctAnswer']));
+    const deck = new Deck(cards);
+    const currentRound = new Round(deck);
+    this.printMessage(deck, currentRound);
+    this.printQuestion(currentRound);
   }
 
-  printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
-  return `Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`
+  printMessage(deck) {
+    console.log(`Welcome to FlashCards! You are playing with
+        ${deck.countCards()} cards.--------------------------------------------
+        ---------------------------`)
+    return 'Welcome to FlashCards! You are playing with ' + `${deck.countCards()}`
+  + ' cards.-----------------------------------------------------------------------'
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 
