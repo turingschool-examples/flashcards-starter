@@ -18,7 +18,7 @@ class Game {
     this.gamesPlayed = round
     this.printMessage(deck)
     this.printQuestion(round);
-    // return 
+    return 
   }
 
   printMessage(deck) {
