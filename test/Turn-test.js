@@ -76,12 +76,17 @@ describe('Turn', function() {
   })
 
   it('should evaluate the guess', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+      });
     const turn = new Turn('pug', card);
 
     expect(turn.guess).to.equal('pug');
     var isCorrect = turn.evaluateGuess();
-    expect(isCorrect, false);
+    expect(isCorrect, true);
   })
 
   it('should return "incorrect!" if answer is wrong', function() {
