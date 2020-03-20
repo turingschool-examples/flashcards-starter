@@ -7,7 +7,7 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe('Round', function() {
-  let round, deck, turn, card1, card2, card3;
+  let round, deck, card1, card2, card3;
   beforeEach(function() {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -19,7 +19,7 @@ describe('Round', function() {
   });
 
   it('should be a function', function() {
-    const round = new Round();
+    // const round = new Round();
     expect(Round).to.be.a('function');
   });
 
@@ -77,7 +77,7 @@ describe('Round', function() {
     round.takeTurn('gallbladder');
 
     expect(turn.evaluateGuess()).to
-    .equal(true);
+      .equal(true);
   })
 
   it('should tell user if guess was incorrect', function() {
@@ -114,22 +114,9 @@ describe('Round', function() {
     round.takeTurn('listening to music');
     round.calculatePercentCorrect();
 
-    var correctGuesses = deck.allCards.length -round.incorrectGuesses.length;
-    var percentageCorrect = (correctGuesses/deck.allCards.length) * 100;
+    var correctGuesses = deck.allCards.length - round.incorrectGuesses.length;
+    var percentageCorrect = (correctGuesses / deck.allCards.length) * 100;
 
     expect(round.calculatePercentCorrect()).to.equal(Math.floor(percentageCorrect));
-  })
-
-  it('should console.log a message indicating the amount of correct answers', function() {
-    round.returnCurrentCard();
-    round.takeTurn('pug');
-    round.takeTurn('gallbladder');
-    round.takeTurn('listening to music');
-    round.calculatePercentCorrect();
-    round.endRound();
-
-    var correctAnswers = round.calculatePercentCorrect();
-
-    expect(round.endRound()).to.equal(`** Round over! ** You answered ${correctAnswers}% of the questions correctly!`);
   })
 });
