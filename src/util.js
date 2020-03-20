@@ -45,7 +45,7 @@ async function main(round) {
 
   if (!round.returnCurrentCard() && round.calculatePercentCorrect() > 90) {
     round.endRound();
-  } else if (round.calculatePercentCorrect() < 90) {
+  } else if (!round.returnCurrentCard() && round.calculatePercentCorrect() < 90) {
     console.log(`** Round over! ** You answered less than 90 percent of the questions correctly. Please try again.`)
     let cards = [];
     prototypeQuestions.forEach(element => {
