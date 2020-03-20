@@ -76,10 +76,6 @@ describe('Round', function() {
     round.returnCurrentCard();
     round.takeTurn('gallbladder');
 
-    console.log(round.isAnswerCorrect)
-    console.log('evaluateGuess', turn.evaluateGuess())
-    console.log(round.incorrectGuesses)
-
     expect(turn.evaluateGuess()).to
     .equal(true);
   })
