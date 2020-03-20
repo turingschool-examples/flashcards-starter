@@ -8,9 +8,7 @@ describe('Game', function() {
   let card6;
   let card13;
   let deck;
-  // let deck2;
   let round;
-  // let round2;
   let game;
   let game2;
   let game32;
