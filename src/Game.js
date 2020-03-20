@@ -15,9 +15,9 @@ class Game {
     const cards = prototypeQuestions.map(card => card = new Card (card['id'],
       card['question'], card['answers'], card['correctAnswer']));
     const deck = new Deck(cards);
-    const currentRound = new Round(deck);
-    this.printMessage(deck, currentRound);
-    this.printQuestion(currentRound);
+    this.currentRound = new Round(deck);
+    this.printMessage(deck, this.currentRound);
+    this.printQuestion(this.currentRound);
   }
 
   printMessage(deck) {
