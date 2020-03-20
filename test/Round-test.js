@@ -51,7 +51,7 @@ describe('Round', function () {
 
   it('Should store the id of the card if the guess does not match', function () {
 
-    round.takeTurn()
+    round.takeTurn("pam")
 
     expect(round.incorrectGuesses).to.deep.equal([deck.deck[0].id])
   });

@@ -18,7 +18,7 @@ describe('Turn', function () {
 
   })
 
-  it('the turn should hold a users guess', function () {
+  it('Should hold a users guess', function () {
 
     expect(turn.guess).to.equal('potato');
 
@@ -44,13 +44,13 @@ describe('Turn', function () {
 
   });
 
-  it('Should return the false if guess is not sea otter', function () {
+  it('Should return the false if guess is not correct', function () {
 
     expect(turn.evaluateGuess()).to.equal(false)
 
   });
 
-  it('Should return the incorrect! if guess is not sea otter', function () {
+  it('Should return the incorrect! if guess is not correct', function () {
 
     expect(turn.giveFeedback(card)).to.equal("incorrect!")
 
