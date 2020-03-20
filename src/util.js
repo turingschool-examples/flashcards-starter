@@ -43,23 +43,23 @@ async function main(round) {
   const getAnswer = await inquirer.prompt(genList(currentRound));
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
-    if(!round.returnCurrentCard() && round.calculatePercentCorrect() > 90) {
-      round.endRound();
-    } else if (round.calculatePercentCorrect() < 90) {
+  if (!round.returnCurrentCard() && round.calculatePercentCorrect() > 90) {
+    round.endRound();
+  } else if (round.calculatePercentCorrect() < 90) {
     console.log(`** Round over! ** You answered less than 90 percent of the questions correctly. Please try again.`)
-      let cards = [];
-      prototypeQuestions.forEach(element => {
-        let singleCard = new Card(
-          element.id, element.question, element.answers, element.correctAnswer);
-          cards.push(singleCard)
-      });
-        let deck = new Deck(cards);
-        let round2 = new Round(deck);
+    let cards = [];
+    prototypeQuestions.forEach(element => {
+      let singleCard = new Card(
+        element.id, element.question, element.answers, element.correctAnswer);
+        cards.push(singleCard)
+    });
+      let deck = new Deck(cards);
+      let round2 = new Round(deck);
       let round = round2
       main(round)
-    } else {
+  } else {
       main(round);
-    }
+  }
 }
 
 module.exports.main = main;

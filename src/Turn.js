@@ -17,7 +17,8 @@ class Turn {
   }
 
   giveFeedback() {
-    return this.guess === this.currentCard.correctAnswer ? 'correct!' : 'incorrect!';
+    return this.guess ===
+    this.currentCard.correctAnswer ? 'correct!' : 'incorrect!';
   }
 }
 

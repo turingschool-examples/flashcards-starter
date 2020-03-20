@@ -18,13 +18,13 @@ class Round {
     if (turn.evaluateGuess() === false) {
       this.incorrectGuesses.push(this.currentCard.id);
     }
+    // this.returnCurrentCard();
     return turn.giveFeedback();
-    this.returnCurrentCard();
   }
 
   calculatePercentCorrect() {
-    let correctGuesses = this.deck.allCards.length -this.incorrectGuesses.length;
-    let percentageCorrect = (correctGuesses/this.deck.allCards.length) * 100;
+    let correctGuesses = this.deck.allCards.length - this.incorrectGuesses.length;
+    let percentageCorrect = (correctGuesses / this.deck.allCards.length) * 100;
     return Math.floor(percentageCorrect);
   }
 
