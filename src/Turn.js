@@ -5,6 +5,17 @@ class Turn {
     this.userGuess = userGuess;
     this.card = card;
   }
+  returnGuess() {
+    return this.userGuess
+  }
+  returnCard() {
+    return this.card
+  }
+  evaluateGuess() {
+  }
+  giveFeedback() {
+
+  }
 }
 
-module.exports = Turn
+module.exports = Turn;
