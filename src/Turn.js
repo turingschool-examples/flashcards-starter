@@ -12,9 +12,18 @@ class Turn {
     return this.card
   }
   evaluateGuess() {
+    if(this.userGuess === this.card.correctAnswer) {
+      return true;
+    } else {
+      return false;
+    }
   }
   giveFeedback() {
-
+    if(this.userGuess === this.card.correctAnswer) {
+      return 'correct!';
+    } else {
+      return 'incorrect!';
+    }
   }
 }
 
