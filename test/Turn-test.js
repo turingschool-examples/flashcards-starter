@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Card = require('../src/Card')
 const Turn = require('../src/Turn')
 
 describe('Turn', function() {
@@ -29,7 +30,28 @@ describe('Turn', function() {
 
     expect(turn1.userGuess).to.equal('crocodile');
     expect(turn2.userGuess).to.equal('alligator');
-  })
+  });
+
+  it('should store the card at play', function() {
+
+    const card1 = new Card (1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const turn1 = new Turn ('object', card1);
+
+    expect(turn1).to.have.property('currentCard', card1);
+  });
+
+  it('should be able to store different cards', function() {
+
+    const card1 = new Card (1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const card2 = new Card (2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
+    const turn1 = new Turn ('object', card1);
+    const turn2 = new Turn ('array', card2);
+
+    expect(turn1.currentCard).to.equal(card1);
+    expect(turn1.currentCard).to.be.an.instanceof(Card);
+    expect(turn2.currentCard).to.equal(card2);
+    expect(turn2.currentCard).to.be.an.instanceof(Card);
+  });
 });
 
 
