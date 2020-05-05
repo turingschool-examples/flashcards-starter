@@ -36,5 +36,28 @@ describe('Turn', function() {
 
    assert.equal(turn.card, card);
    assert.equal(turn.returnCard(), card);
-})
+ });
+
+  it('should evaluate guess', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ["object", "array", "function"], "object");
+    var turn = new Turn('array', card);
+
+    assert.equal(turn.evaluateGuess(), false);
+
+    var turn = new Turn('object', card);
+
+    assert.equal(turn.evaluateGuess(), true);
+  });
+
+  it('should give feedback', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ["object", "array", "function"], "object");
+    var turn = new Turn('array', card);
+
+    assert.equal(turn.giveFeedback(), 'incorrect!');
+
+    var turn = new Turn('object', card);
+
+    assert.equal(turn.giveFeedback(), 'correct!');
+  });
+
 });
