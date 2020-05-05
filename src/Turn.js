@@ -17,7 +17,7 @@ class Turn {
   }
 
   giveFeedback() {
-    return this.evaluateGuess() ? 'You got it right...lucky guess' : 'Sorry, bud.  Better luck next time.'
+    return this.evaluateGuess() ? 'correct!' : 'incorrect!'
   }
 }
 
