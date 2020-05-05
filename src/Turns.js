@@ -11,6 +11,16 @@ class Turns {
   returnCard() {
     return this.card;
   }
+
+  evaluateGuess() {
+    if (this.card.correctAnswer == this.guess) {
+      console.log(this.card.correctAnswer);
+      console.log(this.guess)
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 module.exports = Turns
