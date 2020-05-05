@@ -3,9 +3,10 @@ const assert = require('chai').assert;
 const Round = require('../src/Round');
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
+const Turn = require('../src/Turn');
 
 describe('Round', function() {
-  it('should be a function' , function(){
+  it('should be a function' , function() {
     assert.deepEqual(typeof Round, 'function');
   });
 
@@ -41,7 +42,84 @@ describe('Round', function() {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    round.takeTurn();
+    round.takeTurn('sea otter');
     assert.deepEqual(round.turns, 1);
   });
+  it('should create a new Turn when takeTurn is called', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('sea otter');
+    assert.deepEqual(round.turn instanceof Turn, true);
+  });
+  it('When a user takes a turn, the next card becomes the current card', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    assert.deepEqual(round.takeTurn('sea otter'), 'Correct!');
+    assert.deepEqual(round.takeTurn('gallbladder'), 'Correct!');
+    assert.deepEqual(round.takeTurn('pug'), 'Incorrect!');
+  });
+  it('should check the guess and return feedback when takeTurn is called', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    assert.deepEqual(round.takeTurn('sea otter'), 'Correct!');
+    assert.deepEqual(round.takeTurn('pug'), 'Incorrect!');
+
+  });
+
+  it('should check the guess and store incorrect guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('sea otter');
+    round.takeTurn('appendix');
+    assert.deepEqual(round.incorrectGuesses, [14]);
+
+  });
+
+  it('should be able to return current card after a turn is taken with returnCurrentCard()', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    assert.deepEqual(round.returnCurrentCard(), card1);
+    round.takeTurn('sea otter');
+    assert.deepEqual(round.returnCurrentCard(), card2);
+  });
+
+  it('should be able to calculate and return the percentage of correct guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('sea otter');
+    assert.deepEqual(round.calculatePercentCorrect(), 100);
+    round.takeTurn('appendix');
+    assert.deepEqual(round.calculatePercentCorrect(), 50);
+  });
+  it('should be able to end round and return final scores', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('sea otter');
+    round.takeTurn('appendix');
+    round.takeTurn('playing with bubble wrap');
+    assert.deepEqual(round.endRound(), `** Round over! ** You answered 67% of the questions correctly!`)
+  })
+
+
 });
