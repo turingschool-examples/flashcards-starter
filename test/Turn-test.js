@@ -59,5 +59,4 @@ describe('Turn', function() {
 
     assert.equal(turn.giveFeedback(), 'correct!');
   });
-
 });
