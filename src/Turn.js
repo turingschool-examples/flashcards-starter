@@ -1,7 +1,7 @@
 class Turn {
-  contructor () {
-
-  }
-}
+  constructor (userGuess) {
+    this.userGuess = userGuess
+  };
+};
 
 module.exports = Turn;

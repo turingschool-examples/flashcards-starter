@@ -5,7 +5,7 @@ const Turn = require('../src/Turn')
 
 describe('Turn', function() {
 
-  it('shoulb be a function', function() { 
+  it('should be a function', function() { 
     const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
@@ -14,6 +14,22 @@ describe('Turn', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   });
+
+  it('should store the user\'s guess', function() {
+
+    const turn = new Turn ('crocodile')
+
+    expect(turn).to.have.property('userGuess', 'crocodile')
+  });
+
+  it('should be able to have different guesses', function () {
+
+    const turn1 = new Turn ('crocodile');
+    const turn2 = new Turn ('alligator');
+
+    expect(turn1.userGuess).to.equal('crocodile');
+    expect(turn2.userGuess).to.equal('alligator');
+  })
 });
 
 
