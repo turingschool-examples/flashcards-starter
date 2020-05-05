@@ -52,8 +52,8 @@ describe('Turn', () => {
   })
 
   it('should be able to give feedback on the guess', () => {
-    expect(turn1.giveFeedback()).to.equal('Sorry, bud.  Better luck next time.')
-    expect(turn2.giveFeedback()).to.equal('You got it right...lucky guess')
+    expect(turn1.giveFeedback()).to.equal('correct!')
+    expect(turn2.giveFeedback()).to.equal('incorrect!')
   })
 
 })

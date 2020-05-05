@@ -28,7 +28,7 @@ class Round {
 
   endRound() {
     let percent = this.calculatePercentage()
-    return `** Round over! ** You answered ${percent}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${percent}% of the questions correctly!`)
   }
 
 }
