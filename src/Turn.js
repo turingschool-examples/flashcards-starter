@@ -6,10 +6,10 @@ class Turn {
     this.card = card;
   }
   returnGuess() {
-    return this.userGuess
+    return this.userGuess;
   }
   returnCard() {
-    return this.card
+    return this.card;
   }
   evaluateGuess() {
     if(this.userGuess === this.card.correctAnswer) {
