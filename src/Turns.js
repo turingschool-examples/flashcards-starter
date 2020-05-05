@@ -9,11 +9,11 @@ class Turn {
     }
 
     returnGuess() {
-        return this.guess;
+        console.log(this.guess);
     }
 
     returnCard() {
-        return this.card;
+        console.log(this.card);
     }
 
     evaluateGuess() {
@@ -30,7 +30,7 @@ class Turn {
 		} else {
 			this.feedback = 'incorrect!';
 		}
-       return this.feedback;
+       console.log(this.feedback);
     }
 }
 
