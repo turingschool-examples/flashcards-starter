@@ -48,15 +48,6 @@ describe('Round', function() {
     
     expect(round.returnCurrentCard()).to.eql(card1);
   });
-  
-
-  it('should create a new Turn instance when a guess is made', function() {
-    const deck = new Deck(sampleDeck);
-    const round = new Round(deck);
-    const turn = new Turn('array', card1)
-
-    expect(round.takeTurn('array')).to.eql(turn)
-  });
 
   it('should update the turns count when a guess is made', function() {
     const deck = new Deck(sampleDeck);
@@ -86,4 +77,10 @@ describe('Round', function() {
     expect(round.incorrectAnswers).to.eql([card1.id, card2.id])
   })
 
+  it('should be able to give feedback', function() {
+    const deck = new Deck(sampleDeck);
+    const round = new Round(deck);
+    const turn= new Turn('array', card1)
+    expect(round.takeTurn('array')).to.eql('correct!')
+  })
 });

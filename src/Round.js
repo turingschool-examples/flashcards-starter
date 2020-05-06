@@ -19,9 +19,14 @@ class Round {
     let currentTurn = new Turn(guess, this.currentCard[this.turns]);
     if(guess !== this.currentCard.correctAnswer) {
       this.incorrectAnswers.push(this.currentCard[this.turns].id)
+      this.turns++;
+      return 'correct!';
+    } else {
+      this.turns++
+      return 'incorrect!';
     };
-    this.turns++;
-    return currentTurn;
+    // this.turns++;
+    // return currentTurn;
   }
 
 }
