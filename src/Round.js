@@ -7,26 +7,35 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.turns = 0;
-    this.currentCard = this.deck.cards[this.turns];
     this.incorrectAnswers = [];
   }
 
   returnCurrentCard = () => {
-    return this.currentCard[this.turns];
+    return this.deck.cards[this.turns];
   }
 
   takeTurn = (guess) => {
-    let currentTurn = new Turn(guess, this.currentCard[this.turns]);
-    if(guess !== this.currentCard.correctAnswer) {
-      this.incorrectAnswers.push(this.currentCard[this.turns].id)
+    if(guess !== this.deck.cards[this.turns].correctAnswer) {
+      this.incorrectAnswers.push(this.deck.cards[this.turns].id)
+      this.turns++;
+      return 'incorrect!';
+    } else {
       this.turns++;
       return 'correct!';
-    } else {
-      this.turns++
-      return 'incorrect!';
     };
-    // this.turns++;
-    // return currentTurn;
+  }
+
+  calculatePercentCorrect = () => {
+    let turns = this.turns;
+    let incorrect = this.incorrectAnswers.length;
+    let correct = turns - incorrect;
+    let percentCorrect = correct / turns;
+
+    return percentCorrect * 100;
+    // console.log(`turns: ${turns}`)
+    // console.log(`incorrect: ${incorrect}`)
+    // console.log(`correct: ${correct}`)
+    // console.log(`percent correct: ${percentCorrect}`)
   }
 
 }

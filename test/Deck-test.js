@@ -23,7 +23,7 @@ describe('Deck', function() {
     const cards = [card1, card2, card3];
     const deck = new Deck([card1, card2, card3]);
 
-    expect(deck.cards).to.deep.equal([cards]);
+    expect(deck.cards).to.deep.equal(cards);
   }); 
 
   it('should know how many Cards are in the Deck', function() {
@@ -33,7 +33,6 @@ describe('Deck', function() {
     const cards = [card1, card2, card3];
     const deck = new Deck([card1, card2, card3]);
     let cardCount = deck.countCards();
-    console.log(cardCount);
   }); 
 
 });
