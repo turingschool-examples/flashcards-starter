@@ -42,8 +42,8 @@ describe('Round', () => {
 
   it('should be able to track incorrectly guessed cards', () => {
     expect(round.incorrectGuesses).to.deep.equal([])
-    expect(round.takeTurn('sea otter')).to.equal('You got it right...lucky guess')
-    expect(round.takeTurn('spleen')).to.equal('Sorry, bud.  Better luck next time.')
+    expect(round.takeTurn('sea otter')).to.equal('correct!')
+    expect(round.takeTurn('spleen')).to.equal('incorrect!')
     expect(round.incorrectGuesses).to.deep.equal([14])
     expect(round.turns).to.equal(2)
   })
