@@ -76,7 +76,7 @@ describe('Turn', function() {
     const turn1 = new Turn ('object', card1);
 
     expect(turn1.userGuess).to.equal(turn1.currentCard.correctAnswer)
-    expect(turn1.evaluateGuess()).to.be.true;
+    expect(turn1.evaluateGuess()).to.be.equal('Correct!');
   });
 
   it('should check for wrong answers', function () {
@@ -85,7 +85,7 @@ describe('Turn', function() {
     const turn1 = new Turn ('array', card1);
 
     expect(turn1.userGuess).not.to.equal(turn1.currentCard.correctAnswer)
-    expect(turn1.evaluateGuess()).to.be.false;
+    expect(turn1.evaluateGuess()).to.be.equal('Incorrect!');
   });
   
 });
