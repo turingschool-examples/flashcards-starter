@@ -15,7 +15,7 @@ class Round {
    // calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
   }
   endRound() {
-// endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
+  // endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
   }
 
 }
