@@ -52,13 +52,35 @@ describe('Turn', function() {
     expect(turn2.currentCard).to.equal(card2);
     expect(turn2.currentCard).to.be.an.instanceof(Card);
   });
+
+  it('should return the user\'s guess', function() {
+
+    const card1 = new Card (1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const turn1 = new Turn ('object', card1)
+
+    expect(turn1.returnGuess()).to.equal('object')
+
+  });
+
+  it('should return the current card at play', function () {
+
+    const card1 = new Card (1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const turn1 = new Turn ('object', card1)
+
+    expect(turn1.returnCard()).to.equal(card1)
+  });
+
+  it('should check for the right answer', function () {
+
+    const card1 = new Card (1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const turn1 = new Turn ('object', card1);
+
+    expect(turn1.evaluateGuess()).to.be.true;
+
+  });
+  
 });
 
-
-// This are the first test that need to be written:
-
-// it should be instantiated with a user's guess
-// it should be instantiated with the current card at play 
 
 
 // Write test for the following methods:
