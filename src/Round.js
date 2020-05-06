@@ -5,14 +5,14 @@ const Deck = require('../src/Deck');
 
 class Round {
   constructor(deck) {
+    this.deck = deck.cards;
     this.turns = 0;
-    this.deck = deck;
-    // this.currentCard = this.deck.cards[0];
+    this.currentCard = this.deck[0];
   }
 
   returnCurrentCard = () => {
-    this.currentCard = this.deck.cards[0];
-    return this.currentCard;
+    this.currentCard = this.deck[this.turns]
+    return this.currentCard[0]
   }
 
 }
