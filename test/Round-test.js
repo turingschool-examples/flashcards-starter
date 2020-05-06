@@ -73,11 +73,7 @@ describe('Round', function() {
 			const deck = new Deck([card1, card2, card3]);
 			const round = new Round(deck);
 
-			console.log('the round: ', round);
 			round.takeTurn('pug');
-			const testCuCard = round.returnCurrentCard();
-			console.log(testCuCard);
-			console.log('SECOND CARD: ', round.currentCard);
 
 			expect(round.incorrectGuesses[0]).to.equal(card1.id);
 	})
@@ -89,6 +85,8 @@ describe('Round', function() {
 
 		const deck = new Deck([card1, card2, card3]);
 		const round = new Round(deck);
+
+		expect(round.currentCard).to.equal(card1);
 
 		round.takeTurn('pug');
 		round.returnCurrentCard();
@@ -104,10 +102,11 @@ describe('Round', function() {
 		const deck = new Deck([card1, card2, card3]);
 	
 		const round = new Round(deck);
+		const feedback = round.takeTurn();
 
 		round.takeTurn('pug');
 
-		expect(round.feedback).to.equal('incorrect!');
+		expect(feedback).to.equal('incorrect!');
 	})
 
 	it('should return percent of correct guesses', function() {
@@ -118,12 +117,32 @@ describe('Round', function() {
 		const deck = new Deck([card1, card2, card3]);
 	
 		const round = new Round(deck);
-
+		
 		round.takeTurn('sea otter');
 		round.takeTurn('gallbladder');
 		round.takeTurn('listening to music');
 		round.calculatePercentCorrect();
-
+		
 		expect(round.correctPercent).to.equal(67);
+	})
+
+	it('should return percent of correct guesses', function() {
+		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+		const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+		const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+	
+		const deck = new Deck([card1, card2, card3]);
+	
+		const round = new Round(deck);
+		
+		round.takeTurn('sea otter');
+		round.takeTurn('gallbladder');
+		round.takeTurn('listening to music');
+		round.calculatePercentCorrect();
+		
+		const endMessage = round.endRound()
+		round.endRound();
+		
+		expect(endMessage).to.equal(`** Round over! ** You answered 67% of the questions correctly!`);
 	})
 });
