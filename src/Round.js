@@ -14,7 +14,6 @@ class Round {
     this.turns++;
     if (!this.turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.turn.card.id);
-      console.log(this.incorrectGuesses.length)
     }
     return this.turn.giveFeedback();
   }
@@ -23,7 +22,7 @@ class Round {
   }
   endRound() {
     console.log( `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    return process.exit();
   }
 }
 
