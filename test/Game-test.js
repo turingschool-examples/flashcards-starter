@@ -23,10 +23,5 @@ describe('Game', function(){
     const game = new Game();
     game.start();
     assert.deepEqual(game.round instanceof Round, true);
-  })
-  it('should keep track of the current round', function() {
-    const game = new Game();
-    game.start();
-    assert.deepEqual(game.currentRound, game.round)
-  })
+  });
 });

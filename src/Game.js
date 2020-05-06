@@ -6,9 +6,8 @@ const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 class Game {
   constructor() {
-    this.cards = [];
+    this.cards;
     this.round;
-    this.currentRound = this.round;
   }
 
   printMessage(deck, round) {
@@ -23,9 +22,8 @@ class Game {
     this.cards = prototypeQuestions.map(element => new Card(element.id, element.question, element.answers, element.correctAnswer));
     this.deck = new Deck(this.cards);
     this.round = new Round(this.deck);
-    this.currentRound = this.round;
-    this.printMessage(this.deck, this.currentRound);
     this.printQuestion(this.round);
+    this.printMessage(this.deck, this.currentRound);
 
   }
 }

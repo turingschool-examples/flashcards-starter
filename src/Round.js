@@ -21,7 +21,8 @@ class Round {
     return Math.round( 100 * (this.turns - this.incorrectGuesses.length) / this.turns);
   }
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    console.log( `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    return process.exit();
   }
 }
 

@@ -1,5 +1,5 @@
 const http = require('http');
-const Game = require('../src/Game')
+const Game = require('/Users/andy/flashcards-andy/src/Game.js') 
 let app = http.createServer();
 
 const game = new Game();
