@@ -18,10 +18,10 @@ class Round {
     return this.turn.giveFeedback();
   }
   calculatePercentCorrect() {
-    return Math.round(100*(this.turns - this.incorrectGuesses.length) / this.turns);
+    return Math.round( 100 * (this.turns - this.incorrectGuesses.length) / this.turns);
   }
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 }
 
