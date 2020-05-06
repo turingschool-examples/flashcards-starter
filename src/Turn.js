@@ -1,4 +1,4 @@
-class Turns {
+class Turn {
   constructor(guess, card) {
     this.guess = guess;
     this.card = card;
@@ -27,4 +27,4 @@ class Turns {
   }
 }
 
-module.exports = Turns
+module.exports = Turn
