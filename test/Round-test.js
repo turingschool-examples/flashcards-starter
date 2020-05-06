@@ -39,6 +39,8 @@ describe('Round', function() {
 
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
+
+    expect(round.deck).to.equal(deck);
   }); 
 
   it('should instantiate with a current Card', function() {
@@ -59,10 +61,12 @@ describe('Round', function() {
 
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    
+
+    expect(round.returnCurrentCard()).to.deep.equal(card1);
     expect(round.turns).to.equal(0);    
     round.takeTurn();
     expect(round.turns).to.equal(1);
+    expect(round.returnCurrentCard()).to.deep.equal(card2)
   });
 
 });
