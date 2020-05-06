@@ -15,6 +15,11 @@ class Round {
     return this.currentCard[0]
   }
 
+  takeTurn = () => {
+    this.turns++;
+    // return this.turns;
+  }
+
 }
 
 module.exports = Round
