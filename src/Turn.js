@@ -12,10 +12,11 @@ class Turn {
     return this.card;
   }
 
-  evaluateGuess() {
+  evaluateGuess(guess) {
+    this.guess = guess;
     if (this.card.correctAnswer == this.guess) {
       console.log(this.card.correctAnswer);
-      console.log(this.guess)
+      console.log(myGuess)
       return true;
     } else {
       return false;

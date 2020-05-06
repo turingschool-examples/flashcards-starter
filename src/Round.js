@@ -8,14 +8,20 @@ class Round {
     this.deck = deck;
     this.turns = 0;
     this.currentCard = this.deck.cards[this.turns];
+    this.incorrectAnswers = [];
   }
 
   returnCurrentCard = () => {
     return this.currentCard[this.turns];
   }
 
-  takeTurn = () => {
+  takeTurn = (guess) => {
+    let currentTurn = new Turn(guess, this.currentCard[this.turns]);
+    if(guess !== this.currentCard.correctAnswer) {
+      this.incorrectAnswers.push(this.currentCard[this.turns].id)
+    };
     this.turns++;
+    return currentTurn;
   }
 
 }

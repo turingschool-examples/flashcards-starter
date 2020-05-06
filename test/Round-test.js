@@ -12,13 +12,13 @@ const card2 = new Card( 2, 'What is a comma-separated list of related values?', 
 const card3 = new Card( 3, 'What type of prototype method directly modifies the existing array?', ["mutator method", "accessor method", "iteration method"], "mutator method");
 
 
-const testDeck = [card1, card2, card3];
+const sampleDeck = [card1, card2, card3];
 
 describe('Round', function() {
 
   it('should be a function', function() {
 
-    const deck = new Deck(testDeck);
+    const deck = new Deck(sampleDeck);
 
     const round = new Round(deck);
     expect(Round).to.be.a('function');
@@ -26,7 +26,7 @@ describe('Round', function() {
 
   it('should be an instance of Round', function() {
 
-    const deck = new Deck(testDeck);
+    const deck = new Deck(sampleDeck);
 
     const round = new Round(deck);
 
@@ -35,7 +35,7 @@ describe('Round', function() {
 
   it('should instantiate with a Deck', function() {
 
-    const deck = new Deck(testDeck);
+    const deck = new Deck(sampleDeck);
     const round = new Round(deck);
 
     expect(round.deck).to.equal(deck);
@@ -43,22 +43,47 @@ describe('Round', function() {
 
   it('should instantiate with a current Card', function() {
 
-    const deck = new Deck(testDeck);
+    const deck = new Deck(sampleDeck);
     const round = new Round(deck);
     
-    expect(round.returnCurrentCard()).to.deep.equal(card1);
+    expect(round.returnCurrentCard()).to.eql(card1);
   });
   
-  it('should have a function to take turns', function() {
 
-    const deck = new Deck(testDeck);
+  it('should create a new Turn instance when a guess is made', function() {
+    const deck = new Deck(sampleDeck);
     const round = new Round(deck);
+    const turn = new Turn('array', card1)
 
-    expect(round.returnCurrentCard()).to.deep.equal(card1);
+    expect(round.takeTurn('array')).to.eql(turn)
+  });
+
+  it('should update the turns count when a guess is made', function() {
+    const deck = new Deck(sampleDeck);
+    const round = new Round(deck);
+    const turn = new Turn('array', card1)
+
     expect(round.turns).to.equal(0);    
     round.takeTurn();
     expect(round.turns).to.equal(1);
-    expect(round.returnCurrentCard()).to.deep.equal(card2)
-  });
+  })
+
+  it('should update the current card after a guess is made', function() {
+    const deck = new Deck(sampleDeck);
+    const round = new Round(deck);
+    const turn1= new Turn('array', card1)
+    expect(round.returnCurrentCard()).to.eql(card1);
+    round.takeTurn('array');
+    expect(round.returnCurrentCard()).to.eql(card2)
+  })
+
+  it('should be able evaluate/store an incorrect guess', function() {
+    const deck = new Deck(sampleDeck);
+    const round = new Round(deck);
+    const turn= new Turn('array', card1)
+    round.takeTurn('array');
+    round.takeTurn('object');
+    expect(round.incorrectAnswers).to.eql([card1.id, card2.id])
+  })
 
 });
