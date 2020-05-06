@@ -1,5 +1,4 @@
 const data = require('./data');
-const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
@@ -8,10 +7,10 @@ const Round = require('../src/Round');
 class Game {
   constructor() {
     this.currentRound = 0
-    this.round = null
+    this.round;
   }
 
-  printMessage(deck, round) {
+  printMessage(deck) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
@@ -26,6 +25,7 @@ class Game {
     }) 
     const deck = new Deck(cards)
     this.round = new Round(deck)
+    this.round.startTimer()
     this.printMessage(deck, this.round)
     this.printQuestion(this.round)
   }
