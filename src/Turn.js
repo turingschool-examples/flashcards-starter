@@ -4,14 +4,6 @@ class Turn {
     this.card = card;
   }
 
-  returnGuess() {
-    return this.guess;
-  }
-
-  returnCard() {
-    return this.card;
-  }
-
   evaluateGuess(guess) {
     this.guess = guess;
     if (this.card.correctAnswer == this.guess) {
@@ -26,6 +18,15 @@ class Turn {
   giveFeedback() {
     return this.evaluateGuess = true ? 'correct!' : 'incorrect!';
   }
+
+  returnCard() {
+    return this.card;
+  }
+
+  returnGuess() {
+    return this.guess;
+  }
+  
 }
 
 module.exports = Turn
