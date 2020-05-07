@@ -35,7 +35,6 @@ class Turn {
   giveFeedBack() {
     let isCorrectAnswer = this.evaluateGuess();
     // refactor to ternary operator
-    
     if (isCorrectAnswer) {
       return "correct";
     } else {
