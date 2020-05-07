@@ -6,7 +6,6 @@ class Round {
 		this.turns = 0;
 		this.currentCard = this.deck[this.turns];
 		this.incorrectGuesses = [];
-		this.feedback = '';
 		this.correctPercent = 0;
 	}
 
@@ -19,22 +18,21 @@ class Round {
 		const currentTurn = new Turn(guess, this.deck[this.turns]);
 		this.turns++;
 		currentTurn.evaluateGuess();
-		this.feedback = currentTurn.feedback;
 
-		if (currentTurn.correct === false) {
+		if (!currentTurn.correct) {
 			this.incorrectGuesses.push(currentTurn.card.id);
 		}
+		return currentTurn.feedback;
 	}
 
 	calculatePercentCorrect() {
-		//calculates & returns % of correct guesses
 		var percentNum = 100 - ((this.incorrectGuesses.length / this.turns) * 100);
 		this.correctPercent = Math.round(percentNum);
-		return `You got ${this.correctPercent}% correct!`;
 	}
 
 	endRound() {
-		//returns `** Round over! ** You answered ${number}% of the questions correctly!`;
+		return `** Round over! ** You answered ${this.correctPercent}% of the questions correctly!`;
+		console.log(`** Round over! ** You answered ${this.correctPercent}% of the questions correctly!`);
 	}
 }
 
