@@ -102,9 +102,9 @@ describe('Round', function() {
 		const deck = new Deck([card1, card2, card3]);
 	
 		const round = new Round(deck);
-		const feedback = round.takeTurn();
+		const feedback = round.takeTurn('pug');
 
-		round.takeTurn('pug');
+		// round.takeTurn('pug');
 
 		expect(feedback).to.equal('incorrect!');
 	})
