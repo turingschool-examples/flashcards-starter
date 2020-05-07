@@ -6,7 +6,7 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe('Round', function() {
-  it('should be a function' , function() {
+  it('should be a function', function() {
     assert.deepEqual(typeof Round, 'function');
   });
 
