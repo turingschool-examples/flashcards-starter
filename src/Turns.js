@@ -21,11 +21,9 @@ class Turn {
 			if (this.guess === this.card.correctAnswer) {
 					this.correct = true;
 					this.feedback = 'correct!'
-					// return this.correct;
 			} else {
 					this.correct = false;
-					this.feedback = 'incorrect'
-					// return this.correct;
+					this.feedback = 'incorrect!'
 			}
 	}
 
