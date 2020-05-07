@@ -22,9 +22,12 @@ class Game {
     this.deck = deck;
     let round = new Round(this.deck);
     this.round = round;
+    if(deck.countCards() >= this.cards.length){
     this.printMessage(deck, round);
     this.printQuestion(round);
-    round.endRound();
+    } else {
+      return round.endRound();
+    }
   }
 
   printMessage(deck, round) {

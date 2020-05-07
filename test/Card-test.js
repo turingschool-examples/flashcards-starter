@@ -2,13 +2,10 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
 
 describe('Card', function() {
 
   it('should be a function', function() {
-    const card = new Card();
     expect(Card).to.be.a('function');
   });
 

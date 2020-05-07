@@ -5,6 +5,19 @@ class Round {
     this.incorrectAnswers = [];
   }
 
+  calculatePercentCorrect = () => {
+    let turns = this.turns;
+    let incorrect = this.incorrectAnswers.length;
+    let correct = turns - incorrect;
+    let percentCorrect = correct / turns;
+    return percentCorrect * 100;
+  }
+
+  endRound = () => {
+    console.log('Game Over');
+    process.exit();
+  } 
+  
   returnCurrentCard = () => {
     return this.deck.cards[this.turns];
   }
@@ -19,20 +32,6 @@ class Round {
       return 'correct!';
     };
   }
-
-  calculatePercentCorrect = () => {
-    let turns = this.turns;
-    let incorrect = this.incorrectAnswers.length;
-    let correct = turns - incorrect;
-    let percentCorrect = correct / turns;
-
-    return percentCorrect * 100;
-
-  }
-
-  endRound = () => {
-    return 'Game Over';
-  } 
 
 }
 
