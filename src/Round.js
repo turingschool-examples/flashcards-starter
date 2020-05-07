@@ -39,7 +39,7 @@ class Round {
       return `${minutes}:0${seconds.toFixed(2)}`;
     } else {
       return `${minutes}:${seconds.toFixed(2)}`;
-    };
+    }
   }
   
   endRound() {
