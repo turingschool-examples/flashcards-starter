@@ -18,13 +18,13 @@ class Game {
   printQuestion(round) {
     util.main(round);
   }
+
   start() {
     this.cards = prototypeQuestions.map(element => new Card(element.id, element.question, element.answers, element.correctAnswer));
     this.deck = new Deck(this.cards);
     this.round = new Round(this.deck);
     this.printQuestion(this.round);
     this.printMessage(this.deck, this.currentRound);
-
   }
 }
 
