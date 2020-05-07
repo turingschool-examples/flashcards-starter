@@ -6,9 +6,7 @@ class Turn {
 
   evaluateGuess(guess) {
     this.guess = guess;
-    if (this.card.correctAnswer == this.guess) {
-      console.log(this.card.correctAnswer);
-      console.log(myGuess)
+    if (this.card.correctAnswer === this.guess) {
       return true;
     } else {
       return false;

@@ -14,7 +14,7 @@ class Round {
   }
 
   endRound = () => {
-    console.log('Game Over');
+    console.log(`Congratulations! You got ${this.calculatePercentCorrect()}% of questions correct!`);
     process.exit();
   } 
   
