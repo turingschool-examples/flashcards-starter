@@ -21,9 +21,8 @@ class Round {
 
 		if (!currentTurn.correct) {
 			this.incorrectGuesses.push(currentTurn.card.id);
-
-		return currentTurn.feedback;
 		}
+		return currentTurn.feedback;
 	}
 
 	calculatePercentCorrect() {

@@ -44,9 +44,25 @@ describe('Game', function() {
 
 	it('when game starts, cards should be created', function() {
 		const game = new Game();
-		const gameBegin = game.start();
+		
+		game.start();
 
-		console.log('ID :', gameBegin[0].id)
-		expect(gameBegin[0].id).to.equal(data[0].id);
+		expect(game.currentCards[0].id).to.equal(data[0].id);
+	})
+
+	it('when game starts, a deck is created with the cards', function() {
+		const game = new Game();
+
+		game.start();
+
+		expect(game.currentDeck).to.be.an.instanceOf(Deck);
+	})
+
+	it('when game starts, a round is created using the deck', function() {
+		const game = new Game();
+
+		game.start();
+
+		expect(game.currentRound).to.be.an.instanceOf(Round);
 	})
 })

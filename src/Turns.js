@@ -2,10 +2,10 @@
 
 class Turn {
     constructor(guess, card) {
-		this.guess = guess;
-		this.card = card;
-		this.correct = false;
-		this.feedback = '';
+			this.guess = guess;
+			this.card = card;
+			this.correct = false;
+			this.feedback = '';
     }
 
     returnGuess() {
@@ -16,23 +16,27 @@ class Turn {
         console.log(this.card);
     }
 
-    evaluateGuess() {
-        if (this.guess === this.card.correctAnswer) {
-            this.correct = true;
-        } else {
-            this.correct = false;
-				}
-				this.giveFeedback();
-    }
+		evaluateGuess() {
+			this.giveFeedback();
+			if (this.guess === this.card.correctAnswer) {
+					this.correct = true;
+					this.feedback = 'correct!'
+					// return this.correct;
+			} else {
+					this.correct = false;
+					this.feedback = 'incorrect'
+					// return this.correct;
+			}
+	}
 
-    giveFeedback() {
+	giveFeedback() {
 		if (this.correct === true) {
 			this.feedback = 'correct!';
 		} else {
 			this.feedback = 'incorrect!';
 		}
-       console.log(this.feedback);
-    }
+			return this.feedback;
+	}
 }
 
 module.exports = Turn;
