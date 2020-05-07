@@ -90,5 +90,7 @@ describe('Round', function() {
     round.takeTurn('object');
 
     expect(round.calculatePercentCorrect()).to.equal(100)
+    round.takeTurn('pizza');
+    expect(round.calculatePercentCorrect()).to.equal(50)
   })
 });
