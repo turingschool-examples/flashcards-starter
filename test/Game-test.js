@@ -2,6 +2,8 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Game = require('../src/Game');
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
 
 describe('Game', function() {
 
@@ -18,5 +20,11 @@ describe('Game', function() {
   it('should keep track of the currentRound', function() {
     const game = new Game();
     expect(game.currentRound).to.eql(1);
+  })
+
+  it('should have a method of game that creates cards', function() {
+    const game = new Game();
+    game.start();
+    expect(game.cards).to.eql(prototypeQuestions);
   })
 });
