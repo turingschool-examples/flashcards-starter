@@ -126,7 +126,7 @@ describe('Round', function() {
 		expect(round.correctPercent).to.equal(67);
 	})
 
-	it('should return percent of correct guesses', function() {
+	it('should return end message', function() {
 		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 		const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
 		const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -140,8 +140,8 @@ describe('Round', function() {
 		round.takeTurn('listening to music');
 		round.calculatePercentCorrect();
 		
-		const endMessage = round.endRound()
 		round.endRound();
+		const endMessage = round.endRound()
 		
 		expect(endMessage).to.equal(`** Round over! ** You answered 67% of the questions correctly!`);
 	})
