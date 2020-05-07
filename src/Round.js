@@ -30,6 +30,10 @@ class Round {
 
   }
 
+  endRound = () => {
+    return 'Game Over';
+  } 
+
 }
 
 module.exports = Round

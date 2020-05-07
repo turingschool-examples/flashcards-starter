@@ -24,6 +24,7 @@ class Game {
     this.round = round;
     this.printMessage(deck, round);
     this.printQuestion(round);
+    round.endRound();
   }
 
   printMessage(deck, round) {
