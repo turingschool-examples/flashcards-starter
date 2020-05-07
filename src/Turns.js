@@ -2,18 +2,18 @@
 
 class Turn {
     constructor(guess, card) {
-			this.guess = guess;
-			this.card = card;
+			this.guess = (typeof guess === "string") ? guess : undefined;
+			this.card = (typeof card === "object") ? card : undefined;
 			this.correct = false;
 			this.feedback = '';
     }
 
     returnGuess() {
-        console.log(this.guess);
+        return this.guess;
     }
 
     returnCard() {
-        console.log(this.card);
+        return this.card;
     }
 
 		evaluateGuess() {
@@ -25,7 +25,7 @@ class Turn {
 					this.correct = false;
 					this.feedback = 'incorrect!'
 			}
-	}
+		}
 
 	giveFeedback() {
 		if (this.correct === true) {
