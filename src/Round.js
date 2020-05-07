@@ -14,7 +14,8 @@ class Round {
   }
 
   endRound = () => {
-    return 'Game Over';
+    console.log('Game Over');
+    process.exit();
   } 
   
   returnCurrentCard = () => {
