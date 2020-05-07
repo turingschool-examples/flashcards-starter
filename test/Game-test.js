@@ -33,15 +33,14 @@ describe('Game', function() {
   it('should put cards in a deck when start method is called', function() {
     const game = new Game();
     game.start();
-    expect(game.deck).to.eql(prototypeQuestions);
+    expect(game.deck.cards).to.eql(prototypeQuestions);
   });
 
   it('should create a new Round with the Deck when start method is called', function() {
     const game = new Game();
     game.start();
-    expect(game.round.deck).to.eql(prototypeQuestions);
+    expect(game.round.deck.cards).to.eql(prototypeQuestions);
     expect(game.round.turns).to.eql(0);
   });
-
 
 });

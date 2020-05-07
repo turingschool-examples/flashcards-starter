@@ -10,7 +10,8 @@ class Game {
   constructor() {
     this.currentRound = 1;
     this.cards = [];
-    this.deck = [];
+    this.deck = {};
+    this.round = {};
   }
 
   start(){
@@ -18,10 +19,12 @@ class Game {
       let card = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
       this.cards.push(card);
     }
-    this.deck = this.cards;
+    let deck = new Deck(this.cards);
+    this.deck = deck;
     let round = new Round(this.deck);
     this.round = round;
-    return this.cards;
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   }
 
   printMessage(deck, round) {
