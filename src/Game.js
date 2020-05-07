@@ -13,30 +13,33 @@ class Game {
     this.round = {};
   }
 
-  start(){
-    for(let i = 0; i < prototypeQuestions.length; i++) {
-      let card = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
+  start() {
+    for (let i = 0; i < prototypeQuestions.length; i++) {
+      let card = new Card(prototypeQuestions[i].id, 
+                          prototypeQuestions[i].question, 
+                          prototypeQuestions[i].answers, 
+                          prototypeQuestions[i].correctAnswer);
       this.cards.push(card);
     }
     let deck = new Deck(this.cards);
     this.deck = deck;
     let round = new Round(this.deck);
     this.round = round;
-    if(deck.countCards() >= this.cards.length){
-    this.printMessage(deck, round);
-    this.printQuestion(round);
+    if (deck.countCards() >= this.cards.length) {
+      this.printMessage(deck, round);
+      this.printQuestion(round);
     } else {
       return round.endRound();
     }
   }
 
-  printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+  printMessage(deck) {
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 

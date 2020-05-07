@@ -2,11 +2,11 @@ const chai = require('chai');
 const expect = chai.expect;
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
+const testCard = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
 describe('Turn', function() {
 
   it('should be a function', function() {
-    const turns = new Turn();
     expect(Turn).to.be.a('function');
   });
 
@@ -21,32 +21,32 @@ describe('Turn', function() {
   }); 
     
   it('should store a card', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turns = new Turn('The ides of March.', card);
-    expect(turns.card).to.equal(card);
+    const turns = new Turn('The ides of March.', testCard);
+    expect(turns.card).to.equal(testCard);
   });  
   
   it('should return a guess', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turns = new Turn('The ides of March.', card);
+    const turns = new Turn('The ides of March.', testCard);
     expect(turns.returnGuess()).to.equal('The ides of March.');
-    })
+  })
+
+  it('should return undefined  if there is no guess', function() {
+    const turns = new Turn();
+    expect(turns.returnGuess()).to.equal(undefined);
+  })
 
   it('should return a card', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turns = new Turn('The ides of March.', card);
-    expect(turns.returnCard()).to.equal(card);
+    const turns = new Turn('The ides of March.', testCard);
+    expect(turns.returnCard()).to.equal(testCard);
   })
 
   it('should evaluate a guess', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turns = new Turn('The ides of March.', card);
+    const turns = new Turn('The ides of March.', testCard);
     expect(turns.evaluateGuess()).to.equal(false);
   })
   
   it('should return feedback', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turns = new Turn('The ides of March.', card);
+    const turns = new Turn('The ides of March.', testCard);
     expect(turns.giveFeedback()).to.equal('correct!');
   })
 });

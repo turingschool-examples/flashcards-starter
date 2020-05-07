@@ -20,19 +20,19 @@ describe('Game', function() {
     expect(game.currentRound).to.eql(1);
   });
 
-  it.skip('should have a method of game that creates cards', function() {
+  it('should have a method of game that creates cards', function() {
     const game = new Game();
     game.start();
     expect(game.cards).to.eql(prototypeQuestions);
   });
 
-  it.skip('should put cards in a deck when start method is called', function() {
+  it('should put cards in a deck when start method is called', function() {
     const game = new Game();
     game.start();
     expect(game.deck.cards).to.eql(prototypeQuestions);
   });
 
-  it.skip('should create a new Round with the Deck when start method is called', function() {
+  it('should create a new Round with the Deck when start method is called', function() {
     const game = new Game();
     game.start();
     expect(game.round.deck.cards).to.eql(prototypeQuestions);
