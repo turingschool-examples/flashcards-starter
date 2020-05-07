@@ -1,9 +1,8 @@
 const data = require('./data');
 const util = require('./util');
-const Card = require('../src/Card');
-const Turn = require('../src/Turn');
-const Deck = require('../src/Deck');
-const Round = require('../src/Round');
+const Card = require('./Card');
+const Deck = require('./Deck');
+const Round = require('./Round');
 const prototypeQuestions = data.prototypeData;
 
 class Game {
@@ -37,4 +36,4 @@ class Game {
   }
 }
 
-module.exports = Game;
+module.exports = Game

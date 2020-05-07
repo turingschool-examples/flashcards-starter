@@ -1,8 +1,3 @@
-const Turn = require('../src/Turn');
-const Card = require('../src/Card');
-const Deck = require('../src/Deck');
-
-
 class Round {
   constructor(deck) {
     this.deck = deck;
@@ -32,10 +27,7 @@ class Round {
     let percentCorrect = correct / turns;
 
     return percentCorrect * 100;
-    // console.log(`turns: ${turns}`)
-    // console.log(`incorrect: ${incorrect}`)
-    // console.log(`correct: ${correct}`)
-    // console.log(`percent correct: ${percentCorrect}`)
+
   }
 
 }
