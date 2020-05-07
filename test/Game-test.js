@@ -5,6 +5,8 @@ const Game = require('../src/Game');
 const data = require('../src/data');
 const prototypeQuestions = data.prototypeData;
 
+const testRound = 
+
 describe('Game', function() {
 
   it('should be a function', function() {
@@ -20,11 +22,26 @@ describe('Game', function() {
   it('should keep track of the currentRound', function() {
     const game = new Game();
     expect(game.currentRound).to.eql(1);
-  })
+  });
 
   it('should have a method of game that creates cards', function() {
     const game = new Game();
     game.start();
     expect(game.cards).to.eql(prototypeQuestions);
-  })
+  });
+
+  it('should put cards in a deck when start method is called', function() {
+    const game = new Game();
+    game.start();
+    expect(game.deck).to.eql(prototypeQuestions);
+  });
+
+  it('should create a new Round with the Deck when start method is called', function() {
+    const game = new Game();
+    game.start();
+    expect(game.round.deck).to.eql(prototypeQuestions);
+    expect(game.round.turns).to.eql(0);
+  });
+
+
 });
