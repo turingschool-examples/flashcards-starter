@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const Game = require('../src/Game');
 const data = require('../src/super-data');
-const prototypeQuestions = data.prototypeData;
+const prototypeQuestions = data.superData;
 
 describe('Game', function() {
 
