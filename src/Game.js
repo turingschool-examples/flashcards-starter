@@ -36,8 +36,8 @@ class Game {
 		this.currentRound = new Round(this.currentDeck);
 
 		
-		// this.printMessage(this.currentDeck, this.currentRound);
-		// this.printQuestion(this.currentRound);
+		this.printMessage(this.currentDeck, this.currentRound);
+		this.printQuestion(this.currentRound);
 	}
 }
 

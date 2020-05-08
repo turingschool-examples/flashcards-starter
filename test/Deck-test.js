@@ -51,13 +51,4 @@ describe('Deck', function() {
 
 		expect(deck.count).to.equal(3);
 	});
-
-	// it('if cards is not a list of cards on instantiation, card count method cannot run', function() {
-	// 	const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-	// 	const deck = new Deck(card1);
-
-	// 	const badFn = deck.countCards();
-		
-	// 	expect(badFn).to.throw(TypeError);
-	// });
-});
+})
