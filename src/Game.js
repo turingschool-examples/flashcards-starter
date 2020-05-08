@@ -1,9 +1,9 @@
-const data = require('./data');
+const data = require('./super-data');
 const util = require('./util');
 const Card = require('./Card');
 const Deck = require('./Deck');
 const Round = require('./Round');
-const prototypeQuestions = data.prototypeData;
+const prototypeQuestions = data.superData;
 
 class Game {
   constructor() {
