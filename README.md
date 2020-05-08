@@ -16,7 +16,7 @@
 
   In this project I used Test Driving Development to create a set of flashcards that can be answered in the Terminal. When `node index.js` is called in the terminal a new game in started. A game class is created with a deck of cards that each have a question, a list of possible answers, a correct answer and an id. Once you have completed all of the questions, the percent of questions you got correct will be displayed and the program will end.
 
-![Project in Action](https://i.gyazo.com/be2a48847608be794ab7c4b0c4bf0d0f.gif)
+![Project in Action](https://i.gyazo.com/813dfe89291f8459f69974dcd7e083db.gif)
 
 ## Technologies Used
 
