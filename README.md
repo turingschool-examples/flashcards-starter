@@ -1,4 +1,4 @@
-# Comic Book Flash Cards
+# Superhero Flash Cards
 
   A tool for testing your useless knowledge with flashcards.
 
@@ -11,6 +11,10 @@
   - TDD.
   - Writing tests and familiarity with Mocha/Chai
   - Gain deeper understanding of objects, classes and how the interact.
+
+## Install Instruction 
+
+  To install, simply clone the repo into a local directory and run `node index.js` to begin the game.
 
 ## Project Overview
 
