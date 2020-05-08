@@ -19,7 +19,6 @@ Run `node index.js` to fire up the game.
 
 Follow the question prompts to begin completing the quiz.
 
----
 
 ### Contributors
   - Becca Steinbrecher (GitHub: [beccajoy](https://github.com/beccajoy))
