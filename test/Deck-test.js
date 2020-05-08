@@ -12,6 +12,7 @@ describe('Deck', function() {
 
 	it('should be an instance of Deck', function() {
 		const deck = new Deck();
+
 		expect(deck).to.be.an.instanceof(Deck);
   }); 
 
@@ -31,7 +32,14 @@ describe('Deck', function() {
 		const deck = new Deck([card1, card2]);
 		
 		expect(deck.cards).to.deep.equal([card1, card2]);
-	})
+	});
+
+	it('if cards is not a list of cards on instantiation, cards are undefined in the deck', function() {
+		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+		const deck = new Deck(card1);
+		
+		expect(deck.cards).to.equal(undefined);
+	});
 
 	it('should count the cards in the deck', function() {
 		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -42,5 +50,5 @@ describe('Deck', function() {
 		deck.countCards();
 
 		expect(deck.count).to.equal(3);
-	})
-});
+	});
+})

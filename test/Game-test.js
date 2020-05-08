@@ -33,6 +33,8 @@ describe('Game', function() {
 
 		game.start();
 
+
+
 		expect(game.currentRound).to.deep.equal(new Round(game.currentDeck));
 	});
 
@@ -71,14 +73,6 @@ describe('Game', function() {
 		game.start();
 
 		expect(game.currentDeck).to.be.an.instanceOf(Deck);
-	});
-
-	it('when game starts, a deck should contain all the cards in play', function() {
-		const game = new Game();
-
-		game.start();
-
-		expect(game.currentDeck).to.deep.equal(new Deck(game.currentCards));
 	});
 
 	it('if game does not start, no deck is instantiated', function() {

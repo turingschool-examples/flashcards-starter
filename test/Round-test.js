@@ -35,6 +35,16 @@ describe('Round', function() {
 			expect(round.deck).to.deep.equal([card1, card2, card3]);
 	});
 
+	it('round should not accept a card value for the deck', function() {
+		const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+		const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+		const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+		const round = new Round([card1, card2, card3]);
+
+		expect(round.deck).to.deep.equal(undefined);
+	});
+
 	it('should return current card in play', function() {
 			const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 			const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -49,7 +59,7 @@ describe('Round', function() {
 			round.returnCurrentCard();
 
 			expect(round.currentCard).to.equal(card3);
-	})
+	});
 
 	it('should keep track of turns taken in the game', function() {
 			const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -86,8 +96,6 @@ describe('Round', function() {
 		const deck = new Deck([card1, card2, card3]);
 		const round = new Round(deck);
 
-		expect(round.currentCard).to.equal(card1);
-
 		round.takeTurn('pug');
 		round.returnCurrentCard();
 
@@ -103,8 +111,6 @@ describe('Round', function() {
 	
 		const round = new Round(deck);
 		const feedback = round.takeTurn('pug');
-
-		// round.takeTurn('pug');
 
 		expect(feedback).to.equal('incorrect!');
 	})
