@@ -1,6 +1,6 @@
 class Deck {
 	constructor(cards) {
-		this.cards = cards;
+		this.cards = Array.isArray(cards) ? cards : undefined;
 		this.count = 0;
 	}
 
