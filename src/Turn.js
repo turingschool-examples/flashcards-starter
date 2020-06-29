@@ -1,5 +1,7 @@
 class Turn {
     constructor(userGuess, currentCard) {
+        userGuess,
+        currentCard,
         guessCorrect = null;
     }
     returnGuess(userGuess) {
@@ -15,3 +17,5 @@ class Turn {
         guessCorrect === true ? "correct!" : "incorrect!";
     }
 }
+
+module.exports = Turn;
