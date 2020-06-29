@@ -20,7 +20,7 @@ describe('Card', function() {
     expect(card.id).to.equal(1);  
   });
 
-  it.skip('should store a question', function() {
+  it('should store a question', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
   });  
