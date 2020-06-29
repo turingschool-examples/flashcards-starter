@@ -6,3 +6,5 @@ class Card {
         correctAnswer
     }
 }
+
+module.exports = Card;
