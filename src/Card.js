@@ -1,6 +1,6 @@
 class Card {
-  constructor() {
-    
+  constructor(id) {
+    this.id = id;
   }
 }
 
