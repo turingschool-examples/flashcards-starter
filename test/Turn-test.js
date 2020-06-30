@@ -32,7 +32,7 @@ describe('Turn', function() {
     expect(turn.card).to.equal(card);
   }); 
   
-  it.skip('should be able to return the guess', function() {
+  it('should be able to return the guess', function() {
     const card = new Card(1, 'Who Are You?', ['White-Rabbit', 'Queen of Hearts', 'Alice'], 'Alice');
     const turn = new Turn('Alice', card);
     const makeAGuess = turn.returnGuess();
