@@ -7,6 +7,8 @@ class Turn {
   returnGuess = () => this.guess; 
 
   returnCard = () => this.card;
+
+  evaluateGuess = () => this.guess === this.card.correctAnswer ? true : false;
 }
 
 module.exports = Turn;

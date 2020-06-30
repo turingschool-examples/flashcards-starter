@@ -48,7 +48,7 @@ describe('Turn', function() {
     expect(seeTheCard).to.equal(card);
   });
   
-  it.skip('should return true if the guess is correct', function() {
+  it('should return true if the guess is correct', function() {
     const card = new Card(1, 'Who Are You?', ['White-Rabbit', 'Queen of Hearts', 'Alice'], 'Alice');
     const turn = new Turn('Alice', card);
     const isItTrue = turn.evaluateGuess();
@@ -56,7 +56,7 @@ describe('Turn', function() {
     expect(isItTrue).to.equal(true);
   });
 
-  it.skip('should return false if the guess is incorrect', function() {
+  it('should return false if the guess is incorrect', function() {
     const card = new Card(1, 'Who Are You?', ['White-Rabbit', 'Queen of Hearts', 'Alice'], 'Alice');
     const turn = new Turn('White-Rabbit', card);
     const isItTrue = turn.evaluateGuess();
