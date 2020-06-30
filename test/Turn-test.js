@@ -16,7 +16,7 @@ describe('Turn', function() {
     
     const turn = new Turn('object', card.id)
     expect(turn.guess).to.equal('object');
-    expect(turn.cardID).to.equal(1)
+    
   })
 
   it('should have a returnGuess method that returns the guess', function() {
@@ -26,6 +26,14 @@ describe('Turn', function() {
     var guess = turn.returnGuess()
     expect(guess).to.equal('object')
   } )
+
+  it('Should have returnCard method that returns the card', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card)
+
+    var returnedCard = turn.returnCard()
+    expect(returnedCard).to.deep.equal(card)
+  })
 
 })
 // describe('Card', function () {
