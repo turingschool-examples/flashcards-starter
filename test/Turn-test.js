@@ -10,4 +10,6 @@ describe('Turn', function() {
   })
 });
 
-it.skip
+it.skip('should be a function', function() {
+  expect(Turn).to.be.a('function');
+});
