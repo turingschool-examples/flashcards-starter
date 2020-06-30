@@ -1,11 +1,12 @@
 const Turn = require('./Turn');
 class Round {
   constructor(deck) {
+    this.deck = deck;
     this.turns = 0;
     this.currentCard = deck !== undefined ? deck.cards[this.turns] : undefined; 
-    this.mostRecentEvaluation = undefined;
+    this.mostRecentEvaluation = undefined; //get rid of this
+    this.currentTurn; //get rid of this
     this.incorrectGuesses = [];
-    this.correctGuesses = [];
   }
 
   returnCurrentCard = () => {
@@ -13,14 +14,21 @@ class Round {
   } 
   takeTurn = (response) => {
     this.turns += 1;
-    const turn = new Turn(response, this.currentCard);
-    this.mostRecentEvaluation = this.currentCard !== undefined ? turn.evaluateGuess() : () => {};
-    this.storeGuess(response);
-    const result = this.currentCard !== undefined ? turn.giveFeedback() : undefined;
+    this.currentTurn = new Turn(response, this.currentCard);
+    this.mostRecentEvaluation = this.currentCard !== undefined ? this.currentTurn.evaluateGuess() : () => {};
+    this.currentTurn.evaluateGuess() ? () => {} : this.incorrectQuestions(this.currentCard);
+    const result = this.currentCard !== undefined ? this.currentTurn.giveFeedback() : undefined;
+    this.currentCard = this.deck.cards[this.turns];
     return result
   }
-  storeGuess(guess) {
-    this.mostRecentEvaluation ? this.correctGuesses.push(guess) : this.incorrectGuesses.push(guess);
+  incorrectQuestions(currentCard) {
+    this.incorrectGuesses.push(currentCard.id);
+  }
+  calculatePercentCorrect = () => {
+    return Math.floor((this.deck.cards.length - this.incorrectGuesses.length) / this.deck.cards.length * 100);
+  }
+  endRound = () => {
+    return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 }
 
