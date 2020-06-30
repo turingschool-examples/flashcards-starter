@@ -29,7 +29,12 @@ describe('Turn', function() {
   it('should store a card', function() {
     const card = new Card(1, 'Who Are You?', ['White-Rabbit', 'Queen of Hearts', 'Alice'], 'Alice');
     const turn = new Turn('Alice', card);
-    expect(turn.card).to.equal(card);
+    expect(turn.card).to.deep.equal({
+      id: 1,
+      question: 'Who Are You?',
+      answers: ['White-Rabbit', 'Queen of Hearts', 'Alice'],
+      correctAnswer: 'Alice'
+    });
   }); 
   
   it('should be able to return the guess', function() {
@@ -45,7 +50,12 @@ describe('Turn', function() {
     const turn = new Turn('Alice', card);
     const seeTheCard = turn.returnCard();
     
-    expect(seeTheCard).to.equal(card);
+    expect(seeTheCard).to.deep.equal({
+      id: 1,
+      question: "Who Are You?",
+      answers: ["White-Rabbit", "Queen of Hearts", "Alice"],
+      correctAnswer: "Alice",
+    });
   });
   
   it('should return true if the guess is correct', function() {
