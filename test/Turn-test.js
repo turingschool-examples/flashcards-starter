@@ -35,6 +35,16 @@ describe('Turn', function() {
     expect(returnedCard).to.deep.equal(card)
   })
 
+  it('Should have a method that determines if guess is correct via boolean', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card)
+
+    var guess = turn.returnGuess()
+    var result1 = turn.evaluateGuess(guess)
+    expect(result1).to.equal(true)
+
+  })
+
 })
 // describe('Card', function () {
 
