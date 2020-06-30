@@ -45,9 +45,8 @@ describe('Round', () => {
     });
    
     it('evaluates guesses', () => {
-      round.takeTurn("you flap your arms");
-      const isGuessCorrect = round.mostRecentEvaluation;
-      expect(isGuessCorrect).to.equal(false);     
+      const isGuessCorrect = round.takeTurn("you flap your arms");
+      expect(isGuessCorrect).to.equal('incorrect!');     
     });
 
     it('should update currentCard when turn is complete', () => {

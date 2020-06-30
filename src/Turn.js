@@ -3,12 +3,15 @@ class Turn {
     this.usersGuess = usersGuess;
     this.currentCard = currentCard;
   }
+
   returnGuess = () => {
     return this.usersGuess;
   }
+
   returnCard = () => {
     return this.currentCard;
   }
+  
   evaluateGuess = () => {
     return this.usersGuess === this.currentCard.answer ? true : false;
   }
