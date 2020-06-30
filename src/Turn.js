@@ -25,6 +25,18 @@ class Turn {
           return false;
         }
       }
+
+      giveFeedback() {
+        if (this.guess === this.card.correctAnswer) {
+            console.log('correct!')
+            return 'correct!';
+        } else {
+            console.log('incorrect!')
+            return 'incorrect!';
+        }
+
+      }
+
             
     // if guess is equal to correcAnswer, return true;
     // else return false;
