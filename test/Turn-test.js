@@ -64,7 +64,7 @@ describe('Turn', function() {
     expect(isItTrue).to.equal(false);
   });
 
-  it.skip('should tell you if your guess is correct', function() {
+  it('should tell you if your guess is correct', function() {
     const card = new Card(1, 'Who Are You?', ['White-Rabbit', 'Queen of Hearts', 'Alice'], 'Alice');
     const turn = new Turn('Alice', card);
     const howDidIDo = turn.giveFeedback();
@@ -72,9 +72,9 @@ describe('Turn', function() {
     expect(howDidIDo).to.equal('correct!');
   });
 
-  it.skip('should tell you if your guess is incorrect', function() {
+  it('should tell you if your guess is incorrect', function() {
     const card = new Card(1, 'Who Are You?', ['White-Rabbit', 'Queen of Hearts', 'Alice'], 'Alice');
-    const turn = new Turn('White-Rabbit', card);
+    const turn = new Turn('Queen of Hearts', card);
     const howDidIDo = turn.giveFeedback();
 
     expect(howDidIDo).to.equal('incorrect!');
