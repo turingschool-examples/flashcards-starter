@@ -3,7 +3,7 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.turns = 0;
-    this.currentCard = deck !== undefined ? deck.cards[this.turns] : undefined; 
+    this.currentCard = deck ? deck.cards[this.turns] : undefined; 
     this.mostRecentEvaluation = undefined; //get rid of this
     this.currentTurn; //get rid of this
     this.incorrectGuesses = [];
@@ -15,9 +15,9 @@ class Round {
   takeTurn = (response) => {
     this.turns += 1;
     this.currentTurn = new Turn(response, this.currentCard);
-    this.mostRecentEvaluation = this.currentCard !== undefined ? this.currentTurn.evaluateGuess() : () => {};
+    this.mostRecentEvaluation = this.currentCard ? this.currentTurn.evaluateGuess() : () => {};
     this.currentTurn.evaluateGuess() ? () => {} : this.incorrectQuestions(this.currentCard);
-    const result = this.currentCard !== undefined ? this.currentTurn.giveFeedback() : undefined;
+    const result = this.currentCard ? this.currentTurn.giveFeedback() : undefined;
     this.currentCard = this.deck.cards[this.turns];
     return result
   }
