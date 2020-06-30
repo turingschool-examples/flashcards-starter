@@ -16,12 +16,12 @@ describe('Turn', function() {
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it.skip('should store an attempted answer to a question', function() {
+  it('should store an attempted answer to a question', function() {
     const turn = new Turn('Hot-dog water');
     expect(turn.guess).to.equal('Hot-dog water');
   }); 
   
-  it.skip('should be able to store another guess', function() {
+  it('should be able to store another guess', function() {
     const turn = new Turn('Barking at night');
     expect(turn.guess).to.equal('Barking at night');
   }); 
