@@ -19,7 +19,7 @@ describe('Turn', function() {
     expect(turn.cardID).to.equal(1)
   })
 
-  it.skip('should have a returnGuess method that returns the guess', function() {
+  it('should have a returnGuess method that returns the guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card.id)
 

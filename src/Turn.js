@@ -3,6 +3,10 @@ class Turn {
     this.guess = guess
     this.cardID = cardID
   }
+  
+  returnGuess() {
+    return this.guess
+  }
 }
 
 module.exports = Turn
