@@ -10,7 +10,7 @@ class Turn {
     return this.currentCard;
   }
   evaluateGuess() {
-    return this.usersGuess === this.currentCard.correctAnswer ? true : false;
+    return this.usersGuess === this.currentCard.answer ? true : false;
   }
 
   giveFeedback() {
