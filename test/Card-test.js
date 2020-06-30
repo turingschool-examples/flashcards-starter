@@ -15,9 +15,9 @@ describe('Card', function() {
     expect(card).to.be.an.instanceof(Card);
   }); 
 
-  it.skip('should store an id number', function() {
+  it('should store an id number', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.id).to.equal('1');
+    expect(card.id).to.equal(1);
   });
 
   it('should store a question', function() {
