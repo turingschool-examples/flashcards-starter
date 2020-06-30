@@ -13,7 +13,7 @@ describe('Turn', function() {
 
   it('should be an instance of Turn', function() {
     const turn = new Turn();
-    expect(Turn).to.be.an.instanceof(Card);
+    expect(turn).to.be.an.instanceof(Turn);
   });
 
   it('should store a guess', function() {
@@ -25,7 +25,7 @@ describe('Turn', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
     const turn = new Turn('apple', card);
-    expect(card.id).to.deep.equal(1);
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+    expect(turn.card.id).to.deep.equal(1);
+    expect(turn.card.answers).to.deep.equal(['object', 'array', 'function'])
   })
 });
