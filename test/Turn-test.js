@@ -26,7 +26,7 @@ describe('Turn', function() {
     expect(turn.guess).to.equal('Barking at night');
   }); 
   
-  it.skip('should store a card', function() {
+  it('should store a card', function() {
     const card = new Card(1, 'Who Are You?', ['White-Rabbit', 'Queen of Hearts', 'Alice'], 'Alice');
     const turn = new Turn('Alice', card);
     expect(turn.card).to.equal(card);
