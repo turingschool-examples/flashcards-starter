@@ -1,7 +1,7 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
-
+const Round = require('./round');
 class Game {
   constructor() {
     this.currentRound = 0;
@@ -15,6 +15,7 @@ class Game {
   printQuestion(round) {
       util.main(round);
   }
+
 }
 
 module.exports = Game;

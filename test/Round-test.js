@@ -7,19 +7,19 @@ const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
 describe('Round', () => {
-    var round;
-    var card1;
-    var card2;
-    var card3;
-    var deck;
+  var round;
+  var card1;
+  var card2;
+  var card3;
+  var deck;
 
-    beforeEach(() => {
-      card1 = new Card(1, "How do you fly?", ["you don't", "you flap your arms", "you steal an airplane"], "you don't");
-      card2 = new Card(2, "Can I eat a hotdog?", ["yes", "no", "you can eat several"], "you can eat several");
-      card3 = new Card(3, "Dogs or cats?", ["dogs", "cats", "robots"], "robots");
-      deck = new Deck([card1, card2, card3]);
-      round = new Round(deck);
-    });
+  beforeEach(() => {
+    card1 = new Card(1, "How do you fly?", ["you don't", "you flap your arms", "you steal an airplane"], "you don't");
+    card2 = new Card(2, "Can I eat a hotdog?", ["yes", "no", "you can eat several"], "you can eat several");
+    card3 = new Card(3, "Dogs or cats?", ["dogs", "cats", "robots"], "robots");
+    deck = new Deck([card1, card2, card3]);
+    round = new Round(deck);
+  });
 
   it('should be a function', () => {
     expect(Round).to.be.a('function');
@@ -50,8 +50,8 @@ describe('Round', () => {
     });
 
     it('should update currentCard when turn is complete', () => {
-        round.takeTurn();
-        expect(round.currentCard).to.deep.equal(card2);
+      round.takeTurn();
+      expect(round.currentCard).to.deep.equal(card2);
     });
    
     it('gives / returns feedback', () => {

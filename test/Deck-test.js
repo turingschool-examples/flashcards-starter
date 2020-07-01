@@ -7,11 +7,11 @@ const Deck = require('../src/Deck');
 describe('Deck', () => {
   var cards;
   beforeEach(() => {
-      cards = [
-        new Card(1, "How do you fly?", ["you don't", "you flap your arms", "you steal an airplane"], "you don't"),
-        new Card(2, "Can I eat a hotdog?", ["Yes", "No", "You can eat several"], "You can eat several"),
-        new Card(3, "Dogs or cats?", ["dogs", "cats", "robots"], "robots"),
-      ];
+    cards = [
+      new Card(1, "How do you fly?", ["you don't", "you flap your arms", "you steal an airplane"], "you don't"),
+      new Card(2, "Can I eat a hotdog?", ["Yes", "No", "You can eat several"], "You can eat several"),
+      new Card(3, "Dogs or cats?", ["dogs", "cats", "robots"], "robots"),
+    ];
   });
 
   it('should be a function', () => {
