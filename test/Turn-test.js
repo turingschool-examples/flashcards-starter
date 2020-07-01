@@ -8,8 +8,8 @@ describe('Turn happy path', function() {
   let turn;
   let card;
   beforeEach(function() {
-    turn = new Turn('object', card);
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('object', card);
   });
 
   it('should be a function', function() {
@@ -62,8 +62,8 @@ describe('Turn sad paths', function() {
   let turn;
   let card;
   beforeEach(function() {
-    turn = new Turn('array', card);
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('array', card);
   });
 
   it('should return false if the user\'s guess does not match the correct answer on the card', function() {
