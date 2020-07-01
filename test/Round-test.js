@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
+// const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
 describe('Round', () => {
@@ -14,9 +14,24 @@ describe('Round', () => {
   var deck;
 
   beforeEach(() => {
-    card1 = new Card(1, "How do you fly?", ["you don't", "you flap your arms", "you steal an airplane"], "you don't");
-    card2 = new Card(2, "Can I eat a hotdog?", ["yes", "no", "you can eat several"], "you can eat several");
-    card3 = new Card(3, "Dogs or cats?", ["dogs", "cats", "robots"], "robots");
+    card1 = new Card(
+      1, 
+      "How do you fly?", 
+      ["you don't", "you flap your arms", "you steal an airplane"], 
+      "you don't"
+    );
+    card2 = new Card(
+      2, 
+      "Can I eat a hotdog?", 
+      ["yes", "no", "you can eat several"], 
+      "you can eat several"
+    );
+    card3 = new Card(
+      3, 
+      "Dogs or cats?", 
+      ["dogs", "cats", "robots"], 
+      "robots"
+    );
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
   });
@@ -29,7 +44,8 @@ describe('Round', () => {
     expect(round).to.be.an.instanceOf(Round);
   });
 
-  it('should know the currentCard at the beginning of the game is at the top of the deck', () => {
+  it('should know the currentCard at the beginning' + 
+ 'of the game is at the top of the deck', () => {
     expect(round.currentCard).to.deep.equal(deck.cards[0]);
   });
 
@@ -63,11 +79,6 @@ describe('Round', () => {
       round.takeTurn('you flap your arms');
       expect(round.incorrectGuesses).to.deep.equal([1]); 
     });
-
-    // it('stores correct guesses', () => {
-    //   round.takeTurn('you don\'t');
-    //   expect(round.correctGuesses).to.deep.equal(['you don\'t']);
-    // });
   });
   
   describe ('End Game', () => {
@@ -79,15 +90,17 @@ describe('Round', () => {
       expect(percentCorrect).to.equal(33);
     });
     
-    it('Can end the round and print a specific message with percentage correct', () => {
+    it('Can end the round and print a specific message', () => {
       round.takeTurn('you don\'t');
       round.takeTurn('you can eat several');
       round.takeTurn('robots');
       const message = round.endRound();
-      expect(message).to.equal('**Round over!** You answered 100% of the questions correctly!');
+      expect(message).to.equal('**Round over!** You answered ' +
+       `100% of the questions correctly!`);
     });
 
-    it('should set currentCard to undefined when it has used every card', () => {
+    it('should set currentCard to undefined' + 
+    'when it has used every card', () => {
       round.takeTurn('you don\'t');
       round.takeTurn('you can eat several');
       round.takeTurn('robots');
