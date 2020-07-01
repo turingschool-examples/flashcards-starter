@@ -31,4 +31,14 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.equal('pug');
     expect(turn.returnGuess).to.be.a('function');
   });
+
+  it('should be a function that returns the selected card', function() {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
+
+    expect(turn.returnCard()).to.equal(card);
+    expect(turn.returnCard).to.be.a('function');
+  });
+
+
 });
