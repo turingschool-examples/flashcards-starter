@@ -40,5 +40,18 @@ describe('Turn', function() {
     expect(turn.returnCard).to.be.a('function');
   });
 
+  it('should return false if answer is incorrect', function() {
+  const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+  const turn = new Turn('pug', card);
+
+  expect(turn.evaluateGuess()).to.equal(false);
+  });
+
+  it('should return true if answer is correct', function() {
+    const card = new Card(2, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'capybara');
+    const turn = new Turn('capybara', card);
+
+    expect(turn.evaluateGuess()).to.equal(true);
+  });
 
 });
