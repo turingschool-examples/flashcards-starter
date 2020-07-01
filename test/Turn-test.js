@@ -11,8 +11,8 @@ describe('Turn', function() {
   });
 
   it('should be an instance of Turn', function() {
-  const turn = new Turn();
-  expect(turn).to.be.an.instanceof(Turn);
+    const turn = new Turn();
+    expect(turn).to.be.an.instanceof(Turn);
   });
 
   it('should be instantiated with a user\'s guess and a card', function() {
@@ -39,10 +39,10 @@ describe('Turn', function() {
   });
 
   it('should return false if answer is incorrect', function() {
-  const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  const turn = new Turn('pug', card);
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
 
-  expect(turn.evaluateGuess()).to.equal(false);
+    expect(turn.evaluateGuess()).to.equal(false);
   });
 
   it('should return true if answer is correct', function() {
@@ -67,5 +67,4 @@ describe('Turn', function() {
       expect(turn.returnFeedback()).to.equal('incorrect!');
     });
   });
-
 });
