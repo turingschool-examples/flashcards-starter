@@ -23,8 +23,6 @@ class Turn {
       return 'incorrect!'
     }
   }
-
-
 }
 
 
