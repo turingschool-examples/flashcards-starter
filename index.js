@@ -13,3 +13,7 @@ const Game = require('./src/Game');
 const util = require('./src/util');
 const data = require('./src/data');
 
+const game = new Game();
+
+game.start(data.prototypeData);
+

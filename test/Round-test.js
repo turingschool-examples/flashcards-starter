@@ -87,5 +87,13 @@ describe('Round', () => {
       expect(message).to.equal('**Round over!** You answered 100% of the questions correctly!');
     });
 
+    it('should set currentCard to undefined when it has used every card', () => {
+      round.takeTurn('you don\'t');
+      round.takeTurn('you can eat several');
+      round.takeTurn('robots');
+      const trigger = round.returnCurrentCard();
+      expect(trigger).to.equal(undefined);
+    });
+
   });
 });

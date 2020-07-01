@@ -4,6 +4,8 @@ const util = require('./util');
 const Round = require('./Round');
 const Card = require('./Card');
 const Deck = require('./Deck');
+
+
 class Game {
   constructor() {}
 
@@ -20,6 +22,8 @@ class Game {
     const pile = [];
     cards.forEach(card => pile.push(this.createCard(card)));   
     this.newRound(pile);
+    this.printMessage(this.deck);
+    this.printQuestion(this.currentRound)
   }
   
   createCard = (card) => {
