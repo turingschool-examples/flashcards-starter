@@ -27,4 +27,10 @@ describe('Deck', function() {
     expect(deck1.cards).to.deep.equal([card1, card2, card3]);
   });
 
+  it('should return the number of cards in the deck', function() {
+    expect(deck1.countCards()).to.equal(deck1.cards.length);
+    expect(deck2.countCards()).to.equal(deck2.cards.length);
+  });
+
+
 });
