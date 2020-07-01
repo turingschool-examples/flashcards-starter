@@ -12,6 +12,11 @@ class Turn {
   return this.card;
   }
 
+  evaluateGuess() {
+  return this.guess === this.card.correctAnswer;
+  }
+
+
 }
 
 
