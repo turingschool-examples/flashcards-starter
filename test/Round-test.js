@@ -68,11 +68,6 @@ describe('Round', () => {
     //   round.takeTurn('you don\'t');
     //   expect(round.correctGuesses).to.deep.equal(['you don\'t']);
     // });
-
-    it('it should create a new instance of a Turn', () => {
-      round.takeTurn('you don\'t');
-      expect(round.currentTurn).to.be.an.instanceOf(Turn);
-    });
   });
   
   describe ('End Game', () => {
