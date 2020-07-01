@@ -3,6 +3,8 @@ const expect = chai.expect;
 
 const Game = require('../src/Game');
 const Round = require('../src/Round');
+const Card = require('../src/Card');
+const data = require('../src/data');
 
 describe('Game', ()=> {
   var game;
@@ -27,31 +29,30 @@ describe('Game', ()=> {
     }]; 
   });
 
-  it('should be able to keep track of the current round', () => {
-    expect(game.currentRound).to.equal(0);
-  });
-
   describe('Start Method', () => {
-    it.skip('should create cards', () => {
+    it('should create cards', () => {
       game.start(cards);
-      expect(game.cards).to.deep.equal(cards);
+      expect(game.deck.cards[0]).to.be.an.instanceOf(Card);
     });
 
-    it.skip('should put cards in a deck', () => {
+    it('should put cards in a deck', () => {
       game.start(cards);
-      expect(game.deck).to.deep.equal(cards);
+      expect(game.deck.cards).to.deep.equal(cards);
     });
     
-    it.skip('should create a new Round using the Deck', () => {
+    it('should create a new Round using the Deck', () => {
       game.start(cards);
-      expect(game.gameRound).to.be.an.instanceOf(Round);
-      expect(game.gameRound.deck).to.deep.equal(cards);
+      expect(game.currentRound).to.be.an.instanceOf(Round);
+      expect(game.currentRound.deck.cards).to.deep.equal(cards);
     });
     
-    it.skip('should update the current round', () => {
+    it('should update and keep track of the current round', () => {
       game.start(cards);
-      expect(game.currentRound).to.equal(1);
+      expect(game.currentRound.deck.cards).to.deep.equal(cards);
+      game.newRound(data.prototypeData)
+      expect(game.currentRound.deck.cards).to.deep.equal(data.prototypeData);
     });
+
   });
 
 });
