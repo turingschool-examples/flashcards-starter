@@ -14,4 +14,12 @@ describe('Deck', function() {
     deck1 = new Deck([card1, card2, card3]);
     deck2 = new Deck([card1, card2]);
   });
+
+  it('should be a function', function() {
+    expect(Deck).to.be.a('function');
+  });
+
+  it('should be an instance of Deck', function() {
+    expect(deck1).to.be.an.instanceof(Deck);
+  });
 });
