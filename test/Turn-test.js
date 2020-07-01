@@ -45,8 +45,23 @@ describe('Turn happy path', function() {
   });
 
   it('should give feedback on whether the guess is correct or not', function() {
+
+    turn.evaluateGuess();
+
     expect(turn.giveFeedback()).to.equal('correct' || 'incorrect');
   });
 
 });
 
+describe('Turn sad paths', function() {
+  let turn;
+  let card;
+  beforeEach(function() {
+    turn = new Turn('array', card);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+  });
+
+  it('should return false if the user\'s guess does not match the correct answer on the card', function() {
+    expect(turn.evaluateGuess()).to.equal(false);
+  });
+});

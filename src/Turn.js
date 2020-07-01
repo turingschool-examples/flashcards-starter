@@ -3,6 +3,7 @@ class Turn {
     this.guess = guess,
     this.card = card,
     this.evaluation = false;
+    this.feedback = "";
   }
 
   returnGuess() {
@@ -14,7 +15,14 @@ class Turn {
   }
 
   evaluateGuess() {
-    return this.evaulation = (this.card.correctAnswer === this.guess) ? true : false;
+    if (this.card.correctAnswer === this.guess) {
+      return this.evaluation = true;
+    }
+  }
+
+  giveFeedback() {
+    console.log(this.evaluation);
+    return this.feedback = (this.evaluation === true) ? 'correct' : 'incorrect';
   }
 }
 
