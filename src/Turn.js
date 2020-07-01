@@ -3,3 +3,8 @@ class Turn {
     this.guess = guess;
     this.card = card;
   }
+}
+
+
+
+module.exports = Turn;
