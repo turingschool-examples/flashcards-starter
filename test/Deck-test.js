@@ -20,5 +20,16 @@ describe('Deck happy path', function() {
     expect(Deck).to.be.a('function');
   });
 
-  it('should initialize a deck with an array of Card objects')
+  it('should be an instance of Turn', function() {
+    expect(deck).to.be.an.instanceof(Deck);
+  });
+
+  it('should initialize a deck with an array of Card objects', function() {
+    expect(deck.cards).to.deep.equal([card1, card2, card3]);
+  });
+
+  it('should know how many Cards are in the Deck', function() {
+    expect(deck.cards.length).to.equal(3);
+  });
+
 });
