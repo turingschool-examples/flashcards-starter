@@ -26,7 +26,7 @@ describe('Card', () => {
 
   it('should store the correct answer', () => {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.answer).to.equal('object');
+    expect(card.correctAnswer).to.equal('object');
   });
   it('should have an id', () => {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
