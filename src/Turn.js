@@ -18,11 +18,10 @@ class Turn {
     if (this.card.correctAnswer === this.guess) {
       return this.evaluation = true;
     }
-    console.log(this.guess, this.evaluation);
+    console.log(this.card.correctAnswer, this.guess, this.evaluation);
   }
 
   giveFeedback() {
-    console.log(this.evaluation);
     return this.feedback = (this.evaluation === true) ? 'correct' : 'incorrect';
   }
 }
