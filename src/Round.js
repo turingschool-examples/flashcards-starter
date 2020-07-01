@@ -7,7 +7,8 @@ class Round {
   }
 
   returnCurrentCard() {
-    return this.deck.cards[0]
+    // console.log(`RETURNED CARD `, this.deck.cards[0])
+    return (`this is the returned card `, this.deck.cards[0])
   }
 
   takeTurn(guess) {
@@ -15,7 +16,8 @@ class Round {
     this.turns = this.turns += 1
     // console.log('Our console log to admire', round.deck.cards[0])
     this.deck.cards.shift()
-   
+    console.log('Our console log to admire', this.deck)
+   return this.deck
   }
 }
 
