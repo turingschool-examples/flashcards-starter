@@ -41,7 +41,10 @@ describe('Turn happy path', function() {
   });
 
   it('should return true if the user\'s guess matches the correct answer on the card', function() {
-    expect(turn.evaluateGuess()).to.equal(true);
+    
+    turn.evaluateGuess(); 
+
+    expect(turn.evaluation).to.equal(true);
   });
 
   it('should give feedback on whether the guess is correct or not', function() {
@@ -62,6 +65,6 @@ describe('Turn sad paths', function() {
   });
 
   it('should return false if the user\'s guess does not match the correct answer on the card', function() {
-    expect(turn.evaluateGuess()).to.equal(false);
+    expect(turn.evaluation).to.equal(false);
   });
 });

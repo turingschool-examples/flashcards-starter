@@ -18,6 +18,7 @@ class Turn {
     if (this.card.correctAnswer === this.guess) {
       return this.evaluation = true;
     }
+    console.log(this.guess, this.evaluation);
   }
 
   giveFeedback() {
