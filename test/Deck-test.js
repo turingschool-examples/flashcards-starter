@@ -2,7 +2,6 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 const prototypeData = require('../src/data');
 
@@ -38,7 +37,7 @@ describe('Deck', function() {
     expect(deck.cards[2].id).to.equal(12);
   });
   
-  it.skip('should tell us how many cards are in the deck', () => {
+  it('should tell us how many cards are in the deck', () => {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal?', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -50,7 +49,7 @@ describe('Deck', function() {
   });
   
   
-  it.skip('should tell us how many cards are in the deck for any possible amount of cards', () => {
+  it('should tell us how many cards are in the deck for any possible amount of cards', () => {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal?', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -62,11 +61,11 @@ describe('Deck', function() {
     expect(howManyCards).to.equal(4);
   });
 
-  it.skip('should still tell us how many cards are in the deck for any possible amount of cards', () => {
-    
-    const deck = new Deck([...prototypeData]);
+  it('should still tell us how many cards are in the deck for any possible amount of cards', () => {
+    const data = prototypeData.prototypeData;
+    const deck = new Deck(data);
     const howManyCards = deck.countCards();
     
-    expect(howManyCards).to.equal(29);
+    expect(howManyCards).to.equal(30);
   });
 });
