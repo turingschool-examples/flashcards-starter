@@ -1,7 +1,10 @@
 class Deck {
   constructor(cards) {
-    this.cards = cards;
-    this.cardCount = cards !== undefined ? this.cards.length : 0;
+    this.cards = cards || [];
+    // this.cardCount = cards ? this.cards.length : 0;
+  }
+  countCards = () => {
+    return this.cards.length
   }
 }
 

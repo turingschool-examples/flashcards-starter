@@ -3,17 +3,20 @@ class Turn {
     this.usersGuess = usersGuess;
     this.currentCard = currentCard;
   }
-  returnGuess() {
+
+  returnGuess = () => {
     return this.usersGuess;
   }
-  returnCard() {
+
+  returnCard = () => {
     return this.currentCard;
   }
-  evaluateGuess() {
-    return this.usersGuess === this.currentCard.answer ? true : false;
+
+  evaluateGuess = () => {
+    return this.usersGuess === this.currentCard.correctAnswer ? true : false;
   }
 
-  giveFeedback() {
+  giveFeedback = () => {
     return this.evaluateGuess() ? 'correct!' : 'incorrect!';
   }
 }
