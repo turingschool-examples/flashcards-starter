@@ -6,7 +6,7 @@ Flashcards are now a digital tool you can use to study up on javascript! This ga
 
 ## Images
 
-[the program in action](./src/images/flashcards.gif)
+![the program in action](./src/images/flashcards.gif)
 
 ## Install and Setup Instructions
 
