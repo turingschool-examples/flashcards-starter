@@ -30,12 +30,26 @@ describe('Round happy path', function() {
   });
 
   it('should initialize a round with a Deck', function() {
-    expect(deck.cards).to.deep.equal([card1, card2, card3]);
+    expect(round.deck).to.deep.equal([card1, card2, card3]);
   });
 
-  it('should have a currentCard that is the first Card in the Deck', function() {
-    console.log(deck, this.currentCard);
-    expect(this.currentCard).to.equal(deck[0]);
+  it('should start with 0 turns', function() {
+    expect(round.turns).to.equal(0, 'nooo why fail??');
+  });
+
+  it('should start with no incorrect guesses', function() {
+    expect(round.incorrectGuesses).to.equal([]);
+  });
+
+  it('should show currentCard, which is the first Card in the Deck', function() {
+    
+    round.returnCurrentCard();
+
+    expect(round.returnCurrentCard()).to.equal(deck.cards[0]);
+  });
+
+  it('should create a new Turn when a guess is made', function() {
+
   });
 
 });
