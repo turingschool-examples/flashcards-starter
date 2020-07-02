@@ -75,7 +75,7 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
     
-    let takeAGuess = round.takeTurn('cus this is the guitar');
+    round.takeTurn('cus this is the guitar');
 
     expect(round.returnCurrentCard()).to.equal(card2);
   });
@@ -116,15 +116,4 @@ describe('Round', function() {
     
     expect(round.calculatePercentageCorrect()).to.equal(66);
   });
-  
-  // it('should be able to print "** Round over! ** You answered <>% of the questions correctly!" to the console', () => {
-  //   const deck = new Deck([card1, card2, card3]);
-  //   const round = new Round(deck);
-  
-  //   round.takeTurn('cus this is the guitar');
-  //   round.takeTurn('transparent');
-  //   round.takeTurn('sleeping');
-    
-  //   expect(round.endRound).to.equal(process.exit());
-  // });
 });
