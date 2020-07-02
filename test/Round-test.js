@@ -52,6 +52,13 @@ describe('Round', function() {
        expect(round.returnCurrentCard()).to.equal(card3);
      });
 
-   });
+     it('should return appropriate feedback', function() {
+       const happyFeedback = round.takeTurn('sea otter');
+       expect(happyFeedback).to.equal('correct!');
+       const sadFeedback = round.takeTurn('spleen');
+       expect(sadFeedback).to.equal('incorrect!');
+     });
+
+  });
 
 });
