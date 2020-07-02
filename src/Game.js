@@ -8,7 +8,9 @@ const util = require('./util');
 
 
 class Game {
-  constructor() {
+  constructor(
+  ) {
+    this.currentRound = {};
   }
 
   printMessage(deck, round) {
