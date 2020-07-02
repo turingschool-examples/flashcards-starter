@@ -79,5 +79,13 @@ describe('Round happy path', function() {
   expect(round.takeTurn('function')).to.equal('incorrect');
   });
 
+  it('should calculate and return the percentage of correct guesses', function() {
+
+    round.takeTurn('function');
+    round.takeTurn('prototype method');
+
+    expect(round.calculatePercentCorrect()).to.equal(50);
+  });
+
 });
 
