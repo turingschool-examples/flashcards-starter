@@ -33,5 +33,9 @@ describe('Round', function() {
     expect(round.turns).to.equal(0);
   });
 
+  it('should have a property of incorrect guesses, that defaults to an empty array', function() {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+
 
 });
