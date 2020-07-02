@@ -16,9 +16,13 @@ class Round {
     var incorrectGuesses = []
     this.turns = this.turns += 1
     this.deck.cards.shift()
-    console.log(turn.card.id)
-    var guess = turn.guess === turn.card.correctAnswer ? true : incorrectGuesses.push(turn.card.id)
-    return incorrectGuesses
+    if(turn.guess === turn.card.correctAnswer) {
+      return `Correct!`
+    } else {
+      incorrectGuesses.push(turn.card.id)
+      console.log(`Incorrect!`)
+      return incorrectGuesses
+    }
   }
 }
 
