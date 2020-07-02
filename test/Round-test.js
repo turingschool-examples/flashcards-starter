@@ -87,5 +87,14 @@ describe('Round happy path', function() {
     expect(round.calculatePercentCorrect()).to.equal(50);
   });
 
+  it('should display a message saying the round is over', function() {
+
+    round.takeTurn('function');
+    round.takeTurn('prototype method');
+    round.endRound();
+
+    expect(round.calculatePercentCorrect()).to.equal('**Round Over!** You answered 50% of the questions correctly!');
+  });
+
 });
 

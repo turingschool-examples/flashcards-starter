@@ -22,8 +22,13 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    return (this.incorrectGuesses.length / this.turns) * 100;
+    return 100 - ((this.incorrectGuesses.length / this.turns) * 100);
   }
+
+  endRound() {
+    var percentCorrect = this.calculatePercentCorrect();
+    console.log(`**Round Over!** You answered ${percentCorrect}% of the questions correctly!`);
+  };
 
 }
 
