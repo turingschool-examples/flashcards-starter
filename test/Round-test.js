@@ -38,11 +38,11 @@ describe('Round happy path', function() {
   });
 
   it('should start with no incorrect guesses', function() {
-    expect(round.incorrectGuesses).to.equal([]);
+    expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
   it('should show currentCard, which is the first Card in the Deck', function() {
-    
+
     round.returnCurrentCard();
 
     expect(round.returnCurrentCard()).to.equal(deck.cards[0]);
