@@ -29,5 +29,9 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.equal(card1);
   });
 
+  it('should have a property of turns that defaults to 0', function() {
+    expect(round.turns).to.equal(0);
+  });
+
 
 });
