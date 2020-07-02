@@ -25,5 +25,9 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   });
 
+  it('should return the card being played', function() {
+    expect(round.returnCurrentCard()).to.equal(card1);
+  });
+
 
 });
