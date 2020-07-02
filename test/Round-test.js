@@ -65,13 +65,19 @@ describe('Round', function() {
       round.takeTurn('spleen');
       expect(round.incorrectGuesses).to.deep.equal([14]);
     });
+  });
 
-    it('should return the percentage of correct guesses', function() {
-      round.takeTurn('sea otter');
-      expect(round.calculatePercentCorrect()).to.equal(100);
-      round.takeTurn('spleen');
-      expect(round.calculatePercentCorrect()).to.equal(50);
-    });
+  it('should return the percentage of correct guesses', function() {
+    round.takeTurn('sea otter');
+    expect(round.calculatePercentCorrect()).to.equal(100);
+    round.takeTurn('spleen');
+    expect(round.calculatePercentCorrect()).to.equal(50);
+  });
 
+  it('should console log a message with correct guesses when the round is over', function() {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    round.takeTurn('Fitzgerald');
+    expect(round.endRound()).to.equal(`** Round over! ** You answered ${round.percentCorrect}% of the questions correctly!`);
   });
 });
