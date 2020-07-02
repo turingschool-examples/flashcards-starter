@@ -59,12 +59,19 @@ describe('Round', function() {
        expect(sadFeedback).to.equal('incorrect!');
      });
 
-
     it('should store the id number of card numbers related to incorrect guesses in the incorrectGuesses array', function() {
       round.takeTurn('sea otter');
       expect(round.incorrectGuesses).to.deep.equal([]);
       round.takeTurn('spleen');
       expect(round.incorrectGuesses).to.deep.equal([14]);
     });
+
+    it('should return the percentage of correct guesses', function() {
+      round.takeTurn('sea otter');
+      expect(round.calculatePercentCorrect()).to.equal(100);
+      round.takeTurn('spleen');
+      expect(round.calculatePercentCorrect()).to.equal(50);
+    });
+
   });
 });
