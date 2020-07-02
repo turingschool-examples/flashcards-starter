@@ -24,11 +24,16 @@ describe('Game', function() {
       expect(game.currentRound).to.deep.equal({});
     });
 
-    describe('start', function() {
-      it('should create cards', function() {
-        game.start();
-        expect(game.currentRound.deck.cards.length).to.equal(30);
-        expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
-      });
-   });
+  describe('start', function() {
+    it('should create cards', function() {
+      game.start();
+      expect(game.currentRound.deck.cards.length).to.equal(30);
+      expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
+    });
+
+    it('should create a new round using the deck', function() {
+      game.start();
+      expect(game.currentRound).to.be.an.instanceof(Round);
+    });
+  });
 });
