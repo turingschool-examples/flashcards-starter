@@ -58,7 +58,7 @@ describe('Turn happy path', function() {
 
 });
 
-describe('Turn sad paths', function() {
+describe('Turn wrong answer/sad path', function() {
   let turn;
   let card;
   beforeEach(function() {
@@ -80,4 +80,5 @@ describe('Turn sad paths', function() {
 
     expect(turn.giveFeedback()).to.equal('incorrect');
   });
+  
 });
