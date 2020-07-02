@@ -13,11 +13,12 @@ class Round {
 
   takeTurn(guess) {
     var turn = new Turn(guess, this.deck.cards[0])
+    var incorrectGuesses = []
     this.turns = this.turns += 1
-    // console.log('Our console log to admire', round.deck.cards[0])
     this.deck.cards.shift()
-    console.log('Our console log to admire', this.deck)
-   return this.deck
+    console.log(turn.card.id)
+    var guess = turn.guess === turn.card.correctAnswer ? true : incorrectGuesses.push(turn.card.id)
+    return incorrectGuesses
   }
 }
 
