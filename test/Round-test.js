@@ -45,5 +45,13 @@ describe('Round', function() {
        expect(round.turns).to.equal(2);
      });
 
+     it('should change currentCard to the next card', function() {
+       round.takeTurn();
+       expect(round.returnCurrentCard()).to.equal(card2);
+       round.takeTurn();
+       expect(round.returnCurrentCard()).to.equal(card3);
+     });
+
+   });
 
 });
