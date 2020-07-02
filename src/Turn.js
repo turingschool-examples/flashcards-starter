@@ -9,11 +9,11 @@ class Turn {
   }
 
   returnCard() {
-  return this.card;
+    return this.card;
   }
 
   evaluateGuess() {
-  return this.guess === this.card.correctAnswer;
+    return this.guess === this.card.correctAnswer;
   }
 
   returnFeedback() {

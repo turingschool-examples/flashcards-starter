@@ -38,26 +38,26 @@ describe('Round', function() {
   });
 
   describe('takeTurn', function() {
-     it('should increment the turns property', function() {
-       round.takeTurn();
-       expect(round.turns).to.equal(1);
-       round.takeTurn();
-       expect(round.turns).to.equal(2);
-     });
+    it('should increment the turns property', function() {
+      round.takeTurn();
+      expect(round.turns).to.equal(1);
+      round.takeTurn();
+      expect(round.turns).to.equal(2);
+    });
 
-     it('should change currentCard to the next card', function() {
-       round.takeTurn();
-       expect(round.returnCurrentCard()).to.equal(card2);
-       round.takeTurn();
-       expect(round.returnCurrentCard()).to.equal(card3);
-     });
+    it('should change currentCard to the next card', function() {
+      round.takeTurn();
+      expect(round.returnCurrentCard()).to.equal(card2);
+      round.takeTurn();
+      expect(round.returnCurrentCard()).to.equal(card3);
+    });
 
-     it('should return appropriate feedback', function() {
-       const happyFeedback = round.takeTurn('sea otter');
-       expect(happyFeedback).to.equal('correct!');
-       const sadFeedback = round.takeTurn('spleen');
-       expect(sadFeedback).to.equal('incorrect!');
-     });
+    it('should return appropriate feedback', function() {
+      const happyFeedback = round.takeTurn('sea otter');
+      expect(happyFeedback).to.equal('correct!');
+      const sadFeedback = round.takeTurn('spleen');
+      expect(sadFeedback).to.equal('incorrect!');
+    });
 
     it('should store the id number of card numbers related to incorrect guesses in the incorrectGuesses array', function() {
       round.takeTurn('sea otter');
