@@ -48,8 +48,35 @@ describe('Round happy path', function() {
     expect(round.returnCurrentCard()).to.equal(deck.cards[0]);
   });
 
-  it('should create a new Turn when a guess is made', function() {
+  it('should increase the turns count by 1 whenever a guess is made, right or wrong', function() {
 
+    round.takeTurn('function');
+    round.takeTurn('object');
+
+    expect(round.turns).to.equal(2);
+  });
+
+  it('should update the current card with the next card in the deck', function() {
+
+    round.takeTurn('object');
+
+    expect(round.deck[round.turns]).to.equal(deck.cards[1]);
+  });
+
+  it('should store incorrect guesses', function() {
+
+    round.takeTurn('function');
+    round.takeTurn('prototype method');
+    
+    expect(round.incorrectGuesses).to.have.lengthOf(1);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  });
+
+  it('should give feedback on whether the guess is correct or incorrect', function() {
+  
+  round.takeTurn('function');
+
+  expect(round.takeTurn('function')).to.equal('incorrect');
   });
 
 });
