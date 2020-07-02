@@ -22,5 +22,13 @@ describe('Game', function() {
 
     it('should have a property to track the current round', function() {
       expect(game.currentRound).to.deep.equal({});
-});
+    });
+
+    describe('start', function() {
+      it('should create cards', function() {
+        game.start();
+        expect(game.currentRound.deck.cards.length).to.equal(30);
+        expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
+      });
+   });
 });
