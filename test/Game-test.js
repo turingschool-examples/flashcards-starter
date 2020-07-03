@@ -24,13 +24,13 @@ describe('Game', function() {
 
   describe('start', function() {
     it('should create cards', function() {
-      game.start();
+      game.setupRound();
       expect(game.currentRound.deck.cards.length).to.equal(30);
       expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
     });
 
     it('should create a new round using the deck', function() {
-      game.start();
+      game.setupRound();
       expect(game.currentRound).to.be.an.instanceof(Round);
     });
   });

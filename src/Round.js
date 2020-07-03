@@ -29,7 +29,7 @@ class Round {
   endRound() {
     if (this.deck.cards.length === 0) {
       this.calculatePercentCorrect();
-      // console.log(`** Round over! ** You answered ${this.percentCorrect}% of the questions correctly!`);
+      console.log(`** Round over! ** You answered ${this.percentCorrect}% of the questions correctly!`);
       return `** Round over! ** You answered ${this.percentCorrect}% of the questions correctly!`
     }
   }

@@ -1,79 +1,45 @@
-# FlashCards Starter Kit
+# Project FlashCard
+## Solo project by Naomi Ware
+Turing's 2005 Mod 2, week 1 project.
 
-## Fork This Repo
+### Project Overview
 
-On the top right corner of this page, click the **Fork** button.
+You can find this project at: https://github.com/nware1066/flashcards-starter
 
-## Setup
+This project was a Solo project completed during the first week of Turings Mod 2. It was completed entirely in JavaScript, with no user interface, as it is only intended to run in the Command Line Interface.
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+This project was my first experience with Test Driven Design, and I used the Mocha test framework and the Chai assertion library for Node JS.
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+In order for the app to function as expected, some helper functions were provided by the instructors, and those methods were not tested for. All of the methods created by me have tests that were written prior to writing the methods themselves.
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+The app allows a user to take a quiz on a given subject (JavaScript prototypes in this case), with multiple choice answers and immediate feedback to indicate if the user selected the correct answer. When all of the cards have been used, a message with the percentage of correct answers will display.
 
-```bash
-npm install
-```
+### Learning Goals
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
+- Contribute code to an partially constructed object-oriented application
+- Follow spec/prompts to make a working application
+- Implement ES6 classes
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Implement a robust testing suite using TDD
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+### Wins
 
-```bash
-Node server running on port 3000
-```
+- I was able to successfully write tests for each property and method.
+- I writing tests prior to code allowed me to break work down into smaller steps, which made the work much easier.
+- I now have a working, useful tool to help me study for my exams.
 
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+### Challenges
+
+- Learning to use the linter was a bit frustrating, since I am not used to using one. I will definitely use it as I work from this point forward, instead of waiting until the end of the project.
+- Deciding what to test for and how many tests to write is challenging, and something that I will be working on as I learn.
+- finding ways to test the game without invoking the game repeatedly
+was definitely a challenge, which I solved by using a helper function.
+
+### Contact me on GitHub:
+https://github.com/nware1066 - Naomi Ware
 
 
-## Where to Add Your Code
+### Here is what the app looks like in action:
 
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
----
+### Project Spec and rubric can be found here:
+https://frontend.turing.io/projects/flash-cards.html
