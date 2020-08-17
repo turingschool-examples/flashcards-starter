@@ -13,4 +13,10 @@ describe('Turn', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   });
+
+  it('should store a user\s guess', function() {
+    const turn = new Turn('pug');
+    expect(turn.guess).to.equal('pug');
+  });
+
 });
