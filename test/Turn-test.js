@@ -64,5 +64,31 @@ describe('Turn', function() {
     expect(turn3.evaluateGuess()).to.equal(true);
   });
 
-  // it('should have a function that')
+  it('should have a function that return \'correct!\') when the guess is right', function() {
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter'
+    );
+    const turn = new Turn('sea otter', card);
+
+    expect(turn.giveFeedBack()).to.equal('correct!');
+  });
+
+  it('should have a function that return \'incorrect!\') when the guess is wrong', function() {
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter'
+    );
+    const turn1 = new Turn('pug', card);
+    const turn2 = new Turn('capybara', card);
+    const turn3 = new Turn('sea otter', card);
+
+    expect(turn1.giveFeedBack()).to.equal('incorrect!');
+    expect(turn2.giveFeedBack()).to.equal('incorrect!');
+    expect(turn3.giveFeedBack()).to.equal('correct!');
+  });
 });
