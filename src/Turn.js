@@ -5,6 +5,9 @@ class Turn {
     this.returnGuess = () => {
       return guess;
     }
+    this.returnCard = () => {
+      return card;
+    }
   }
 }
 
