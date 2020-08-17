@@ -1,17 +1,17 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Test = require('../src/Test');
+const Turn = require('../src/Turn');
 
-describe('Test', function() {
+describe('Turn', () => {
 
-  it('should be a function', function() {
-    const test = new Test();
-    expect(Test).to.be.a('function');
+  it.skip('should be a function', () => {
+    const turn = new Turn();
+    expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Test', function() {
-    const test = new Test();
-    expect(test).to.be.an.instanceof(Test);
+  it.skip('should be an instance of Turn', () => {
+    const turn = new Turn();
+    expect(turn).to.be.an.instanceof(Turn);
   });
 });
