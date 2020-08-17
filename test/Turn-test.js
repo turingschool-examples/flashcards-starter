@@ -37,7 +37,7 @@ describe('Turn', function() {
     expect(turn.returnCard()).to.equal(card);
   });
 
-  it('should be have a function that return true when the guess is right', function() {
+  it('should have a function that return true when the guess is right', function() {
     const card = new Card(
       1,
       'What is Robbie\'s favorite animal',
@@ -47,4 +47,22 @@ describe('Turn', function() {
     const turn = new Turn('sea otter', card);
     expect(turn.evaluateGuess()).to.equal(true);
   });
+
+  it('should also return false when the guess is wrong', function() {
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter'
+    );
+    const turn1 = new Turn('pug', card);
+    const turn2 = new Turn('capybara', card);
+    const turn3 = new Turn('sea otter', card);
+
+    expect(turn1.evaluateGuess()).to.equal(false);
+    expect(turn2.evaluateGuess()).to.equal(false);
+    expect(turn3.evaluateGuess()).to.equal(true);
+  });
+
+  // it('should have a function that')
 });
