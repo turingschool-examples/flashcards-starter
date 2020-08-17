@@ -26,14 +26,25 @@ describe('Turn', function() {
     expect(turn.card).to.equal(card);
   });
 
-  it('should be able return the user\s guess', function() {
+  it('should be able to return the user\s guess', function() {
     const turn = new Turn('pug', new Card(1,2,3,4));
     expect(turn.returnGuess()).to.equal('pug');
   });
 
-  it('should be able return the current card', function() {
+  it('should be able to return the current card', function() {
     let card = new Card(1,2,3,4);
     const turn = new Turn('pug', card);
     expect(turn.returnCard()).to.equal(card);
+  });
+
+  it('should be have a function that return true when the guess is right', function() {
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter'
+    );
+    const turn = new Turn('sea otter', card);
+    expect(turn.evaluateGuess()).to.equal(true);
   });
 });
