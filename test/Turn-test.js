@@ -19,4 +19,8 @@ describe('Turn', function() {
     expect(turn.guess).to.equal('pug');
   });
 
+  it('should store the current question', function() {
+    const turn = new Turn('pug', 'What is Robbie\s favorite animal');
+    expect(turn.question).to.equal('What is Robbie\s favorite animal');
+  });
 });
