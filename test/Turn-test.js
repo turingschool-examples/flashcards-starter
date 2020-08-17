@@ -34,4 +34,8 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.equal('object')
   });
 
+  it('should have a method to return the current card', function() {
+    expect(turn.returnCard()).to.equal(card)
+  });
+
 });
