@@ -2,12 +2,18 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Turn = require('../src/Turn');
+const Card = require('../src/Card');
 
 describe('Turn', function() {
+
   let turn;
+  const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+  expect(card.id).to.equal(1);
+
   beforeEach(() => {
-    turn = new Turn('object');
+    turn = new Turn('object', card);
   });
+
   it('should be a function', function() {
     expect(Turn).to.be.a('function');
   });
@@ -19,4 +25,9 @@ describe('Turn', function() {
   it('should store a user\'s guess', function() {
     expect(turn.guess).to.equal('object')
   })
+
+  it('should store what the current card in play is', function() {
+    expect(turn.card).to.equal(card)
+  })
+
 });
