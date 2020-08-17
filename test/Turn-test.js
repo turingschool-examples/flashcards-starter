@@ -24,10 +24,14 @@ describe('Turn', function() {
   
   it('should store a user\'s guess', function() {
     expect(turn.guess).to.equal('object')
-  })
+  });
 
   it('should store what the current card in play is', function() {
     expect(turn.card).to.equal(card)
-  })
+  });
+
+  it('should have a method to return a user\'s guess', function() {
+    expect(turn.returnGuess()).to.equal('object')
+  });
 
 });
