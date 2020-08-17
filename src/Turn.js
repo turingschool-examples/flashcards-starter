@@ -8,6 +8,9 @@ class Turn {
     this.returnCard = () => {
       return card;
     }
+    this.evaluateGuess = () => {
+      return (guess === card.correctAnswer) 
+    }
   }
 }
 
