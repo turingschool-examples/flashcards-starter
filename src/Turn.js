@@ -1,11 +1,15 @@
 class Turns {
-  constructor(guess, question) {
+  constructor(guess, card) {
     this.guess = guess;
-    this.question = question;
+    this.card = card;
   }
 
   returnGuess() {
     return this.guess;
+  }
+
+  returnCard() {
+    return this.card;
   }
 }
 
