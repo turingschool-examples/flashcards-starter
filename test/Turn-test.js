@@ -6,28 +6,28 @@ const Card = require('../src/Card');
 
 describe('Turn', () => {
 
-  it.skip('should be a function', () => {
+  it('should be a function', () => {
     const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
-  it.skip('should be an instance of Turn', () => {
+  it('should be an instance of Turn', () => {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it.skip('should store a guess', () => {
+  it('should store a guess', () => {
     const turn = new Turn('pug');
     expect(turn.guess).to.equal('pug');
   });
 
-  it.skip('should store a card', () => {
+  it('should store a card', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     const turn = new Turn('pug', card);
-    expect(turn.card).to.deep.equal(card);
+    expect(turn.currentCard).to.deep.equal(card);
   });
 
-  it.skip('should return the guess', () => {
+  it('should return the guess', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     const turn = new Turn('pug', card);
     expect(turn.returnGuess()).to.equal('pug');
