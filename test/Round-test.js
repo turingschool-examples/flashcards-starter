@@ -61,4 +61,11 @@ describe('Round', function() {
     round.takeTurn()
     expect(round.deck[0].id).to.eql(2);
   });  
+
+  it('should add incorrect ID to array', function() {
+    round.takeTurn('object')
+    expect(round.incorrectGuesses[0]).to.eql(undefined);
+    round.takeTurn('array')
+    expect(round.incorrectGuesses[0]).to.eql(1);
+  });  
 });
