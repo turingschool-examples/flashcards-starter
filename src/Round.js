@@ -20,5 +20,9 @@ class Round {
     this.deck.shift()
     return turn.giveFeedback()
   }
+
+  calculatePercentCorrect() {
+    return 100 - ((this.incorrectGuesses.length / this.turns) * 100)
+  }
 }
 module.exports = Round

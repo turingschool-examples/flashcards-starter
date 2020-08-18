@@ -54,7 +54,7 @@ describe('Round', function() {
     });
 
     it('should update the turns count if a guess is correct or incorrect', function() {
-      round.takeTurn('peach');
+      round.takeTurn('array');
       round.takeTurn('object');
       expect(round.turns).to.equal(2);
     });
@@ -65,9 +65,16 @@ describe('Round', function() {
     });
 
     it('should store the card id # for incorrect guesses', function() {
-      round.takeTurn('plum');
-      expect(round.incorrectGuesses).to.deep.equal([1])
-    })
+      round.takeTurn('function');
+      expect(round.incorrectGuesses).to.deep.equal([1]);
+    });
+
+    it('should calculate and return the percentage of correct guesses', function() {
+      round.takeTurn('peach')
+      round.takeTurn('plum')
+      round.takeTurn('pear')
+      expect(round.calculatePercentCorrect()).to.equal(0);
+    });
   });
 
  
