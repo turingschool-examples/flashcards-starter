@@ -35,5 +35,13 @@ describe('Round', function() {
   it('should return the card being played', function() {
     expect(round.returnCurrentCard()).to.equal(card1);
   });  
+
+  it('should have a turn count', function() {
+    expect(round.turns).to.eql(0);
+  });  
   
+  it('should store incorrect guesses', function() {
+    expect(round.incorrectGuesses).to.eql([]);
+  });  
+
 });
