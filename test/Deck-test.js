@@ -44,5 +44,9 @@ describe('Deck', function() {
     }])
   });
 
-  
+  it('should have a method to find how many cards it holds', function() {
+    expect(deck.countCards()).to.equal(3)
+  });
+
+
 });
