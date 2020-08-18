@@ -19,6 +19,11 @@ class Rounds{
     this.turns++;
     return turn.giveFeedBack();
   }
+
+  calculatePercentCorrect() {
+    let ratioWins = (this.turns - this.incorrect.length) / this.turns;
+    return (this.turns) ? Math.floor(10000 * ratioWins) / 100 : 0;
+  }
 }
 
 module.exports = Rounds;

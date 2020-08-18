@@ -88,7 +88,6 @@ describe('Round', function() {
     it('should work for any card', function() {
       round.turns = 1;
       expect(round.takeTurn('gallbladder')).to.be.equal('correct!');
-      round.turns = 2;
       expect(round.takeTurn('Fitzgerald')).to.be.equal('correct!');
     });
 
@@ -99,13 +98,15 @@ describe('Round', function() {
     it('should work for any card', function() {
       round.turns = 1;
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!');
-      round.turns = 2;
       expect(round.takeTurn('William')).to.be.equal('incorrect!');
     });
 
     it('should record failed questions', function() {
+      expect(round.incorrect).to.deep.equal([]);
       expect(round.takeTurn('pug')).to.be.equal('incorrect!');
+      expect(round.incorrect).to.deep.equal([1]);
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!');
+      expect(round.incorrect).to.deep.equal([1, 14]);
       expect(round.takeTurn('William')).to.be.equal('incorrect!');
       expect(round.incorrect).to.deep.equal([1, 14, 12]);
     });
@@ -113,7 +114,13 @@ describe('Round', function() {
   });
 
   it('should be able to calculate % correct', function() {
-
+    expect(round.calculatePercentCorrect()).to.be.equal(0);
+    round.takeTurn('sea otter');
+    expect(round.calculatePercentCorrect()).to.be.equal(100);
+    round.takeTurn('wrong answer');
+    expect(round.calculatePercentCorrect()).to.be.equal(50);
+    round.takeTurn('wrong answer');
+    expect(round.calculatePercentCorrect()).to.be.equal(33.33);
   });
 
   it('should print a message when the round is over', function() {
