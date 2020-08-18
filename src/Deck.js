@@ -4,7 +4,9 @@ class Deck {
   }
 
   countCards() {
-    return this.cards.length
+    if (this.cards) {
+      return this.cards.length
+    }
   }
 }
 module.exports = Deck

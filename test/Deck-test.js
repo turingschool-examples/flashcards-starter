@@ -45,7 +45,12 @@ describe('Deck', function() {
   });
 
   it('should have a method to find how many cards it holds', function() {
-    expect(deck.countCards()).to.equal(3)
+    expect(deck.countCards()).to.equal(3);
+  });
+
+  it('should return undefined if deck was initialized with no cards', function() {
+    const deck2 = new Deck();
+    expect(deck2.countCards()).to.be.undefined;
   });
 
 
