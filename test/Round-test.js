@@ -44,4 +44,21 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.eql([]);
   });  
 
+  it('should increase turn counter', function() {
+    round.takeTurn();
+    expect(round.turns).to.eql(1);
+    round.takeTurn();
+    expect(round.turns).to.eql(2);
+  });  
+
+  it('should evaluate guesses', function() {
+    let choice = round.takeTurn('object');
+    expect(choice).to.eql('correct!');
+  });  
+
+  it('should shift the deck', function() {
+    expect(round.deck[0].id).to.eql(1);
+    round.takeTurn()
+    expect(round.deck[0].id).to.eql(2);
+  });  
 });
