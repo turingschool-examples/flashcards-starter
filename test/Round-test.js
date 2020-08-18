@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
+const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
 describe('Round', function() {
@@ -36,5 +37,23 @@ describe('Round', function() {
 
   it('should have a method that returns the current card being played', function() {
     expect(round.returnCurrentCard()).to.equal(card1);
-  })
+  });
+
+  it('should start a round with no turns', function() {
+    expect(round.turns).to.deep.equal([]);
+  });
+
+  describe('.takeTurn() method', function() {
+    it('should update the turns counter', function() {
+      round.takeTurn();
+      expect(round.turns.length).to.equal(1);
+    });
+  
+    it('should create a new instance of Turn', function() {
+      round.takeTurn();
+      expect(round.turns[0]).to.deep.equal({ guess: undefined, card: undefined })
+    });
+  });
+
+ 
 });
