@@ -31,10 +31,6 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   }); 
 
-  it('should store information about the current card', function() {
-    expect(round.currentCard).to.equal(card1);
-  });
-
   it('should have a method that returns the current card being played', function() {
     expect(round.returnCurrentCard()).to.equal(card1);
   });
@@ -58,6 +54,11 @@ describe('Round', function() {
       round.takeTurn('thing');
       round.takeTurn('object');
       expect(round.turns.length).to.equal(2);
+    });
+
+    it('should update current card with next card in deck', function() {
+      round.takeTurn('object');
+      expect(round.deck[0]).to.equal(card2);
     });
   });
 
