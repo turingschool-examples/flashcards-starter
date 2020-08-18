@@ -3,7 +3,7 @@ const Turn = require("./Turn")
 class Round {
   constructor(deck) {
     this.deck = deck.cards
-    this.turns = []
+    this.turns = 0
     this.incorrectGuesses = []
   }
 
@@ -13,8 +13,9 @@ class Round {
 
   takeTurn(guess) {
     let turn = new Turn(guess, this.deck[0])
-    this.turns.push(turn)
+    this.turns++
     this.deck.shift()
+    return turn
   }
 }
 module.exports = Round

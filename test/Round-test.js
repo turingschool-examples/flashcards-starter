@@ -36,7 +36,7 @@ describe('Round', function() {
   });
 
   it('should start a round with no turns', function() {
-    expect(round.turns).to.deep.equal([]);
+    expect(round.turns).to.equal(0);
   });
 
   it('should start a round with no incorrect guesses', function() {
@@ -46,18 +46,17 @@ describe('Round', function() {
   describe('.takeTurn() method', function() {
     it('should update the turns counter', function() {
       round.takeTurn();
-      expect(round.turns.length).to.equal(1);
+      expect(round.turns).to.equal(1);
     });
   
     it('should create a new instance of Turn', function() {
-      round.takeTurn();
-      expect(round.turns[0]).to.deep.equal({ guess: undefined, card: card1 });
+      expect(round.takeTurn()).to.deep.equal({ guess: undefined, card: card1 });
     });
 
     it('should update the turns count if a guess is correct or incorrect', function() {
       round.takeTurn('thing');
       round.takeTurn('object');
-      expect(round.turns.length).to.equal(2);
+      expect(round.turns).to.equal(2);
     });
 
     it('should update current card with next card in deck', function() {
