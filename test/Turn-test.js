@@ -9,7 +9,6 @@ describe('Turn', function() {
   let turn;
   let turn2;
   const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-  expect(card.id).to.equal(1);
 
   beforeEach(() => {
     turn = new Turn('object', card);
