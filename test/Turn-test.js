@@ -38,4 +38,17 @@ describe('Turn', function() {
     expect(turn.returnCard()).to.equal(card)
   });
 
+  it('should have a method indicating if a user\'s guess matches the correct answer on a card', function() {
+
+    expect(turn.evaluateGuess()).to.be.true
+  });
+
+  it('should return false if a user\'s guess does not match the correct answer on a card', function() {
+
+    const turn2 = new Turn('method', card)
+    
+    expect(turn2.evaluateGuess()).to.be.false
+  });
+  
+
 });
