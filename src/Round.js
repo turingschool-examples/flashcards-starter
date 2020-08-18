@@ -4,6 +4,10 @@ class Rounds{
     this.turns = 0;
     this.incorrect = [];
   }
+
+  takeTurn(guess) {
+    this.turns++;
+  }
 }
 
 module.exports = Rounds;

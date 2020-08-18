@@ -52,7 +52,8 @@ describe('Round', function () {
   });
 
   it('should be able to take a turn', function () {
-
+    round.takeTurn('Example Guess');
+    expect(round.turns).to.equal(1);
   });
 
   it('should tell user if they got it right', function () {
