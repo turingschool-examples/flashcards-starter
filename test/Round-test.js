@@ -33,4 +33,8 @@ describe('Round', function() {
   it('should store information about the current card', function() {
     expect(round.currentCard).to.equal(card1);
   });
+
+  it('should have a method that returns the current card being played', function() {
+    expect(round.returnCurrentCard()).to.equal(card1);
+  })
 });
