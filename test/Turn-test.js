@@ -21,9 +21,34 @@ describe('Turn', () => {
     expect(turn.guess).to.equal('Does this represents a user’s question?');
   });
 
+  it('should take in take in a user’s guess', () => {
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter');
+    const turn = new Turn('pug', card);
+    expect(turn.guess).to.equal('pug');
+  });
+
   it('should take in the current Card', () => {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('Does this represents a user’s question?', card);
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter');
+    const turn = new Turn('pug', card);
     expect(turn.currentCard).to.equal(card);
   });
+
+  it('should be able to return guess', () => {
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter');
+    const turn = new Turn('pug', card);
+    expect(turn.returnGuess()).to.equal('pug');
+  });
+
 });

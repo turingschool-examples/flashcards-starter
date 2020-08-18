@@ -3,5 +3,11 @@ class Turn {
     this.guess = guess;
     this.currentCard = currentCard;
   }
+  returnGuess() {
+    return `${this.guess}`;
+  }
+  // returnCard() {
+  //   return `${}`;
+  // }
 }
 module.exports = Turn;
