@@ -54,6 +54,8 @@ describe('Round', function() {
   it('should evaluate guesses', function() {
     let choice = round.takeTurn('object');
     expect(choice).to.eql('correct!');
+    choice = round.takeTurn('array')
+    expect(choice).to.eql('incorrect!');
   });  
 
   it('should shift the deck', function() {
@@ -63,9 +65,12 @@ describe('Round', function() {
   });  
 
   it('should add incorrect ID to array', function() {
-    round.takeTurn('object')
-    expect(round.incorrectGuesses[0]).to.eql(undefined);
-    round.takeTurn('array')
+    round = new Round(deck)
+    round.takeTurn('array');
     expect(round.incorrectGuesses[0]).to.eql(1);
+    round.takeTurn('object');
+    expect(round.incorrectGuesses[0]).to.eql(1);
+    round.takeTurn('string');
+    expect(round.incorrectGuesses.length).to.eql(2);
   });  
 });
