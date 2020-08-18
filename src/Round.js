@@ -4,6 +4,7 @@ class Round {
   constructor(deck) {
     this.deck = deck.cards
     this.turns = []
+    this.incorrectGuesses = []
   }
 
   returnCurrentCard() {

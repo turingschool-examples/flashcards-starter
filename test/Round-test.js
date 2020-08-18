@@ -39,6 +39,10 @@ describe('Round', function() {
     expect(round.turns).to.deep.equal([]);
   });
 
+  it('should start a round with no incorrect guesses', function() {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+
   describe('.takeTurn() method', function() {
     it('should update the turns counter', function() {
       round.takeTurn();
