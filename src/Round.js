@@ -24,6 +24,10 @@ class Rounds{
     let ratioWins = (this.turns - this.incorrect.length) / this.turns;
     return (this.turns) ? Math.floor(10000 * ratioWins) / 100 : 0;
   }
+
+  endRound() {
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+  }
 }
 
 module.exports = Rounds;

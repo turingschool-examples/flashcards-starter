@@ -48,21 +48,17 @@ describe('Round', function() {
       expect(round.deck).to.be.instanceof(Deck);
     });
 
-    it('should have the first card in the deck be the first', function() {
-      expect(round.deck.cards[0]).to.be.equal(card1);
-    });
-
     it('should start with an empty array of incorrect guesses', function() {
       expect(round.incorrect).to.deep.equal([]);
     });
   });
 
   describe('returnCard()', function() {
-    it('should be able to return the current card', function() {
+    it('should have the first card in the deck be the first', function() {
       expect(round.returnCurrentCard()).to.be.equal(card1);
     });
 
-    it('should be able to return it regardless of turn', function() {
+    it('should be able to return the correct card based on the turn', function() {
       round.turns = 1;
       expect(round.returnCurrentCard()).to.be.equal(card2);
       round.turns = 2;
@@ -110,20 +106,26 @@ describe('Round', function() {
       expect(round.takeTurn('William')).to.be.equal('incorrect!');
       expect(round.incorrect).to.deep.equal([1, 14, 12]);
     });
-
   });
 
-  it('should be able to calculate % correct', function() {
-    expect(round.calculatePercentCorrect()).to.be.equal(0);
-    round.takeTurn('sea otter');
-    expect(round.calculatePercentCorrect()).to.be.equal(100);
-    round.takeTurn('wrong answer');
-    expect(round.calculatePercentCorrect()).to.be.equal(50);
-    round.takeTurn('wrong answer');
-    expect(round.calculatePercentCorrect()).to.be.equal(33.33);
+  describe('calculatePercentCorrect', function () {
+        it('should be able to calculate % correct', function() {
+      expect(round.calculatePercentCorrect()).to.be.equal(0);
+      round.takeTurn('sea otter');
+      expect(round.calculatePercentCorrect()).to.be.equal(100);
+      round.takeTurn('wrong answer');
+      expect(round.calculatePercentCorrect()).to.be.equal(50);
+      round.takeTurn('wrong answer');
+      expect(round.calculatePercentCorrect()).to.be.equal(33.33);
+    });
   });
 
-  it('should print a message when the round is over', function() {
-
+  describe('endRound', function() {
+    it('should print a message when the round is over', function() {
+      round.deck.cards.forEach((card) => {
+        round.takeTurn(card.correctAnswer);
+      });
+      expect(round.endRound()).to.equal('** Round over! ** You answered 100% of the questions correctly!')
+    });    
   });
 });
