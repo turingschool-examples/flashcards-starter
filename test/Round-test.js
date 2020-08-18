@@ -50,11 +50,11 @@ describe('Round', function() {
     });
   
     it('should create a new instance of Turn', function() {
-      expect(round.takeTurn()).to.deep.equal({ guess: undefined, card: card1 });
+      expect(round.takeTurn()).to.equal('incorrect!');
     });
 
     it('should update the turns count if a guess is correct or incorrect', function() {
-      round.takeTurn('thing');
+      round.takeTurn('peach');
       round.takeTurn('object');
       expect(round.turns).to.equal(2);
     });
@@ -63,6 +63,11 @@ describe('Round', function() {
       round.takeTurn('object');
       expect(round.deck[0]).to.equal(card2);
     });
+
+    it('should store the card id # for incorrect guesses', function() {
+      round.takeTurn('plum');
+      expect(round.incorrectGuesses).to.deep.equal([1])
+    })
   });
 
  
