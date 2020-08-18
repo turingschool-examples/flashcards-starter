@@ -21,11 +21,12 @@ class Turn {
   }
 
   giveFeedback() {
-    if(this.guess === this.currentCard.correctAnswer){
-    return true;
+    if(this.evaluateGuess()) {
+      return 'correct!';
     } else {
-    return false;
+      return 'incorrect!';
     }
   }
 }
+
 module.exports = Turn;

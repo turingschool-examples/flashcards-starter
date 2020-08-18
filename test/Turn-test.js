@@ -68,4 +68,27 @@ describe('Turn', () => {
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
+  it('should be able to give correct as feedback', () => {
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter');
+    const turn = new Turn('sea otter', card);
+
+    expect(turn.giveFeedback()).to.equal('correct!');
+  });
+
+  it('should be able to give incorrect as feedback', () => {
+    const card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter');
+    const turn = new Turn('pug', card);
+
+    expect(turn.giveFeedback()).to.equal('incorrect!');
+  });
+
+
 });
