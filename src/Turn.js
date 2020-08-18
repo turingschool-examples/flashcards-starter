@@ -1,20 +1,19 @@
 const Card = require('../src/Card');
 
 class Turn {
-  constructor(guess, card) {
-    this.returnGuess = () => {
+  constructor() {
+   }
+    returnGuess = (guess) => {
       return guess;
     }
-    this.returnCard = () => {
+    returnCard = (card) => {
       return card;
     }
-    this.evaluateGuess = () => {
+    evaluateGuess = (guess, card) => {
       return (guess === card.correctAnswer) 
     }
-    this.giveFeedback = (value) => {
+    giveFeedback = (value) => {
       return value ? 'correct!' : 'incorrect!';
     }
   }
-}
-
 module.exports = Turn;
