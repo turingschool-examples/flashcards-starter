@@ -11,6 +11,9 @@ class Turn {
     this.evaluateGuess = () => {
       return (guess === card.correctAnswer) 
     }
+    this.giveFeedback = () => {
+      return guess ? 'correct!' : 'incorrect!';
+    }
   }
 }
 
