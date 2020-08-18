@@ -51,7 +51,13 @@ describe('Round', function() {
   
     it('should create a new instance of Turn', function() {
       round.takeTurn();
-      expect(round.turns[0]).to.deep.equal({ guess: undefined, card: undefined })
+      expect(round.turns[0]).to.deep.equal({ guess: undefined, card: card1 });
+    });
+
+    it('should update the turns count if a guess is correct or incorrect', function() {
+      round.takeTurn('thing');
+      round.takeTurn('object');
+      expect(round.turns.length).to.equal(2);
     });
   });
 

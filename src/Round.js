@@ -10,8 +10,8 @@ class Round {
     return this.currentCard
   }
 
-  takeTurn() {
-    let turn = new Turn()
+  takeTurn(guess) {
+    let turn = new Turn(guess, this.currentCard)
     this.turns.push(turn)
   }
 }
