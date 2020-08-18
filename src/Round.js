@@ -13,6 +13,9 @@ class Rounds{
 
   takeTurn(guess) {
     let turn = new Turn(guess, this.returnCurrentCard());
+    if(!turn.evaluateGuess()) {
+      this.incorrect.push(turn.card.id);
+    }
     this.turns++;
     return turn.giveFeedBack();
   }

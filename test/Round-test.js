@@ -72,8 +72,13 @@ describe('Round', function() {
 
   describe('takeTurn()', function() {
     it('should be able to take a turn', function() {
+      expect(round.turns).to.equal(0);
+
       round.takeTurn('Example Guess');
       expect(round.turns).to.equal(1);
+
+      round.takeTurn('Example Guess');
+      expect(round.turns).to.equal(2);
     });
 
     it('should tell user if they got it right', function() {
@@ -99,7 +104,10 @@ describe('Round', function() {
     });
 
     it('should record failed questions', function() {
-
+      expect(round.takeTurn('pug')).to.be.equal('incorrect!');
+      expect(round.takeTurn('spleen')).to.be.equal('incorrect!');
+      expect(round.takeTurn('William')).to.be.equal('incorrect!');
+      expect(round.incorrect).to.deep.equal([1, 14, 12]);
     });
 
   });
