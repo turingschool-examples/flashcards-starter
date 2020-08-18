@@ -13,8 +13,9 @@ class Round {
       let currentCard = this.returnCurrentCard()
       let newTurn = new Turn(guess, currentCard)
       let result = newTurn.evaluateGuess()
-      this.deck.shift()
-      return newTurn.giveFeedback(result)
+      !result ? this.incorrectGuesses.unshift(currentCard.id) : null;
+      this.deck.shift();
+      return newTurn.giveFeedback(result);
     }
   }
 }
