@@ -8,16 +8,19 @@ describe('Turn', () => {
 
   it('should be a function', () => {
     const turn = new Turn();
+
     expect(Turn).to.be.a('function');
   });
 
   it('should be an instance of Turn', () => {
     const turn = new Turn();
+
     expect(turn).to.be.an.instanceof(Turn);
   });
 
   it('should take take in a guess', () => {
     const turn = new Turn('Does this represents a user’s question?');
+
     expect(turn.guess).to.equal('Does this represents a user’s question?');
   });
 
@@ -28,6 +31,7 @@ describe('Turn', () => {
       ['sea otter', 'pug', 'capybara'],
       'sea otter');
     const turn = new Turn('pug', card);
+
     expect(turn.guess).to.equal('pug');
   });
 
@@ -38,6 +42,7 @@ describe('Turn', () => {
       ['sea otter', 'pug', 'capybara'],
       'sea otter');
     const turn = new Turn('pug', card);
+
     expect(turn.currentCard).to.equal(card);
   });
 
@@ -48,7 +53,10 @@ describe('Turn', () => {
       ['sea otter', 'pug', 'capybara'],
       'sea otter');
     const turn = new Turn('pug', card);
-    expect(turn.returnGuess()).to.equal('pug');
+
+    expect(turn.returnCard()).to.equal(turn.currentCard);
   });
+
+  
 
 });

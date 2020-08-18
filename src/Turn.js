@@ -4,10 +4,10 @@ class Turn {
     this.currentCard = currentCard;
   }
   returnGuess() {
-    return `${this.guess}`;
+    return this.guess;
   }
-  // returnCard() {
-  //   return `${}`;
-  // }
+  returnCard() {
+    return this.currentCard;
+  }
 }
 module.exports = Turn;
