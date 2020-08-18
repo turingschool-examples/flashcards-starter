@@ -53,7 +53,7 @@ describe('Round', function () {
     });
 
     it('should start with an empty array of incorrect guesses', function () {
-
+      expect(round.incorrect).to.deep.equal([]);
     });
   });
 
@@ -77,7 +77,7 @@ describe('Round', function () {
     });
 
     it('should tell user if they got it right', function () {
-
+      expect(round.takeTurn('sea otter')).to.be.equal('correct!');
     });
 
     it('should tell use if they got it wrong', function () {
