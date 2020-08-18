@@ -44,11 +44,11 @@ describe('Round', function () {
   });
 
   it('should have a deck of cards', function () {
-
+    expect(round.deck).to.be.instanceof(Deck);
   });
 
   it('should have the first card in the deck be the first', function () {
-
+    expect(round.deck.cards[0]).to.be.equal(card1);
   });
 
   it('should be able to take a turn', function () {
