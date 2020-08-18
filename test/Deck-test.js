@@ -36,4 +36,17 @@ describe('Deck', function () {
   it('should instantiate an object', function() {
     expect(deck).to.be.an.instanceof(Deck);
   });
+
+  it('should be able to store an array of cards', function() {
+    expect(Array.isArray(deck.cards)).to.equal(true);
+    expect(deck.cards).to.deep.equal([card1, card2, card3]);
+  });
+
+  it('should be able to report how many cards are in it', function() {
+    let emptyDeck = new Deck();
+    let bigDeck = new Deck([card1, card2, card3, card1, card2]);
+    expect(emptyDeck.countCards()).to.equal(0);
+    expect(deck.countCards()).to.equal(3);
+    expect(bigDeck.countCards()).to.equal(5);
+  });
 });
