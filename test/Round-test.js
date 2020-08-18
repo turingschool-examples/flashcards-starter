@@ -30,53 +30,63 @@ describe('Round', function () {
     round = new Round(deck);
   });
 
+  describe('Initialization', function () {
 
-  it('should be a function', function() {
-    expect(Round).to.be.a('function');
+    it('should be a function', function() {
+      expect(Round).to.be.a('function');
+    });
+
+    it('should instantiate an object', function() {
+      expect(round).to.be.an.instanceof(Round);
+    });
+
+    it('should start at turn 0', function () {
+      expect(round.turns).to.be.equal(0);
+    });
+
+    it('should have a deck of cards', function () {
+      expect(round.deck).to.be.instanceof(Deck);
+    });
+
+    it('should have the first card in the deck be the first', function () {
+      expect(round.deck.cards[0]).to.be.equal(card1);
+    });
+
+    it('should start with an empty array of incorrect guesses', function () {
+
+    });
   });
 
-  it('should instantiate an object', function() {
-    expect(round).to.be.an.instanceof(Round);
+  describe('returnCard()', function() {
+    it('should be able to return the current card', function () {
+      expect(round.returnCurrentCard()).to.be.equal(card1);
+    });
+
+    it('should be able to return it regardless of turn', function () {
+      round.turns = 1;
+      expect(round.returnCurrentCard()).to.be.equal(card2);
+      round.turns = 2;
+      expect(round.returnCurrentCard()).to.be.equal(card3);
+    });
   });
 
-  it('should start at turn 0', function () {
-    expect(round.turns).to.be.equal(0);
-  });
+  describe('takeTurn()', function () {
+    it('should be able to take a turn', function () {
+      round.takeTurn('Example Guess');
+      expect(round.turns).to.equal(1);
+    });
 
-  it('should have a deck of cards', function () {
-    expect(round.deck).to.be.instanceof(Deck);
-  });
+    it('should tell user if they got it right', function () {
 
-  it('should have the first card in the deck be the first', function () {
-    expect(round.deck.cards[0]).to.be.equal(card1);
-  });
+    });
 
-  it('should be able to take a turn', function () {
-    round.takeTurn('Example Guess');
-    expect(round.turns).to.equal(1);
-  });
+    it('should tell use if they got it wrong', function () {
 
-  it('should tell user if they got it right', function () {
+    });
 
-  });
+    it('should record failed questions', function () {
 
-  it('should tell use if they got it wrong', function () {
-
-  });
-
-  it('should record failed questions', function () {
-
-  });
-
-  it('should increment the turns counter', function () {
-
-  });
-
-  it('should be able to return the current card', function () {
-
-  });
-
-  it('should start with an empty array of incorrect guesses', function () {
+    });
 
   });
 

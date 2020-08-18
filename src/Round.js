@@ -5,6 +5,10 @@ class Rounds{
     this.incorrect = [];
   }
 
+  returnCurrentCard() {
+    return this.deck.cards[this.turns];
+  }
+
   takeTurn(guess) {
     this.turns++;
   }
