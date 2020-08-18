@@ -30,11 +30,12 @@ describe('Deck', function() {
     expect(deck.deck).to.eql([card1, card2]);
   });  
 
-  it.skip('should be able to return the guess', function() {
-    const card = new Card(1, "Guess who?", ["Chris", "Jeff"], "Chris")
+  it('should be able to count the cards', function() {
+    const card1 = new Card(1, "Guess who?", ["Chris", "Jeff"], "Chris");
+    const card2 = new Card(2, "Guess who?", ["Chris", "Jeff"], "Jeff");
 
-    const turn = new Turn("Chris", 1);
+    const deck = new Deck([card1, card2]);
 
-    expect(turn.returnGuess()).to.equal("Chris")
+    expect(deck.countCards()).to.equal(2)
   });
 });
