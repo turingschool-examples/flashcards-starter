@@ -59,13 +59,12 @@ describe('Round', function() {
   });  
 
   it('should shift the deck', function() {
-    expect(round.deck[0].id).to.eql(1);
+    expect(round.returnCurrentCard().id).to.eql(1);
     round.takeTurn()
-    expect(round.deck[0].id).to.eql(2);
+    expect(round.returnCurrentCard().id).to.eql(2);
   });  
 
   it('should add incorrect ID to array', function() {
-    round = new Round(deck)
     round.takeTurn('array');
     expect(round.incorrectGuesses[0]).to.eql(1);
     round.takeTurn('object');
@@ -73,4 +72,12 @@ describe('Round', function() {
     round.takeTurn('string');
     expect(round.incorrectGuesses.length).to.eql(2);
   });  
+
+  it('should calculate correct percent', function() {
+    round.takeTurn('array');
+    round.takeTurn('object');
+    round.takeTurn('object');
+    expect(round.calculatePercentCorrect()).to.eql(33);
+  });  
+
 });
