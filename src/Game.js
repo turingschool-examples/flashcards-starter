@@ -10,8 +10,17 @@ class Game {
   currentRound = '';
   start = () => {
     let deck = this.generateDeck()
+    let round = this.createRound(deck);
+    this.displayGame(deck, round)
+  }
+  displayGame = (deck, round) => {
+    this.printMessage(deck, round);
+    this.printQuestion(round);
+  }
+  createRound = (deck) => {
     let newRound = new Round(deck);
-    this.currentRound = newRound;
+    this.currentRound = newRound;  
+    return newRound
   }
   generateDeck = () => {
     let cards = [];
@@ -21,12 +30,10 @@ class Game {
     let deck = new Deck(cards);
     return deck;
   }
-  
   printMessage(deck, round) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
-
   printQuestion(round) {
       util.main(round);
   }
