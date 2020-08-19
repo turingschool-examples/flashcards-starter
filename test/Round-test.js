@@ -4,14 +4,18 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
 
 describe('Round', function() {
   beforeEach((done) => {
-    card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    card2 = new Card(2, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    card3 = new Card(3, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    card1 = new Card(prototypeQuestions[0])
+    card2 = new Card(prototypeQuestions[1])
+    card3 = new Card(prototypeQuestions[2])
+    card4 = new Card(prototypeQuestions[3])
+    card5 = new Card(prototypeQuestions[4])
     turn = new Turn();
-    deck = new Deck([card1, card2, card3]);
+    deck = new Deck([card1, card2, card3, card4, card5]);
     round = new Round(deck);
     done();
   });
@@ -25,7 +29,7 @@ describe('Round', function() {
   }); 
 
   it('should have a deck', function() {
-    expect(round.deck).to.eql([card1, card2, card3]);
+    expect(round.deck).to.eql([card1, card2, card3, card4, card5]);
   });   
 
   it('should return the card being played', function() {
@@ -50,8 +54,8 @@ describe('Round', function() {
   it('should evaluate guesses', function() {
     let choice = round.takeTurn('object');
     expect(choice).to.eql('correct!');
-    choice = round.takeTurn('array')
-    expect(choice).to.eql('incorrect!');
+    choice = round.takeTurn('array');
+    expect(choice).to.eql('correct!');
   });  
 
   it('should shift the deck', function() {
@@ -61,19 +65,22 @@ describe('Round', function() {
   });  
 
   it('should add incorrect ID to array', function() {
-    round.takeTurn('array');
-    expect(round.incorrectGuesses[0]).to.eql(1);
     round.takeTurn('object');
-    expect(round.incorrectGuesses[0]).to.eql(1);
-    round.takeTurn('string');
+    expect(round.incorrectGuesses.length).to.eql(0);
+    round.takeTurn('test');
+    expect(round.incorrectGuesses.length).to.eql(1);
+    round.takeTurn('test');
     expect(round.incorrectGuesses.length).to.eql(2);
   });  
 
   it('should calculate correct percent', function() {
-    round.takeTurn('array');
     round.takeTurn('object');
-    round.takeTurn('object');
+    round.takeTurn('asdas');
+    round.takeTurn('asdas');
     expect(round.calculatePercentCorrect()).to.eql(33);
+    round.takeTurn('asdasda');
+    round.takeTurn('asdasda');
+    expect(round.calculatePercentCorrect()).to.eql(20);
   });  
   
 });
