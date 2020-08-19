@@ -41,9 +41,9 @@ describe('Round', function() {
   });  
 
   it('should increase turn counter', function() {
-    round.takeTurn();
+    round.takeTurn('object');
     expect(round.turns).to.eql(1);
-    round.takeTurn();
+    round.takeTurn('array');
     expect(round.turns).to.eql(2);
   });  
 
@@ -75,5 +75,5 @@ describe('Round', function() {
     round.takeTurn('object');
     expect(round.calculatePercentCorrect()).to.eql(33);
   });  
-
+  
 });
