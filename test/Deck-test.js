@@ -1,16 +1,15 @@
 let chai = require('chai');
 const expect = chai.expect;
 const Card = require('../src/Card');
-const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
-let card;
-let turn;
-let deck;
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
 
 describe('Deck', function() {
+  let card;
+  let deck;
   beforeEach((done) => {
-    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    turn = new Turn('object', card);
+    card = new Card(prototypeQuestions[0])
     deck = new Deck([card]);
     done();
   });
@@ -27,5 +26,4 @@ describe('Deck', function() {
   it('should count the deck', function() {
     expect(deck.countCards()).to.equal(1);
   });  
-  
 });
