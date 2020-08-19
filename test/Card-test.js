@@ -4,6 +4,14 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 
 describe('Card', () => {
+    let card;
+  beforeEach(() => {
+    card = new Card(
+      1,
+      'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter');
+  });
 
   it('should be a function', () => {
     const card = new Card();
@@ -16,29 +24,17 @@ describe('Card', () => {
   });
 
   it('should store a question', () => {
-    const card = new Card(
-      1,
-      'What is Robbie\'s favorite animal',
-      ['sea otter', 'pug', 'capybara'],
-      'sea otter');
+
     expect(card.question).to.equal('What is Robbie\'s favorite animal');
   });
 
   it('should store a list of possible answers', () => {
-    const card = new Card(
-      1,
-      'What is Robbie\'s favorite animal',
-      ['sea otter', 'pug', 'capybara'],
-      'sea otter');
+
     expect(card.answers).to.deep.equal(['sea otter', 'pug', 'capybara']);
   });
 
   it('should store the correct answer', () => {
-    const card = new Card(
-      1,
-      'What is Robbie\'s favorite animal',
-      ['sea otter', 'pug', 'capybara'],
-      'sea otter');
+
     expect(card.correctAnswer).to.equal('sea otter');
   });
 });
