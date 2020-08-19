@@ -17,8 +17,10 @@ describe('Turn', function() {
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it.skip('', function(){
-    
+  it.skip('should return a guess', function(){
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
+    expect(turn.guess).to.equal('pug');
   });
 
 
