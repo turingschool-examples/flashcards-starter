@@ -1,5 +1,3 @@
-
-
 class Card {
   constructor(obj) {
     this.id = obj.id;
