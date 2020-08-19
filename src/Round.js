@@ -12,7 +12,7 @@ class Round {
     takeTurn = (guess) => {
       let newTurn = new Turn();
       let currentCard = this.returnCurrentCard();
-      this.getResult(guess, newTurn, currentCard);
+      return this.getResult(guess, newTurn, currentCard);
     }
     getResult = (guess, newTurn, currentCard) =>{
       return this.evaluateGuess(guess, newTurn, currentCard)
