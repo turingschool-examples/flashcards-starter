@@ -10,30 +10,31 @@ class Round {
       return this.deck[0];
     }
     takeTurn = (guess) => {
-      let newTurn = new Turn();
       let currentCard = this.returnCurrentCard();
-      return this.getResult(guess, newTurn, currentCard);
+      return this.getResult(guess, currentCard);
     }
-    getResult = (guess, newTurn, currentCard) =>{
-      return this.evaluateGuess(guess, newTurn, currentCard)
+    getResult = (guess, currentCard) =>{
+      let newTurn = new Turn();
+      return this.evaluateGuess(guess, newTurn, currentCard);
     }
     evaluateGuess = (guess, newTurn, currentCard) =>{
       let result = newTurn.evaluateGuess(guess, currentCard);
-      this.handleResult(result, currentCard)
+      return this.handleResult(result, newTurn, currentCard);
+    }
+    handleResult = (result, newTurn, currentCard) =>{
+      this.adjustGameSettings(result, currentCard);
       return newTurn.giveFeedback(result);
     }
-    handleResult = (result, currentCard) =>{
+    adjustGameSettings = (result, currentCard) =>{
       !result ? this.incorrectGuesses.unshift(currentCard.id) : null;
       this.deck.shift();
       this.turns++;
     }
     calculatePercentCorrect = () => {
-      let turnsMath = this.turns;
-      let incorrectMath = this.incorrectGuesses.length;
-      return  Math.round((turnsMath - incorrectMath) / turnsMath * 100 ) ;
+      return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns* 100 ) ;
     }
     endRound = () => {
-      console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+      console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
     }
   }
 module.exports = Round;
