@@ -10,13 +10,22 @@ class Round {
       return this.deck[0];
     }
     takeTurn = (guess) => {
-      this.turns++;
       let newTurn = new Turn();
       let currentCard = this.returnCurrentCard();
+      this.getResult(guess, newTurn, currentCard);
+    }
+    getResult = (guess, newTurn, currentCard) =>{
+      return this.evaluateGuess(guess, newTurn, currentCard)
+    }
+    evaluateGuess = (guess, newTurn, currentCard) =>{
       let result = newTurn.evaluateGuess(guess, currentCard);
+      this.handleResult(result, currentCard)
+      return newTurn.giveFeedback(result);
+    }
+    handleResult = (result, currentCard) =>{
       !result ? this.incorrectGuesses.unshift(currentCard.id) : null;
       this.deck.shift();
-      return newTurn.giveFeedback(result);
+      this.turns++;
     }
     calculatePercentCorrect = () => {
       return  Math.round((this.incorrectGuesses.length / this.turns) * 100) ;
