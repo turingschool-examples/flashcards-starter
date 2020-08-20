@@ -1,9 +1,19 @@
+const Turn = require('../src/Turn');
+
 class Round {
-  constructor() {
-    
+  constructor(deck) {
+    this.deck = deck;
+    this.turnCount = 0;
+    this.currentCard = this.deck.cardsInDeck[0];
   }
-  currentCard(turn) {
-    return turn.card
+  returnCurrentCard() {
+    return this.currentCard
+  }
+  takeTurn(guess) {
+    let newTurn = new Turn()
+    this.turnCount++
+    this.deck.cardsInDeck.shift()
+    this.currentCard = this.deck.cardsInDeck[0];
   }
 }
 
@@ -12,7 +22,7 @@ class Round {
 
 
 
-
+//shift the card out of the deck!!
 
 
 
