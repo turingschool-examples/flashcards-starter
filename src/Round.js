@@ -11,49 +11,26 @@ class Round {
     this.incorrectGuesses = [];
     }
     returnCurrentCard = () => {
-      this.currentCard = this.deck[0]
-      return this.currentCard
+      return this.deck[0]
     }
     takeTurn = (guess) => {   
-      this.guess = guess;
-      return this.createTurn();
-    }
-    createTurn = () =>{
-      this.turn = new Turn(this.guess, this.currentCard);
-      return this.evaluateGuess();
-    }
-    evaluateGuess = () =>{
-      this.result = this.turn.evaluateGuess();
-      return this.handleResult();
-    }
-    handleResult = () =>{
-      !this.result ? this.incorrectGuesses.unshift(this.currentCard.id) : null;
-      return this.shiftDeck();
-    }
-    shiftDeck = () =>{
+      let currentCard = this.returnCurrentCard();
+      let turn = new Turn(guess, currentCard);
+      let result = turn.evaluateGuess();
+      !result ? this.incorrectGuesses.unshift(currentCard.id) : null;
       this.deck.shift();
-      return this.incrementTurn();
-    }
-    incrementTurn = () =>{
       this.turns++;
-      return this.turn.giveFeedback();
     }
     calculatePercentCorrect = () => {
       return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns * 100 ) ;
     }
     bonusRound = () =>{
-      let newestRound = new Round(this.createBonusDeck());
-      util.main(newestRound);
-    }
-    createBonusDeck = () => {
-      this.populateBonusDeck();
-      return this.deck = new Deck([].concat(...this.deck));
-    }
-    populateBonusDeck = () => {
-        this.incorrectGuesses.forEach(id =>{
-          this.deck.push(prototypeQuestions.filter(x => x.id === id));
-       })
-       return this.deck;
+      this.incorrectGuesses.forEach(id =>{
+        this.deck.push(prototypeQuestions.filter(x => x.id === id));
+     })
+      this.deck = new Deck([].concat(...this.deck));
+      let bonusRoundDeck = new Round(this.deck);
+      util.main(bonusRoundDeck);
     }
     endRound = () => {
       console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
