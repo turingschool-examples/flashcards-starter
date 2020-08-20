@@ -17,6 +17,15 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   });
 
+  it('should return the current card being played', function(){
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
+    // console.log(turn.card);
+    const round = new Round();
+
+    round.currentCard(turn.card)
+
+  })
 
 
 
