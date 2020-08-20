@@ -11,14 +11,14 @@ class Round {
     this.incorrectGuesses = [];
     }
     returnCurrentCard = () => {
-      return this.deck[0];
+      this.currentCard = this.deck[0]
+      return this.currentCard
     }
     takeTurn = (guess) => {   
       this.guess = guess;
-      return this.generateConditions();
+      return this.createTurn();
     }
-    generateConditions = () =>{
-      this.currentCard = this.returnCurrentCard();
+    createTurn = () =>{
       this.turn = new Turn(this.guess, this.currentCard);
       return this.evaluateGuess();
     }
@@ -27,13 +27,16 @@ class Round {
       return this.handleResult();
     }
     handleResult = () =>{
-      this.adjustGameSettings(this.result, this.currentCard);
-      return this.turn.giveFeedback();
-    }
-    adjustGameSettings = () =>{
       !this.result ? this.incorrectGuesses.unshift(this.currentCard.id) : null;
+      return this.shiftDeck();
+    }
+    shiftDeck = () =>{
       this.deck.shift();
+      return this.incrementTurn();
+    }
+    incrementTurn = () =>{
       this.turns++;
+      return this.turn.giveFeedback();
     }
     calculatePercentCorrect = () => {
       return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns * 100 ) ;
@@ -43,15 +46,14 @@ class Round {
       util.main(newestRound);
     }
     createBonusDeck = () => {
-      let bonusRoundDeck = [];
-      this.populateDeck(bonusRoundDeck);
-      return bonusRoundDeck = new Deck([].concat(...bonusRoundDeck));
+      this.populateBonusDeck();
+      return this.deck = new Deck([].concat(...this.deck));
     }
-    populateDeck = (bonusRoundDeck) => {
+    populateBonusDeck = () => {
         this.incorrectGuesses.forEach(id =>{
-          bonusRoundDeck.push(prototypeQuestions.filter(x => x.id === id));
+          this.deck.push(prototypeQuestions.filter(x => x.id === id));
        })
-       return bonusRoundDeck;
+       return this.deck;
     }
     endRound = () => {
       console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
