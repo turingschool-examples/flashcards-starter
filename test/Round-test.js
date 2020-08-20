@@ -50,36 +50,37 @@ describe('Round', function() {
   });  
 
   it('should increase turn counter after every turn', function() {
-    round.takeTurn('object');
-    expect(round.turns).to.eql(1);
-    round.takeTurn('array');
+    round.takeTurn('testGuess')
+    round.adjustGameSettings();
     expect(round.turns).to.eql(2);
   });  
 
   it('next card should become current card after every turn', function() {
-    expect(round.returnCurrentCard().id).to.eql(1);
-    round.takeTurn()
-    expect(round.returnCurrentCard().id).to.eql(2);
-    round.takeTurn()
+    round.takeTurn('testGuess')
+    round.adjustGameSettings()
     expect(round.returnCurrentCard().id).to.eql(3);
   });  
 
-  it('should evaluate guesses', function() {
-    let choice = round.takeTurn('object');
-    expect(choice).to.eql('correct!');
-    choice = round.takeTurn('array');
-    expect(choice).to.eql('correct!');
-    choice = round.takeTurn('array');
-    expect(choice).to.eql('incorrect!');
+  it('should evaluate guesses are true', function() {
+    round.takeTurn('object');
+    expect(round.evaluateGuess()).to.eql('correct!');
+  });  
+
+  it('should evaluate guesses are false', function() {
+    round.takeTurn('wrong');
+    expect(round.evaluateGuess()).to.eql('incorrect!');
   });  
 
   it('should add incorrect ID to array', function() {
-    round.takeTurn('object');
-    expect(round.incorrectGuesses.length).to.eql(0);
-    round.takeTurn('test');
-    expect(round.incorrectGuesses.length).to.eql(1);
-    round.takeTurn('test');
+    round.takeTurn('wrong');
+    round.takeTurn('wrong');
     expect(round.incorrectGuesses.length).to.eql(2);
+  });  
+
+  it('should not add correct ID to array', function() {
+    round.takeTurn('object');
+    round.takeTurn('array');
+    expect(round.incorrectGuesses.length).to.eql(0);
   });  
 
   it('should calculate correct percent', function() {
@@ -87,15 +88,6 @@ describe('Round', function() {
     round.takeTurn('wrong');
     round.takeTurn('wrong');
     expect(round.calculatePercentCorrect()).to.eql(33);
-    round.takeTurn('wrong');
-    round.takeTurn('wrong');
-    expect(round.calculatePercentCorrect()).to.eql(20);
-  });  
-
-  it('should have a bonus round', function() {
-    round.incorrectGuesses = [1, 2, 3, 4,5]
-    let yeet = round.bonusRound()
-    expect(yeet.length).to.eql(5);
   });  
 
 });
