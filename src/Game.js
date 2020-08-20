@@ -7,7 +7,7 @@ const Deck = require('../src/Deck');
 
 class Game {
   constructor() {}
-  currentRound = '';
+  currentRound;
   start = () => {
     let deck = this.generateDeck()
     let round = this.createRound(deck);
@@ -27,8 +27,7 @@ class Game {
     prototypeQuestions.forEach((x => {
       cards.push(new Card(x));
     }))
-    let deck = new Deck(cards);
-    return deck;
+    return new Deck(cards);
   }
   printMessage(deck, round) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
