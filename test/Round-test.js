@@ -91,5 +91,11 @@ describe('Round', function() {
     round.takeTurn('wrong');
     expect(round.calculatePercentCorrect()).to.eql(20);
   });  
-  
+
+  it('should have a bonus round', function() {
+    round.incorrectGuesses = [1, 2, 3, 4,5]
+    let yeet = round.bonusRound()
+    expect(yeet.length).to.eql(5);
+  });  
+
 });
