@@ -7,20 +7,19 @@ const Deck = require('../src/Deck');
 
 class Game {
   constructor() {}
-  currentRound;
   start = () => {
-    let deck = this.generateDeck()
+    let deck = this.generateDeck();
     let round = this.createRound(deck);
-    this.displayGame(deck, round)
+    this.displayGame(deck, round);
   }
   displayGame = (deck, round) => {
-    this.printMessage(deck, round);
+    this.printMessage(deck);
     this.printQuestion(round);
   }
   createRound = (deck) => {
     let newRound = new Round(deck);
     this.currentRound = newRound;  
-    return newRound
+    return newRound;
   }
   generateDeck = () => {
     let cards = [];
@@ -29,7 +28,7 @@ class Game {
     }))
     return new Deck(cards);
   }
-  printMessage(deck, round) {
+  printMessage(deck) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
