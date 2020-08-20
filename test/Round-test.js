@@ -8,24 +8,72 @@ const Round = require('../src/Round');
 describe('Round', function() {
 
   it('should be a function', function() {
-    const round = new Round();
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const newDeck = new Deck([card1, card2, card3])
+
+    const round = new Round(newDeck);
+
     expect(Round).to.be.a('function');
   })
 
   it('should be an instance of a Round', function() {
-    const round = new Round();
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const newDeck = new Deck([card1, card2, card3])
+
+    const round = new Round(newDeck);
+
     expect(round).to.be.an.instanceof(Round);
   });
 
+  //instantiate round default turnCount is zero
+  //instantiate round with Deck
+
+
   it('should return the current card being played', function(){
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('pug', card);
-    // console.log(turn.card);
-    const round = new Round();
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
-    round.currentCard(turn.card)
+    const newDeck = new Deck([card1, card2, card3])
 
+    const round = new Round(newDeck)
+    // const turn = new Turn('pug', card);
+
+    round.returnCurrentCard()
+
+    expect(round.returnCurrentCard()).to.equal(card1)
   })
+
+  it('should make next card the current card', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const newDeck = new Deck([card1, card2, card3])
+
+    const round = new Round(newDeck)
+
+    round.takeTurn('sea otter')
+
+    expect(round.currentCard).to.deep.equal(card2)
+  })
+
+
+
+  // expect(round.turnCount).to.equal(1)
+
+
+
+
+
+
+
 
 
 
