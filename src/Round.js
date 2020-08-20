@@ -9,10 +9,6 @@ class Round {
     this.deck = deck.deck;
     this.turns = 0;
     this.incorrectGuesses = [];
-    this.turn;
-    this.result;
-    this.guess;
-    this.currentCard;
     }
     returnCurrentCard = () => {
       return this.deck[0];
@@ -40,7 +36,7 @@ class Round {
       this.turns++;
     }
     calculatePercentCorrect = () => {
-      return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns* 100 ) ;
+      return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns * 100 ) ;
     }
     bonusRound = () =>{
       let newestRound = new Round(this.createBonusDeck());
