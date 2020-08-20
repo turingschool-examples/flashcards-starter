@@ -38,11 +38,11 @@ async function main(round) {
     if(!round.returnCurrentCard() && round.incorrectGuesses.length === 0)  {
       return console.log('Wow you are amazing! 100%*!*!*!*!')
     } if (!round.returnCurrentCard()) {
-      round.endRound();
-      round.bonusRound();
-      return 
+        round.endRound();
+        round.bonusRound();
+        return 
     } else {
-      main(round);
+        main(round);
     }
 }
 

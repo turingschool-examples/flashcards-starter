@@ -15,12 +15,12 @@ class Round {
     }
     takeTurn = (guess) => {   
       let currentCard = this.returnCurrentCard();
-      let turn = new Turn(guess, currentCard);
-      let result = turn.evaluateGuess();
-      !result ? this.incorrectGuesses.unshift(currentCard.id) : null;
+      let currentTurn = new Turn(guess, currentCard);
+      let guessResult = currentTurn.evaluateGuess();
+      !guessResult ? this.incorrectGuesses.unshift(currentCard.id) : null;
       this.deck.shift();
       this.turns++;
-      return turn.giveFeedback()
+      return currentTurn.giveFeedback()
     }
     calculatePercentCorrect = () => {
       return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns * 100 ) ;
