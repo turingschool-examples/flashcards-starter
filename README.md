@@ -1,79 +1,35 @@
-# FlashCards Starter Kit
+# FlashCards
 
-## Fork This Repo
+## What is This?
 
-On the top right corner of this page, click the **Fork** button.
+### This application is a tool to help study Array Prototypes. 
+
+* This application will present you with a multiple choice question consisting of 3 possible answers, using the arrow keys or typing in the corresponding number to the answer, you will enter your response. 
+
+* This application will provide feedback regarding your choice, and move on to the next question.
+
+* The dataset included in this package includes 30 flashcards, and will consider one round complete when the 30 flashcards have all been answered.
+
+* This particular application also contains a bonus round, when the 30 flashcards are finished, you will be presented with your success ratio, and be presented with the cards you got incorrect for another chance at greatness.
+
+* This application will consider a game complete once all 30 questions have been answered correctly, and subsequently close.
 
 ## Setup
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+1. Clone down this Repo (if using ssh run "git clone git@github.com:BlakeDonnBD-Flashcards.git")
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+2. run `npm install` in the root of the cloned directory
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+3. type node index.js to run the application
 
-```bash
-npm install
-```
+4. Answer questions
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Node server running on port 3000
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+5. Upon completion, a new iteration can be started by doing step 3 again
 
 
-## Where to Add Your Code
+## Example of the Application
 
-### JavaScript
+Below is an example of running the application form the root directory.
 
-**Create all of your feature code files in the `src` directory.**
+![flash cards example gif](https://i.imgur.com/8f2yydQ.gif)
 
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
----
