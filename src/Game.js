@@ -12,20 +12,17 @@ class Game {
     let cards = prototypeQuestions.map(card => new Card(...Object.values(card)));
     let deck = new Deck(cards);
     this.currentRound = new Round(deck);
-    this.printMessage(this.currentRound.deck, this.currentRound);
+    this.printMessage();
+    this.printQuestion();
   }
 
-  printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)  
+  printMessage() {
+    console.log(`Welcome to FlashCards! You are playing with ${this.currentRound.deck.countCards()} cards.
+-----------------------------------------------------------------------`)
   }
 
-  printQuestion(round) {
-      util.main(round);
+  printQuestion() {
+      util.main(this.currentRound);
   }
 }
-
 module.exports = Game;
-
-let game = new Game();
-game.start();

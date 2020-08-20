@@ -5,6 +5,7 @@ class Rounds{
     this.deck = deck;
     this.turns = 0;
     this.incorrect = [];
+    this.startTime = Date.now();
   }
 
   returnCurrentCard() {
@@ -26,8 +27,20 @@ class Rounds{
   }
 
   endRound() {
-    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    const durationMessage = this.getDurationMSG();
+    const message = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!\nIt took you ${durationMessage} to complete.`
+    return message;
+  }
+
+  getDurationMSG() {
+    let durationSec = Math.floor( (Date.now() - this.startTime) / 1000);
+    const durationMin = Math.floor(durationSec / 60);
+    durationSec = (durationMin) ? durationSec % 60 : durationSec;
+    let durationMessage = `${durationSec} second(s)`;
+    if (durationMin) {
+      durationMessage = `${durationMin} min. and ${durationMessage}`;
+    }
+    return durationMessage;
   }
 }
 
