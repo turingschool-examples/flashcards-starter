@@ -20,6 +20,7 @@ class Round {
       !result ? this.incorrectGuesses.unshift(currentCard.id) : null;
       this.deck.shift();
       this.turns++;
+      return turn.giveFeedback()
     }
     calculatePercentCorrect = () => {
       return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns * 100 ) ;
