@@ -35,8 +35,12 @@ async function main(round) {
   const getAnswer = await inquirer.prompt(genList(currentRound));
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
-    if(!round.returnCurrentCard()) {
+    if(!round.returnCurrentCard() && round.incorrectGuesses.length === 0)  {
+      return console.log('Wow you are amazing! 100%*!*!*!*!')
+    } if (!round.returnCurrentCard()) {
       round.endRound();
+      round.bonusRound();
+      return 
     } else {
       main(round);
     }
