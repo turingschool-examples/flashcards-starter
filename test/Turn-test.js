@@ -34,13 +34,12 @@ describe('Turn', function() {
     expect(turn.returnCard()).to.deep.equal(card);
   });  
 
-  it('should evaluate if answer is correct' , function() {
+  it('should evaluate if answer is correct', function() {
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
-  it('should give feedback' , function() {
+  it('should give feedback', function() {
     turn.evaluateGuess();
     expect(turn.giveFeedback()).to.equal('correct!');
   });
-  
 });
