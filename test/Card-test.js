@@ -10,7 +10,6 @@ describe('Card', function() {
     card = new Card(prototypeQuestions[0])
     done();
   });
-
   it('should be a function', function() {
     expect(Card).to.be.a('function');
   });
