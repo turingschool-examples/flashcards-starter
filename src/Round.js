@@ -1,5 +1,4 @@
 const Turn = require('../src/Turn');
-const game = require('../src/Game');
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
@@ -10,7 +9,7 @@ class Round {
     this.deck = deck.deck;
     this.turns = 0;
     this.incorrectGuesses = [];
-    this.round;
+    this.turn;
     this.result;
     this.guess;
     this.currentCard;
@@ -20,20 +19,20 @@ class Round {
     }
     takeTurn = (guess) => {   
       this.guess = guess;
-      this.currentCard = this.returnCurrentCard();
-      return this.getResult();
+      return this.generateConditions();
     }
-    getResult = () =>{
-      this.round = new Turn(this.guess, this.currentCard);
-      return this.evaluateGuess()
+    generateConditions = () =>{
+      this.currentCard = this.returnCurrentCard();
+      this.turn = new Turn(this.guess, this.currentCard);
+      return this.evaluateGuess();
     }
     evaluateGuess = () =>{
-      this.result = this.round.evaluateGuess();
+      this.result = this.turn.evaluateGuess();
       return this.handleResult();
     }
     handleResult = () =>{
       this.adjustGameSettings(this.result, this.currentCard);
-      return this.round.giveFeedback();
+      return this.turn.giveFeedback();
     }
     adjustGameSettings = () =>{
       !this.result ? this.incorrectGuesses.unshift(this.currentCard.id) : null;
@@ -44,23 +43,23 @@ class Round {
       return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns* 100 ) ;
     }
     bonusRound = () =>{
-      console.log(`**Bonus Round!!!**, redemption time!`)
-      let newestRound = new Round(this.createBonusDeck())
-      util.main(newestRound)
+      let newestRound = new Round(this.createBonusDeck());
+      util.main(newestRound);
     }
     createBonusDeck = () => {
-      let bonusRoundDeck = []
+      let bonusRoundDeck = [];
       this.populateDeck(bonusRoundDeck);
-      return bonusRoundDeck = new Deck([].concat(...bonusRoundDeck))
+      return bonusRoundDeck = new Deck([].concat(...bonusRoundDeck));
     }
     populateDeck = (bonusRoundDeck) => {
         this.incorrectGuesses.forEach(id =>{
-        bonusRoundDeck.push(prototypeQuestions.filter(x => x.id === id))
+          bonusRoundDeck.push(prototypeQuestions.filter(x => x.id === id));
        })
        return bonusRoundDeck;
     }
     endRound = () => {
       console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+      console.log(`**Bonus Round!**, Redemption time!`);
     }
   }
 module.exports = Round;
