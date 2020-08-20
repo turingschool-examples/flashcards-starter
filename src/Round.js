@@ -2,6 +2,9 @@ class Round {
   constructor() {
     
   }
+  currentCard(turn) {
+    return turn.card
+  }
 }
 
 
