@@ -4,52 +4,30 @@ class Round {
   constructor(deck) {
     this.incorrectGuesses = [];
     this.deck = deck;
-    this.turn = 0;
+    this.turnCount = 0;
+
   }
 
   returnCurrentCard(){
-    return this.deck.card[this.turn]
+    return this.deck.card[this.turnCount]
   }
 
   takeTurn(guess){
-    const card = this.returnCurrentCard()
-    console.log("card", card)
+    const card = this.returnCurrentCard();
     const turn = new Turn(guess,card);
-    console.log("turn", turn)
-    this.turn++;
-    console.log("evaluateGuess", !turn.evaluateGuess())
+    this.turnCount++;
     if(!turn.evaluateGuess()) this.incorrectGuesses.push(card.id);
-    console.log("incorrectGuesses", this.incorrectGuesses);
-    turn.giveFeedback();
-    console.log("giveFeedback", turn.giveFeedback())
-    turn.currentCard = this.returnCurrentCard();
-    console.log("currentsCard", turn.currentCard)
+    return turn.giveFeedback();
   }
 
   calculatePercentCorrect(){
-
+    const correctGuesses = this.turnCount - this.incorrectGuesses.length
+    return `${Math.round(correctGuesses /this.turnCount * 100)}%`
   }
 
   endRound(){
-
+    return `** Round over! ** ${this.calculatePercentCorrect()} of the questions correctly!`
   }
 }
 
 module.exports = Round;
-
-
-
-// * When a guess is made, a new Turn instance is created.
-//*  The turns count is updated, regardless of whether the guess is correct or incorrect
-//* Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
-//* Feedback is returned regarding whether the guess is incorrect or correct
-//* The next card becomes current card
-
-
-
-
-
-
-
-
-//stop
