@@ -39,7 +39,11 @@ describe('Turn', function() {
     const turn = new Turn('sea otter', card2);
   });
 
-  
+  it('should return the correct message based on correct or incorrect guess', function(){
+    const card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('sea otter', card2);
+    expect(turn.giveFeedback()).to.equal('correct!')
+  })
 
 
 
