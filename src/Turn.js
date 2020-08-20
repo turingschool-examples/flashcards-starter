@@ -3,13 +3,17 @@ class Turn {
     this.guess = guess;
     this.card = card;
    }
-    returnGuess = () => this.guess;
-    returnCard = () => this.card;
+    returnGuess = () => {
+      return this.guess;
+    };
+    returnCard = () => {
+      return this.card;
+    };
     evaluateGuess = () => {
-      return this.guessResult = (this.guess === this.card.correctAnswer)
-    }
+      return this.guessResult = (this.guess === this.card.correctAnswer);
+    };
     giveFeedback = () => {
       return this.guessResult ? 'correct!' : 'incorrect!';
-    }
+    };
   }
 module.exports = Turn;
