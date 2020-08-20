@@ -10,17 +10,35 @@ class Round {
     this.deck = deck.deck;
     this.turns = 0;
     this.incorrectGuesses = [];
+    this.round;
+    this.result;
+    this.guess;
+    this.currentCard;
     }
     returnCurrentCard = (card) => {
       return this.deck[0];
     }
-    takeTurn = (guess) => {     
-      let currentCard = this.returnCurrentCard();
-      let newTurn = new Turn(guess, currentCard);
-      !newTurn.evaluateGuess() ? this.incorrectGuesses.unshift(currentCard.id) : null;
+    takeTurn = (guess) => {   
+      this.guess = guess;
+      this.currentCard = this.returnCurrentCard();
+      return this.getResult();
+    }
+    getResult = () =>{
+      this.round = new Turn(this.guess, this.currentCard);
+      return this.evaluateGuess()
+    }
+    evaluateGuess = () =>{
+      this.result = this.round.evaluateGuess();
+      return this.handleResult();
+    }
+    handleResult = () =>{
+      this.adjustGameSettings(this.result, this.currentCard);
+      return this.round.giveFeedback();
+    }
+    adjustGameSettings = () =>{
+      !this.result ? this.incorrectGuesses.unshift(this.currentCard.id) : null;
       this.deck.shift();
       this.turns++;
-      return newTurn.giveFeedback();
     }
     calculatePercentCorrect = () => {
       return  Math.round((this.turns - this.incorrectGuesses.length) / this.turns* 100 ) ;
