@@ -11,13 +11,13 @@ class Turn {
   returnCard(newCard) {
     return newCard
   }
-  evaluateGuess(card) {
-    if (this.guess === card.correctAnswer) {
+  evaluateGuess() {
+    if (this.guess === this.card.correctAnswer) {
       this.correct = true
       return true
     } else {
       this.correct = false
-      false
+      return false
     }
   }
   giveFeedback() {
@@ -26,23 +26,8 @@ class Turn {
     } else {
       return 'incorrect!'
     }
+  }
 }
-
-  // giveFeedback() {
-  //   if (this.evaluateGuess() === true) {
-  //     return 'correct!';
-  //   } else {
-  //     'incorrect!'
-  //   }
-  // }
-}
-
-
-
-//i want to compare the guess made to the card.correctAnswer key value pair
-//it should return a true or false to be used for later functionality.
-
-//
 
 
 
