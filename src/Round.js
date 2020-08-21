@@ -8,7 +8,7 @@ class Round {
     this.incorrectGuesses = [];
     this.correct = true;
     }
-    
+
   returnCurrentCard() {
     return this.currentCard
   }
@@ -32,7 +32,7 @@ class Round {
 
   endRound() {
     if (this.correct) {
-      console.log('**Round over!** You answered (tbd)% of the questions correctly!')
+      return '**Round over!** You answered (tbd)% of the questions correctly!'
     }
 
   }
