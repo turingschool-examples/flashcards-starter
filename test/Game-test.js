@@ -37,12 +37,4 @@ describe('', function() {
     expect(game.currentRound).to.be.an.instanceof(Round);
   });
 
-  it('should print message console', function() {
-
-    var game = new Game();
-    game.start();
-
-    expect(game.printMessage(deck, this.currentRound)).to.equal(`Welcome to FlashCards! You are playing with 30 cards.
-    -----------------------------------------------------------------------`);
-  });
 });
