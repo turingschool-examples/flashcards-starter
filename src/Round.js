@@ -8,9 +8,11 @@ class Round {
     this.incorrectGuesses = [];
     this.correct = true;
     }
+    
   returnCurrentCard() {
     return this.currentCard
   }
+
   takeTurn(guess) {
     let newTurn = new Turn(guess, this.currentCard);
     this.turnCount++;
@@ -24,12 +26,15 @@ class Round {
       return newTurn.giveFeedback()
     }
   }
+
   calculatePercentCorrect() {
   }
+
   endRound() {
-    if(this.correct) {
-      console.log('** Round over! ** You answered of the questions correctly!')
+    if (this.correct) {
+      console.log('**Round over!** You answered (tbd)% of the questions correctly!')
     }
+
   }
 
 }
