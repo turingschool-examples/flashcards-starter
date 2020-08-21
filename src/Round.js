@@ -1,6 +1,6 @@
 const Turn  = require('../src/Turn.js');
 const Game = require('../src/Game.js');
-class Round{
+class Round {
     constructor(cardDeck){
         this.deck = cardDeck.cards
         this.turns = 0;
@@ -26,14 +26,19 @@ class Round{
       
     }
     endRound(){
-        var endString = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
         if(this.calculatePercentCorrect() < 90 ){
-            console.log(`** You need to Review! ** You only answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
-           var game =  new Game(this)
-           game.start(this)
+            var string = `** You need to Review! ** You only answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+            console.log(string)
+            return string
+           let game =  new Game(this.deck)
+        console.log('deck',this.deck)
+           game.start(this.deck)
         }
-       return `** You can move on ! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+        else{
+            console.log(`Nice Job you got ${this.calculatePercentCorrect()} you can move on!`)
+        }
     }
+    
 
 }
 module.exports = Round

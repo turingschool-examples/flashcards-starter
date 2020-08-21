@@ -91,7 +91,7 @@ describe('Round',function(){
         round.takeTurn('pug')
         round.takeTurn('spleen')
         round.takeTurn('playing with bubble wrap')
-        expect(round.endRound()).to.equal(`** Round over! ** You answered 66% of the questions correctly!`)
+        expect(round.endRound()).to.equal(`** You need to Review! ** You only answered 66% of the questions correctly!`)
     })
 
 })

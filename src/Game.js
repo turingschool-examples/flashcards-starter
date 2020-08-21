@@ -19,7 +19,8 @@ class Game {
       util.main(round);
   }
   start(gameData){
-    console.log(1)
+    // this.currentRound.turns = 0
+    // this.currentRound.incorrectGuesses = []
     var cards = gameData.map(card => { 
       return new Card(card.id,card.question,card.answers,card.correctAnswer)
     })
