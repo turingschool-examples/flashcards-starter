@@ -8,6 +8,7 @@ Flash Card solo project, Mod 2 by Michael Walker
 This project utilizes Javascript and Test Drive Development (TDD) to make a functioning flashcard game that can be played in the terminal. The game allows the user to select an answer then provides feedback based on if the answer was correct or incorrect. At the end of the round, the user will see the percent of questions they answered correctly.
 
 ![Terminal run of the project](https://i.imgur.com/mJJKGXb.gif)  
+[link to Gif if Gif appears broken](https://i.imgur.com/mJJKGXb.gifv)
 
 ## Install/Setup instructions
 
