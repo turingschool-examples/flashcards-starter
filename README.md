@@ -1,79 +1,38 @@
-# FlashCards Starter Kit
+# Flash Cards
 
-## Fork This Repo
-
-On the top right corner of this page, click the **Fork** button.
-
-## Setup
-
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Node server running on port 3000
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+Flash Card solo project, Mod 2 by Michael Walker
 
 
-## Where to Add Your Code
+## Project Overview
 
-### JavaScript
+This project utilizes Javascript and Test Drive Development (TDD) to make a functioning flashcard game that can be played in the terminal. The game allows the user to select an answer then provides feedback based on if the answer was correct or incorrect. At the end of the round, the user will see the percent of questions they answered correctly.
 
-**Create all of your feature code files in the `src` directory.**
+![Terminal run of the project](https://i.imgur.com/mJJKGXb.gif)  
 
-We will be using the `module.exports` and `require` syntax to share code across files.
+## Install/Setup instructions
 
-## How to View Your Code in Action
+* Setup - for the project setup clone down and fork the repo from the Github website. [link to repository](https://github.com/turingschool-examples/frontend-mod-1-prework)
 
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
+* Then run the `npm install` to test that the file is working by running `npm test` you should see the passing tests.
 
-```bash
-node index.js
-```
+* To run the flashcards run `node index.js` from the root of your project in your Terminal.
 
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
+## Goals
 
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
+* To make a functioning flashcard game in the terminal
 
----
+* To use TDD to drive the building of the game
 
-## Test Files Organization
+* To get hands-on experience implementing ES6
 
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
+* To write reusable code that follows SRP (Single Responsibility Principles)
 
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
+## Thanks
 
-## Running Your Tests
+I would like to thank the Turning Instructors for issuing and reviewing the project. I would also like to thank my peers 2006 Cohort for allowing me to verbalize ideas. Finally, I would like to thank my mentor Nathaniel D Foster for helping with the Round.js testing section.  
 
-Run your test suite using the command:
+### Links
 
-```bash
-npm test
-```
+Project Repository: [link to repository](https://github.com/turingschool-examples/frontend-mod-1-prework)
 
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
----
+Original Assignment: [link to assignment](https://frontend.turing.io/projects/flash-cards.html)            
