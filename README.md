@@ -21,7 +21,7 @@
 </ul>
 
 # Final Version
-![game Image]()
+![game Image](https://github.com/Chriscastanuela/flashcards-starter/blob/main/Screen%20Shot%202020-08-20%20at%208.54.42%20PM.png?raw=true)
 # Successes
 
 <a name="successes"></a>
