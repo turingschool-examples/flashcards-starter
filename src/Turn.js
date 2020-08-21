@@ -21,7 +21,7 @@ class Turn{
         if(this.evaluateGuess()){
             return 'correct!'
         }
-        return `Sorry that's not right!`
+        return `incorrect!`
     };
 
 }
