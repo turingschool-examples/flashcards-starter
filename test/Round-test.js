@@ -74,6 +74,7 @@ describe('Round', function() {
     const round = new Round(newDeck)
 
     expect(round.takeTurn('sea otter')).to.equal('correct!')
+
   })
 
   it('should give a message for guessing incorrectly', function() {
@@ -84,8 +85,6 @@ describe('Round', function() {
     const newDeck = new Deck([card1, card2, card3])
 
     const round = new Round(newDeck)
-
-
     expect(round.takeTurn('pug')).to.equal('incorrect!')
   })
 
@@ -101,6 +100,20 @@ describe('Round', function() {
     round.takeTurn('pug')
 
     expect(round.incorrectGuesses).to.deep.equal([1])
+  })
+
+  it('should log end of round message', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const newDeck = new Deck([card1, card2, card3])
+
+    const round = new Round(newDeck)
+
+    round.takeTurn('sea otter')
+
+    expect(round.endRound()).to.equal('**Round over!** You answered (tbd)% of the questions correctly!')
   })
 
 
