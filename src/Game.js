@@ -6,7 +6,9 @@ const Turn = require('./Turn');
 const util = require('./util');
 
 class Game {
-  constructor() {}
+  constructor() {
+    this.currentRound;
+  }
 
   start(){
     const mappedArrayData = data.map((card) => {
@@ -14,6 +16,7 @@ class Game {
     });
     const deck = new Deck(mappedArrayData);
     const round = new Round(deck);
+    this.currentRound = round;
     this.printQuestion(round);
     this.printMessage(deck, round);
   };
