@@ -23,21 +23,21 @@ describe('Turn', function() {
   });
 
   it('should return a card', function() {
-    const turn = new Turn();
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    expect(turn.returnCard(card)).to.equal(card)
+    const turn = new Turn('sea otter', card);
+    expect(turn.returnCard()).to.equal(turn.card)
   });
 
-  it('should be able to return any card', function() {
-    const turn = new Turn();
-    const card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    expect(turn.returnCard(card2)).to.equal(card2)
-  });
+  // it('should be able to return any card', function() {
+  //   const turn = new Turn();
+  //   const card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+  //   expect(turn.returnCard(card2)).to.equal(card2)
+  // });
 
-  it('should be able to evaluate a guess', function() {
-    const card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn = new Turn('sea otter', card2);
-  });
+  // it('should be able to evaluate a guess', function() {
+  //   const card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+  //   const turn = new Turn('sea otter', card2);
+  // });
 
   it('should return the correct message based on correct or incorrect guess', function(){
     const card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
