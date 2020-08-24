@@ -61,7 +61,7 @@ describe('Round', function() {
 
     round.takeTurn('sea otter')
 
-    expect(round.currentCard).to.deep.equal(card2)
+    expect(round.deck[0]).to.deep.equal(card2)
   })
 
   it('should give a message for guessing correctly', function() {
@@ -103,21 +103,21 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([1])
   })
 
-  // it('should calculate percentage of correctly answered questions', function() {
-  //   const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  //   const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //   const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-  //
-  //   const newDeck = new Deck([card1, card2, card3])
-  //
-  //   const round = new Round(newDeck)
-  //
-  //   round.takeTurn('pug')
-  //   round.takeTurn('gallbladder')
-  //
-  //   expect(round.calculatePercentCorrect()).to.equal(50)
-  //
-  // })
+  it('should calculate percentage of correctly answered questions', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const newDeck = new Deck([card1, card2, card3])
+
+    const round = new Round(newDeck)
+
+    round.takeTurn('pug')
+    round.takeTurn('gallbladder')
+
+    expect(round.calculatePercentCorrect()).to.equal(50)
+
+  })
 
   it('should log end of round message', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -130,7 +130,7 @@ describe('Round', function() {
 
     round.takeTurn('sea otter')
 
-    expect(round.endRound()).to.equal(`**Round over!** You answered NaN% of the questions correctly!`)
+    expect(round.endRound()).to.equal(`**Round over!** You answered ${round.calculatePercentCorrect()}% of the questions correctly!`)
   })
 
 
