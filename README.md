@@ -21,7 +21,7 @@
 </ul>
 
 # Final Version
-![game Image](https://github.com/Chriscastanuela/flashcards-starter/blob/main/Screen%20Shot%202020-08-20%20at%208.54.42%20PM.png?raw=true)
+![game Image](https://media1.giphy.com/media/kf3NO4xVbrausqAQgv/giphy.gif)
 # Successes
 
 <a name="successes"></a>
