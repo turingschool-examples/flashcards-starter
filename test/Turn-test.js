@@ -5,6 +5,11 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', function() {
+  let card;
+
+  beforeEach(function() {
+    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+  });
 
   it('should be a function', function() {
     const turn = new Turn();
@@ -19,28 +24,24 @@ describe('Turn', function() {
   });
 
   it('should take the user guess as the first argument', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug');
 
     expect(turn.guess).to.equal('pug');
   });
 
   it('guess argument should be a string', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug');
 
     expect(turn.guess).to.be.a('string');
   });
 
   it('should take a Card object as the second argument', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
 
     expect(turn.card).to.deep.equal(card);
   });
 
   it('should return the guess', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
     turn.returnGuess();
 
@@ -48,7 +49,6 @@ describe('Turn', function() {
   });
 
   it('should return the current card', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
     turn.returnCard();
 
@@ -56,7 +56,6 @@ describe('Turn', function() {
   });
 
   it('should be able to evaluate an incorrect guess', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
     turn.evaluateGuess();
 
@@ -64,7 +63,6 @@ describe('Turn', function() {
   });
 
   it('should be able to evaluate a correct guess', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('sea otter', card);
     turn.evaluateGuess();
 
@@ -72,7 +70,6 @@ describe('Turn', function() {
   });
 
   it('should be able to give incorrect answer feedback', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
     turn.giveFeedback();
 
@@ -80,11 +77,9 @@ describe('Turn', function() {
   });
 
   it('should be able to give correct answer feedback', function() {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('sea otter', card);
     turn.giveFeedback();
 
     expect(turn.giveFeedback()).to.equal('correct!');
-  })
-
+  });
 })

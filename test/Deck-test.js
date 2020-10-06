@@ -15,7 +15,7 @@ describe('Deck', function() {
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     deck = new Deck([card1, card2, card3]);
-  })
+  });
 
   it('should be a function', function() {
     expect(Deck).to.be.a('function');
@@ -32,5 +32,5 @@ describe('Deck', function() {
   it('should know how many Cards are in the deck', function() {
     deck.countCards();
     expect(deck.countCards()).to.equal(3);
-  })
+  });
 })
