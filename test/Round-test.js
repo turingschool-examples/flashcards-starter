@@ -48,4 +48,13 @@ describe('Round', function() {
     expect(round2.deck).to.equal(deck2);
   });
 
+  it('should start out with no turns taken', function() {
+    expect(round1.turns).to.equal(0);
+  })
+
+  it('should be able to return the top card in the deck', function() {
+    expect(round1.returnCurrentCard()).to.equal(card1);
+    expect(round2.returnCurrentCard()).to.equal(card4);
+  });
+
 });
