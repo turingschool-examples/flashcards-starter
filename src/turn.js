@@ -5,19 +5,19 @@ class Turn {
   };
 
   returnGuess() {
-
+    // return string 
   };
 
   returnCard() {
-
+    // return card object
   };
 
   evaluateGuess() {
-
+    // return boolean
   };
 
   giveFeedback() {
-
+    // correct! or incorrect!
   };
 };
 
