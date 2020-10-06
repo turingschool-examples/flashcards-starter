@@ -6,19 +6,19 @@ const Card = require('../src/card');
 
 describe('Turn', function() {
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     const turn = new Turn();
 
     expect(Turn).to.be.a('function');
   });
 
-  it.skip('should be an instance of Turn', function() {
+  it('should be an instance of Turn', function() {
     const turn = new Turn();
 
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it.skip('should take in a guess and a card', function() {
+  it('should take in a guess and a card', function() {
     const card = new Card(1, 'What does the "R" stand for in Roy G. Biv?', ['red', 'retro', 'razzle dazzle'], 'red');
     const turn = new Turn('red', card);
 
@@ -26,14 +26,14 @@ describe('Turn', function() {
     expect(turn.card.question).to.deep.equal('What does the "R" stand for in Roy G. Biv?');
   });
 
-  it.skip('should return the user\'s guess', function() {
+  it('should return the user\'s guess', function() {
     const card = new Card(2, 'What is the capitol of Minnesota?', ['Minneapolis', 'Duluth', 'St. Paul'], 'St. Paul');
     const turn = new Turn('Minneapolis', card);
 
     expect(turn.returnGuess()).to.deep.equal('Minneapolis');
   });
 
-  it.skip('should return the card object', function() {
+  it('should return the card object', function() {
     const card = new Card(3, 'What is the best month of the year?', ['April', 'July', 'October'], 'October');
     const turn = new Turn('October', card);
 
