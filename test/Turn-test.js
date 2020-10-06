@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
+
 describe('Turn', function() {
   let card1;
   let turn1;
@@ -64,6 +65,6 @@ describe('Turn', function() {
   it('should give feedback after a guess is made', function() {
     expect(turn1.giveFeedback()).to.equal('correct!');
     expect(turn2.giveFeedback()).to.equal('incorrect!');
-  })
+  });
 
 });
