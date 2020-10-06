@@ -53,6 +53,22 @@ describe('Turn', function() {
     expect(turn2.returnCard()).to.equal(card2);
   });
 
-  
+  it('should evaluate if the guess is correct', function() {
+    const card = new Card(1, 'Who\'s the Hogwarts Headmaster?', ['Voldemort', 'Harry Potter', 'Dumbledore'], 'Dumbledore');
+    const turn1 = new Turn('Dumbledore', card);
+    const turn2 = new Turn('Voldemort', card);
+
+    expect(turn1.evaluateGuess()).to.equal(true);
+    expect(turn2.evaluateGuess()).to.equal(false);
+  });
+
+  it('should give feedback after a guess is made', function() {
+    const card = new Card(1, 'Who\'s the Hogwarts Headmaster?', ['Voldemort', 'Harry Potter', 'Dumbledore'], 'Dumbledore');
+    const turn1 = new Turn('Dumbledore', card);
+    const turn2 = new Turn('Voldemort', card);
+
+    expect(turn1.giveFeedback()).to.equal('correct!');
+    expect(turn2.giveFeedback()).to.equal('incorrect!');
+  })
 
 });
