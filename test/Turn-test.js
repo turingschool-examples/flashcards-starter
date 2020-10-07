@@ -6,40 +6,39 @@ const Card = require('../src/Card');
 
 describe('Turn', () => {
   let turn;
-  beforeEach(() => {
-    const turn = new Turn();
-  })
-})
+  let card;
 
-describe('Turn', function() {
+  beforeEach(() => {
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('red', card);
+  });
 
   it('should be a function', function() {
-    const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
   it('should be an instance of Turn', function() {
-    const turn = new Turn();
-
     expect(turn).to.be.an.instanceof(Turn);
   });
 
   it('should store a user\'s guess', function() {
-    const turn = new Turn('red');
-
     expect(turn.guess).to.be.a('string');
     expect(turn.guess).to.equal('red');
   });
 
-  it('should store a user\'s guess and the current card in play', function() {
-
-    const card = new Card(1,
-    'You live in a one story house made entirely of redwood. What color would the stairs be?',
-    ['wood', 'red', 'What stairs? You live in a one-story house'],'What stairs? You live in a one-story house');
-    const turn = new Turn('red', card);
-
+  it('should store the current card in play', function() {
     expect(turn.card).to.be.an.instanceof(Card);
-    // expect(turn.card.answer).to.include('red');
-  })
-  it('sh')
+  });
+
+  it('should return the user\'s guess', function() {
+    expect(turn.returnGuess()).to.equal('red');
+  });
+
+  it('should return the card in play', function() {
+    console.log({key: 10} === {key: 10})
+    expect(turn.returnCard()).to.be.an.instanceof(Card);
+    expect(turn.returnCard().correctAnswer).to.deep.equal(turn.card.correctAnswer);
+  });
+
+  
 });

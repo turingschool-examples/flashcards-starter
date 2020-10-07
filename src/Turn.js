@@ -4,10 +4,11 @@ class Turn {
     this.card = card;
   }
   returnGuess() {
-
+    // console.log(this.card)
+    return this.guess;
   }
   returnCard() {
-
+    return this.card;
   }
   evaluateGuess() {
 
