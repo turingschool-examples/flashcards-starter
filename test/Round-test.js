@@ -16,9 +16,9 @@ describe('Round', () => {
   beforeEach(() => {
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
-    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    card1 = new Card(1, 'What is Harry Potter\'s patronus?', ['horse', 'otter', 'stag'], 'stag');
+    card2 = new Card(14, 'What does Dumbledore give Ron in his will?', ['deluminator', 'invisibility cloak', 'wand'], 'deluminator');
+    card3 = new Card(12, 'What does the Imperius Curse do?', ['kills', 'controls', 'mimics'], 'controls');
   })
 
   it('should be a function', () => {
@@ -46,20 +46,20 @@ describe('Round', () => {
   it('should update turn count', () => {
     expect(round.turns).to.equal(0);
 
-    round.takeTurn('sea otter');
+    round.takeTurn('horse');
     expect(round.turns).to.equal(1);
 
-    round.takeTurn('gallbladder');
-    round.takeTurn('William');
+    round.takeTurn('wand');
+    round.takeTurn('controls');
     expect(round.turns).to.equal(3)
   });
 
   it('should update the current card with the next card', () => {
-    round.takeTurn('sea otter');
+    round.takeTurn('horse');
     expect(round.turns).to.equal(1);
     expect(round.returnCurrentCard()).to.deep.equal(card2);
 
-    round.takeTurn('spleen');
+    round.takeTurn('deluminator');
     expect(round.turns).to.equal(2);
     expect(round.returnCurrentCard()).to.deep.equal(card3);
   });
@@ -69,31 +69,28 @@ describe('Round', () => {
   });
 
   it('should record incorrect guesses', () => {
-    round.takeTurn('sea otter');
-    expect(round.incorrectGuesses).to.deep.equal([]);
-
-    round.takeTurn('pug');
-    expect(round.incorrectGuesses).to.deep.equal([14]);
+    round.takeTurn('horse');
+    expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
   it('should return feedback on whether the answer is correct or incorrect', () => {
-    round.takeTurn('pug');
+    round.takeTurn('horse');
     expect(round.takeTurn()).to.equal('incorrect!');
   });
 
   it('should calculate the percentage of cards guessed correct', () => {
-    round.takeTurn('pug');
-    round.takeTurn('appendix');
-    round.takeTurn('Fitzgerald');
+    round.takeTurn('stag');
+    round.takeTurn('invisibility cloak');
+    round.takeTurn('mimics');
     round.calculatePercentCorrect();
 
     expect(round.calculatePercentCorrect()).to.equal(33);
   });
 
   it('should print a message when the round is over', () => {
-    round.takeTurn('pug');
-    round.takeTurn('appendix');
-    round.takeTurn('Fitzgerald');
+    round.takeTurn('stag');
+    round.takeTurn('invisibility cloak');
+    round.takeTurn('mimics');
     round.calculatePercentCorrect();
     round.endRound()
 

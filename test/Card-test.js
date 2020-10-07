@@ -30,37 +30,37 @@ describe('Card', () => {
   });
 
   it('should store a question', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?')
+    const card = new Card(1, 'What is Harry Potter\'s patronus?')
 
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    expect(card.question).to.equal('What is Harry Potter\'s patronus?');
   });
 
   it('should only take a string for the question', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?')
+    const card = new Card(1, 'What is Harry Potter\'s patronus?')
 
     expect(card.question).to.be.a('string');
   });
 
 it('should store a list of possible answers', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card = new Card(1, 'What is Harry Potter\'s patronus?', ['horse', 'otter', 'stag']);
 
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+    expect(card.answers).to.deep.equal(['horse', 'otter', 'stag']);
   });
 
   it('should only take an array for the list of possible answers', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function']);
+    const card = new Card(1, 'What is Harry Potter\'s patronus?', ['horse', 'otter', 'stag']);
 
     expect(card.answers).to.be.an('array');
   });
 
   it('should store the correct answer', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card = new Card(1, 'What is Harry Potter\'s patronus?', ['horse', 'otter', 'stag'], 'stag');
 
-    expect(card.correctAnswer).to.equal('object');
+    expect(card.correctAnswer).to.equal('stag');
   });
 
   it('should only take a string for the correct answer', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card = new Card(1, 'What is Harry Potter\'s patronus?', ['horse', 'otter', 'stag'], 'stag');
 
     expect(card.correctAnswer).to.be.a('string');
   })

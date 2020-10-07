@@ -9,7 +9,7 @@ describe('Turn', () => {
   let turn;
 
   beforeEach(() => {
-    card = new Card(1, 'What is Harry Potter\'s patronus', ['horse', 'otter', 'stag'], 'stag');
+    card = new Card(1, 'What is Harry Potter\'s patronus?', ['horse', 'otter', 'stag'], 'stag');
     turn = new Turn('stag', card);
   });
 
