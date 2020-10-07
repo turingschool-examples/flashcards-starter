@@ -9,7 +9,7 @@ describe('Turn', () => {
   let card;
 
   beforeEach(() => {
-    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    card = new Card(1, 'You live in a one story house made entirely of redwood. What color would the stairs be?', ['wood', 'red', 'What stairs? You live in a one-story house'], 'What stairs? You live in a one-story house');
     turn = new Turn('red', card);
   });
 
@@ -40,5 +40,40 @@ describe('Turn', () => {
     expect(turn.returnCard().correctAnswer).to.deep.equal(turn.card.correctAnswer);
   });
 
-  
+  it('should evaluate if user\'s guess is correct', function() {
+
+    let card1 = new Card(1, 'You live in a one story house made entirely of redwood. What color would the stairs be?', ['wood', 'red', 'What stairs? You live in a one-story house'], 'What stairs? You live in a one-story house');
+
+    let turn1 = new Turn('red', card1);
+
+    turn1.evaluateGuess();
+
+    let card2 = new Card(2, 'I am not alive, but I grow; I don\'t have lungs, but I need air; I don\'t have a mouth, but water kills me. What am I?', ['ice', 'fire', 'pants'], 'fire');
+
+    let turn2 = new Turn('fire', card2);
+
+    turn2.evaluateGuess();
+
+    expect(turn1.evaluateGuess()).to.equal(false);
+    expect(turn2.evaluateGuess()).to.equal(true);
+  });
+
+  it('should give feedback for correct or incorrect answers', function() {
+    let card1 = new Card(1, 'You live in a one story house made entirely of redwood. What color would the stairs be?', ['wood', 'red', 'What stairs? You live in a one-story house'], 'What stairs? You live in a one-story house');
+
+    let turn1 = new Turn('red', card1);
+
+    turn1.evaluateGuess();
+    turn1.giveFeedback();
+
+    let card2 = new Card(2, 'I am not alive, but I grow; I don\'t have lungs, but I need air; I don\'t have a mouth, but water kills me. What am I?', ['ice', 'fire', 'pants'], 'fire');
+
+    let turn2 = new Turn('fire', card2);
+
+    turn2.evaluateGuess();
+    turn2.giveFeedback();
+
+    expect(turn1.giveFeedback()).to.equal('incorrect!');
+    expect(turn2.giveFeedback()).to.equal('correct!');
+  });
 });
