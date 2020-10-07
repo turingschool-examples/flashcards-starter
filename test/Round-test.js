@@ -14,9 +14,9 @@ describe('Round', function() {
   let card5;
   let deck1;
   let deck2;
-  let turn1;
-  let turn2;
-  let turn3;
+  // let turn1;
+  // let turn2;
+  // let turn3;
   let round1;
 
   beforeEach(function () {
@@ -32,9 +32,9 @@ describe('Round', function() {
 
     deck1 = new Deck([card1, card2, card3]);
     deck2 = new Deck([card4, card5]);
-    turn1 = new Turn('Sirius', card1);
-    turn2 = new Turn('beater', card2);
-    turn3 = new Turn('Volemort', card3);
+    // turn1 = new Turn('Sirius', card1);
+    // turn2 = new Turn('beater', card2);
+    // turn3 = new Turn('Volemort', card3);
     round1 = new Round(deck1);
     round2 = new Round(deck2);
   });
@@ -48,8 +48,8 @@ describe('Round', function() {
   });
 
   it('should be able to have a deck', function() {
-    expect(round1.deck).to.equal(deck1);
-    expect(round2.deck).to.equal(deck2);
+    expect(round1.deck).to.equal(deck1.cards);
+    expect(round2.deck).to.equal(deck2.cards);
   });
 
   it('should be able to return the top card in the deck', function() {
@@ -66,24 +66,29 @@ describe('Round', function() {
   });
 
   it('should be able to take a turn', function() {
-    round1.takeTurn(turn1);
+    round1.takeTurn('Hogwarts');
 
     expect(round1.turns).to.equal(1);
 
-    round1.takeTurn(turn1);
-    round1.takeTurn(turn1);
+    round1.takeTurn('The Burrow');
+    round1.takeTurn('Diagon Alley');
 
     expect(round1.turns).to.equal(3);
   });
 
   it('should remove the current card when a turn is taken', function() {
-    round1.takeTurn(turn1);
+    round1.takeTurn('Hogwarts');
 
-    expect(round1.deck.cards[0]).to.equal(card2);
+    expect(round1.deck[0]).to.equal(card2);
   });
 
   it('should evaluate the guess when a turn is taken', function() {
-    expect(round1.takeTurn(turn1)).to.equal(`correct!`);
-    expect(round1.takeTurn(turn2)).to.equal(`incorrect!`);
+    expect(round1.takeTurn('Sirius')).to.equal(`correct!`);
+    expect(round1.takeTurn('Snape')).to.equal(`incorrect!`);
   });
+
+  it('should add ids to the incorrect guesses', function() {
+    round1.takeTurn('Snape');
+    expect(round1.incorrectGuesses.length).is.deep.equal(1);
+  })
 });
