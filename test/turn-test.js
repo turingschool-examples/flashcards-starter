@@ -41,8 +41,8 @@ describe('Turn', function() {
     expect(turn.card.id).to.deep.equal(3);
   });
 
-  it.skip('should determine whether the user\'s guess matches the correct answer on the card', function() {
-    const card = new Card(4, 'Which ocean is the Bermuda Triangle located in?' ['Pacific Ocean', 'Atlantic Ocean', 'Arctic Ocean'], 'Atlantic Ocean');
+  it('should determine whether the user\'s guess matches the correct answer on the card', function() {
+    const card = new Card(4, 'Which ocean is the Bermuda Triangle located in?', ['Pacific Ocean', 'Atlantic Ocean', 'Arctic Ocean'], 'Atlantic Ocean');
     const turn1 = new Turn('Arctic Ocean', card);
     const turn2 = new Turn('Atlantic Ocean', card);
 
@@ -50,14 +50,12 @@ describe('Turn', function() {
     expect(turn2.evaluateGuess()).to.deep.equal(true);
   });
 
-  it.skip('should give feedback based on whether the guess was correct', function() {
+  it('should give feedback based on whether the guess was correct', function() {
     const card = new Card(5, 'Which country occupies half of South America\'s western coast?', ['Argentina', 'Venezuela', 'Chile'], 'Chile');
     const turn1 = new Turn('Chile', card);
     const turn2 = new Turn('Venezuela', card);
 
-    turn1.evaluateGuess();
-    turn2.evaluateGuess();
-
-    expect(turn1.giveFeedback(result));
+    expect(turn1.giveFeedback()).to.deep.equal('correct!');
+    expect(turn2.giveFeedback()).to.deep.equal('incorrect!');
   });
 })
