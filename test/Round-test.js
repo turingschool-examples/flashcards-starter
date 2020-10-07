@@ -14,9 +14,6 @@ describe('Round', function() {
   let card5;
   let deck1;
   let deck2;
-  // let turn1;
-  // let turn2;
-  // let turn3;
   let round1;
 
   beforeEach(function () {
@@ -26,15 +23,12 @@ describe('Round', function() {
 
     card3 = new Card(3, 'Who\'s the Hogwarts Headmaster?', ['Voldemort', 'Dumbledore', 'Fudge'], 'Dumbledore');
 
-    card5 = new Card(5, 'Who told Harry he was a wizard?', ['Hagrid', 'Dudley', 'Snape'], 'Hagrid');
-
     card4 = new Card(4, 'What\'s the town outside of Hogwarts?', ['Diagon Alley', 'Privet Drive', 'Hogsmeade'], 'Hogsmeade');
+
+    card5 = new Card(5, 'Who told Harry he was a wizard?', ['Hagrid', 'Dudley', 'Snape'], 'Hagrid');
 
     deck1 = new Deck([card1, card2, card3]);
     deck2 = new Deck([card4, card5]);
-    // turn1 = new Turn('Sirius', card1);
-    // turn2 = new Turn('beater', card2);
-    // turn3 = new Turn('Volemort', card3);
     round1 = new Round(deck1);
     round2 = new Round(deck2);
   });
@@ -87,8 +81,24 @@ describe('Round', function() {
     expect(round1.takeTurn('Snape')).to.equal(`incorrect!`);
   });
 
-  it('should add ids to the incorrect guesses', function() {
+  it('should collect card ids of incorrect guesses', function() {
     round1.takeTurn('Snape');
     expect(round1.incorrectGuesses.length).is.deep.equal(1);
+
+    round1.takeTurn('Lupin');
+    round1.takeTurn('Ron');
+
+    expect(round1.incorrectGuesses.length).is.deep.equal(3);
+  });
+
+  it('should calculate the user\'s score', function() {
+    round1.takeTurn('Sirius');
+    round1.takeTurn('seeker');
+    round1.takeTurn('Voldemort');
+    round2.takeTurn('Privet Drive');
+    round2.takeTurn('Hagrid');
+
+    expect(round1.calculatePercentCorrect()).is.equal(66);
+    expect(round2.calculatePercentCorrect()).is.equal(50);
   })
 });

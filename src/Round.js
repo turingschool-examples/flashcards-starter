@@ -21,6 +21,12 @@ class Round {
     this.deck.shift();
     return turn.giveFeedback(this.incorrectGuesses);
   }
+
+  calculatePercentCorrect() {
+    const percentIncorrect = Math.ceil(this.incorrectGuesses.length / this.turns * 100);
+    const percentCorrect = 100 - percentIncorrect;
+    return percentCorrect;
+  }
 }
 
 module.exports = Round;
