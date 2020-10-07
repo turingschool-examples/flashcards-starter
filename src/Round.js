@@ -12,9 +12,9 @@ class Round {
   }
 
   takeTurn(guess) {
+    const topCard = this.returnCurrentCard();
+    const turn = new Turn(guess, topCard);
     this.turns++;
-    let topCard = this.returnCurrentCard();
-    let turn = new Turn(guess, topCard);
     if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(topCard.id);
     }
@@ -26,6 +26,10 @@ class Round {
     const percentIncorrect = Math.ceil(this.incorrectGuesses.length / this.turns * 100);
     const percentCorrect = 100 - percentIncorrect;
     return percentCorrect;
+  }
+
+  endRound() {
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
   }
 }
 

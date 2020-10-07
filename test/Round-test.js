@@ -100,5 +100,5 @@ describe('Round', function() {
 
     expect(round1.calculatePercentCorrect()).is.equal(66);
     expect(round2.calculatePercentCorrect()).is.equal(50);
-  })
+  });
 });
