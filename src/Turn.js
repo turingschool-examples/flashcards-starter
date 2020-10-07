@@ -1,7 +1,8 @@
 class Turn {
   constructor(guess, card) {
-    this.guess = guess;
-    this.card = card;
+    this.invalidInput = false;
+    this.guess = this.validateGuess(guess)
+    this.card = this.validateCard(card)
   }
   returnGuess() {
     return this.guess;
@@ -16,6 +17,13 @@ class Turn {
   giveFeedback() {
     return this.evaluateGuess() === true ? 'Correct!' : 'Incorrect...';
   }
+  validateGuess(guess) {
+    return guess === undefined ? this.invalidInput = true : guess.toString();
+  }
+  validateCard(card) {
+    return card instanceof Card ? card : this.invalidInput = true;
+  }
 }
 
 module.exports = Turn;
+const Card = require('../src/Card');
