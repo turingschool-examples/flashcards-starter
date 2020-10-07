@@ -35,7 +35,6 @@ describe('Turn', () => {
   });
 
   it('should return the card in play', function() {
-    console.log({key: 10} === {key: 10})
     expect(turn.returnCard()).to.be.an.instanceof(Card);
     expect(turn.returnCard().correctAnswer).to.deep.equal(turn.card.correctAnswer);
   });
