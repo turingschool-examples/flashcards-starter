@@ -8,7 +8,7 @@ class Deck {
     return this.cards ? this.cards.length : undefined;
   }
   verifyCards(cards) {
-    return cards.filter(card => card instanceof Card);
+    return cards.filter(card => card instanceof Card && card.invalidCard === false);
   }
 }
 
