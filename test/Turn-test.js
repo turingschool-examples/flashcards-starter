@@ -10,5 +10,15 @@ describe('Turn', function() {
     expect(Turn).to.be.a('function');
   });
 
+  it('should be an instance of Turn', function() {
+    const turn = new Turn();
+    expect(turn).to.be.an.instanceof(Turn);
+  }); 
+
+  it('should store a user\'s guess to the question', function() {
+    const turn = new Turn('a')
+
+    expect(turn.userGuess).to.equal('a');
+  })
 });
 
