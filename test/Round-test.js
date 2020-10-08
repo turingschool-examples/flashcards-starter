@@ -109,7 +109,6 @@ describe('Round', () => {
     round.takeTurn('fire');
     round.takeTurn('your name');
 
-    round.calculatePercentCorrect();
     round.endRound();
 
     expect(round.endRound()).to.equal('**Round over!** You answered 66% of the questions correctly!');
