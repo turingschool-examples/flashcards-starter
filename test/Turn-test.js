@@ -51,9 +51,20 @@ describe('Turn', function() {
       'What is the largest animal in the world?', 
       ['elephant', 'blue whale', 'hippopotamus'], 
       'blue whale');
-    const turn = new Turn('elephant', card)
+    const turn = new Turn('elephant', card);
 
     expect(turn.returnCard()).to.equal(card);
+  })
+
+  it('should return the Card instance', function() {
+    const card = new Card(
+      1, 
+      'What is the largest animal in the world?', 
+      ['elephant', 'blue whale', 'hippopotamus'], 
+      'blue whale');
+    const turn = new Turn('blue whale', card);
+
+    expect(turn.evaluateGuess()).to.equal(true);
   })
 
 });
