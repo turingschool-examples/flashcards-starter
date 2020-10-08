@@ -18,7 +18,7 @@ describe('Round', () => {
     card1 = new Card(1, 'You live in a one story house made entirely of redwood. What color would the stairs be?', ['wood', 'red', 'What stairs? You live in a one-story house'], 'What stairs? You live in a one-story house');
     card2 = new Card(2, 'I am not alive, but I grow; I don\'t have lungs, but I need air; I don\'t have a mouth, but water kills me. What am I?', ['ice', 'fire', 'pants'], 'fire');
     card3 = new Card(3, 'What belongs to you, but other people use it more than you?', ['your name', 'your money', 'your internet'], 'your name');
-    // turn = new Turn('red', card1);
+    turn = new Turn('red', card1);
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
   });
@@ -72,19 +72,46 @@ describe('Round', () => {
   });
 
   it('should give feedback on correctness of user\'s guess', () => {
+
     round.takeTurn('red');
-    expect(round.takeTurn()).to.equal('incorrect!');
+
+    expect(round.takeTurn('red')).to.equal('incorrect!');
+
+  });
+  it.skip('should give feedback on correctness of user\'s guess', () => {
+
+    round.takeTurn('What stairs? You live in a one-story house');
+
+    expect(round.takeTurn(turn.giveFeedback)).to.not.equal('incorrect!');
+
+  });
+
+  it('should store id of incorrect guesses', () => {
+    round.takeTurn('red');
+    expect(round.incorrectGuesses[0]).to.deep.equal(card1.id)
 
     round.takeTurn('fire');
-    expect(round.takeTurn()).to.equal('correct!');
+    expect(round.incorrectGuesses[0]).to.deep.equal(card1.id)
   });
 
-  it.skip('should store id of incorrect guesses', () => {
-    expect(round.takeTurn(guess)).to.equal
+  it('should calculate percent of correct guesses', () => {
+    round.takeTurn('red');
+    round.takeTurn('fire');
+    round.takeTurn('your name');
+
+    round.calculatePercentCorrect();
+
+    expect(round.calculatePercentCorrect()).to.equal(66);
   });
 
-  it.skip('should store id of incorrect guesses', () => {
+  it('should print a message to show that the round is over', () => {
+    round.takeTurn('red');
+    round.takeTurn('fire');
+    round.takeTurn('your name');
 
+    round.calculatePercentCorrect();
+    round.endRound();
+
+    expect(round.endRound()).to.equal('**Round over!** You answered 66% of the questions correctly!');
   });
-
 });

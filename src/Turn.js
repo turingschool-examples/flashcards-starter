@@ -14,14 +14,14 @@ class Turn {
   };
 
   evaluateGuess() {
-    return this.guess === this.card.correctAnswer ? true : false;
+    return this.card.correctAnswer === this.guess ? true : false;
   };
 
   giveFeedback() {
     if (this.evaluateGuess()) {
       return 'correct!'
     }
-    else {
+    else if (!this.evaluateGuess()) {
       return 'incorrect!'
     }
   };

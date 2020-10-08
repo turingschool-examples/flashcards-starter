@@ -7,28 +7,30 @@ class Round {
     this.turns = 0;
   }
   returnCurrentCard() {
-    // console.log(this.deck);
     return this.deck.cardSet[this.turns];
   }
 
   takeTurn(guess) {
-    console.log(this);
     const currentCard = this.returnCurrentCard();
-    let turn = new Turn(guess, currentCard)
-    console.log(turn.evaluateGuess())
+    const turn = new Turn(guess, currentCard)
+    // console.log(turn)
+
     if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(turn.card.id)
+      // console.log(turn.evaluateGuess())
     }
-
+    // console.log(turn.giveFeedback())
     this.turns++;
-    return turn.giveFeedback();
+    return turn.giveFeedback(guess);
   }
 
   calculatePercentCorrect() {
-
+    return Math.floor((this.turns - this.incorrectGuesses.length) / this.turns * 100)
   }
   endRound() {
+    let percentCorrect = this.calculatePercentCorrect();
 
+    return `**Round over!** You answered ${percentCorrect}% of the questions correctly!`
   }
 }
 
