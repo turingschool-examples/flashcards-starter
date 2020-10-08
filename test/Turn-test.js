@@ -20,5 +20,11 @@ describe('Turn', function() {
 
     expect(turn.userGuess).to.equal('a');
   })
+
+  it('should return the user\'s guess', function() {
+    const turn = new Turn('b')
+
+    expect(turn.returnGuess()).to.equal('b');
+  })
 });
 
