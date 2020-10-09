@@ -23,4 +23,16 @@ describe('Round', function() {
 
     expect(round.deck.cards).to.deep.equal([card1, card2, card3]);
   })
+
+  it('should return the current card being played', function() {
+    const card1 = new Card(1, 'What is Joe\'s favorite food', ['pizza', 'burgers', 'noodles'], 'noodles');
+    const card2 = new Card(2, 'What is Joe\'s favorite animal', ['dog', 'cat', 'frog'], 'cat');
+    const card3 = new Card(3, 'What is Joe\'s favorite color', ['blue', 'red', 'yellow'], 'blue');
+
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+
+    expect(round.deck.cards[0]).to.deep.equal(card1);
+  })
+
 })
