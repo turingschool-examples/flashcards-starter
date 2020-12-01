@@ -14,15 +14,15 @@ describe('Turn', function() {
     return turn = new Turn('incorrect guess', card)
   });
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     expect(Turn).to.be.a('function');
   });
 
-  it.skip('should have a guess property', function() {
+  it('should have a guess property', function() {
     expect(turn.userGuess).to.equal('incorrect guess')
   });
 
-  it.skip('should have a card property', function() {
+  it('should have a card property', function() {
     expect(turn.currentCard).to.equal(card);
   });
 
