@@ -25,5 +25,15 @@ describe('Turn', function() {
         const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
         const turn = new Turn('Up on the mountain', card);
         expect(turn.currentCard).to.deep.equal(card);
-    })
+    });
+    it('should return the guess', function() {
+        const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+        const turn = new Turn('Up on the mountain', card);
+        expect(turn.returnGuess()).to.equal('Up on the mountain');
+    });
+    it('should return the card', function() {
+        const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+        const turn = new Turn('Up on the mountain', card);
+        expect(turn.returnCard()).to.equal(card);
+    });
 })
