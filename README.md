@@ -1,8 +1,14 @@
-# FlashCards Starter Kit
+# FlashCards Project
 
-## Fork This Repo
+## Abstract:
 
-On the top right corner of this page, click the **Fork** button.
+Using TDD, we are creating an application that simulates flashcards on the command line through a series of iterations building on ES6 classes and practicing SRP.
+
+## Contributors:
+
+Connie Hong
+
+
 
 ## Setup
 
@@ -20,7 +26,7 @@ npm install
 
 To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+Running `node index.js` from the root of your project should result in the following message being displayed in your terminal:
 
 ```bash
 Node server running on port 3000
@@ -74,6 +80,6 @@ The test results will output to the terminal.
 
 Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
 
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
+Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
 
 ---
