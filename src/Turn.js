@@ -11,9 +11,19 @@ class Turn {
   }
   evaluateGuess() {
     //returns true/false indicating if the user's guess matches the correct answer on the card
+    if(this.userGuess === this.card.correctAnswer) {
+      return true;
+    } else {
+      return false;
+    }
   }
   giveFeedback() {
     //returns 'incorrect' or 'correct" '
+    if(this.userGuess === this.card.correctAnswer) {
+      return "Correct!"
+    } else {
+      return "Incorrect!"
+    }
   }
 }
 module.exports = Turn;
