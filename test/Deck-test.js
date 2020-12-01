@@ -17,9 +17,12 @@ describe('Deck', () => {
   });
 
   it.skip('should be made of cards', () => {
-    const deck = new Deck(cards);
     const card1 = new Card();
     const card2 = new Card();
     const card3 = new Card();
+    
+    const cards = [card1, card2, card3];
+
+    const deck = new Deck(cards);
   });
 }
