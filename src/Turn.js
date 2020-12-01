@@ -6,3 +6,5 @@ const card = require('./Card');
 class Turn {
   constructor() {}
 }
+
+module.exports = Turn;
