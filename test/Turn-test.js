@@ -11,7 +11,6 @@ describe('Turn', function() {
         const turn = new Turn();
 
         expect(Turn).to.be.a('function');
-
     });
 
     it('should be an instance of a Turn', function() {
@@ -23,39 +22,52 @@ describe('Turn', function() {
 
     it('should be able to store a guess', function() {
 
-        const turn = new Turn('Up on the mountain');
+        const turn = new Turn('Tis a bleep blorp');
 
-        expect(turn.guess).to.equal('Up on the mountain');
+        expect(turn.guess).to.equal('Tis a bleep blorp');
     });
 
     it('should be able to store a card object', function() {
+
         const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
-        const turn = new Turn('Up on the mountain', card);
+        const turn = new Turn('Tis a bleep blorp', card);
+
         expect(turn.currentCard).to.deep.equal(card);
     });
     it('should return the guess', function() {
+
         const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-        const turn = new Turn('Up on the mountain', card);
-        expect(turn.returnGuess()).to.equal('Up on the mountain');
+
+        const turn = new Turn('Tis a bleep blorp', card);
+
+        expect(turn.returnGuess()).to.equal('Tis a bleep blorp');
     });
 
     it('should return the card', function() {
+
         const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-        const turn = new Turn('Up on the mountain', card);
+
+        const turn = new Turn('Tis a bleep blorp', card);
+
         expect(turn.returnCard()).to.equal(card);
     });
 
     it('should see if the guess is wrong', function() {
+
         const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-        const turn = new Turn('Up on the mountain', card);
+
+        const turn = new Turn('Tis a bleep blorp', card);
+
         expect(turn.evaluateGuess()).to.equal(false);
     });
 
     it('should see if a guess is correct', function() {
+
         const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+
         const turn = new Turn('object', card);
-        console.log(turn);
+
         expect(turn.evaluateGuess()).to.equal(true);
     })
 })
