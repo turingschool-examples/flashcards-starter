@@ -16,8 +16,24 @@ describe('Round', function () {
     expect(round).to.be.an.instanceof(Round)
   })
 
+  // it('should return the current card', function (){
+  //
+  // })
+
   // it('should instantiate a Turn', function () {
   // const round = new Round()
   // const turn = new Turn()
   // })
+
+  it('should add one to the turn count', function () {
+
+  })
+
+  it('should change the current card to be the next card', function () {
+
+  })
+
+  it('should evaluate the current guess', function () {
+
+  })
 })
