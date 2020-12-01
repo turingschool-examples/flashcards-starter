@@ -1,9 +1,10 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
+const card = require('./Card');
 
-class Card {
+class Deck {
   constructor() {}
 }
 
-module.exports = Card;
+module.exports = Deck;
