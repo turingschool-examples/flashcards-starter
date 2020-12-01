@@ -8,3 +8,5 @@ const turn = require('./Turn');
 class Round {
   constructor() {};
 }
+
+module.exports = Round;
