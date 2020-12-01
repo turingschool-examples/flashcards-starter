@@ -8,14 +8,12 @@ class Round {
 
   }
 
-  // create new Turn(guess, currentCard)
-  // increment turn.turns count by one
-  // change current card to be the next one in line
-  // evaluate the guess
-  // record the guess in incorrectGuesses
-  // give feedback
-  takeTurn() {
-
+  takeTurn(currentGuess, currentCard) {
+    // const currentTurn = new Turn(currentGuess, currentCard)
+    // turn.turnCount++
+    // currentCard = currentCard[id++]
+    // turn.evaluateGuess(currentGuess)
+    // turn.giveFeedback
   }
 
   // calculate percent correct
