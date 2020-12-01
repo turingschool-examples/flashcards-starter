@@ -32,6 +32,11 @@ describe('Turn', () => {
   })
 
   //it should return the user's guess
+  it('should return the user\'s guess', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
+    expect(turn.returnGuess()).to.equal('object');
+  })
   //it should return the Card
   //it should evaluate the guess to true if correct or false if incorrect
   //it should state whether the answer is correct or incorrect
