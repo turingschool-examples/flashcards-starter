@@ -5,3 +5,6 @@ const card = require('./Card');
 const deck = require('./Deck');
 const turn = require('./Turn');
 
+class Round {
+  constructor() {};
+}
