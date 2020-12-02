@@ -16,11 +16,16 @@ describe('Deck', function() {
     const deck = new Deck([card1, card2, card3]);
   });
 
-  // it.skip('should be a function', function() {
-  //   expect(Deck).to.be.a('function');
-  // });
-  //
-  // it.skip('should store array of cards', function() {
-  //   expect(deck.cards).to.deep.equal([card1, card2, card3]);
-  // });
-})
+  it.skip('should be a function', function() {
+    expect(Deck).to.be.a('function');
+  });
+
+  it.skip('should store array of cards', function() {
+    expect(deck.cards).to.deep.equal([card1, card2, card3]);
+  });
+
+  it.skip('should count the number of cards in the deck', function() {
+    deck.countCards();
+    expect(deck.countCards()).to.equal(3);
+  });
+});
