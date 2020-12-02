@@ -60,6 +60,11 @@ describe('Turn', () => {
       expect(answer).to.equal(correctAnswer);
       expect(evaluation).to.equal(true);
     });
+
+    it.skip('should evaluate an incorrect guess as incorrect', () => {
+      expect(answer).to.not.equal(correctAnswer);
+      expect(evaluation).to.equal(false);
+    });
   
   });
 
