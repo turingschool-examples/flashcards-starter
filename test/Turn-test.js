@@ -1,16 +1,19 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Card = require('../src/Card')
 const Turn = require('../src/Turn');
 
 describe('Turn', function () {
-  let turn
+  let card, turn
 
   beforeEach(function () {
-    turn1 = new Turn("This guess", 1)
-    turn2 = new Turn("Another guess", 2)
-    turn3 = new Turn("Chocolate", 3)
-    turn4 = new Turn("Strawberry", 4)
+    card1 = new Card(1, 'This is your question', ['right', 'wrong', 'also wrong'], 'right')
+    card2 = new Card(2, 'This is another question', ['bad', 'good', 'worse'], 'good')
+    turn1 = new Turn("This guess", card1)
+    turn2 = new Turn("Another guess", card1)
+    turn3 = new Turn("good", card2)
+    turn4 = new Turn('right', card2)
   })
 
   it('should be a function', function () {
@@ -28,7 +31,7 @@ describe('Turn', function () {
 
   it('should return the current card', function () {
     turn2.returnCard()
-    expect(turn2.currentCard).to.equal(2)
+    expect(turn2.currentCard).to.equal(card1)
   })
 
   it('should return a boolean', function () {
@@ -37,20 +40,20 @@ describe('Turn', function () {
   })
 
   it('should return true if the guess is correct', function () {
-    expect(turn3.evaluateGuess("Chocolate")).to.equal(true)
+    expect(turn3.evaluateGuess('good')).to.equal(true)
   })
 
   it('should return false if the guess is incorrect', function () {
-    expect(turn3.evaluateGuess("Vanilla")).to.equal(false)
+    expect(turn3.evaluateGuess('not good')).to.equal(false)
   })
 
   it('should return \'correct!\' if the guess is correct', function () {
-    turn4.evaluateGuess("Strawberry")
+    turn4.evaluateGuess('right')
     expect(turn4.giveFeedback()).to.equal('correct!')
   })
 
   it('should return \'incorrect!\' if the guess is incorrect', function () {
-    turn4.evaluateGuess("Raspberry")
+    turn4.evaluateGuess('not right')
     expect(turn4.giveFeedback()).to.equal('incorrect!')
   })
 
