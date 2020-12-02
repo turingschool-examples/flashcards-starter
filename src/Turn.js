@@ -13,21 +13,14 @@ class Turn {
   }
 
   evaluateGuess() {
-    if (this.guess === card.answer) {
-      this.response = true
-      return true
-    } else {
-      this.response = false
-      return false
-    }
+    return this.guess === this.card.correctAnswer
   }
 
   giveFeedback() {
-    if (this.response === true) {
+    if (this.evaluateGuess()) {
       return 'correct!'
-    } else {
-      return 'incorrect!'
     }
+    return 'incorrect!'
   }
 }
 

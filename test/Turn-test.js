@@ -5,56 +5,69 @@ const Card = require('../src/Card')
 const Turn = require('../src/Turn')
 
 describe('Turn', function () {
-  let card1, card2, turn1, turn2, turn3, turn4
-  // do i need 4 turns if i only have 2 cards?
-  beforeEach(function () {
-    card1 = new Card(1, 'This is your question', ['right', 'wrong', 'also wrong'], 'right')
-    card2 = new Card(2, 'This is another question', ['bad', 'good', 'worse'], 'good')
-    turn1 = new Turn("This guess", card1)
-    turn2 = new Turn("Another guess", card1)
-    turn3 = new Turn("good", card2)
-    turn4 = new Turn('right', card2)
-  })
 
-  it.skip('should be a function', function () {
+  //   card = new Card(1, 'What is my name', ['Elsa', 'Matt', 'Gonzo'], 'Elsa')
+  // right   turn = new Turn('Elsa', card)
+  // wrong   turn = new Turn('Matt', card)
+
+  it('should be a function', function () {
     expect(Turn).to.be.a('function');
   });
 
-  it.skip('should be an instance of Turn', function () {
-    expect(turn1).to.be.an.instanceof(Turn);
+  it('should be an instance of Turn', function () {
+    turn = new Turn('Elsa', new Card())
+    expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it.skip('should return the player\'s guess', function () {
-    turn1.returnGuess()
-    expect(turn1.guess).to.equal("This guess")
-  });
-
-  it.skip('should return the current card', function () {
-    turn2.returnCard()
-    expect(turn2.currentCard).to.equal(card1)
+  it('should accept two arguments', function () {
+    card = new Card(1, 'What is my name', ['Elsa', 'Matt', 'Gonzo'], 'Elsa')
+    turn = new Turn('Elsa', card)
+    expect(turn.guess).to.equal('Elsa')
+    expect(turn.card).to.equal(card)
   })
 
-  it.skip('should return a boolean', function () {
-    turn2.evaluateGuess()
-    expect(turn2.evaluateGuess()).to.be.a('boolean')
+  it('should return the user\'s guess', function () {
+    turn = new Turn('Elsa', card)
+    expect(turn.returnGuess()).to.equal('Elsa')
   })
 
-  it.skip('should return true if the guess is correct', function () {
-    expect(turn3.evaluateGuess('good')).to.equal(true)
+  it('should return the current card', function () {
+    turn = new Turn('Elsa', card)
+    expect(turn.returnCard()).to.equal(card)
   })
 
-  it.skip('should return false if the guess is incorrect', function () {
-    expect(turn3.evaluateGuess('not good')).to.equal(false)
+  describe('Turn.evaluateGuess', function () {
+    it('should return a boolean', function () {
+      const turn = new Turn('Elsa', card)
+      expect(turn.evaluateGuess()).to.be.a('boolean')
+    })
+
+    it('should return true when the guess is correct', function () {
+      const turn = new Turn('Elsa', card)
+      expect(turn.evaluateGuess()).to.equal(true)
+    })
+
+    it('should return false when the guess is incorrect', function () {
+      const turn = new Turn('Matt', card)
+      expect(turn.evaluateGuess()).to.equal(false)
+    })
   })
 
-  it.skip('should return \'correct!\' if the guess is correct', function () {
-    turn4.evaluateGuess('right')
-    expect(turn4.giveFeedback()).to.equal('correct!')
-  })
+  describe('Turn.giveFeedback', function () {
 
-  it.skip('should return \'incorrect!\' if the guess is incorrect', function () {
-    turn4.evaluateGuess('not right')
-    expect(turn4.giveFeedback()).to.equal('incorrect!')
-  })
+    it('should return return a string', function () {
+      const turn = new Turn('Elsa', card)
+      expect(turn.giveFeedback()).to.be.a('string')
+    })
 
+    it('should return correct! when the guess is correct', function () {
+      const turn = new Turn('Elsa', card)
+      expect(turn.giveFeedback()).to.eq('correct!')
+    })
+
+    it('should return incorrect! when the guess is incorrect', function () {
+      const turn = new Turn('Matt', card)
+      expect(turn.giveFeedback()).to.eq('incorrect!')
+    })
+  })
 })
