@@ -8,19 +8,24 @@ const Turn = require('../src/Turn');
 const Game = require('../src/Game');
 
 describe('Round', () => {
+  let card1, card2, card3, cards, deck, round;
 
-  it.skip('should be a function', () => {
-    const round = new Round();
+  beforeEach(() => {
+    card1 = new Card();
+    card2 = new Card();
+    card3 = new Card();
+    cards = [card1, card2, card3];
+
+    deck = new Deck(cards);
+
+    round = new Round(deck);
+  });
+
+  it.skip('should be a function', () => {    
     expect(Round).to.be.a('function');
   });
 
-  it.skip('should be an instance of Round', () => {
-    const card1 = new Card();
-    const card2 = new Card();
-    const cards = [card1, card2];
-    const deck = new Deck(cards);
-    const round = new Round(deck);
-
+  it('should be an instance of Round', () => {    
     expect(round).to.be.an.instanceof(Round);
   });
 
