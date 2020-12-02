@@ -2,13 +2,12 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Deck = require('../src/Deck');
-const Card = require('../src/Card');
+// const Card = require('../src/Card');
 
 describe('Deck', function () {
-  let card, deck
+  let deck
 
   beforeEach(function () {
-    card = new Card(1, "The question", ["ans1", "ans2"], "ans2")
     deck = new Deck()
   })
 
