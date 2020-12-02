@@ -15,16 +15,18 @@ describe('Deck', function() {
     card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
   });
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     let deck = new Deck();
     expect(Deck).to.be.a('function');
   });
 
-  it.skip('should store array of cards', function() {
+  it('should store array of cards', function() {
+    let deck = new Deck([card1, card2, card3]);
     expect(deck.cards).to.deep.equal([card1, card2, card3]);
   });
 
-  it.skip('should count the number of cards in the deck', function() {
+  it('should count the number of cards in the deck', function() {
+    let deck = new Deck([card1, card2, card3]);
     deck.countCards();
     expect(deck.countCards()).to.equal(3);
   });
