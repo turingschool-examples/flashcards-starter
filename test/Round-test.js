@@ -24,4 +24,6 @@ describe('Round', () => {
     expect(round).to.be.an.instanceof(Round);
   });
 
+  it.skip('should have the first card of the deck saved', () => {});
+
 });
