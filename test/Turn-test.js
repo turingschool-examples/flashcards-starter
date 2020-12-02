@@ -32,4 +32,10 @@ describe('Turn', () => {
     expect(turn.card).to.deep.equal(card);
   });
 
+  it.skip('should return the given guess', () => {
+    const guess = turn.returnGuess();
+
+    expect(guess).to.equal('42');
+  });
+
 });
