@@ -14,7 +14,7 @@ describe('Card', function() {
   });
 
   it('should be an instance of Card', function() {
-    expect(card).to.be.an.instanceof(Card);
+    expect(card).to.be.an.instanceOf(Card);
   });
 
   it('should be able to store a question', function() {

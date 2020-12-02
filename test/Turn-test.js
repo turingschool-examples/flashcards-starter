@@ -17,7 +17,7 @@ describe('Turn', () => {
   });
 
   it('should be an instance of Turn', () => {
-    expect(turn).to.be.an.instanceof(Turn);
+    expect(turn).to.be.an.instanceOf(Turn);
   });
 
   it('should be able take the user\'s guess as an argument', () => {
