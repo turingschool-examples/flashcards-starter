@@ -28,10 +28,10 @@ describe('Turn', () => {
     expect(turn.card).to.deep.equal(card);
   });
 
-  it.skip('should return the given guess', () => {
+  it('should return the given guess', () => {
     const guess = turn.returnGuess();
 
-    expect(guess).to.equal('42');
+    expect(guess).to.equal(turn.answer);
   });
 
   it.skip('should return the card', () => {
