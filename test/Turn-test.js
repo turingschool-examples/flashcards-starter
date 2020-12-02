@@ -11,15 +11,15 @@ describe('Turn', () => {
     turn = new Turn();
   });
 
-  it('should be a function', () => {    
+  it.skip('should be a function', () => {    
     expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Turn', () => {    
+  it.skip('should be an instance of Turn', () => {    
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it('should take in an answer', () => {
+  it.skip('should take in an answer', () => {
     turn = new Turn('42');
 
     expect(turn.answer).to.equal('42');
@@ -30,14 +30,21 @@ describe('Turn', () => {
     turn = new Turn('42', card);
   });
 
-  it('should take in an answer and a card', () => {    
+  it.skip('should take in an answer and a card', () => {    
     expect(turn.card).to.deep.equal(card);
   });
 
-  it('should return the given guess', () => {
+  it.skip('should return the given guess', () => {
     const guess = turn.returnGuess();
 
     expect(guess).to.equal('42');
   });
 
+  it.skip('should return the card', () => {
+    const turnCard = turn.returnCard();
+
+    expect(turnCard).to.deep.equal(turn.card);    
 });
+
+
+
