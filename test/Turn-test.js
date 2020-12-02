@@ -19,7 +19,7 @@ describe('Turn', () => {
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it.skip('should take in an answer', () => {
+  it('should take in an answer', () => {
     turn = new Turn('42');
 
     expect(turn.answer).to.equal('42');
