@@ -43,23 +43,22 @@ describe('Turn', () => {
   });
 
   describe('evaluation methods', () => {
-    let evaluation, question, correctAnswer, givenAnswer, feedback, guess;
+    let evaluation, question, correctAnswer, givenAnswer, feedback;
 
     beforeEach(() => {
       question = card.question;
       correctAnswer = card.correctAnswer;
-      givenAnswer = turn.answer;
-      guess = turn.answer;
-      evaluation = turn.evaluateGuess(guess);      
+      givenAnswer = turn.answer;      
+      evaluation = turn.evaluateGuess();      
     });
 
     it('should evaluate a correct guess as correct', () => {
-      expect(answer).to.equal(correctAnswer);
+      expect(turn.answer).to.equal(correctAnswer);      
       expect(evaluation).to.equal(true);
     });
 
     it.skip('should evaluate an incorrect guess as incorrect', () => {
-      expect(answer).to.not.equal(correctAnswer);
+      expect(answer).to.not.equal(correctAnswer);      
       expect(evaluation).to.equal(false);
     });
 
