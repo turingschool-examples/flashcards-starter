@@ -1,10 +1,14 @@
-const data = require('./data');
-const prototypeQuestions = data.prototypeData;
-const util = require('./util');
+const data = require('./data')
+const prototypeQuestions = data.prototypeData
+const util = require('./util')
+const Deck = require('./Deck')
+const Card = require('./Card')
+const Turn = require('./Turn')
+const Round = require('./Turn')
 
 class Game {
-  constructor(currentRound, currentCard, currentTurn, currentGuess) {
-    this.currentRound = currentRound
+  constructor(currentRound) {
+    this.currentRound = currentRound;
   }
 
   printMessage(deck, round) {
@@ -16,21 +20,15 @@ class Game {
     util.main(round);
   }
 
-  startGame(cardID, question, answers, correctAnswer) {
-    deck.createCard(cardID, question, answers, correctAnswer)
+  startGame() {
+    const card = new Card(1, "A good question", ["ans1", "ans2"], "ans2")
+    const deck = new Deck()
+    // const turn = new Turn("ans2", card)
+    const round = new Round(card, turn, turn.guess)
+    // this.printMessage(deck, round)
+    // this.printQuestion(round)
   }
 
-  createRound(currentCard, currentTurn, currentGuess) {
-    const round = new Round(currentCard, currentTurn, currentGuess)
-  }
-
-
-  // game start method:
-  // create cards
-  // create deck
-  // create round
-  // invoke this.printMessage
-  // invoke this.printQuestion
 }
 
 module.exports = Game;

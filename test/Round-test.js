@@ -17,51 +17,51 @@ describe('Round', function () {
     round1 = new Round(card1, turn1, turn1.guess)
   })
 
-  it('should be a function', function () {
+  it.skip('should be a function', function () {
     expect(Round).to.be.a('function')
   })
 
-  it('should be an instance of Round', function () {
+  it.skip('should be an instance of Round', function () {
     expect(round).to.be.an.instanceof(Round)
   })
 
-  it('should return the current card', function () {
+  it.skip('should return the current card', function () {
     const round = new Round(card1)
     round.returnCurrentCard()
     expect(round.currentCard).to.deep.equal(card1)
   })
 
-  it('should instantiate a Turn', function () {
+  it.skip('should instantiate a Turn', function () {
     round.takeTurn(turn.guess, card1)
     expect(round.currentTurn).to.deep.equal(turn)
   })
 
-  it('should add one to the turn count', function () {
+  it.skip('should add one to the turn count', function () {
     round.takeTurn(turn.guess, card1)
     round.takeTurn(turn.guess, card1)
     round.takeTurn(turn.guess, card1)
     expect(round.turnCount).to.equal(3)
   })
 
-  it('should change the current card to be the next card', function () {
+  it.skip('should change the current card to be the next card', function () {
     expect(round1.currentCard.cardId).to.equal(2)
     round1.takeTurn(turn1.guess, card1)
     expect(round1.currentCard.cardId).to.equal(3)
   })
 
-  it('should evaluate the current guess', function () {
+  it.skip('should evaluate the current guess', function () {
     expect(turn.evaluateGuess(turn.guess)).to.equal(true)
     expect(turn.evaluateGuess('array')).to.equal(false)
   })
 
-  it('should give feedback', function () {
+  it.skip('should give feedback', function () {
     turn.evaluateGuess('no')
     expect(turn.giveFeedback()).to.equal('incorrect!')
     turn.evaluateGuess('yes')
     expect(turn.giveFeedback()).to.equal('correct!')
   })
 
-  it('should calculate percent correct', function () {
+  it.skip('should calculate percent correct', function () {
     round.takeTurn('yes', turn.currentCard) // right
     round.takeTurn('yes', turn.currentCard) // right
     expect(round.calculatePercentCorrect()).to.equal(100)
@@ -70,7 +70,7 @@ describe('Round', function () {
     expect(round.calculatePercentCorrect()).to.equal(50)
   })
 
-  it('should log a game over message', function () {
+  it.skip('should log a game over message', function () {
     round.takeTurn('yes', turn.currentCard) // right
     round.takeTurn('yes', turn.currentCard) // right
     round.takeTurn('wrong answer', turn.currentCard) // wrong
