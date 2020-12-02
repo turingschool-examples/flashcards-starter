@@ -6,6 +6,7 @@ class Round {
     this.currentTurn = currentTurn;
     this.currentGuess = currentGuess;
     this.turnCount = 0;
+    this.rightAnswers = 0;
   }
 
   returnCurrentCard() {
@@ -16,14 +17,16 @@ class Round {
     const thisTurn = new Turn(currentGuess, currentCard)
     this.turnCount++
     currentCard.cardId++
-    thisTurn.evaluateGuess(currentGuess)
+    thisTurn.evaluateGuess(this.currentGuess)
     thisTurn.giveFeedback()
+    if (thisTurn.giveFeedback() === 'correct!') {
+      this.rightAnswers++
+    }
     return this.currentTurn
   }
 
-  // calculate percent correct
   calculatePercentCorrect() {
-
+    return (this.rightAnswers / this.turnCount) * 100
   }
 
   // console.log round over, you answered % of questions correctly
