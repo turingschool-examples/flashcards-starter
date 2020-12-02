@@ -65,8 +65,8 @@ describe('Turn', () => {
       expect(evaluation).to.equal(false);
     });
 
-    it.skip('should give "correct" feedback on correct guess', () => {
-      expect(answer).to.equal(correctAnswer);
+    it('should give "correct" feedback on correct guess', () => {
+      expect(turn.answer).to.equal(correctAnswer);
       expect(evaluation).to.equal(true);
       expect(feedback).to.equal('correct!');
     });
