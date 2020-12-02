@@ -18,11 +18,11 @@ describe('Turn', function() {
     expect(Turn).to.be.a('function');
   });
 
-  it('should have a guess property', function() {
+  it('should store a guess', function() {
     expect(turn.userGuess).to.equal('incorrect guess');
   });
 
-  it('should have a card property', function() {
+  it('should store a card', function() {
     expect(turn.currentCard).to.equal(card);
   });
 
@@ -31,12 +31,12 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.equal('incorrect guess');
   });
 
-  it.skip('should return the current card being played', function() {
+  it('should return the current card being played', function() {
     turn.returnCard();
     expect(turn.returnCard()).to.equal(card);
   });
 
-  it.skip('should compare the users guess to the correct answer on card', function() {
+  it('should compare the users guess to the correct answer on card', function() {
     turn.evaluateGuess();
     expect(turn.evaluateGuess()).to.equal(false);
     turn = new Turn('object', card);
@@ -44,7 +44,7 @@ describe('Turn', function() {
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
-  it.skip('should give the user feedback based on your answer', function() {
+  it('should give the user feedback based on your answer', function() {
     turn.giveFeedback();
     expect(turn.giveFeedback()).to.equal('incorrect!');
     turn = new Turn('object', card);
