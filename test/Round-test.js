@@ -6,14 +6,14 @@ const Turn = require('../src/Turn')
 const Card = require('../src/Card')
 
 describe('Round', function () {
-  let card, card1, turn, turn1, turn2, round, round1
+  let card, card1, turn, turn1, round, round1
 
   beforeEach(function () {
     card = new Card(1, 'Have a question', ['nope', 'yes', 'not this'], 'yes')
     card1 = new Card(2, 'This is the question?', ['object', 'array', 'function'], 'object')
     turn = new Turn('yes', card)
     turn1 = new Turn('object', card1)
-    turn2 = new Turn('this is wrong', card1)
+    // turn2 = new Turn('this is wrong', card1)
     round = new Round(card, turn, turn.guess)
     round1 = new Round(card1, turn1, turn1.guess)
   })
@@ -69,6 +69,15 @@ describe('Round', function () {
     round.takeTurn('wrong answer', turn.currentCard) // wrong
     round.takeTurn('wrong answer', turn.currentCard) // wrong
     expect(round.calculatePercentCorrect()).to.equal(50)
+  })
+
+  it('should log a game over message', function () {
+    round.takeTurn('yes', turn.currentCard) // right
+    round.takeTurn('yes', turn.currentCard) // right
+    round.takeTurn('wrong answer', turn.currentCard) // wrong
+    round.takeTurn('wrong answer', turn.currentCard) // wrong
+    expect(round.endRound()).to.be.a('string')
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`)
   })
 
 })
