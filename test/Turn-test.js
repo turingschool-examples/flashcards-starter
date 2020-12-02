@@ -46,6 +46,15 @@ describe('Turn', () => {
     expect(turnCard).to.deep.equal(turn.card);
   });
 
+  describe('evaluateGuess method', () => {
+    let evaluation;
+
+    beforeEach(() => {
+      evaluation = turn.evaluateGuess();
+    });
+  
+  });
+
 });
 
 
