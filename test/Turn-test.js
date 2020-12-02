@@ -11,4 +11,8 @@ describe('Turn', () => {
     turn = new Turn();
   });
 
+  it.skip('should be a function', () => {
+    expect(Turn).to.be.a('function');
+  });
+
 });
