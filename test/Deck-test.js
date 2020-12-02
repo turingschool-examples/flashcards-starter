@@ -22,9 +22,17 @@ describe('Deck', () => {
     const card3 = new Card();
 
     const cards = [card1, card2, card3];
-
     const deck = new Deck(cards);
 
     expect(deck.cards).to.deep.equal(cards);
   });
+
+  it.skip('should count cards', () => {
+    const card1 = new Card();
+    const card2 = new Card();
+    const card3 = new Card();
+
+    const cards = [card1, card2, card3];
+    const deck = new Deck(cards);
+  }
 }
