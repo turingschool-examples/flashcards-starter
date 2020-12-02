@@ -7,25 +7,27 @@ describe('Card', function() {
   let card;
 
   beforeEach(function() {
-    card = new Card(3, 'An object allows you to define a set of related information using what kind of pairs?', ['object-subject', 'key-value', 'index-array'], 'key-value');
+    card1 = new Card(3, 'An object allows you to define a set of related information using what kind of pairs?', ['object-subject', 'key-value', 'index-array'], 'key-value');
+    //card2
+    //card3
   });
   it('should be a function', function() {
     expect(Card).to.be.a('function');
   });
 
   it('should be an instance of Card', function() {
-    expect(card).to.be.an.instanceOf(Card);
+    expect(card1).to.be.an.instanceOf(Card);
   });
 
   it('should be able to store a question', function() {
-    expect(card.question).to.equal('An object allows you to define a set of related information using what kind of pairs?');
+    expect(card1.question).to.equal('An object allows you to define a set of related information using what kind of pairs?');
   });
 
   it('should be able to store a list of possible answers', function() {
-    expect(card.answers).to.deep.equal(['object-subject', 'key-value', 'index-array']);
+    expect(card1.answers).to.deep.equal(['object-subject', 'key-value', 'index-array']);
   });
 
   it('should be able to store the correct answer', function() {
-    expect(card.correctAnswer).to.equal('key-value');
+    expect(card1.correctAnswer).to.equal('key-value');
   });
 });
