@@ -5,59 +5,42 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', () => {
+  let turn; //should i/ how do i add more instances when using beforeEach?
+  let card;
 
-  //it should be a function
+  beforeEach(function() {
+    turn = new Turn('object', card);
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+  })
   it('should be a function', () => {
-    const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
-  //it should be an instance of Turn
   it('should be an instance of Turn', () => {
-    const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  //it should be instantiated with 2 arguments (userGuess, Card)
   it('should be able take the user\'s guess as an argument', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
     expect(turn).to.have.property('userGuess');
   });
 
   it('should be able to take in an instance of Card', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
     expect(turn).to.have.property('card');
   });
 
-  //it should return the user's guess
   it('should be able to return the user\'s guess', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
     expect(turn.returnGuess()).to.equal('object');
   });
 
-  //it should return the Card
   it('should be able to return the Card instance', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
-    expect(turn.returnCard()).to.equal(card);
+    expect(turn.returnCard()).to.equal(turn.card);
   });
 
-    //it should evaluate the guess to true if correct or false if incorrect
-    //create multiple instances
-  it('should be able to return a value of true if the user\'s guess is correct', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
+  it('should return a value of true if the user\'s guess is correct', () => {
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
-  //it should state whether the answer is correct or incorrect
-  //create multiple instances
-  it('should be able to return a value of true if the user\'s guess is correct', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('object', card);
+  it('should return a value of true if the user\'s guess is correct', () => {
     expect(turn.giveFeedback()).to.equal("Correct!");
   });
 });
