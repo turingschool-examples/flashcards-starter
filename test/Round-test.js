@@ -21,4 +21,7 @@ describe('Round', () => {
     const deck = new Deck(cards);
     const round = new Round(deck);
 
+    expect(round).to.be.an.instanceof(Round);
+  });
+
 });
