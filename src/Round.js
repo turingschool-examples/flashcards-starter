@@ -12,18 +12,19 @@ class Round {
   };
   takeTurn(guess) {
     const turn = new Turn(guess, this.currentCard);
-    this.turns++;
-    if (turn.userGuess !== this.currentCard) {
+    const feedback = turn.giveFeedback();
+    if (turn.userGuess !== this.currentCard.correctAnswer) {
       this.incorrectGuesses.push(this.currentCard.id);
     };
+    this.turns++;
     this.currentCard = this.deck.cards[this.turns];
-    return turn.giveFeedback();
+    return feedback;
   };
   calculatePercentCorrect() {
-    return (this.turns - this.incorrectGuesses.length) / this.turns * 100;
+    return Math.ceil((this.turns - this.incorrectGuesses.length) / this.turns * 100);
   };
   endRound() {
-    console.log(`**Round Over!**You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    return `**Round Over!**You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   };
 };
 
