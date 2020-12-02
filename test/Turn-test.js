@@ -19,39 +19,45 @@ describe('Turn', () => {
   });
 
   //it should be instantiated with 2 arguments (userGuess, Card)
-  it('should take in the user\'s guess', () => {
+  it('should be able take the user\'s guess as an argument', () => {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn).to.have.property('userGuess');
   });
 
-  it('should take in an instance of Card', () => {
+  it('should be able to take in an instance of Card', () => {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn).to.have.property('card');
   });
 
   //it should return the user's guess
-  it('should return the user\'s guess', () => {
+  it('should be able to return the user\'s guess', () => {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn.returnGuess()).to.equal('object');
   });
 
   //it should return the Card
-  it('should return the Card instance', () => {
+  it('should be able to return the Card instance', () => {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn.returnCard()).to.equal(card);
   });
 
     //it should evaluate the guess to true if correct or false if incorrect
-    //create multiple instances 
-  it('should return a value of true if the user\'s guess is correct', () => {
+    //create multiple instances
+  it('should be able to return a value of true if the user\'s guess is correct', () => {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn.evaluateGuess()).to.equal(true);
-  })
+  });
 
   //it should state whether the answer is correct or incorrect
+  //create multiple instances
+  it('should be able to return a value of true if the user\'s guess is correct', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
+    expect(turn.giveFeedback()).to.equal("Correct!");
+  });
 });
