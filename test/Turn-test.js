@@ -5,9 +5,10 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', () => {
-  let turn;
+  let turn, card;
 
   beforeEach(() => {
+    card = new Card();
     turn = new Turn();
   });
 
@@ -23,6 +24,12 @@ describe('Turn', () => {
     turn = new Turn('42');
 
     expect(turn.answer).to.equal('42');
+  });
+
+  it.skip('should take in an answer and a card', () => {    
+    turn = new Turn('MORE!', card);
+
+    expect(turn.card).to.deep.equal(card);
   });
 
 });
