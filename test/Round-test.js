@@ -9,6 +9,9 @@ const Game = require('../src/Game');
 
 describe('Round', () => {
 
-
+  it.skip('should be a function', () => {
+    const round = new Round();
+    expect(Round).to.be.a('function');
+  });
 
 });
