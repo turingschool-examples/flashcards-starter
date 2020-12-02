@@ -3,33 +3,48 @@ const expect = chai.expect;
 
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
-const data = require('../src/data');
 
 describe('Deck', function () {
+  let card, deck
+
+  beforeEach(function () {
+    card = new Card(1, "The question", ["ans1", "ans2"], "ans2")
+    deck = new Deck()
+  })
 
   it('should be a function', function () {
-    const deck = new Deck()
-    const card = new Card(1, "The question", ["ans1", "ans2"], "ans2")
     expect(Deck).to.be.a('function')
   })
 
   it('should be an instance of Deck', function () {
-    const card = new Card(1, "The question", ["ans1", "ans2"], "ans2")
-    const deck = new Deck()
     expect(deck).to.be.an.instanceof(Deck)
   })
 
   it('should have an array of cards', function () {
-    const card = new Card(1, "The question", ["ans1", "ans2"], "ans2")
-
-    const deck = new Deck()
     expect(deck.currentDeck).to.be.an('array')
   })
 
   it('should have cards in the deck', function () {
-    const card = new Card(1, "The question", ["ans1", "ans2"], "ans2")
-    const deck = new Deck()
-    expect(deck.currentDeck[0]).to.be.an('object')
+    deck.createDeck(1, "A good question", ["ans1", "ans2"], "ans2")
+    deck.createDeck(2, "A better question", ["ans4", "ans5"], "ans4")
+    expect(deck.currentDeck[0]).to.deep.equal({
+      cardId: 1,
+      question: "A good question",
+      answers: ["ans1", "ans2"],
+      correctAnswer: "ans2",
+    })
+    expect(deck.currentDeck[1]).to.deep.equal({
+      cardId: 2,
+      question: "A better question",
+      answers: ["ans4", "ans5"],
+      correctAnswer: "ans4",
+    })
+  })
+
+  it('should know how many cards there are', function () {
+    deck.createDeck(1, "A good question", ["ans1", "ans2"], "ans2")
+    deck.createDeck(2, "A better question", ["ans4", "ans5"], "ans4")
+    expect(deck.currentDeck).to.have.length(2)
   })
 
 })

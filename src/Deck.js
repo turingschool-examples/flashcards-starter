@@ -1,14 +1,18 @@
+const Card = require('../src/Card')
+
 class Deck {
   constructor() {
-    // should initialize with an array of card objects
-    this.currentDeck = [{
-      // these objects should each be an instance of Card
-    }];
+    this.currentDeck = [];
   }
 
-  // should know how many cards there are
-  countCards() {
+  createDeck(cardID, question, answers, correctAnswer) {
+    const card = new Card(cardID, question, answers, correctAnswer)
+    this.currentDeck.push(card)
+    return this.currentDeck
+  }
 
+  countCards() {
+    return this.currentDeck.length
   }
 }
 

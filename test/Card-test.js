@@ -2,38 +2,32 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-// const prototypeData = require('../src/data');
 
 describe('Card', function () {
+  let card
+
+  beforeEach(function () {
+    card = new Card(1, 'This is your question', ['right', 'wrong', 'also wrong'], 'right')
+  })
 
   it('should be a function', function () {
-    const card = new Card();
     expect(Card).to.be.a('function');
   });
 
   it('should be an instance of Card', function () {
-    const card = new Card();
     expect(card).to.be.an.instanceof(Card);
   });
 
   it('should store a question', function () {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    expect(card.question).to.equal('This is your question');
   });
 
   it('should store a list of possible answers', function () {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+    expect(card.answers).to.deep.equal(['right', 'wrong', 'also wrong']);
   });
 
   it('should store the correct answer', function () {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.correctAnswer).to.equal('object');
+    expect(card.correctAnswer).to.equal('right');
   });
 
-  // it('should get data from data.js', function () {
-  //   const card = new Card(1);
-  //   console.log(card)
-  //   expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
-  // });
 });

@@ -23,7 +23,6 @@ describe('Round', function () {
   })
 
   it('should return the current card', function () {
-    const card = new Card(1, 'What allows you to ... key-value pairs?', ['object', 'array', 'function'], 'object')
     const round = new Round(card)
     round.returnCurrentCard()
     expect(round.currentCard).to.deep.equal(card)
@@ -41,7 +40,7 @@ describe('Round', function () {
     expect(round.turnCount).to.equal(3)
   })
 
-  it('should change the current card to be the next card', function () {
+  it.skip('should change the current card to be the next card', function () {
 
   })
 
