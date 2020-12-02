@@ -28,19 +28,21 @@ describe('Turn', () => {
     expect(turn.card).to.deep.equal(card);
   });
 
-  it('should return the given guess', () => {
-    const guess = turn.returnGuess();
+  describe('return methods', () => {
+    it('should return the given guess', () => {
+      const guess = turn.returnGuess();
 
-    expect(guess).to.equal(turn.answer);
+      expect(guess).to.equal(turn.answer);
+    });
+
+    it('should return the card', () => {
+      const turnCard = turn.returnCard();
+
+      expect(turnCard).to.deep.equal(turn.card);
+    });
   });
 
-  it('should return the card', () => {
-    const turnCard = turn.returnCard();
-
-    expect(turnCard).to.deep.equal(turn.card);
-  });
-
-  describe('methods', () => {
+  describe('evaluation methods', () => {
     let evaluation, question, correctAnswer, givenAnswer, feedback;
 
     beforeEach(() => {
