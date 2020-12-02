@@ -13,7 +13,6 @@ describe('Round', function () {
     card1 = new Card(2, 'This is the question?', ['object', 'array', 'function'], 'object')
     turn = new Turn('yes', card)
     turn1 = new Turn('object', card1)
-    // turn2 = new Turn('this is wrong', card1)
     round = new Round(card, turn, turn.guess)
     round1 = new Round(card1, turn1, turn1.guess)
   })

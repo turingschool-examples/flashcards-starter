@@ -1,8 +1,8 @@
-const chai = require('chai');
-const expect = chai.expect;
+const chai = require('chai')
+const expect = chai.expect
 
 const Card = require('../src/Card')
-const Turn = require('../src/Turn');
+const Turn = require('../src/Turn')
 
 describe('Turn', function () {
   let card1, card2, turn1, turn2, turn3, turn4
