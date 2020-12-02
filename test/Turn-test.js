@@ -34,7 +34,7 @@ describe('Turn', () => {
     expect(guess).to.equal(turn.answer);
   });
 
-  it.skip('should return the card', () => {
+  it('should return the card', () => {
     const turnCard = turn.returnCard();
 
     expect(turnCard).to.deep.equal(turn.card);
