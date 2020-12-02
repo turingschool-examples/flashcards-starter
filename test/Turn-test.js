@@ -23,7 +23,12 @@ describe('Turn', function() {
   });
 
   it('should store a card', function() {
-    expect(turn.currentCard).to.equal(card);
+    expect(turn.currentCard).to.deep.equal({
+      id: 1,
+      question: 'What allows you to define a set of related information using key-value pairs?',
+      answers: ['object', 'array', 'function'],
+      correctAnswer: 'object'
+    });
   });
 
   it('should return the guess put in by the user', function() {
@@ -33,7 +38,12 @@ describe('Turn', function() {
 
   it('should return the current card being played', function() {
     turn.returnCard();
-    expect(turn.returnCard()).to.equal(card);
+    expect(turn.returnCard()).to.deep.equal({
+      id: 1,
+      question: 'What allows you to define a set of related information using key-value pairs?',
+      answers: ['object', 'array', 'function'],
+      correctAnswer: 'object'
+    });
   });
 
   it('should compare the users guess to the correct answer on card', function() {
