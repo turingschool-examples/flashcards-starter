@@ -5,13 +5,14 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
 describe('Deck', function() {
-    it.skip('should be a function', function() {
+
+    it('should be a function', function() {
         const deck = new Deck();
 
-        expect(deck).to.be.a('function');
+        expect(Deck).to.be.a('function');
     });
 
-    it.skip('should instantiate the Deck class', function(){
+    it('should instantiate the Deck class', function(){
         const deck = new Deck();
 
         expect(deck).to.be.an.instanceOf(Deck);
@@ -25,19 +26,19 @@ describe('Deck', function() {
         card3 = new Card(3, 'Question3', ['a3', 'b3', 'c3'], 'a3');
     });
 
-    it.skip('should store cards', function() {
+    it('should store cards', function() {
         const deck = new Deck();
 
         expect(deck.cards).to.deep.equal([]);
     })
 
-    it.skip('should take in cards', function() {
+    it('should take in cards', function() {
         const deck = new Deck(card1, card2, card3);
 
         expect(deck.cards).to.deep.equal([card1, card2, card3]);
     });
 
-    it.skip('should count cards', function() {
+    it('should count cards', function() {
         const deck = new Deck(card1, card2, card3);
         const cardCount = deck.countCards();
 
