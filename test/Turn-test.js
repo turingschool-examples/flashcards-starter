@@ -9,10 +9,10 @@ describe('Turn', () => {
   let card;
 
   beforeEach(function() {
-    card1 = new Card(12, 'What are the two ways you can access properties of an object?', ['bracket notation and dot notation', 'bracket notation and index-array notation', 'dot notation and literal notation'], 'bracket notation and dot notation');
-    turn1 = new Turn('bracket notation and dot notation', card1);
-    turn2 = new Turn('bracket notation and index-array notation', card1);
-    turn3 = new Turn('dot notation and literal notation', card1);
+    card3 = new Card(12, 'What are the two ways you can access properties of an object?', ['bracket notation and dot notation', 'bracket notation and index-array notation', 'dot notation and literal notation'], 'bracket notation and dot notation');
+    turn1 = new Turn('bracket notation and dot notation', card3);
+    turn2 = new Turn('bracket notation and index-array notation', card3);
+    turn3 = new Turn('dot notation and literal notation', card3);
   })
 
   it('should be able take the user\'s guess as an argument', () => {
@@ -51,7 +51,7 @@ describe('Turn', () => {
   it('should give feedback of a string of "Correct!" if the user\'s guess is correct', () => {
     expect(turn1.giveFeedback()).to.equal("Correct!");
   });
-  
+
   it('should give feedback of a string of "Incorrect!" if the user\'s guess is incorrect', () => {
     expect(turn2.giveFeedback()).to.equal("Incorrect!");
     expect(turn3.giveFeedback()).to.equal("Incorrect!");
