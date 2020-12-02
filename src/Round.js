@@ -6,6 +6,7 @@ class Round {
         this.turns = 0;
         this.currentCard = this.deck[0];
         this.incorrectGuesses = [];
+        this.correctGuesses = [];
     }
     returnCurrentCard() {
         return this.currentCard;
@@ -19,8 +20,12 @@ class Round {
             this.incorrectGuesses.push(attempt);
             return 'incorrect!';
         } else {
+            this.correctGuesses.push(attempt);
             return 'correct!';
         }
+    };
+    calculatePrecentCorrect() {
+        return this.correctGuesses.length / (this.incorrectGuesses.length + this.correctGuesses.length);
     }
 }
 
