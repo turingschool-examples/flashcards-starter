@@ -12,12 +12,12 @@ class Round {
     return this.currentCard
   }
 
-  // currentCard = currentCard[id++]
-  // turn.giveFeedback
   takeTurn(currentGuess, currentCard) {
     const thisTurn = new Turn(currentGuess, currentCard)
     this.turnCount++
+    currentCard.cardId++
     thisTurn.evaluateGuess(currentGuess)
+    thisTurn.giveFeedback()
     return this.currentTurn
   }
 

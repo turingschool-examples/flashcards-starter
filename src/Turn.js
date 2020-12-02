@@ -2,7 +2,6 @@ class Turn {
   constructor(guess, currentCard) {
     this.guess = guess;
     this.currentCard = currentCard;
-    this.response = "";
     this.turnCount = 0;
   }
 
@@ -20,7 +19,6 @@ class Turn {
       return true
     } else {
       this.response = false
-      // record guess in incorrectGuesses array
       return false
     }
   }
