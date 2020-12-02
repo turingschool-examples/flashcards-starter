@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
-const Deck = require('../src/Deck')
+const Deck = require('../src/Deck');
 
 describe('Deck', function() {
 
@@ -23,5 +23,5 @@ describe('Deck', function() {
     const card3 = new Card(3, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const deck = new Deck([card1, card2, card3]);
     expect(deck.countCards()).to.equal(3);
-  })
+  });
 });

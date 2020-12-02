@@ -8,13 +8,21 @@ class Round {
   returnCurrentCard() {
     return this.currentCard;
   };
-  takeTurn() {
-
+  takeTurn(guess) {
+    const turn = new Turn(guess, this.currentCard);
+    this.turns++;
+    if (turn.userGuess !== this.currentCard) {
+      this.incorrectGuesses.push(this.currentCard.id);
+    };
+    this.currentCard = deck.cards[this.turns];
+    return turn.giveFeedback();
   };
   calculatePercentCorrect() {
-
+    return (this.turns - this.incorrectGuesses.length) / this.turns * 100;
   };
   endRound() {
-
+    console.log(`**Round Over!**You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
   };
 };
+
+module.exports = Round;
