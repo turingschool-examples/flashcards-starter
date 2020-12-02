@@ -21,10 +21,6 @@ describe('Turn', () => {
   });
 
   it('should take in an answer', () => {
-    turn = new Turn('42');
-    console.log("card:", card);
-    console.log("card.correctAnswer:", card.correctAnswer);
-
     expect(turn.answer).to.equal(card.correctAnswer);
   });
 

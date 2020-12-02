@@ -3,8 +3,9 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Turn {
-  constructor(answer) {
+  constructor(answer, card) {
     this.answer = answer;
+    this.card = card;
   }
 }
 
