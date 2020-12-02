@@ -1,5 +1,4 @@
 const Turn = require('../src/Turn')
-// const Game = require('../src/Game')
 
 class Round {
   constructor(currentCard, currentTurn, currentGuess) {
@@ -31,7 +30,6 @@ class Round {
   }
 
   endRound() {
-    // game.roundCount++
     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 

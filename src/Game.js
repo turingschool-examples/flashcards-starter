@@ -3,8 +3,8 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Game {
-  constructor(roundCount) {
-    this.roundCount = 0;
+  constructor(currentRound, currentCard, currentTurn, currentGuess) {
+    this.currentRound = currentRound
   }
 
   printMessage(deck, round) {
@@ -16,9 +16,14 @@ class Game {
     util.main(round);
   }
 
-  // should keep track of the current round
-  // but should it increment it?
-  // or should that happen in Round?
+  startGame(cardID, question, answers, correctAnswer) {
+    deck.createCard(cardID, question, answers, correctAnswer)
+  }
+
+  createRound(currentCard, currentTurn, currentGuess) {
+    const round = new Round(currentCard, currentTurn, currentGuess)
+  }
+
 
   // game start method:
   // create cards
