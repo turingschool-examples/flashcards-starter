@@ -47,10 +47,18 @@ describe('Turn', () => {
   });
 
   describe('evaluateGuess method', () => {
-    let evaluation;
+    let evaluation, question, correctAnswer, givenAnswer;
 
     beforeEach(() => {
-      evaluation = turn.evaluateGuess();
+      question = card.question;
+      correctAnswer = card.correctAnswer;
+      givenAnswer = turn.answer;
+      evaluation = turn.evaluateGuess(guess);
+    });
+
+    it.skip('should evaluate a correct guess as correct', () => {
+      expect(answer).to.equal(correctAnswer);
+      expect(evaluation).to.equal(true);
     });
   
   });
