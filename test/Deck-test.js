@@ -23,10 +23,7 @@ describe('Deck', function() {
   it('should include an array of Card objects', function() {
     expect(deck.cards).to.deep.equal([card1, card2, card3]);
   })
-  //initialize with an array of Card objects
   it('should know how many cards are in the Deck', function() {
     expect(deck.countCards()).to.equal(3);
   })
-  //should know how many cards are in the Deck (deck.countCards(); to find length of array)
-
 });
