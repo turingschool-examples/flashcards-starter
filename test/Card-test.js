@@ -8,26 +8,21 @@ describe('Card', function() {
 
   beforeEach(function() {
     card1 = new Card(3, 'An object allows you to define a set of related information using what kind of pairs?', ['object-subject', 'key-value', 'index-array'], 'key-value');
-    //card2
-    //card3
-  });
-  it('should be a function', function() {
-    expect(Card).to.be.a('function');
-  });
-
-  it('should be an instance of Card', function() {
-    expect(card1).to.be.an.instanceOf(Card);
+    card2 = new Card(5,'Which dog breed most resembles the data type that indicates a true or false value?', ['Golden Retriver', 'Cocker Spaniel', 'Sheepdog', 'Bolognese'], 'Bolognese');
   });
 
   it('should be able to store a question', function() {
     expect(card1.question).to.equal('An object allows you to define a set of related information using what kind of pairs?');
+    expect(card2.question).to.equal('Which dog breed most resembles the data type that indicates a true or false value?')
   });
 
   it('should be able to store a list of possible answers', function() {
     expect(card1.answers).to.deep.equal(['object-subject', 'key-value', 'index-array']);
+    expect(card2.answers).to.deep.equal(['Golden Retriver', 'Cocker Spaniel', 'Sheepdog', 'Bolognese']);
   });
 
   it('should be able to store the correct answer', function() {
     expect(card1.correctAnswer).to.equal('key-value');
+    expect(card2.correctAnswer).to.equal('Bolognese');
   });
 });
