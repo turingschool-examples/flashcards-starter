@@ -3,7 +3,9 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Turn {
-  constructor() {}
+  constructor(answer) {
+    this.answer = answer;
+  }
 }
 
 module.exports = Turn;
