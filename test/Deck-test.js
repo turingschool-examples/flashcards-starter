@@ -38,7 +38,7 @@ describe('Deck', function() {
         expect(deck.cards).to.deep.equal([card1, card2, card3]);
     });
 
-    it('should count cards', function() {
+    it.skip('should count cards', function() {
         const deck = new Deck(card1, card2, card3);
         const cardCount = deck.countCards();
 
