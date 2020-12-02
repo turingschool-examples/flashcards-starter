@@ -18,12 +18,12 @@ describe('Card', () => {
     expect(card).to.be.an.instanceof(Card);
   });
 
-  it('should have an id', () => {
+  it('should store an id', () => {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     expect(card.id).to.equal(1);
   });
 
-  it.skip('should store a question', () => {
+  it('should store a question', () => {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
   });  
