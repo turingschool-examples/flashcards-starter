@@ -43,7 +43,9 @@ describe('Turn', () => {
   it.skip('should return the card', () => {
     const turnCard = turn.returnCard();
 
-    expect(turnCard).to.deep.equal(turn.card);    
+    expect(turnCard).to.deep.equal(turn.card);
+  });
+
 });
 
 
