@@ -7,16 +7,13 @@ const Card = require('../src/Card');
 describe('Turn', () => {
   let turn, card;
 
-  beforeEach(() => {
-    card = new Card();
-    turn = new Turn();
-  });
-
   it.skip('should be a function', () => {
+    turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
   it.skip('should be an instance of Turn', () => {
+    turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   });
 
@@ -26,9 +23,12 @@ describe('Turn', () => {
     expect(turn.answer).to.equal('42');
   });
 
-  it.skip('should take in an answer and a card', () => {    
-    turn = new Turn('MORE!', card);
+  beforeEach(() => {
+    card = new Card();
+    turn = new Turn('42', card);
+  });
 
+  it.skip('should take in an answer and a card', () => {    
     expect(turn.card).to.deep.equal(card);
   });
 
