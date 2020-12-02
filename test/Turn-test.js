@@ -8,7 +8,8 @@ describe('Turn', () => {
   let turn, card;
 
   beforeEach(() => {
-    turn = new Turn();
+    card = new Card(1, 'What is the answer to the Ultimate Question of Life, the Universe, and Everything?', ['42', '41', 'mainlyetcetera'], '42');
+    turn = new Turn('42', card);
   });
 
   it('should be a function', () => {    
@@ -21,13 +22,10 @@ describe('Turn', () => {
 
   it('should take in an answer', () => {
     turn = new Turn('42');
+    console.log("card:", card);
+    console.log("card.correctAnswer:", card.correctAnswer);
 
-    expect(turn.answer).to.equal('42');
-  });
-
-  beforeEach(() => {
-    card = new Card();
-    turn = new Turn('42', card);
+    expect(turn.answer).to.equal(card.correctAnswer);
   });
 
   it.skip('should take in an answer and a card', () => {    
