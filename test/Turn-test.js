@@ -28,7 +28,7 @@ describe('Turn', () => {
     expect(turn.answer).to.equal(card.correctAnswer);
   });
 
-  it.skip('should take in an answer and a card', () => {    
+  it('should take in an answer and a card', () => {    
     expect(turn.card).to.deep.equal(card);
   });
 
