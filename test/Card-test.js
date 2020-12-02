@@ -28,7 +28,7 @@ describe('Card', () => {
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
   });  
 
-  it.skip('should store a list of possible answers', () => {
+  it('should store a list of possible answers', () => {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
   });  
