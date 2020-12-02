@@ -16,7 +16,12 @@ describe('Card', function() {
 
   it.skip('should be an instance of Card', function() {
     expect(card).to.be.an.instanceof(Card);
-  }); 
+  });
+
+  it.skip('should have an id', function() {
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    expect(card.id).to.equal(1);
+  });
 
   it.skip('should store a question', function() {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
