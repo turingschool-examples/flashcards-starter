@@ -53,8 +53,7 @@ describe('Turn', () => {
       question = card.question;
       correctAnswer = card.correctAnswer;
       givenAnswer = turn.answer;
-      evaluation = turn.evaluateGuess(guess);
-      feedback = turn.feedback;
+      evaluation = turn.evaluateGuess(guess);      
     });
 
     it.skip('should evaluate a correct guess as correct', () => {
@@ -65,7 +64,7 @@ describe('Turn', () => {
     it.skip('should evaluate an incorrect guess as incorrect', () => {
       expect(answer).to.not.equal(correctAnswer);
       expect(evaluation).to.equal(false);
-    });  
+    });
 
     it.skip('should give "correct" feedback on correct guess', () => {
       expect(answer).to.equal(correctAnswer);
