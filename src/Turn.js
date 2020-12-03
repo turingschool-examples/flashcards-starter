@@ -17,6 +17,15 @@ class Turn {
             return false;
         }
     }
+
+    giveFeedback() {
+        if (this.guess === this.card.correctAnswer) {
+            return 'correct!'
+        } else {
+            return 'incorrect!'
+        }
+    }
+
 }
 
 
