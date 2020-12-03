@@ -15,13 +15,12 @@ describe('Turn', () => {
   })
 
   it('should be able take the user\'s guess as an argument', () => {
-    expect(turn1).to.have.property('userGuess');
-    expect(turn2).to.have.property('userGuess');
+    expect(turn1.userGuess).to.equal('bracket notation and dot notation');
+    expect(turn2.userGuess).to.equal('bracket notation and index-array notation');
   });
-//expect turn1.userGuess.to.equal()
+  
   it('should be able to take in an instance of Card', () => {
     expect(turn1).to.have.property('card');
-    expect(turn2).to.have.property('card');
   });
 
   it('should be able to return the user\'s guess', () => {
