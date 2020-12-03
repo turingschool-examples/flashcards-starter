@@ -35,19 +35,6 @@ describe('Round', () => {
     expect(round.deck).to.be.deep.equal(cards);
   });
 
-  it.skip('should have an incorrectGuesses property', () => {
-    expect(round.incorrectGuesses).to.be.an('array');
-    expect(round.incorrectGuesses).to.not.equal(undefined);
-  });
-
-  it.skip('should be able to calculate percentage of correct answers', () => {
-    round.takeTurn(); // incorrect
-    round.takeTurn(); // correct
-
-    expect(round.turns).to.equal(2);
-    expect(round.calculatePercentCorrect()).to.equal(50);  
-  });
-
   describe('takeTurn', () => {
     let newTurn, guess, correctAnswer, currentCard;
 
@@ -111,5 +98,30 @@ describe('Round', () => {
       round.takeTurn();
       expect(round.incorrectGuesses).lengthOf(2);
     });  
-  });  
+  });
+
+  describe('the end game', () => {
+    
+    it.skip('should have an incorrectGuesses property', () => {
+      expect(round.incorrectGuesses).to.be.an('array');
+      expect(round.incorrectGuesses).to.not.equal(undefined);
+    });
+
+    it.skip('should be able to calculate percentage of correct answers', () => {
+      round.takeTurn(); // incorrect
+      round.takeTurn(); // correct
+
+      expect(round.turns).to.equal(2);
+      expect(round.calculatePercentCorrect()).to.equal(50);  
+    });
+
+    it.skip('should be able to end the round', () => {
+      round.takeTurn(); // correct
+      round.takeTurn(); // incorrect
+      const perc = round.calculatePercentCorrect();
+      const gameEnd = round.endRound();
+
+      expect(gameEnd).to.equal(`Round over! You answered ${perc}% of the questions correctly!`);
+    });
+  });
 });
