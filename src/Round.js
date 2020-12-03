@@ -11,20 +11,25 @@ class Round {
     this.currentCard = this.deck.cards[0];
     return this.currentCard;
   }
+  endRound() {
+    console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+  }
   takeTurn(guess) {
     this.turnsCount++;
     const currentCard = this.returnCurrentCard();
     const turn = new Turn(guess, currentCard)
-    if(turn.evaluateGuess() === false) {
-       this.incorrectGuesses.push(currentCard.id);
-    } else {
+    if(turn.evaluateGuess() && this.deck.cards.length < 2) {
+      this.endRound();
       this.deck.cards.shift();
-      this.returnCurrentCard();
+    } else if(turn.evaluateGuess()) {
+       this.deck.cards.shift();
+    } else {
+       this.incorrectGuesses.push(currentCard.id);
     }
     return(turn.giveFeedback());
   }
   calculatePercentCorrect() {
-    return (this.incorrectGuesses / this.turnsCount) * 100; 
+    return ((this.turnsCount - this.incorrectGuesses.length) / this.turnsCount) * 100;
   }
 }
 
