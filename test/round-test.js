@@ -58,6 +58,21 @@ describe('Round', function() {
     round.takeTurn('');
     round.takeTurn('');
     expect(round.turns).to.equal(2);
+  });
+
+  it('should move to the next card in deck after every turn', function() {
+    round.takeTurn('');
+    expect(round.returnCurrentCard()).to.deep.equal({
+      id: 14,
+      question: 'What organ is Khalid missing?',
+      answers: ['spleen', 'appendix', 'gallbladder'],
+      correctAnswer: 'gallbladder'
+    });
+  });
+
+  it("should store the id's of questions answered incorrectly", function() {
+    round.takeTurn('incorrect answer');
+    expect(round.incorrectGuesses).to.deep.equal([1])
   })
 
 
