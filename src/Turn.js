@@ -11,11 +11,22 @@ class Turn {
         return this.card
     }
     evaluateGuess() {
-        return 'true';
+        if (this.guess === this.card.correctAnswer) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
+    giveFeedback() {
+        if (this.guess === this.card.correctAnswer) {
+            return 'correct!'
+        } else {
+            return 'incorrect!'
+        }
+    }
+
 }
-
-
 
 
 
