@@ -31,4 +31,8 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.deep.equal(deck.cards[0]);
   });
 
+  it.skip('should have a deck property which is a list of cards', () => {
+    expect(round.deck).to.be.deep.equal(cards);
+  });
+
 });
