@@ -4,13 +4,13 @@ const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
 describe('Deck', function() {
-    it('should be an instance of a Deck', function() {
+    it.skip('should be an instance of a Deck', function() {
 
         const deck = new Deck();
 
         expect(deck).to.be.instanceof(Deck);
     })
-    it('know how many cards are in the deck', function() {
+    it.skip('know how many cards are in the deck', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
         const card2 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
