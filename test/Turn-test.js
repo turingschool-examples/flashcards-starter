@@ -54,26 +54,29 @@ describe('Turn', () => {
     });
 
     it('should evaluate a correct guess as correct', () => {
-      expect(turn.answer).to.equal(correctAnswer);      
+      expect(givenAnswer).to.equal(correctAnswer);      
       expect(evaluation).to.equal(true);
     });
 
     it('should evaluate an incorrect guess as incorrect', () => {
       turn = new Turn('mainlyetcetera', card);
       evaluation = turn.evaluateGuess();
-
       expect(turn.answer).to.not.equal(correctAnswer);      
       expect(evaluation).to.equal(false);
     });
 
     it('should give "correct" feedback on correct guess', () => {
-      expect(turn.answer).to.equal(correctAnswer);
+      expect(givenAnswer).to.equal(correctAnswer);
       expect(evaluation).to.equal(true);
       expect(feedback).to.equal('correct!');
     });
 
-    it.skip('should give "incorrect" feedback on incorrect guess', () => {
-      expect(answer).to.not.equal(correctAnswer);
+    it('should give "incorrect" feedback on incorrect guess', () => {      
+      turn = new Turn('mainlyetcetera', card);
+      evaluation = turn.evaluateGuess();
+      feedback = turn.giveFeedback();
+
+      expect(turn.answer).to.not.equal(correctAnswer);
       expect(evaluation).to.equal(false);
       expect(feedback).to.equal('incorrect!');
     });
