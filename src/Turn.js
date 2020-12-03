@@ -22,7 +22,7 @@ class Turn {
   }
 
   giveFeedback() {
-    return this.answer === this.card.correctAnswer ? 'correct!' : 'incorrect!';
+    this.answer === this.card.correctAnswer ? this.feedback = 'correct!' : this.feedback = 'incorrect!';
   }
 }
 
