@@ -26,6 +26,9 @@ class Round {
     };
     calculatePrecentCorrect() {
         return this.correctGuesses.length / (this.incorrectGuesses.length + this.correctGuesses.length);
+    };
+    endRound() {
+        return '** Round over! ** You answered % of the questions correctly!';
     }
 }
 

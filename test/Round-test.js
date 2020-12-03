@@ -175,5 +175,18 @@ describe('Round', function() {
         round.takeTurn('true');
 
         expect(round.calculatePrecentCorrect()).to.equal(2 / 3);
+    });
+    it('should be able to end a round', function() {
+        const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
+
+        const card2 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+
+        const card3 = new Card(29, "map() takes in two optional arguments: the index of the current element, and the array that map was called upon", ["true", "false"], 'true');
+
+        const deck = [card1, card2, card3];
+
+        const round = new Round(deck);
+
+        expect(round.endRound()).to.equal('** Round over! ** You answered % of the questions correctly!');
     })
 })
