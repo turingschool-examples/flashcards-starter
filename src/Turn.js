@@ -13,8 +13,7 @@ class Turn {
   };
 
   evaluateGuess() {
-    let guess = this.returnGuess();
-    if (guess === this.currentCard.correctAnswer) {
+    if (this.returnGuess() === this.currentCard.correctAnswer) {
       return true;
     }
     else {
