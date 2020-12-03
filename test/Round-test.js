@@ -8,15 +8,18 @@ const Turn = require('../src/Turn');
 const Game = require('../src/Game');
 
 describe('Round', () => {
-  let card1, card2, card3, cards, deck, round;
+  let card1, card2, card3, cards, deck, turn, round, guess;
 
   beforeEach(() => {
-    card1 = new Card();
-    card2 = new Card();
-    card3 = new Card();
+    card1 = new Card(1, '4 + 5', ['6', '7', '9'], '9');
+    card2 = new Card(2, '1 + 2', ['3', '4', '5'], '3');
+    card3 = new Card(3, 'stuff or things', ['stuff', 'things', 'et cetera'], 'stuff');
     cards = [card1, card2, card3];
-
+    
     deck = new Deck(cards);
+    
+    turn = new Turn('9', card1);
+    guess = turn.answer;
 
     round = new Round(deck);
   });
@@ -39,22 +42,22 @@ describe('Round', () => {
     let newTurn, guess, correctAnswer, currentCard;
 
     it.skip('should know what turn it\'s on', () => {
-      round.takeTurn();
+      round.takeTurn(guess);
       expect(round.turns).to.equal(1);
 
-      round.takeTurn();
+      round.takeTurn(guess);
       expect(round.turns).to.equal(2);
     });
 
     beforeEach(() => {
-      newTurn = round.takeTurn();
+      newTurn = round.takeTurn(guess);
       guess = turn.answer;
       correctAnswer = cards[0].correctAnswer;
       currentCard = turn.card;
     });
 
     it.skip('should make a new Turn instance', () => {
-      const newTurn = round.takeTurn();
+      const newTurn = round.takeTurn(guess);
 
       expect(newTurn).to.be.an.instanceof(Round);
     });
@@ -72,7 +75,7 @@ describe('Round', () => {
     it.skip('should make next card current card', () => {
       expect(currentCard).to.be.deep.equal(cards[0]);
 
-      round.takeTurn();
+      round.takeTurn(guess);
       expect(currentCard).to.be.deep.equal(cards[1]);
     });
 
@@ -95,7 +98,7 @@ describe('Round', () => {
     it.skip('should store incorrect guesses in incorrect guesses property', () => {
       expect(round.incorrectGuesses).lengthOf(1);
 
-      round.takeTurn();
+      round.takeTurn(guess);
       expect(round.incorrectGuesses).lengthOf(2);
     });  
   });
@@ -108,17 +111,17 @@ describe('Round', () => {
     });
 
     it.skip('should be able to calculate percentage of correct answers', () => {
-      round.takeTurn(); // incorrect
-      round.takeTurn(); // correct
+      round.takeTurn(guess); // correct
+      round.takeTurn(guess); // incorrect
 
       expect(round.turns).to.equal(2);
       expect(round.calculatePercentCorrect()).to.equal(50);  
     });
 
     it.skip('should be able to end the round', () => {
-      round.takeTurn(); // correct
-      round.takeTurn(); // incorrect
-      const perc = round.calculatePercentCorrect();
+      round.takeTurn(guess); // correct
+      round.takeTurn(guess); // incorrect
+      const perc = Math.round(round.calculatePercentCorrect() * 100);
       const gameEnd = round.endRound();
 
       expect(gameEnd).to.equal(`Round over! You answered ${perc}% of the questions correctly!`);
