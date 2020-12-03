@@ -16,7 +16,7 @@ describe('Deck', () => {
     expect(deck).to.be.an.instanceof(Deck);
   });
 
-  it.skip('should be made of cards', () => {
+  it('should be made of cards', () => {
     const card1 = new Card();
     const card2 = new Card();
     const card3 = new Card();
