@@ -27,7 +27,7 @@ describe('Deck', () => {
     expect(deck.cards).to.deep.equal(cards);
   });
 
-  it.skip('should count cards', () => {
+  it('should count cards', () => {
     const card1 = new Card();
     const card2 = new Card();
     const card3 = new Card();
