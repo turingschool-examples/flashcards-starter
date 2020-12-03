@@ -24,7 +24,7 @@ describe('Round', function() {
   });
 
   it('should be able to instantate a Round', function() {
-    expect(round).to.be.an.instanceof(Round);
+    expect(round).to.be.an.instanceOf(Round);
   });
 
   it('should take a Deck as an argument and store it.skip', function() {
@@ -97,7 +97,5 @@ describe('Round', function() {
       expect(winPercent).to.equal(100);
     })
   })
-
-  
 
 });
