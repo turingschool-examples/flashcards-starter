@@ -1,3 +1,5 @@
+'use strict'
+
 class Turn {
   constructor(guess, card) {
     this.guess = guess;
