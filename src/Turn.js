@@ -10,7 +10,12 @@ class Turn {
     returnCard() {
         return this.card
     }
+    evaluateGuess() {
+        return 'true';
+    }
 }
+
+
 
 
 
