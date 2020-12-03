@@ -36,7 +36,7 @@ describe('Round', () => {
   });
 
   describe('takeTurn', () => {
-    let newTurn, guess, correctAnswer;
+    let newTurn, guess, correctAnswer, currentCard;
 
     it.skip('should know what turn it\'s on', () => {
       round.takeTurn();
@@ -46,16 +46,17 @@ describe('Round', () => {
       expect(round.turns).to.equal(2);
     });
 
-    it.skip('should make a new Turn instance', () => {
-      const newTurn = round.takeTurn();
-
-      expect(newTurn).to.be.an.instanceof(Round);
-    });
-
     beforeEach(() => {
       newTurn = round.takeTurn();
       guess = turn.answer;
       correctAnswer = cards[0].correctAnswer;
+      currentCard = turn.card;
+    });
+
+    it.skip('should make a new Turn instance', () => {
+      const newTurn = round.takeTurn();
+
+      expect(newTurn).to.be.an.instanceof(Round);
     });
 
     it.skip('should update turn count upon correct answer', () => {      
@@ -67,5 +68,13 @@ describe('Round', () => {
       expect(guess).to.not.be.equal(correctAnswer);
       expect(round.turns).to.equal(1);
     });
+
+    it.skip('should make next card current card', () => {
+      expect(currentCard).to.be.deep.equal(cards[0]);
+
+      round.takeTurn();
+      expect(currentCard).to.be.deep.equal(cards[1]);
+    });
+
   });
 });
