@@ -32,6 +32,11 @@ describe('Turn', function() {
     })
 
     it('should evaluate a guess', function() {
-        expect(turn.evaluateGuess()).to.equal('boolean')
+        expect(turn.evaluateGuess()).to.be.a('boolean')
     })
-});
+
+
+    it('should give feeback', function() {
+        expect(turn.giveFeedback()).to.be.a('string');
+    })
+})
