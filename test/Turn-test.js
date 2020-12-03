@@ -8,77 +8,79 @@ describe('Turn', () => {
   let turn, card;
 
   beforeEach(() => {
-    turn = new Turn();
-  });
-
-  it.skip('should be a function', () => {    
-    expect(Turn).to.be.a('function');
-  });
-
-  it.skip('should be an instance of Turn', () => {    
-    expect(turn).to.be.an.instanceof(Turn);
-  });
-
-  it.skip('should take in an answer', () => {
-    turn = new Turn('42');
-
-    expect(turn.answer).to.equal('42');
-  });
-
-  beforeEach(() => {
-    card = new Card();
+    card = new Card(1, 'What is the answer to the Ultimate Question of Life, the Universe, and Everything?', ['42', '41', 'mainlyetcetera'], '42');
     turn = new Turn('42', card);
   });
 
-  it.skip('should take in an answer and a card', () => {    
+  it('should be a function', () => {    
+    expect(Turn).to.be.a('function');
+  });
+
+  it('should be an instance of Turn', () => {    
+    expect(turn).to.be.an.instanceof(Turn);
+  });
+
+  it('should take in an answer', () => {
+    expect(turn.answer).to.equal(card.correctAnswer);
+  });
+
+  it('should take in an answer and a card', () => {    
     expect(turn.card).to.deep.equal(card);
   });
 
-  it.skip('should return the given guess', () => {
-    const guess = turn.returnGuess();
+  describe('return methods', () => {
+    it('should return the given guess', () => {
+      const guess = turn.returnGuess();
 
-    expect(guess).to.equal('42');
+      expect(guess).to.equal(turn.answer);
+    });
+
+    it('should return the card', () => {
+      const turnCard = turn.returnCard();
+
+      expect(turnCard).to.deep.equal(turn.card);
+    });
   });
 
-  it.skip('should return the card', () => {
-    const turnCard = turn.returnCard();
-
-    expect(turnCard).to.deep.equal(turn.card);
-  });
-
-  describe('methods', () => {
+  describe('evaluation methods', () => {
     let evaluation, question, correctAnswer, givenAnswer, feedback;
 
     beforeEach(() => {
       question = card.question;
       correctAnswer = card.correctAnswer;
-      givenAnswer = turn.answer;
-      evaluation = turn.evaluateGuess(guess);      
+      givenAnswer = turn.answer;      
+      evaluation = turn.evaluateGuess();
+      feedback = turn.giveFeedback();
     });
 
-    it.skip('should evaluate a correct guess as correct', () => {
-      expect(answer).to.equal(correctAnswer);
+    it('should evaluate a correct guess as correct', () => {
+      expect(givenAnswer).to.equal(correctAnswer);      
       expect(evaluation).to.equal(true);
     });
 
-    it.skip('should evaluate an incorrect guess as incorrect', () => {
-      expect(answer).to.not.equal(correctAnswer);
+    it('should evaluate an incorrect guess as incorrect', () => {
+      turn = new Turn('mainlyetcetera', card);
+      evaluation = turn.evaluateGuess();
+      expect(turn.answer).to.not.equal(correctAnswer);      
       expect(evaluation).to.equal(false);
     });
 
-    it.skip('should give "correct" feedback on correct guess', () => {
-      expect(answer).to.equal(correctAnswer);
+    it('should give "correct" feedback on correct guess', () => {
+      expect(givenAnswer).to.equal(correctAnswer);
       expect(evaluation).to.equal(true);
       expect(feedback).to.equal('correct!');
     });
 
-    it.skip('should give "incorrect" feedback on incorrect guess', () => {
-      expect(answer).to.not.equal(correctAnswer);
+    it('should give "incorrect" feedback on incorrect guess', () => {      
+      turn = new Turn('mainlyetcetera', card);
+      evaluation = turn.evaluateGuess();
+      feedback = turn.giveFeedback();
+
+      expect(turn.answer).to.not.equal(correctAnswer);
       expect(evaluation).to.equal(false);
       expect(feedback).to.equal('incorrect!');
     });
   });
-
 });
 
 
