@@ -17,8 +17,9 @@ class Game {
       return card;
     });
     const deck = new Deck(cards);
-    const round = new Round(deck);
-    this.currentRound = round;
+    this.currentRound = new Round(deck);
+    this.printMessage(this.currentRound.deck, this.currentRound);
+    this.printQuestion(this.currentRound);
   }
   printMessage(deck, round) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.

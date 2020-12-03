@@ -20,11 +20,13 @@ class Round {
         return turn.giveFeedback();
     }
     calculatePercentCorrect() {
-        const score = 100 * (this.incorrectGuesses.length / this.turns);
+        const score = 100 * ((this.deck.cards.length - this.incorrectGuesses.length)  / this.deck.cards.length);
         return score;
     }
     endRound() {
-        return '** Round Over! ** You answered ' + this.calculatePercentCorrect() + '% of the questions correctly!'
+        const endMessage = '** Round Over! ** You answered ' + this.calculatePercentCorrect() + '% of the questions correctly!';
+        console.log(endMessage);
+        return endMessage;
     }
 }
 
