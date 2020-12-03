@@ -35,6 +35,11 @@ describe('Round', () => {
     expect(round.deck).to.be.deep.equal(cards);
   });
 
+  it.skip('should have an incorrectGuesses property', () => {
+    expect(round.incorrectGuesses).to.be.an('array');
+    expect(round.incorrectGuesses).to.not.equal(undefined);
+  });
+
   describe('takeTurn', () => {
     let newTurn, guess, correctAnswer, currentCard;
 
