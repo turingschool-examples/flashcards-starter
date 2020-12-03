@@ -7,7 +7,7 @@ const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 const Game = require('../src/Game');
 
-describe('Game', function() {
+describe('Game', () => {
   it('should be an instance of Game', () => {
     let game = new Game();
     expect(game).to.be.an.instanceOf(Game);
