@@ -28,7 +28,7 @@ const Round = class {
   }
 
   endRound() {
-    console.log (`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`);
+    console.log (`** Round over! ** You answered ${this.calculatePercentCorrect().toFixed(1)}% of the questions correctly!`);
   }
 }
 
