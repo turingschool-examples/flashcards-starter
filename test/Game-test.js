@@ -12,14 +12,14 @@ const prototypeQuestions = data.prototypeData;
 
 describe('Game', function() {
 
-    it.skip('should have a current game', function() {
+    it('should have a current game', function() {
 
         const game = new Game();
 
         expect(game.currentRound).to.be.a('object');
     });
 
-    it.skip('should make cards at start of game', function() {
+    it('should make cards at start of game', function() {
 
         const game = new Game();
 
@@ -27,7 +27,7 @@ describe('Game', function() {
 
         expect(game.currentRound.deck[0]).to.be.an.instanceof(Card);
     });
-    it.skip('should make a deck at start of game', function() {
+    it('should make a deck at start of game', function() {
 
         const game = new Game();
 
@@ -35,7 +35,7 @@ describe('Game', function() {
 
         expect(game.currentDeck).to.be.an.instanceof(Deck);
     });
-    it.skip('should create a new round at start', function() {
+    it('should create a new round at start', function() {
 
         const game = new Game();
 

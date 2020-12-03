@@ -5,7 +5,7 @@ const Card = require('../src/Card');
 const Round = require('../src/Round');
 
 describe('Round', function() {
-    it.skip('should be an instance of a round', function() {
+    it('should be an instance of a round', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
         const card2 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -18,7 +18,7 @@ describe('Round', function() {
 
         expect(round).to.be.an.instanceof(Round);
     });
-    it.skip('should have a deck of cards', function() {
+    it('should have a deck of cards', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
         const card2 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -31,7 +31,7 @@ describe('Round', function() {
 
         expect(round.deck).to.deep.equal(deck)
     });
-    it.skip('should have a current card that is the first card in the deck', function() {
+    it('should have a current card that is the first card in the deck', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
         const card2 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -44,7 +44,7 @@ describe('Round', function() {
 
         expect(round.currentCard).to.deep.equal(card1);
     });
-    it.skip('return the current card in play (first in the deck)', function() {
+    it('return the current card in play (first in the deck)', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
         const card2 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -58,7 +58,7 @@ describe('Round', function() {
         expect(round.returnCurrentCard()).to.equal(card1);
 
     });
-    it.skip('increase the turn count each turn', function() {
+    it('increase the turn count each turn', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
         const card2 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -76,7 +76,7 @@ describe('Round', function() {
 
         expect(round.turns).to.equal(2);
     });
-    it.skip('should make the next card in the deck the current card when a turn is taken', function() {
+    it('should make the next card in the deck the current card when a turn is taken', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
 
@@ -92,7 +92,7 @@ describe('Round', function() {
 
         expect(round.currentCard).to.deep.equal(card2);
     });
-    it.skip('should store incorrect gueeses in the incorrect guesses array', function() {
+    it('should store incorrect gueeses in the incorrect guesses array', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
 
@@ -109,7 +109,7 @@ describe('Round', function() {
         expect(round.incorrectGuesses.length).to.equal(1);
         expect(round.incorrectGuesses[0]).to.equal('deep blue sea');
     });
-    it.skip('should tell you if your guess was incorrect', function() {
+    it('should tell you if your guess was incorrect', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
 
@@ -123,7 +123,7 @@ describe('Round', function() {
 
         expect(round.takeTurn('deep blue sea')).to.deep.equal('incorrect!');
     });
-    it.skip('should store correct gueeses in the correct guesses array', function() {
+    it('should store correct gueeses in the correct guesses array', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
 
@@ -140,7 +140,7 @@ describe('Round', function() {
         expect(round.correctGuesses.length).to.equal(1);
         expect(round.correctGuesses[0]).to.equal('science stuff');
     });
-    it.skip('should tell you if your guess was correct', function() {
+    it('should tell you if your guess was correct', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
 
@@ -154,7 +154,7 @@ describe('Round', function() {
 
         expect(round.takeTurn('science stuff')).to.deep.equal('correct!');
     });
-    it.skip('should tell you percent of guesses that were correct', function() {
+    it('should tell you percent of guesses that were correct', function() {
 
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
 
@@ -170,11 +170,11 @@ describe('Round', function() {
 
         round.takeTurn('object');
 
-        expect(round.calculatePrecentCorrect()).to.equal(.5);
+        expect(round.calculatePrecentCorrect()).to.equal(50);
 
         round.takeTurn('true');
 
-        expect(round.calculatePrecentCorrect()).to.equal(2 / 3);
+        expect(round.calculatePrecentCorrect()).to.equal((2 / 3) * 100);
     });
     it.skip('should be able to end a round', function() {
         const card1 = new Card(2, "Why is the sky blue?", ['science stuff', 'magic', 'Zeus'], 'science stuff');
@@ -187,6 +187,6 @@ describe('Round', function() {
 
         const round = new Round(deck);
 
-        expect(round.endRound()).to.equal('** Round over! ** You answered % of the questions correctly!');
+        expect(round.endRound()).to.equal('** Round over! ** You answered Nan % of the questions correctly!');
     })
 })
