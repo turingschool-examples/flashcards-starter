@@ -43,14 +43,15 @@ describe('Round', function() {
   it('should have a method that returns the current card being played', () => {
     expect(round1.returnCurrentCard()).to.equal(card1);
   })
-  
+
   it('should have a method that updates the turns count', () => {
     round1.takeTurn('object-subject');
     expect(round1.turnsCount).to.equal(1);
   })
 
   it('should play the first card in the deck as the current card to play', () => {
-
+    round1.returnCurrentCard();
+    expect(round1.currentCard).to.equal(round1.deck.cards[0]);
   })
 
   it('should evaluates guesses and stores ids of incorrect guesses in the same method', () => {
@@ -59,19 +60,16 @@ describe('Round', function() {
   })
 
   it('should return feedback in the same method if the guess is incorrect', () => {
-    round1.takeTurn('object-subject');
     expect(round1.takeTurn('object-subject')).to.equal('Incorrect!');
   })
 
   it('should return feedback in the same method if the guess is correct', () => {
-    round1.takeTurn('key-value');
-    console.log(round1.currentCard)
-    console.log(round1.takeTurn('key-value'));
     expect(round1.takeTurn('key-value')).to.equal('Correct!');
   })
 
   it('should reassign the next card in the array to the currentCard variable', () => {
     round1.takeTurn('key-value');
+    round1.takeTurn('Golden Retriever');
     expect(round1.currentCard).to.equal(card2);
   })
 
@@ -80,9 +78,12 @@ describe('Round', function() {
     round1.takeTurn('key-value');
     expect(round1.calculatePercentCorrect()).to.equal(50);
   })
-  //it should print to the console when the round ends, "**Round over!** You answered <>% of the questions correctly!" (endRound())
-})
 
-//Round class takes in responses and records these guesses, including whether they are correct or Incorrect
-//currentCard should be the first Card in the Deck at the start of the Round
-//
+  it('should print to the console when the round ends, "**Round over!** You answered <>% of the questions correctly!"', () => {
+    round1.takeTurn('key-value');
+    round1.takeTurn('Bolognese');
+    round1.takeTurn('bracket notation and dot notation');
+    round1.takeTurn('BUNNS')
+    expect(round1.deck.cards).to.deep.equal([]);
+  })
+})
