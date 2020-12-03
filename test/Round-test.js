@@ -80,5 +80,12 @@ describe('Round', () => {
       expect(guess).to.equal(correctAnswer);
       expect(turn.giveFeedback()).to.equal('correct!');
     });
+
+    it.skip('should say incorrect guess is incorrect', () => {
+      const turn = new Turn('mainlyetcetera', card);
+    
+      expect(turn.answer).to.not.equal(correctAnswer);
+      expect(turn.giveFeedback()).to.equal('incorrect!');
+    });
   });
 });
