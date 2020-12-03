@@ -32,6 +32,6 @@ describe('Turn', function() {
     })
 
     it('should evaluate a guess', function() {
-        expect(turn.evaluateGuess()).to.equal('true')
+        expect(turn.evaluateGuess()).to.equal('boolean')
     })
 });
