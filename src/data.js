@@ -150,4 +150,6 @@ const prototypeData = [{
   "correctAnswer": "prototype method"
 }]
 
-module.exports = prototypeData;
+module.exports = {
+  prototypeData
+};

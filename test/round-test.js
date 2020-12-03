@@ -92,7 +92,5 @@ describe('Round', function() {
     round.takeTurn('gallbladder');
     round.takeTurn('incorrect answer');
     expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
-  })
-
-
-})
+  });
+});
