@@ -1,57 +1,60 @@
+'use strict'
+
 const chai = require('chai')
 const expect = chai.expect
 
-const Round = require('../src/Round')
-const Turn = require('../src/Turn')
 const Card = require('../src/Card')
+const Turn = require('../src/Turn')
+const Round = require('../src/Round')
 
 describe('Round', function () {
-  let card, card1, turn, turn1, round, round1
+  let round, card
 
   beforeEach(function () {
-    card = new Card(1, 'Have a question', ['nope', 'yes', 'not this'], 'yes')
-    card1 = new Card(2, 'This is the question?', ['object', 'array', 'function'], 'object')
-    turn = new Turn('yes', card)
-    turn1 = new Turn('object', card1)
-    round = new Round(card, turn, turn.guess)
-    round1 = new Round(card1, turn1, turn1.guess)
+    card = new Card(1, 'What is my name', ['Elsa', 'Matt', 'Gonzo'], 'Elsa')
+    round = new Round(card)
   })
 
-  it.skip('should be a function', function () {
+  it('should be a function', function () {
     expect(Round).to.be.a('function')
   })
 
-  it.skip('should be an instance of Round', function () {
+  it('should be an instance of Round', function () {
+    const round = new Round
     expect(round).to.be.an.instanceof(Round)
   })
 
-  it.skip('should return the current card', function () {
-    const round = new Round(card1)
+  it('should return the current card', function () {
     round.returnCurrentCard()
-    expect(round.currentCard).to.deep.equal(card1)
+    expect(round.card).to.deep.equal(card)
   })
 
-  it.skip('should instantiate a Turn', function () {
-    round.takeTurn(turn.guess, card1)
-    expect(round.currentTurn).to.deep.equal(turn)
-  })
+  describe('Round.takeTurn', function () {
 
-  it.skip('should add one to the turn count', function () {
-    round.takeTurn(turn.guess, card1)
-    round.takeTurn(turn.guess, card1)
-    round.takeTurn(turn.guess, card1)
-    expect(round.turnCount).to.equal(3)
-  })
+    // it('should instantiate Turn', function () {
+    //   expect()
+    // })
 
-  it.skip('should change the current card to be the next card', function () {
-    expect(round1.currentCard.cardId).to.equal(2)
-    round1.takeTurn(turn1.guess, card1)
-    expect(round1.currentCard.cardId).to.equal(3)
-  })
+    it('should add one to the turn count', function () {
+      const turn = new Turn('Elsa', card)
+      expect(round.turnCount).to.equal(0)
+      round.takeTurn(turn.guess, card)
+      expect(round.turnCount).to.equal(1)
+    })
 
-  it.skip('should evaluate the current guess', function () {
-    expect(turn.evaluateGuess(turn.guess)).to.equal(true)
-    expect(turn.evaluateGuess('array')).to.equal(false)
+    it('should change the current card to be the next card', function () {
+      const turn = new Turn('Elsa', card)
+      expect(round.card.cardId).to.equal(1)
+      round.takeTurn(turn.guess, card)
+      expect(round.card.cardId).to.equal(2)
+    })
+
+    it('should evaluate the current guess', function () {
+      const turn = new Turn('Elsa', card)
+      expect(turn.evaluateGuess()).to.equal(true)
+      const turn1 = new Turn('Matt', card)
+      expect(turn1.evaluateGuess()).to.equal(false)
+    })
   })
 
   it.skip('should give feedback', function () {
