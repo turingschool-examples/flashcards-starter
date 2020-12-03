@@ -2,14 +2,12 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
 describe('Round', function() {
   let card1, card2, card3;
   let deck;
-  let turn;
   let round;
 
   beforeEach(function() {
