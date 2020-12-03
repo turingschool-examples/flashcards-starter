@@ -35,4 +35,11 @@ describe('Round', () => {
     expect(round.deck).to.be.deep.equal(cards);
   });
 
+  it.skip('should know what turn it\'s on', () => {
+    round.takeTurn();
+    expect(round.turns).to.equal(1);
+
+    round.takeTurn();
+    expect(round.turns).to.equal(2);
+  });
 });
