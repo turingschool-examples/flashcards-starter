@@ -36,6 +36,7 @@ describe('Round', () => {
   });
 
   describe('takeTurn', () => {
+    let newTurn, guess, correctAnswer;
 
     it.skip('should know what turn it\'s on', () => {
       round.takeTurn();
@@ -51,16 +52,20 @@ describe('Round', () => {
       expect(newTurn).to.be.an.instanceof(Round);
     });
 
-    it.skip('should update turn count upon correct answer', () => {
-      // takeTurn should check whether guess is correct, and increment turn count
-      // turn has given guess
-        // expect that to be the correct guess
-      const newTurn = round.takeTurn();
-      const guess = turn.answer;
-      const correctAnswer = cards[0].correctAnswer;
+    beforeEach(() => {
+      newTurn = round.takeTurn();
+      guess = turn.answer;
+      correctAnswer = cards[0].correctAnswer;
+    });
 
+    it.skip('should update turn count upon correct answer', () => {      
       expect(guess).to.be.equal(correctAnswer);
       expect(round.turns).to.equal(1);
-    });      
+    });
+    
+    it.skip('should update turn count upon incorrect answer', () => {
+      expect(guess).to.not.be.equal(correctAnswer);
+      expect(round.turns).to.equal(1);
+    });
   });
 });
