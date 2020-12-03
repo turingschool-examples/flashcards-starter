@@ -43,14 +43,13 @@ describe('Turn', () => {
   });
 
   describe('evaluation methods', () => {
-    let evaluation, question, correctAnswer, givenAnswer, feedback;
+    let evaluation, question, correctAnswer, givenAnswer;
 
     beforeEach(() => {
       question = card.question;
       correctAnswer = card.correctAnswer;
       givenAnswer = turn.answer;      
-      evaluation = turn.evaluateGuess();
-      feedback = turn.giveFeedback();
+      evaluation = turn.evaluateGuess();      
     });
 
     it('should evaluate a correct guess as correct', () => {
@@ -66,15 +65,18 @@ describe('Turn', () => {
     });
 
     it('should give "correct" feedback on correct guess', () => {
+      turn.giveFeedback();
+      const feedback = turn.feedback;
       expect(givenAnswer).to.equal(correctAnswer);
       expect(evaluation).to.equal(true);
       expect(feedback).to.equal('correct!');
     });
 
-    it('should give "incorrect" feedback on incorrect guess', () => {      
+    it('should give "incorrect" feedback on incorrect guess', () => {
       turn = new Turn('mainlyetcetera', card);
       evaluation = turn.evaluateGuess();
-      feedback = turn.giveFeedback();
+      turn.giveFeedback();
+      const feedback = turn.feedback;
 
       expect(turn.answer).to.not.equal(correctAnswer);
       expect(evaluation).to.equal(false);
