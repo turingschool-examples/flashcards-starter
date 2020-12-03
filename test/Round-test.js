@@ -6,7 +6,7 @@ const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
-describe('Round', function() {
+describe('Round', () => {
   let card1, card2, card3, card4;
   let deck;
   let round;
@@ -75,7 +75,7 @@ describe('Round', function() {
 
   it('should be able to calculate and return the percentage of correct guesses', () => {
     round1.takeTurn('object-subject');
-    round1.takeTurn('key-value');
+    round1.takeTurn('Bolognese');
     expect(round1.calculatePercentCorrect()).to.equal(50);
   })
 
