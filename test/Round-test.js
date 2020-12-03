@@ -56,12 +56,6 @@ describe('Round', function() {
       expect(round.takeTurn).to.be.a('function');
     });
 
-    //Better test for this???
-    it('should instantiate a turn when taking a turn', function() {
-      round.takeTurn();
-      expect(round.currentTurn).to.be.an.instanceOf(Turn);
-    });
-
     it('should return correct when guess is right', function() {
       let correctAnswer = round.takeTurn('sea otter');
       expect(correctAnswer).to.equal('correct!');

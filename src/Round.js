@@ -5,7 +5,6 @@ const Round = class {
     this.deck = deck.cards;
     this.incorrectGuesses = new Array();
     this.turns = 0;
-    this.currentTurn = undefined;
     this.winPercent = 0;
   }
 
@@ -14,12 +13,12 @@ const Round = class {
   }
 
   takeTurn(guess) {
-    this.currentTurn = new Turn(guess, this.returnCurrentCard());
+    let currentTurn = new Turn(guess, this.returnCurrentCard());
     this.turns++;
-    if (guess === this.currentTurn.card.correctAnswer) {
-      return 'correct!';
+    if (guess === currentTurn.card.correctAnswer) {
+      return ('correct!');
     } else {
-      this.incorrectGuesses.push(this.returnCurrentCard.id);
+      this.incorrectGuesses.push(currentTurn.id);
       return 'incorrect!';
     }
   }
