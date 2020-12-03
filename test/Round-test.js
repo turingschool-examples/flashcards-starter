@@ -96,5 +96,12 @@ describe('Round', () => {
     it.skip('should return "correct" feedback for correct guesses', () => {
       expect(turn.feedback).to.equal('correct!');
     });
+
+    it.skip('should store incorrect guesses in incorrect guesses property', () => {
+      expect(round.incorrectGuesses).lengthOf(1);
+
+      round.takeTurn();
+      expect(round.incorrectGuesses).lengthOf(2);
+    });
   });
 });
