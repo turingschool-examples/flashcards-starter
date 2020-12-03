@@ -50,5 +50,17 @@ describe('Round', () => {
 
       expect(newTurn).to.be.an.instanceof(Round);
     });
+
+    it.skip('should update turn count upon correct answer', () => {
+      // takeTurn should check whether guess is correct, and increment turn count
+      // turn has given guess
+        // expect that to be the correct guess
+      const newTurn = round.takeTurn();
+      const guess = turn.answer;
+      const correctAnswer = cards[0].correctAnswer;
+
+      expect(guess).to.be.equal(correctAnswer);
+      expect(round.turns).to.equal(1);
+    });      
   });
 });
