@@ -18,19 +18,19 @@ class Round {
     this.turns++;
     if (feedback === 'incorrect!') {
       this.incorrectGuesses.push(currentCard.id);
-      return feedback;
-    } else {
-      return feedback;
     }
+    return feedback;
   };
 
   calculatePercentageCorrect() {
-    let numberOfCorrect = this.turns - this.incorrectGuesses.length
+    let numberOfCorrect = this.turns - this.incorrectGuesses.length;
     return Math.round(numberOfCorrect / this.turns * 100);
   };
 
   endRound() {
-    return (`** Round over! ** You answered ${this.calculatePercentageCorrect()}% of the questions correctly!`);
+    if (this.turns === 30) {
+      console.log(`** Round over! ** You answered ${this.calculatePercentageCorrect()}% of the questions correctly!`);
+    };
   };
 
 
