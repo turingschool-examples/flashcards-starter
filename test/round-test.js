@@ -72,7 +72,26 @@ describe('Round', function() {
 
   it("should store the id's of questions answered incorrectly", function() {
     round.takeTurn('incorrect answer');
-    expect(round.incorrectGuesses).to.deep.equal([1])
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  });
+
+  it("should NOT store the id's of questions answered correctly", function() {
+    round.takeTurn('object');
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+
+  it('should calculate the percentage of correct answers', function() {
+    round.takeTurn('object');
+    round.takeTurn('gallbladder');
+    round.takeTurn('incorrect answer');
+    expect(round.calculatePercentageCorrect()).to.equal(67);
+  });
+
+  it('should log when the round is over', function() {
+    round.takeTurn('object');
+    round.takeTurn('gallbladder');
+    round.takeTurn('incorrect answer');
+    expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
   })
 
 
