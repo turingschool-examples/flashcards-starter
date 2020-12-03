@@ -49,7 +49,8 @@ describe('Turn', () => {
       question = card.question;
       correctAnswer = card.correctAnswer;
       givenAnswer = turn.answer;      
-      evaluation = turn.evaluateGuess();      
+      evaluation = turn.evaluateGuess();
+      feedback = turn.giveFeedback();
     });
 
     it('should evaluate a correct guess as correct', () => {
