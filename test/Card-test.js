@@ -4,9 +4,9 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 
 describe('Card', () => {
-  let card;
+  let card1, card2;
 
-  beforeEach(function() {
+  beforeEach(() => {
     card1 = new Card(3, 'An object allows you to define a set of related information using what kind of pairs?', ['object-subject', 'key-value', 'index-array'], 'key-value');
     card2 = new Card(5, 'Which dog breed most resembles the data type that indicates a true or false value?', ['Golden Retriver', 'Cocker Spaniel', 'Sheepdog', 'Bolognese'], 'Bolognese');
   });

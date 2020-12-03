@@ -20,7 +20,7 @@ class Game {
     this.printMessage(gameDeck, gameRound);
     this.printQuestion(gameRound);
   }
-  printMessage(deck, round) {
+  printMessage(deck) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }

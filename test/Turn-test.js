@@ -5,10 +5,10 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', () => {
-  let turn;
-  let card;
+  let turn1, turn2;
+  let card3;
 
-  beforeEach(function() {
+  beforeEach(() => {
     card3 = new Card(12, 'What are the two ways you can access properties of an object?', ['bracket notation and dot notation', 'bracket notation and index-array notation', 'dot notation and literal notation'], 'bracket notation and dot notation');
     turn1 = new Turn('bracket notation and dot notation', card3);
     turn2 = new Turn('bracket notation and index-array notation', card3);
@@ -18,7 +18,7 @@ describe('Turn', () => {
     expect(turn1.userGuess).to.equal('bracket notation and dot notation');
     expect(turn2.userGuess).to.equal('bracket notation and index-array notation');
   });
-  
+
   it('should be able to take in an instance of Card', () => {
     expect(turn1).to.have.property('card');
   });

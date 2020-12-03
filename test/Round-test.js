@@ -3,15 +3,14 @@ const expect = chai.expect;
 
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
 describe('Round', () => {
   let card1, card2, card3, card4;
   let deck;
-  let round;
+  let round1;
 
-  beforeEach(function() {
+  beforeEach(() => {
     card1 = new Card(3, 'An object allows you to define a set of related information using what kind of pairs?', ['object-subject', 'key-value', 'index-array'], 'key-value');
     card2 = new Card(5,'Which dog breed most resembles the data type that indicates a true or false value?', ['Golden Retriver', 'Cocker Spaniel', 'Sheepdog', 'Bolognese'], 'Bolognese');
     card3 = new Card(12, 'What are the two ways you can access properties of an object?', ['bracket notation and dot notation', 'bracket notation and index-array notation', 'dot notation and literal notation'], 'bracket notation and dot notation');
