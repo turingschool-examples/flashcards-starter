@@ -5,9 +5,8 @@ const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 const Round = require('../src/Round');
 const Game = require('../src/Game');
-const Turn = require('../src/Turn');
-const data = require('../src/data');
-const prototypeQuestions = data.prototypeData;
+
+
 
 
 describe('Game', function() {
