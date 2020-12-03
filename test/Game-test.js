@@ -29,7 +29,4 @@ describe('Game', function() {
           });
     });
 
-    it.skip('should instantiate a deck of cards')
-
-
 })
