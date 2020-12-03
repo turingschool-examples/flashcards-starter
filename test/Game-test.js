@@ -1,3 +1,5 @@
+'use strict'
+
 const chai = require('chai')
 const expect = chai.expect
 
@@ -8,57 +10,49 @@ const Deck = require('../src/Deck')
 const Game = require('../src/Game')
 
 describe('Game', function () {
-  let game, card, turn, round, deck
 
-  beforeEach(function () {
-    card = new Card(1, 'Have a question', ['nope', 'yes', 'not this'], 'yes')
-    turn = new Turn('yes', card)
-    game = new Game(round)
-    round = new Round(card, turn, turn.guess)
-    deck = new Deck()
-  })
-
-  it.skip('should be a function', function () {
+  it('should be a function', function () {
     expect(Game).to.be.a('function')
   })
 
-  it.skip('should be an instance of Game', function () {
+  it('should be an instance of Game', function () {
+    const card = new Card(1, 'Have a question', ['nope', 'yes', 'not this'], 'yes')
+    const round = new Round(card)
+    const game = new Game(round)
     expect(game).to.be.an.instanceof(Game)
   })
 
-  it.skip('should keep track of the current round', function () {
-
+  it('should keep track of the current round', function () {
+    const card = new Card(1, 'Have a question', ['nope', 'yes', 'not this'], 'yes')
+    const round = new Round(card)
+    const game = new Game(round)
+    expect(game.currentRound).to.deep.equal(round)
   })
 
-  it.skip('should know how many turns have happened', function () {
-    round.takeTurn(turn.guess, card)
-    expect(round.turnCount).to.equal(1)
-    round.takeTurn(turn.guess, card)
-    expect(round.turnCount).to.equal(2)
-  })
-
-  it.skip('should create cards', function () {
-    game.startGame(card)
-    expect(card.cardId).to.equal(1)
+  it('should create cards', function () {
+    const card = new Card(1, 'Have a question', ['nope', 'yes', 'not this'], 'yes')
+    const turn = new Turn('yes', card)
+    const round = new Round(card)
+    const game = new Game(round)
+    game.start(card.id, card.question, card.answers, card.correctAnswer, turn.guess, turn.card, turn)
+    expect(card.id).to.equal(1)
     expect(card.question).to.equal('Have a question')
     expect(card.answers).to.deep.equal(['nope', 'yes', 'not this'])
     expect(card.correctAnswer).to.equal('yes')
   })
 
-  it.skip('should create the deck', function () {
-    expect(deck.currentDeck).to.have.length(0)
-    game.startGame()
-    // deck.createDeck(card.cardId, card.question, card.answers, card.correctAnswer)
-    expect(deck.currentDeck).to.have.length(1)
-    // deck.createDeck(card.cardId, card.question, card.answers, card.correctAnswer)
-    expect(deck.currentDeck).to.have.length(2)
+  it('should put cards in a deck', function () {
+    const card = new Card(1, 'Have a question', ['nope', 'yes', 'not this'], 'yes')
+    const card1 = new Card(2, 'Another question', ['ok', 'maybe', 'no'], 'maybe')
+    const turn = new Turn('yes', card)
+    const deck = new Deck()
+    const round = new Round(card)
+    const game = new Game(round)
+    game.start(card.id, card.question, card.answers, card.correctAnswer, turn.guess, turn.card, turn)
+    game.start(card1.id, card1.question, card1.answers, card1.correctAnswer, turn.guess, turn.card, turn)
+    deck.createDeck(card)
+    deck.createDeck(card1)
+    expect(deck.currentDeck[0]).to.deep.equal(card)
+    expect(deck.currentDeck[1]).to.deep.equal(card1)
   })
-
-  it.skip('should create the round', function () {
-    game.startGame()
-  })
-
-  it.skip('should print the game start message', function () {})
-
-  it.skip('should start the game', function () {})
 })

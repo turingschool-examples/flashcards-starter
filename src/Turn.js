@@ -18,6 +18,10 @@ class Turn {
     return this.guess === this.card.correctAnswer
   }
 
+  recordGuess() {
+
+  }
+
   giveFeedback() {
     if (this.evaluateGuess()) {
       return 'correct!'

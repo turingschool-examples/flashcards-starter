@@ -10,7 +10,7 @@ describe('Turn', function () {
   let card
 
   beforeEach(function () {
-    const card = new Card(1, 'What is my name', ['Elsa', 'Matt', 'Gonzo'], 'Elsa')
+    card = new Card(1, 'What is my name', ['Elsa', 'Matt', 'Gonzo'], 'Elsa')
   })
 
   it('should be a function', function () {
@@ -39,11 +39,6 @@ describe('Turn', function () {
   })
 
   describe('Turn.evaluateGuess', function () {
-    let card
-
-    beforeEach(function () {
-      card = new Card(1, 'What is my name', ['Elsa', 'Matt', 'Gonzo'], 'Elsa')
-    })
 
     it('should return a boolean', function () {
       const turn = new Turn('Elsa', card)
@@ -62,13 +57,8 @@ describe('Turn', function () {
   })
 
   describe('Turn.giveFeedback', function () {
-    let card
 
-    beforeEach(function () {
-      card = new Card(1, 'What is my name', ['Elsa', 'Matt', 'Gonzo'], 'Elsa')
-    })
-
-    it('should return return a string', function () {
+    it('should return a string', function () {
       const turn = new Turn('Elsa', card)
       expect(turn.giveFeedback()).to.be.a('string')
     })

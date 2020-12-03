@@ -14,21 +14,23 @@ class Game {
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
+
   }
 
   printQuestion(round) {
     util.main(round);
   }
 
-  startGame() {
-    const card = new Card(1, "A good question", ["ans1", "ans2"], "ans2")
+  start(id, question, answers, correctAnswer, guess, card, turn) {
+    card = new Card(id, question, answers, correctAnswer)
+    turn = new Turn(guess, card)
     const deck = new Deck()
-    // const turn = new Turn("ans2", card)
     const round = new Round(card, turn, turn.guess)
-    // this.printMessage(deck, round)
-    // this.printQuestion(round)
+    const currentDeck = deck.createDeck(card)
+    return currentDeck
+    this.printMessage(deck, round)
+    this.printQuestion(round)
   }
-
 }
 
 module.exports = Game;

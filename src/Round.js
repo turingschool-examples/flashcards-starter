@@ -1,6 +1,8 @@
 // 'use strict'
 
 const Turn = require('../src/Turn')
+const Deck = require('../src/Deck')
+const Card = require('../src/Card')
 
 class Round {
   constructor(card) {
@@ -10,8 +12,10 @@ class Round {
     this.incorrectGuesses = []
   }
 
-  returnCurrentCard() {
-    return this.card
+  returnCurrentCard(id, question, answers, correctAnswer) {
+    const card = new Card(id, question, answers, correctAnswer)
+    const deck = new Deck()
+    deck.currentDeck.push(card)
   }
 
   takeTurn(guess, card) {
@@ -23,9 +27,9 @@ class Round {
     if (feedback === 'correct!') {
       this.rightAnswers++
     }
-    this.card.cardId++
+    this.card.id++
     if (!turn.evaluateGuess()) {
-      this.incorrectGuesses.push(card.cardId)
+      this.incorrectGuesses.push(card.id)
     }
     return feedback
   }
