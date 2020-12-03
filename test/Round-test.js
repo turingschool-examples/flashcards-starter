@@ -40,6 +40,14 @@ describe('Round', () => {
     expect(round.incorrectGuesses).to.not.equal(undefined);
   });
 
+  it.skip('should be able to calculate percentage of correct answers', () => {
+    round.takeTurn(); // incorrect
+    round.takeTurn(); // correct
+
+    expect(round.turns).to.equal(2);
+    expect(round.calculatePercentCorrect()).to.equal(50);  
+  });
+
   describe('takeTurn', () => {
     let newTurn, guess, correctAnswer, currentCard;
 
@@ -102,6 +110,6 @@ describe('Round', () => {
 
       round.takeTurn();
       expect(round.incorrectGuesses).lengthOf(2);
-    });
-  });
+    });  
+  });  
 });
