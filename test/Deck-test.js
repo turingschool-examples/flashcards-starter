@@ -16,7 +16,6 @@ describe('Deck', function() {
   });
 
   it('should be a function', function() {
-    let deck = new Deck();
     expect(Deck).to.be.a('function');
   });
 
