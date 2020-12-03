@@ -76,5 +76,9 @@ describe('Round', () => {
       expect(currentCard).to.be.deep.equal(cards[1]);
     });
 
+    it.skip('should say correct guess is correct', () => {
+      expect(guess).to.equal(correctAnswer);
+      expect(turn.giveFeedback()).to.equal('correct!');
+    });
   });
 });
