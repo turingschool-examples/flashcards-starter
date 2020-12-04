@@ -7,7 +7,7 @@ const Card = require('../src/Card');
 
 
 describe('Game', function() {
-    let car1, card2, card3, card4, deck1, game
+    let game
 
     beforeEach(() => {
         card1 = new Card(1, 'What color is the sky', ['orange', 'green', 'blue'], 'blue');
@@ -25,8 +25,8 @@ describe('Game', function() {
     it('should be an instance of the Game', function() {
         expect(game).to.be.an.instanceof(Game);
     })
+
     it('should track current round', function() {
-        game.start();
         expect(game.currentRound).to.be.an('object')
     })
 
