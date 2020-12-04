@@ -11,6 +11,12 @@ describe('Deck', function() {
         expect(Deck).to.be.a('function');
     });
 
+    it('should be an instance of Deck', function() {
+        const deck = new Deck();
+        expect(deck).to.be.an.instanceof(Deck);
+    });
+
+
     it('should hold cards', function() {
         const card1 = new Card(1, 'What color is the sky', ['orange', 'green', 'blue'], 'blue');
         const deck = new Deck([card1])
