@@ -17,14 +17,22 @@ class Round {
         if (turn.guess !== this.deck[0].correctAnswer) {
             this.incorrectGuesses.push(this.returnCurrentCard().id);
         }
-        this.deck.splice(0, 1);
+        this.removeCard()
         return turn.giveFeedback(guess);
-
     }
+    removeCard() {
+        this.deck.splice(0, 1);
+    }
+
     calculatePercentCorrect() {
         let correct = this.turns - this.incorrectGuesses.length;
         let percent = (correct / this.turns) * 100
         return percent;
+    }
+    endRound() {
+        if (this.deck.length === 0) {
+            return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+        }
     }
 }
 
