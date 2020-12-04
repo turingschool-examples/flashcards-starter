@@ -5,7 +5,7 @@
 This application was developed for a Mod2 project at the Turing School of Software and Design in Denver. The user can play a trivia game in their terminal by using their enter key and number keys to choose from a multiple choice list of answers. This application utilizes multiple classes with accompanying test files to emphasize on the importance of encapsulation, object-oriented programming (OOP), and test-driven development (TDD).
 ## Install/Setup 
 
-Open your terminal and run the command: git clone git@github.com:benjaminprat/flashcards.git
+Open your terminal and run the command: git clone https://github.com/benjaminprat/flashcards-starter.git
 
 cd into the repository
 
