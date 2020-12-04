@@ -2,7 +2,6 @@ const chai = require('chai');
 const expect = chai.expect
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
-const prototypeData = require('../src/Data');
 
 describe('Deck', function() {
   let deck;
@@ -15,7 +14,7 @@ describe('Deck', function() {
     card3 = new Card(3, `Which of these subjects did Severus Snape NOT teach at Hogwart's School of Witchcraft and Wizardry?`, ['Potions', 'Defense Against the Dark Arts', 'Transfiguration'], 'Transfiguration');
     deck = new Deck([card1, card2, card3]);
 
-  })
+  });
   it('should be a function', function() {
     expect(Deck).to.be.a('function');
   });
