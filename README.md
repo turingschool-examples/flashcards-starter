@@ -9,5 +9,6 @@ The contributors to this repo include staff of the [Turing School of Software an
 ## How
 The technologies used in this program include vanilla JavaScript!
 
-In order to use the program first clone down this repo into the desired directory inside your terminal. Next navigate inside of that directory install the necessary dependencies by entering `npm install`. Finally, to run the program, enter `node index.js`.
+In order to use the program first clone down this repo into the desired directory inside your terminal. Next navigate inside of that directory and install the necessary dependencies by entering `npm install`. Finally, to run the program, enter `node index.js`.
 
+![How to Play](https://github.com/colefiscus/flashcards-starter/blob/README/Resources/flashcards-gif.gif)
