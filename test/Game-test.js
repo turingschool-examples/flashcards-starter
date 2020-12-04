@@ -25,6 +25,9 @@ describe('Game', function() {
     it('should be an instance of the Game', function() {
         expect(game).to.be.an.instanceof(Game);
     })
-
+    it('should track current round', function() {
+        game.start();
+        expect(game.currentRound).to.be.an('object')
+    })
 
 })
