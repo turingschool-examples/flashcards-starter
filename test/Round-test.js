@@ -15,6 +15,7 @@ describe('Round', function() {
         card3 = new Card(3, 'What animal has stripes', ['lion', 'zebra', 'cow'], 'zebra');
         deck = new Deck([card1, card2, card3]);
         round = new Round(deck);
+
     });
 
     it('should be a function', function() {
@@ -63,6 +64,7 @@ describe('Round', function() {
 
         expect(round.incorrectGuesses.length).to.equal(1);
     })
+
     it('should update the current card', function() {
         round.takeTurn('orange')
 
@@ -74,7 +76,6 @@ describe('Round', function() {
         round.takeTurn('December')
 
         expect(round.calculatePercentCorrect()).to.equal(50);
-
     })
 
     it('should alert when a round is over', function() {

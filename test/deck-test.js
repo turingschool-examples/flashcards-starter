@@ -23,10 +23,9 @@ describe('Deck', function() {
         expect(deck).to.be.an.instanceof(Deck);
     });
 
-
     it('should hold cards', function() {
-        expect(deck.cards).to.be.deep.equal([card1, card2, card3, card4])
-    });
+        expect(deck.cards).to.be.deep.equal([card1, card2, card3, card4]);
+    })
 
     it('should start with a deck of cards', function() {
         expect(deck.cards).to.have.lengthOf(4);
@@ -35,4 +34,5 @@ describe('Deck', function() {
     it('should count cards in deck', function() {
         expect(deck.countCards()).to.be.equal(4);
     })
+
 })

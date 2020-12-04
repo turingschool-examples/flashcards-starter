@@ -5,6 +5,8 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
+
+
 class Game {
     constructor() {
         this.currentRound = {};
@@ -18,6 +20,7 @@ class Game {
     printQuestion(round) {
         util.main(round);
     }
+
     start() {
         let multipleCards = [];
         prototypeQuestions.forEach(card => {
@@ -32,6 +35,7 @@ class Game {
         this.printQuestion(this.currentRound)
 
     }
+
 
 }
 
