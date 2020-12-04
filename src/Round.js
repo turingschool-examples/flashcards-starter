@@ -26,9 +26,9 @@ class Round {
   calculatePercentCorrect() {
     return Math.ceil((this.turns - this.incorrectGuesses.length) / this.turns * 100);
   }
-  
+
   endRound() {
-    return `**Round Over!**You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    console.log(`**Round Over!**You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
   }
 }
 
