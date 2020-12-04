@@ -34,6 +34,7 @@ describe('Turn', function() {
     })
 
     it('should return a guess', function() {
+
         expect(turn.returnGuess()).to.equal('blue');
     })
 
@@ -45,7 +46,6 @@ describe('Turn', function() {
         expect(turn.evaluateGuess()).to.be.a('boolean')
     })
 
-
     it('should give feeback', function() {
         expect(turn.giveFeedback()).to.be.a('string');
     })
@@ -53,4 +53,4 @@ describe('Turn', function() {
     it('should give correct feedback', function() {
         expect(turn.giveFeedback()).to.equal('correct!')
     })
-})
+});
