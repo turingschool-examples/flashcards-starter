@@ -7,8 +7,9 @@ const Card = require('../src/Card');
 describe('Turn', function() {
     let card, turn;
     beforeEach(() => {
-        turn = new Turn('object', card);
-        card = new Card();
+        card1 = new Card(1, 'What color is the sky', ['orange', 'green', 'blue'], 'blue');
+        turn = new Turn('blue', card1);
+
     })
 
     it('should be a function', function() {
