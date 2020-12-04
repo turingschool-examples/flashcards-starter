@@ -10,10 +10,6 @@ describe('Card', function() {
     card = new Card(1, 'Question 1', ['no', 'nope', 'yes'], 'yes')
   });
 
-  it('should be a function', function() {
-    expect(Card).to.be.a('function');
-  });
-
   it('should be an instance of Card', function() {
     expect(card).to.be.an.instanceof(Card);
   });
