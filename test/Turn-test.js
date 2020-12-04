@@ -15,6 +15,11 @@ describe('Turn', function() {
         expect(Turn).to.be.a('function');
     });
 
+    it('should be an instance of Turn', function() {
+        const turn = new Turn();
+        expect(turn).to.be.an.instanceof(Turn);
+    });
+
     it('should have a guess', function() {
         expect(turn.guess).to.be.a('string');
     })
