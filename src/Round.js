@@ -6,6 +6,7 @@ class Round {
         this.turns = 0;
         this.incorrectGuesses = [];
     }
+
     returnCurrentCard() {
         let currentCard = this.deck[0];
         return currentCard;
@@ -17,9 +18,10 @@ class Round {
         if (turn.guess !== this.deck[0].correctAnswer) {
             this.incorrectGuesses.push(this.returnCurrentCard().id);
         }
-        this.removeCard()
+        this.removeCard();
         return turn.giveFeedback(guess);
     }
+
     removeCard() {
         this.deck.splice(0, 1);
     }
@@ -30,6 +32,7 @@ class Round {
         let wholeNum = Math.floor(percent)
         return wholeNum;
     }
+
     endRound() {
         if (this.deck.length === 0) {
             console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
