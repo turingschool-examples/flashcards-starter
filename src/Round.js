@@ -11,7 +11,7 @@ class Round {
     }
     returnCurrentCard() {
         return this.currentCard;
-    };
+    }
     takeTurn(attempt) {
         this.turns++;
         const turn = new Turn(attempt, this.deck[0]);
@@ -24,15 +24,15 @@ class Round {
             this.correctGuesses.push(attempt);
             return 'correct!';
         }
-    };
+    }
     calculatePrecentCorrect() {
         const percent = (this.correctGuesses.length / (this.incorrectGuesses.length + this.correctGuesses.length)) * 100;
         this.percentCorrect = percent;
         return percent;
-    };
+    }
     endRound() {
         const ender = `**Round over! ** You answered ${this.calculatePrecentCorrect()} % of the questions correctly!`
-        console.log(ender);
+        console.log(ender)
         return ender;
     }
 }

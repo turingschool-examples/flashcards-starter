@@ -5,13 +5,13 @@ class Turn {
     }
     returnGuess() {
         return this.guess;
-    };
+    }
     returnCard() {
         return this.currentCard;
-    };
+    }
     evaluateGuess() {
         return this.guess === this.currentCard.correctAnswer;
-    };
+    }
     giveFeedBack() {
         return this.guess === this.currentCard.correctAnswer ? 'Way to go! You got it right!' : 'Keep trying! You are close!';
     }
