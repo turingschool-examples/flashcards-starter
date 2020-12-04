@@ -29,12 +29,7 @@ class Round {
   endRound() {
     return `** Round Over ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
-  
+
 };
 
 module.exports = Round;
-
-
-
-
-// guess !== this.currentDeck.deck[this.turns].correctAnswer
