@@ -7,12 +7,7 @@ const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
 describe('Round', function() {
-    let round;
-    let deck;
-    let card1;
-    let card2;
-    let card3;
-    let turn;
+    let round, deck, card1, card2, card3, turn;
     beforeEach(() => {
         turn = new Turn('blue', card1)
         card1 = new Card(1, 'What color is the sky', ['orange', 'green', 'blue'], 'blue');
@@ -42,6 +37,10 @@ describe('Round', function() {
         expect(turn).to.be.an.instanceof(Turn);
     })
 
+    it('should start with no turns', function() {
+        expect(round.turns).to.equal(0);
+    })
+
     it('should update turns count', function() {
         round.takeTurn()
         round.takeTurn()
@@ -53,6 +52,10 @@ describe('Round', function() {
         round.takeTurn('orange')
 
         expect(round.takeTurn('orange')).to.equal('incorrect!')
+    })
+
+    it('start with no incorrect guesses', function() {
+        expect(round.incorrectGuesses.length).to.equal(0);
     })
 
     it('should track incorrect guesses', function() {
@@ -72,5 +75,13 @@ describe('Round', function() {
 
         expect(round.calculatePercentCorrect()).to.equal(50);
 
+    })
+
+    it('should alert when a round is over', function() {
+        round.takeTurn('blue');
+        round.takeTurn('October');
+        round.takeTurn('zebra');
+
+        expect(round.endRound()).to.equal('**Round over!** You answered 100% of the questions correctly!');
     })
 })
