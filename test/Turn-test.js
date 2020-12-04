@@ -5,7 +5,7 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', function() {
-    let card, turn;
+    let card1, turn;
     beforeEach(() => {
         card1 = new Card(1, 'What color is the sky', ['orange', 'green', 'blue'], 'blue');
         turn = new Turn('blue', card1);
@@ -24,12 +24,17 @@ describe('Turn', function() {
         expect(turn.guess).to.be.a('string');
     })
 
+    it('should have guess be a word', function() {
+
+        expect(turn.guess).to.not.be.a('number')
+    })
+
     it('should have a card', function() {
         expect(turn.card).to.be.an.instanceof(Card);
     })
 
     it('should return a guess', function() {
-        expect(turn.returnGuess()).to.equal(turn.guess);
+        expect(turn.returnGuess()).to.equal('blue');
     })
 
     it('should return the card', function() {
@@ -43,5 +48,9 @@ describe('Turn', function() {
 
     it('should give feeback', function() {
         expect(turn.giveFeedback()).to.be.a('string');
+    })
+
+    it('should give correct feedback', function() {
+        expect(turn.giveFeedback()).to.equal('correct!')
     })
 })
