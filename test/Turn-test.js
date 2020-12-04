@@ -16,7 +16,6 @@ describe('Turn', function() {
     });
 
     it('should be an instance of Turn', function() {
-        const turn = new Turn();
         expect(turn).to.be.an.instanceof(Turn);
     });
 
