@@ -73,11 +73,4 @@ describe('Round', function() {
     round.takeTurn('yikesss');
     expect(round.calculatePercentCorrect()).to.equal(67);
   });
-
-  it('should say when the game is over', function() {
-    round.takeTurn('yes');
-    round.takeTurn('no');
-    round.takeTurn('nope');
-    expect(round.endRound()).to.equal('**Round Over!**You answered 100% of the questions correctly!');
-  });
 });
