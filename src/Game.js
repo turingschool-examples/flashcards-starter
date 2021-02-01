@@ -6,12 +6,14 @@ class Game {
   constructor() {}
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+    // eslint-disable-next-line no-console
+    console.log(`Welcome to FlashCards! You are playing with 
+    ${deck.countCards()} cards. \n
+    -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 
