@@ -26,10 +26,36 @@ describe('Turn', function() {
     const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
     const turn = new Turn('test guess', card);
     expect(turn.currentCard).to.deep.equal(card);
-    expect()
+    expect(turn.currentCard).to.be.an.instanceof(Card);
   });
 
+  it.skip('it should be able to return a card', function() {
+    const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
+    const turn = new Turn('test guess', card);
+    expect(turn.returnCard).to.equal(card);
+    expect(turn.returnCard).to.be.an.instanceof(Card);
+  });
 
+  it.skip('it should be able to return a user guess', function() {
+    const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
+    const turn = new Turn('Answer', card);
+    expect(turn.returnGuess).to.equal('Answer');
+  });
 
+  it.skip('it should be able to check user guess to the card answer', function() {
+    const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
+    const turn = new Turn('Answer', card);
+    const turnTwo = new Turn('One', card);
+    expect(turn.evaluateGuess).to.equal(true);
+    expect(turnTwo.evaluateGuess).to.equal(false);
+  });
+
+  it.skip('it should give feedback based on guess results', function() {
+    const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
+    const turn = new Turn('Answer', card);
+    const turnTwo = new Turn('One', card);
+    expect(turn.giveFeedback).to.equal('correct!');
+    expect(turnTwo.giveFeedback).to.equal('incorrect!');
+  });
 
 });
