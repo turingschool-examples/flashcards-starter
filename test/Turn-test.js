@@ -1,5 +1,4 @@
 const chai = require('chai');
-const Card = require('../src/Card');
 const expect = chai.expect;
 
 const Turn = require('../src/Turn');
@@ -42,12 +41,7 @@ describe('Turn', function () {
       "answers": ["array", "object", "function"],
       "correctAnswer": "array"
     });
-    expect(turn.returnCard()).to.equal(`${{
-      "id": 2,
-      "question": "What is a comma-separated list of related values?",
-      "answers": ["array", "object", "function"],
-      "correctAnswer": "array"
-    }}`);
+    expect(turn.returnCard()).to.equal(turn.card);
   });
 
   it(`should be able to tell if the user's guess is incorrect`, function() {
