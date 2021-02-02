@@ -6,8 +6,10 @@ const Card = require('../src/Card');
 
 describe('Turn', () => {
   let card1;
+  let card2;
   let turn1;
   let turn2;
+  let turn3;
 
   beforeEach(() => {
     card1 = new Card(1, 'C-3P0 is fluent in how many languages?', ['twenty', 'one-hundred', 'sixty million'], 'sixty million');
