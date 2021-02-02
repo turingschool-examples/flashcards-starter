@@ -20,7 +20,7 @@ describe('Turn', function() {
     it(`should store a guess`, function() {
         const card = new Card((3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method"))
         const turn = new Turn("mutator method", card)
-        expect(turn.guess).to.equal('mutator method');
+        expect(turn.guess).to.equal("mutator method");
     })
 
     it(`should store a card`, function() {
@@ -31,17 +31,41 @@ describe('Turn', function() {
 
     it(`should return a guess`, function() {
         const card = new Card(4, "What type of prototype method does not modify the existing array but returns a particular representation of the array?", ["mutator method", "accessor method", "iteration method"], "accessor method")
-        const turn = new Turn('accessor method', card);
-        expect(turn.returnGuess()).to.equal('accessor method');
+        const turn = new Turn("accessor method", card);
+        expect(turn.returnGuess()).to.equal("accessor method");
     })
 
     it(`should return the card`, function() {
         const card = new Card(4, "What type of prototype method does not modify the existing array but returns a particular representation of the array?", ["mutator method", "accessor method", "iteration method"], "accessor method")
-        const turn = new Turn('accessor method', card);
+        const turn = new Turn("accessor method", card);
         expect(turn.returnCard()).to.equal(card);
     })
 
-    
+    it(`should evaluate if a guess is correct or not`, function() {
+        const card = new Card(5, "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",  ["mutator method", "accessor method", "iteration method"], "iteration method");
+        const turn1 = new Turn("iteration method", card);
+        const turn2 = new Turn("accessor method", card);
+
+        expect(turn1.evaluateGuess()).to.equal(true);
+        expect(turn2.evaluateGuess()).to.equal(false);
+    })
+
+    it(`should give positive feedback if answer is correct`, function() {
+        const card = new Card(5, "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",  ["mutator method", "accessor method", "iteration method"], "iteration method");
+        const turn1 = new Turn("iteration method", card);
+        // const turn2 = new Turn("accessor method", card);
+
+        expect(turn1.giveFeedback())
+    })
+
+    it(`should give positive feedback if answer is correct`, function() {
+        const card = new Card(5, "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",  ["mutator method", "accessor method", "iteration method"], "iteration method");
+        // const turn1 = new Turn("iteration method", card);
+        const turn2 = new Turn("accessor method", card);
+
+        expect(turn1.)
+    })
+
 });
 
 
