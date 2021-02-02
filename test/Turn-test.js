@@ -2,31 +2,44 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Turn = require('../src/Turn');
+const Card = require('../src/Card');
 
-describe('Turn', function () {
+describe('Turn', () => {
+  let card1;
+  let turn1;
+  let turn2;
 
-  it('should be a function', function () {
-    const turn = new Turn();
+  beforeEach(() => {
+    card1 = new Card(1, 'C-3P0 is fluent in how many languages?', ['twenty', 'one-hundred', 'sixty million'], 'sixty million');
+    card2 = new Card(2, 'Who built C-3P0?', ['Anakin Skywalker', 'Yoda', 'Han Solo'], 'Anakin Skywalker');
+
+    turn1 = new Turn('twenty', card1);
+    turn2 = new Turn('sixty million', card1);
+    turn3 = new Turn('Anakin Skywalker', card2);
+  });
+
+  it('should be a function', () => {
     expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Turn', function () {
-    const turn = new Turn();
-    expect(turn).to.be.an.instanceof(Turn);
+  it('should be an instance of Turn', () => {
+    expect(turn1).to.be.an.instanceof(Turn);
   });
 
-  it.skip('should store a question', function () {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+  it.skip('should be able to keep a guess', () => {
+    expect(turn1.guess).to.equal('twenty);
   });
 
-  it.skip('should store a list of possible answers', function () {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+  it.skip('should be able to keep a different guess', () => {
+    expect(turn2.guess).to.equal('sixty million');
   });
 
-  it.skip('should store the correct answer', function () {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.correctAnswer).to.equal('object');
+  it.skip('should use a card', () => {
+    expect(turn1.card).to.equal(card1);
   });
+
+  it.skip('should be able to use a different card', () => {
+    expect(turn1.card).to.equal(card1);
+  });
+
 });
