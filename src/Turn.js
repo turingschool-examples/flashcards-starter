@@ -7,17 +7,24 @@ class Turn {
         //I will need to compare the guess with the card property to see if it's true or false
     }
     returnGuess() {
-        //method that returns the guess - takes in this.guess as an argument
+        return this.guess
     }
 
     returnCard() {
+        return this.card;
         //returns the card object (probably takes in this.card as an argument)
     }
     evaluateGuess() {
-        // check is this.guess === this.cards.correct answer and returns either true of false 
+        if (this.guess === this.card.answer) {
+            return true
+        } else {
+            return false
+        }
     }
 
     giveFeedback() {
         // depending on what evaluate guess returns this returns a string of correct or incorrect 
     }
 }
+
+module.exports = Turn; 
