@@ -27,7 +27,7 @@ describe('Turn', () => {
   });
 
   it.skip('should be able to keep a guess', () => {
-    expect(turn1.guess).to.equal('twenty);
+    expect(turn1.guess).to.equal('twenty');
   });
 
   it.skip('should be able to keep a different guess', () => {
@@ -39,7 +39,35 @@ describe('Turn', () => {
   });
 
   it.skip('should be able to use a different card', () => {
-    expect(turn1.card).to.equal(card1);
+    expect(turn3.card).to.equal(card2);
   });
 
+  it.skip('should return a guess', () => {
+    expect(turn1.returnGuess()).to.equal('twenty');
+  });
+
+  it.skip('should be able to return a different guess', () => {
+    expect(turn2.returnGuess()).to.equal('sixty million');
+  });
+
+  it.skip('should be able to return a card', () => {
+    expect(turn1.returnCard()).to.equal(card1);
+  });
+
+  it.skip('should be able to return a different card', () => {
+    expect(turn3.returnCard()).to.equal(card2);
+  });
+
+  it.skip('should check if guess is true or false', () => {
+    expect(turn1.evaluateGuess()).to.deep.equal(false);
+    expect(turn2.evaluateGuess()).to.deep.equal(true);
+  });
+
+  it.skip('should give feedback if the guess is incorrect', () => {
+    expect(turn1.giveFeedback()).to.deep.equal(`incorrect!`);
+  });
+
+  it.skip('should give feedback if the guess is correct', () => {
+    expect(turn2.giveFeedback()).to.deep.equal(`correct!`);
+  });
 });
