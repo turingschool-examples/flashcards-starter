@@ -5,7 +5,15 @@ const util = require('./util');
 
 class Game {
   constructor() {
-    this.round = new Round(data)
+    //this.round = new Round(data)
+    //let currentRound = this.round
+  }
+  start() {
+    // creates new Cards
+    // puts cards in Deck
+    // creates new Round using Deck
+    // invokes printMessage below
+    // invokes printQuestion below
   }
 
   printMessage(deck, round) {
