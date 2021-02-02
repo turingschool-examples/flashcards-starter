@@ -17,7 +17,7 @@ class Turn {
         // check is this.guess === this.cards.correct answer and returns either true of false 
     }
 
-    giveFeedback() [
+    giveFeedback() {
         // depending on what evaluate guess returns this returns a string of correct or incorrect 
-    ]
+    }
 }
