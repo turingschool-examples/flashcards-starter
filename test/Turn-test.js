@@ -27,12 +27,7 @@ describe('Turn', function () {
         "answers": ["array", "object", "function"],
         "correctAnswer": "array"
       });
-    expect(turn.card).to.equal(`${{
-      "id": 2,
-      "question": "What is a comma-separated list of related values?",
-      "answers": ["array", "object", "function"],
-      "correctAnswer": "array"
-    }}`)
+    expect(turn.card).to.be.a('object');
   });
 
   it('should be able to return the guess', function () {
@@ -62,7 +57,7 @@ describe('Turn', function () {
       "answers": ["array", "object", "function"],
       "correctAnswer": "array"
     });
-    expect(turn.evaluateGuess()).to.equal('false')
+    expect(turn.evaluateGuess()).to.equal(false)
   });
 
   it(`should be able to tell if the user's guess is correct`, function() {
@@ -72,7 +67,7 @@ describe('Turn', function () {
       "answers": ["array", "object", "function"],
       "correctAnswer": "array"
     });
-    expect(turn.evaluateGuess()).to.equal('true')
+    expect(turn.evaluateGuess()).to.equal(true)
   });
 
   it('should be able to give positive feedback', function() {
