@@ -23,7 +23,7 @@ describe('Turn', function() {
 
     // turn.returnGuess();
 
-    expect(turn.returnGuess()).to.equal('pug');
+    expect(turn.returnGuess()).to.equal('object');
   });
 
   it('should return current card', function() {
@@ -31,13 +31,13 @@ describe('Turn', function() {
 
     // turn.returnCard();
 
-    expect(turn.returnCard()).to.equal(card);
+    expect(turn.returnCard()).to.equal(testData[0]);
   });
 
   it('should evaluate user guess', function() {
     const correctGuess = new Turn('object', testData[0]);
     const incorrectGuess = new Turn('array', testData[0]);
-    //
+
     // correctGuess.evaluateGuess();
     // incorrectGuess.evaluateGuess();
 
@@ -49,6 +49,8 @@ describe('Turn', function() {
     const correctGuessFeedback = new Turn('array', testData[1]);
     const incorrectGuessFeedback = new Turn('function', testData[1]);
 
+    correctGuessFeedback.evaluateGuess();
+    incorrectGuessFeedback.evaluateGuess();
     // correctGuessFeedback.giveFeedback();
     // incorrectGuessFeedback.giveFeedback();
 
