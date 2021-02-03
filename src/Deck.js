@@ -4,6 +4,8 @@ class Deck {
     }
 
     countCards() {
-        //this should return however many cards are in the deck 
+        return this.cards.length
     }
 }
+
+module.exports = Deck;
