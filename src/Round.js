@@ -11,11 +11,11 @@ class Round {
     this.incorrectGuesses = []
     this.currentCard = this.deck[0];
   }
-  takeTurn(guess) {
-    this.turns++;
+  takeTurn(userGuess) {
     //console.log(this.currentCard)
-    //this.turn = new Turn(userGuess, currentCard)//(stringGuess, cardObject);
+    this.turn = new Turn(userGuess, this.currentCard);
 
+    this.turns++;
     //switches to next card; util line 25
        // .entries() and a next()?
        // what is round here if id is set per card?

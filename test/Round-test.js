@@ -57,15 +57,12 @@ describe('Round', function() {
       ["Who knows", "My mom is part of the Audubon society", "I Smell like flowers"],
       "I Smell Like Flowers");
     const card2 = new Card(18,
-        "When is it ok to fart in public?",
-        ["Outside only", "Always if necessary", "Never"],
-        "Outside only");
+      "When is it ok to fart in public?",
+      ["Outside only", "Always if necessary", "Never"],
+      "Outside only");
     const cardList = [card1, card2];
-    //console.log(cardList)
     const deck = new Deck(cardList);
-    //console.log(deck)
     const round = new Round(deck);
-    //console.log('YOOOO'+ round.currentCard);
 
     expect(round.currentCard).to.equal(card1);
   });
@@ -98,6 +95,7 @@ describe('Round', function() {
     const round = new Round(deck);
 
     round.takeTurn("With Gusto");
+
 
   });
 
