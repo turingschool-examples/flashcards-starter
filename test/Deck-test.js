@@ -23,7 +23,7 @@ describe('Deck', function() {
     const deck = new Deck([cardOne, cardTwo, cardThree]);
     expect(deck.cards).to.be.an.instanceof(Array);
     expect(deck.cards[0]).to.be.an.instanceof(Card);
-    expect(deck.cards[2]).to.be.equal(cardThree);
+    expect(deck.cards[2]).to.equal(cardThree);
   });
 
   it('should be able to know how many cards are in the deck', function() {
@@ -31,7 +31,8 @@ describe('Deck', function() {
     const cardTwo = new Card(2, 'QuestionTwo', ['Not', 'It', 'AnswerTwo'], 'AnswerTwo');
     const cardThree = new Card(3, 'QuestionThree', ['Not', 'It', 'AnswerThree'], 'AnswerThree');
     const deck = new Deck([cardOne, cardTwo, cardThree]);
-    expect(deck.countCards()).to.be.equal(3);
+    expect(deck.countCards()).to.equal(3);
+
   });
 
 });
