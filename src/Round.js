@@ -11,39 +11,33 @@ class Round {
     this.incorrectGuesses = []
     this.currentCard = this.deck[0];
   }
-  takeTurn(userGuess) {
-    //console.log(this.currentCard)
-    this.turn = new Turn(userGuess, this.currentCard);
 
+  takeTurn(userGuess) {
+    this.turn = new Turn(userGuess, this.currentCard);
+    if (!this.turn.evaluateGuess()) {
+      this.incorrectGuesses.push(this.currentCard.id);
+    };
     this.turns++;
-    //switches to next card; util line 25
-       // .entries() and a next()?
-       // what is round here if id is set per card?
-    //evaluates guess
-    //?Game.incorrectGuess = []; incorrectGuess++
-    return
+    this.currentCard = this.deck[this.turns];
+    return this.turn.giveFeedback();
   }
+
   returnCurrentCard() {
-    //  Deck.shift()?
-    // returns Card object
+    return this.currentCard;
   }
+
   calculatePercentCorrect() {
-    // return turns / correctGuess (will need an incrementor?)
+    const percentage = (this.turns - this.incorrectGuesses.length) / (this.deck.length) * 100;
+    return percentage;
   }
+
   endRound() {
-    //return a message w/ % correct
+    const percentCorrect = this.calculatePercentCorrect();
+    const message = `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`
+    console.log(message);
     //reset deck?
+    return message;
   }
 }
 
 module.exports = Round;
-
-
-
-
-// what is round here if id is set per card?
-
-
-
-//line 2^ and line 45 util.js export
-// genList(this) on line 3 util.js?
