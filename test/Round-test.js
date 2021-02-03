@@ -53,8 +53,8 @@ describe('Round', () => {
 
     it.skip('should create a new turn instance when guess is made', () => {
       const round = new Round(deck);
-      round.takeTurn(guess, card);
-      expect()
+      round.takeTurn(guess)
+      expect(round.takeTurn('guess')).to.be.an.instanceof(Turn);
     });
 
     it.skip('should add one to the turn counter', () => {
@@ -65,50 +65,49 @@ describe('Round', () => {
 
     it.skip('should be able to count multiple turns', () => {
       const round = new Round(deck);
-      round.takeTurn();
-      round.takeTurn();
-      round.takeTurn();
+      round.takeTurn('guess');
+      round.takeTurn('guess');
+      round.takeTurn('guess');
       expect(round.turns).to.equal(3);
     });
 
     it.skip('should update the current card to the next card in the deck', () => {
       const round = new Round(deck);
-      round.takeTurn();
+      round.takeTurn('guess');
       expect(round.returnCurrentCard()).to.equal(cardTwo);
     });
 
     it.skip('Should check the guesses and store incorrect card id in the incorrectGuesses array', () => {
       const round = new Round(deck);
-      round.takeTurn();
+      round.takeTurn('guess');
       expect(round.incorrectGuesses).to.equal(cardOne);
     });
 
     it.skip('should return feedback if guess is correct', () => {
       const round = new Round(deck);
-      expect(round.takeTurn()).to.equal('correct!');
+      expect(round.takeTurn('AnswerOne')).to.equal('correct!');
     });
 
     it.skip('should returnfeedback if guess is incorrect', () => {
       const round = new Round(deck);
-      expect(round.takeTurn()).to.equal('incorrect!');
+      expect(round.takeTurn('AnswerTwo')).to.equal('incorrect!');
     });
 
   });
 
   it.skip('should be able to return the percentage of correct guesses', () => {
     const round = new Round(deck);
-    round.takeTurn();
-    round.takeTurn();
-    round.takeTurn();
-    expect(round.calculatePercentCorrect).to.equal();
+    round.takeTurn('AnswerOne');
+    round.takeTurn('AnswerOne');
+    round.takeTurn('AnswerOne');
+    expect(round.calculatePercentCorrect).to.equal(33);
   });
 
-
-    it.skip('should log ** Round over! **and give the % correct at the end of the round', () => {
-      const round = new Round(deck);
-      round.takeTurn();
-      round.takeTurn();
-      round.takeTurn();
-      expect(round.endRound).to.equal('** Round over! ** You answered 33% of the questions correctly!')
-    });
+  it.skip('should log ** Round over! **and give the % correct at the end of the round', () => {
+    const round = new Round(deck);
+    round.takeTurn('AnswerOne');
+    round.takeTurn('AnswerOne');
+    round.takeTurn('AnswerOne');
+    expect(round.endRound).to.equal('** Round over! ** You answered 33% of the questions correctly!')
+  });
 });
