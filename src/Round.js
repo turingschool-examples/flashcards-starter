@@ -3,8 +3,7 @@ const Turn = require("./Turn");
 class Round {
     constructor(deck = []) {
         // this.deck = deck.map(card => card);
-        this.deck = [...deck];
-        this.originalDeck = deck
+        this.deck = deck;
         this.turns = 0;
         this.currentCard = {};
         this.incorrectGuesses = [];
@@ -13,8 +12,8 @@ class Round {
     }
 
     returnCurrentCard() {
-        this.currentCard = this.deck[0]
-        return this.deck[0]
+        this.currentCard = this.deck.cards[0]
+        return this.deck.cards[0]
         //returns the current card being played ie first card in the deck 
     }
 
@@ -24,15 +23,15 @@ class Round {
         if (!currentTurn.evaluateGuess()) {
             this.incorrectGuesses.unshift(currentTurn.card.id)
         }
-        if (this.deck.length > 0) {
-            this.deck.shift();
+        if (this.deck.cards.length > 0) {
+            this.deck.cards.shift();
         } 
         return currentTurn.giveFeedback();
     }
 
     calculatePercentCorrect() {
-        const amountCorrect = this.originalDeck.length - this.incorrectGuesses.length
-        return amountCorrect/this.originalDeck.length * 100
+        const amountCorrect = this.deck.cards.length - this.incorrectGuesses.length
+        return amountCorrect/this.deck.cards.length * 100
     }
 
     endRound() {
