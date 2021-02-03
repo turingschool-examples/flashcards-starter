@@ -1,9 +1,12 @@
 class Round {
-    constructor() {
-        //probably needs to take in the cards awway as an argument 
+    constructor(deck) {
+        this.deck = deck;
+        //I need turn passed in to keep track of responses and if it's correct 
+        //I need access to the deck array and maybe cards array to keep track of current card
     }
 
     returnCurrentCard() {
+        return this.deck[0]
         //returns the current card being played ie first card in the deck 
     }
 
@@ -25,3 +28,5 @@ class Round {
         // prints '** Round over!** You answered <>% of the questions correctly
     }
 }
+
+module.exports = Round;
