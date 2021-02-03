@@ -54,6 +54,7 @@ describe('Round', function() {
     
         it(`should make the next card in the array the current card`, function() {
             const round = new Round(sampleCards);
+
             expect(round.returnCurrentCard()).to.equal(sampleCards[0])
 
             round.takeTurn();
@@ -61,15 +62,53 @@ describe('Round', function() {
             expect(round.returnCurrentCard()).to.equal(sampleCards[1]);
         })
 
-        it(`should should add the ids of incorrect guesses to in the array`, function() {
+        it(`should add the ids of incorrect guesses to in the array`, function() {
             const round = new Round(sampleCards);
             
             expect(round.incorrectGuesses).to.deep.equal([]);
 
-            round.takeTurn()
-            //I need to check the false answer I pass in against the first card in sample cards
+            round.returnCurrentCard();
+
+            round.takeTurn('array');
+
+            expect(round.incorrectGuesses[0]).to.equal(round.currentCard.id)
             // I need to make sure it's pushed into the array. I should also check a correct answer 
         })
+
+        it(`should return feedback if guess is correct`, function() {
+            const round = new Round(sampleCards);
+
+            expect(round.takeTurn('object')).to.equal('correct!');
+        })
+
+        it(`should return feedback if guess is incorrect`, function() {
+            const round = new Round(sampleCards);
+
+            expect(round.takeTurn('array')).to.equal('incorrect!');
+        })
+    })
+
+    it(`should return the percentage of correct guesses`, function() {
+        const round = new Round(sampleCards);
+        round.takeTurn('object');
+        round.takeTurn('object');
+        round.takeTurn('mutator method');
+        round.takeTurn('mutator method');
+        round.takeTurn('iteration method');
+        expect(round.calculatePercentCorrect()).to.equal(60)
+        //Should test if I have 0 answers given or array length is 0
+    })
+
+    it(`should end round when out of cards`, function() {
+        const round = new Round(sampleCards);
+        round.takeTurn('object');
+        round.takeTurn('object');
+        round.takeTurn('mutator method');
+        round.takeTurn('mutator method');
+        round.takeTurn('iteration method');
+        expect(round.endRound()).to.equal('** Round over!** You answered 60% of the questions correctly!')
+        // expect(round.takeTurn('iteration method')).to.equal('** Round over!** You answered 60% of the questions correctly!')
+        // Should it fire this.endRound by itself??
     })
 })
   
