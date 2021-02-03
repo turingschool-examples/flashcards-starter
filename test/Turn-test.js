@@ -6,7 +6,11 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 
 describe('Turn', function() {
-
+//Move the cards up so that every test can access them!!!!
+//let thing
+//research before each beforeEach(() => {
+    // think = thinf.map etc etc
+// })
     it(`Should be a function`, function() {
         const turn = new Turn();
         expect(Turn).to.be.a(`function`);
@@ -52,45 +56,18 @@ describe('Turn', function() {
 
     it(`should give positive feedback if answer is correct`, function() {
         const card = new Card(5, "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",  ["mutator method", "accessor method", "iteration method"], "iteration method");
-        const turn1 = new Turn("iteration method", card);
-        // const turn2 = new Turn("accessor method", card);
+        const turn = new Turn("iteration method", card);
 
-        expect(turn1.giveFeedback())
+        expect(turn.giveFeedback()).to.equal("correct!")
     })
 
-    it(`should give positive feedback if answer is correct`, function() {
+    it(`should give positive feedback if answer is incorrect`, function() {
         const card = new Card(5, "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",  ["mutator method", "accessor method", "iteration method"], "iteration method");
-        // const turn1 = new Turn("iteration method", card);
-        const turn2 = new Turn("accessor method", card);
-
-        expect(turn1.)
+        const turn = new Turn("accessor method", card);
+        expect(turn.giveFeedback()).to.equal("incorrect!")
     })
 
 });
 
 
 
-// it('should be a function', function() {
-//     const card = new Card();
-//     expect(Card).to.be.a('function');
-//   });
-
-//   it('should be an instance of Card', function() {
-//     const card = new Card();
-//     expect(card).to.be.an.instanceof(Card);
-//   }); 
-
-//   it('should store a question', function() {
-//     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-//     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
-//   });  
-
-//   it('should store a list of possible answers', function() {
-//     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-//     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
-//   });  
-
-//   it('should store the correct answer', function() {
-//     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-//     expect(card.correctAnswer).to.equal('object');
-//   });

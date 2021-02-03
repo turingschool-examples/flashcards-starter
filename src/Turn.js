@@ -11,19 +11,16 @@ class Turn {
         return this.card;
     }
     evaluateGuess() {
-        if (this.guess === this.card.answer) {
-            return true
-        } else {
-            return false
-        }
+        return this.guess === this.card.correctAnswer
     }
 
     giveFeedback() {
-        if (this.guess === this.card.answer) {
+        if (this.guess === this.card.correctAnswer) {
             return "correct!";
         } else {
             return "incorrect!";
         }
+        //Add turnery 
     }
 }
 
