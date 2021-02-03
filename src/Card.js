@@ -1,5 +1,3 @@
-// being called from Game
-
 class Card {
   constructor(id, question, answers, correctAnswer) {
     this.id = id;

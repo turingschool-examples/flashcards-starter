@@ -1,8 +1,8 @@
-// being called from Game
-// calling Turn, Card, Deck?
 
-const Card = require('./Card')
-const util = require('./util')
+const turn = require('./Turn');
+const deck = require('./Deck');
+const card = require('./Card');
+const util = require('./util');
 
 class Round {
   constructor() {
@@ -15,7 +15,7 @@ class Round {
        // .entries() and a next()?
        // what is round here if id is set per card?
     //evaluates guess
-    //?Game.array? incorrectGuess++
+    //?Game.incorrectGuess = []; incorrectGuess++
     //returns feedback
   }
   returnCurrentCard() {
@@ -27,13 +27,13 @@ class Round {
   }
   endRound() {
     //return a message w/ % correct
+    //reset deck?
   }
 }
 
 module.exports = Round;
 
-// Why do we need a promise to be delivered when we
-//  have access to correctAnswer?
+
 
 
 // what is round here if id is set per card?
