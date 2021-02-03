@@ -1,6 +1,7 @@
 class Round {
     constructor(deck) {
         this.deck = deck;
+        this.turns = 0;
         //I need turn passed in to keep track of responses and if it's correct 
         //I need access to the deck array and maybe cards array to keep track of current card
     }
@@ -11,7 +12,8 @@ class Round {
     }
 
     takeTurn() {
-        //updates turnCount ++
+        this.turns++
+
         //creates a new instance of the turn class
         //makes the next card in the aray the next turn if array length is > X
         //at the end of the deck initiate endRound

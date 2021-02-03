@@ -35,6 +35,24 @@ describe('Round', function() {
         expect(round.returnCurrentCard()).to.equal(sampleCards[0])
     })
 
-    
+    describe('takeTurn', function() {
 
+        it(`should add one to turns for every round played`, function() {
+            const round = new Round(sampleCards);
+
+            expect(round.turns).to.equal(0);
+            
+            round.takeTurn();
+            round.takeTurn();
+            round.takeTurn();
+            
+            expect(round.turns).to.equal(3);
+        })
+
+        it(`should create an instance of Turn`, function() {
+            const round = new Round(sampleCards);
+            
+
+        })
+    })
 })
