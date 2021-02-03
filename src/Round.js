@@ -1,22 +1,27 @@
 
-const turn = require('./Turn');
-const deck = require('./Deck');
-const card = require('./Card');
+const Turn = require('./Turn');
+const Deck = require('./Deck');
+const Card = require('./Card');
 const util = require('./util');
 
 class Round {
-  constructor() {
-
+  constructor(deck) { // instance of Deck
+    this.deck = deck.cards; //array of objs
+    this.turns = 0;
+    this.incorrectGuesses = []
+    this.currentCard = this.deck[0];
   }
-  takeTurn() {
-    //instantiaties newTurn(stringGuess, cardObject);
-    //var turns++;
+  takeTurn(guess) {
+    this.turns++;
+    //console.log(this.currentCard)
+    //this.turn = new Turn(userGuess, currentCard)//(stringGuess, cardObject);
+
     //switches to next card; util line 25
        // .entries() and a next()?
        // what is round here if id is set per card?
     //evaluates guess
     //?Game.incorrectGuess = []; incorrectGuess++
-    //returns feedback
+    return
   }
   returnCurrentCard() {
     //  Deck.shift()?

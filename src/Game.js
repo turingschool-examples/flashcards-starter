@@ -1,3 +1,4 @@
+//resets deck
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
@@ -8,8 +9,9 @@ const Deck = require('./Deck');
 
 class Game {
   constructor() {
-    //this.round = new Round(data)
-    //let currentRound = this.round
+  //  this.deck = new Deck(prototypeQuestions);
+  //  this.round = new Round(this.deck);
+  //  this.currentRound = this.round;
   }
   start() {
     // creates new Cards (helpers...)

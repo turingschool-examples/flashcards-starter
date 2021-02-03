@@ -1,15 +1,14 @@
-// being called from Game
-
 
 class Deck {
-  constructor(array) {
-    //forEach(element) instantiate Card?
-    //where will I create a card?
+  constructor(cards) { //data: array of objects
+    this.cards = [];
+    cards.forEach(card => {
+      this.cards.push(card);
+    });
   }
   countCards() {
-    //return deck.length
+    return this.cards.length;
   }
-
 }
 
 module.exports = Deck;

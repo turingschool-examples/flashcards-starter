@@ -1,18 +1,33 @@
 // being called from Round
 
+
 class Turn {
-  constructor() {}
+  constructor(userGuess, currentCard) {
+    this.userGuess = userGuess;
+    this.card = currentCard;
+    this.solved = false;
+  }
+
   returnGuess() {
-    //array index?
+    return this.userGuess;
   }
+
   returnCard() {
-    // returns the object I assume
+    return this.card;
   }
+
   evaluateGuess() {
-    // returns boolean
+    if (this.userGuess === this.card.correctAnswer) {
+      this.solved = true;
+      return this.solved;
+    } else return false;
   }
+
   giveFeedback() {
-    //returns 'correct' or 'incorrect'
+    if (this.solved === true) {
+      return "correct";
+    } else return "incorrect";
   }
+  
 }
 module.exports = Turn;
