@@ -51,19 +51,18 @@ describe('Round', () => {
 
   describe('Round.takeTurn()', () => {
 
-    it.skip('should create a new turn instance when guess is made', () => {
-      const round = new Round(deck);
-      round.takeTurn(guess)
-      expect(round.takeTurn('guess')).to.be.an.instanceof(Turn);
-    });
+    // it('should create a new turn instance when guess is made', () => {
+    //   const round = new Round(deck);
+    //   expect(round.takeTurn('guess')).to.be.an.instanceof(Turn);
+    // });
 
-    it.skip('should add one to the turn counter', () => {
+    it('should add one to the turn counter', () => {
       const round = new Round(deck);
       round.takeTurn();
       expect(round.turns).to.equal(1);
     });
 
-    it.skip('should be able to count multiple turns', () => {
+    it('should be able to count multiple turns', () => {
       const round = new Round(deck);
       round.takeTurn('guess');
       round.takeTurn('guess');
@@ -71,43 +70,43 @@ describe('Round', () => {
       expect(round.turns).to.equal(3);
     });
 
-    it.skip('should update the current card to the next card in the deck', () => {
+    it('should update the current card to the next card in the deck', () => {
       const round = new Round(deck);
       round.takeTurn('guess');
       expect(round.returnCurrentCard()).to.equal(cardTwo);
     });
 
-    it.skip('Should check the guesses and store incorrect card id in the incorrectGuesses array', () => {
+    it('Should check the guesses and store incorrect card id in the incorrectGuesses array', () => {
       const round = new Round(deck);
       round.takeTurn('guess');
-      expect(round.incorrectGuesses).to.equal(cardOne);
+      expect(round.incorrectGuesses[0]).to.equal(1);
     });
 
-    it.skip('should return feedback if guess is correct', () => {
+    it('should return feedback if guess is correct', () => {
       const round = new Round(deck);
       expect(round.takeTurn('AnswerOne')).to.equal('correct!');
     });
 
-    it.skip('should returnfeedback if guess is incorrect', () => {
+    it('should returnfeedback if guess is incorrect', () => {
       const round = new Round(deck);
       expect(round.takeTurn('AnswerTwo')).to.equal('incorrect!');
     });
 
   });
 
-  it.skip('should be able to return the percentage of correct guesses', () => {
+  it('should be able to return the percentage of correct guesses', () => {
     const round = new Round(deck);
     round.takeTurn('AnswerOne');
     round.takeTurn('AnswerOne');
     round.takeTurn('AnswerOne');
-    expect(round.calculatePercentCorrect).to.equal(33);
+    expect(round.calculatePercentCorrect()).to.equal(33);
   });
 
-  it.skip('should log ** Round over! **and give the % correct at the end of the round', () => {
+  it('should log ** Round over! **and give the % correct at the end of the round', () => {
     const round = new Round(deck);
     round.takeTurn('AnswerOne');
+    round.takeTurn('AnswerTwo');
     round.takeTurn('AnswerOne');
-    round.takeTurn('AnswerOne');
-    expect(round.endRound).to.equal('** Round over! ** You answered 33% of the questions correctly!')
+    expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
   });
 });
