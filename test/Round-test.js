@@ -1,7 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
 const Round = require('../src/Round');
-const Turn = require('../src/Turn');
 
 describe('Round', () => {
   it('should be a function', () => {
