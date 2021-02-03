@@ -2,12 +2,11 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Turn = require('../src/Turn');
-const Card = require('../src/Card')
+const Card = require('../src/Card');
 
 describe('Turn', function() {
 
   it('should be a function', function() {
-    const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
@@ -54,11 +53,15 @@ describe('Turn', function() {
     expect(turnTwo.evaluateGuess()).to.equal(false);
   });
 
-  it('it should give feedback based on guess results', function() {
+  it('it should give feedback based on conrrect guess results', function() {
     const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
     const turn = new Turn('Answer', card);
-    const turnTwo = new Turn('One', card);
     expect(turn.giveFeedback()).to.equal('correct!');
+  });
+
+  it('it should give feedback based on incorrect guess results', function() {
+    const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
+    const turnTwo = new Turn('One', card);
     expect(turnTwo.giveFeedback()).to.equal('incorrect!');
   });
 
