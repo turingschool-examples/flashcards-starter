@@ -1,3 +1,4 @@
+const Game = require("./Game");
 const Turn = require("./Turn");
 
 class Round {
@@ -5,6 +6,7 @@ class Round {
         this.deck = deck;
         this.turns = 0;
         this.incorrectGuesses = [];
+        this.timer = 0
     }
 
     returnCurrentCard() {
@@ -13,10 +15,10 @@ class Round {
 
     takeTurn(guess) {
         let turn = new Turn(guess, this.returnCurrentCard());
-        turn.evaluateGuess() ? null : this.incorrectGuesses.push(this.returnCurrentCard().id)
+        turn.evaluateGuess() ? null : this.incorrectGuesses.push(this.returnCurrentCard().id);
         this.turns++;
         this.deck.cards.shift();
-        return this.deck.cards.length === 0 ? turn.giveFeedback() + ' ' + this.endRound() : turn.giveFeedback()
+        return this.deck.cards.length === 0 ? turn.giveFeedback() + ' ' + this.endRound() : turn.giveFeedback();
     }
 
     calculatePercentCorrect() {
@@ -24,7 +26,22 @@ class Round {
     }
 
     endRound() {
-        return `Round over! You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+        return `
+-------------------------------------------
+Round over! You completed the test in ${this.formatTimer(this.timer)} seconds
+You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    }
+
+    formatTimer(seconds) {
+        if (seconds < 10) {
+            return `0:0${seconds}`;
+          } else if (seconds < 60) {
+            return `0:${seconds}`;
+          } else if (seconds - Math.floor(seconds / 60) * 60 < 10) {
+            return `${Math.floor(seconds / 60)}:0${seconds - Math.floor(seconds / 60) * 60}`;
+          } else {
+            return `${Math.floor(seconds / 60)}:${seconds - Math.floor(seconds / 60) * 60}`;
+          }
     }
 }
 
