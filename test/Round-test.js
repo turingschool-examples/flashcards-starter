@@ -8,24 +8,24 @@ describe('Round', () => {
     expect(Round).to.be.a('function');
   })
   
-  it.skip('should take in a deck when instantiating', () => {
+  it('should take in a deck when instantiating', () => {
     const arr = [1, 2, 3];
     const round = new Round(arr);
     expect(round.deck).to.equal(arr);
   })
 
-  it.skip('should start with 0 turns', () => {
+  it('should start with 0 turns', () => {
     const round = new Round();
     expect(round.turns).to.equal(0);
   })
   
-  it.skip('should start with no incorrect guesses', () => {
+  it('should start with no incorrect guesses', () => {
     const round = new Round();
-    expect(round.incorrectGuesses).to.have.length.of(0);
+    expect(round.incorrectGuesses).to.have.length(0);
   })
 
 
-  it.skip('should be able to return the current card', () => {
+  it('should be able to return the current card', () => {
     const arr = [1, 2, 3];
     const round = new Round(arr);
     expect(round.returnCurrentCard()).to.equal(1);
@@ -33,20 +33,14 @@ describe('Round', () => {
   
   describe('takeTurn', () => {
 
-    it.skip('should create a new turn instance', () => {
-      const arr = [1, 2, 3];
-      const round = new Round(arr);  
-      round.takeTurn();
-      expect(round.turns).to.have.length.of(1);
-    })
-
-    it.skip('should update the rounds turn count, regardless of answer', () => {
+    
+    it('should update the rounds turn count, regardless of answer', () => {
       const arr = [1, 2, 3];
       const round = new Round(arr);
       round.takeTurn();
       expect(round.turns).to.equal(1);
     })
-
+    
     it('should prompt the next flash card/update current flash card', () => {
       const arr = [1, 2, 3];
       const round = new Round(arr);
@@ -56,11 +50,15 @@ describe('Round', () => {
     })
 
     it('should evaluate the guess and store incorrect guesses', () => {
-      const arr = [{id: 1}, {id: 2}, {id: 3}];
+      const arr = [{ id: 1,
+        question: 'What is Robbie\'s favorite animal',
+        answers: ['sea otter', 'pug', 'capybara'],
+        correctAnswer: 'sea otter'
+      }];
       const round = new Round(arr);
-      expect(round.incorrectGuesses).to.have.length.of(0);
-      round.takeTurn();
-      expect(round.incorrectGuesses).to.have.length.of(1);
+      expect(round.incorrectGuesses).to.have.length(0);
+      round.takeTurn('wrong');
+      expect(round.incorrectGuesses).to.have.length(1);
     })
 
     it('should give feedback for guesses', () => {
