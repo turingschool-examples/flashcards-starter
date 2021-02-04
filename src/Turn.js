@@ -21,7 +21,6 @@ class Turn {
         } else {
             return "incorrect!";
         }
-        //Add turnery 
     }
 }
 
