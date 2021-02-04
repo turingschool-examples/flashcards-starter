@@ -21,19 +21,23 @@ describe('Game', function() {
     expect(game).to.be.an.instanceOf(Game);
   });
 
-  it.skip('should be able to start game', function() {
+  it('should be able to start game', function() {
     const game = new Game();
 
     game.start();
 
-    expect(game.deck[0]).to.be.an.instanceOf(Card);
+    expect(game.cards[0]).to.be.an.instanceOf(Card);
     expect(game.deck).to.be.an.instanceOf(Deck);
-    expect(game.deck.length).to.equal(30);
+    expect(game.deck.currentCards.length).to.equal(30);
     expect(game.currentRound).to.be.an.instanceOf(Round);
   });
 
-  it.skip('should keep track of current round', function() {
+  it('should keep track of current round', function() {
     const game = new Game();
+
+    game.start();
+    game.currentRound.takeTurn('object')
+
     expect(game.currentRound).to.be.an.instanceOf(Round);
   });
 });
