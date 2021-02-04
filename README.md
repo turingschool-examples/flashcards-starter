@@ -13,3 +13,11 @@ FlashCards is a simple study app playable using basic keyboard controls through 
 - Launch the application by entering the command `node index.js`
 - Use the up/down arrow keys to select from the multiple choice answers provided with each questions
 - Press the Enter key to submit your answer and see if it was correct. Press Enter again to proceed to to the next question.
+
+**Technologies used:***
+* Turing School of Software Design - FlashCards starter pack: https://github.com/turingschool-examples/flashcards-starter
+* Visual Studio Code: 1.21.1 (text editor)
+* npm 6.14.8 (package manager)
+* Mocha ^6.1.4 (test framework)
+* Chai ^4.2.0 (assertion library)
+* eslint 7.19.0 (linter)
