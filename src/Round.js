@@ -19,14 +19,18 @@ class Round {
 
     takeTurn(guess) {
         this.turns++
-        const currentTurn = new Turn(guess, this.deck[0]);
+        const currentTurn = new Turn(guess, this.deck.cards[0]);
         if (!currentTurn.evaluateGuess()) {
             this.incorrectGuesses.unshift(currentTurn.card.id)
         }
-        if (this.deck.cards.length > 0) {
+        console.log(this.deck.cards.length)
+        if (this.deck.cards.length >= 1) {
             this.deck.cards.shift();
-        } 
-        return currentTurn.giveFeedback();
+            return currentTurn.giveFeedback();
+        } else if (this.deck.cards.length = 1) {
+            console.log("done")
+            this.endRound()
+        }
     }
 
     calculatePercentCorrect() {
