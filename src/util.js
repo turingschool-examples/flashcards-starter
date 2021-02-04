@@ -43,6 +43,7 @@ async function main(round) {
       round.deck.cards = prototypeQuestions.filter(cardInfo => round.incorrectGuesses.includes(cardInfo.id))
       round.incorrectGuesses = [];
       round.turns = 0;
+      round.timer = 0;
       main(round);
     } else {
       main(round);
