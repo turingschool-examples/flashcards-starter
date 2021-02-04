@@ -22,7 +22,7 @@ describe('Game', function() {
 
   it('should be able to start game', function() {
     const game = new Game();
-
+    
     game.start();
 
     expect(game.deck[0]).to.be.an.instanceOf(Card);
