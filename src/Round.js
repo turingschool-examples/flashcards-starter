@@ -29,7 +29,7 @@ class Round {
 
   calculatePercentCorrect() {
     const percentage = (this.turns - this.incorrectGuesses.length) / (this.deck.length) * 100;
-    return percentage;
+    return Math.round(percentage);
   }
 
   endRound() {
