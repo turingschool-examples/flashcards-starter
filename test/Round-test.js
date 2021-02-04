@@ -99,7 +99,7 @@ describe('Round', () => {
     round.takeTurn('AnswerOne');
     round.takeTurn('AnswerOne');
     round.takeTurn('AnswerOne');
-    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
-  })
+    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!');
+  });
 
 });
