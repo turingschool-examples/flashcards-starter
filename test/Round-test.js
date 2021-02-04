@@ -8,30 +8,14 @@ const sampleDeck = testData.sampleDeck;
 const expect = chai.expect;
 
 describe('Round', function() {
-    // let newDeck
-    // console.log(testDeck)
-    // beforeEach(funtion() {
 
-    // }) 
     let newDeck
     beforeEach(() => {
         newDeck = sampleDeck.map(card => {
             return new Card(card.id, card.question, card.answers, card.correctAnswer)
           });
         newDeck = new Deck(newDeck)
-        // newDeck = newDeck.map(card => {
-        //     return new Card(card.id, card.question, card.answers, card.correctAnswer);
-        // })
     });
-    // let newDeck
-    //  beforeEach(() => {
-    //     newDeck = newDeck.map(card => {
-    //         return new Card(card.id, card.question, card.answers, card.correctAnswer)
-    //     })
-
-    // })
-      
-    //   newDeck = new Deck(newDeck)
 
     it(`Should be a function`, function() {
         const round = new Round();
@@ -49,13 +33,8 @@ describe('Round', function() {
     })
 
     it(`should return the current card being played`, function() {
-        // const card1 = newDeck[0]
         const round = new Round(newDeck);
-        // round.returnCurrentCard();
-        // console.log(round.returnCurrentCard(), newDeck, newDeck)
         expect(round.returnCurrentCard()).to.equal(newDeck.cards[0])
-        // console.log(newDeck[0])
-
     })
 
     describe('takeTurn', function() {
@@ -118,17 +97,5 @@ describe('Round', function() {
         expect(round.calculatePercentCorrect()).to.equal(60)
         //Should test if I have 0 answers given or array length is 0
     })
-
-    // it(`should end round when out of cards`, function() {
-    //     const round = new Round(newDeck);
-    //     round.takeTurn('object');
-    //     round.takeTurn('object');
-    //     round.takeTurn('mutator method');
-    //     round.takeTurn('mutator method');
-    //     round.takeTurn('iteration method');
-    //     expect(round.endRound()).to.equal('** Round over!** You answered 60% of the questions correctly!')
-    //     // expect(round.takeTurn('iteration method')).to.equal('** Round over!** You answered 60% of the questions correctly!')
-    //     // Should it fire this.endRound by itself??
-    // })
 })
   
