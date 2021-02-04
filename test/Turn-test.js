@@ -20,7 +20,6 @@ describe('Turn', function() {
     expect(turn.userGuess).to.equal('test guess');
   });
 
-// how do I check if its a object and not just a string.
   it('it should store a instance of Card', function() {
     const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
     const turn = new Turn('test guess', card);
@@ -53,7 +52,7 @@ describe('Turn', function() {
     expect(turnTwo.evaluateGuess()).to.equal(false);
   });
 
-  it('it should give feedback based on conrrect guess results', function() {
+  it('it should give feedback based on correct guess results', function() {
     const card = new Card(1, 'Question', ['One', 'Two', 'Answer'], 'Answer');
     const turn = new Turn('Answer', card);
     expect(turn.giveFeedback()).to.equal('correct!');
