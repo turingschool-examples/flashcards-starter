@@ -10,7 +10,7 @@ class Round {
 
     returnCurrentCard() {
         this.currentCard = this.deck.cards[0]
-        return this.deck.cards[0]
+        return this.currentCard
     }
 
     takeTurn(guess) {
@@ -29,7 +29,7 @@ class Round {
 
     calculatePercentCorrect() {
         const amountCorrect = this.turns - this.incorrectGuesses.length;
-        return (amountCorrect/this.turns * 100).toFixed()
+        return parseInt((amountCorrect/this.turns * 100).toFixed())
     }
 
     endRound() {

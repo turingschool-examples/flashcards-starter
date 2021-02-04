@@ -67,11 +67,9 @@ describe('Round', function() {
             expect(round.incorrectGuesses).to.deep.equal([]);
 
             round.returnCurrentCard();
-
             round.takeTurn('array');
 
             expect(round.incorrectGuesses[0]).to.equal(round.currentCard.id)
-            // I need to make sure it's pushed into the array. I should also check a correct answer 
         })
 
         it(`should return feedback if guess is correct`, function() {
@@ -95,7 +93,6 @@ describe('Round', function() {
         round.takeTurn('mutator method');
         round.takeTurn('iteration method');
         expect(round.calculatePercentCorrect()).to.equal(60)
-        //Should test if I have 0 answers given or array length is 0
     })
 })
   

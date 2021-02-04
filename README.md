@@ -8,6 +8,9 @@ Flashcards is a program run entirely in the terminal that allows user to run thr
 Technologies Used
 JavaScript
 
+Project Board: 
+https://github.com/PaigeVannelli/flashcards-starter/projects/1
+
 Set Up and Instructions
 
 Clone down the reposititory. Open up the files in your terminal and run the command ``` node index.js ``` to start the game. Presss the up and down arrows to highlight the correct answer and press enter to submit. Press enter again for the next answer. 

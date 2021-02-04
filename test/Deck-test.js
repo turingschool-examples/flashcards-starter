@@ -24,10 +24,9 @@ describe('Deck', function() {
         expect(deck.cards).to.equal(sampleCards)
     })
 
-    it(`should return hoever many cards there are in a deck`, function() {
+    it(`should count how many cards there are in a deck`, function() {
         const deck = new Deck(sampleCards)
         deck.countCards();
         expect(deck.countCards()).to.equal(5)
     })
-
 })
