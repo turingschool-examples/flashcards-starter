@@ -14,8 +14,13 @@ Clone down the reposititory. Open up the files in your terminal and run the comm
 
 Functionality:
 
+Starting a round and guessing an answer:
 
+![](./Flashcards1.gif)
 
+End of the round: 
+
+![](./Flashcards2.gif)
 
 Future Additions
 To further the goal of this project, we would like to -
