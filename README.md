@@ -40,4 +40,4 @@
 * Adding you own flashcard to test.
 
 ##
----
+![]('./gif/Flashcard-Feb4.gif')
