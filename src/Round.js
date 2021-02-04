@@ -1,5 +1,6 @@
 const Game = require("./Game");
 const Turn = require("./Turn");
+const Card = require('../src/Card');
 
 class Round {
     constructor(deck) {
@@ -28,8 +29,12 @@ class Round {
     endRound() {
         return `
 -------------------------------------------
+
 Round over! You completed the test in ${this.formatTimer(this.timer)} seconds
-You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+You answered ${this.calculatePercentCorrect()}% of the questions correctly!
+Press ENTER to review the cards you got wrong
+
+-------------------------------------------`
     }
 
     formatTimer(seconds) {
