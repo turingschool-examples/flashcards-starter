@@ -1,6 +1,5 @@
 const chai = require('chai');
 const expect = chai.expect;
-
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
@@ -51,11 +50,6 @@ describe('Round', () => {
 
   describe('Round.takeTurn()', () => {
 
-    // it('should create a new turn instance when guess is made', () => {
-    //   const round = new Round(deck);
-    //   expect(round.takeTurn('guess')).to.be.an.instanceof(Turn);
-    // });
-
     it('should add one to the turn counter', () => {
       const round = new Round(deck);
       round.takeTurn();
@@ -102,11 +96,4 @@ describe('Round', () => {
     expect(round.calculatePercentCorrect()).to.equal(33);
   });
 
-  it('should log ** Round over! **and give the % correct at the end of the round', () => {
-    const round = new Round(deck);
-    round.takeTurn('AnswerOne');
-    round.takeTurn('AnswerTwo');
-    round.takeTurn('AnswerOne');
-    expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
-  });
 });
