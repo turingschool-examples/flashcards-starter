@@ -1,26 +1,45 @@
-const Card = require('./Card')
-const main = require('./util')
+
+const Turn = require('./Turn');
+const Deck = require('./Deck');
+const Card = require('./Card');
+//const Game = require('./Game');
+const util = require('./util');
 
 class Round {
   constructor(deck) {
-    this.deck = deck;
+    this.deck = deck.cards;
+    this.turns = 0;
+    this.incorrectGuesses = []
+    this.currentCard = this.deck[0];
   }
-  //methods:
-  //returnCurrentCard() {
-  //  this.deck.shift();
-  //}
-  //endRound() {
-  //}
+
+  takeTurn(userGuess) {
+    this.turn = new Turn(userGuess, this.currentCard);
+    if (!this.turn.evaluateGuess()) {
+      this.incorrectGuesses.push(this.currentCard.id);
+    };
+    this.turns++;
+    this.currentCard = this.deck[this.turns];
+    return this.turn.giveFeedback();
+  }
+
+  returnCurrentCard() {
+    return this.currentCard;
+  }
+
+  calculatePercentCorrect() {
+    const percentage = (this.turns - this.incorrectGuesses.length) / (this.deck.length) * 100;
+    return percentage;
+  }
+
+  endRound() {
+    const percentCorrect = this.calculatePercentCorrect();
+    const message = `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`
+    console.log(message);
+    //const game = new Game();
+    //game.start();
+    return message;
+  }
 }
 
 module.exports = Round;
-
-// Why do we need a promise to be delivered when we
-//  have access to correctAnswer?
-
-// util line 25: is takeTurn function going to use
-// .entries() and a next()?
-// what is round here if id is set per card?
-
-
-//line 2^ and line 45 util.js export

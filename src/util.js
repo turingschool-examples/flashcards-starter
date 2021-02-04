@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 
 const genList = (round) => {
   let card = round.returnCurrentCard();
-  
+
   let choices = card.answers.map((answer, index) => {
     return {
       key: index,
@@ -11,7 +11,7 @@ const genList = (round) => {
   });
   return {
     type: 'rawlist',
-    message: card.question,
+  message: card.question,
     name: 'answers',
     choices: choices
   };
