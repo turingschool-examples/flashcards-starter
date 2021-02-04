@@ -14,7 +14,7 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
 
     const round = new Round(deck);
-    expect(round.returnCurrentCard()).to.deep.equal(deck.deck[0])
+    expect(round.returnCurrentCard()).to.deep.equal({id: 1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'})
   })
 
   it('amount of turns should update', function() {

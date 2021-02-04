@@ -2,7 +2,7 @@ const Turn = require('../src/Turn');
 
 class Round {
   constructor(deck, guess) {
-    this.currentCard = deck.deck[0];
+    this.currentCard = deck.deck.shift();
     this.guess = guess;
     this.turns = 0;
     this.incorrectGuesses = []
