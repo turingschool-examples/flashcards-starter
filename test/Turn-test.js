@@ -1,5 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
+
 const Turn = require('../src/Turn.js');
 const Card = require('../src/Card.js');
 
@@ -101,9 +102,4 @@ describe('Turn', function() {
     expect(userFbk).to.equal('correct');
     expect(nextUserFbk).to.equal('incorrect');
   });
-
-
-
-
-
 })

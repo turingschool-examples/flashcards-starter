@@ -52,7 +52,5 @@ describe('Deck', function() {
     numberOfCards = deck.countCards();
 
     expect(numberOfCards).to.equal(2);
-
-  })
-
-})
+  });
+});

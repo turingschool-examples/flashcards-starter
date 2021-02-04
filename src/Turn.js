@@ -1,6 +1,3 @@
-// being called from Round
-
-
 class Turn {
   constructor(userGuess, currentCard) {
     this.userGuess = userGuess;

@@ -9,16 +9,22 @@ const Deck = require('./Deck');
 
 class Game {
   constructor() {
-  //  this.deck = new Deck(prototypeQuestions);
-  //  this.round = new Round(this.deck);
-  //  this.currentRound = this.round;
+    this.currentRound = {};
   }
+
   start() {
-    // creates new Cards (helpers...)
-    // puts cards in Deck
-    // creates new Round using Deck
-    // invokes printMessage below
-    // invokes printQuestion below
+    this.buildDeck();
+    this.currentRound = new Round(this.deck);
+    this.printMessage(this.deck, this.currentRound);
+    this.printQuestion(this.currentRound);
+  }
+  
+  buildDeck() {
+    const cards = [];
+    prototypeQuestions.forEach(element => {
+      cards.push(element);
+    });
+    this.deck = new Deck(cards);
   }
 
   printMessage(deck, round) {
