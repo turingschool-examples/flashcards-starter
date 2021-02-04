@@ -1,4 +1,7 @@
 const inquirer = require('inquirer');
+const Game = require('./Game');
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
 
 const genList = (round) => {
   let card = round.returnCurrentCard();
@@ -37,6 +40,11 @@ async function main(round) {
 
     if(!round.returnCurrentCard()) {
       round.endRound();
+      round.deck.cards = prototypeQuestions.filter(cardInfo => round.incorrectGuesses.includes(cardInfo.id))
+      round.incorrectGuesses = [];
+      round.turns = 0;
+      round.timer = 0;
+      main(round);
     } else {
       main(round);
     }
