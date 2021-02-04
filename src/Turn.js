@@ -17,13 +17,17 @@ class Turn {
     if (this.userGuess === this.card.correctAnswer) {
       this.solved = true;
       return this.solved;
-    } else {return false;}
+    } else {
+      return false;
+    }
   }
 
   giveFeedback() {
     if (this.solved === true) {
       return "correct";
-    } else {return "incorrect";}
+    } else {
+      return "incorrect";
+    }
   }
 }
 

@@ -120,8 +120,8 @@ describe('Round', function() {
       const userGuess1 = "I Smell Like Flowers";
       const userGuess2 = "Never";
 
-      const answerFbk1 = round.takeTurn(userGuess1);
-      const answerFbk2 = round.takeTurn(userGuess2);
+      round.takeTurn(userGuess1);
+      round.takeTurn(userGuess2);
 
       expect(round.calculatePercentCorrect()).to.equal(50);
     })
@@ -136,8 +136,10 @@ describe('Round', function() {
     it('should print an update to the console', function() {
       const userGuess1 = "I Smell Like Flowers";
       const userGuess2 = "Never";
-      const answerFbk1 = round.takeTurn(userGuess1);
-      const answerFbk2 = round.takeTurn(userGuess2);
+
+      round.takeTurn(userGuess1);
+      round.takeTurn(userGuess2);
+
       const message = "** Round over! ** You answered 50% of the questions correctly!";
       round.calculatePercentCorrect();
 

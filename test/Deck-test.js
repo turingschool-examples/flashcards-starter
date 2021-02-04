@@ -36,7 +36,7 @@ describe('Deck', () => {
   });
 
   it('should know how many cards it has in the deck', function() {
-    numberOfCards = deck.countCards();
+    const numberOfCards = deck.countCards();
     expect(numberOfCards).to.equal(2);
   });
 });
