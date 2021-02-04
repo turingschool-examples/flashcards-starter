@@ -21,10 +21,10 @@ class Game {
 
   start() {
     let cardsToBuildDeck = [];
-    prototypeQuestions.forEach(cardInfo => cardsToBuildDeck.push(new Card(cardInfo.id, cardInfo.question, cardInfo.answers, cardInfo.correctAnswer )));
+    prototypeQuestions.forEach(cardInfo => cardsToBuildDeck.push(new Card(cardInfo.id, cardInfo.question, cardInfo.answers, cardInfo.correctAnswer)));
     const deckForRound = new Deck(cardsToBuildDeck);
     this.currentRound = new Round(deckForRound);
-    this.printMessage(deckForRound, this.currentRound);
+    this.printMessage(deckForRound);
     this.printQuestion(this.currentRound);
   }
 }

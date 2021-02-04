@@ -2,7 +2,6 @@ const chai = require('chai');
 const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
 describe('Round', () => {
@@ -11,7 +10,7 @@ describe('Round', () => {
   let cardThree;
   let deck;
 
-  beforeEach(function() {
+  beforeEach(() => {
     cardOne = new Card(1, 'QuestionOne', ['Not', 'It', 'AnswerOne'], 'AnswerOne');
     cardTwo = new Card(2, 'QuestionTwo', ['Not', 'It', 'AnswerTwo'], 'AnswerTwo');
     cardThree = new Card(3, 'QuestionThree', ['Not', 'It', 'AnswerThree'], 'AnswerThree');
@@ -19,7 +18,6 @@ describe('Round', () => {
   });
 
   it('should be a function', () => {
-    const round = new Round();
     expect(Round).to.be.a('function');
   });
 
@@ -33,12 +31,12 @@ describe('Round', () => {
     expect(round.deck.cards).to.be.deep.equal([cardOne, cardTwo, cardThree]);
   });
 
-  it('should start with turn counter that start at 0', () => {
+  it('should start with turn counter that starts at 0', () => {
     const round = new Round(deck);
     expect(round.turns).to.equal(0);
   });
 
-  it('should start with a empty array for incorrect guesses', () => {
+  it('should start with an empty array for incorrect guesses', () => {
     const round = new Round(deck);
     expect(round.incorrectGuesses).to.be.an.instanceof(Array);
   });
@@ -48,7 +46,7 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.deep.equal(cardOne);
   });
 
-  describe('Round.takeTurn()', () => {
+  describe('takeTurn()', () => {
 
     it('should add one to the turn counter', () => {
       const round = new Round(deck);
@@ -70,7 +68,7 @@ describe('Round', () => {
       expect(round.returnCurrentCard()).to.equal(cardTwo);
     });
 
-    it('Should check the guesses and store incorrect card id in the incorrectGuesses array', () => {
+    it('Should check the guesses and store card id in the incorrectGuesses array', () => {
       const round = new Round(deck);
       round.takeTurn('guess');
       expect(round.incorrectGuesses[0]).to.equal(1);
@@ -94,6 +92,14 @@ describe('Round', () => {
     round.takeTurn('AnswerOne');
     round.takeTurn('AnswerOne');
     expect(round.calculatePercentCorrect()).to.equal(33);
+  });
+
+  it('should log a round over message', () => {
+    const round = new Round(deck);
+    round.takeTurn('AnswerOne');
+    round.takeTurn('AnswerOne');
+    round.takeTurn('AnswerOne');
+    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!');
   });
 
 });
