@@ -111,7 +111,7 @@ describe('Round', function() {
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck, 'sea otter')
-    round.incorrectGuesses = [1,2,3];
+    round.incorrectGuesses = [1, 2, 3];
 
     expect(round.endRound()).to.be.equal('** Round over! ** You answered 90.00% of the questions correctly!')
   })

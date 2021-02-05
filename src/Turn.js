@@ -10,7 +10,6 @@ class Turn {
     return this.currentCard;
   }
   evaluateGuess() {
-    console.log("this",this.guess.length, this.currentCard.correctAnswer.length)
     if (this.guess === this.currentCard.correctAnswer) {
       return true;
     } else {
@@ -18,8 +17,6 @@ class Turn {
     }
   }
   giveFeedback(feedback) {
-    console.log("feedback:", feedback)
-    console.log(this.guess, this.currentCard.correctAnswer)
     if (this.guess === this.currentCard.correctAnswer) {
       return 'correct!';
     } else {

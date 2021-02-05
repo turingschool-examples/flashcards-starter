@@ -13,7 +13,6 @@ class Round {
   takeTurn(guess) {
     this.guess = guess;
     const turn = new Turn(this.guess, this.currentCard[this.turns])
-    console.log("here:", this.guess, this.currentCard[this.turns].correctAnswer)
     if (this.guess === this.currentCard[this.turns].correctAnswer) {
       this.turns++;
       return turn.giveFeedback()

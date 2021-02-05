@@ -13,10 +13,11 @@ class Game {
   }
 
   start() {
-    for(var i = 0; i < prototypeQuestions.length; i++){
+    for (var i = 0; i < prototypeQuestions.length; i++) {
       const card = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer)
       this.cards.push(card)
     }
+    this.round++
     const deck = new Deck(this.cards);
     const round = new Round(deck);
     this.printMessage(deck, round);
