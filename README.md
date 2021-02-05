@@ -1,79 +1,67 @@
-Console operated game for challenging user about information regarding built-in Array class methods in javaScript.
-
-## Fork This Repo
-
-On the top right corner of this page, click the **Fork** button.
-
-## Setup
-
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal:
-
-```bash
-Node server running on port 3000
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+# FlashCards
+-------------
 
 
-## Where to Add Your Code
+A console-operated round for challenging user with information regarding built-in Array class methods in javaScript.
 
-### JavaScript
+## Getting Started
 
-**Create all of your feature code files in the `src` directory.**
+1. **Fork** this project.  In your console(terminal)
+  * **run** this code:
+  ```bash
+  git clone git@github.com:percworld/flashcards.git
+  ```
+  * **run** this code:
+  ```bash
+   npm install
+  ```
+  * **run** this code:
+  ```bash
+  npm open index.js
+  ```
 
-We will be using the `module.exports` and `require` syntax to share code across files.
+2. You will see an intro to the challenge:
 
-## How to View Your Code in Action
+![welcome-field](assets/README-7df21ae3.png)
 
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
+## Answer a FlashCard
+
+### 1.  When you are ready to answer the question:
+  * use the **numbers** on your keyboard to choose the correct answer
+  * **OR** your **arrow keys** to scroll among them
+  * Press `Enter`
+
+#### 2. You will recieve feedback about the status of your guess.
+
+![](assets/README-9b285660.png)
+
+#### 3. Continue until you have reached the end of the Round
+
+  * You will see a notification of the percentage of answers you correctly guessed.
+
+  ![](assets/README-acf9246b.png)
+
+#### 4. *Hit `Ctrl - C` at any point to exit.*
+
+#### 5. Begin another round by running
 
 ```bash
 node index.js
 ```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
+---
+###  Link to this project's gitHub board: [Project Board](https://github.com/users/percworld/projects/2)
 ---
 
-## Test Files Organization
 
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
 
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
+### Turing Takeaways
 
 ---
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
-
----
+##### The iterations of this project consisted of creating a Card, a Deck of cards, a Turn, a Round, and a Game instantiated by the index file called upon from terminal.
+#### Some documentation that proved quite helpful:
+* [My Array Method notepad (Bulldozers and Lazers)](https://www.notion.so/8c3da3bd4abc4b22af986586986860bb?v=cd56018ad2964166a60195480546f1c8)
+* [Chai Assertions](https://www.chaijs.com/api/bdd/)
+* [List of Lint rules](https://eslint.org/docs/rules/)
+* [Ye Olde Require Modules of Node.js](https://www.freecodecamp.org/news/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8/)
+* [How to Use Ye Olde es6 Modules](https://www.freecodecamp.org/news/how-to-use-es6-modules-and-why-theyre-important-a9b20b480773/)
+* [Folder Components](https://medium.com/bootstart/you-should-be-using-folder-components-b30b7d165c39)  (Read while researching Index.js functions)
