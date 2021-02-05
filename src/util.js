@@ -1,5 +1,4 @@
 const inquirer = require('inquirer');
-const Game = require('./Game');
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 
