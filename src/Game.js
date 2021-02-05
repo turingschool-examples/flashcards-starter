@@ -19,7 +19,7 @@ class Game {
   }
 
   start() {
-    this.currentRound + 1;
+    this.currentRound += 1;
     let deck = new Deck(this.createCards());
     let round = new Round(deck);
     this.printMessage(deck, round);
