@@ -13,7 +13,7 @@ describe('Round', function() {
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = new Deck([card1, card2, card3]);
 
-    const round = new Round(deck);
+    const round = new Round(deck, 'sea otter');
     expect(round.returnCurrentCard()).to.deep.equal({id: 1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'})
   })
 
@@ -22,7 +22,7 @@ describe('Round', function() {
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck, 'guess')
+    const round = new Round(deck, 'sea otter')
 
     round.takeTurn()
 
@@ -44,7 +44,7 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck, 'sea otter')
 
-    round.takeTurn();
+    round.takeTurn('sea otter');
     expect(round.incorrectGuesses.length).to.equal(0);
 
     const card11 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -53,7 +53,7 @@ describe('Round', function() {
     const deck2 = new Deck([card1, card2, card3]);
     const round2 = new Round(deck, 'guess')
 
-    round2.takeTurn();
+    round2.takeTurn('guess');
     expect(round2.incorrectGuesses.length).to.equal(1);
   })
 
@@ -64,7 +64,7 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck, 'sea otter')
 
-    expect(round.takeTurn()).to.be.equal('correct!')
+    expect(round.takeTurn('sea otter')).to.be.equal('correct!')
 
     const card11 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card12 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -72,7 +72,7 @@ describe('Round', function() {
     const deck2 = new Deck([card1, card2, card3]);
     const round2 = new Round(deck, 'guess')
 
-    expect(round2.takeTurn()).to.be.equal('incorrect!')
+    expect(round2.takeTurn('guess')).to.be.equal('incorrect!')
   })
 
   it('should evaluate correct percent of answers', function() {

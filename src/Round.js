@@ -2,21 +2,24 @@ const Turn = require('../src/Turn');
 
 class Round {
   constructor(deck, guess) {
-    this.currentCard = deck.deck.shift();
+    this.currentCard = deck.cards;
     this.guess = guess;
     this.turns = 0;
     this.incorrectGuesses = []
   }
   returnCurrentCard() {
-    return this.currentCard
+    return this.currentCard[this.turns]
   }
-  takeTurn() {
-    const turn = new Turn(this.guess, this.currentCard)
-    this.turns++;
-    if (turn.evaluateGuess()) {
+  takeTurn(guess) {
+    this.guess = guess;
+    const turn = new Turn(this.guess, this.currentCard[this.turns])
+    console.log("here:", this.guess, this.currentCard[this.turns].correctAnswer)
+    if (this.guess === this.currentCard[this.turns].correctAnswer) {
+      this.turns++;
       return turn.giveFeedback()
     } else {
       this.incorrectGuesses.push(this.currentCard.id)
+      this.turns++;
       return turn.giveFeedback()
     }
   }
