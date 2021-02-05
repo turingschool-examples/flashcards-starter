@@ -1,6 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
 
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
@@ -27,7 +29,14 @@ describe('Game', function() {
 
   it('should create cards', function() {
     const game = new Game();
+    let createdCards = game.createCards();
 
-    expect(game.createCards()).to.equal(prototypeQuestions)
-  })
+    expect(createdCards.length).to.equal(prototypeQuestions.length)
+
+    for(var i=0;i<createdCards.length;i++) {
+      expect(createdCards[i].question).to.equal(prototypeQuestions[i].question)
+    }
+  });
+
+
 })
