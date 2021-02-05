@@ -17,8 +17,13 @@ class Round {
     this.deck.cards.shift();
     return turn.giveFeedback();
   };
+
   calculatePercentCorrect() {
     return ((this.turns - this.incorrectGuesses.length) / this.turns) * 100;
+  }
+
+  endRound() {
+    console.log(`** Round over! ** You answered ${Math.round(100 * this.calculatePercentCorrect()) / 100}% of the questions correctly!`);
   }
 }
 
