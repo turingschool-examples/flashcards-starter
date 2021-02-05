@@ -8,19 +8,19 @@ const Game = require('../src/Game');
 
 describe('Game', function() {
 
-  it('should keep track of the current round', function() {
+  it.skip('should keep track of the current round', function() {
     const game = new Game();
     game.startGame();
     expect(game.currentRound).to.be.an.instanceof(Round);
   })
 
-  it('should create cards from the prototype data', function() {
+  it.skip('should create cards from the prototype data', function() {
     const game = new Game();
     game.startGame();
     expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
   })
 
-  it('should put the cards in a deck', function() {
+  it.skip('should put the cards in a deck', function() {
     const game = new Game();
     game.startGame();
     expect(game.currentRound.deck).to.be.an.instanceof(Deck);
