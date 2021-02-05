@@ -32,7 +32,7 @@ const confirmUpdate = (id, round) => {
   }
 }
 
-async function main(round) {
+async function loadNewRound(round) {
 
   const currentRound = await getRound(round);
   const getAnswer = await inquirer.prompt(genList(currentRound));
@@ -44,10 +44,10 @@ async function main(round) {
       round.incorrectGuesses = [];
       round.turns = 0;
       round.timer = 0;
-      main(round);
+      loadNewRound(round);
     } else {
-      main(round);
+      loadNewRound(round);
     }
 }
 
-module.exports.main = main;
+module.exports.loadNewRound = loadNewRound;

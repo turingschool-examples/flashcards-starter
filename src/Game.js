@@ -18,7 +18,7 @@ class Game {
   }
 
   printQuestion(round) {
-    util.main(round);
+    util.loadNewRound(round);
   }
   
   startGame() {
