@@ -8,4 +8,6 @@ console.log('Node server running on port 3000');
 
 var game = new Game();
 game.startGame();
-setInterval(function() {game.currentRound.timer++}, 1000);
+setInterval(function() {
+  game.currentRound.timer++
+}, 1000);
