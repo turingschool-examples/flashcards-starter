@@ -14,17 +14,17 @@ class Turn {
 
   evaluateGuess() {
     if (this.userGuess === this.card.correctAnswer) {
-        return true;
+      return true;
     } else {
-        return false;
+      return false;
     }
   }
 
   giveFeedback() {
     if (this.userGuess === this.card.correctAnswer) {
-        return "Correct!"
+      return "Correct!"
     } else {
-        return "Incorrect!"
+      return "Incorrect!"
     }
   }
 }
