@@ -32,7 +32,23 @@ describe('Turn', function() {
   });
 
   it('should return a card', function() {
-      const turn = new Turn("how should I know?", new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object'));
-      expect(turn.card).to.equal(turn.returnCard());
+    const turn = new Turn("how should I know?", new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object'));
+    expect(turn.card).to.equal(turn.returnCard());
   });
+
+  it('should evaluate guess', function() {
+    const turn1 = new Turn("pug", new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter'));
+    const turn2 = new Turn("sea otter", new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter'));
+    
+    expect(turn1.evaluateGuess()).to.equal(false);
+    expect(turn2.evaluateGuess()).to.equal(true);
+  });
+
+  it('should give feedback if user/s answer is right or wrong', function() {
+    const turn1 = new Turn("pug", new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter'));
+    const turn2 = new Turn("sea otter", new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter'));
+
+    expect(turn1.giveFeedback()).to.equal("Incorrect!");
+    expect(turn2.giveFeedback()).to.equal("Correct!");
+  })
 });
