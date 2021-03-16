@@ -3,12 +3,13 @@ class Turn {
     this.userGuess = userGuess;
     this.card = card;
   }
+
   returnGuess() {
-    //return the guess
+    return this.userGuess;
   }
 
   returnCard() {
-    //return the card
+    return this.card;
   }
 
   evaluateGuess() {
@@ -22,4 +23,4 @@ class Turn {
   }
 }
 
-module.exports = Turn;
+module.exports = Turn; 
