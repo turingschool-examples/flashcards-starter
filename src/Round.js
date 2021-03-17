@@ -8,19 +8,21 @@ class Round {
   }
 
   returnCurrentCard() {
-    let currentCard = this.deck.cards.shift();
-    return currentCard;
+    return this.deck.deckCards.shift();
   }
 
-  takeTurn() {
-    let turn = new Turn();
-    this.turns++
-    //evaluates guesses
-    //gives feedback
-    //stores ids of incorrect guesses
+  takeTurn(userGuess, card) {
+    const turn = new Turn(userGuess, card);
+    this.turns++;
+    this.returnCurrentCard();
+    turn.evaluateGuess();
+    if (turn.evaluateGuess() === false) {
+      this.incorrectGuesses.push(card.id);
+    }
+    turn.giveFeedback();
   }
 
-  caluculatePercentCorrect() {
+  calculatePercentCorrect() {
     //calculates and returns the % of correct guesses
   }
 
