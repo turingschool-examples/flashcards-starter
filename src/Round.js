@@ -8,25 +8,29 @@ class Round {
   }
 
   returnCurrentCard() {
-    let currentCard = this.deck.cards.shift();
-    return currentCard;
+    return this.deck.deckCards.shift();
   }
 
-  takeTurn() {
-    let turn = new Turn();
-    this.turns++
-    //evaluates guesses
-    //gives feedback
-    //stores ids of incorrect guesses
+  takeTurn(userGuess, card) {
+    const turn = new Turn(userGuess, card);
+    this.turns++;
+    this.returnCurrentCard();
+    turn.evaluateGuess();
+    if (turn.evaluateGuess() === false) {
+      this.incorrectGuesses.push(card.id);
+    }
+    turn.giveFeedback();
   }
 
-  caluculatePercentCorrect() {
-    //calculates and returns the % of correct guesses
+  calculatePercentCorrect() {
+    const correct = (this.turns - this.incorrectGuesses.length);
+    const percentCorrect = ((correct / this.turns) * 100);
+    return Math.round(percentCorrect);
   }
 
   endRound() {
-    //prints "**Round over!**You answered <>% of the questions
-    //correctly!"
+    return `**Round over!**You answered ${this.calculatePercentCorrect()}%
+     of the questions correctly!`
   }
 }
 
