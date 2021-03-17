@@ -1,14 +1,20 @@
+const Turn = require("./Turn");
+
 class Round {
   constructor(deck) {
     this.deck = deck;
+    this.turns = 0;
+    this.incorrectGuesses = [];
   }
 
   returnCurrentCard() {
-    //returns current card being played
+    let currentCard = this.deck.cards.shift();
+    return currentCard;
   }
 
   takeTurn() {
-    //updates turns count
+    let turn = new Turn();
+    this.turns++
     //evaluates guesses
     //gives feedback
     //stores ids of incorrect guesses
