@@ -25,7 +25,7 @@ class Turn {
       return "Correct!"
     } 
     
-      return "Incorrect!"
+    return "Incorrect!"
   }
 }
 
