@@ -11,13 +11,14 @@ class Round {
     return this.deck.deckCards.shift();
   }
 
-  takeTurn(userGuess, card) {
-    const turn = new Turn(userGuess, card);
+  takeTurn(userGuess) {
+    const turn = new Turn(userGuess, this.returnCurrentCard());
+    console.log("hello world", turn);
     this.turns++;
     this.returnCurrentCard();
     turn.evaluateGuess();
     if (turn.evaluateGuess() === false) {
-      this.incorrectGuesses.push(card.id);
+      this.incorrectGuesses.push(turn.card.id);
     }
     turn.giveFeedback();
   }
