@@ -56,7 +56,7 @@ describe('Round', function() {
 
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck)
-    round.takeTurn("sea otter", card1);
+    round.takeTurn("sea otter");
     expect(round.turns).to.equal(1);
   });
 
@@ -70,8 +70,8 @@ describe('Round', function() {
 
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck)
-    round.takeTurn("sea otter", card1);
-    expect(round.deck.deckCards[0]).to.deep.equal(card2);
+    round.takeTurn("sea otter");
+    expect(round.deck.deckCards[round.turns]).to.deep.equal(round.deck.deckCards[1]);
   });
 
   it('should evaluate the player/s guess', function() {
@@ -85,7 +85,7 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck)
     const turn = new Turn("sea otter", card1);
-    round.takeTurn("sea otter", card1); 
+    round.takeTurn("sea otter"); 
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
@@ -99,7 +99,8 @@ describe('Round', function() {
 
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck)
-    round.takeTurn("spleen", card2); 
+    round.takeTurn("sea otter");
+    round.takeTurn("spleen"); 
     expect(round.incorrectGuesses).to.deep.equal([14]);
   });
 
@@ -113,9 +114,9 @@ describe('Round', function() {
 
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck)
-    const turn = new Turn("watchingNetflix", card3);
-    round.takeTurn("watching Netflix", card3); 
-    expect(turn.giveFeedback()).to.equal("Incorrect!");
+    round.takeTurn("gallbladder");
+    round.takeTurn("watching Netflix"); 
+    expect(round.takeTurn()).to.equal("Incorrect!");
   });
 
   it('should calculate the percent correct', function() {
@@ -128,9 +129,9 @@ describe('Round', function() {
 
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck)
-    round.takeTurn("sea otter", card1);
-    round.takeTurn("gallbladder", card2);
-    round.takeTurn("watching Netflix", card3);
+    round.takeTurn("sea otter");
+    round.takeTurn("gallbladder");
+    round.takeTurn("watching Netflix");
 
     expect(round.calculatePercentCorrect()).to.equal(67);
   });

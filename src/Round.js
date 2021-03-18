@@ -12,9 +12,7 @@ class Round {
   }
 
   takeTurn(userGuess) {
-    console.log(this.deck);
     const currentCard = this.returnCurrentCard();
-    console.log(currentCard);
     const turn = new Turn(userGuess, currentCard);
     this.turns++;
     turn.evaluateGuess();
