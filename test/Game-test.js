@@ -18,11 +18,10 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game);
   }); 
 
-//   it('should be able to create cards', function() {
-//       const game = new Game();
-//       game.start();
-//       game.printMessage();
-//       game.printQuestion();
-//       expect(1).to.be(2);
-//   })
+  it('should keep track of the current round', function() {
+    const game = new Game();
+    game.start();
+
+    expect(game.currentRound).to.equal(1);
+  });
 });

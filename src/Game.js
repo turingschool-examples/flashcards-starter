@@ -23,6 +23,7 @@ class Game {
     const cards = prototypeQuestions.map(question => new Card(question.id, question.question, question.answers, question.correctAnswer));
     const deck = new Deck(cards);
     const round = new Round(deck);
+    this.currentRound ++;
     this.printMessage(deck, round);
     this.printQuestion(round);
     
