@@ -10,8 +10,11 @@ class Game {
     this.currentRound = 0;
   }
 
+  // eslint-disable-next-line no-unused-vars
   printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    // eslint-disable-next-line no-console
+    console.log(`Welcome to FlashCards! 
+    You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
@@ -20,7 +23,13 @@ class Game {
   }
 
   start() {
-    const cards = prototypeQuestions.map(question => new Card(question.id, question.question, question.answers, question.correctAnswer));
+    const cards = prototypeQuestions.map(question => 
+      new Card(
+        question.id, 
+        question.question, 
+        question.answers, 
+        question.correctAnswer)
+    );
     const deck = new Deck(cards);
     const round = new Round(deck);
     this.currentRound ++;

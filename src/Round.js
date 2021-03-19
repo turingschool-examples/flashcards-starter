@@ -29,8 +29,11 @@ class Round {
   }
 
   endRound() {
-    return `**Round over!**You answered ${this.calculatePercentCorrect()}%
-     of the questions correctly!`
+    const message = `**Round over!**
+    You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    // eslint-disable-next-line no-console
+    console.log(message);
+    return message;
   }
 }
 
