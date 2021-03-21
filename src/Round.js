@@ -1,4 +1,8 @@
 const Turn = require("./Turn");
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
+const Card = require('./Card');
+const Deck = require('./Deck');
 
 class Round {
   constructor(deck) {
@@ -33,7 +37,20 @@ class Round {
     You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
     // eslint-disable-next-line no-console
     console.log(message);
-    return message;
+    const cards = prototypeQuestions.filter(question => {
+      if (this.incorrectGuesses.includes(question.id)) {
+        return question
+      }
+    })
+      .map(question => {
+        return new Card(
+          question.id, 
+          question.question, 
+          question.answers, 
+          question.correctAnswer)
+      });
+    const deck = new Deck(cards);
+    return new Round(deck);
   }
 }
 
