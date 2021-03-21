@@ -22,7 +22,7 @@ class Game {
     util.main(round);
   }
 
-  start() {
+  createNewDeck() {
     const cards = prototypeQuestions.map(question => 
       new Card(
         question.id, 
@@ -30,12 +30,15 @@ class Game {
         question.answers, 
         question.correctAnswer)
     );
-    const deck = new Deck(cards);
+    return new Deck(cards);
+  }
+
+  start() {
+    const deck = this.createNewDeck();
     const round = new Round(deck);
     this.currentRound ++;
     this.printMessage(deck, round);
     this.printQuestion(round);
-    
   }
 }
 

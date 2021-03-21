@@ -48,7 +48,7 @@ class Round {
           question.question, 
           question.answers, 
           question.correctAnswer)
-      });
+      })
     const deck = new Deck(cards);
     return new Round(deck);
   }

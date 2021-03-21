@@ -45,7 +45,8 @@ describe('Deck', function() {
       'humerus');
     
     const deck = new Deck([card1, card2, card3, card4]); 
-    expect(deck.countCards()).to.deep.equal(4);
-  });
+    const cardCount = deck.countCards();
 
+    expect(cardCount).to.equal(4);
+  });
 }); 

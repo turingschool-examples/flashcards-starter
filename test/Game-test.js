@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Game = require('../src/Game');
+const Deck = require('../src/Deck');
 
 describe('Game', function() {
 
@@ -18,5 +19,12 @@ describe('Game', function() {
     const game = new Game();
   
     expect(game.currentRound).to.equal(0);
+  });
+
+  it('should create new deck of cards', function() {
+    const game = new Game();
+    const deck = game.createNewDeck();
+
+    expect(deck).to.be.an.instanceof(Deck);
   });
 });
