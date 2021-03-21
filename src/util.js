@@ -36,7 +36,10 @@ async function main(round) {
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
     if(!round.returnCurrentCard()) {
-      round.endRound();
+      const newRound = round.endRound();
+      if(newRound.deck.deckCards.length) {
+        main(newRound);
+      } 
     } else {
       main(round);
     }
