@@ -26,4 +26,15 @@ describe('Turn', function() {
     expect(turn.currentCard).to.equal(card);
   });
 
+  it.skip('should be able to return the guess', function() {
+    const turn = new Turn('dog');
+    expect(turn.returnGuess()).to.equal('dog');
+  });
+
+  it.skip('should be able to return the card', function() {
+    const card = new Card();
+    const turn = new Turn('dog', card);
+    expect(turn.returnCard()).to.equal(card);
+  });
+
 });
