@@ -43,7 +43,16 @@ describe('Turn', function() {
     expect(turn.evaluateGuess()).to.equal(true);
     const card2 = new Card(2, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
     const turn2 = new Turn('cat');
-    expect(turn2.evaluateGuess).to.equal(false);
+    expect(turn2.evaluateGuess()).to.equal(false);
+  });
+
+  it.skip('should be able to give the user feedback', function() {
+    const card = new Card(1, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
+    const turn = new Turn('dog', card);
+    expect(turn.giveFeedback()).to.equal('correct!')
+    const card2 = new Card(2, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
+    const turn2 = new Turn('cat');
+    expect(turn2.giveFeedback()).to.equal('incorrect!');
   });
 
 });
