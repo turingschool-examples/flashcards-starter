@@ -22,4 +22,12 @@ describe('Deck', function() {
     expect(deck.cards).to.have.property('cards').with.lengthOf(3);
     expect(deck.cards).to.equal([card1, card2, card3]);
   });
+
+  it.skip('should be able to know the amount of cards in the deck', function() {
+    const card1 = new Card(1, '1st planet from the sun', ['earth', 'mercury', 'mars'], 'mercury');
+    const card2 = new Card(2, 'capital of NY', ['albany', 'syracuse', 'buffalo'], 'albany');
+    const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
+    const deck = new Deck([card1, card2, card3]);
+    expect(deck.countCards()).to.equal(3);
+  });
 });
