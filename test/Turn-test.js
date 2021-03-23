@@ -1,24 +1,25 @@
 /* eslint-disable max-len */
-const mocha = require("mocha");
 const chai = require("chai");
-
-const beforeEach = mocha.beforeEach;
 const expect = chai.expect;
 
 const Turn = require("../src/Turn.js");
 const Card = require("../src/Card.js")
 
 describe("Turn", () => {
+  let card;
 
-  it("should be able to instantiate a Turn", () => {
+  beforeEach("Setup initial Card instantiation", () => {
+    card = new Card(
+      1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
+    );
+  })
+
+  it("should instantiate a Turn", () => {
     const turn = new Turn();
     expect(turn).to.be.an.instanceOf(Turn);
   })
 
-  it("should store a user's guess and a Card instance", () => {
-    const card = new Card(
-      1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
-    );
+  it("should store a user's guess and a Card", () => {
     const turn = new Turn("let", card);
 
     expect(turn.answer).to.equal("let");
@@ -26,13 +27,9 @@ describe("Turn", () => {
   })
 
   describe("returnGuess()", () => {
-    let card;
     let turn;
 
     beforeEach("setup Card and Turn instances", () => {
-      card = new Card(
-        1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
-      );
       turn = new Turn("let", card);
     })
 
@@ -47,13 +44,9 @@ describe("Turn", () => {
   })
 
   describe("returnCard", () => {
-    let card;
     let turn;
 
     beforeEach("setup Card and Turn instances", () => {
-      card = new Card(
-        1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
-      );
       turn = new Turn("let", card);
     })
 
@@ -61,7 +54,7 @@ describe("Turn", () => {
       expect(turn.returnCard).to.be.a("function");
     })
 
-    it("should return a Card instance", () => {
+    it("should return the stored Card", () => {
       const returnedCard = turn.returnCard();
       expect(returnedCard).to.equal(card);
     })
@@ -69,13 +62,6 @@ describe("Turn", () => {
   })
 
   describe("evaluateGuess()", () => {
-    let card;
-
-    beforeEach("setup Card and Turn isntances", () => {
-      card = new Card(
-        1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
-      );
-    })
     
     it("should be a function", () => {
       const turn = new Turn("let", card);
@@ -98,13 +84,6 @@ describe("Turn", () => {
   })
 
   describe("giveFeedback()", () => {
-    let card;
-
-    beforeEach("setup Card and Turn isntances", () => {
-      card = new Card(
-        1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
-      );
-    })
 
     it("should be a function", () => {
       const turn = new Turn("let", card);
