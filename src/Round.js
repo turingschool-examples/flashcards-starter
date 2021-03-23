@@ -18,14 +18,15 @@ class Round {
       ++ this.playerScore;
     }
   }
-  calculatePerecentCorrect() {
+  calculatePercentCorrect() {
     return ((this.playerScore / this.currentDeck.cards.length) * 100);
   }
   endRound() {
-    calculatePerecentCorrect();
+    const score = this.calculatePercentCorrect();
     this.turnCount = 0;
-    this.currentCard = currentDeck[0];
+    this.currentCard = this.currentDeck[0];
     this.playerScore = 0;
+    return "**Round over!** You answered " + score + "% of the questions correctly!"
   }
 }
 
