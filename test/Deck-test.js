@@ -11,12 +11,6 @@ describe('Deck', function() {
         "question": "What allows you to define a set of related information using key-value pairs?",
         "answers": ["object", "array", "function"],
         "correctAnswer": "object"
-      },
-      {
-        "id": 2,
-        "question": "What is a comma-separated list of related values?",
-        "answers": ["array", "object", "function"],
-        "correctAnswer": "array"
       }]
     const deck = new Deck(sampleCardArray);
     expect(Deck).to.be.a('function');
@@ -30,6 +24,6 @@ describe('Deck', function() {
         "correctAnswer": "object"
       }]
     const deck = new Deck(sampleCardArray);
-    expect(deck).to.deep.equal();
+    expect(deck.cards).to.deep.equal(sampleCardArray);
   });
 });
