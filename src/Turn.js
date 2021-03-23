@@ -10,11 +10,7 @@ class Turn {
     return this.card;
   }
   evaluateGuess() {
-    //deconstructed object
-    const { id,
-      question,
-      possibleAnswers,
-      correctAnswer } = this.card;
+    const { correctAnswer } = this.card;
     return correctAnswer === this.guess;
   }
   giveFeedback() {
