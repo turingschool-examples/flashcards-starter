@@ -32,4 +32,15 @@ describe('Round', function() {
     round.takeTurn('sea otter');
     expect(round.turns).to.equal(1);
   });
+
+  it('should create a new turn instance when the player takes a turn and return feddback', function() {
+    expect(round.takeTurn('sea otter')).to.equal('correct!');
+    expect(round.takeTurn('spleen')).to.equal('incorrect!');
+  });
+
+  it('should after taking a turn the next card becomes the current card', function() {
+    expect(round.returnCurrentCard()).to.eql(card1);
+    round.takeTurn('sea otter');
+    expect(round.returnCurrentCard()).to.eql(card2);
+  });
 });
