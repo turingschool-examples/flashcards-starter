@@ -11,7 +11,7 @@ describe('Card', function() {
     card = new Card(testingData[0].id, testingData[0].question, testingData[0].answers, testingData[0].correctAnswer)
   });
 
-  it('should be a function', () =>{
+  it('should be a function', () => {
     expect(Card).to.be.a('function');
   });
 
