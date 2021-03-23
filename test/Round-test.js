@@ -43,4 +43,11 @@ describe('Round', function() {
     round.takeTurn('sea otter');
     expect(round.returnCurrentCard()).to.eql(card2);
   });
+
+  it('should update incorrectGuesses when the player guesses incorrectly', function() {
+    expect(round.incorrectGuesses).to.eql([]);
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    expect(round.incorrectGuesses).to.eql([14]);
+  });
 });
