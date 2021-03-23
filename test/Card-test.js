@@ -6,6 +6,10 @@ const Card = require('../src/Card');
 describe('Card', function() {
   let card;
 
+  beforeEach(() => {
+    card = new Card(1, 'How many Sirens sing sailors to their end?', ['one', 'seven', 'three'], 'three');
+  });
+
   it.skip('should be a function', function() {
     const card = new Card();
     expect(Card).to.be.a('function');
