@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
+const mocha = require("mocha");
+const chai = require("chai");
 
-const chai = require('chai');
+const beforeEach = mocha.beforeEach;
 const expect = chai.expect;
 
 const Turn = require("../src/Turn.js");
@@ -24,12 +26,14 @@ describe("Turn", () => {
   })
 
   describe("returnGuess()", () => {
+    let card;
+    let turn;
 
     beforeEach("setup Card and Turn instances", () => {
-      const card = new Card(
+      card = new Card(
         1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
       );
-      const turn = new Turn("let", card);
+      turn = new Turn("let", card);
     })
 
     it("should be a function", () => {
@@ -43,12 +47,14 @@ describe("Turn", () => {
   })
 
   describe("returnCard", () => {
+    let card;
+    let turn;
 
     beforeEach("setup Card and Turn instances", () => {
-      const card = new Card(
+      card = new Card(
         1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
       );
-      const turn = new Turn("let", card);
+      turn = new Turn("let", card);
     })
 
     it("should be a function", () => {
@@ -63,14 +69,16 @@ describe("Turn", () => {
   })
 
   describe("evaluateGuess()", () => {
+    let card;
 
     beforeEach("setup Card and Turn isntances", () => {
-      const card = new Card(
+      card = new Card(
         1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
       );
     })
     
     it("should be a function", () => {
+      const turn = new Turn("let", card);
       expect(turn.evaluateGuess).to.be.a("function");
     })
 
@@ -90,14 +98,16 @@ describe("Turn", () => {
   })
 
   describe("giveFeedback()", () => {
+    let card;
 
     beforeEach("setup Card and Turn isntances", () => {
-      const card = new Card(
+      card = new Card(
         1, "Which of the following keywords will declare a variable that is not hoisted within its block?", ["var", "let", "new"], "let"
       );
     })
 
     it("should be a function", () => {
+      const turn = new Turn("let", card);
       expect(turn.giveFeedback).to.be.a("function");
     })
 
