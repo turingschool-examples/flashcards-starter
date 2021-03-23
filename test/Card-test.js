@@ -2,31 +2,36 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
+const testingData = require('../test/TestingData')
 
 describe('Card', function() {
+  let card;
 
-  it.skip('should be a function', function() {
-    const card = new Card();
+  beforeEach( () => {
+    card = new Card(testingData[0].id, testingData[0].question, testingData[0].answers, testingData[0].correctAnswer)
+  });
+
+  it('should be a function', () =>{
     expect(Card).to.be.a('function');
   });
 
-  it.skip('should be an instance of Card', function() {
-    const card = new Card();
+  it('should be an instance of Card', () => {
     expect(card).to.be.an.instanceof(Card);
   }); 
 
-  it.skip('should store a question', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+  it('should store an ID', () => {
+    expect(card.id).to.equal(testingData[0].id)
+  });
+
+  it('should store a question', () => {
+    expect(card.question).to.equal(testingData[0].question);
   });  
 
-  it.skip('should store a list of possible answers', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+  it('should store a list of possible answers', () => {
+    expect(card.answers).to.deep.equal(testingData[0].answers);
   });  
 
-  it.skip('should store the correct answer', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.correctAnswer).to.equal('object');
+  it('should store the correct answer', () => {
+    expect(card.correctAnswer).to.equal(testingData[0].correctAnswer);
   });
 });
