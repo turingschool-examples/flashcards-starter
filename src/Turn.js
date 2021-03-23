@@ -12,16 +12,16 @@ class Turn {
     return this.currentCard;
   };
 
-  evaluateGuess(card) {
-    if (this.guess === card.correctAnswer) {
+  evaluateGuess() {
+    if (this.guess === this.currentCard.correctAnswer) {
       return true;
     } else {
       return false;
     }
   };
 
-  giveFeedback(card) {
-    if (this.evaluateGuess(card) === true) {
+  giveFeedback() {
+    if (this.evaluateGuess() === true) {
       return "correct!";
     } else {
       return "incorrect!";

@@ -40,19 +40,19 @@ describe('Turn', function() {
   it('should be able to check if the guess is correct', function() {
     const card = new Card(1, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
     const turn = new Turn('dog', card);
-    expect(turn.evaluateGuess(card)).to.equal(true);
+    expect(turn.evaluateGuess()).to.equal(true);
     const card2 = new Card(2, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
-    const turn2 = new Turn('cat');
-    expect(turn2.evaluateGuess(card2)).to.equal(false);
+    const turn2 = new Turn('cat', card);
+    expect(turn2.evaluateGuess()).to.equal(false);
   });
 
   it('should be able to give the user feedback', function() {
     const card = new Card(1, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
     const turn = new Turn('dog', card);
-    expect(turn.giveFeedback(card)).to.equal('correct!')
+    expect(turn.giveFeedback()).to.equal('correct!')
     const card2 = new Card(2, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
-    const turn2 = new Turn('cat');
-    expect(turn2.giveFeedback(card)).to.equal('incorrect!');
+    const turn2 = new Turn('cat', card2);
+    expect(turn2.giveFeedback()).to.equal('incorrect!');
   });
 
 });
