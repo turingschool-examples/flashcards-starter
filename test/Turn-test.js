@@ -42,7 +42,6 @@ describe('Turn', function() {
   });
 
   it('should be able to determine if a guess is correct',() => {
-    console.log(turn.card.correctAnswer);
     expect(turn.evaluateGuess('sushi')).to.equal(true);
   });
 
