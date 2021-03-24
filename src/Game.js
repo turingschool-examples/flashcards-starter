@@ -7,18 +7,14 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Game {
-  constructor(inputArray) {
-    this.deck = new Deck(inputArray);
-    this.round = new Round(this.deck);
-  }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+    return `Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+-----------------------------------------------------------------------`
   }
 
-  printQuestion(round) {
-      util.main(round);
+  async printQuestion(round, restartGame) {
+      await util.main(round, restartGame);
   }
 }
 
