@@ -50,4 +50,20 @@ describe('Round', function() {
     round.takeTurn('spleen');
     expect(round.incorrectGuesses).to.eql([14]);
   });
+
+  it('should calculate the percent guessed right and return the percent', function() {
+    round.takeTurn('sea otter');
+    expect(round.calculatePercentCorrect()).to.equal(100);
+    round.takeTurn('spleen');
+    expect(round.calculatePercentCorrect()).to.equal(50);
+    round.takeTurn('watching Netflix');
+    expect(round.calculatePercentCorrect()).to.equal(33);
+  });
+
+  it('should end the round and return a statement that says the round is over and the perecnt correct you got', function() {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    round.takeTurn('watching Netflix');
+    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!');
+  });
 });
