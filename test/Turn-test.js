@@ -40,13 +40,19 @@ describe('Turn', () => {
     expect(turn.returnCard()).to.deep.equal(card);
   });
 
-  it('should evaluate the users guess', () => {
+  it('should evaluate the users guess if true', () => {
     expect(trueTurn.evaluateGuess()).to.equal(true);
+  });
+
+  it('should evaluate the users guess if false', () => {
     expect(falseTurn.evaluateGuess()).to.equal(false);
   });
 
-  it('should give feedback on card played', () => {
+  it('should give feedback on a correct card played', () => {
     expect(trueTurn.giveFeedback()).to.equal("correct!");
-    expect(falseTurn.giveFeedback()).to.equal("incorrect!")
+  });
+
+  it('should give feedback on a incorrect card played', () => {
+    expect(falseTurn.giveFeedback()).to.equal("incorrect!");
   });
 });
