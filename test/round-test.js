@@ -11,15 +11,13 @@ describe('Round', function() {
   let deck;
 
   beforeEach(() => {
-    const card = new Card(1, 'What is Ellie\'s favorite food?', ['sushi', 'beans', 'tomato pie'], 'sushi');
     const card1 = new Card(2, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
 
     deck = new Deck();
-    round = new Round(deck);
+    round = new Round(deck, card1);
 
-    deck.addCard(card);
     deck.addCard(card1);
     deck.addCard(card2);
     deck.addCard(card3);
@@ -34,8 +32,6 @@ describe('Round', function() {
   });
 
   it('should have a current card', () => {
-    console.log(round.deck.cards[0]);
-    console.log(round.currentCard);
     expect(round.currentCard).to.be.a('object');
   });
 
