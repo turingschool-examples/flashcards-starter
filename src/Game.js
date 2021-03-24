@@ -1,13 +1,19 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
+const Card = require("../src/Card");
+
 
 class Game {
   constructor() {
-    this.currentRound = currentRound || 1;
+    this.currentRound = 1;
   }
 
   start() {
+    for(let i = 0; i < prototypeQuestions.length; i++) {
+      
+    }
+
 /*
 Creates Cards
 Puts Cards in a Deck
