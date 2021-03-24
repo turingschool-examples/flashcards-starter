@@ -17,14 +17,14 @@ describe("Round", function() {
   it("Should store a deck object", function() {
     const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const deck = new Deck([card1]);
-    const round = new Round(deck);
+    const round = new Round(deck, card1);
     expect(round.deck).to.be.a("object");
   });
 
   it("Should store the current card in play", function() {
     const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const deck = new Deck([card1]);
-    const round = new Round(deck);
+    const round = new Round(deck, card1);
     expect(round.returnCurrentCard()).to.equal(card1);
   });
 
@@ -37,8 +37,17 @@ describe("Round", function() {
     const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
     const card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
     const deck = new Deck([card1, card2]);
-    const round = new Round(deck);
+    const round = new Round(deck, card1);
     const turn1 = round.takeTurn("object");
     expect(round.turns).to.equal(1);
-  })
+  });
+
+  it("Should update the current card when a turn is made", function() {
+    const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    const card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
+    const deck = new Deck([card1, card2]);
+    const round = new Round(deck, card1);
+    const turn1 = round.takeTurn("object");
+    expect(round.returnCurrentCard()).to.equal(card2);
+  });
 })

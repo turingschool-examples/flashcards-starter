@@ -1,22 +1,23 @@
 const Turn = require("../src/Turn");
 
 class Round {
-  constructor(deck) {
+  constructor(deck, currentCard) {
     this.deck = deck;
-    this.currentCard;
+    this.currentCard = currentCard;
     this.turns = 0;
     this.incorrectGuesses = [];
   }
   returnCurrentCard() {
-    this.currentCard = this.deck.cards[this.turns];
     return this.currentCard;
   }
   takeTurn(userGuess) {
-  const currentTurn = new Turn(userGuess, this.currentCard);
-  this.turns++;
-// When a guess is made, a new Turn instance is created.
-// The turns count is updated, regardless of whether the guess is correct or incorrect
-// The next card becomes current card
+    const currentTurn = new Turn(userGuess, this.currentCard);
+    if (userGuess !== this.currentCard.correctAnswer) {
+      this.incorrectGuesses.push({id:this.turns, card: this.currentCard, guess: userGuess});
+    }
+    this.turns++;
+    this.currentCard = this.deck.cards[this.turns];
+
 // Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
 // Feedback is returned regarding whether the guess is incorrect or correct
   }
