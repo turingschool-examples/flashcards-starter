@@ -1,8 +1,8 @@
 const chai = require("chai");
 const expect = chai.expect;
 
-const Turn = require("../src/Turn");
 const Card = require("../src/Card");
+const Turn = require("../src/Turn");
 
 describe('Turn', () => {
   it("should be initiated with two arguments--string that represents guess to question and card object for current card", () => {
