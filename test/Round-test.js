@@ -8,6 +8,16 @@ const Turn = require("../src/Turn");
 
 
 describe("Round", () => {
+  beforeEach(() => {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+  });
+
   describe("returnCurrentCard method", () => {
     it("should return the current card being played with the returnCurrentCard method", () => {
       const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
@@ -33,9 +43,10 @@ describe("Round", () => {
 
       const round = new Round(deck);
 
-      round.takeTurn();
+      round.takeTurn("sea otter");
 
       expect(turn).to.be.a("object");
+      //think this could test much better
     });
     it.skip("should update turn count, regardless of whether answer was correct or incorrect", () => {
       const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
@@ -46,31 +57,99 @@ describe("Round", () => {
 
       const round = new Round(deck);
 
-      round.takeTurn();
+      round.takeTurn("sea otter");
 
       expect(turn.turnCount).to.equal(1);
     });
     it.skip("should make the next card in the deck the current card", () => {
+      const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
+      const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+      const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
+      const deck = new Deck([card1, card2, card3]);
+
+      const round = new Round(deck);
+
+      round.takeTurn("sea otter");
+
+      expect(round.currentCard).to.equal(card2);
     });
-    it.skip("should evaluate and record guesses", () => {
+    it.skip("should evaluate guesses", () => {
+      const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
+      const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+      const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
+      const deck = new Deck([card1, card2, card3]);
+
+      const round = new Round(deck);
+
+      round.takeTurn("sea otter");
+      round.takeTurn('spleen');
+
+      expect(round.takeTurn("sea otter")).to.equal(true);
+      expect(round.takeTurn("spleen")).to.equal(false);
     });
     it.skip("should store incorrect guesses via the id in an array of incorrectGuesses", () => {
+      const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
+      const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+      const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
+      const deck = new Deck([card1, card2, card3]);
+
+      const round = new Round(deck);
+
+      round.takeTurn("sea otter");
+      round.takeTurn('spleen');
+
+      expect(round.incorrectGuesses).to.equal([14]);
     });
     it.skip("should return feedback regarding whether the guess is correct or incorrect", () => {
+      const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
+      const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+      const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
+      const deck = new Deck([card1, card2, card3]);
+
+      const round = new Round(deck);
+
+      round.takeTurn("sea otter");
+      expect(round.takeTurn("sea otter")).to.equal(`correct!`)
+      round.takeTurn('spleen');
+      expect(round.takeTurn("spleen")).to.equal(`incorrect!`)
     });
   });
   describe("calculatePercentCorrect", () => {
     it.skip("should calculate and return the percentage of correct guesses", () => {
+      const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
+      const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+      const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
+      const deck = new Deck([card1, card2, card3]);
+
+      const round = new Round(deck);
+
+      round.takeTurn("sea otter");
+      round.takeTurn("spleen");
+      round.takeTurn("watching Netflix");
+
+      expect(round.calculatePercentCorrect()).to.equal(33);
     });
   });
   describe("endRound", () => {
     it.skip("should print the following to the console: **Round over!**You answered <>% of the questions correctly!", () => {
+      const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea  otter', 'pug', 'capybara'], 'sea otter');
+      const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+      const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
+      const deck = new Deck([card1, card2, card3]);
+
+      const round = new Round(deck);
+
+      round.takeTurn("sea otter");
+      round.takeTurn("spleen");
+      round.takeTurn("watching Netflix");
+
+      expect(round.endRound()).to.equal(`**Round over!**You answered 33% of the questions correctly!`)
     });
   });
 });
