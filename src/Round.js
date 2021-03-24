@@ -12,11 +12,12 @@ class Round {
   }
   takeTurn(userGuess) {
     const currentTurn = new Turn(userGuess, this.currentCard);
-    if (userGuess !== this.currentCard.correctAnswer) {
-      this.incorrectGuesses.push({id:this.turns, card: this.currentCard, guess: userGuess});
-    }
     this.turns++;
+    if (!currentTurn.evaluateGuess()) {
+      this.incorrectGuesses.push({id:this.turns, question: this.currentCard.question, guess: userGuess});
+    }
     this.currentCard = this.deck.cards[this.turns];
+    return `Your value of ${currentTurn.userGuess} is ${currentTurn.giveFeedback()}`
 
 // Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
 // Feedback is returned regarding whether the guess is incorrect or correct
