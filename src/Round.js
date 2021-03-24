@@ -1,13 +1,19 @@
+const Turn = require("../src/Turn");
+
 class Round {
-  constructor(currentCard) {
-    this.currentCard = currentCard;
-    this.turnsCount = 0;
+  constructor(deck) {
+    this.deck = deck;
+    this.currentCard;
+    this.turns = 0;
     this.incorrectGuesses = [];
   }
   returnCurrentCard() {
-// method that returns the current card being played
+    this.currentCard = this.deck.cards[this.turns];
+    return this.currentCard;
   }
-  takeTurn() {
+  takeTurn(userGuess) {
+  const currentTurn = new Turn(userGuess, this.currentCard);
+  this.turns++;
 // When a guess is made, a new Turn instance is created.
 // The turns count is updated, regardless of whether the guess is correct or incorrect
 // The next card becomes current card
