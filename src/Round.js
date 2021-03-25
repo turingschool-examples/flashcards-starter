@@ -1,5 +1,5 @@
 const Turn = require('../src/Turn');
-const Game = require('../src/Game');
+const util = require('./util');
 
 class Round {
   constructor(deck) {
@@ -27,15 +27,21 @@ class Round {
   }
 
   endRound() {
-    const game = new Game();
-    if (this.calculatePercentCorrect() === 100) {
-      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} % of the questions correctly. Way to go!!!`)
-    }
     if (this.calculatePercentCorrect() <= 90) {
-      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} % of the questions correctly. Great job! Try for 100% correct!`)
+      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} % of the questions correctly. Try again for 90% correct!`)
+      this.resetGame()
+    } else {
+      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} % of the questions correctly. Way to go!!! Great job!!!`)
+      util.endGame()
     }
   }
 
+  resetGame() {
+    this.deck = this.deck;
+    this.turns = 0;
+    this.incorrectGuesses = [];
+    util.main(this);
+  }
 }
 
 module.exports = Round;
