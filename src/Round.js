@@ -30,10 +30,12 @@ class Round {
     const game = new Game();
     if (this.calculatePercentCorrect() === 100) {
       console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} % of the questions correctly. Way to go!!!`)
-  } if (this.calculatePercentCorrect() <= 90) {
+    }
+    if (this.calculatePercentCorrect() <= 90) {
       console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} % of the questions correctly. Great job! Try for 100% correct!`)
-      game.start();
+    }
   }
+
 }
 
 module.exports = Round;
