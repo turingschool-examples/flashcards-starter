@@ -17,14 +17,16 @@ class Round {
       this.incorrectGuesses.push(this.currentCard.id);
     }
     this.currentCard = this.deck.cards[this.turns];
-    return `Your value of ${currentTurn.userGuess} is ${currentTurn.giveFeedback()}`
+    return currentTurn.giveFeedback()
   }
   calculatePercentCorrect() {
     const score = Math.round((1-(this.incorrectGuesses.length/this.turns)) * 100);
     return score;
   }
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    const result = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(result);
+    return result;
   }
 }
 

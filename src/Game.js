@@ -14,6 +14,8 @@ class Game {
   start() {
     const cards = [];
     prototypeQuestions.forEach(function(card) {
+      // const {...cardData} = card;
+      // console.log(cardData);
       cards.push(card = new Card(
         card.id,
         card.question,
@@ -24,7 +26,6 @@ class Game {
     const deck = new Deck(cards)
     this.currentRound = new Round(deck, deck.cards[0])
     this.printMessage(deck, this.currentRound);
-    this.printQuestion(this.currentRound);
   }
 
   printMessage(deck, round) {

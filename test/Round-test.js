@@ -38,8 +38,8 @@ describe("Round", () => {
   it("should evaluate the guess", () => {
     const turn1 = round.takeTurn("object"); //correct
     const turn2 = round.takeTurn("function"); //incorrect
-    expect(turn1).to.equal("Your value of object is correct!");
-    expect(turn2).to.equal("Your value of function is incorrect!");
+    expect(turn1).to.equal("correct!");
+    expect(turn2).to.equal("incorrect!");
   });
 
   it("should store incorrect guesses", () => {
