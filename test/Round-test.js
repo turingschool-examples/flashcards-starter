@@ -27,7 +27,7 @@ describe("Round", () => {
   describe("returnCurrentCard method", () => {
     it("should return the current card being played with the returnCurrentCard method", () => {
       let currentCard = round.returnCurrentCard();
-      expect(currentCard).to.equal(card1);
+      expect(currentCard).to.deep.equal(card1);
     });
   });
   describe("takeTurn method", () => {
@@ -42,7 +42,7 @@ describe("Round", () => {
       expect(round.turnCount).to.equal(1);
     });
     it("should make the next card in the deck the current card", () => {
-      expect(round.currentCard).to.equal(card2);
+      expect(round.currentCard).to.deep.equal(card2);
     });
     it("should evaluate guesses", () => {
       let secondTurn = round.takeTurn('spleen');
