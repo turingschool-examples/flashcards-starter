@@ -46,11 +46,5 @@ describe("Game class", () => {
       expect(game.currentRound).to.be.an.instanceOf(Round);
       expect(game.currentRound.deck).to.deep.equal(testDeck);
     });
-    it.skip("should invoke printMessage to display the message in the CLI", () => {
-
-    });
-    it.skip("should invoke printQuestion to kick off our helper functions that allow interaction via the CLI", () => {
-
-    });
   });
 });

@@ -12,8 +12,8 @@ class Game {
   start() {
     let deck = new Deck(this.deckData);
     this.currentRound(deck);
-    this.printMessage();
-    this.printQuestion();
+    this.printMessage(deck, this.currentRound);
+    this.printQuestion(this.currentRound);
   }
 
   currentRound(deck) {
