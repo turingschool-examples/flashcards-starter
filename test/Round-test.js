@@ -47,7 +47,7 @@ describe('Round', () => {
 
   it('should increase the number of turns', () => {
     round.takeTurn();
-    expect(turn).to.be.an.instanceOf(Turn);
+    expect(round.turns).to.equal(1);
   });
 
   it('should create an instance of a new turn', () => {
@@ -60,9 +60,14 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.equal(card2);
   });
 
-  it('should provide feedback', () => {
+  it('should provide feedback for correct answers', () => {
     round.takeTurn();
-    expect(round.takeTurn()).to.equal('incorrect!');
+    expect(round.takeTurn(testingData[1].correctAnswer)).to.equal('correct!');
+  });
+
+  it('should provide feedback for incorrect answers', () => {
+    round.takeTurn();
+    expect(round.takeTurn(testingData[2].correctAnswer)).to.equal('incorrect!');
   });
 
   it('should calculate the percentage of correct answers', () => {
@@ -72,4 +77,18 @@ describe('Round', () => {
     expect(round.calculatePercentCorrect()).to.equal(66);
   });
 
-    })
+  it('should calculate the percentage if user gets all answers incorrect', () => {
+    round.takeTurn(testingData[2].correctAnswer);
+    round.takeTurn(testingData[0].correctAnswer);
+    round.takeTurn(testingData[1].correctAnswer);
+    expect(round.calculatePercentCorrect()).to.equal(0);
+  });
+
+  it('should calculate the percentage if user gets all answers correct', () => {
+    round.takeTurn(testingData[0].correctAnswer);
+    round.takeTurn(testingData[1].correctAnswer);
+    round.takeTurn(testingData[2].correctAnswer);
+    expect(round.calculatePercentCorrect()).to.equal(100);
+  });
+  
+})

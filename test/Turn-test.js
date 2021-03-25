@@ -6,8 +6,7 @@ const Card = require('../src/Card');
 const testingData = require('../test/TestingData');
 
 describe('Turn', () => {
-  let turn;
-  let card;
+  let turn, trueTurn, falseTurn, card;
 
   beforeEach( () => {
     turn = new Turn('Gary', card);
