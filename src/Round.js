@@ -16,18 +16,21 @@ class Round {
     this.turns++;
     if(turn.evaluateGuess()) {
       let evaluation = turn.evaluateGuess();
-      this.deck.cards.shift();
-      turn.currentCard = this.deck.cards[0]
+      this.nextCard(turn);
       return turn.giveFeedback(evaluation);
     } else {
       let evaluation = turn.evaluateGuess();
       this.incorrectGuesses.push(this.deck.cards[0].id);
-      this.deck.cards.shift();
-      turn.currentCard = this.deck.cards[0]
+      this.nextCard(turn);
       return turn.giveFeedback(evaluation);
     };
-
   };
+
+  nextCard(turn) {
+    this.deck.cards.shift();
+    turn.currentCard = this.deck.cards[0];
+  };
+
 
   calculatePercentCorrect() {
     let correctPercent = 1 - this.incorrectGuesses.length / this.turns;
