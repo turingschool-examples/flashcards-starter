@@ -1,8 +1,8 @@
 const chai = require("chai");
 const expect = chai.expect;
 
-const Turn = require("../src/Turn");
 const Card = require("../src/Card");
+const Turn = require("../src/Turn");
 
 describe('Turn', () => {
   it("should be initiated with two arguments--string that represents guess to question and card object for current card", () => {
@@ -10,7 +10,7 @@ describe('Turn', () => {
     const turn = new Turn("object", card2);
 
     expect(turn).to.have.property("guess").to.be.a("string");
-    expect(turn).to.have.property("card").to.be.a("object");
+    expect(turn).to.have.property("currentCard").to.be.a("object");
   });
   it("should have a method that returns the guess", () => {
     const card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
