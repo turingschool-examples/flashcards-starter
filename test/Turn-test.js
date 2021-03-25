@@ -42,13 +42,26 @@ describe('Turn', function() {
   });
 
   it('should be able to determine if a guess is correct',() => {
-    expect(turn.evaluateGuess('sushi')).to.equal(true);
+    let turn = new Turn('sushi', card);
+
+    expect(turn.evaluateGuess(turn.guess)).to.equal(true);
   });
 
-  it('should be able tell user if a guess is correct',() => {
-    turn.evaluateGuess('sushi');
+  it('should be able to determine if a guess is incorrect',() => {
+    let turn = new Turn('beans', card);
 
+    expect(turn.evaluateGuess(turn.guess)).to.equal(false);
+  });
+
+  it('should be able tell user if they got the answer RIGHT',() => {
     expect(turn.giveFeedback()).to.equal('correct!');
+  });
+
+  it('should be able tell user if they got the answer WRONG',() => {
+    turn = new Turn('beans', card);
+    turn.evaluateGuess('beans');
+
+    expect(turn.giveFeedback()).to.equal('incorrect!');
   });
 
 })

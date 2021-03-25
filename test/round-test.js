@@ -35,7 +35,6 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.equal(round.currentCard);
   });
 
-// Pretty sure this is wrong
   it('should instantiate a new turn', () => {
     expect(new Turn()).to.be.an.instanceof(Turn);
   });
@@ -50,25 +49,47 @@ describe('Round', function() {
     expect(round.turns).to.equal(3);
   });
 
-// Fix this when you can focus!
   it('should push card id into incorrectGuesses array when guess is incorrect', () => {
     card = new Card(1, 'What is Ellie\'s favorite food?', ['sushi', 'beans', 'tomato pie'], 'sushi');
     turn = new Turn('sushi', card);
     deck = new Deck(card);
     round = new Round(deck, card);
 
-    round.takeTurn('sushi');
+    round.takeTurn('beans');
 
-    console.log(round.incorrectGuesses);
     expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
-  it.skip('should tell user if guess is incorrect', () => {
+  it.skip('should not push card id into incorrectGuesses array when guess is correct', () => {
+    card = new Card(1, 'What is Ellie\'s favorite food?', ['sushi', 'beans', 'tomato pie'], 'sushi');
+    turn = new Turn('sushi', card);
+    deck = new Deck(card);
+    round = new Round(deck, card);
 
+    round.takeTurn(round.guess);
+
+    //console.log(round.incorrectGuesses);
+    expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
-  it.skip('should tell user if guess is correct', () => {
+  it('should tell user if guess is incorrect', () => {
+    card = new Card(1, 'What is Ellie\'s favorite food?', ['sushi', 'beans', 'tomato pie'], 'sushi');
+    turn = new Turn('sushi', card);
+    deck = new Deck(card);
+    round = new Round(deck, card);
 
+    round.takeTurn('beans');
+
+    expect().to.equal
+  });
+
+  it('should tell user if guess is correct', () => {
+    card = new Card(1, 'What is Ellie\'s favorite food?', ['sushi', 'beans', 'tomato pie'], 'sushi');
+    turn = new Turn('sushi', card);
+    deck = new Deck(card);
+    round = new Round(deck, card);
+
+    round.takeTurn('sushi');
   });
 
   it.skip('should be able to calculate percentage of correct answers', () => {
@@ -76,7 +97,7 @@ describe('Round', function() {
     round.incorrectGuesses = 1;
 
     round.calculatePercentCorrect();
-    console.log(round.calculatePercentCorrect());
+    //console.log(round.calculatePercentCorrect());
 
     expect(round.calculatePercentCorrect()).to.equal(75);
   });
