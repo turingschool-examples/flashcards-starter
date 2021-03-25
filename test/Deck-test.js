@@ -6,8 +6,7 @@ const Card = require('../src/Card');
 const testingData = require('../test/TestingData');
 
 describe('Deck', () => {
-  let card1, card2, card3;
-  let deck;
+  let card1, card2, card3, deck;
 
   beforeEach( () => {
     card1 = new Card(testingData[0].id, testingData[0].question, testingData[0].answers, testingData[0].correctAnswer);
