@@ -2,25 +2,29 @@ const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Card = require("../src/Card");
+const Deck = require("../src/Deck");
+const Round = require("../src/Round");
 
 
 class Game {
   constructor() {
-    this.currentRound = 1;
+    this.currentRound;
   }
 
   start() {
-    for(let i = 0; i < prototypeQuestions.length; i++) {
-      
-    }
-
-/*
-Creates Cards
-Puts Cards in a Deck
-Creates a new Round using the Deck
-invokes printMessage to display the message in the CLI
-invokes printQuestion to kick off our helper functions that allow interaction via the CLI
-*/
+    const cards = [];
+    prototypeQuestions.forEach(function(card) {
+      cards.push(card = new Card(
+        card.id,
+        card.question,
+        card.answers,
+        card.correctAnswer
+      ));
+    });
+    const deck = new Deck(cards)
+    this.currentRound = new Round(deck, deck.cards[0])
+    this.printMessage(deck, this.currentRound);
+    this.printQuestion(this.currentRound);
   }
 
   printMessage(deck, round) {
