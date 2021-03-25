@@ -49,12 +49,11 @@ describe('Turn', function() {
   it('should be able to give the user feedback', function() {
     const card = new Card(1, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
     const turn = new Turn('dog', card);
-    const evaluation = turn.evaluateGuess()
-    expect(turn.giveFeedback(evaluation)).to.equal('correct!')
+    const evaluation = turn.evaluateGuess();
+    expect(turn.giveFeedback(evaluation)).to.equal('correct!');
     const card2 = new Card(2, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
     const turn2 = new Turn('cat', card2);
-    const evaluation2 = turn2.evaluateGuess()
+    const evaluation2 = turn2.evaluateGuess();
     expect(turn2.giveFeedback(evaluation2)).to.equal('incorrect!');
   });
-
 });

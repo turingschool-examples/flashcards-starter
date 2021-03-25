@@ -44,7 +44,7 @@ describe('Round', function() {
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    const turn = new Turn('mercury', card1)
+    const turn = new Turn('mercury', card1);
     expect(round.returnCurrentCard(turn)).to.be.a('object');
     expect(round.returnCurrentCard(turn)).to.equal(card1);
   });
@@ -56,7 +56,6 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
     const takeTurn = round.takeTurn('mercury');
-
     expect(round.turns).to.equal(1);
     expect(round.returnCurrentCard(takeTurn)).to.equal(card2);
 
@@ -78,7 +77,7 @@ describe('Round', function() {
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    const turn = new Turn('mars', card1)
+    const turn = new Turn('mars', card1);
     const takeTurn = round.takeTurn('mars');
     expect(takeTurn).to.equal('incorrect!');
     expect(round.incorrectGuesses).to.be.an('array').that.includes(1);
@@ -93,8 +92,7 @@ describe('Round', function() {
     round.takeTurn('mercury');
     round.takeTurn('albany');
     round.takeTurn('sirius');
-
-    expect(round.calculatePercentCorrect()).to.equal(67)
+    expect(round.calculatePercentCorrect()).to.equal(67);
   });
 
   it('should be able to let the player know the round is over', function() {
@@ -106,6 +104,6 @@ describe('Round', function() {
     round.takeTurn('mercury');
     round.takeTurn('albany');
     round.takeTurn('sirius');
-    round.endRound()
+    round.endRound();
   });
 });

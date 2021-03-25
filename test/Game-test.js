@@ -17,7 +17,7 @@ describe('Game', function() {
     const nothing = {};
     const game = new Game(nothing);
     const cards = game.createCards();
-    expect(cards).to.be.an('array').with.a.lengthOf(30)
+    expect(cards).to.be.an('array').with.a.lengthOf(30);
   });
 
   it('should be able to create a deck', function() {

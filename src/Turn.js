@@ -17,7 +17,7 @@ class Turn {
       return true;
     } else {
       return false;
-    }
+    };
   };
 
   giveFeedback(evaluation) {
@@ -25,7 +25,7 @@ class Turn {
       return "correct!";
     } else {
       return "incorrect!";
-    }
+    };
   };
 };
 
