@@ -21,12 +21,12 @@ class Round {
     return currentTurn.giveFeedback()
   }
   calculatePercentCorrect() {
-    const score = Math.round((1-(this.incorrectGuesses.length/this.turns)) * 100);
+    const score = Math.round((1 - (this.incorrectGuesses.length / this.turns)) * 100);
     return score;
   }
   endRound() {
     const result = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
-    if(this.testing) {
+    if (this.testing) {
       return result;
     } else {
       console.log(result);
