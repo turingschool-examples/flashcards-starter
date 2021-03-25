@@ -12,12 +12,12 @@ class Game {
   }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 
   start() {
@@ -32,7 +32,12 @@ class Game {
   createCards() {
     let cards = [];
     for (let i = 0; i < prototypeQuestions.length; i++) {
-      let { id, question, answers, correctAnswer } = prototypeQuestions[i];
+      let {
+        id,
+        question,
+        answers,
+        correctAnswer
+      } = prototypeQuestions[i];
       const card = new Card(id, question, answers, correctAnswer);
       cards.push(card);
     }

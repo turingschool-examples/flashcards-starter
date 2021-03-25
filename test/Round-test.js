@@ -49,7 +49,7 @@ describe('Round', function() {
     expect(round.returnCurrentCard(turn)).to.equal(card1);
   });
 
-  it ('should be able to start a new turn', function() {
+  it('should be able to start a new turn', function() {
     const card1 = new Card(1, '1st planet from the sun', ['earth', 'mercury', 'mars'], 'mercury');
     const card2 = new Card(2, 'capital of NY', ['albany', 'syracuse', 'buffalo'], 'albany');
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
@@ -62,7 +62,7 @@ describe('Round', function() {
 
   });
 
-  it ('should be able to give feedback on correct answer', function() {
+  it('should be able to give feedback on correct answer', function() {
     const card1 = new Card(1, '1st planet from the sun', ['earth', 'mercury', 'mars'], 'mercury');
     const card2 = new Card(2, 'capital of NY', ['albany', 'syracuse', 'buffalo'], 'albany');
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
@@ -72,7 +72,7 @@ describe('Round', function() {
     expect(takeTurn).to.equal('correct!');
   });
 
-  it ('should be able to give feedback on incorrect answer', function() {
+  it('should be able to give feedback on incorrect answer', function() {
     const card1 = new Card(1, '1st planet from the sun', ['earth', 'mercury', 'mars'], 'mercury');
     const card2 = new Card(2, 'capital of NY', ['albany', 'syracuse', 'buffalo'], 'albany');
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
@@ -84,7 +84,7 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.be.an('array').that.includes(1);
   });
 
-  it ('should be able to calculate the percent of correct guesses', function() {
+  it('should be able to calculate the percent of correct guesses', function() {
     const card1 = new Card(1, '1st planet from the sun', ['earth', 'mercury', 'mars'], 'mercury');
     const card2 = new Card(2, 'capital of NY', ['albany', 'syracuse', 'buffalo'], 'albany');
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
@@ -97,7 +97,7 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal(67)
   });
 
-  it ('should be able to let the player know the round is over', function() {
+  it('should be able to let the player know the round is over', function() {
     const card1 = new Card(1, '1st planet from the sun', ['earth', 'mercury', 'mars'], 'mercury');
     const card2 = new Card(2, 'capital of NY', ['albany', 'syracuse', 'buffalo'], 'albany');
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
