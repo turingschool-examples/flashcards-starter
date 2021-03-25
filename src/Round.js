@@ -13,16 +13,20 @@ class Round {
 
   takeTurn(guess) {
     const turn = new Turn(guess, this.deck.cards[0]);
-    if(turn.evaluateGuess()) {
-      console.log(turn.giveFeedback());
-    } else {
-      this.incorrectGuesses.push(this.deck.cards[0].id);
-      console.log(turn.giveFeedback());
-    };
     this.turns++;
-    this.deck.cards.push(this.deck.cards.shift());
-    turn.currentCard = this.deck.cards[0]
-    return turn;
+    if(turn.evaluateGuess()) {
+      let evaluation = turn.evaluateGuess();
+      this.deck.cards.shift();
+      turn.currentCard = this.deck.cards[0]
+      return turn.giveFeedback(evaluation);
+    } else {
+      let evaluation = turn.evaluateGuess();
+      this.incorrectGuesses.push(this.deck.cards[0].id);
+      this.deck.cards.shift();
+      turn.currentCard = this.deck.cards[0]
+      return turn.giveFeedback(evaluation);
+    };
+
   };
 
   calculatePercentCorrect() {
