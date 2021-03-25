@@ -6,7 +6,6 @@ const Card = require('../src/Card');
 describe('Turn', function() {
 
   it('should be a function', function() {
-    const card = new Turn();
     expect(Turn).to.be.a('function');
   });
 
@@ -42,7 +41,7 @@ describe('Turn', function() {
     const turn = new Turn('dog', card);
     expect(turn.evaluateGuess()).to.equal(true);
     const card2 = new Card(2, "favorite animal", ['dog', 'cat', 'fish'], 'dog');
-    const turn2 = new Turn('cat', card);
+    const turn2 = new Turn('cat', card2);
     expect(turn2.evaluateGuess()).to.equal(false);
   });
 

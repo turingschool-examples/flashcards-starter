@@ -8,7 +8,6 @@ const Turn = require('../src/Turn');
 describe('Round', function() {
 
   it('should be a function', function() {
-    const round = new Round();
     expect(Round).to.be.a('function');
   });
 
@@ -77,7 +76,6 @@ describe('Round', function() {
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    const turn = new Turn('mars', card1);
     const takeTurn = round.takeTurn('mars');
     expect(takeTurn).to.equal('incorrect!');
     expect(round.incorrectGuesses).to.be.an('array').that.includes(1);
