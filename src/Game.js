@@ -14,19 +14,15 @@ class Game {
 
   start() {
     const cards = [];
-    prototypeQuestions.forEach(function(card) {
-      // const {...cardData} = card;
-      // console.log(cardData);
-      cards.push(card = new Card(
-        card.id,
-        card.question,
-        card.answers,
-        card.correctAnswer
-      ));
+    prototypeQuestions.forEach(card => {
+    const {id, question, answers, correctAnswer} = card;
+    cards.push(card = new Card(id,question,answers,correctAnswer));
     });
     const deck = new Deck(cards)
     this.currentRound = new Round(deck, deck.cards[0])
-    if(!this.testing) {
+    if(this.testing) {
+      return;
+    } else {
       this.printMessage(deck, this.currentRound);
       this.printQuestion(this.currentRound);
     }
