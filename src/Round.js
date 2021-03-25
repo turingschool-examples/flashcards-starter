@@ -26,10 +26,11 @@ class Round {
   }
   endRound() {
     const result = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
-    if(!this.testing) {
+    if(this.testing) {
+      return result;
+    } else {
       console.log(result);
     }
-    return result;
   }
 }
 
