@@ -9,6 +9,7 @@ const Round = require("../src/Round");
 class Game {
   constructor() {
     this.currentRound;
+    this.testing = false;
   }
 
   start() {
@@ -25,7 +26,10 @@ class Game {
     });
     const deck = new Deck(cards)
     this.currentRound = new Round(deck, deck.cards[0])
-    this.printMessage(deck, this.currentRound);
+    if(!this.testing) {
+      this.printMessage(deck, this.currentRound);
+      this.printQuestion(this.currentRound);
+    }
   }
 
   printMessage(deck, round) {

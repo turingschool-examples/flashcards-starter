@@ -15,6 +15,7 @@ describe("Round", () => {
     card3 = new Card(3, "forEach() returns an array", ["true", "false"], "false");
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck, card1);
+    round.testing = true;
   });
 
   it("should be a function", () => expect(Round).to.be.a("function"));

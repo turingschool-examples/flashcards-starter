@@ -11,6 +11,7 @@ describe("Game", () => {
   let game;
   beforeEach(() => {
     game = new Game();
+    game.testing = true;
     game.start();
   });
 
