@@ -55,11 +55,10 @@ describe('Round', function() {
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    const takeTurn = round.takeTurn('mercury', deck);
+    const takeTurn = round.takeTurn('mercury');
 
     expect(round.turns).to.equal(1);
     expect(round.returnCurrentCard(takeTurn)).to.equal(card2);
-    expect(takeTurn).to.be.an.instanceof(Turn);
 
   });
 
@@ -69,8 +68,8 @@ describe('Round', function() {
     const card3 = new Card(3, 'north star name', ['polaris', 'sirius', 'rarius'], 'polaris');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    const turn = new Turn('mercury', card1)
-    expect(turn.giveFeedback()).to.equal('correct!');
+    const takeTurn = round.takeTurn('mercury');
+    expect(takeTurn).to.equal('correct!');
   });
 
   it ('should be able to give feedback on incorrect answer', function() {
@@ -80,8 +79,8 @@ describe('Round', function() {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
     const turn = new Turn('mars', card1)
-    expect(turn.giveFeedback()).to.equal('incorrect!');
-    round.takeTurn('mars');
+    const takeTurn = round.takeTurn('mars');
+    expect(takeTurn).to.equal('incorrect!');
     expect(round.incorrectGuesses).to.be.an('array').that.includes(1);
   });
 
