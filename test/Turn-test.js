@@ -24,7 +24,7 @@ describe("Turn", () => {
     expect(turn2.currentCard).to.be.a("object");
   });
 
-  it("should store the user\;s guess to the question", () => {
+  it("should store the user\'s guess to the question", () => {
     expect(turn1.userGuess).to.equal("function");
   });
 
