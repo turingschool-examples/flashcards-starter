@@ -27,43 +27,43 @@ describe("Round", () => {
   describe("returnCurrentCard method", () => {
     it("should return the current card being played with the returnCurrentCard method", () => {
       let currentCard = round.returnCurrentCard();
-
       expect(currentCard).to.equal(card1);
     });
   });
   describe("takeTurn method", () => {
+    let firstTurn;
     beforeEach(() => {
-      let firstTurn = round.takeTurn("sea otter");
+      firstTurn = round.takeTurn("sea otter");
     });
-    it.skip("should create a new instance of Turn", () => {
-      expect(turn).to.be.a("object");
+    it("should create a new instance of Turn", () => {
+      expect(firstTurn).to.be.a("object");
     });
-    it.skip("should update turn count, regardless of whether answer was correct or incorrect", () => {
-      expect(turn.turnCount).to.equal(1);
+    it("should update turn count, regardless of whether answer was correct or incorrect", () => {
+      expect(round.turnCount).to.equal(1);
     });
-    it.skip("should make the next card in the deck the current card", () => {
+    it("should make the next card in the deck the current card", () => {
       expect(round.currentCard).to.equal(card2);
     });
-    it.skip("should evaluate guesses", () => {
+    it("should evaluate guesses", () => {
       let secondTurn = round.takeTurn('spleen');
 
-      expect(firstTurn).to.equal(true);
-      expect(secondTurn).to.equal(false);
+      expect(firstTurn.evaluateGuess()).to.equal(true);
+      expect(secondTurn.evaluateGuess()).to.equal(false);
     });
-    it.skip("should store incorrect guesses via the id in an array of incorrectGuesses", () => {
+    it("should store incorrect guesses via the id in an array of incorrectGuesses", () => {
       let secondTurn = round.takeTurn('spleen');
 
-      expect(round.incorrectGuesses).to.equal([14]);
+      expect(round.incorrectGuesses).to.deep.equal([14]);
     });
-    it.skip("should return feedback regarding whether the guess is correct or incorrect", () => {
+    it("should return feedback regarding whether the guess is correct or incorrect", () => {
       let secondTurn = round.takeTurn('spleen');
 
-      expect(firstTurn).to.equal(`correct!`)
-      expect(secondTurn).to.equal(`incorrect!`)
+      expect(firstTurn.giveFeedback()).to.equal(`correct!`)
+      expect(secondTurn.giveFeedback()).to.equal(`incorrect!`)
     });
   });
   describe("calculatePercentCorrect", () => {
-    it.skip("should calculate and return the percentage of correct guesses", () => {
+    it("should calculate and return the percentage of correct guesses", () => {
       let firstTurn = round.takeTurn("sea otter");
       let secondTurn = round.takeTurn("spleen");
       let thirdTurn = round.takeTurn("watching Netflix");
@@ -72,7 +72,7 @@ describe("Round", () => {
     });
   });
   describe("endRound", () => {
-    it.skip("should print the following to the console: **Round over!**You answered <>% of the questions correctly!", () => {
+    it("should print the following to the console: **Round over!**You answered <>% of the questions correctly!", () => {
       let firstTurn = round.takeTurn("sea otter");
       let secondTurn = round.takeTurn("spleen");
       let thirdTurn = round.takeTurn("watching Netflix");
