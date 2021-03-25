@@ -60,27 +60,24 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
-  it.skip('should not push card id into incorrectGuesses array when guess is correct', () => {
+  it('should not push card id into incorrectGuesses array when guess is correct', () => {
     card = new Card(1, 'What is Ellie\'s favorite food?', ['sushi', 'beans', 'tomato pie'], 'sushi');
     turn = new Turn('sushi', card);
     deck = new Deck(card);
     round = new Round(deck, card);
 
-    round.takeTurn(round.guess);
+    round.takeTurn(turn.guess);
 
-    //console.log(round.incorrectGuesses);
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
   it('should tell user if guess is incorrect', () => {
     card = new Card(1, 'What is Ellie\'s favorite food?', ['sushi', 'beans', 'tomato pie'], 'sushi');
-    turn = new Turn('sushi', card);
+    turn = new Turn('beans', card);
     deck = new Deck(card);
     round = new Round(deck, card);
 
-    round.takeTurn('beans');
-
-    expect().to.equal
+    expect(round.takeTurn('beans')).to.equal('incorrect!');
   });
 
   it('should tell user if guess is correct', () => {
@@ -89,17 +86,25 @@ describe('Round', function() {
     deck = new Deck(card);
     round = new Round(deck, card);
 
-    round.takeTurn('sushi');
+    expect(round.takeTurn('sushi')).to.equal('correct!');
   });
 
-  it.skip('should be able to calculate percentage of correct answers', () => {
-    round.turns = 4;
-    round.incorrectGuesses = 1;
+  it('should be able to calculate percentage of correct answers', () => {
+    round.turns = 3;
+    round.incorrectGuesses.length = 1;
 
     round.calculatePercentCorrect();
-    //console.log(round.calculatePercentCorrect());
 
-    expect(round.calculatePercentCorrect()).to.equal(75);
+    expect(round.calculatePercentCorrect()).to.equal(67);
   });
+
+  it('should tell the user that it is the end of the round with percentCorrect', () => {
+    round.turns = 4;
+    round.incorrectGuesses.length = 1;
+
+    round.calculatePercentCorrect();
+
+    expect(round.endRound()).to.equal('** Round over! ** You answered 75% of the questions correctly!');
+  })
 
 })
