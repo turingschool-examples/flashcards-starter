@@ -108,6 +108,4 @@ describe('Round', function() {
     round.takeTurn('sirius');
     round.endRound()
   });
-
-
 });
