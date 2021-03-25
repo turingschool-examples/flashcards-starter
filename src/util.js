@@ -42,4 +42,9 @@ async function main(round) {
     }
 }
 
+const endGame = () => {
+  process.exit();
+}
+
 module.exports.main = main;
+module.exports.endGame = endGame;
