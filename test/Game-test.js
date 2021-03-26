@@ -6,7 +6,6 @@ const Card = require("../src/Card");
 const Round = require("../src/Round");
 const Game = require("../src/Game");
 
-
 describe("Game", () => {
   let game;
   beforeEach(() => {
@@ -24,8 +23,4 @@ describe("Game", () => {
   it("should create a deck", () => expect(game.currentRound.deck).to.be.an.instanceof(Deck));
 
   it("should instantiate a Round ", () => expect(game.currentRound).to.be.an.instanceof(Round));
-
-
-
-
 })
