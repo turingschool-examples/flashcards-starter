@@ -64,7 +64,8 @@ describe('Round', () => {
   });
 
   it('should calculate percent of correct guesses', function() {
-    expect(round.calculatePercentCorrect()).to.equal(0);
+    round.takeTurn('sea otter');
+    expect(round.calculatePercentCorrect()).to.equal(100);
   });
 
 });
