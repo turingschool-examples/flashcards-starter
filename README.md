@@ -59,9 +59,9 @@ Note: This also tests that npm is installed correctly.
 
 #### Technologies used
 
-![Git](docs/git.png =100x) Version control
-![GitHub](docs/gh.png =100x) Hosting and management
-![Javascript](docs/js.png =100x) Programming language
-![Node](docs/node.jpeg =100x) Runtime environment
-![NPM](docs/npm.png =100x) Package management
-![Mocha and Chai](docs/mochachai.png =100x) Unit testing framework and library
+![Git](docs/git.png) Version control
+![GitHub](docs/gh.png) Hosting and management
+![Javascript](docs/js.png) Programming language
+![Node](docs/node.jpeg) Runtime environment
+![NPM](docs/npm.png) Package management
+![Mocha and Chai](docs/mochachai.png) Unit testing framework and library
