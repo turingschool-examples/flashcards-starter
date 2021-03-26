@@ -30,12 +30,6 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.equal(card1);
   });
 
-  // takeTurn: method that updates turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses
-  //
-
-
-
-  // calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
   // endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
 
   it('should count turns starting at 0', function() {
@@ -66,6 +60,12 @@ describe('Round', () => {
   it('should calculate percent of correct guesses', function() {
     round.takeTurn('sea otter');
     expect(round.calculatePercentCorrect()).to.equal(100);
+  });
+
+  it('should end round', function() {
+    round.takeTurn('sea otter');
+    expect(round.endRound).to.be.a('function');
+    expect(round.endRound()).to.equal(`** Round over! ** You answered ${round.calculatePercentCorrect()}% of the questions correctly!`)
   });
 
 });
