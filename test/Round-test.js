@@ -9,11 +9,11 @@ describe('Round', () => {
   let round, deck, card1, card2, card3;
 
   beforeEach(function() {
-     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-     card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-     deck = new Deck([card1, card2, card3]);
-     round = new Round(deck);
+    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    deck = new Deck([card1, card2, card3]);
+    round = new Round(deck);
 
   });
 
@@ -25,7 +25,7 @@ describe('Round', () => {
     expect(round).to.be.an.instanceOf(Round);
   });
 
-  it('should return current card', function () {
+  it('should return current card', function() {
     expect(round.returnCurrentCard).to.be.a('function');
     expect(round.returnCurrentCard()).to.equal(card1);
   });
@@ -53,7 +53,7 @@ describe('Round', () => {
     expect(round.incorrectGuesses.length).to.equal(1);
   });
 
-  it('should give feedback', function () {
+  it('should give feedback', function() {
     expect(round.takeTurn('pug')).to.equal('Incorrect!');
   });
 
