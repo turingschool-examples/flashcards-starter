@@ -30,8 +30,6 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.equal(card1);
   });
 
-  // endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
-
   it('should count turns starting at 0', function() {
     expect(round.takeTurn).to.be.a('function');
     expect(round.turns).to.equal(0);
