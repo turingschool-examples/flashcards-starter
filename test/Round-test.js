@@ -5,7 +5,7 @@ const Card = require('../src/Card');
 const Round = require('../src/Round');
 const Deck = require('../src/Deck');
 
-describe('Round', () => {
+describe('Round', function() {
   let round, deck, card1, card2, card3;
 
   beforeEach(function() {
