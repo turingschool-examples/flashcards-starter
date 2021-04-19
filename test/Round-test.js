@@ -1,10 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 const Round = require('../src/Round');
-const Card = require('../src/Card');
 
 const card1 = new Card(
   1,
@@ -41,5 +41,88 @@ describe('Round', function () {
   it('starts with no incorrect guesses', function () {
     let round = new Round(deck)
     expect(round.incorrectGuesses).to.deep.equal([])
+  });
+
+  it('has a current card equal to the first card in the deck', function() {
+    let round = new Round(deck)
+    expect(round.currentCard()).to.deep.equal(card1)
+  })
+
+  describe('.takeTurn', function () {
+    it('increases the turn count', function () {
+      let round = new Round(deck)
+      round.takeTurn('object')
+      expect(round.turns).to.equal(1)
+    });
+
+    it('changes the current card', function () {
+      let round = new Round(deck)
+      round.takeTurn('object')
+      expect(round.currentCard()).to.deep.equal(card2)
+    });
+
+    it('saves incorrect ids', function () {
+      let round = new Round(deck)
+      round.takeTurn('banana')
+      expect(round.incorrectGuesses).to.deep.equal([1])
+    });
+
+    it('does not save correct ids', function () {
+      let round = new Round(deck)
+      round.takeTurn('object')
+      expect(round.incorrectGuesses).to.deep.equal([])
+    });
+
+    it('records multiple incorrect guesses', function() {
+      let round = new Round(deck)
+      round.takeTurn('banana')
+      round.takeTurn('array')
+      round.takeTurn('bandana')
+      expect(round.incorrectGuesses).to.deep.equal([1, 3])
+    });
+    
+    it('returns feedback if an answer is correct', function() {
+      let round = new Round(deck)
+      expect(round.takeTurn('object')).to.equal('correct!')
+    });
+
+    it('returns feedback if an answer is incorrect', function() {
+      let round = new Round(deck)
+      expect(round.takeTurn('objection your honor')).to.equal('incorrect!')
+    });
+  });
+
+  describe('.percentCorrect', function () {
+    it('returns zero when all answers are wrong', function () {
+      let round = new Round(deck)
+      round.takeTurn('turkey')
+      round.takeTurn('turnkey')
+      expect(round.percentCorrect()).to.equal(0)
+    });
+    
+    it('returns 100 when all answers are right', function () {
+      let round = new Round(deck)
+      round.takeTurn('object')
+      round.takeTurn('array')
+      expect(round.percentCorrect()).to.equal(100)
+    });
+    
+    it('returns a rounded number when percent right is a fraction', function () {
+      let round = new Round(deck)
+      round.takeTurn('turkey')
+      round.takeTurn('turnkey')
+      round.takeTurn('2')
+      expect(round.percentCorrect()).to.equal(33)
+    });
+  });
+
+  describe('.endRound', function () {
+    it('returns a string with the percetnage of correct answers', function () {
+      let round = new Round(deck)
+      round.takeTurn('object')
+      round.takeTurn('turnkey')
+      round.takeTurn('2')
+      expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
+    });
   });
 });
