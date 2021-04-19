@@ -17,13 +17,13 @@ const card2 = new Card(
 );
 
 describe('Deck', function () {
-  it('is initialized with and array of cards', function() {
+  it('is initialized with an array of cards', function() {
     let deck = new Deck([card1, card2])
     expect(deck.cards).to.deep.equal([card1, card2])
   });
 
   it('knows its card count', function() {
     let deck = new Deck([card1, card2])
-    expect(deck.cardCount()).to.equal(2)
+    expect(deck.countCards()).to.equal(2)
   });
 });

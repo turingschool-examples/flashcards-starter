@@ -15,22 +15,22 @@ describe('Card', function () {
 
   it('has a guess', function() {
     let turn = new Turn('object', card)
-    expect(turn.guess).to.equal('object')
+    expect(turn.returnGuess()).to.equal('object')
   });
 
   it('has a card', function() {
     let turn = new Turn('object', card)
-    expect(turn.card).to.deep.equal(card)
+    expect(turn.returnCard()).to.deep.equal(card)
   });
 
   it('returns true if guess is correct', function() {
     let turn = new Turn('object', card)
-    expect(turn.isGuessCorrect()).to.equal(true)
+    expect(turn.evaluateGuess()).to.equal(true)
   });
 
   it('returns false if guess is wrong', function() {
     let turn = new Turn('banana', card)
-    expect(turn.isGuessCorrect()).to.equal(false)
+    expect(turn.evaluateGuess()).to.equal(false)
   });
 
   it('returns correct if guess is correct', function() {

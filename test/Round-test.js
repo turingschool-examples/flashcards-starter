@@ -45,7 +45,7 @@ describe('Round', function () {
 
   it('has a current card equal to the first card in the deck', function() {
     let round = new Round(deck)
-    expect(round.currentCard()).to.deep.equal(card1)
+    expect(round.returnCurrentCard()).to.deep.equal(card1)
   })
 
   describe('.takeTurn', function () {
@@ -58,7 +58,7 @@ describe('Round', function () {
     it('changes the current card', function () {
       let round = new Round(deck)
       round.takeTurn('object')
-      expect(round.currentCard()).to.deep.equal(card2)
+      expect(round.returnCurrentCard()).to.deep.equal(card2)
     });
 
     it('saves incorrect ids', function () {
@@ -113,16 +113,6 @@ describe('Round', function () {
       round.takeTurn('turnkey')
       round.takeTurn('2')
       expect(round.percentCorrect()).to.equal(33)
-    });
-  });
-
-  describe('.endRound', function () {
-    it('returns a string with the percetnage of correct answers', function () {
-      let round = new Round(deck)
-      round.takeTurn('object')
-      round.takeTurn('turnkey')
-      round.takeTurn('2')
-      expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
     });
   });
 });

@@ -12,7 +12,7 @@ const Game = require('../src/Game');
 
 const cards = prototypeQuestions.map(cardInfo => new Card(
   cardInfo['id'],
-  cardInfo['questions'],
+  cardInfo['question'],
   cardInfo['answers'],
   cardInfo['correctAnswer'])
 )

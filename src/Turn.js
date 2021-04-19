@@ -4,12 +4,20 @@ class Turn {
     this.card = card
   }
 
-  isGuessCorrect() {
+  returnCard() {
+    return this.card
+  }
+
+  returnGuess() {
+    return this.guess
+  }
+
+  evaluateGuess() {
     return this.guess === this.card.correctAnswer
   }
 
   giveFeedback() {
-    return this.isGuessCorrect() ? 'correct!' : 'incorrect!'
+    return this.evaluateGuess() ? 'correct!' : 'incorrect!'
   }
 }
 

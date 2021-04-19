@@ -8,8 +8,8 @@ const util = require('./util');
 class Game {
   constructor() {}
 
-  printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.cardCount()} cards.
+  printMessage(deck) {
+    return (`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
@@ -20,13 +20,14 @@ class Game {
   start() {
     this.cards = prototypeQuestions.map(cardInfo => new Card(
       cardInfo['id'],
-      cardInfo['questions'],
+      cardInfo['question'],
       cardInfo['answers'],
       cardInfo['correctAnswer'])
     )
     this.deck = new Deck(this.cards)
     this.round = new Round(this.deck)
-    this.printMessage(this.deck, this.round)
+    this.printMessage(this.deck)
+    this.printQuestion(this.round)
   }
 
 }

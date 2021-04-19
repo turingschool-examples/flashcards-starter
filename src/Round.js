@@ -7,13 +7,13 @@ class Round {
     this.incorrectGuesses = []
   }
 
-  currentCard() {
+  returnCurrentCard() {
     return this.deck.cards[this.turns]
   }
 
   takeTurn(guess) {
-    let turn = new Turn(guess, this.currentCard())
-    if (!turn.isGuessCorrect()) this.incorrectGuesses.push(this.currentCard().id)
+    let turn = new Turn(guess, this.returnCurrentCard())
+    if (!turn.evaluateGuess()) this.incorrectGuesses.push(this.returnCurrentCard().id)
     this.turns += 1
     return turn.giveFeedback()
   }
@@ -23,7 +23,7 @@ class Round {
   }
 
   endRound() {
-    return `** Round over! ** You answered ${this.percentCorrect()}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${this.percentCorrect()}% of the questions correctly!`);
   }
 }
 
