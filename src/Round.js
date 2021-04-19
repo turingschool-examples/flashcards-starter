@@ -19,11 +19,11 @@ class Round {
   }
 
   percentCorrect() {
-    return Math.round((((this.turns - this.incorrectGuesses.length) / this.turns) * 100))
+    return Math.round(((this.turns - this.incorrectGuesses.length) / this.turns) * 100)
   }
 
   endRound() {
-    return `** Round over! ** You answered ${this.percentCorrect()}% of the questions correctly!`
+    return '** Round over! ** You answered ${this.percentCorrect()}% of the questions correctly!'
   }
 }
 
