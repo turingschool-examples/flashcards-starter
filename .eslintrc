@@ -17,7 +17,7 @@
     "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
     "keyword-spacing": ["error", { "before": true, "after": true }],
     "linebreak-style": ["error", "unix"],
-    "max-len": ["warn", 80],
+    "max-len": ["warn", 120],
     "new-cap": ["error", { "newIsCap": true }],
     "object-shorthand": ["error", "always"],
     "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],
