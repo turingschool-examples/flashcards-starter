@@ -15,4 +15,40 @@ describe('Turn', () => {
     expect(turn).to.be.an.instanceof(Turn);
   }); 
 
+  it('should store a user\'s guess', () => {
+    const turn = new Turn('sea otter');
+    expect(turn.guess).to.equal('sea otter');
+  });  
+
+  it.skip('should store the current Card in play', () => {
+    
+  });  
+
+  it.skip('returnGuess should be a method that return the user\'s guess', () => {
+    
+    
+  });  
+
+  it.skip('returnCard should be a method that returns the current card', () => {
+    
+    
+  });  
+
+  it.skip('evaluateGuess should be a method that returns true if the user\'s guess matches the correct answer', () => {
+    
+    
+  });  
+
+
+  it.skip('giveFeedback should be a method that returns a string', () => {
+    
+    
+  });  
+
+  // Instantiated with two arguments - a string (that represents a user’s guess to the question), and a Card object for the current card in play.
+  // returnGuess: method that returns the guess
+  // returnCard: method that returns the Card
+  // evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card
+  // giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.
+  
 });
