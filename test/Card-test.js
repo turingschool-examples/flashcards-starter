@@ -5,7 +5,7 @@ const Card = require('../src/Card');
 
 describe('Card', () => {
 
-  it.skip('should be a function', () => {
+  it('should be a function', () => {
     const card = new Card();
     expect(Card).to.be.a('function');
   });
@@ -16,17 +16,17 @@ describe('Card', () => {
   }); 
 
   it.skip('should store a question', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    expect(card.question).to.equal('What is Robbie\'s favorite animal');
   });  
 
   it.skip('should store a list of possible answers', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    expect(card.answers).to.deep.equal(['sea otter', 'pug', 'capybara']);
   });  
 
   it.skip('should store the correct answer', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.correctAnswer).to.equal('object');
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    expect(card.correctAnswer).to.equal('sea otter');
   });
 });
