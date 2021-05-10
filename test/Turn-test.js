@@ -57,6 +57,7 @@ describe('Turn', () => {
   it('giveFeedback should be a method that returns a string if there\'s a correct answer', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('sea otter', card);
+    turn.evaluateGuess();
     expect(turn.giveFeedback()).to.equal('correct!');
   });  
 
