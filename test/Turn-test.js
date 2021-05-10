@@ -1,5 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
+const asserttype = require('chai-asserttype');
+chai.use(asserttype);
 
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
@@ -41,6 +43,7 @@ describe('Turn', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('sea otter', card);
     expect(turn.evaluateGuess()).to.equal(true);
+    expect(turn.evaluateGuess()).to.be.boolean();
   });  
 
 
