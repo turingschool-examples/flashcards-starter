@@ -1,15 +1,13 @@
 class Round {
-  constructor() {
+  constructor(deck) {
+    this.currentCard = this.card.deck.cards;
+  }
+
+  returnCurrentCard() {
 
   }
+
 }
-
-
-
-
-
-
-
 
 
 module.exports = Round;
