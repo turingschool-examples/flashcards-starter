@@ -54,16 +54,11 @@ describe('Turn', () => {
     expect(turn.evaluateGuess()).to.be.boolean();
   });  
 
-
-  it.skip('giveFeedback should be a method that returns a string', () => {
-    
-    
+  it('giveFeedback should be a method that returns a string if there\'s a correct answer', () => {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('sea otter', card);
+    expect(turn.giveFeedback()).to.equal('correct!');
   });  
 
-  // Instantiated with two arguments - a string (that represents a user’s guess to the question), and a Card object for the current card in play.
-  // returnGuess: method that returns the guess
-  // returnCard: method that returns the Card
-  // evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card
-  // giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.
-  
+
 });
