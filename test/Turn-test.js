@@ -46,6 +46,14 @@ describe('Turn', () => {
     expect(turn.evaluateGuess()).to.be.boolean();
   });  
 
+  it('evaluateGuess should be a method that returns false if the user\'s guess does not match the correct answer', () => {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('kittens', card);
+    expect(turn.evaluateGuess()).to.not.equal(true);
+    expect(turn.evaluateGuess()).to.equal(false);
+    expect(turn.evaluateGuess()).to.be.boolean();
+  });  
+
 
   it.skip('giveFeedback should be a method that returns a string', () => {
     
