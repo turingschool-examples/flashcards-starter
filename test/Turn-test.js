@@ -37,9 +37,10 @@ describe('Turn', () => {
     expect(turn.returnCard()).to.equal(card);
   });  
 
-  it.skip('evaluateGuess should be a method that returns true if the user\'s guess matches the correct answer', () => {
-    
-    
+  it('evaluateGuess should be a method that returns true if the user\'s guess matches the correct answer', () => {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('sea otter', card);
+    expect(turn.evaluateGuess()).to.equal(true);
   });  
 
 
