@@ -20,37 +20,65 @@ describe('Turn', function() {
 
 // Instantiated with two arguments - a string (that represents a user’s guess to the question), and a Card object for the current card in play.
 
+  it('should store a guess', function() {
+
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+
+    const turn = new Turn('pug', card);
+
+    expect(turn.guess).to.equal('pug');
+  }); 
+
 it('should store a guess', function() {
+
   const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  const turn = new Turn('pug', card);
 
-  expect(turn.guess).to.equal('pug');
-});  
-
-// returnGuess: method that returns the guess
-
-it('should store a card', function() {
-  const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
   const turn = new Turn('pug', card);
 
   expect(turn.currentCard).to.equal(card);
-});  
+}); 
+
+// returnGuess: method that returns the guess
+
+it('should store a guess', function() {
+
+  const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+
+  const turn = new Turn('pug', card);
+
+  expect(turn.returnGuess()).to.equal('pug');
+}); 
 
 // returnCard: method that returns the Card
 
+  it('should store a card', function() {
+
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+
+    const turn = new Turn('pug', card);
+
+    expect(turn.returnCard()).to.equal(card);
+  });  
 
 // evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card
 
+it('should return boolean if guess matches correct answer', function() {
+
+  const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+
+  const turn = new Turn('pug', card);
+
+  expect(turn.evaluateGuess()).to.equal(false);
+});  
 
 // giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.
 
+  it('should say if test is correct', function() {
 
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 
+    const turn = new Turn('pug', card);
 
-
-
-
-
-
-
+    expect(turn.evaluateGuess()).to.equal(false);
+  }); 
 });
