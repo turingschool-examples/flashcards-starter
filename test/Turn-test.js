@@ -20,8 +20,10 @@ describe('Turn', () => {
     expect(turn.guess).to.equal('sea otter');
   });  
 
-  it.skip('should store the current Card in play', () => {
-    
+  it('should store the current Card in play', () => {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('sea otter', card);
+    expect(turn.card).to.equal(card);
   });  
 
   it.skip('returnGuess should be a method that return the user\'s guess', () => {
