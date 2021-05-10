@@ -4,13 +4,15 @@ const expect = chai.expect;
 
 const Turn = require('../src/Turn');
 
-let defaultCard;
-let defaultTurn;
 
 describe('Turn', () => {
+
+  let defaultCard;
+  let defaultTurn;
+
   beforeEach(() => {
-    defaultCard = new Card(new Card(1, 'What is Robbie\'s favorite animal', 
-      ['sea otter', 'pug', 'capybara'], 'sea otter'));
+    defaultCard = new Card(1, 'What is Robbie\'s favorite animal', 
+      ['sea otter', 'pug', 'capybara'], 'sea otter');
     defaultTurn = new Turn('pug', defaultCard);
   });
 
@@ -23,7 +25,7 @@ describe('Turn', () => {
   });
   
   it('should have a current card', () => {
-    expect(defaultTurn.currentCard).to.equal(defaultCard);
+    expect(defaultTurn.card).to.equal(defaultCard);
   });
 
   it('should return a guess', () => {
@@ -38,15 +40,43 @@ describe('Turn', () => {
     expect(returnedCard).to.equal(defaultCard);
   });
 
-  it('should evaluate a guess', () => {
-    const evaluation = defaultTurn.evaluateGuess();
+  describe('when guess is correct', () => {
+    beforeEach(() => {
+      defaultCard = new Card(1, 'What is Robbie\'s favorite animal', 
+        ['sea otter', 'pug', 'capybara'], 'sea otter');
+      defaultTurn = new Turn('sea otter', defaultCard);
+    }); 
 
-    expect(evaluation).to.equal(false);  
+    it('should evaluate a guess as true', () => {
+      const trueEvaluation = defaultTurn.evaluateGuess();
+
+      expect(trueEvaluation).to.equal(true);  
+    });
+
+    it('should give feedback after evaluating guess', () => {
+      const correctFeedback = defaultTurn.giveFeedback();
+
+      expect(correctFeedback).to.equal('Correct!');
+    });
   });
 
-  it('should give feedback after evaluating guess', () => {
-    const feedback = defaultTurn.giveFeedback();
+  describe('when guess is incorrect', () => {
+    beforeEach(() => {
+      defaultCard = new Card(1, 'What is Robbie\'s favorite animal', 
+        ['sea otter', 'pug', 'capybara'], 'sea otter');
+      defaultTurn = new Turn('pug', defaultCard);
+    }); 
 
-    expect(feedback).to.equal('Incorrect!');
+    it('should evaluate a guess as false', () => {
+      const falseEvaluation = defaultTurn.evaluateGuess();
+
+      expect(falseEvaluation).to.equal(false);  
+    });
+
+    it('should give feedback after evaluating guess', () => {
+      const incorrectFeedback = defaultTurn.giveFeedback();
+
+      expect(incorrectFeedback).to.equal('Incorrect!');
+    });
   });
 });
