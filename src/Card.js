@@ -1,7 +1,9 @@
-Class() {
+class Card {
   constructor() {
     
   }
 }
 
-module.exports = Class;
+module.exports = Card;
+
+// npm test test/Card-test.js
