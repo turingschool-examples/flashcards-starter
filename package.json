@@ -21,6 +21,7 @@
     "mocha": "^6.1.4"
   },
   "dependencies": {
+    "chai-asserttype": "^1.0.5",
     "inquirer": "^6.3.1"
   }
 }
