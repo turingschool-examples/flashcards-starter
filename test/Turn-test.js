@@ -26,9 +26,9 @@ describe('Turn', () => {
     expect(turn.card).to.equal(card);
   });  
 
-  it.skip('returnGuess should be a method that return the user\'s guess', () => {
-    
-    
+  it('returnGuess should be a method that returns the user\'s guess', () => {
+    const turn = new Turn('sea otter');
+    expect(returnGuess()).to.equal('sea otter');
   });  
 
   it.skip('returnCard should be a method that returns the current card', () => {
