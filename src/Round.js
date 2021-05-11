@@ -3,12 +3,28 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Round {
-  constructor(argument) {
-    this.deck = argument.stack;
+  constructor(thisDeck) {
+    this.deck = thisDeck.stack;
     this.currentCard = this.deck[0];
+    this.turns = 0;
+    this.incorrectGuesses = [];
   }
   returnCurrentCard() {
     return this.currentCard
+  }
+  takeTurn(guess) {
+    this.currentCard = this.deck[0];
+    this.deck.shift()
+    this.turns++
+    return this.evaluateGuess(guess)
+  }
+  evaluateGuess(guess) {
+    if (guess === this.currentCard.correctAnswer) {
+      return `correct!`
+    } else {
+      this.incorrectGuesses.push(this.currentCard)
+      return `incorrect!`
+    }
   }
 }
 
