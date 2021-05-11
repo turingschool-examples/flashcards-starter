@@ -19,14 +19,8 @@ class Turn{
   }
 
   giveFeedback() {
-    if(this.evaluateGuess()){
-      return 'correct!'
-    } else {
-      return 'incorrect!'
-    }
 
-    // this.evaluateGuess() === true ? 'correct!' : 'incorrect!'
-
+    return this.evaluateGuess() === true ? 'correct!' : 'incorrect!'
   }
 };
 
