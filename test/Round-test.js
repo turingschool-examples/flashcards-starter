@@ -79,13 +79,18 @@ describe('Round', () => {
     expect(round.calculatePercentCorrect()).to.deep.equal(50);
   }); 
 
+  it('endRound prints a string with stats to the console', () => {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
 
-// round.calculatePercentCorrect(); // => 50
+    expect(round.takeTurn('sea otter')).to.equal('correct!');
+    expect(round.takeTurn('spleen')).to.equal('incorrect!');
+    expect(round.endRound()).to.deep.equal(`There are still cards left in the round!`);
 
-  // When a guess is made, a new Turn instance is created.
-
-  // calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
-  // endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
-
-
+    expect(round.takeTurn('kittens')).to.equal('incorrect!');
+    expect(round.endRound()).to.deep.equal(`** Round over! ** You answered (1 / 3)% of the questions correctly!`);
+  }); 
 });
