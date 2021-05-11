@@ -26,6 +26,13 @@ class Round {
       return `incorrect!`
     }
   }
+  calculatePercentCorrect() {
+    if (!this.turns) {
+      return `You haven't made a guess yet!`
+    } else {
+      return ((this.turns - this.incorrectGuesses.length) / this.turns) * 100
+    }
+  }
 }
 
 module.exports = Round;
