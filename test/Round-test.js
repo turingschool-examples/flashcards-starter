@@ -48,15 +48,19 @@ describe('Round', () => {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
+
+    expect(round.returnCurrentCard()).to.deep.equal(card1);
     expect(round.turns).to.deep.equal(0);
-   
+    
     expect(round.takeTurn('sea otter')).to.equal('correct!');
+    expect(round.returnCurrentCard()).to.deep.equal(card1);
     expect(round.turns).to.deep.equal(1);
     expect(round.incorrectGuesses).to.deep.equal([]);
 
     expect(round.takeTurn('spleen')).to.equal('incorrect!');
+    expect(round.returnCurrentCard()).to.deep.equal(card2);
     expect(round.turns).to.deep.equal(2);
-    expect(round.incorrectGuesses).to.deep.equal([14]);
+    expect(round.incorrectGuesses).to.deep.equal([card2]);
   }); 
 
 
