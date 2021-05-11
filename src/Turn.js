@@ -1,6 +1,10 @@
+const Card = require('../src/Card');
+
 class Turn {
-  constructor(guess){
-    this.guess = guess;
+  constructor(userGuess, currentCard){
+    this.userGuess = userGuess;
+    this.currentCard = currentCard;
   }
+
 }
 module.exports = Turn;
