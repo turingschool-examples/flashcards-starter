@@ -15,8 +15,19 @@ class Turn{
   }
 
   evaluateGuess() {
-    
+    return this.guess === this.card.correctAnswer ? true : false
   }
-}
+
+  giveFeedback() {
+    if(this.evaluateGuess()){
+      return 'correct!'
+    } else {
+      return 'incorrect!'
+    }
+
+    // this.evaluateGuess() === true ? 'correct!' : 'incorrect!'
+
+  }
+};
 
 module.exports = Turn

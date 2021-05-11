@@ -7,8 +7,8 @@ const Card = require('../src/Card');
 let card, turn
 
 beforeEach( () => {
-  card = new Card(6, 'What is an example of a mutator method?');
-  turn = new Turn('sort()', card);
+  card = new Card(6, 'What is an example of a mutator method?',["sort()", "map()", "join()"], "sort()");
+  turn = new Turn( "sort()", card);
 })
 
 describe('Turn', () => {
@@ -17,9 +17,10 @@ describe('Turn', () => {
 
     expect(turn).to.be.an.instanceOf(Turn)
   });
+
   it('should pass two parameters representing question and Card object', () =>{
 
-    expect(turn.guess).to.equal('sort()')
+    expect(turn.guess).to.equal( "sort()")
     expect(turn.card).to.be.a('object')
     expect(turn.card.id).to.equal(6)
   })
@@ -38,7 +39,7 @@ describe('returnGuess', () =>{
 
     const guess = turn.returnGuess()
 
-    expect(guess).to.equal('sort()')
+    expect(guess).to.equal( "sort()")
   })
 })
 
@@ -68,8 +69,43 @@ describe('evaluteGuess', () => {
     expect(turn.evaluateGuess).to.be.a('function');
   })
 
-  // it('should return boolean indicating if user\'s guess is correct', () => {
+  it('should indicate if user\'s guess is correct', () => {
+    
+    turn.evaluateGuess()
 
-  //   turn1
-  // })
+    expect(turn.evaluateGuess()).to.equal(true)
+  })
+
+  it('should indicate if user\'s guess is incorrect', () => {
+    turn.guess = 'map()'
+
+    turn.evaluateGuess()
+
+    expect(turn.evaluateGuess()).to.equal(false)
+  })
+
+  describe('giveFeedback', () => {
+
+    it('should be a method', () => {
+
+      turn.giveFeedback()
+  
+      expect(turn.giveFeedback).to.be.a('function');
+    })
+
+    it('should tell the user if correct', () => {
+
+      turn.giveFeedback()
+
+      expect(turn.giveFeedback()).to.equal('correct!')
+    })
+
+    it('should tell the user if incorrect', () => {
+      turn.guess = 'map()'
+      
+      turn.giveFeedback()
+
+      expect(turn.giveFeedback()).to.equal('incorrect!')
+    })
+  })
 })
