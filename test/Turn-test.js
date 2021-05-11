@@ -12,4 +12,8 @@ describe('Turn', function() {
     const turn = new Turn() 
     expect(turn).to.be.an.instanceOf(Turn)
   })
+  it('should instantiate users guess', function () {
+    const turn = new Turn('guess')
+    expect(turn.guess).to.be.a('string')
+  })
 })
