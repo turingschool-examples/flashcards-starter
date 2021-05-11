@@ -26,7 +26,7 @@ class Turn {
     if (this.match) {
       return `correct!`
     } else {
-      
+      return `incorrect!`
     }
   }
 }
