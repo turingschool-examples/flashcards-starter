@@ -14,6 +14,9 @@ class Turn{
     return this.card
   }
 
+  evaluateGuess() {
+    
+  }
 }
 
 module.exports = Turn

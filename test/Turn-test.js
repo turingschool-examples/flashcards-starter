@@ -4,14 +4,14 @@ const expect = chai.expect;
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
+let card, turn
+
+beforeEach( () => {
+  card = new Card(6, 'What is an example of a mutator method?');
+  turn = new Turn('sort()', card);
+})
 
 describe('Turn', () => {
-  let card, turn
-
-  beforeEach( () => {
-    card = new Card(6, 'What is an example of a mutator method?');
-    turn = new Turn('sort()', card);
-  })
 
   it('should be a function', () => {
 
@@ -26,11 +26,6 @@ describe('Turn', () => {
 });
 
 describe('returnGuess', () =>{
-  let turn
-
-  beforeEach( () =>{
-    turn = new Turn('sort()')
-  })
 
   it('it should be a method', () => {
 
@@ -48,12 +43,6 @@ describe('returnGuess', () =>{
 })
 
 describe('returnCard', () => {
-  let turn, card
-
-  beforeEach( () =>{
-    card = new Card(6, 'What is an example of a mutator method?')
-    turn = new Turn('sort()', card)
-  })
 
   it('it should be a method', () => {
 
@@ -70,3 +59,17 @@ describe('returnCard', () => {
   })
 })
 
+describe('evaluteGuess', () => {
+
+  it('should be a method', () => {
+
+    turn.evaluateGuess()
+
+    expect(turn.evaluateGuess).to.be.a('function');
+  })
+
+  // it('should return boolean indicating if user\'s guess is correct', () => {
+
+  //   turn1
+  // })
+})
