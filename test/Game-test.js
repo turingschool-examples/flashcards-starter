@@ -26,22 +26,18 @@ describe('Game', () => {
     expect(game.currentRound).to.deep.equal(round);
   }); 
 
+  it('start method creates cards, puts cards in deck, creates a new Round using the Deck, and invokes printMessage & printQuestion', () => {
+    // const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    // const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    // const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    // const deck = new Deck([card1, card2, card3]);
+    // const round = new Round(deck);
+    // const game = new Game(round);
 
-  it.skip('start method creates cards, puts cards in deck, creates a new Round using the Deck, and invokes printMessage & printQuestion', () => {
-    
+    const game = new Game();
+    game.start();
   }); 
-
-
 });
-
-
-
-
-
-// game.currentRound; // => Round {...} (The new Round object that has been instatiated)
-
-// Your Game class should meet these other requirements:
-// Should keep track of the currentRound
 // start: method that starts everything
 // Creates Cards
 // Puts Cards in a Deck
