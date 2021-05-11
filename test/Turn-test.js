@@ -27,37 +27,37 @@ describe('Turn', function() {
     expect(turn.card).to.be.an.instanceof(Card);
   });
 
-  it.skip('should return the guess', function() {
+  it('should return the guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn.returnGuess()).to.equal('object');
   });
 
-  it.skip('should return the current card', function() {
+  it('should return the current card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn.returnCard()).to.equal(card);
   });
 
-  it.skip('should return true if the guess is correct', function() {
+  it('should return true if the guess is correct', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
-  it.skip('should return false if the guess is incorrect', function() {
+  it('should return false if the guess is incorrect', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('array', card);
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
-  it.skip('should tell the user when they guess correctly', function() {
+  it('should tell the user when they guess correctly', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', card);
     expect(turn.giveFeedback()).to.equal('correct!');
   });
 
-  it.skip('should tell the user when they guess incorrectly', function() {
+  it('should tell the user when they guess incorrectly', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('array', card);
     expect(turn.giveFeedback()).to.equal('incorrect!');
