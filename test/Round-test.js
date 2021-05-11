@@ -22,13 +22,14 @@ describe('Round', () => {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    expect(round.deck).to.deep.equal([card1, card2, card3]);
+    expect(round.deck).to.deep.equal(deck);
   }); 
 
 
 
 
 
+// round.deck;   // => [card1, card2, card3];
 
 // round.returnCurrentCard(); // => { id: 1,
 //                            //      question: 'What is Robbie\'s favorite animal',
