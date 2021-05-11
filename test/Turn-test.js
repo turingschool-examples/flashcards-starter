@@ -45,4 +45,15 @@ describe('Turn', function() {
   
     expect(turn.evaluateGuess()).to.be.true
   })
+
+  it('should return a verification based on guess', function () {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    let turn = new Turn('pug', card);   
+
+    expect(turn.giveFeedBack()).to.equal('incorrect!')
+
+    turn = new Turn('sea otter', card);   
+  
+    expect(turn.giveFeedBack()).to.equal('correct!')
+  })
 })
