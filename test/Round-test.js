@@ -39,7 +39,7 @@ describe('Round', () => {
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
-    expect(round.returnCurrentCard).to.deep.equal(card1);
+    expect(round.returnCurrentCard()).to.deep.equal(card1);
   }); 
 
   // it.skip('takeTurn: method that updates turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses', () => {
