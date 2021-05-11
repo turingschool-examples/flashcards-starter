@@ -91,6 +91,6 @@ describe('Round', () => {
     expect(round.endRound()).to.deep.equal(`There are still cards left in the round!`);
 
     expect(round.takeTurn('kittens')).to.equal('incorrect!');
-    expect(round.endRound()).to.deep.equal(`** Round over! ** You answered (1 / 3)% of the questions correctly!`);
+    expect(round.endRound()).to.deep.equal(`** Round over! ** You answered 33% of the questions correctly!`);
   }); 
 });
