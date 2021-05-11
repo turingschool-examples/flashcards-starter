@@ -10,7 +10,7 @@ describe('Turn', () => {
     card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     turn1 = new Turn('object', card1);
     card2 = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array')
-    turn2 = new Turn('function')
+    turn2 = new Turn('function', card2)
   });
 
   it('should be a function', () => {
