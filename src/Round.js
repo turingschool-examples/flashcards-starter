@@ -3,8 +3,8 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Round {
-  constructor() {
-
+  constructor(thisDeck) {
+    this.deck = thisDeck;
   }
 }
 
