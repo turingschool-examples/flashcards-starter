@@ -66,6 +66,7 @@ describe('Turn', function() {
   //Check if true boolean below - edit if before each doesnt work
   it('should evaluate the user\'s correct guess against the correct answer', function() {
     // const card = new Card((11, 'Which operator checks if two or more conditions evaluate to truthy?', ['||', '>=', '&&'], '&&'));
+
     const turn1 = new Turn('&&', card);
 
     turn1.evaluateGuess();
@@ -94,5 +95,4 @@ describe('Turn', function() {
     expect(turn1.giveFeedback()).to.equal('correct!')
   })
 
-  //})
 })
