@@ -7,20 +7,21 @@ const Card = require('../src/Card');
 
 describe('Turn', function() {
 
-  beforeEach( function() {
-    const card = new Card(6, "What is an example of a mutator method?");
-    const turn = new Turn(guess, card);
-  })
+  // beforeEach(function() {
+  //   const card = new Card(6, "What is an example of a mutator method?");
+  //   const turn = new Turn();
+  // })
 
   it('should be a function', function() {
-    // const turn = new Turn();
+    const turn = new Turn();
+
     expect(Turn).to.be.a('function')
   });
-  it.skip('should pass two parameters representing question and Card object', function() {
-    // const card = new Card()
-    // const turn = new Turn(guess, card)
+  it('should pass two parameters representing question and Card object', function() {
+    const card = new Card(6, "What is an example of a mutator method?")
+    const turn = new Turn("sort()", card)
 
-    expect(turn.guess).to.equal("What is an example of a mutator method?")
+    expect(turn.guess).to.equal("sort()")
     expect(turn.card).to.be.a('object')
     expect(turn.card.id).to.equal(6)
   })
