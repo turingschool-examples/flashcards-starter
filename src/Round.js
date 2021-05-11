@@ -33,6 +33,13 @@ class Round {
       return ((this.turns - this.incorrectGuesses.length) / this.turns) * 100
     }
   }
+  endRound() {
+    if (this.deck.length) {
+      return `There are still cards left in the round!`
+    } else {
+      return `** Round over! ** You answered (1 / 3)% of the questions correctly!`
+    }
+  }
 }
 
 module.exports = Round;
