@@ -6,6 +6,14 @@ class Turn {
     this.currentCard = cardInPlay;
   }
 
+  returnGuess() {
+    return this.userGuess;
+  }
+
+  returnCard() {
+    return this.currentCard;
+  }
+
 
 }
 
