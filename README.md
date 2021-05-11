@@ -77,3 +77,10 @@ Run the command in your terminal `npm run lint` to run the linter on your JavaSc
 Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
 
 ---
+
+Your README should include the following, in this order:
+
+Abstract at the top (A sentence or two describing the project)
+A GIF of the working application
+Technologies used
+Install/Setup instructions
