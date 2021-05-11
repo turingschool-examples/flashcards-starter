@@ -3,8 +3,9 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Round {
-  constructor(thisDeck) {
-    this.deck = thisDeck;
+  constructor(argument) {
+    this.deck = argument.stack;
+    this.currentCard = this.deck[0];
   }
 }
 
