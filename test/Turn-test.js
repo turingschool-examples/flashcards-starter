@@ -15,17 +15,17 @@ describe('Turn', function() {
     expect(turn).to.be.an.instanceOf(Turn)
   })
 
-  it('should instantiate users guess and card', function () {
-    const turn = new Turn('guess')
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+  it('should instantiate users\'s guess and card', function () {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
     expect(turn.guess).to.be.a('string')
     expect(turn.currentCard).to.equal(card)
   })
 
   it('should return a guess', function () {
-    const turn = new Turn('guess')
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('pug', card);
+    expect(turn.returnGuess()).to.equal('pug')
   })
 
 })
