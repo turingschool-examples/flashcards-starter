@@ -11,16 +11,17 @@ class Round {
   }
 
   takeTurn(guess) {
+    // The turns count is updated, regardless of whether the guess is correct or incorrect
+
+    this.turns++;
+
   // When a guess is made, a new Turn instance is created.
 
-      // let turn = new Turn(guess, card);
-
-  // The turns count is updated, regardless of whether the guess is correct or incorrect
-
-      this.turns++;
+    // let turn = new Turn (guess, "card");
 
   // The next card becomes current card
 
+      // for loop
       // this.currentCard = deck.cards[++];
 
   // Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
@@ -35,14 +36,15 @@ class Round {
 }
 
   calculatePercentCorrect() {
-
+    const correctGuesses = this.turns - this.incorrectGuesses.length;
+    const percentCorrect = correctGuesses * this.turns;
+    return percentCorrect;
   }
 
   endRound() {
-
+    return `** Round over! ** You answered ` + this.calculatePercentCorrect() + `% of the questions correctly!`
   }
 }
-
 
 module.exports = Round;
 

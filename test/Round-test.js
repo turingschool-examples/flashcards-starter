@@ -87,15 +87,9 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
-  // When a guess is made, a new Turn instance is created.
-
-  it.skip('should create Turn instance if guess made', function() {
-
-  });
-
   // The turns count is updated, regardless of whether the guess is correct or incorrect
 
-  it('should start with no incorrect guesses', function() {
+  it('should update turn count', function() {
     
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 
@@ -113,6 +107,25 @@ describe('Round', function() {
     round.takeTurn('spleen');
 
     expect(round.turns).to.deep.equal(2);
+  });
+
+  // When a guess is made, a new Turn instance is created.
+
+  it('should create Turn instance if guess made', function() {
+        
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+
+    round.takeTurn('guess1')
+
+    expect(turn).to.be.an.instanceOf(Turn);
   });
 
   // The next card becomes current card
@@ -148,14 +161,45 @@ describe('Round', function() {
 
 // calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
 
-  it.skip('should provide percent of correct guesses', function() {
+  it('should provide percent of correct guesses', function() {
+
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+
+    round.incorrectGuesses = ["wrong1", "wrong2", "wrong3"];
+
+    round.turns = 10;
+
+    expect(round.calculatePercentCorrect()).to.equal(70);
 
   });
 
 // endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
 
-  it.skip('should notify when round over', function() {
+  it('should notify when round over', function() {
+
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+
+    round.incorrectGuesses = ["wrong1", "wrong2", "wrong3"];
+
+    round.turns = 10;
+
+    expect(round.endRound()).to.equal('** Round over! ** You answered 70% of the questions correctly!');
 
   });
-
 })
