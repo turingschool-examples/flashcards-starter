@@ -14,6 +14,17 @@ class Turn {
     return this.currentCard;
   }
 
+  evaluateGuess() {
+    // console.log(this.currentCard)
+    // console.log(this.currentCard.correctAnswer)
+    // console.log(this.userGuess)
+    if (this.currentCard.correctAnswer === this.userGuess) {
+      return true
+    } else {
+      return false
+    }
+  }
+
 
 }
 
