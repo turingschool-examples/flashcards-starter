@@ -5,21 +5,19 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 
-describe('Turn', function() {
+describe('Turn', () => {
+  let card, turn
 
-  // beforeEach(function() {
-  //   const card = new Card(6, 'What is an example of a mutator method?');
-  //   const turn = new Turn();
-  // })
+  beforeEach( () => {
+    card = new Card(6, 'What is an example of a mutator method?');
+    turn = new Turn('sort()', card);
+  })
 
-  it('should be a function', function() {
-    const turn = new Turn();
+  it('should be a function', () => {
 
     expect(turn).to.be.an.instanceOf(Turn)
   });
-  it('should pass two parameters representing question and Card object', function() {
-    const card = new Card(6, 'What is an example of a mutator method?')
-    const turn = new Turn('sort()', card)
+  it('should pass two parameters representing question and Card object', () =>{
 
     expect(turn.guess).to.equal('sort()')
     expect(turn.card).to.be.a('object')
@@ -27,18 +25,21 @@ describe('Turn', function() {
   })
 });
 
-describe('returnGuess', function() {
+describe('returnGuess', () =>{
+  let turn
 
-  it('it should be a method', function(){
-    const turn = new Turn();
+  beforeEach( () =>{
+    turn = new Turn('sort()')
+  })
+
+  it('it should be a method', () => {
 
     turn.returnGuess()
 
     expect(turn.returnGuess).to.be.a('function');
   })
 
-  it('it should return the guess', function(){
-    const turn = new Turn('sort()');
+  it('it should return the guess', () => {
 
     const guess = turn.returnGuess()
 
@@ -46,23 +47,22 @@ describe('returnGuess', function() {
   })
 })
 
-describe('returnCard', function(){
+describe('returnCard', () => {
+  let turn, card
 
-  beforeEach('setup', function() {
-    const turn = new Turn('sort()', card)
+  beforeEach( () =>{
+    card = new Card(6, 'What is an example of a mutator method?')
+    turn = new Turn('sort()', card)
   })
 
-  it('it should be a method', function(){
-    // const turn = new Turn();
+  it('it should be a method', () => {
 
     turn.returnCard()
 
     expect(turn.returnCard).to.be.a('function');
   })
 
-  it('it should return the card', function(){
-    const card = new Card(6, 'What is an example of a mutator method?')
-    // const turn = new Turn('sort()', card)
+  it('it should return the card', () => {
     
     card1 = turn.returnCard()
     
