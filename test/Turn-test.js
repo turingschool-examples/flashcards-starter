@@ -29,11 +29,20 @@ describe('Turn', function() {
   })
 
 
-it('should return a card', function () {
+  it('should return a card', function () {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
     expect(turn.returnCard()).to.deep.equal(card)
   })
   
+  it('should evaluate the guess to true or false', function () {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    let turn = new Turn('pug', card);   
 
+    expect(turn.evaluateGuess()).to.be.false
+  
+    turn = new Turn('sea otter', card);   
+  
+    expect(turn.evaluateGuess()).to.be.true
+  })
 })
