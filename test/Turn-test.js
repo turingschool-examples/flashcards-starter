@@ -45,3 +45,24 @@ describe('returnGuess', function() {
     expect(turn.returnGuess).to.equal('sort()')
   })
 })
+
+describe('returnCard', function(){
+
+  it('it should be a method', function(){
+    const turn = new Turn();
+
+    turn.returnCard()
+
+    expect(turn.returnCard).to.be.a('function');
+  })
+
+  it('it should return the card', function(){
+    const card = new Card(6, 'What is an example of a mutator method?')
+    const turn = new Turn('sort()', card)
+    
+    turn.returnCard()
+    
+    expect(turn.returnCard).to.equal(card)
+  })
+})
+
