@@ -28,32 +28,32 @@ describe('Turn', function() {
   });
 
   it('should return the user guess', function() {
-    const card = new Card(4, 'What is the best meal?', ['Breakfast', 'Lunch', 'Dinner'], 'Breakfast');
-    const turn = new Turn('Breakfast', card);
+    const card = new Card(3, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+    const turn = new Turn('Lake Superior', card);
 
-    expect(turn.returnGuess()).to.deep.equal('Breakfast');
+    expect(turn.returnGuess()).to.deep.equal('Lake Superior');
   });
 
   it('should return the card object', function() {
-   const card = new Card(6, 'Who was the 8th President of the US?', ['Martin Van Buren', 'Abe Lincoln', 'Thomas Jefferson'], 'Martin Van Buren');
-   const turn = new Turn('Martin Van Buren', card);
+   const card = new Card(3, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+   const turn = new Turn('Lake Superior', card);
 
    expect(turn.returnCard()).to.be.an.instanceof(Card);
   });
 
   it('should be able to evaluate user guess', function() {
-    const card = new Card(5, 'What is the hottest place on Earth?', ['Sahara Desert', 'Death Valley', 'Cairo'], 'Death Valley');
-    const turn1 = new Turn('Cairo', card);
-    const turn2 = new Turn('Death Valley', card);
+    const card = new Card(3, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+    const turn1 = new Turn('Lake Tahoe', card);
+    const turn2 = new Turn('Lake Superior', card);
 
     expect(turn1.evaluateGuess()).to.deep.equal(false);
     expect(turn2.evaluateGuess()).to.deep.equal(true);
   });
 
-  it('should have a method to give feedback', function() {
-    const card = new Card(12, 'What is my favorite season?', ['Summer', 'Winter', 'Fall'], 'Fall');
-    const turn = new Turn('Fall', card);
-    const turn1 = new Turn('Winter', card);
+  it('should give the user feedback based on the guess', function() {
+    const card = new Card(3, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+    const turn = new Turn('Lake Superior', card);
+    const turn1 = new Turn('Crater Lake', card);
     expect(turn.giveFeedback()).to.equal('correct!');
     expect(turn1.giveFeedback()).to.equal('incorrect!');
   });
