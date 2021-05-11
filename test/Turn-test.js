@@ -65,4 +65,27 @@ describe('Turn', function() {
 
     expect(turn.evaluateGuess()).to.equal(true)
   })
+
+//edit this if before each doesnt work
+  it('should give the user feedback based on their accuracy of their guess', function() {
+      const card = new Card((11, 'Which operator checks if two or more conditions evaluate to truthy?', ['||', '>=', '&&'], '&&'));
+      const turn = new Turn('>=', card);
+
+      const card1 = new Card((11, 'Which operator checks if two or more conditions evaluate to truthy?', ['||', '>=', '&&'], '&&'));
+      const turn1 = new Turn('&&', card1);
+
+      turn.evaluateGuess();
+      turn.giveFeedback();
+
+      turn1.evaluateGuess();
+      turn1.giveFeedback();
+
+      expect(turn.evaluateGuess()).to.equal(false)
+      expect(turn.giveFeedback()).to.equal('incorrect!')
+
+      expect(turn1.evaluateGuess()).to.equal(true)
+      expect(turn1.giveFeedback()).to.equal('correct!')
+    })
+
+  //})
 })
