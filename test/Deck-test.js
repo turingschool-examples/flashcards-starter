@@ -6,4 +6,31 @@ const Card = require('../src/Card.js');
 
 describe('Deck', function() {
 
+  it.skip('should be a function', function() {
+    const deck = new Deck();
+    expect(Deck).to.be.a('function');
+  });
+
+  it.skip('should be an instance of Deck', function() {
+    const deck = new Deck();
+    expect(deck).to.be.an.instanceof(Deck);
+  });
+
+  it.skip('should take an array of cards', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = new Card(2, 'What is the name of Dean\'s cat?', ['Tifa', 'Aerith', 'Cloud'], 'Tifa');
+    const deck = new Deck([card, card2]);
+    expect(deck.cards).to.deep.equal([card, card2]);
+  });
+
+  it.skip('should be able to count the cards in the deck', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = new Card(2, 'What is the name of Dean\'s cat?', ['Tifa', 'Aerith', 'Cloud'], 'Tifa');
+    const deck = new Deck([card, card2]);
+    var cardCount = deck.countCards();
+    expect(cardCount).to.equal(2);
+  });
 });
+
+// const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+// const card2 = new Card(2, 'What is the name of Dean\'s cat?', ['Tifa', 'Aerith', 'Cloud'], 'Tifa');
