@@ -40,16 +40,20 @@ describe('returnGuess', function() {
   it('it should return the guess', function(){
     const turn = new Turn('sort()');
 
-    turn.returnGuess()
+    const guess = turn.returnGuess()
 
-    expect(turn.returnGuess).to.equal('sort()')
+    expect(guess).to.equal('sort()')
   })
 })
 
 describe('returnCard', function(){
 
+  beforeEach('setup', function() {
+    const turn = new Turn('sort()', card)
+  })
+
   it('it should be a method', function(){
-    const turn = new Turn();
+    // const turn = new Turn();
 
     turn.returnCard()
 
@@ -58,11 +62,11 @@ describe('returnCard', function(){
 
   it('it should return the card', function(){
     const card = new Card(6, 'What is an example of a mutator method?')
-    const turn = new Turn('sort()', card)
+    // const turn = new Turn('sort()', card)
     
-    turn.returnCard()
+    card1 = turn.returnCard()
     
-    expect(turn.returnCard).to.equal(card)
+    expect(card1).to.equal(card)
   })
 })
 
