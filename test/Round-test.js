@@ -16,7 +16,7 @@ describe('Round', function() {
     card1;
     card2;
     card3;
-  }
+  };
 
 it('should be a function', function() {
   setup();
