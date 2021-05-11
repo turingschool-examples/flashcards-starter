@@ -37,4 +37,13 @@ describe('Turn', function() {
 
     expect(turn.returnGuess()).to.equal('boolean');
   })
+
+  it('should return the current card', function() {
+    const card = new Card((9, 'What does 0 evaluate to be?', ['truthy', 'falsy', 'undefined'], 'falsy'));
+    const turn = new Turn('truthy', card);
+
+    turn.returnCard();
+
+    expect(turn.retunCard()).to.equal(card)
+  })
 })
