@@ -34,5 +34,5 @@ describe('Deck', () => {
     const cardCount = defaultDeck.countCards();
 
     expect(cardCount).to.equal(3);
-  })
+  });
 });
