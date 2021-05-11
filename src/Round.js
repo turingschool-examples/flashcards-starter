@@ -16,9 +16,6 @@ class Round {
     this.currentCard = this.deck[0];
     this.deck.shift()
     this.turns++
-    return this.evaluateGuess(guess)
-  }
-  evaluateGuess(guess) {
     if (guess === this.currentCard.correctAnswer) {
       return `correct!`
     } else {
