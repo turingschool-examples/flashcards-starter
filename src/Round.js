@@ -1,6 +1,7 @@
 class Round {
   constructor(deck) {
-    this.currentCard = deck;
+    this.currentCard = this.deck.card.id;
+    // this.turns = 0;
   }
 
   returnCurrentCard() {
@@ -10,7 +11,7 @@ class Round {
   takeTurn() {
   // When a guess is made, a new Turn instance is created.
   
-    
+
 
   // The turns count is updated, regardless of whether the guess is correct or incorrect
 

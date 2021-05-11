@@ -14,7 +14,7 @@ const Deck = require('../src/Deck');
 
 describe('Round', function() {
 
-  it.skip('should return current card being played', function() {
+  it('should return current card being played', function() {
     
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 
@@ -32,6 +32,12 @@ describe('Round', function() {
       answers: ['sea otter', 'pug', 'capybara'],
       correctAnswer: 'sea otter'
     });
+
+
+
+
+
+
   });
 
 //////
