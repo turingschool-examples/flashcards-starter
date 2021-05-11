@@ -1,7 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 class Card {
-  constructor() {
-        
+  constructor(id, question, answers, correctAnswer) {
+    this.id = id
+    this.question = question
+    this.answers = answers
+    this.correctAnswer = correctAnswer
   }
 }
 
