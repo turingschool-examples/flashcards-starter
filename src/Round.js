@@ -15,14 +15,15 @@ class Round {
     return this.currentCard
   }
   takeTurn(guess) {
-    this.currentCard = this.deck[0];
     this.deck.shift()
     this.turns++
     const turn = new Turn(guess, this.currentCard);
     if (guess === this.currentCard.correctAnswer) {
+      this.currentCard = this.deck[0];
       return `correct!`
     } else {
       this.incorrectGuesses.push(this.currentCard.id)
+      this.currentCard = this.deck[0];
       return `incorrect!`
     }
   }
