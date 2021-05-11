@@ -17,9 +17,6 @@ class Game {
     const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
     const game = new Game(round);
-    // console.log(round)
-    // this.printMessage(deck, this.currentRound)
-    // this.printQuestion(this.currentRound)
     this.printMessage(deck, round)
     this.printQuestion(round)
   }
