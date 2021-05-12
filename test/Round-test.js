@@ -78,13 +78,14 @@ describe('Round', function() {
   });
 
   it('should calculate percentage of correct guesses', function() {
-
-
+    round.takeTurn(`sea otter`);
+    expect(round.calculatePercentCorrect()).to.equal(100);
+    round.takeTurn('spleen');
+    expect(round.calculatePercentCorrect()).to.equal(50);
   });
 
-  it('should end the round', function() {
-
-    ('** Round over! ** You answered % of the questions correctly!')
+  it('should end the round and give user percent of correct answers', function() {
+    expect(round.endRound()).to.equal('** Round over! ** You answered % of the questions correctly!')
   });
 
 });
