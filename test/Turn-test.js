@@ -19,12 +19,12 @@ describe('Turn', function() {
   });
 
   it('should take in a guess and a card object', function() {
-   const card = new Card(3, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+   const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
    const turn = new Turn('Lake Superior', card);
 
    expect(turn.guess).to.deep.equal('Lake Superior');
    expect(turn.card).to.be.an('object');
-   expect(turn.card.id).to.deep.equal(3);
+   expect(turn.card.id).to.deep.equal(1);
   });
 
   it('should return the user guess', function() {
@@ -35,14 +35,14 @@ describe('Turn', function() {
   });
 
   it('should return the card object', function() {
-   const card = new Card(3, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+   const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
    const turn = new Turn('Lake Superior', card);
 
    expect(turn.returnCard()).to.be.an.instanceof(Card);
   });
 
   it('should be able to evaluate user guess', function() {
-    const card = new Card(3, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+    const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
     const turn1 = new Turn('Lake Tahoe', card);
     const turn2 = new Turn('Lake Superior', card);
 
@@ -51,10 +51,10 @@ describe('Turn', function() {
   });
 
   it('should give the user feedback based on the guess', function() {
-    const card = new Card(3, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+    const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
     const turn = new Turn('Lake Superior', card);
     const turn1 = new Turn('Crater Lake', card);
-    expect(turn.giveFeedback()).to.equal('correct!');
-    expect(turn1.giveFeedback()).to.equal('incorrect!');
+    expect(turn.giveFeedback()).to.equal('Your answer of Lake Superior is correct!');
+    expect(turn1.giveFeedback()).to.equal('Your answer of Crater Lake is incorrect!');
   });
 });
