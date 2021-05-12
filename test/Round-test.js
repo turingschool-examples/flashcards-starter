@@ -34,38 +34,43 @@ describe('Round', () => {
 
     it('should return the card in play', function() {
       round.returnCurrentCard() 
-      expect(round.currentCard.to.deep.equal(deck.deck['card1']))
+      expect(round.currentCard).to.deep.equal(card1)
     })
-
-    it.skip('should have a default of 0 turns', function () {
+    it('should be able to draw another card', function () {
+      round.returnCurrentCard() 
+      round.returnCurrentCard() 
+      expect(round.currentCard).to.deep.equal(card2)
+    })
+    it('should have a default of 0 turns', function () {
       expect(round.turns).to.equal(0)
     })
     
-    it.skip('should have an empty array for incorrect guesses', function () {
+    it('should have an empty array for incorrect guesses', function () {
       expect(round.incorrectGuesses).to.be.an('array')
     })
-    it.skip('should be able guess correctly', function () {
+    it('should be able guess correctly', function () {
       expect(round.takeTurn('sea otter')).to.be.equal('correct!')
     })
 
-    it.skip('should be able guess incorrectly', function () {
+    it('should be able guess incorrectly', function () {
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
     })
 
-    it.skip('should be able to goto the next card', function () {
+    it('should be able to goto the next card', function () {
+      round.returnCurrentCard() 
+      round.returnCurrentCard() 
       expect(round.currentCard).to.deep.equal(card2)
     })
          
-    it.skip('should be able to add 1 to when a turn is taken', function () {
+    it('should be able to add 1 to when a turn is taken', function () {
       round.takeTurn('pug')
       round.takeTurn('sea otter')
       expect(round.turns).to.equal(2)
     })
 
-    it.skip('should be able to store incorrect guesses', function () {
+    it('should be able to store incorrect guesses', function () {
       round.takeTurn(14)
       expect(round.incorrectGuesses).to.deep.equal([14])
     })
-
   })
 })
