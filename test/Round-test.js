@@ -5,7 +5,6 @@ const expect = chai.expect
 const Round = require('../src/Round')
 const Deck = require('../src/Deck')
 const Card = require('../src/Card')
-const { should } = require('chai')
 
 
 
@@ -52,10 +51,6 @@ describe('Round', () => {
       expect(round.incorrectGuesses).to.be.an('array')
     })
 
-    // it('should be able guess correctly', function () {
-    //   expect(round.takeTurn('sea otter')).to.be.equal('correct!')
-    // })
-
     it('should be able guess incorrectly', function () {
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
     })
@@ -64,14 +59,22 @@ describe('Round', () => {
       round.takeTurn('sea otter')
       round.takeTurn('gallbladder')
       expect(round.incorrectGuesses).to.be.lengthOf(0)
-
     })
+
     it('should be calculate how the percentage of wins', function () {
       round.takeTurn('sea otter')
       round.takeTurn('gallbladder')
       round.takeTurn('watching netflix') 
       
       expect(round.calculatePercentCorrect()).to.be.equal(67)
+    })
+
+    it('should be able to end round and receive a message', function () {
+      round.takeTurn('sea otter')
+      round.takeTurn('gallbladder')
+      round.takeTurn('watching netflix') 
+
+      expect(round.endRound()).to.be.equal('** Round over! ** You answered 67% of the questions correctly!')
     })
   })
 })
