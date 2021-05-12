@@ -31,11 +31,16 @@ describe('Round', () => {
     it('should have deck', function () {
       expect(round.deck).to.have.lengthOf(3)
     }) 
-    
+
     it('should return the card in play', function() {
       round.returnCurrentCard()
       expect(round.currentCard).to.deep.equal(deck.deck[0])
     })
+
+    it('should have a default of 0 turns', function () {
+      expect(round.turns).to.equal(0)
+    })
+    
   
   
   })
