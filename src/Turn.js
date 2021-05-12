@@ -3,7 +3,7 @@ class Turn {
         this.guess = guess;
         this.card = card;
     }
-    
+
     returnGuess = () =>  this.guess;
 
     returnCard = () => this.card;
