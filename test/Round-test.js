@@ -44,9 +44,14 @@ describe('Round', () => {
     it('should have an empty array for incorrect guesses', function () {
       expect(round.incorrectGuesses).to.be.an('array')
     })
-    it('should be able to take a turn and recieve a respond', function () {
+    it('should be able guess correctly', function () {
       round.returnCurrentCard()
       expect(round.takeTurn('sea otter')).to.be.equal('correct!')
+    })
+
+    it('should be able guess incorrectly', function () {
+      round.returnCurrentCard()
+      expect(round.takeTurn('pug')).to.be.equal('incorrect!')
     })
          
     it.skip('should be able to add 1 to when a turn is taken', function () {
