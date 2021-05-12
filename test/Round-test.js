@@ -72,14 +72,22 @@ describe('takeTurn', () => {
     expect(round.turns).to.equal(1)
   })
   it.only('should evalute guess', () => {
-    /*it should evalute guess
-    how does it evalute the guesses? in the turn class
-    >>> turn.guess ==== this.card.correctAnswer ? true : false
-    method should call turn.evaluteGuess()
-    */
+    // it should evalute guess
+    // how does it evalute the guesses? in the turn class
+    // >>> turn.guess ==== this.card.correctAnswer ? true : false
+    // method should call turn.evaluteGuess()
+    
     let turn = new Turn()
-   round.takeTurn()
+    round.takeTurn()
 
    expect(round.takeTurn()).to.equal(turn.evaluteGuess)
+  })
+
+  it.only('should change the next card in the deck to current card', () => {
+    // the next card in the deck this.deck.cards[1] 
+    // needs to be assigned to this.currentCard
+    round.takeTurn()
+
+    expect(round.currentCard).to.deep.equal(round.deck.cards[1])
   })
 })

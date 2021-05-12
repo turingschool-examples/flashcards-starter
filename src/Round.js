@@ -15,9 +15,9 @@ class Round{
   }
 
   takeTurn(guess) {
+    this.turns++
     let turn = new Turn(guess, this.currentCard)
     turn.evaluateGuess()
-    this.turns++
   }
 
   calculatePercentCorrect() {
