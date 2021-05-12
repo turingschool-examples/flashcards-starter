@@ -24,14 +24,12 @@ class Round {
       this.incorrectGuesses.push(currentTurn.guess)
       return currentTurn.giveFeedBack()
     } else {
-      this.correctGuesses.push(currentTurn.guess)
       return currentTurn.giveFeedBack()
     }
   }
   calculatePercentCorrect() {
-    const correctGuesses = this.turns - this.incorrectGuesses
-    console.log(Math.floor(this.turns / correctGuesses))
-    return Math.floor(this.turns / correctGuesses)
+    const correctGuesses = this.turns - this.incorrectGuesses.length
+    return Math.round(correctGuesses / this.turns * 100)
   }
 }
 
