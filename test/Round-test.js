@@ -60,5 +60,11 @@ describe('Round', () => {
       round.takeTurn('sea otter')
       expect(round.turns).to.equal(2)
     })
+
+    it('should be able to store incorrect guesses', function () {
+      round.returnCurrentCard()
+      round.takeTurn(14)
+      expect(round.incorrectGuesses).to.deep.equal([14])
+    })
   })
 })
