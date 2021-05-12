@@ -63,7 +63,16 @@ describe('Round', () => {
     it('should be able guess incorrectly', function () {
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
     })
+    it('should be able to store guesses based correct or incorrect answer', function () {
+      round.takeTurn('sea otter')
+      round.takeTurn('gallbladder')
+      expect(round.correctGuesses).to.be.lengthOf(2)
+      expect(round.incorrectGuesses).to.be.lengthOf(0)
 
+      round.takeTurn('watching netflix')
+      expect(round.correctGuesses).to.be.lengthOf(2)
+      expect(round.incorrectGuesses).to.be.lengthOf(1)
+    })
 
   })
 })
