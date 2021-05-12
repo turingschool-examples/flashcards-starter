@@ -70,11 +70,11 @@ describe('Round', function() {
   });
 
   it('should return if the guess is correct', function() {
-    expect(round.takeTurn('capybara')).to.equal('Your answer of capybara is incorrect!');
+    expect(round.takeTurn('capybara')).to.equal('incorrect!');
   });
 
   it('should return if the guess is incorrect', function() {
-    expect(round.takeTurn('sea otter')).to.equal('Your answer of sea otter is correct!');
+    expect(round.takeTurn('sea otter')).to.equal('correct!');
   });
 
   it('should calculate percentage of correct guesses', function() {
