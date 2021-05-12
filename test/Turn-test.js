@@ -86,21 +86,21 @@ describe('evaluteGuess', () => {
 
   describe('giveFeedback', () => {
 
-    it('should be a method', () => {
+    it.only('should be a method', () => {
 
       turn.giveFeedback()
   
       expect(turn.giveFeedback).to.be.a('function');
     })
 
-    it('should tell the user if correct', () => {
+    it.only('should tell the user if correct', () => {
 
       turn.giveFeedback()
 
       expect(turn.giveFeedback()).to.equal('correct!')
     })
 
-    it('should tell the user if incorrect', () => {
+    it.only('should tell the user if incorrect', () => {
       turn.guess = 'map()'
       
       turn.giveFeedback()
