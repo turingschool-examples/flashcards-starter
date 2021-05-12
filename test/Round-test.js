@@ -19,27 +19,27 @@ beforeEach( () => {
 
 describe('Round', () => {
 
-  it.only('should instantiate a Round', () => {
+  it('should instantiate a Round', () => {
 
     expect(round).is.an.instanceOf(Round);
   })
 
-  it.only('should store deck', () => {
+  it('should store deck', () => {
 
     expect(round.deck).to.equal(deck)
   })
 
-  it.only('should have a default turn count of 0', () => {
+  it('should have a default turn count of 0', () => {
 
     expect(round.turns).to.equal(0)
   })
 
   it.only('should have a current card that is first card in deck', () => {
-
+    // console.log(round.deck.card[0])
     expect(round.currentCard).to.equal(round.deck.cards[0])
   })
 
-  it.only('should store incorrect guesses in array', () => {
+  it('should store incorrect guesses in array', () => {
 
     expect(round.incorrectGuesses).to.deep.equal([])
   })
@@ -47,32 +47,32 @@ describe('Round', () => {
 
 describe('returnCurrentCard', () => {
 
-  it.only('should be a method', () => {
+  it('should be a method', () => {
 
     expect(round.returnCurrentCard).to.be.a('function')
   })
 
-  it.only('should return the current card being played', () => {
-
+  it('should return the current card being played', () => {
+    //this should be tested against the card 
     expect(round.returnCurrentCard()).to.equal(round.currentCard)
   })
 })
 
 describe('takeTurn', () => {
 
-  it.only('should be a method', () => {
+  it('should be a method', () => {
 
     expect(round.takeTurn).to.be.a('function')
   })
 
-  it.only('should update turn count', () => {
+  it('should update turn count', () => {
 
     round.takeTurn()
 
     expect(round.turns).to.equal(1)
   })
   
-  it.only('should change the next card in the deck to current card', () => {
+  it('should change the next card in the deck to current card', () => {
     // the next card in the deck this.deck.cards[1] 
     // needs to be assigned to this.currentCard
     round.takeTurn()
@@ -80,7 +80,7 @@ describe('takeTurn', () => {
     expect(round.currentCard).to.deep.equal(round.deck.cards[round.turns])
   })
 
-    it.only('should evalute if user\'s guess is correct', () => {
+    it('should evalute if user\'s guess is correct', () => {
       // it should evalute guess
       // how does it evalute the guesses? in the turn class
       // >>> turn.guess ==== this.card.correctAnswer ? true : false
@@ -88,21 +88,22 @@ describe('takeTurn', () => {
       // check if turn(guess) === round.takeTurn
 
       let turn = new Turn('sort()', card1) // should get a true boolean from turn.evaluteGuess()
-    
-      // round.takeTurn('sort()')
-  
-     expect(round.takeTurn('sort()')).to.equal(turn.evaluateGuess())
+      
+      let round1 = round.takeTurn('sort()')
+      //dont have methods equal another method, true/false or other specicif value 
+      // 
+     expect(round1).to.equal('correct!')
     })
 
-    it.only('should evalute if user\'s guess is incorrect', () => {
+    it('should evalute if user\'s guess is incorrect', () => {
       let turn = new Turn('wrongAnswer', card1)
     
-      round.takeTurn()
-  
-     expect(round.takeTurn()).to.equal(turn.evaluateGuess())
+      let round1 = round.takeTurn()
+      
+     expect(round1).to.equal('incorrect!')
     })
 
-    it.only('should store incorrect guesses in an array by ID', () => {
+    it('should store incorrect guesses in an array by ID', () => {
       // let turn = new Turn('map()', card1)
       // console.log('turn test side: ', turn)
       round.takeTurn('wrongAnswer')
@@ -112,29 +113,29 @@ describe('takeTurn', () => {
       expect(round.incorrectGuesses).to.have.lengthOf(1)
     })
 
-    // it.only('should give \'correct!\' feedback if correct', () => {
+    it('should give \'correct!\' feedback if correct', () => {
+      //do more vairable assined to method for return statment
+      expect(round.takeTurn('sort()')).to.equal('correct!')
+    })
 
-    //   expect(round.takeTurn('sort()')).to.equal('correct!')
-    // })
+    it('should give \'incorrect!\' feedback if incorrect', () => {
 
-    // it.only('should give \'incorrect!\' feedback if incorrect', () => {
-
-    //   expect(round.takeTurn('wrongAnswer')).to.equal('incorrect!')
-    // })
+      expect(round.takeTurn('wrongAnswer')).to.equal('incorrect!')
+    })
 })
 
-// describe('calculatePercentCorrect', () => {
+describe('calculatePercentCorrect', () => {
 
-//   it.only('should be a method', () => {
+  it('should be a method', () => {
 
-//     expect(round.calculatePercentCorrect).to.be.a('function')
-//   })
+    expect(round.calculatePercentCorrect).to.be.a('function')
+  })
 
-//   it.only('should return the percentage of correct guesses', () => {
+  it('should return the percentage of correct guesses', () => {
     
-//     round.takeTurn()
-//     round.takeTurn()
+    round.takeTurn('sort()')
+    round.takeTurn('object')
 
-//     expect(round.calculatePercentCorrect()).to.equal(.5)
-//   })
-// })
+    expect(round.calculatePercentCorrect()).to.equal(.5)
+  })
+})

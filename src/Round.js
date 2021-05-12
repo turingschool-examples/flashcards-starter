@@ -25,17 +25,17 @@ class Round{
       // console.log(turn.evaluateGuess())
       this.incorrectGuesses.push(turn.card.id)
       // console.log(this.incorrectGuesses)
-      return false// , turn.giveFeedback()
+      return turn.giveFeedback() 
     } else {
-      return true //, turn.giveFeedback()
+      return turn.giveFeedback()
     }
   }
 
   calculatePercentCorrect() {
-    console.log('this.turn: ', this.turns)
-    console.log('length: ', this.incorrectGuesses.length)
-    console.log('this.currentCard: ', this.currentCard)
-    return this.turns / this.incorrectGuesses.length
+    // console.log('this.turn: ', this.turns)
+    // console.log('length: ', this.incorrectGuesses.length)
+    // console.log('this.currentCard: ', this.currentCard)
+    return this.incorrectGuesses.length / this.turns
   }
 }
 
