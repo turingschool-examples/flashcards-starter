@@ -59,20 +59,19 @@ describe('Round', () => {
     it('should be able guess incorrectly', function () {
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
     })
-    it.skip('should be able to store guesses based correct or incorrect answer', function () {
+
+    it('should be able to store incorrect guesses', function () {
       round.takeTurn('sea otter')
       round.takeTurn('gallbladder')
       expect(round.incorrectGuesses).to.be.lengthOf(0)
 
     })
-    it.skip('should be able to store guesses based correct or incorrect answer', function () {
+    it('should be able to store guesses based correct or incorrect answer', function () {
       round.takeTurn('sea otter')
       round.takeTurn('gallbladder')
-      round.takeTurn('watching netflix')
-      expect(round.correctGuesses).to.be.lengthOf(2)
-      expect(round.incorrectGuesses).to.be.lengthOf(1)
-
-
+      round.takeTurn('watching netflix') 
+      
+      expect(round.calculatePercentCorrect()).to.be.equal(67)
     })
   })
 })

@@ -6,7 +6,6 @@ class Round {
     this.currentCard; 
     this.turns = 0
     this.incorrectGuesses = []
-    this.correctGuesses = []
   }
   returnCurrentCard() {
     if (!this.currentCard) {
@@ -17,7 +16,6 @@ class Round {
       this.deck.shift()
     }
   }
-
   takeTurn(guess) {
     this.returnCurrentCard() 
     this.turns++
@@ -29,6 +27,11 @@ class Round {
       this.correctGuesses.push(currentTurn.guess)
       return currentTurn.giveFeedBack()
     }
+  }
+  calculatePercentCorrect() {
+    const correctGuesses = this.turns - this.incorrectGuesses
+    console.log(Math.floor(this.turns / correctGuesses))
+    return Math.floor(this.turns / correctGuesses)
   }
 }
 
