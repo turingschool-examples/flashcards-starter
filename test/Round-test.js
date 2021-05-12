@@ -47,8 +47,12 @@ describe('Round', function() {
 
     const round = new Round(deck);
 
-    expect(round.currentCard).to.equal(card1);
-    expect(round.returnCurrentCard()).to.equal(round.currentCard);
+    round.takeTurn("x")
+    
+    round.returnCurrentCard();
+
+    // expect(round.currentCard).to.equal(card1);
+    expect(round.returnCurrentCard()).to.equal(card2);
   });
 
 //////
@@ -106,7 +110,7 @@ describe('Round', function() {
     round.takeTurn('sea otter');
     round.takeTurn('spleen');
 
-    expect(round.turns).to.deep.equal(2);
+    expect(round.turns).to.equal(2);
   });
 
   // When a guess is made, a new Turn instance is created.
@@ -145,6 +149,10 @@ describe('Round', function() {
     round.takeTurn('guess1')
     round.takeTurn('guess2')
 
+    
+
+    expect(round.returnCurrentCard()).to.deep.equal(card3);
+
     // expect(round.currentCard).to.equal({
     //   id: 12,
     //   question: 'What is Travis\'s favorite stress reliever?',
@@ -152,7 +160,6 @@ describe('Round', function() {
     //   correctAnswer: 'playing with bubble wrap'
     // });
 
-    expect(round.returnCurrentCard()).to.deep.equal(card3);
     // console.log(round.deck.cards)
   });
 
