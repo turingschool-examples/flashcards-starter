@@ -43,14 +43,23 @@ describe('Round', () => {
   });
 
   it('should store incorrect guesses', () => {
-    const turn1 = round.takeTurn("object");
-    const turn2 = round.takeTurn("function");
+    const turn1 = round.takeTurn('object');
+    const turn2 = round.takeTurn('function');
 
-    console.log(round.incorrectGuesses)
     expect(round.incorrectGuesses).to.have.lengthOf(1);
     expect(round.incorrectGuesses[0]).to.be.a("number");
     expect(round.incorrectGuesses[0]).to.equal(2);
   });
+
+  it('should calculate and return the percentage of correct guesses', () => {
+    round.takeTurn('object');
+    round.takeTurn('array');
+    round.takeTurn('accesor method')
+    round.calculatePercentCorrect();
+
+    expect(round.calculatePercentCorrect()).to.equal(67);
+
+  })
 
 
 

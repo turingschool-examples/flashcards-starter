@@ -20,6 +20,10 @@ class Round {
      this.returnCurrentCard()
      return currentTurn.giveFeedback()
   }
+  calculatePercentCorrect() {
+    let percent = Math.ceil(((this.turns - this.incorrectGuesses.length) / this.turns) *100);
+    return percent;
+  }
 }
 
 module.exports = Round;
