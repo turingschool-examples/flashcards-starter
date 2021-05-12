@@ -5,14 +5,14 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 const Data = require('../src/data');
 
-describe('Turn', function() {
+describe('Turn', () => {
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Turn', function() {
+  it('should be an instance of Turn', () => {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   }); 
@@ -36,18 +36,43 @@ describe('Turn', function() {
     const guess = turn.returnGuess();
     expect(guess).to.equal("guess");
   });
-//   it('should store a question', function() {
-//     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-//     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
-//   });  
 
-//   it('should store a list of possible answers', function() {
-//     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-//     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
-//   });  
+  it('should return the card', () => {
+    const card = new Card(1, "What is your favorite city in Japan?", ["Hiroshima, Onomichi, Osaka"] , 'Onomichi')
+    const turn = new Turn("guess", card);
 
-//   it('should store the correct answer', function() {
-//     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-//     expect(card.correctAnswer).to.equal('object');
-//   });
+    const turnCard = turn.returnCard();
+    expect(turnCard).to.equal(card);
+  });
+
+  it('should return true indicating if the user’s guess matches the correct answer on the card', () => {
+    const card = new Card(1, "What is your favorite city in Japan?", ["Hiroshima, Onomichi, Osaka"] , 'Onomichi')
+    const turn = new Turn("Onomichi", card);
+
+    expect(turn.evaluateGuess()).to.equal(true);
+  });
+
+  it('should return false indicating if the user’s guess doesn\'t match the correct answer on the card', () => {
+    const card = new Card(1, "What is your favorite city in Japan?", ["Hiroshima, Onomichi, Osaka"] , 'Onomichi')
+    const turn = new Turn("Osaka", card);
+
+    expect(turn.evaluateGuess()).to.equal(false);
+  });
+
+  it('should output whether the guess is correct.', () => {
+    const card = new Card(1, "What is your favorite city in Japan?", ["Hiroshima, Onomichi, Osaka"] , 'Onomichi')
+    const turn = new Turn("Onomichi", card);
+    const guessOutcome = turn.evaluateGuess();
+
+    expect(turn.giveFeedback(guessOutcome)).to.equal("correct!");
+  });
+
+
+  it('should output whether the guess is incorrect.', () => {
+    const card = new Card(1, "What is your favorite city in Japan?", ["Hiroshima, Onomichi, Osaka"] , 'Onomichi')
+    const turn = new Turn("Osaka", card);
+    const guessOutcome = turn.evaluateGuess();
+
+    expect(turn.giveFeedback(guessOutcome)).to.equal("incorrect!");
+  });
 });
