@@ -7,12 +7,8 @@ const Deck = require('../src/Deck')
 const Card = require('../src/Card')
 
 describe('Game', function() {
-  let card, deck, round, game;
-
+  let game;
   beforeEach(function() {
-    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    deck = new Deck(card);
-    round = new Round(deck);
     game = new Game();
   });
 
@@ -28,5 +24,9 @@ describe('Game', function() {
     expect(game.currentRound).to.equal()
   });
 
+  it('should instantiate a current round', function() {
+    game.start();
+    expect(game.currentRound).to.be.an.instanceof(Round);
+  });
 
 })
