@@ -69,14 +69,14 @@ describe('evaluteGuess', () => {
     expect(turn.evaluateGuess).to.be.a('function');
   })
 
-  it.only('should indicate if user\'s guess is correct', () => {
+  it('should indicate if user\'s guess is correct', () => {
     
     turn.evaluateGuess()
 
     expect(turn.evaluateGuess()).to.equal(true)
   })
 
-  it.only('should indicate if user\'s guess is incorrect', () => {
+  it('should indicate if user\'s guess is incorrect', () => {
     turn.guess = 'map()'
 
     turn.evaluateGuess()
@@ -86,21 +86,21 @@ describe('evaluteGuess', () => {
 
   describe('giveFeedback', () => {
 
-    it.only('should be a method', () => {
+    it('should be a method', () => {
 
       turn.giveFeedback()
   
       expect(turn.giveFeedback).to.be.a('function');
     })
 
-    it.only('should tell the user if correct', () => {
+    it('should tell the user if correct', () => {
 
       turn.giveFeedback()
 
       expect(turn.giveFeedback()).to.equal('correct!')
     })
 
-    it.only('should tell the user if incorrect', () => {
+    it('should tell the user if incorrect', () => {
       turn.guess = 'map()'
       
       turn.giveFeedback()

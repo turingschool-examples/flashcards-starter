@@ -17,21 +17,25 @@ class Round{
   takeTurn(guess) {
     this.turns++
     let turn = new Turn(guess, this.currentCard)
-    let incorrectGuess = turn.evaluateGuess()
-    this.currentCard = this.deck.cards[this.turns]
-    // console.log('turn.card: ', turn.card)
-    console.log('incorrectGuess: ', incorrectGuess);
-    if(incorrectGuess) {
-      return false
-    } else {
-      this.incorrectGuesses.push(turn.card.id)
-      return true
-    }
     
+    this.currentCard = this.deck.cards[this.turns]
+    
+    // console.log(`turn #${this.turns}: `,turn)
+    if(!turn.evaluateGuess()) {
+      // console.log(turn.evaluateGuess())
+      this.incorrectGuesses.push(turn.card.id)
+      // console.log(this.incorrectGuesses)
+      return false// , turn.giveFeedback()
+    } else {
+      return true //, turn.giveFeedback()
+    }
   }
 
   calculatePercentCorrect() {
-
+    console.log('this.turn: ', this.turns)
+    console.log('length: ', this.incorrectGuesses.length)
+    console.log('this.currentCard: ', this.currentCard)
+    return this.turns / this.incorrectGuesses.length
   }
 }
 

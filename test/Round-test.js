@@ -1,7 +1,7 @@
 const Deck = require('../src/Deck.js');
 const Card = require('../src/Card.js');
 const Round = require('../src/Round.js');
-const Turn = require("../src/Turn.js");
+const Turn = require('../src/Turn.js');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -85,13 +85,13 @@ describe('takeTurn', () => {
       // how does it evalute the guesses? in the turn class
       // >>> turn.guess ==== this.card.correctAnswer ? true : false
       // method should call turn.evaluteGuess()
-      // check if new Turn(guess, card) === round.takeTurn
+      // check if turn(guess) === round.takeTurn
 
       let turn = new Turn('sort()', card1) // should get a true boolean from turn.evaluteGuess()
     
-      round.takeTurn()
+      // round.takeTurn('sort()')
   
-     expect(round.takeTurn()).to.equal(turn.evaluateGuess())
+     expect(round.takeTurn('sort()')).to.equal(turn.evaluateGuess())
     })
 
     it.only('should evalute if user\'s guess is incorrect', () => {
@@ -102,7 +102,7 @@ describe('takeTurn', () => {
      expect(round.takeTurn()).to.equal(turn.evaluateGuess())
     })
 
-    it('should store incorrect guesses in an array by ID', () => {
+    it.only('should store incorrect guesses in an array by ID', () => {
       // let turn = new Turn('map()', card1)
       // console.log('turn test side: ', turn)
       round.takeTurn('wrongAnswer')
@@ -111,4 +111,30 @@ describe('takeTurn', () => {
       //how can i manipulate the guess to make it false? 
       expect(round.incorrectGuesses).to.have.lengthOf(1)
     })
+
+    // it.only('should give \'correct!\' feedback if correct', () => {
+
+    //   expect(round.takeTurn('sort()')).to.equal('correct!')
+    // })
+
+    // it.only('should give \'incorrect!\' feedback if incorrect', () => {
+
+    //   expect(round.takeTurn('wrongAnswer')).to.equal('incorrect!')
+    // })
+})
+
+describe('calculatePercentCorrect', () => {
+
+  it.only('should be a method', () => {
+
+    expect(round.calculatePercentCorrect).to.be.a('function')
+  })
+
+  it.only('should return the percentage of correct guesses', () => {
+    
+    round.takeTurn()
+    round.takeTurn()
+
+    expect(round.calculatePercentCorrect()).to.equal(.5)
+  })
 })
