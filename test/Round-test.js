@@ -38,8 +38,9 @@ describe('Round', () => {
     })
 
     it('should be able to goto the next card', function () {
+      round.takeTurn()
       round.returnCurrentCard() 
-      round.returnCurrentCard() 
+    
       expect(round.currentCard).to.deep.equal(card2)
     })
 
