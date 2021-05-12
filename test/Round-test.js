@@ -48,8 +48,8 @@ describe('Round', () => {
   it('should have the next card become the current card when a turn is made', () => {
     defaultRound.takeTurn('sea otter');
 
-    expect(defaultRound.defaultDeck.deckCards[defaultRound.turns])
-      .to.equal(defaultRound.defaultDeck.deckCards[1]);
+    expect(defaultRound.deck.deckCards[defaultRound.turns])
+      .to.equal(defaultRound.deck.deckCards[1]);
   });
 
   it('should evaluate the player/s guess', () => {
@@ -63,7 +63,7 @@ describe('Round', () => {
     defaultRound.takeTurn('sea otter');
     defaultRound.takeTurn('spleen');
 
-    expect(defaultRound.incorrectGuesses).to.equal([14]);
+    expect(defaultRound.incorrectGuesses).to.deep.equal([14]);
   });
 
   it('should give feedback to the player about their guess', () => {
@@ -72,11 +72,11 @@ describe('Round', () => {
     expect(badAnswer).to.equal('Incorrect!');
   });
 
-  it('should calculate the percent correct', () => {
+  it.only('should calculate the percent correct', () => {
     defaultRound.takeTurn('sea otter');
     defaultRound.takeTurn('gallbladder');
     defaultRound.takeTurn('watching Netflix');
 
-    expect.defaultRound.calculatePercentCorrect().to.equal(67);
+    expect(defaultRound.calculatePercentCorrect()).to.equal(67);
   });
 });
