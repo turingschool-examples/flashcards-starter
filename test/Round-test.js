@@ -41,6 +41,10 @@ describe('Round', () => {
       expect(round.turns).to.equal(0)
     })
     
+    it('should have an empty array for incorrect guesses', function () {
+      expect(round.incorrectGuesses).to.be.an('array')
+    })
+    
   
   
   })
