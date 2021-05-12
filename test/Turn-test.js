@@ -54,7 +54,7 @@ describe('Turn', function() {
     const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
     const turn = new Turn('Lake Superior', card);
     const turn1 = new Turn('Crater Lake', card);
-    expect(turn.giveFeedback()).to.equal('Your answer of Lake Superior is correct!');
-    expect(turn1.giveFeedback()).to.equal('Your answer of Crater Lake is incorrect!');
+    expect(turn.giveFeedback()).to.equal('correct!');
+    expect(turn1.giveFeedback()).to.equal('incorrect!');
   });
 });
