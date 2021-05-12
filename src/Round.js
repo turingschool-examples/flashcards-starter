@@ -17,7 +17,14 @@ class Round{
   takeTurn(guess) {
     this.turns++
     let turn = new Turn(guess, this.currentCard)
-    turn.evaluateGuess()
+    let incorrectGuess = turn.evaluateGuess()
+    this.currentCard = this.deck.cards[1]
+    // console.log('turn.card: ', turn.card)
+    // console.log('incorrectGuess: ', incorrectGuess);
+    if(incorrectGuess === true) {
+      this.incorrectGuesses.push(turn.card.id)
+    }
+    
   }
 
   calculatePercentCorrect() {
