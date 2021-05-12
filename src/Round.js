@@ -6,6 +6,7 @@ class Round {
     this.currentCard; 
     this.turns = 0
     this.incorrectGuesses = []
+    this.correctGuesses = []
   }
   returnCurrentCard() {
     if (!this.currentCard) {
@@ -25,6 +26,7 @@ class Round {
       this.incorrectGuesses.push(currentTurn.guess)
       return currentTurn.giveFeedBack()
     } else {
+      this.correctGuesses.push(currentTurn.guess)
       return currentTurn.giveFeedBack()
     }
   }
