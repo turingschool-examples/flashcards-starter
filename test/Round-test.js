@@ -23,9 +23,15 @@ describe('Round', () => {
     it('should be a function', function() {
       expect(Round).to.be.a('function')
     }) 
+
     it('should be an instance of Round', function () {
       expect(round).to.be.an.instanceOf(Round)
     }) 
+    
+    it('should have deck', function () {
+      expect(round.deck).to.have.lengthOf(3)
+    }) 
+  
   
   })
 })
