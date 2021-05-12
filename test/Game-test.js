@@ -27,7 +27,7 @@ describe('Game', function() {
 
 // creates Cards
 
-  it('should create Cards', function() {
+  it.skip('should create Cards', function() {
 
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 
@@ -43,7 +43,7 @@ describe('Game', function() {
 
     // console.log(game.cards);
 
-    // expect(round.deck).to.equal(card1, card2, card3)
+    expect(round.deck).to.equal([card1, card2, card3])
   });
 
 

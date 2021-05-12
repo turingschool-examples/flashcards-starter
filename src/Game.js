@@ -46,7 +46,7 @@ class Game {
       const {id, question, answers, correctAnswer} = prototypeQuestions[i];
       // console.log(id, question, answers, correctAnswer)
 
-      const newCard = this.createCard(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
+      const newCard = this.createCard({id, question, answers, correctAnswer});
       console.log(newCard)
 
       newCardArray.push(newCard);
