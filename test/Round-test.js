@@ -90,8 +90,7 @@ describe('Round', function() {
     round.takeTurn('gallbladder');
     round.takeTurn('listening to music')
     round.calculatePercentCorrect();
-    expect(round.calculatePercentCorrect()).to.equal(67);
-    expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
+    expect(round.endRound()).to.equal(`** Round over! ** You answered ${round.calculatePercentCorrect()}% of the questions correctly!`)
   });
 
 });
