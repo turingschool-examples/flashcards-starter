@@ -36,11 +36,12 @@ describe('Round', () => {
       round.returnCurrentCard() 
       expect(round.currentCard).to.deep.equal(card1)
     })
-    it('should be able to draw another card', function () {
+    it('should be able to goto the next card', function () {
       round.returnCurrentCard() 
       round.returnCurrentCard() 
       expect(round.currentCard).to.deep.equal(card2)
     })
+
     it('should have a default of 0 turns', function () {
       expect(round.turns).to.equal(0)
     })
@@ -54,12 +55,6 @@ describe('Round', () => {
 
     it('should be able guess incorrectly', function () {
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
-    })
-
-    it('should be able to goto the next card', function () {
-      round.returnCurrentCard() 
-      round.returnCurrentCard() 
-      expect(round.currentCard).to.deep.equal(card2)
     })
          
     it('should be able to add 1 to when a turn is taken', function () {
