@@ -11,14 +11,14 @@ class Turn {
     return this.flashCard;
   }
   evaluateGuess() {
-    if (this.guess !== this.flashCard.correctAnswer) {
-      this.result = false;
+    if (this.guess === this.flashCard.correctAnswer) {
+      this.guess = true;
     } else {
-      this.result = true;
+      this.guess = false;
     }
   }
   giveFeedback() {
-    if (this.result) {
+    if (this.guess) {
       return 'correct';
     } else {
       return 'incorrect';

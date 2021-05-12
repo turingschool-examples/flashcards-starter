@@ -49,24 +49,36 @@ describe('Turn', function() {
 
     expect(turn.returnCard()).to.deep.equal(turn.flashCard);
   });
-  // evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card.
   it('should returns a boolean if the user’s guess matches the correct answer on the card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'array');
 
-    const turn = new Turn('object', card);
+    const turn1 = new Turn('object', card);
 
-    turn.evaluateGuess();
+    turn1.evaluateGuess();
 
-    expect(turn.evaluateGuess()).to.deep.equal(this.result, true);
+    expect(turn1.evaluateGuess()).to.deep.equal(this.guess, true);
+
+    const turn2 = new Turn('array', card);
+
+    turn2.evaluateGuess();
+
+    expect(turn2.evaluateGuess()).to.deep.equal(this.guess, false);
   });
-  // giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.
   it('should returns either ‘incorrect!’ or ‘correct!’ based on the user’s guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
-    const turn = new Turn('object', card);
+    const turn1 = new Turn('object', card);
 
-    turn.giveFeedback();
+    turn1.evaluateGuess();
+    turn1.giveFeedback();
 
-    expect(turn.giveFeedback()).to.deep.equal('correct');
+    expect(turn1.giveFeedback()).to.deep.equal('correct');
+
+    const turn2 = new Turn('array', card);
+
+    turn2.evaluateGuess();
+    turn2.giveFeedback();
+
+    expect(turn2.giveFeedback()).to.deep.equal('incorrect');
   });
 });
