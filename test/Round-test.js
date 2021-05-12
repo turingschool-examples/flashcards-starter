@@ -5,6 +5,7 @@ const expect = chai.expect
 const Round = require('../src/Round')
 const Deck = require('../src/Deck')
 const Card = require('../src/Card')
+const { should } = require('chai')
 
 
 
@@ -36,6 +37,7 @@ describe('Round', () => {
       round.returnCurrentCard() 
       expect(round.currentCard).to.deep.equal(card1)
     })
+
     it('should be able to goto the next card', function () {
       round.returnCurrentCard() 
       round.returnCurrentCard() 
@@ -49,6 +51,11 @@ describe('Round', () => {
     it('should have an empty array for incorrect guesses', function () {
       expect(round.incorrectGuesses).to.be.an('array')
     })
+
+    it('should have an empty array for correct guesses', function () {
+      expect(round.correctGuesses).to.be.an('array')
+    })
+
     it('should be able guess correctly', function () {
       expect(round.takeTurn('sea otter')).to.be.equal('correct!')
     })
@@ -56,16 +63,7 @@ describe('Round', () => {
     it('should be able guess incorrectly', function () {
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
     })
-         
-    it('should be able to add 1 to when a turn is taken', function () {
-      round.takeTurn('pug')
-      round.takeTurn('sea otter')
-      expect(round.turns).to.equal(2)
-    })
 
-    it('should be able to store incorrect guesses', function () {
-      round.takeTurn(14)
-      expect(round.incorrectGuesses).to.deep.equal([14])
-    })
+
   })
 })
