@@ -7,7 +7,7 @@ const Card = require('../src/Card');
 let card, turn
 
 beforeEach( () => {
-  card = new Card(6, 'What is an example of a mutator method?',["sort()", "map()", "join()"], "sort()");
+  card = new Card(6, 'What is an example of a mutator method?', ["sort()", "map()", "join()"], "sort()");
   turn = new Turn( "sort()", card);
 })
 
@@ -54,7 +54,7 @@ describe('returnCard', () => {
 
   it('it should return the card', () => {
     
-    card1 = turn.returnCard()
+    let card1 = turn.returnCard()
     
     expect(card1).to.equal(card)
   })
