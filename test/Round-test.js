@@ -44,22 +44,21 @@ describe('Round', () => {
     it('should have an empty array for incorrect guesses', function () {
       expect(round.incorrectGuesses).to.be.an('array')
     })
-
-    it('should be able to add 1 to when a turn is taken', function () {
-      round.takeTurn()
-      round.takeTurn()
-      round.takeTurn()
-      round.takeTurn()
-
-      expect(round.turns).to.equal(4)
+    it('should be able to take a turn and recieve a respond', function () {
+      round.returnCurrentCard()
+      expect(round.takeTurn('sea otter')).to.be.equal('correct!')
     })
-    
-    // it('should be able to take a turn and recieve a respond', function () {
-      
-    //   expect(round.takeTurn('sea otter')).to.be.equal('correct!')
-    // })
-       
+         
+    it.skip('should be able to add 1 to when a turn is taken', function () {
+      round.takeTurn()
+      round.takeTurn()
+      round.takeTurn()
+      round.takeTurn()
+  
+      expect(round.turns).to.equal(4)
+  
+    })
 
   })
-})
 
+})
