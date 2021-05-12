@@ -123,18 +123,18 @@ describe('takeTurn', () => {
     // })
 })
 
-describe('calculatePercentCorrect', () => {
+// describe('calculatePercentCorrect', () => {
 
-  it.only('should be a method', () => {
+//   it.only('should be a method', () => {
 
-    expect(round.calculatePercentCorrect).to.be.a('function')
-  })
+//     expect(round.calculatePercentCorrect).to.be.a('function')
+//   })
 
-  it.only('should return the percentage of correct guesses', () => {
+//   it.only('should return the percentage of correct guesses', () => {
     
-    round.takeTurn()
-    round.takeTurn()
+//     round.takeTurn()
+//     round.takeTurn()
 
-    expect(round.calculatePercentCorrect()).to.equal(.5)
-  })
-})
+//     expect(round.calculatePercentCorrect()).to.equal(.5)
+//   })
+// })
