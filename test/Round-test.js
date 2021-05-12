@@ -77,27 +77,38 @@ describe('takeTurn', () => {
     // needs to be assigned to this.currentCard
     round.takeTurn()
     
-    expect(round.currentCard).to.deep.equal(round.deck.cards[1])
+    expect(round.currentCard).to.deep.equal(round.deck.cards[round.turns])
   })
 
-    it.only('should evalute guess', () => {
+    it.only('should evalute if user\'s guess is correct', () => {
       // it should evalute guess
       // how does it evalute the guesses? in the turn class
       // >>> turn.guess ==== this.card.correctAnswer ? true : false
       // method should call turn.evaluteGuess()
-      let turn = new Turn()
+      // check if new Turn(guess, card) === round.takeTurn
 
+      let turn = new Turn('sort()', card1) // should get a true boolean from turn.evaluteGuess()
+    
       round.takeTurn()
   
-     expect(round.takeTurn()).to.equal(turn.evaluteGuess)
+     expect(round.takeTurn()).to.equal(turn.evaluateGuess())
     })
 
-    it.only('should store incorrect guesses in an array by ID', () => {
+    it.only('should evalute if user\'s guess is incorrect', () => {
+      let turn = new Turn('wrongAnswer', card1)
+    
+      round.takeTurn()
+  
+     expect(round.takeTurn()).to.equal(turn.evaluateGuess())
+    })
+
+    it('should store incorrect guesses in an array by ID', () => {
       // let turn = new Turn('map()', card1)
       // console.log('turn test side: ', turn)
-      round.takeTurn()
+      round.takeTurn('wrongAnswer')
       //should push incorrect guesses ID into incorrectGuesses array
       //if round.takeTurn(guess) == false then
+      //how can i manipulate the guess to make it false? 
       expect(round.incorrectGuesses).to.have.lengthOf(1)
     })
 })
