@@ -27,10 +27,15 @@ describe('Round', () => {
     it('should be an instance of Round', function () {
       expect(round).to.be.an.instanceOf(Round)
     }) 
-    
+
     it('should have deck', function () {
       expect(round.deck).to.have.lengthOf(3)
     }) 
+    
+    it('should return the card in play', function() {
+      round.returnCurrentCard()
+      expect(round.currentCard).to.deep.equal(deck.deck[0])
+    })
   
   
   })
