@@ -17,7 +17,7 @@ returnCard(){
 evaluateGuess(){
   if(this.guess === this.card.correctAnswer){
     return true;
-  }else {
+  } else {
     return false;
   }
 }
