@@ -19,4 +19,10 @@ describe('Round', () => {
     
     round = new Round(deck);
   })
+  describe('Round Properties', () => {
+    it('should be a function', function() {
+      expect(Round).to.be.a('function')
+    }) 
+  })
 })
+
