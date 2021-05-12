@@ -43,11 +43,13 @@ describe('Round', () => {
   });
 
   it('should store incorrect guesses', () => {
-    const turn1 = round.takeTurn("object"); //correct
-    const turn2 = round.takeTurn("function"); //incorrect
+    const turn1 = round.takeTurn("object");
+    const turn2 = round.takeTurn("function");
+
+    console.log(round.incorrectGuesses)
     expect(round.incorrectGuesses).to.have.lengthOf(1);
     expect(round.incorrectGuesses[0]).to.be.a("number");
-    expect(round.incorrectGuesses[1]).to.equal(1);
+    expect(round.incorrectGuesses[0]).to.equal(2);
   });
 
 
