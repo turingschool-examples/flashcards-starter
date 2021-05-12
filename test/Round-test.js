@@ -59,7 +59,17 @@ describe('Round', () => {
 
     expect(round.calculatePercentCorrect()).to.equal(67);
 
-  })
+  });
+
+  it('should end round', () => {
+    round.takeTurn('object');
+    round.takeTurn('array');
+    round.takeTurn('accesor method')
+    round.calculatePercentCorrect();
+
+    expect(round.calculatePercentCorrect()).to.equal(67);
+    expect(round.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
+  });
 
 
 
