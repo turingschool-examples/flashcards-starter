@@ -66,7 +66,7 @@ describe('Round', () => {
       expect(round.incorrectGuesses).to.be.lengthOf(0)
 
     })
-    it('should be able to store guesses based correct or incorrect answer', function () {
+    it('should be calculate how the percentage of wins', function () {
       round.takeTurn('sea otter')
       round.takeTurn('gallbladder')
       round.takeTurn('watching netflix') 
