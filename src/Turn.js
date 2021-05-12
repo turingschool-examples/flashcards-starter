@@ -1,33 +1,17 @@
 class Turn {
-    constructor(guess, card){
-        //properties
+    constructor(guess, card){  
         this.guess = guess;
         this.card = card;
     }
-    //methods
-    returnGuess(){
-        return this.guess;
-    }
-    returnCard(){
-        return this.card;
-    }
-    evaluateGuess(){
-        if (this.guess === this.card.correctAnswer) {
-            //this.guessStatus = true;
-            return true;
-        } else {
-            //this.guessStatus = false;
-            return false;
-        }
-    }
-    giveFeedback(bool){
-        if(bool){
-            return "correct!"
-        } else {
-            return "incorrect!"
-        }
-    }
+    
+    returnGuess = () =>  this.guess;
 
+    returnCard = () => this.card;
+    
+    evaluateGuess = () => this.guess === this.card.correctAnswer ? true : false;
+    
+    giveFeedback = (bool) =>  bool ?  "correct!" : "incorrect!";
+        
 }
 
 module.exports = Turn;
