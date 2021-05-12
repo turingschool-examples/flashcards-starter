@@ -6,7 +6,6 @@ class Round{
     this.turns = 0
     this.currentCard = this.deck.cards[this.turns]
     this.incorrectGuesses = []
-
   }
 
   returnCurrentCard() {
@@ -20,11 +19,8 @@ class Round{
     
     this.currentCard = this.deck.cards[this.turns]
     
-    // console.log(`turn #${this.turns}: `,turn)
     if(!turn.evaluateGuess()) {
-      // console.log(turn.evaluateGuess())
       this.incorrectGuesses.push(turn.card.id)
-      // console.log(this.incorrectGuesses)
       return turn.giveFeedback() 
     } else {
       return turn.giveFeedback()
@@ -32,9 +28,6 @@ class Round{
   }
 
   calculatePercentCorrect() {
-    // console.log('this.turn: ', this.turns)
-    // console.log('length: ', this.incorrectGuesses.length)
-    // console.log('this.currentCard: ', this.currentCard)
     return this.incorrectGuesses.length / this.turns
   }
 }
