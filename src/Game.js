@@ -35,6 +35,12 @@ class Game {
 
     const randomIndex = Math.floor(Math.random()*4);
 
+////// try map?
+// map over prototype questions
+// const {id, question, answers, correctAnswer} = prototypeQuestions[i];
+// return new deck with cards
+// switch let to const
+
     for (let i = randomIndex; i <= 4; i++) {
       // console.log(prototypeQuestions[i])
       const {id, question, answers, correctAnswer} = prototypeQuestions[i];
