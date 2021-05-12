@@ -51,19 +51,14 @@ describe('Round', () => {
 
     it('should be able guess incorrectly', function () {
       round.returnCurrentCard()
-      expect(round.takeTurn('pug')).to.be.equal('incorrect!')
+      expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
     })
          
-    it.skip('should be able to add 1 to when a turn is taken', function () {
-      round.takeTurn()
-      round.takeTurn()
-      round.takeTurn()
-      round.takeTurn()
-  
-      expect(round.turns).to.equal(4)
-  
+    it('should be able to add 1 to when a turn is taken', function () {
+      round.returnCurrentCard()
+      round.takeTurn('pug')
+      round.takeTurn('sea otter')
+      expect(round.turns).to.equal(2)
     })
-
   })
-
 })
