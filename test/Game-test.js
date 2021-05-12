@@ -1,10 +1,13 @@
 const chai = require('chai')
 const expect = chai.expect
 
-const Game = require('../src/Game')
-const Round = require('../src/Round')
-const Deck = require('../src/Deck')
-const Card = require('../src/Card')
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
+const Game = require('../src/game');
+const Card = require('../src/card');
+const Turn = require('../src/turn');
+const Deck = require('../src/deck');
+const Round = require('../src/round');
 
 describe('Game', function() {
   let game;
@@ -22,11 +25,6 @@ describe('Game', function() {
 
   it('should have a property that keeps track of current round', function() {
     expect(game.currentRound).to.equal()
-  });
-
-  it('should instantiate a current round', function() {
-    game.start();
-    expect(game.currentRound).to.be.an.instanceof(Round);
   });
 
 })
