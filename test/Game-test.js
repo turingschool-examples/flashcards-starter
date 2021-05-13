@@ -36,5 +36,11 @@ describe('Game', function () {
       game.start()
       expect(game.cards).to.have.lengthOf(30)
     })
+
+    it('should be able to make an instance of deck with cards', function () {
+      game.start()
+      expect(game.deck).to.be.an.instanceOf(Deck)
+      expect(game.deck.countCards()).to.be.equal(30)
+    })
   })
 })
