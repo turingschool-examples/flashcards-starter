@@ -9,10 +9,11 @@ class Turn {
   returnCard() {
     return this.currentCard
   }
+
   evaluateGuess() {
     return this.guess === this.currentCard.correctAnswer ? true : false
-    
   }
+
   giveFeedBack() {
     return this.evaluateGuess() === true ? 'correct!' : 'incorrect!'
   }
