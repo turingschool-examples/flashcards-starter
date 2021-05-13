@@ -15,7 +15,7 @@ class Turn {
   }
 
   giveFeedBack() {
-    return this.evaluateGuess() === true ? 'correct!' : 'incorrect!'
+    return this.evaluateGuess() ? 'correct!' : 'incorrect!'
   }
 }
 
