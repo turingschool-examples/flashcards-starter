@@ -28,7 +28,7 @@ describe('Round', () => {
       expect(round).to.be.an.instanceOf(Round)
     }) 
 
-    it('should have deck', function () {
+    it('should have a deck', function () {
       expect(round.deck).to.have.lengthOf(3)
     }) 
 
@@ -38,13 +38,21 @@ describe('Round', () => {
     })
 
     it('should be able to goto the next card', function () {
-      round.returnCurrentCard() 
-      round.returnCurrentCard() 
-      expect(round.currentCard).to.deep.equal(card2)
+      round.takeTurn()
+      round.takeTurn()
+    
+      expect(round.returnCurrentCard()).to.deep.equal(card2)
     })
 
     it('should have a default of 0 turns', function () {
       expect(round.turns).to.equal(0)
+    })
+
+    it('should be able to update turns', function () {
+      round.takeTurn()
+      round.takeTurn()
+      round.takeTurn()
+      expect(round.turns).to.equal(3)
     })
     
     it('should have an empty array for incorrect guesses', function () {
@@ -57,8 +65,8 @@ describe('Round', () => {
 
     it('should be able to store incorrect guesses', function () {
       round.takeTurn('sea otter')
-      round.takeTurn('gallbladder')
-      expect(round.incorrectGuesses).to.be.lengthOf(0)
+      round.takeTurn('appendix')
+      expect(round.incorrectGuesses).to.be.lengthOf(1)
     })
 
     it('should be calculate how the percentage of wins', function () {
