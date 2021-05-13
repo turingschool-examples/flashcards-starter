@@ -28,7 +28,7 @@ describe('Round', () => {
       expect(round).to.be.an.instanceOf(Round)
     }) 
 
-    it('should have deck', function () {
+    it('should have a deck', function () {
       expect(round.deck).to.have.lengthOf(3)
     }) 
 
@@ -46,6 +46,13 @@ describe('Round', () => {
 
     it('should have a default of 0 turns', function () {
       expect(round.turns).to.equal(0)
+    })
+
+    it('should be able to update turns', function () {
+      round.takeTurn()
+      round.takeTurn()
+      round.takeTurn()
+      expect(round.turns).to.equal(3)
     })
     
     it('should have an empty array for incorrect guesses', function () {
