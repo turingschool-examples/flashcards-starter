@@ -11,8 +11,9 @@ const Card = require('../src/Card')
 describe('Round', () => {
   let card1, card2, card3, deck, round
   beforeEach(() => {
-    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+
+    card1 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     
     deck = new Deck([card1, card2, card3]);
@@ -33,14 +34,11 @@ describe('Round', () => {
     }) 
 
     it('should return the card in play', function() {
-      round.returnCurrentCard() 
-      expect(round.currentCard).to.deep.equal(card1)
+      expect(round.returnCurrentCard()).to.deep.equal(card1)
     })
 
     it('should be able to goto the next card', function () {
       round.takeTurn()
-      round.takeTurn()
-    
       expect(round.returnCurrentCard()).to.deep.equal(card2)
     })
 
@@ -51,8 +49,9 @@ describe('Round', () => {
     it('should be able to update turns', function () {
       round.takeTurn()
       round.takeTurn()
-      round.takeTurn()
-      expect(round.turns).to.equal(3)
+
+
+      expect(round.turns).to.be.equal(2)
     })
     
     it('should have an empty array for incorrect guesses', function () {
@@ -64,25 +63,25 @@ describe('Round', () => {
     })
 
     it('should be able to store incorrect guesses', function () {
-      round.takeTurn('sea otter')
       round.takeTurn('appendix')
+      round.takeTurn('sea otter')
       expect(round.incorrectGuesses).to.be.lengthOf(1)
     })
 
     it('should be calculate how the percentage of wins', function () {
-      round.takeTurn('sea otter')
-      round.takeTurn('gallbladder')
-      round.takeTurn('watching netflix') 
+      round.takeTurn('appendix')
+      round.takeTurn('sea otter') 
+
+
       
-      expect(round.calculatePercentCorrect()).to.be.equal(67)
+      expect(round.calculatePercentCorrect()).to.be.equal(50)
     })
 
     it('should be able to end round and receive a message', function () {
-      round.takeTurn('sea otter')
-      round.takeTurn('gallbladder')
-      round.takeTurn('watching netflix') 
+      round.takeTurn('appendix')
+      round.takeTurn('sea otter') 
 
-      expect(round.endRound()).to.be.equal('** Round over! ** You answered 67% of the questions correctly!')
+      expect(round.endRound()).to.be.equal('** Round over! ** You answered 50% of the questions correctly!')
     })
   })
 })
