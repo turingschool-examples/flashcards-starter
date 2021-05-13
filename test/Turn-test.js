@@ -51,18 +51,14 @@ describe('Turn', () => {
 
   it('should output whether the guess is correct.', () => {
 
-     turn = new Turn("Onomichi", card);
-     guessOutcome = turn.evaluateGuess();
-
-    expect(turn.giveFeedback(guessOutcome)).to.equal("correct!");
+    turn = new Turn("Onomichi", card);
+    expect(turn.giveFeedback()).to.equal("correct!");
   });
 
 
   it('should output whether the guess is incorrect.', () => {
 
-     turn = new Turn("Osaka", card);
-     guessOutcome = turn.evaluateGuess();
-
-    expect(turn.giveFeedback(guessOutcome)).to.equal("incorrect!");
+    turn = new Turn("Osaka", card);
+    expect(turn.giveFeedback()).to.equal("incorrect!");
   });
 });
