@@ -40,6 +40,7 @@ describe('Round', () => {
 
   it('should evaluate guesses and give feedback', () => {
     expect(round.takeTurn('object')).to.equal('You are correct!')
+    expect(round.takeTurn('object')).to.equal('You are incorrect!')
   });
 
   it('should store incorrect guesses', () => {
