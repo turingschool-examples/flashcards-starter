@@ -39,7 +39,7 @@ describe('Round', () => {
 
     it('should be able to goto the next card', function () {
       round.takeTurn()
-      round.returnCurrentCard() 
+      round.takeTurn()
     
       expect(round.returnCurrentCard()).to.deep.equal(card2)
     })
@@ -55,21 +55,21 @@ describe('Round', () => {
       expect(round.turns).to.equal(3)
     })
     
-    it.skip('should have an empty array for incorrect guesses', function () {
+    it('should have an empty array for incorrect guesses', function () {
       expect(round.incorrectGuesses).to.be.an('array')
     })
 
-    it.skip('should be able guess incorrectly', function () {
+    it('should be able guess incorrectly', function () {
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
     })
 
-    it.skip('should be able to store incorrect guesses', function () {
+    it('should be able to store incorrect guesses', function () {
       round.takeTurn('sea otter')
       round.takeTurn('appendix')
       expect(round.incorrectGuesses).to.be.lengthOf(1)
     })
 
-    it.skip('should be calculate how the percentage of wins', function () {
+    it('should be calculate how the percentage of wins', function () {
       round.takeTurn('sea otter')
       round.takeTurn('gallbladder')
       round.takeTurn('watching netflix') 
@@ -77,7 +77,7 @@ describe('Round', () => {
       expect(round.calculatePercentCorrect()).to.be.equal(67)
     })
 
-    it.skip('should be able to end round and receive a message', function () {
+    it('should be able to end round and receive a message', function () {
       round.takeTurn('sea otter')
       round.takeTurn('gallbladder')
       round.takeTurn('watching netflix') 
