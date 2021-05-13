@@ -12,9 +12,9 @@ class Round {
   }
 
   takeTurn(guess) {
-    this.currentCard = this.deck[this.turns]
     const turn = new Turn(guess, this.currentCard)
     this.turns++
+    this.currentCard = this.deck[this.turns]
   
     if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.currentCard.id)
