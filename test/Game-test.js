@@ -28,7 +28,6 @@ describe('Game', function() {
     expect(game.currentRound).to.equal(round);
   });
 
-
   it('should create Cards, put them in a deck, & create new round', function() {
 
     const game = new Game("x");

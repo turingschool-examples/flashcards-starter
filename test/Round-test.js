@@ -178,11 +178,14 @@ describe('Round', function() {
 
     const round = new Round(deck);
 
-    round.incorrectGuesses = ["wrong1", "wrong2", "wrong3"];
+    round.takeTurn("wrong1");
+    round.takeTurn("wrong2");
+    round.takeTurn("wrong3");
 
     round.turns = 10;
 
-    expect(round.endRound()).to.equal('** Round over! ** You answered 70% of the questions correctly!');
+    console.log(round.turns)
 
+    expect(round.endRound()).to.equal('** Round over! ** You answered 70% of the questions correctly!');
   });
 })
