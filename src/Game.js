@@ -5,7 +5,6 @@ const util = require('./util');
 const Card = require('./Card');
 const Round = require('./Round');
 const Deck = require('./Deck');
-const Turn = require('./Turn');
 
 class Game {
   constructor(round) {
@@ -19,13 +18,17 @@ class Game {
   }
 
   start() {
-    for (let i =0; i < prototypeQuestions.length; i++) {
+    for (let i = 0; i < prototypeQuestions.length; i++) {
 
       let newCardArray = [];
 
       // const {id, question, answers, correctAnswer} = prototypeQuestions[i];
 
-      const newCard = this.createCard(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
+      const newCard = this.createCard(
+        prototypeQuestions[i].id,
+        prototypeQuestions[i].question,
+        prototypeQuestions[i].answers,
+        prototypeQuestions[i].correctAnswer);
 
       newCardArray.push(newCard);
     }
@@ -38,7 +41,7 @@ class Game {
     this.printQuestion(round);
   }
 
-    printMessage(deck, round) {
+  printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${this.currentRound.deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
