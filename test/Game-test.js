@@ -27,4 +27,8 @@ describe('Game', function() {
     expect(game.currentRound).to.equal()
   });
 
+  it('should have a method to start the game', function() {
+    expect(game.start).to.be.a('function');
+  });
+  
 })
