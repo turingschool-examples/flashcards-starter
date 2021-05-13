@@ -21,8 +21,7 @@ class Round {
     }
   }
   calculatePercentCorrect() {
-    const correctGuesses = this.turns - this.incorrectGuesses.length
-    return Math.round(correctGuesses / this.turns * 100)
+    return Math.round((this.turns - this.incorrectGuesses.length) / this.turns * 100)
   }
   endRound() {
     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
