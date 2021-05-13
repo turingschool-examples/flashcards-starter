@@ -13,15 +13,6 @@ class Game {
     this.cards = [];
   }
 
-  printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
-  }
-
-  printQuestion(round) {
-    util.main(round);
-  }
-
   createCard(id, question, answers, correctAnswer) {
     const card = new Card(id, question, answers, correctAnswer);
     return card;
@@ -31,10 +22,10 @@ class Game {
     for (let i =0; i < prototypeQuestions.length; i++) {
 
       let newCardArray = [];
-      
-      const {id, question, answers, correctAnswer} = prototypeQuestions[i];
 
-      const newCard = this.createCard(id, question, answers, correctAnswer);
+      // const {id, question, answers, correctAnswer} = prototypeQuestions[i];
+
+      const newCard = this.createCard(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer);
 
       newCardArray.push(newCard);
     }
@@ -43,6 +34,17 @@ class Game {
     let round = new Round(deck);
     this.currentRound = round;
     this.cards = this.currentRound.deck.cards;
+    this.printMessage(deck, this.currentRound);
+    this.printQuestion(round);
+  }
+
+    printMessage(deck, round) {
+    console.log(`Welcome to FlashCards! You are playing with ${this.currentRound.deck.countCards()} cards.
+-----------------------------------------------------------------------`)
+  }
+
+  printQuestion(round) {
+    util.main(round);
   }
 }
 

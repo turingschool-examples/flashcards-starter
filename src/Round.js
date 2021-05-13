@@ -1,52 +1,30 @@
-const Turn = require('../src/Turn');
-const Deck = require('../src/Deck');
+const Turn = require('./Turn');
+const Deck = require('./Deck');
+const Card = require('./Card');
 
 class Round {
   constructor(deck) {
     this.deck = deck;
-    // this.currentCard;
     this.turns = 0;
     this.incorrectGuesses = [];
+    this.currentCard = this.deck.cards[this.turns];
   }
 
   returnCurrentCard() {
-    // this.currentCard = this.deck.cards[this.turns];
     return this.currentCard;
   }
 
   takeTurn(guess) {
-    const currentCard = this.returnCurrentCard();
-    // The turns count is updated, regardless of whether the guess is correct or incorrect
-
     this.turns++;
-
-  // When a guess is made, a new Turn instance is created.
-
-    const turn = new Turn (guess, this.currentCard);
-
-  // The next card becomes current card
-
+    let turn = new Turn (guess, this.currentCard);
     this.currentCard = this.deck.cards[this.turns];
-    // this.deck.cards.shift();
-    // this.currentCard = this.deck.cards[0];
 
-  // Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
-  // Feedback is returned regarding whether the guess is incorrect or correct
-
-  //   if (turn.evaluateGuess() === true) {
-  //     return `correct!`;
-  //   } else {
-  //     this.incorrectGuesses.push(guess);
-  //     return `incorrect!`;
-  //   }
-  // }
-
-    if (guess === this.deck.cards.correctAnswer) {
-      return `correct!`;
-    } else {
-      this.incorrectGuesses.push(guess);
-      return `incorrect!`;
+    if (!turn.evaluateGuess()) {
+      this.incorrectGuesses.push(turn.guess);
     }
+
+    turn.giveFeedback();
+    return turn.giveFeedback();
   }
 
   calculatePercentCorrect() {
