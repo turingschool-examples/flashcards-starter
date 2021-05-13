@@ -13,8 +13,8 @@ class Round {
     this.returnCurrentCard() 
     this.turns++
     let currentTurn = new Turn(guess, this.currentCard)
-    if (currentTurn.evaluateGuess() === false) {
-      this.incorrectGuesses.push(currentTurn.guess)
+    if (!currentTurn.evaluateGuess()) {
+      this.incorrectGuesses.push(currentTurn.id)
       return currentTurn.giveFeedBack()
     } else {
       return currentTurn.giveFeedBack()
