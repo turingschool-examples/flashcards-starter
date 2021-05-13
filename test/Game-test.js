@@ -31,6 +31,7 @@ describe('Game', function () {
     it('should have a start function', function () {
       expect(game.start).to.be.a('function');
     })
+    
     it('should be able to create cards', function () {
       game.start()
       expect(game.cards).to.have.lengthOf(30)
