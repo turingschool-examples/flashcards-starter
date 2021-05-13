@@ -15,7 +15,6 @@ describe('Game', function() {
     expect(Game).to.be.a('function');
   });
 
-
   it('should keep track of currentRound', function() {
 
     const deck = new Deck(["card1", "card2", "card3"])
