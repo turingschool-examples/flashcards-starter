@@ -6,11 +6,16 @@ const Card = require('./Card')
 
 class Game {
   constructor(round) {
-    this.currentRound = round
+    this.currentRound = round   
   }
 
   start() {
-    
+    this.cards = prototypeQuestions.map(this.createCard)
+  }
+
+  createCard(card) {
+    const currentCard = Object.values(card)
+    return new Card(currentCard[0], currentCard[1], currentCard[2], currentCard[3])
   }
 
   printMessage(deck, round) {
