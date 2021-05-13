@@ -24,9 +24,16 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   });
   it('should store and return the first card from the deck', function() {
+    let guess1 = round.takeTurn('sea otter')
     round.returnCurrentCard();
 
     expect(round.currentCard).to.equal(card1);
+    expect(round.returnCurrentCard()).to.deep.equal(round.currentCard);
+
+    let guess2 = round.takeTurn('spleen');
+    round.returnCurrentCard();
+
+    expect(round.currentCard).to.equal(card2);
     expect(round.returnCurrentCard()).to.deep.equal(round.currentCard);
   });
   it('should evaluate if the guess is correct or incorrect ', function() {
@@ -49,9 +56,10 @@ describe('Round', function() {
   it('should store incorrect guesses', function() {
 
     let guess1 = round.takeTurn('sea otter')
-    let guess2 = round.takeTurn('pug');
-    let guess3 = round.takeTurn('capybara');
+    let guess2 = round.takeTurn('spleen');
+    // let guess3 = round.takeTurn('capybara');
 
-    expect(round.incorrectGuesses).to.deep.equal(2);
+    expect(round.incorrectGuesses).to.deep.equal(14);
+    // Know the test is working, I have to find the way to update the current card.
   });
 });
