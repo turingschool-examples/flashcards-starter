@@ -24,19 +24,34 @@ describe('Round', function() {
     expect(round).to.be.an.instanceof(Round);
   });
   it('should store and return the first card from the deck', function() {
-
     round.returnCurrentCard();
 
     expect(round.currentCard).to.equal(card1);
     expect(round.returnCurrentCard()).to.deep.equal(round.currentCard);
   });
   it('should evaluate if the guess is correct or incorrect ', function() {
-    round.takeTurn('sea otter');
+    let guess1 = round.takeTurn('sea otter')
+    let guess2 = round.takeTurn('pug');
 
-    expect(round.takeTurn()).to.deep.equal('correct');
+    expect(guess1).to.equal('correct');
+    expect(guess2).to.equal('incorrect');
+  });
+  it('should update the turns', function() {
 
-    round.takeTurn('pug');
+    expect(round.turns).to.equal(0);
 
-    expect(round.takeTurn()).to.deep.equal('incorrect');
+    let guess1 = round.takeTurn('sea otter')
+    let guess2 = round.takeTurn('pug');
+    let guess3 = round.takeTurn('capybara');
+
+    expect(round.turns).to.equal(3);
+  });
+  it('should store incorrect guesses', function() {
+
+    let guess1 = round.takeTurn('sea otter')
+    let guess2 = round.takeTurn('pug');
+    let guess3 = round.takeTurn('capybara');
+
+    expect(round.incorrectGuesses).to.deep.equal(2);
   });
 });

@@ -1,4 +1,4 @@
-// const Deck = require('../src/Deck');
+const Turn = require('../src/Turn');
 class Round {
   constructor(deck) {
     this.deck = deck;
@@ -7,23 +7,20 @@ class Round {
     this.incorrectGuesses = [];
   }
   returnCurrentCard() {
-    return this.currentCard;
+  // for (var i = 0; i < this.deck.length) {
+  //   if (this.currentCard[i] === this.deck) {
+  //     return this.currentCard[i];
+  //   }
+  // }
   }
   takeTurn(guess) {
     this.turns ++;
-    // for (var i = 0; i < this.deck.lenght; i++) {
-      if (guess === this.currentCard) {
-      return 'correct';
-      } else {
-      return 'incorrect';
-      this.incorrectGuesses.push(this.deck)
-      }
-    // }
+    const turn = new Turn(guess, this.currentCard);
+    if (turn.giveFeedback() === 'incorrect') {
+      this.incorrectGuesses.push(this.currentCard);
+    }
+    return turn.giveFeedback()
   }
-
-
-
-
 
 // When a guess is made, a new Turn instance is created.
   // turn.returnGuess()
@@ -38,4 +35,5 @@ class Round {
   // turn.giveFeedback()
   // }
 };
+
 module.exports = Round;

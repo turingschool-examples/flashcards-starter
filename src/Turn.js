@@ -12,13 +12,13 @@ class Turn {
   }
   evaluateGuess() {
     if (this.guess === this.flashCard.correctAnswer) {
-      this.guess = true;
+      return true;
     } else {
-      this.guess = false;
+      return false;
     }
   }
   giveFeedback() {
-    if (this.guess) {
+    if (this.evaluateGuess()) {
       return 'correct';
     } else {
       return 'incorrect';
