@@ -7,6 +7,10 @@ const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 const Game = require('../src/Game');
 
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
+const util = require('../src/util');
+
 describe('Game', function() {
 
   it('should be a function', function() {
@@ -14,7 +18,6 @@ describe('Game', function() {
     expect(Game).to.be.a('function');
   });
 
-// Should keep track of the currentRound
 
   it('should keep track of currentRound', function() {
 
@@ -25,49 +28,29 @@ describe('Game', function() {
     expect(game.currentRound).to.equal(round);
   });
 
-// creates Cards
 
   it('should create Cards', function() {
 
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-
-    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-
-    const game = new Game();
+    const game = new Game("x");
 
     game.start();
 
-
-
-    // console.log(game.cards);
-
-    // expect(round.deck).to.equal(card1, card2, card3)
+    expect(game.currentRound.deck.cards).to.equal(prototypeQuestions);
   });
-
-
+ 
 // put cards in a Deck
-
   it.skip('should put cards in a Deck', function() {
-
   });
 
 // Creates a new Round using the Deck
-
   it.skip('should create new round', function() {
-
   });
 
   // invokes printMessage to display the message in the CLI
-
   it.skip('should print message in CLI', function() {
-
   });
 
 // invokes printQuestion to kick off our helper functions that allow interaction via the CLI
-
   it.skip('should allow interaction with CLI', function() {
-
   });
 });
