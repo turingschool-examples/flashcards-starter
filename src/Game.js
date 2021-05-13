@@ -2,6 +2,7 @@ const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Turn = require('./Turn');
+const Deck = require('./Deck')
 const Card = require('./Card')
 
 class Game {
@@ -11,6 +12,8 @@ class Game {
 
   start() {
     this.cards = prototypeQuestions.map(this.createCard)
+    this.deck = new Deck(this.cards)
+    console.log(this.deck.countCards())
   }
 
   createCard(card) {
