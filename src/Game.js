@@ -1,6 +1,7 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
-const util = require('./util');
+const util = require('./util')
+const Round = require('./Round');
 const Turn = require('./Turn');
 const Deck = require('./Deck')
 const Card = require('./Card')
@@ -12,8 +13,8 @@ class Game {
 
   start() {
     this.cards = prototypeQuestions.map(this.createCard)
-    this.deck = new Deck(this.cards)
-    console.log(this.deck.countCards())
+    this.deck = new Deck(this.cards)  
+    this.round = new Round(this.deck)
   }
 
   createCard(card) {
