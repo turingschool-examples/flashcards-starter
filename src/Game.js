@@ -18,9 +18,9 @@ class Game {
     this.deck = new Deck(this.cards)  
     this.currentRound = new Round(this.deck)
 
-    // this.round = new Round(this.deck)
-    // this.printMessage(this.deck, this.round)
-    // this.printQuestion(this.round)
+    this.round = new Round(this.deck)
+    this.printMessage(this.deck, this.round)
+    this.printQuestion(this.round)
   }
 
   printMessage(deck, round) {
