@@ -65,8 +65,8 @@ describe('Round', () => {
 
     it('should be able to store incorrect guesses', function () {
       round.takeTurn('sea otter')
-      round.takeTurn('gallbladder')
-      expect(round.incorrectGuesses).to.be.lengthOf(0)
+      round.takeTurn('appendix')
+      expect(round.incorrectGuesses).to.be.lengthOf(1)
     })
 
     it('should be calculate how the percentage of wins', function () {
