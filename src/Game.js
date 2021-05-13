@@ -14,21 +14,21 @@ class Game {
   start() {
     let cards = [];
     prototypeQuestions.forEach(card => {
-      const card1 = new Card (card.id, card.question, card.answers, card.correctAnswer)
+      const card1 = new Card(card.id, card.question, card.answers, card.correctAnswer)
       cards.push(card1)
     });
-    let deck = new Deck (cards);
+    let deck = new Deck(cards);
     this.currentRound = new Round(deck);
     this.printMessage(deck);
     this.printQuestion(this.currentRound);
   }
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
   -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 
