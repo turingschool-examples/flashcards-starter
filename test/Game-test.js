@@ -37,28 +37,3 @@ describe('Game', function() {
     expect(game.currentRound.deck.cards).to.equal(prototypeQuestions);
   });
  });
-// // put cards in a Deck
-//   it.skip('should put cards in a Deck', function() {
-//   });
-
-// // Creates a new Round using the Deck
-//   it.skip('should create new round', function() {
-//   });
-
-//   // invokes printMessage to display the message in the CLI
-//   it('should print message in CLI', function() {
-
-//     const game = new Game("x");
-
-//     game.start();
-
-//     let messageTest = `Welcome to FlashCards! You are playing with ${prototypeQuestions.length} cards.
-// -----------------------------------------------------------------------`;
-//     let printTest = game.printMessage();
-
-//     expect(printTest).to.equal(messageTest);
-//   });
-
-// invokes printQuestion to kick off our helper functions that allow interaction via the CLI
-//   it.skip('should allow interaction with CLI', function() {
-//   });

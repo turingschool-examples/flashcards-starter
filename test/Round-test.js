@@ -184,8 +184,6 @@ describe('Round', function() {
 
     round.turns = 10;
 
-    console.log(round.turns)
-
     expect(round.endRound()).to.equal('** Round over! ** You answered 70% of the questions correctly!');
   });
 })
