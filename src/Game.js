@@ -12,7 +12,9 @@ class Game {
   }
 
   start() {
-    this.cards = prototypeQuestions.map(this.createCard)
+    this.cards = prototypeQuestions.map((card) => {
+      return new Card(card.id, card.question, card.answers, card.correctAnswer)
+    })
     this.deck = new Deck(this.cards)  
     this.round = new Round(this.deck)
     this.printMessage(this.deck, this.round)
@@ -21,8 +23,7 @@ class Game {
   }
 
   createCard(card) {
-    const currentCard = Object.values(card)
-    return new Card(currentCard[0], currentCard[1], currentCard[2], currentCard[3])
+    
   }
 
   printMessage(deck, round) {
