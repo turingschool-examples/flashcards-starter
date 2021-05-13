@@ -24,10 +24,6 @@ describe('Game', function () {
       expect(Game).to.be.a('function');
     })
   
-    it('should keep track of the current round', function () {
-      expect(game.currentRound).to.deep.equal(round)
-    })
-
     it('should have a start function', function () {
       expect(game.start).to.be.a('function');
     })
@@ -44,7 +40,13 @@ describe('Game', function () {
     })
     it('should be able to create a a new round with deck', function () {
       game.start()
-      expect(game.round).to.be.an.instanceOf(Round)
+      expect(game.currentRound).to.be.an.instanceOf(Round)
     })
+    
+    it('should keep track of the current round', function () {
+      game.start()
+      expect(game.currentRound).to.be.an.instanceOf(Round)
+    })
+
   })
 })
