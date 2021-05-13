@@ -15,6 +15,9 @@ class Game {
     this.cards = prototypeQuestions.map(this.createCard)
     this.deck = new Deck(this.cards)  
     this.round = new Round(this.deck)
+    this.printMessage(this.deck, this.round)
+    console.log(this.cards[0].answers)
+    this.printQuestion(this.round)
   }
 
   createCard(card) {
