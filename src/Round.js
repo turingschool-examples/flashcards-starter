@@ -12,9 +12,8 @@ class Round {
       this.sayStartOver()
       this.restart()
       return (`** Start over! ** You only answered ${this.calculatePercentCorrect()}% correctly!`)
-    } else {
-      return this.currentCard
-    }
+    } 
+    return this.currentCard 
   }
   
   takeTurn(guess) {
@@ -24,9 +23,8 @@ class Round {
     if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.currentCard.id)
       return turn.giveFeedBack()
-    } else {
-      return turn.giveFeedBack()
     }
+    return turn.giveFeedBack() 
   }
 
   calculatePercentCorrect() {
