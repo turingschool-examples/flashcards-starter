@@ -3,6 +3,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Card', function() {
@@ -36,7 +37,6 @@ describe('Card', function() {
     expect(card.correctAnswer).to.equal('object');
   });
 });
-
 
 it('should return a card', function () {
   const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
