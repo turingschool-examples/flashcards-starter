@@ -22,11 +22,11 @@ describe('Round', () => {
       expect(Round).to.be.a('function')
     }) 
 
-    it('should be an instance of Round', function () {
+    it('should be an instance of Round', () => {
       expect(round).to.be.an.instanceOf(Round)
     }) 
 
-    it('should have a deck', function () {
+    it('should have a deck', () => {
       expect(round.deck).to.have.lengthOf(3)
     }) 
 
@@ -34,45 +34,45 @@ describe('Round', () => {
       expect(round.returnCurrentCard()).to.deep.equal(card1)
     })
 
-    it('should be able to goto the next card', function () {
+    it('should be able to goto the next card', () => {
       round.takeTurn()
       expect(round.returnCurrentCard()).to.deep.equal(card2)
     })
 
-    it('should have a default of 0 turns', function () {
+    it('should have a default of 0 turns', () => {
       expect(round.turns).to.equal(0)
     })
 
-    it('should be able to update turns', function () {
+    it('should be able to update turns', () => {
       round.takeTurn()
       round.takeTurn()
 
       expect(round.turns).to.be.equal(2)
     })
     
-    it('should have an empty array for incorrect guesses', function () {
+    it('should have an empty array for incorrect guesses', () => {
       expect(round.incorrectGuesses).to.be.an('array')
     })
 
-    it('should be able guess incorrectly', function () {
+    it('should be able guess incorrectly', () => {
       expect(round.takeTurn('spleen')).to.be.equal('incorrect!')
     })
 
-    it('should be able to store incorrect guesses', function () {
+    it('should be able to store incorrect guesses', () => {
       round.takeTurn('appendix')
       round.takeTurn('sea otter')
 
       expect(round.incorrectGuesses).to.be.lengthOf(1)
     })
 
-    it('should be calculate how the percentage of wins', function () {
+    it('should be calculate how the percentage of wins', () => {
       round.takeTurn('appendix')
       round.takeTurn('sea otter') 
 
       expect(round.calculatePercentCorrect()).to.be.equal(50)
     })
 
-    it('should be able to end round and receive a message', function () {
+    it('should be able to end round and receive a message', () => {
       round.takeTurn('appendix')
       round.takeTurn('sea otter') 
 
