@@ -8,7 +8,7 @@ const Card = require('../src/Card')
 const data = require('../src/data');
 
 
-describe('Game', function () {
+describe('Game', () => {
   let card1, card2, card3, deck, round, game
   beforeEach(() => {
     card1 = new Card(2, '?', [], '!')
@@ -19,31 +19,31 @@ describe('Game', function () {
     game = new Game(round)
   })
 
-  describe('Game Properties', function () {
+  describe('Game Properties', () => {
     it('should be a function', function() {
       expect(Game).to.be.a('function');
     })
   
-    it('should have a start function', function () {
+    it('should have a start function', () => {
       expect(game.start).to.be.a('function');
     })
     
-    it('should be able to create cards', function () {
+    it('should be able to create cards', () => {
       game.start()
       expect(game.cards).to.have.lengthOf(30)
     })
 
-    it('should be able to make an instance of deck with cards', function () {
+    it('should be able to make an instance of deck with cards', () => {
       game.start()
       expect(game.deck).to.be.an.instanceOf(Deck)
       expect(game.deck.countCards()).to.be.equal(30)
     })
-    it('should be able to create a a new round with deck', function () {
+    it('should be able to create a a new round with deck', () => {
       game.start()
       expect(game.currentRound).to.be.an.instanceOf(Round)
     })
     
-    it('should keep track of the current round', function () {
+    it('should keep track of the current round', () => {
       game.start()
       expect(game.currentRound).to.be.an.instanceOf(Round)
     })
