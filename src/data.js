@@ -148,8 +148,8 @@ const prototypeData = [{
   "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
   "answers": ["prototype method", "object", "callback function"],
   "correctAnswer": "prototype method"
-}]
+}];
 
 module.exports = {
-  prototypeData 
+  prototypeData
 }

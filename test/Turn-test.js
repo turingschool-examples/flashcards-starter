@@ -52,17 +52,17 @@ describe('Turn', function() {
   it('should returns a boolean if the user’s guess matches the correct answer on the card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'array');
 
-    const turn1 = new Turn('object', card);
+    const turn1 = new Turn('array', card);
 
     turn1.evaluateGuess();
 
-    expect(turn1.evaluateGuess()).to.deep.equal(this.guess, true);
+    expect(turn1.evaluateGuess()).to.be.true;
 
-    const turn2 = new Turn('array', card);
+    const turn2 = new Turn('object', card);
 
     turn2.evaluateGuess();
 
-    expect(turn2.evaluateGuess()).to.deep.equal(this.guess, false);
+    expect(turn2.evaluateGuess()).to.be.false;
   });
   it('should returns either ‘incorrect!’ or ‘correct!’ based on the user’s guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
