@@ -23,26 +23,6 @@ describe('Round', function() {
 
     expect(round).to.be.an.instanceof(Round);
   });
-  it('should store and return the first card from the deck', function() {
-    let guess1 = round.takeTurn('sea otter')
-    round.returnCurrentCard();
-
-    expect(round.currentCard).to.equal(card1);
-    expect(round.returnCurrentCard()).to.deep.equal(round.currentCard);
-
-    let guess2 = round.takeTurn('spleen');
-    round.returnCurrentCard();
-
-    expect(round.currentCard).to.equal(card2);
-    expect(round.returnCurrentCard()).to.deep.equal(round.currentCard);
-  });
-  it('should evaluate if the guess is correct or incorrect ', function() {
-    let guess1 = round.takeTurn('sea otter')
-    let guess2 = round.takeTurn('pug');
-
-    expect(guess1).to.equal('correct');
-    expect(guess2).to.equal('incorrect');
-  });
   it('should update the turns', function() {
 
     expect(round.turns).to.equal(0);
@@ -53,13 +33,47 @@ describe('Round', function() {
 
     expect(round.turns).to.equal(3);
   });
-  it('should store incorrect guesses', function() {
+  it('should evaluate if the guess is correct or incorrect ', function() {
+    let guess1 = round.takeTurn('sea otter')
+    let guess2 = round.takeTurn('pug');
+
+    expect(guess1).to.equal('correct');
+    expect(guess2).to.equal('incorrect');
+  });
+  it('should store incorrect and correct guesses', function() {
 
     let guess1 = round.takeTurn('sea otter')
-    let guess2 = round.takeTurn('spleen');
-    // let guess3 = round.takeTurn('capybara');
+    expect(round.correctGuesses).to.deep.equal([1]);
 
-    expect(round.incorrectGuesses).to.deep.equal(14);
-    // Know the test is working, I have to find the way to update the current card.
+    let guess2 = round.takeTurn('pug');
+    expect(round.incorrectGuesses).to.deep.equal([14]);
+  });
+  it('should update current card after every turn', function() {
+    expect(round.currentCard).to.deep.equal(card1);
+
+    round.takeTurn('gallbladder')
+    expect(round.currentCard).to.deep.equal(card2);
+
+    round.takeTurn('Fitzgerald');
+    expect(round.currentCard).to.deep.equal(card3);
+  });
+  it('should returns the percentage of correct guesses', function() {
+
+    let guess1 = round.takeTurn('pug');
+
+    expect(round.calculatePercentCorrect()).to.equal(0);
+
+    let guess2 = round.takeTurn('sea otter');
+
+    expect(round.calculatePercentCorrect()).to.equal(0.5);
+  });
+  it.skip('should', function() {
+
+    let guess1 = round.takeTurn('sea otter')
+    let guess2 = round.takeTurn('pug');
+    let guess3 = round.takeTurn('capybara');
+    round.endRound()
+
+    expect(round.endRound()).to.equal(1);
   });
 });
