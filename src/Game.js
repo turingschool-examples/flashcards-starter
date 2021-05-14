@@ -13,7 +13,7 @@ class Game {
 
   start() {
     const cards = prototypeQuestions.map(cardInfo => {
-       return new Card(cardInfo.id, cardInfo.question, cardInfo.answers, cardInfo.correctAnswer);
+      return new Card(cardInfo.id, cardInfo.question, cardInfo.answers, cardInfo.correctAnswer);
     });
     const deck = new Deck(cards);
     this.currentRound = new Round(deck);
@@ -21,7 +21,7 @@ class Game {
     this.printQuestion(this.currentRound);
   }
 
-  printMessage(deck, round) {
+  printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
@@ -31,6 +31,4 @@ class Game {
   }
 }
 
-
-
-  module.exports = Game;
+module.exports = Game;

@@ -1,5 +1,4 @@
 const Turn = require('../src/turn');
-const Deck = require('../src/deck');
 
 class Round {
   constructor(deck) {
@@ -16,10 +15,10 @@ class Round {
   takeTurn(guess) {
     this.turns++;
     let turn = new Turn(guess, this.currentCard)
-    if(!turn.evaluateGuess()) {
+    if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.currentCard.id);
-    };
-    this.currentCard = this.deck[this.turns];
+    }
+    this.currentCard = this.deck[this.turns]
     return turn.giveFeedback();
   }
 
@@ -30,8 +29,8 @@ class Round {
   }
 
   endRound() {
-     console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
-     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
 

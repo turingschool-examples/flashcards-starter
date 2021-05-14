@@ -1,4 +1,3 @@
-
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -62,11 +61,11 @@ describe('Round', function() {
   });
 
   it('should store incorrect guesses', function() {
-   round.takeTurn('pug');
-   expect(round.incorrectGuesses).to.deep.equal([round.deck[0].id]);
+    round.takeTurn('pug');
+    expect(round.incorrectGuesses).to.deep.equal([round.deck[0].id]);
 
-   round.takeTurn('appendix');
-   expect(round.incorrectGuesses).to.deep.equal([1, 14]);
+    round.takeTurn('appendix');
+    expect(round.incorrectGuesses).to.deep.equal([1, 14]);
   });
 
   it('should return if the guess is correct', function() {

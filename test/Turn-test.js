@@ -19,12 +19,12 @@ describe('Turn', function() {
   });
 
   it('should take in a guess and a card object', function() {
-   const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
-   const turn = new Turn('Lake Superior', card);
+    const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+    const turn = new Turn('Lake Superior', card);
 
-   expect(turn.guess).to.deep.equal('Lake Superior');
-   expect(turn.card).to.be.an('object');
-   expect(turn.card.id).to.deep.equal(1);
+    expect(turn.guess).to.deep.equal('Lake Superior');
+    expect(turn.card).to.be.an('object');
+    expect(turn.card.id).to.deep.equal(1);
   });
 
   it('should return the user guess', function() {
@@ -35,10 +35,10 @@ describe('Turn', function() {
   });
 
   it('should return the card object', function() {
-   const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
-   const turn = new Turn('Lake Superior', card);
+    const card = new Card(1, 'What is the largest lake in the US?', ['Lake Tahoe', 'Lake Superior', 'Crater Lake'], 'Lake Superior');
+    const turn = new Turn('Lake Superior', card);
 
-   expect(turn.returnCard()).to.be.an.instanceof(Card);
+    expect(turn.returnCard()).to.be.an.instanceof(Card);
   });
 
   it('should be able to evaluate user guess', function() {
