@@ -6,12 +6,9 @@ const Round = require('../src/Round')
 const Deck = require('../src/Deck')
 const Card = require('../src/Card')
 
-
-
 describe('Round', () => {
   let card1, card2, card3, deck, round
   beforeEach(() => {
-
     card1 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -50,7 +47,6 @@ describe('Round', () => {
       round.takeTurn()
       round.takeTurn()
 
-
       expect(round.turns).to.be.equal(2)
     })
     
@@ -65,6 +61,7 @@ describe('Round', () => {
     it('should be able to store incorrect guesses', function () {
       round.takeTurn('appendix')
       round.takeTurn('sea otter')
+
       expect(round.incorrectGuesses).to.be.lengthOf(1)
     })
 
@@ -72,8 +69,6 @@ describe('Round', () => {
       round.takeTurn('appendix')
       round.takeTurn('sea otter') 
 
-
-      
       expect(round.calculatePercentCorrect()).to.be.equal(50)
     })
 
