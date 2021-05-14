@@ -59,7 +59,3 @@ npm run test
 Give a ⭐️ if this project helped you!
 
 ---
-
-A GIF of the working application
-Technologies used
-Install/Setup instructions
