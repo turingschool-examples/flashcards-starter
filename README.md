@@ -6,7 +6,6 @@ FlashCards is a study application that is played using basic keyboard controls t
 
 ![flashcards-demo](assets/flashcards-demo.gif)
 
-
 ## Technologies Used
 
 * Turing School of Software Design - [FlashCards starter-kit](https://github.com/turingschool-examples/flashcards-starter)
