@@ -3,8 +3,8 @@ const expect = chai.expect;
 
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
 const Round = require('../src/Round');
+// const Turn = require('../src/Turn');
 
 describe('Round', function() {
   let card1, card2, card3, deck, round
@@ -36,22 +36,23 @@ describe('Round', function() {
   it('should evaluate if the guess is correct or incorrect ', function() {
     let guess1 = round.takeTurn('sea otter')
     let guess2 = round.takeTurn('pug');
-
+    // console.log(round.takeTurn());
     expect(guess1).to.equal('correct');
     expect(guess2).to.equal('incorrect');
   });
   it('should store incorrect and correct guesses', function() {
 
     let guess1 = round.takeTurn('sea otter')
-    expect(round.correctGuesses).to.deep.equal([1]);
+    expect(round.correctGuesses).to.equal(1);
 
     let guess2 = round.takeTurn('pug');
+    // console.log(round.correctGuesses);
     expect(round.incorrectGuesses).to.deep.equal([14]);
   });
   it('should update current card after every turn', function() {
     expect(round.currentCard).to.deep.equal(card1);
 
-    round.takeTurn('gallbladder')
+    round.takeTurn('gallbladder');
     expect(round.currentCard).to.deep.equal(card2);
 
     round.takeTurn('Fitzgerald');
@@ -59,21 +60,16 @@ describe('Round', function() {
   });
   it('should returns the percentage of correct guesses', function() {
 
-    let guess1 = round.takeTurn('pug');
+    round.takeTurn('sea otter');
+    round.takeTurn('liver');
 
-    expect(round.calculatePercentCorrect()).to.equal(0);
-
-    let guess2 = round.takeTurn('sea otter');
-
-    expect(round.calculatePercentCorrect()).to.equal(0.5);
+    expect(round.calculatePercentCorrect()).to.equal(50);
   });
-  it.skip('should', function() {
+  it('should finish with the percentage in a menssage', function() {
 
-    let guess1 = round.takeTurn('sea otter')
-    let guess2 = round.takeTurn('pug');
-    let guess3 = round.takeTurn('capybara');
-    round.endRound()
+    round.takeTurn('sea otter');
+    round.takeTurn('liver');
 
-    expect(round.endRound()).to.equal(1);
+    expect(round.endRound()).to.equal('**Round over!** You answered 50% of the questions correctly!');
   });
 });

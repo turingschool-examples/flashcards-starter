@@ -4,31 +4,34 @@ class Round {
     this.deck = deck;
     this.currentCard = deck.cardsArray[0];
     this.turns = 0;
+    this.turn = {};
     this.incorrectGuesses = [];
-    this.correctGuesses = [];
+    this.correctGuesses = 0;
   }
   returnCurrentCard() {
     return this.currentCard
     }
   takeTurn(guess) {
-    this.turns ++ ;
     const card = this.currentCard;
-    const turn = new Turn(guess, card);
-    if (!turn.evaluateGuess()) {
+    this.turn = new Turn(guess, card);
+    if (!this.turn.evaluateGuess()) {
       this.incorrectGuesses.push(card.id)
     } else {
-      this.correctGuesses.push(card.id)
+      this.correctGuesses ++;
     }
-    // this.currentCard = this.deck.cardsArray[this.turns];
-    this.returnCurrentCard();
-    return turn.giveFeedback()
+    this.turns ++ ;
+    this.deck.cardsArray.shift();
+    this.currentCard = this.deck.cardsArray[0];
+    return this.turn.giveFeedback();
   }
   calculatePercentCorrect() {
-    let percent = this.correctGuesses.length +  this.correctGuesses.length % this.turns;
-    return percent;
+    let correctPercent = (this.correctGuesses /  (this.incorrectGuesses.length + this.correctGuesses)) * 100;
+    return correctPercent;
   }
   endRound() {
-    // console.log(`** Round over! ** You answered ${this.correctAnswer} of the questions correctly!`);
+    const percent = this.calculatePercentCorrect();
+    const endMsg = `**Round over!** You answered ${percent}% of the questions correctly!`;
+    return endMsg;
   }
 }
 module.exports = Round;
