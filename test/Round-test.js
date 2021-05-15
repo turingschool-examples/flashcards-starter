@@ -4,7 +4,6 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
-// const Turn = require('../src/Turn');
 
 describe('Round', function() {
   let card1, card2, card3, deck, round
@@ -36,7 +35,7 @@ describe('Round', function() {
   it('should evaluate if the guess is correct or incorrect ', function() {
     let guess1 = round.takeTurn('sea otter')
     let guess2 = round.takeTurn('pug');
-    // console.log(round.takeTurn());
+
     expect(guess1).to.equal('correct');
     expect(guess2).to.equal('incorrect');
   });
@@ -46,7 +45,7 @@ describe('Round', function() {
     expect(round.correctGuesses).to.equal(1);
 
     let guess2 = round.takeTurn('pug');
-    // console.log(round.correctGuesses);
+
     expect(round.incorrectGuesses).to.deep.equal([14]);
   });
   it('should update current card after every turn', function() {
