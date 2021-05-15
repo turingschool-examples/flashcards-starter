@@ -21,5 +21,5 @@ describe('Game', function() {
     const game = new Game();
 
     expect(game.currentRound).to.be.a('object');
-  });
+  })
 });
