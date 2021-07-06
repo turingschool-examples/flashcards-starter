@@ -34,11 +34,12 @@ describe('Turn', function() {
   });  
 
   it('should store a card', () => {
-    const turn = new Turn('object', card);
+    const turn = new Turn(guess1, card);
 
     expect(turn.card).to.equal(card);
   });
 
+  //set up this way?
   it('should return a guess', () => {
     const turn = new Turn(guess1, card);
 
@@ -55,16 +56,17 @@ describe('Turn', function() {
     expect(returnedCard).to.equal(card);
   });
 
+  //or this way?
+  //if I were to divide into its own describe block...wouldn't it just be a bit hard to read in its own little describe block.. what would the description be then?
   it('should evalutate guess to true or false', () => {
     const turn = new Turn(guess1, card);
+    const turn2 = new Turn(guess2, card);
 
     const evaluatedGuess = turn.evaluateGuess();
 
-    expect(evaluatedGuess).to.equal(true);
-
-    const turn2 = new Turn(guess2, card);
-    
     const evaluatedGuess2 = turn2.evaluateGuess();
+
+    expect(evaluatedGuess).to.equal(true);
 
     expect(evaluatedGuess2).to.equal(false);
   })
