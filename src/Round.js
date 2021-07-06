@@ -10,6 +10,10 @@ class Round {
     this.incorrectGuesses = [];
   }
 
+  returnCurrentCard() {
+    return this.currentCard;
+  }
+
 }
 
 module.exports = Round;

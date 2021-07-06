@@ -46,7 +46,7 @@ describe('Round', () => {
   });
 
   //how do I word this it to say should be an empty array
-  it('should default to incorrectGuesses as an empty array', () => {
+  it('should default incorrect guesses as empty', () => {
     const round = new Round(cards);
     expect(round.incorrectGuesses).to.deep.equal([]);
 
@@ -61,7 +61,24 @@ describe('Round', () => {
     expect(round.incorrectGuesses).to.deep.equal(['array']);
 
     round.incorrectGuesses.push(incorrectGuess2);
+    //is this the correct way to write this?
     expect(round.incorrectGuesses).to.deep.equal(['array', 'function']);
   });
+
+  it('should return the current card', () => {
+    const round = new Round(cards);
+
+    const currentCard = round.returnCurrentCard();
+
+    expect(currentCard).to.equal(round.currentCard);
+
+    round.turns = 1;
+
+    const currentCard2 = round.returnCurrentCard();
+
+    expect(currentCard2).to.equal(round.currentCard);
+  })
+
+  
 
 })
