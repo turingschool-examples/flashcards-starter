@@ -94,28 +94,43 @@ describe('Round', () => {
 
   it('should create a new instance of turn passing in a guess as an argument', () => {
     const round = new Round(cards);
-    const guess = 'array';
+    const guess2 = 'array';
 
-    round.takeTurn(guess);
+    round.takeTurn(guess2);
 
     expect(round.currentTurn.guess).to.equal('array');
   });
 
   it('should increment turns after a turn is taken', () => {
     const round = new Round(cards);
-    const guess = 'array';
+    const guess2 = 'array';
     
-    round.takeTurn(guess);
+    round.takeTurn(guess2);
 
     expect(round.turns).to.equal(1);
   });
 
   it('should update the current card after a turn is taken', () => {
+    const round = new Round(cards);
+    const guess2 = 'array';
+    
+    round.takeTurn(guess2);
 
+    expect(round.currentCard).to.equal(card2);
   });
 
   it('should provide feedback regarding whether the guess is correct or incorrect', () => {
+    const round = new Round(cards);
+    const guess1 = 'object';
+    const guess2 = 'array';
+    
+    const feedback = round.takeTurn(guess1);
 
+    expect(feedback).to.equal('correct!')
+
+    const feedback2 = round.takeTurn(guess2);
+
+    expect(feedback2).to.equal('incorrect!')
   })
 
   it('should store incorrect guesses by id', () => {

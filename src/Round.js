@@ -19,6 +19,7 @@ class Round {
   takeTurn(id) {
     this.currentTurn = new Turn(id, this.currentCard);
     this.turns += 1;
+    this.currentCard = this.deck[this.turns];
     let feedback = this.currentTurn.giveFeedback();
     return feedback;
   }
