@@ -28,9 +28,41 @@ describe('Turn', () => {
 
   it.skip('should store a card', () => {
 
-    expect(turn.playedCard).to.equal({'id': 2,
+    expect(turn.playedCard).to.equal({
+      'id': 2,
       'question': 'What is a comma-separated list of related values?',
       'answers': ['array', 'object', 'function'],
-      'correctAnswer': 'array'});
+      'correctAnswer': 'array'
+    })
+  });
+
+  it.skip('should return the guess', () => {
+
+    expect(turn.returnGuess()).to.equal('array')
+  });
+
+  it.skip('should return the card', () => {
+
+    expect(turn.returnCard()).to.equal({
+      'id': 2,
+      'question': 'What is a comma-separated list of related values?',
+      'answers': ['array', 'object', 'function'],
+      'correctAnswer': 'array'
+    })
+  });
+
+  it.skip('should evaluate user guess with correct answer', () => {
+
+
+    expect(turn.evaluateGuess()).to.equal(true);
+  });
+
+  it.skip('should a feedback based on the user guess', () => {
+
+    // expect(turn.giveFeedback()).to.equal("Please select one option");
+
+    turn.evaluateGuess();
+
+    expect(turn.giveFeedback()).to.equal("correct");
   });
 });
