@@ -15,5 +15,10 @@ describe('Turn', function() {
     expect(turn).to.be.an.instanceof(Turn);
   });
 
+  it('should take in a string of the user\'s guess', function() {
+    const turn = new Turn('dachshund', 1);
+    expect(turn.guess).to.be.a('string');
+  });
+
   
 });
