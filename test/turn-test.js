@@ -33,5 +33,4 @@ describe('Turn', () => {
       'answers': ['array', 'object', 'function'],
       'correctAnswer': 'array'});
   });
-
 });
