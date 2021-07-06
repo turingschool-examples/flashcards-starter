@@ -71,3 +71,29 @@ describe('returnCard', function() {
   })
 
 });
+describe('evaluateGuess', function() {
+  let turn;
+  let card;
+  beforeEach(() => {
+    card = new Card(1, "What is Mark's dog", ['dachshund', 'beagle', 'husky'], 'dachshund');
+    turn = new Turn('dachshund', card);
+  });
+
+it('should be a function', function() {
+  expect(turn.evaluateGuess).to.be.a('function');
+});
+
+it('should return a boolean', function() {
+  expect(turn.evaluateGuess()).to.be.a('boolean');
+});
+
+it('should return true if guess matches the correct answer', function() {
+  expect(turn.evaluateGuess()).to.equal(true);
+});
+
+it('should return false if guess does not match the correct answer', function() {
+  turn = new Turn('husky', card);
+  expect(turn.evaluateGuess()).to.equal(false);
+});
+
+})
