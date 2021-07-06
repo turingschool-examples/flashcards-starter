@@ -39,12 +39,11 @@ describe('returnGuess', function() {
   });
 
   it('should be a function', function() {
-    expect(turn.returnGuess).to.be.a.('funtion');
+    expect(turn.returnGuess).to.be.a('function');
   });
 
   it('should return the user\'s guess', function() {
-    expect(turn.guess).to.equal('dachshund');
+    expect(turn.returnGuess()).to.equal('dachshund');
   });
-  
 
 })

@@ -4,7 +4,10 @@ class Turn {
     this.card = card;
   };
 
-  
+  returnGuess() {
+    return this.guess;
+  }
+
 }
 
 module.exports = Turn;
