@@ -87,8 +87,6 @@ describe('Round', () => {
     const round = new Round(cards);
     round.takeTurn(guess);
     
-    console.log(round);
-    
     expect(round.currentTurn).to.be.an.instanceof(Turn);
   });
 
@@ -134,9 +132,13 @@ describe('Round', () => {
   })
 
   it('should store incorrect guesses by id', () => {
+    const round = new Round(cards);
 
+    const guess2 = 'array';
+    
+    round.takeTurn(guess2);
+ 
+    expect(round.incorrectGuesses).to.include(round.currentCard.id);
   })
-
-  
 
 })

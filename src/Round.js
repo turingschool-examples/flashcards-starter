@@ -8,7 +8,7 @@ class Round {
     this.turns = 0;
     this.currentCard = this.deck[this.turns];
     this.incorrectGuesses = [];
-    //do we need a this.guess?
+    //do we need a this.guess???? any reason?
     this.currentTurn;
   }
 
@@ -20,7 +20,10 @@ class Round {
     this.currentTurn = new Turn(id, this.currentCard);
     this.turns += 1;
     this.currentCard = this.deck[this.turns];
-    let feedback = this.currentTurn.giveFeedback();
+    const feedback = this.currentTurn.giveFeedback();
+    if (feedback === 'incorrect!') {
+      this.incorrectGuesses.push(this.currentCard.id);
+    }
     return feedback;
   }
 
