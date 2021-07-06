@@ -25,6 +25,7 @@ class Round {
     }
     //should I move this.turns back up??
     this.turns += 1;
+    //if this is in correct order, do I need to even update this property for this to work in console?
     this.currentCard = this.deck[this.turns];
     return feedback;
   }

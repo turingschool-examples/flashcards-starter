@@ -6,7 +6,6 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 
-//should I divide before and beforeEach up?
 describe('Round', () => {
   let card1;
   let card2;
@@ -16,18 +15,20 @@ describe('Round', () => {
   let round;
   let correctGuess;
   let incorrectGuess;
-  beforeEach(() => {
+  before(() => {
     card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     card2 = new Card(14, 'Which iteration method can turn an array into a single value of any data type?', ['reduce()', 'map()', 'filter()'], 'reduce()');
     card3 = new Card(12, 'Which iteration method returns an array of the same length as the original array?', ["map()", "forEach()", "reduce()"], 'map()');
     deck = new Deck([card1, card2, card3]);
     cards = deck.cards;
-    round = new Round(cards);
     correctGuess = 'object';
     incorrectGuess = 'array';
-    // const incorrectGuess1 = round.deck[0].id;
-    // const incorrectGuess2 = round.deck[1].id;
+  
   });
+
+  beforeEach(() => {
+    round = new Round(cards);
+  })
 
   it('should be a function', function() {
     expect(Round).to.be.a('function');
