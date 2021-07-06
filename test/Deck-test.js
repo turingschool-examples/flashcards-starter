@@ -27,7 +27,6 @@ describe('Deck', () => {
     it('should be able to store multiple cards', () => {
         let cards = [card1, card2, card3];
         expect(deck.cards).to.deep.equal(cards);
-
     });
 
     it('should be able to keep count of the cards', () => {
