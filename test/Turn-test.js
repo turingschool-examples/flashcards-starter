@@ -31,6 +31,20 @@ describe('Turn', function() {
 });
 
 describe('returnGuess', function() {
+  let turn;
+  let card;
+  beforeEach(() => {
+    card = new Card(1, "What is Mark's dog", ['dachshund', 'beagle', 'husky'], 'dachshund');
+    turn = new Turn('dachshund', card);
+  });
 
+  it('should be a function', function() {
+    expect(turn.returnGuess).to.be.a.('funtion');
+  });
+
+  it('should return the user\'s guess', function() {
+    expect(turn.guess).to.equal('dachshund');
+  });
+  
 
 })
