@@ -91,10 +91,22 @@ describe('Round', () => {
   it('should create a new instance of turn passing in a guess as an argument', () => {
     const round = new Round(cards);
     const guess = 'array';
-    
+
     const turn = round.takeTurn(guess);
 
     expect(turn.guess).to.equal('array');
+  });
+
+  it('should add to turns after a turn is taken', () => {
+
+  });
+
+  it('should update the current card after a turn is taken', () => {
+
+  });
+
+  it('should provide feedback regarding whether the guess is correct or incorrect', () => {
+
   })
 
   
