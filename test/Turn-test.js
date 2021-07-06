@@ -96,4 +96,31 @@ it('should return false if guess does not match the correct answer', function() 
   expect(turn.evaluateGuess()).to.equal(false);
 });
 
-})
+});
+
+describe('giveFeedback', function() {
+  let turn;
+  let card;
+  beforeEach(() => {
+    card = new Card(1, "What is Mark's dog", ['dachshund', 'beagle', 'husky'], 'dachshund');
+    turn = new Turn('dachshund', card);
+  });
+
+  it('should be a function', function() {
+    expect(turn.giveFeedback).to.be.a('function');
+  });
+
+  it('should return a string', function() {
+    expect(turn.giveFeedback()).to.be.a('string');
+  });
+
+  it('should return "correct!" if the guess is the right answer', function() {
+    expect(turn.giveFeedback()).to.equal('correct!');
+  });
+
+  it('should return "incorrect!" if the guess is not the right answer', function(){
+    turn = new Turn('husky', card);
+    expect(turn.giveFeedback()).to.equal('incorrect!');
+  });
+
+});
