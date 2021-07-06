@@ -1,13 +1,19 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Turns = require('../src/Turn.js');
+const Turn = require('../src/Turn.js');
 
 describe('Turn', function() {
 
   it('should be a function', function() {
-    const card = new Turn();
+    const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
+  it('should be an instance of Turn', function() {
+    const turn = new Turn();
+    expect(turn).to.be.an.instanceof(Turn);
+  });
+
+  
 });
