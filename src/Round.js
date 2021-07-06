@@ -18,12 +18,14 @@ class Round {
 
   takeTurn(id) {
     this.currentTurn = new Turn(id, this.currentCard);
-    this.turns += 1;
-    this.currentCard = this.deck[this.turns];
+
     const feedback = this.currentTurn.giveFeedback();
     if (feedback === 'incorrect!') {
       this.incorrectGuesses.push(this.currentCard.id);
     }
+    //should I move this.turns back up??
+    this.turns += 1;
+    this.currentCard = this.deck[this.turns];
     return feedback;
   }
 

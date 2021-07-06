@@ -6,6 +6,7 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 
+//should I divide before and beforeEach up?
 describe('Round', () => {
   let card1;
   let card2;
@@ -33,45 +34,35 @@ describe('Round', () => {
   });
 
   it('should be an instance of Round', function() {
-    // const round = new Round(cards);
     expect(round).to.be.an.instanceof(Round);
   }); 
 
   it('should store a deck', () => {
-    // const round = new Round(cards);
-
     expect(round.deck).to.equal(cards);
   });
 
   it('should default to having 0 turns', () => {
-    // const round = new Round(deck);
-
     expect(round.turns).to.equal(0);
   });
 
   it('should store a current card', () => {
-    // const round = new Round(cards);
     expect(round.currentCard).to.equal(card1);
   });
 
   //how do I word this it to say should be an empty array
   it('should default incorrect guesses as empty', () => {
-    // const round = new Round(cards);
     expect(round.incorrectGuesses).to.deep.equal([]);
 
   });
 
   it('should store incorrect guesses', () => {
-    //change to match the variables incorrect guesseS>
-    const incorrectGuess1 = round.deck[0].id;
-    const incorrectGuess2 = round.deck[1].id;
-
-    round.incorrectGuesses.push(incorrectGuess1);
+    round.takeTurn(incorrectGuess);
+  
     expect(round.incorrectGuesses).to.deep.equal([1]);
+    
+    round.takeTurn(round.currentCard.correctAnswer);
 
-    round.incorrectGuesses.push(incorrectGuess2);
-    //is this the correct way to write this?
-    expect(round.incorrectGuesses).to.deep.equal([1, 14]);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
   it('should return the current card', () => {
@@ -124,7 +115,7 @@ describe('Round', () => {
   it('should store incorrect guesses by id', () => {
     round.takeTurn(incorrectGuess);
  
-    expect(round.incorrectGuesses).to.include(round.currentCard.id);
+    expect(round.incorrectGuesses).to.include(1);
   })
 
 })
