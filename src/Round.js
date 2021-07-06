@@ -14,7 +14,7 @@ class Round {
     return this.currentCard;
   }
 
-  //you are at takeTurn()
+  //you are at takeTurn():
 
 }
 
