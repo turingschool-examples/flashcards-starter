@@ -2,12 +2,14 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Turn = require('../src/Turn.js');
+const Card = require('../src/Card.js');
 
 describe('Turn', function() {
   let turn;
-
+  let card;
   beforeEach(() => {
-    turn = new Turn('dachshund', card1)
+    card = new Card(1, "What is Mark's dog", ['dachshund', 'beagle', 'husky'], 'dachshund');
+    turn = new Turn('dachshund', card);
   });
 
   it('should be a function', function() {
@@ -23,8 +25,12 @@ describe('Turn', function() {
   });
 
   it('should take in a card object for the current card in play', function() {
-    const card1 = new Card(1, "What is Mark's dog", ['dachshund', 'beagle', 'husky'], 'dachshund');
-    expect(turn.card).to.equal(card1);
+    expect(turn.card).to.equal(card);
   });
 
 });
+
+describe('returnGuess', function() {
+
+
+})
