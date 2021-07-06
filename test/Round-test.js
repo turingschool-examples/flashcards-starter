@@ -54,15 +54,15 @@ describe('Round', () => {
 
   it('should store incorrect guesses', () => {
     const round = new Round(cards);
-    const incorrectGuess1 = 'array';
-    const incorrectGuess2 = 'function';
+    const incorrectGuess1 = round.deck[0].id;
+    const incorrectGuess2 = round.deck[1].id;
 
     round.incorrectGuesses.push(incorrectGuess1);
-    expect(round.incorrectGuesses).to.deep.equal(['array']);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
 
     round.incorrectGuesses.push(incorrectGuess2);
     //is this the correct way to write this?
-    expect(round.incorrectGuesses).to.deep.equal(['array', 'function']);
+    expect(round.incorrectGuesses).to.deep.equal([1, 14]);
   });
 
   it('should return the current card', () => {
@@ -77,6 +77,10 @@ describe('Round', () => {
     const currentCard2 = round.returnCurrentCard();
 
     expect(currentCard2).to.equal(round.currentCard);
+  })
+
+  it('should create a new turn', () => {
+    
   })
 
   
