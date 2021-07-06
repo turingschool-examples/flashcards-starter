@@ -17,15 +17,17 @@ class Turn {
     evaluateGuess(guess) {
         if (this.guess === this.card.correctAnswer) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     giveFeedback(guess) {
         if (this.evaluateGuess()) {
             return 'correct!'
+        } else {
+            return 'incorrect!'
         }
-        return 'incorrect!'
     }
 }
 
