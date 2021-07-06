@@ -46,4 +46,28 @@ describe('returnGuess', function() {
     expect(turn.returnGuess()).to.equal('dachshund');
   });
 
-})
+});
+
+describe('returnCard', function() {
+  let turn;
+  let card;
+  beforeEach(() => {
+    card = new Card(1, 'What is Mark\'s dog?', ['dachshund', 'beagle', 'husky'], 'dachshund');
+    turn = new Turn('dachshund', card);
+  });
+
+  it('should be a funtion', function() {
+    expect(turn.returnCard).to.be.a('function');
+  });
+
+  it('should return an object', function() {
+    expect(turn.returnCard()).to.be.an('object');
+  });
+
+  it('should have specific properties', function() {
+    expect(turn.returnCard().answers).to.deep.equal(['dachshund', 'beagle', 'husky'])
+    expect(turn.returnCard().question).to.equal('What is Mark\'s dog?');
+    expect(turn.returnCard().correctAnswer).to.equal('dachshund');
+  })
+
+});
