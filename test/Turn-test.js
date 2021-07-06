@@ -30,5 +30,12 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.equal('mutator method');
   });
 
+  it('returnCard method should return the card', function() {
+    const card = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
+    const turn = new Turn('mutator method', card);
+
+    expect(turn.returnCard()).to.equal(card);
+  });
+
 
 });
