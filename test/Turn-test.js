@@ -44,4 +44,11 @@ describe('Turn', function() {
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
+  it('giveFeedback method should return correct!/incorrect! whether guess is correct', function() {
+    const card = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
+    const turn = new Turn('mutator method', card);
+
+    expect(turn.giveFeedback()).to.equal('correct!');
+  });
+
 });
