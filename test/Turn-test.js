@@ -3,25 +3,42 @@ const expect = chai.expect;
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
-
 describe('Turn', () => {
   let card;
   let turn;
 
   beforeEach(() => {
-    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    turn = new Turn('guess', card);
-  })
-  
-  it('should be a function', () => {
+    card = new Card(
+      1,
+      "What is Robbie's favorite animal",
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter'
+    );
+    turn = new Turn('pug', card);
+  });
 
+  it('should be a function', () => {
     expect(Turn).to.be.a('function');
-  })
+  });
 
   it('should instatiate with two arguments', () => {
-    
-    expect(turn.guess).to.equal('guess');
+    expect(turn.guess).to.equal('pug');
     expect(turn.card).to.equal(card);
+  });
+
+  it('should return the guess', () => {
+    expect(turn.returnGuess()).to.equal('pug');
+  });
+
+  it('should return the card', () => {
+    expect(turn.returnCard()).to.equal(card);
   })
 
+  it('should indicate if the user\'s guess matches the correct answer', () => {
+    expect(turn.evaluateGuess()).to.equal(false);
+  })
+
+  it('should give feedback about user\'s guess', () => {
+    expect(turn.giveFeedback()).to.equal('incorrect!');
+  })
 });
