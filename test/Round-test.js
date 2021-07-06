@@ -4,6 +4,7 @@ const expect = chai.expect;
 const Round = require('../src/Round');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
+const Turn = require('../src/Turn');
 
 describe('Round', () => {
   let card1;
@@ -79,8 +80,21 @@ describe('Round', () => {
     expect(currentCard2).to.equal(round.currentCard);
   })
 
-  it('should create a new turn', () => {
+
+  it('should be able to return a new instance of turn when a guess is made', () => {
+    const round = new Round(cards);
+    const turn = round.takeTurn()
     
+    expect(turn).to.be.an.instanceof(Turn);
+  })
+
+  it('should create a new instance of turn passing in a guess as an argument', () => {
+    const round = new Round(cards);
+    const guess = 'array';
+    
+    const turn = round.takeTurn(guess);
+
+    expect(turn.guess).to.equal('array');
   })
 
   

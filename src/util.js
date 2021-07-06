@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 
+//look at this when run node and how each works.
 const genList = (round) => {
   let card = round.returnCurrentCard();
   
@@ -33,6 +34,7 @@ async function main(round) {
 
   const currentRound = await getRound(round);
   const getAnswer = await inquirer.prompt(genList(currentRound));
+  //would this work any differently if I took this out of a variable?
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
     if(!round.returnCurrentCard()) {
