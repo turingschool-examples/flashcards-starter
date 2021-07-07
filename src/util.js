@@ -37,10 +37,7 @@ const confirmUpdate = (id, round) => {
 async function main(round) {
 
   const currentRound = await getRound(round);
-  //inquire.prompt returns a promise object that evaluates to a value which is their choice.
   const getAnswer = await inquirer.prompt(genList(currentRound));
-  //would this work any differently if I took this out of a variable?
-  //A key/value hash containing the client answers in each prompt.
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
     if(!round.returnCurrentCard()) {
