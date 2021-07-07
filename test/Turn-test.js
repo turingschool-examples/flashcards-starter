@@ -37,7 +37,7 @@ describe('Turn', function() {
 
   // describe block for returnCard() method
   describe('returnCard()', function() {
-    it('should return the user\'s guess', function() {
+    it('should return the user\'s card', function() {
       const returnedCard = turn.returnCard() 
 
       expect(returnedCard).to.equal(card)
@@ -46,16 +46,19 @@ describe('Turn', function() {
 
   // describe block for evaluateGuess() method
   describe('evaluateGuess()', function() {
-    it('should display \'Nailed it!\' if the answer is correct', function() {
+    it('should be able to evaluate if an answer is correct', function() {
       const turn = new Turn('callback function', card)
       const expected = turn.evaluateGuess()
       expect(expected).to.equal(true)
     })
 
-    it('should display \'Nope! Try again.\' if the answer is incorrect', function() {
+    it('should be able to evaluate if an answer is incorrect', function() {
       const turn = new Turn('an array', card)
       const expected = turn.evaluateGuess()
       expect(expected).to.equal(false)
     })
   })
+
+  // describe block for giveFeedback() method
+
 })
