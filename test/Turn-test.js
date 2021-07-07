@@ -27,28 +27,42 @@ describe('Turn', function() {
     const card = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
     const turn = new Turn('mutator method', card);
 
-    expect(turn.returnGuess()).to.equal('mutator method');
+    expect(turn.returnGuess()).to.deep.equal('mutator method');
   });
 
   it('returnCard method should return the card', function() {
     const card = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
     const turn = new Turn('mutator method', card);
 
-    expect(turn.returnCard()).to.equal(card);
+    expect(turn.returnCard()).to.deep.equal(card);
   });
 
-  it('evaluateGuess method should return true/false whether guess is correct', function() {
+  it('evaluateGuess method should return true when guess is correct', function() {
     const card = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
     const turn = new Turn('mutator method', card);
 
-    expect(turn.evaluateGuess()).to.equal(true);
+    expect(turn.evaluateGuess()).to.deep.equal(true);
   });
 
-  it('giveFeedback method should return correct!/incorrect! whether guess is correct', function() {
+  it('evaluateGuess method should return false when guess is incorrect', function() {
+    const card = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
+    const turn = new Turn('wild guess', card);
+
+    expect(turn.evaluateGuess()).to.deep.equal(false);
+  });
+
+  it('giveFeedback method should return correct! when guess is correct', function() {
     const card = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
     const turn = new Turn('mutator method', card);
 
-    expect(turn.giveFeedback()).to.equal('correct!');
+    expect(turn.giveFeedback()).to.deep.equal('correct!');
+  });
+
+  it('giveFeedback method should return incorrect! when guess is incorrect', function() {
+    const card = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
+    const turn = new Turn('a wrong answer', card);
+
+    expect(turn.giveFeedback()).to.deep.equal('incorrect!');
   });
 
 });
