@@ -16,8 +16,31 @@ describe('Round', () => {
   })
 
   it('it should return the first card', () => {
-    expect(round.currentCard).to.equal(card1)
+    expect(round.returnCurrentCard()).to.equal(card1)
   })
 
+  it('should start number of turns at 0', () => {
+    expect(round.turns).to.equal(0);
+  })
 
+  it('should keep track of incorrect guesses', () => {
+    expect(round.incorrectGuesses).to.be.an('array');
+  })
+
+  it('should return if the guess is correct or incorrect', () => {
+    expect(round.takeTurn('sea otter')).to.equal('correct!');
+    expect(round.takeTurn('spleen')).to.equal('incorrect!');
+  })
+
+  it('should keep track of the number of turns that have passed', () => {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    expect(round.turns).to.equal(2);
+  })
+
+  it('should store card id of incorrect guesses', () => {
+    round.takeTurn('pug');
+    round.takeTurn('spleen');
+    expect(round.incorrectGuesses).to.eql([ 1, 14])
+  })
 })
