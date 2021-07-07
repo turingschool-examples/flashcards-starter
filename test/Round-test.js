@@ -6,6 +6,7 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 
+//test set-up
 describe('Round', () => {
   let card1;
   let card2;
@@ -112,7 +113,7 @@ describe('Round', () => {
     expect(round.incorrectGuesses).to.deep.equal([1]);
   })
   
-  //calculatePercentCorrect()
+  //calculatePercentCorrect() tests
   it('should return percent of correct guesses', () => {
     round.takeTurn(correctGuess);
     

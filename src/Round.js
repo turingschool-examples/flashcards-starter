@@ -1,6 +1,4 @@
-//test if I need this to use th method or if it will work anyway.
 const Turn = require('../src/Turn');
-const Deck = require('../src/Deck');
 
 class Round {
   constructor(deck) {
@@ -26,8 +24,7 @@ class Round {
     }
 
     this.turns += 1;
-    //should I move this.turns back up??
-    //if this is in correct order, do I need to even update this property for this to work in console?
+   //will code work without this next statement?
     this.currentCard = this.deck[this.turns];
     return feedback;
   }
