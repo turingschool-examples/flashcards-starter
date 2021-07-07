@@ -37,33 +37,24 @@ describe('Round', () => {
     expect(round).to.be.an.instanceof(Round);
   }); 
 
+  //default property tests
   it('should store a deck', () => {
     expect(round.deck).to.equal(cards);
   });
 
-  it('should default to having 0 turns', () => {
+  it('should default to storing 0 turns', () => {
     expect(round.turns).to.equal(0);
   });
 
-  it('should store a current card', () => {
+  it('should store a current Card object', () => {
     expect(round.currentCard).to.equal(card1);
   });
 
   it('should default incorrect guesses as empty', () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
-
   });
 
-  it('should store incorrect guesses', () => {
-    round.takeTurn(incorrectGuess);
-  
-    expect(round.incorrectGuesses).to.deep.equal([1]);
-    
-    round.takeTurn(round.currentCard.correctAnswer);
-
-    expect(round.incorrectGuesses).to.deep.equal([1]);
-  });
-
+  //returnCurrentCard() tests
   it('should return the current card', () => {
     const currentCard = round.returnCurrentCard();
 
@@ -76,7 +67,7 @@ describe('Round', () => {
     expect(currentCard2).to.equal(round.currentCard);
   })
 
-
+  //takeTurn(guess) tests
   it('should be able to store a new instance of turn as a property when a guess is made', () => {
     round.takeTurn(incorrectGuess);
     
@@ -113,10 +104,15 @@ describe('Round', () => {
 
   it('should store incorrect guesses by id', () => {
     round.takeTurn(incorrectGuess);
- 
-    expect(round.incorrectGuesses).to.include(1);
+  
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+      
+    round.takeTurn(round.currentCard.correctAnswer);
+  
+    expect(round.incorrectGuesses).to.deep.equal([1]);
   })
-
+  
+  //calculatePercentCorrect()
   it('should return percent of correct guesses', () => {
     round.takeTurn(correctGuess);
     

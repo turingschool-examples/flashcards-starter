@@ -17,8 +17,8 @@ class Round {
     return this.currentCard;
   }
 
-  takeTurn(id) {
-    this.currentTurn = new Turn(id, this.currentCard);
+  takeTurn(guess) {
+    this.currentTurn = new Turn(guess, this.currentCard);
 
     const feedback = this.currentTurn.giveFeedback();
     if (feedback === 'incorrect!') {
