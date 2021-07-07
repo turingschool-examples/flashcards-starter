@@ -47,13 +47,7 @@ describe('Round', () => {
         expect(round.returnCurrentCard()).to.equal(card1);
     });
 
-    // it('should instanciate a new Turn when a guess is made', () => {
-    //     round.takeTurn('forEach()');
-    //     expect(turn).to.be.an.instanceOf(Turn);
-    // })
-
     it('should be able to increment number of turns', () => {
-
         round.takeTurn('guess');
         round.takeTurn('guess');
         round.takeTurn('guess');
@@ -74,8 +68,19 @@ describe('Round', () => {
         expect(round.incorrectGuesses.length).to.equal(1);
     })
 
-    it.skip('should calculate and return the percentage of correct guesses', () => {
-        expect(round.calculatePercentCorrect()).to.equal();
+    it('should calculate and return the percentage of correct guesses', () => {
+        round.takeTurn('find()');
+        round.takeTurn('guess');
+        round.takeTurn('Object.keys()');
+
+        expect(round.calculatePercentCorrect()).to.equal(67);
     });
 
+    it('should print the percentage of questions the user answered correctly', () => {
+        round.takeTurn('find()');
+        round.takeTurn('guess');
+        round.takeTurn('Object.keys()');
+
+        expect(round.endRound()).to.equal(`** Round over! ** You answered 67% of the questions correctly!`);
+    })
 });
