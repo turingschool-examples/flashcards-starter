@@ -36,12 +36,12 @@ describe('returnGuess()', function() {
   })
 
   it('should return the user\'s guess', function() {
-    const returnedGuess = turn.returnCard() 
+    const returnedGuess = turn.returnGuess() 
 
     expect(returnedGuess).to.equal(card)
   })
 })
 
-// describe block for returnGuess() method
+// describe block for returnCard() method
 
 
