@@ -3,10 +3,9 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
-const Turn = require('../src/Turn');
+
 
 describe('Round', () => {
-  let card1, card2, card3, deck, round;
   beforeEach(() => {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -42,5 +41,16 @@ describe('Round', () => {
     round.takeTurn('pug');
     round.takeTurn('spleen');
     expect(round.incorrectGuesses).to.eql([ 1, 14])
+  })
+
+  it('should calculate and return the percentage of correct guesses', () => {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    expect(round.calculatePercentCorrect()).to.equal(50);
+  })
+
+  it('should move to next card after turn and return new current card', () => {
+    round.takeTurn('sea otter');
+    expect(round.returnCurrentCard()).to.equal(card2);
   })
 })
