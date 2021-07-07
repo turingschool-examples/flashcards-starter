@@ -12,9 +12,28 @@ describe('Deck', function() {
   let deck;
 
   before(() => {
-    card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    card2 = new Card(14, 'Which iteration method can turn an array into a single value of any data type?', ['reduce()', 'map()', 'filter()'], 'reduce()');
-    card3 = new Card(12, 'Which iteration method returns an array of the same length as the original array?', ["map()", "forEach()", "reduce()"], 'map()');
+    card1 = new Card(
+      1, 
+      'What allows you to define a set of related information using key-value pairs?', 
+      ['object', 'array', 'function'], 
+      'object'
+    );
+    card2 = new Card(
+      14, 
+      'Which iteration method can turn an array into a single value of any data type?', 
+      ['reduce()', 'map()', 'filter()'], 
+      'reduce()'
+    );
+    card3 = new Card(
+      12, 
+      'Which iteration method returns an array of the same length as the original array?', 
+      ["map()", "forEach()", "reduce()"], 
+      'map()'
+    );
+    deck = new Deck([card1, card2, card3]);
+    cards = deck.cards;
+    correctGuess = 'object';
+    incorrectGuess = 'array';
     cards = ([card1, card2, card3]);
     deck = new Deck([card1, card2, card3]);
   });
