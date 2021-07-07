@@ -17,7 +17,6 @@ describe('Round', () => {
 
         deck = new Deck([card1, card2, card3]);
         round = new Round(deck);
-        // turn = new Turn('guess');
     });
 
     it('should be a function', () => {
@@ -32,12 +31,45 @@ describe('Round', () => {
         expect(round.deck).to.be.an.instanceOf(Deck);
     });
 
+    it('should start with the first card in the deck', () => {
+        expect(round.currentCard).to.equal(deck.cards[0]);
+    });
+
     it('should have a way to count turns', () => {
         expect(round.numOfTurns).to.equal(0);
     });
 
     it('should store the incorrect guesses', () => {
         expect(round.incorrectGuesses).to.deep.equal([]);
+    });
+
+    it('should return the current card', () => {
+        expect(round.returnCurrentCard()).to.equal(card1);
+    });
+
+    // it('should instanciate a new Turn when a guess is made', () => {
+    //     round.takeTurn('forEach()');
+    //     expect(turn).to.be.an.instanceOf(Turn);
+    // })
+
+    it('should be able to increment number of turns', () => {
+
+        round.takeTurn();
+        round.takeTurn();
+        round.takeTurn();
+
+        expect(round.numOfTurns).to.equal(3);
+    });
+
+    it('should update the current card to the next card', () => {
+        round.takeTurn();
+        expect(round.currentCard).to.equal(card2);
+        round.takeTurn();
+        expect(round.currentCard).to.equal(card3);
+    });
+
+    it.skip('should calculate and return the percentage of correct guesses', () => {
+        expect(round.calculatePercentCorrect()).to.equal();
     });
 
 });
