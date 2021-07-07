@@ -1,12 +1,15 @@
 const data = require('./data');
 const Deck = require('./Deck');
-const Round = require('./Round);
+const Round = require('./Round');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Game {
   constructor() {
     // this.currentRound;
+    /*
+    game.currentRound; // => Round {...} (The new Round object that has been instatiated)
+    */
   }
 
   printMessage(deck, round) {
