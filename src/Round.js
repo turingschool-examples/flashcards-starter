@@ -7,12 +7,12 @@ class Round {
 
   returnCurrentCard() {
     let current = this.currentCard;
-    this.cardCount++;
+    this.takeTurn();
     return current;
   }
 
   takeTurn() {
-
+    this.cardCount++;
   }
 
 
