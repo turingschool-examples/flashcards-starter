@@ -35,11 +35,11 @@ describe('Round', () => {
         expect(round.currentCard).to.equal(deck.cards[0]);
     });
 
-    it('should have a way to count turns', () => {
+    it('should be able to count turns', () => {
         expect(round.numOfTurns).to.equal(0);
     });
 
-    it('should store the incorrect guesses', () => {
+    it('should start with no incorrect guesses', () => {
         expect(round.incorrectGuesses).to.deep.equal([]);
     });
 
@@ -54,9 +54,9 @@ describe('Round', () => {
 
     it('should be able to increment number of turns', () => {
 
-        round.takeTurn();
-        round.takeTurn();
-        round.takeTurn();
+        round.takeTurn('guess');
+        round.takeTurn('guess');
+        round.takeTurn('guess');
 
         expect(round.numOfTurns).to.equal(3);
     });
@@ -64,9 +64,15 @@ describe('Round', () => {
     it('should update the current card to the next card', () => {
         round.takeTurn();
         expect(round.currentCard).to.equal(card2);
+
         round.takeTurn();
         expect(round.currentCard).to.equal(card3);
     });
+
+    it('should be able to store an incorrect guess', () => {
+        round.takeTurn('guess');
+        expect(round.incorrectGuesses.length).to.equal(1);
+    })
 
     it.skip('should calculate and return the percentage of correct guesses', () => {
         expect(round.calculatePercentCorrect()).to.equal();
