@@ -12,6 +12,7 @@ describe('Round', function() {
   let card3;
   let deck;
   let round;
+  let turn;
   beforeEach(() => {
     card1 = new Card(1,'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
@@ -22,6 +23,8 @@ describe('Round', function() {
     deck = new Deck([card1, card2, card3]);
 
     round = new Round(deck);
+
+    turn = new Turn('array', card2);
 
   });
 
@@ -49,7 +52,7 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
-  describe('ReturnCurrentCard()', function () {
+  describe('returnCurrentCard()', function () {
 
     it('should be a function', function () {
       expect(round.returnCurrentCard).to.be.a('function');
@@ -58,6 +61,28 @@ describe('Round', function() {
     it('should return the card in play', function() {
       expect(round.returnCurrentCard()).to.deep.equal(this.card);
     });
+
+  });
+
+  describe('takeTurn()', function() {
+
+    it('should be a function', function() {
+      expect(round.takeTurn).to.be.a('function');
+    });
+
+    it('should update turns count', function() {
+      expect(round.turns).to.equal(0);
+      round.takeTurn(turn);
+      expect(round.turns).to.equal(1);
+      round.takeTurn(turn);
+      round.takeTurn(turn);
+      expect(round.turns).to.equal(3);
+    });
+
+    it('should evaluate a guess as correct', function() {
+      expect(round.takeTurn(turn)).to.equal('correct!');
+    });
+
 
   })
 })
