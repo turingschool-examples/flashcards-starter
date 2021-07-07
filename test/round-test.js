@@ -47,10 +47,22 @@ describe('Round', () => {
     expect(round.turns).to.equal(1);
   });
 
-  it.skip('should make the next card becomes the currentCard', () => {
+  it('should make the next card becomes the current card', () => {
 
-    console.log(typeof round.currentCardTest);
     round.takeTurn('array');
+    // console.log('test1', round.currentCard);
+    // console.log('test1-1', round.allCards);
+
+    expect(round.currentCard).to.deep.equal({
+    "id": 1,
+    "question": "What allows you to define a set of related information using key-value pairs?",
+    "answers": ["object", "array", "function"],
+    "correctAnswer": "object"
+    })
+
+    round.takeTurn('array');
+    // console.log('test2', round.currentCard);
+    // console.log('test2-2', round.allCards);
 
     expect(round.currentCard).to.deep.equal({
       'id': 2,
@@ -58,12 +70,24 @@ describe('Round', () => {
       'answers': ['array', 'object', 'function'],
       'correctAnswer': 'array'
     })
+
+    round.takeTurn('accessor method');
+    // console.log('test3', round.currentCard);
+    // console.log('test3-3', round.allCards);
+
+    expect(round.currentCard).to.deep.equal({
+      "id": 3,
+      "question": "What type of prototype method directly modifies the existing array?",
+      "answers": ["mutator method", "accessor method", "iteration method"],
+      "correctAnswer": "mutator method"
+    })
   });
 
   it('should add bad answerts ids, into the incorrect answers container', () => {
 
+    // console.log(round.currentCard);
     round.takeTurn('array');
-
+    // console.log(round.currentCard);
     expect(round.incorrectGuesses[0]).to.equal(1);
   });
 
