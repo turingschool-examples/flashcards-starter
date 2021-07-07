@@ -4,6 +4,7 @@ const expect = chai.expect;
 const Round = require('../src/Round');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
+const Turn = require('../src/Turn');
 
 describe('Round', () => {
   let card1;
@@ -11,12 +12,21 @@ describe('Round', () => {
   let card3;
   let deck;
   let cards;
+  let round;
+  let correctGuess;
+  let incorrectGuess;
   before(() => {
     card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     card2 = new Card(14, 'Which iteration method can turn an array into a single value of any data type?', ['reduce()', 'map()', 'filter()'], 'reduce()');
     card3 = new Card(12, 'Which iteration method returns an array of the same length as the original array?', ["map()", "forEach()", "reduce()"], 'map()');
     deck = new Deck([card1, card2, card3]);
     cards = deck.cards;
+    correctGuess = 'object';
+    incorrectGuess = 'array';
+  });
+
+  beforeEach(() => {
+    round = new Round(cards);
   });
 
   it('should be a function', function() {
@@ -24,50 +34,37 @@ describe('Round', () => {
   });
 
   it('should be an instance of Round', function() {
-    const round = new Round(cards);
     expect(round).to.be.an.instanceof(Round);
   }); 
 
   it('should store a deck', () => {
-    const round = new Round(cards);
-
     expect(round.deck).to.equal(cards);
   });
 
   it('should default to having 0 turns', () => {
-    const round = new Round(deck);
-
     expect(round.turns).to.equal(0);
   });
 
   it('should store a current card', () => {
-    const round = new Round(cards);
     expect(round.currentCard).to.equal(card1);
   });
 
-  //how do I word this it to say should be an empty array
   it('should default incorrect guesses as empty', () => {
-    const round = new Round(cards);
     expect(round.incorrectGuesses).to.deep.equal([]);
 
   });
 
   it('should store incorrect guesses', () => {
-    const round = new Round(cards);
-    const incorrectGuess1 = 'array';
-    const incorrectGuess2 = 'function';
+    round.takeTurn(incorrectGuess);
+  
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+    
+    round.takeTurn(round.currentCard.correctAnswer);
 
-    round.incorrectGuesses.push(incorrectGuess1);
-    expect(round.incorrectGuesses).to.deep.equal(['array']);
-
-    round.incorrectGuesses.push(incorrectGuess2);
-    //is this the correct way to write this?
-    expect(round.incorrectGuesses).to.deep.equal(['array', 'function']);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
   it('should return the current card', () => {
-    const round = new Round(cards);
-
     const currentCard = round.returnCurrentCard();
 
     expect(currentCard).to.equal(round.currentCard);
@@ -79,6 +76,78 @@ describe('Round', () => {
     expect(currentCard2).to.equal(round.currentCard);
   })
 
-  
 
+  it('should be able to return a new instance of turn when a guess is made', () => {
+    round.takeTurn(incorrectGuess);
+    
+    expect(round.currentTurn).to.be.an.instanceof(Turn);
+  });
+
+  it('should create a new instance of turn passing in a guess as an argument', () => {
+    round.takeTurn(incorrectGuess);
+
+    expect(round.currentTurn.guess).to.equal(incorrectGuess);
+  });
+
+  it('should increment turns after a turn is taken', () => {
+    round.takeTurn(incorrectGuess);
+   
+    expect(round.turns).to.equal(1);
+  });
+
+  it('should update the current card after a turn is taken', () => {
+    round.takeTurn(incorrectGuess);
+
+    expect(round.currentCard).to.equal(card2);
+  });
+
+  it('should provide feedback regarding whether the guess is correct or incorrect', () => {
+    const feedback = round.takeTurn(correctGuess);
+
+    expect(feedback).to.equal('correct!')
+
+    const feedback2 = round.takeTurn(incorrectGuess);
+
+    expect(feedback2).to.equal('incorrect!')
+  })
+
+  it('should store incorrect guesses by id', () => {
+    round.takeTurn(incorrectGuess);
+ 
+    expect(round.incorrectGuesses).to.include(1);
+  })
+
+  it('should return percent of correct guesses', () => {
+    round.takeTurn(correctGuess);
+    
+    let percentCorrect = round.calculatePercentCorrect();
+    
+    expect(percentCorrect).to.equal(100);
+
+    round.takeTurn(incorrectGuess);
+    round.takeTurn(incorrectGuess);
+ 
+    percentCorrect = round.calculatePercentCorrect();
+
+    expect(percentCorrect).to.equal(33);
+  });
+
+  it('should print message when round is over with percentage correct', () => {
+
+    // round.turns = 27;
+
+    // round.takeTurn(incorrectGuess);
+    // round.takeTurn(incorrectGuess);
+
+    // const message = endRound()
+
+    // beforeEach(function() {
+    //   this.sinon.stub(console, 'log');
+    // });
+
+    expect(console.log.calledWith(`** Round over! ** You answered ${round.calculatePercentCorrect()}% of the questions correctly!`)).to.be.true;
+
+    // const message = endRound()
+
+  })
 })
