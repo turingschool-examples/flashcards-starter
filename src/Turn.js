@@ -19,6 +19,14 @@ class Turn {
       return false
     }
   }
+
+  giveFeedback() {
+    if (this.evaluateGuess()) {
+      return 'Nailed it!'
+    } else {
+      return 'Nope! Sorry, try again.'
+    }
+  }
 }
 
 
