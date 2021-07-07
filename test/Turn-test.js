@@ -11,6 +11,7 @@ describe('Turn', function() {
     card = new Card(1, 'What do iterator methods take in as their first argument?', ['callback function', 'current element', 'an array'], 'callback function')
     turn = new Turn('current element', card)
   })
+
   it('should be a function', function() {
     expect(Turn).to.be.a('function')
   })
@@ -24,5 +25,23 @@ describe('Turn', function() {
     expect(turn.card).to.equal(card)
   })
 })
-  
+
+// describe block for returnGuess() method
+describe('returnGuess()', function() {
+  let card, turn
+
+  beforeEach(function() {
+    card = new Card(1, 'What do iterator methods take in as their first argument?', ['callback function', 'current element', 'an array'], 'callback function')
+    turn = new Turn('current element', card)
+  })
+
+  it('should return the user\'s guess', function() {
+    const returnedGuess = turn.returnCard() 
+
+    expect(returnedGuess).to.equal(card)
+  })
+})
+
+// describe block for returnGuess() method
+
 
