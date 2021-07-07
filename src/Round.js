@@ -10,7 +10,7 @@ class Round {
     this.currentCard = this.deck[this.turns];
     this.incorrectGuesses = [];
     //do we need a this.guess???? any reason?
-    this.currentTurn;
+    // this.currentTurn;
   }
 
   returnCurrentCard() {

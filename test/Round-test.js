@@ -77,7 +77,7 @@ describe('Round', () => {
   })
 
 
-  it('should be able to return a new instance of turn when a guess is made', () => {
+  it('should be able to store a new instance of turn as a property when a guess is made', () => {
     round.takeTurn(incorrectGuess);
     
     expect(round.currentTurn).to.be.an.instanceof(Turn);
@@ -132,22 +132,5 @@ describe('Round', () => {
     expect(percentCorrect).to.equal(33);
   });
 
-  it('should print message when round is over with percentage correct', () => {
-
-    // round.turns = 27;
-
-    // round.takeTurn(incorrectGuess);
-    // round.takeTurn(incorrectGuess);
-
-    // const message = endRound()
-
-    // beforeEach(function() {
-    //   this.sinon.stub(console, 'log');
-    // });
-
-    expect(console.log.calledWith(`** Round over! ** You answered ${round.calculatePercentCorrect()}% of the questions correctly!`)).to.be.true;
-
-    // const message = endRound()
-
-  })
+ 
 })
