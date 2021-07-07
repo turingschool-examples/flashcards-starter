@@ -18,6 +18,39 @@ describe('Turn', function() {
       expect(turn).to.have.property('guess');
     });
 
+    it('returnGuess returns the guess', function() {
+        const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+        const turn = new Turn('Poe', currentCard);
+
+        expect(turn.returnGuess()).to.equal('Poe');
+      });
+
+      it('returnCard returns the card', function() {
+          const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+          const turn = new Turn('Poe', currentCard);
+
+          expect(turn.returnCard()).to.equal(currentCard);
+        });
+
+        it('evaluateGuess returns true if guess is correct answer', function() {
+            const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+            const turn1 = new Turn('Poe', currentCard);
+            const turn2 = new Turn('Dickens', currentCard);
+
+            expect(turn1.evaluateGuess()).to.equal(true);
+            expect(turn2.evaluateGuess()).to.equal(false);
+          });
+
+          it('giveFeedback returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not', function() {
+              const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+              const turn1 = new Turn('Poe', currentCard);
+              const turn2 = new Turn('Dickens', currentCard);
+
+              expect(turn1.giveFeedback()).to.equal("correct!");
+              expect(turn2.giveFeedback()).to.equal("incorrect!");
+            });
+
+          })
 
 
 
@@ -25,9 +58,4 @@ describe('Turn', function() {
 
 
 
-
-
-// returnGuess: method that returns the guess
-// returnCard: method that returns the Card
-// evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card
 // giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.

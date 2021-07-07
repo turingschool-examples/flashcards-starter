@@ -9,7 +9,7 @@ class Turn {
   }
 
   returnCard() {
-    return this.card;
+    return this.currentCard;
   }
 
   evaluateGuess() {
@@ -22,18 +22,11 @@ class Turn {
 
   giveFeedback() {
     if (this.guess === this.currentCard.correctAnswer) {
-      return "That's right!";
+      return "correct!";
     } else {
-      return "No way, Jose!";
+      return "incorrect!";
     }
   }
 }
-
-
-
-
-
-
-
 
 module.exports = Turn;
