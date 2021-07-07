@@ -16,7 +16,7 @@ class Turn {
       return false;
     }
   }
-  giveFeedback(test) {
+  giveFeedback() {
     if (this.guess === this.playedCard.correctAnswer) {
       return "correct";
     } else {
