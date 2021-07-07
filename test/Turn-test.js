@@ -49,12 +49,14 @@ describe('Turn', function() {
     it('should be able to evaluate if an answer is correct', function() {
       const turn = new Turn('callback function', card)
       const expected = turn.evaluateGuess()
+      
       expect(expected).to.equal(true)
     })
 
     it('should be able to evaluate if an answer is incorrect', function() {
       const turn = new Turn('an array', card)
       const expected = turn.evaluateGuess()
+
       expect(expected).to.equal(false)
     })
   })
@@ -64,12 +66,14 @@ describe('Turn', function() {
     it('should display \'Nailed it!\' if the answer is correct', function() {
       const turn = new Turn('callback function', card)
       const expected = turn.giveFeedback()
+
       expect(expected).to.equal('Nailed it!')
     })
 
     it('should display \'Nope! Sorry, try again.\' if the answer is incorrect', function() {
       const turn = new Turn('an array', card)
       const expected = turn.giveFeedback()
+
       expect(expected).to.equal('Nope! Sorry, try again.')
     })
   })
