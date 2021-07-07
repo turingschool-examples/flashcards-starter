@@ -5,6 +5,8 @@ class Round {
     this.currentCardTest = deck.allCards
     this.turns = 0;
     this.incorrectGuesses = [];
+    this.correctGuesses = [];
+    this.correctGuessPercentage = 0;
   }
   returnCurrentCard() {
     return this.currentCard;
@@ -21,7 +23,16 @@ class Round {
   addIncorrectAnswersId(badGuess) {
     if (!badGuess) {
       this.incorrectGuesses.push(this.currentCard.id)
+    } else {
+      this.correctGuesses.push(this.currentCard.id);
     }
+  }
+  calculatePercentCorrect() {
+    this.correctGuessPercentage += this.correctGuesses.length / this.incorrectGuesses.length;
+    return this.correctGuessPercentage;
+  }
+  endRound() {
+    console.log(`** Round over! ** You answered ${this.correctGuessPercentage}% of the questions correctly!`);
   }
 };
 
