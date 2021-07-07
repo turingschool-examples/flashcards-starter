@@ -12,6 +12,7 @@ describe('Deck', function() {
   let deck;
 
   before(() => {
+    //-----------test set-up
     card1 = new Card(
       1, 
       'What allows you to define a set of related information using key-value pairs?', 
@@ -47,6 +48,7 @@ describe('Deck', function() {
     expect(deck).to.be.an.instanceof(Deck);
   }); 
 
+  //-----------default property tests
   it('should store a deck', () => {
     expect(deck.cards).to.deep.equal(cards);
   });
