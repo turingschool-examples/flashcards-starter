@@ -2,13 +2,10 @@ const Turn = require('../src/Turn');
 
 class Round {
   constructor(deck) {
-    //should I change this to deck.cards? //and accomp tests? 
     this.deck = deck;
     this.turns = 0;
     this.currentCard = this.deck[this.turns];
     this.incorrectGuesses = [];
-    //do we need a this.guess???? any reason?
-    // this.currentTurn;
   }
 
   returnCurrentCard() {
