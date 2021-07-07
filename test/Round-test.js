@@ -7,12 +7,9 @@ const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
 describe('Round', function() {
-  let card1;
-  let card2;
-  let card3;
-  let deck;
-  let round;
-  let turn;
+
+  let card1, card2, card3, deck, round;
+
   beforeEach(() => {
     card1 = new Card(1,'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
@@ -23,8 +20,6 @@ describe('Round', function() {
     deck = new Deck([card1, card2, card3]);
 
     round = new Round(deck);
-
-    turn = new Turn('array', card2);
 
   });
 
@@ -38,10 +33,10 @@ describe('Round', function() {
 
   it('should have the property of deck assigned to the deck argument', function() {
     expect(round.deck).to.equal(deck);
-  })
+  });
 
   it('should have the property of currentCard that defaults to the first card in the deck', function() {
-    expect(round.currentCard).to.deep.equal(deck[0]);
+    expect(round.currentCard).to.deep.equal(deck.cards[0]);
   });
 
   it('should have the property of turns that defaults to 0', function() {
@@ -59,7 +54,7 @@ describe('Round', function() {
     });
 
     it('should return the card in play', function() {
-      expect(round.returnCurrentCard()).to.deep.equal(this.card);
+      expect(round.returnCurrentCard()).to.deep.equal(round.currentCard);
     });
 
   });
@@ -72,17 +67,39 @@ describe('Round', function() {
 
     it('should update turns count', function() {
       expect(round.turns).to.equal(0);
-      round.takeTurn(turn);
+      round.takeTurn();
       expect(round.turns).to.equal(1);
-      round.takeTurn(turn);
-      round.takeTurn(turn);
+      round.takeTurn();
+      round.takeTurn();
       expect(round.turns).to.equal(3);
     });
 
     it('should evaluate a guess as correct', function() {
-      expect(round.takeTurn(turn)).to.equal('correct!');
+      expect(round.takeTurn('object')).to.equal('correct!');
     });
 
+    it('should evaluate a guess as incorrect', function() {
+      turn = new Turn('function', card1);
+      expect(round.takeTurn(turn)).to.equal('incorrect!');
+    });
 
-  })
-})
+    it('should update the current card to the next card in the deck', function() {
+      round.takeTurn();
+      expect(round.currentCard.id).to.equal(2);
+    });
+
+    it('should give feedback on incorrect answer', function() {
+      expect(round.takeTurn('array')).to.equal('incorrect!');
+    });
+
+    it('should give feedback on correct answer', function() {
+      expect(round.takeTurn('object')).to.equal('correct!');
+    });
+
+    it('should store the card id of an incorrect guess', function() {
+      round.takeTurn('array');
+      expect(round.incorrectGuesses[0]).to.equal(1);
+    });
+
+  });
+});
