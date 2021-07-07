@@ -22,39 +22,25 @@ describe('Turn', function() {
   })
  
   it('should be able to store current card in deck', function() {
-    expect(turn.card).to.equal(card)
+    expect(turn.currentCard).to.equal(card)
+  })
+  
+
+  // describe block for returnGuess() method
+  describe('returnGuess()', function() {
+    it('should return the user\'s guess', function() {
+      const returnedGuess = turn.returnGuess() 
+
+      expect(returnedGuess).to.equal('current element')
+    })
+  })
+
+  // describe block for returnCard() method
+  describe('returnCard()', function() {
+    it('should return the user\'s guess', function() {
+      const returnedCard = turn.returnCard() 
+
+      expect(returnedCard).to.equal(card)
+    })
   })
 })
-
-// describe block for returnGuess() method
-describe('returnGuess()', function() {
-  let card, turn
-
-  beforeEach(function() {
-    card = new Card(1, 'What do iterator methods take in as their first argument?', ['callback function', 'current element', 'an array'], 'callback function')
-    turn = new Turn('current element', card)
-  })
-
-  it('should return the user\'s guess', function() {
-    const returnedGuess = turn.returnGuess() 
-
-    expect(returnedGuess).to.equal('current element')
-  })
-})
-
-// describe block for returnCard() method
-describe('returnCard()', function() {
-  let card, turn
-
-  beforeEach(function() {
-    card = new Card(1, 'What do iterator methods take in as their first argument?', ['callback function', 'current element', 'an array'], 'callback function')
-    turn = new Turn('current element', card)
-  })
-
-  it('should return the user\'s guess', function() {
-    const returnedCard = turn.returnCard() 
-
-    expect(returnedCard).to.equal(card)
-  })
-})
-
