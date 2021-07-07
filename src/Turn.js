@@ -5,7 +5,7 @@ class Turn {
   }
 
   returnGuess() {
-
+    return this.guess;
   }
 
   returnCard() {
@@ -17,7 +17,7 @@ class Turn {
   }
 
   giveFeedback() {
-    
+
   }
 }
 
