@@ -23,12 +23,11 @@ describe('Round', () => {
     cards = deck.cards;
     correctGuess = 'object';
     incorrectGuess = 'array';
-  
   });
 
   beforeEach(() => {
     round = new Round(cards);
-  })
+  });
 
   it('should be a function', function() {
     expect(Round).to.be.a('function');
@@ -50,7 +49,6 @@ describe('Round', () => {
     expect(round.currentCard).to.equal(card1);
   });
 
-  //how do I word this it to say should be an empty array
   it('should default incorrect guesses as empty', () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
 
@@ -117,6 +115,21 @@ describe('Round', () => {
     round.takeTurn(incorrectGuess);
  
     expect(round.incorrectGuesses).to.include(1);
+  })
+
+  it('should return percent of correct guesses', () => {
+    round.takeTurn(correctGuess);
+    
+    let percentCorrect = round.calculatePercentCorrect();
+    
+    expect(percentCorrect).to.equal(100);
+
+    round.takeTurn(incorrectGuess);
+    round.takeTurn(incorrectGuess);
+ 
+    percentCorrect = round.calculatePercentCorrect();
+
+    expect(percentCorrect).to.equal(33);
   })
 
 })

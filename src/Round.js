@@ -1,9 +1,10 @@
 //test if I need this to use th method or if it will work anyway.
 const Turn = require('../src/Turn');
-// const Deck = require('../src/Deck');
+const Deck = require('../src/Deck');
 
 class Round {
   constructor(deck) {
+    //should I change this to deck.cards? //and accomp tests? 
     this.deck = deck;
     this.turns = 0;
     this.currentCard = this.deck[this.turns];
@@ -23,11 +24,18 @@ class Round {
     if (feedback === 'incorrect!') {
       this.incorrectGuesses.push(this.currentCard.id);
     }
-    //should I move this.turns back up??
+
     this.turns += 1;
+    //should I move this.turns back up??
     //if this is in correct order, do I need to even update this property for this to work in console?
     this.currentCard = this.deck[this.turns];
     return feedback;
+  }
+
+  calculatePercentCorrect() {
+    const percentage = Math.floor(((this.turns - this.incorrectGuesses.length) / this.turns) * 100) ;
+
+    return percentage;
   }
 
 }
