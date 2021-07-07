@@ -60,5 +60,17 @@ describe('Turn', function() {
   })
 
   // describe block for giveFeedback() method
+  describe('giveFeedback()', function() {
+    it('should display \'Nailed it!\' if the answer is correct', function() {
+      const turn = new Turn('callback function', card)
+      const expected = turn.giveFeedback()
+      expect(expected).to.equal('Nailed it!')
+    })
 
+    it('should display \'Nope! Sorry, try again.\' if the answer is incorrect', function() {
+      const turn = new Turn('an array', card)
+      const expected = turn.giveFeedback()
+      expect(expected).to.equal('Nope! Sorry, try again.')
+    })
+  })
 })
