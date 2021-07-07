@@ -49,5 +49,15 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
+  describe('ReturnCurrentCard()', function () {
 
+    it('should be a function', function () {
+      expect(round.returnCurrentCard).to.be.a('function');
+    });
+
+    it('should return the card in play', function() {
+      expect(round.returnCurrentCard()).to.deep.equal(this.card);
+    });
+
+  })
 })
