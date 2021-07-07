@@ -6,7 +6,7 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 
-//test set-up
+//-----------test set-up
 describe('Round', () => {
   let card1;
   let card2;
@@ -17,9 +17,24 @@ describe('Round', () => {
   let correctGuess;
   let incorrectGuess;
   before(() => {
-    card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    card2 = new Card(14, 'Which iteration method can turn an array into a single value of any data type?', ['reduce()', 'map()', 'filter()'], 'reduce()');
-    card3 = new Card(12, 'Which iteration method returns an array of the same length as the original array?', ["map()", "forEach()", "reduce()"], 'map()');
+    card1 = new Card(
+      1, 
+      'What allows you to define a set of related information using key-value pairs?', 
+      ['object', 'array', 'function'], 
+      'object'
+    );
+    card2 = new Card(
+      14, 
+      'Which iteration method can turn an array into a single value of any data type?', 
+      ['reduce()', 'map()', 'filter()'], 
+      'reduce()'
+    );
+    card3 = new Card(
+      12, 
+      'Which iteration method returns an array of the same length as the original array?', 
+      ["map()", "forEach()", "reduce()"], 
+      'map()'
+    );
     deck = new Deck([card1, card2, card3]);
     cards = deck.cards;
     correctGuess = 'object';
@@ -38,24 +53,24 @@ describe('Round', () => {
     expect(round).to.be.an.instanceof(Round);
   }); 
 
-  //default property tests
+  //-----------default property tests
   it('should store a deck', () => {
     expect(round.deck).to.equal(cards);
   });
 
-  it('should default to storing 0 turns', () => {
+  it('should default turns to 0', () => {
     expect(round.turns).to.equal(0);
   });
 
-  it('should store a current Card object', () => {
+  it('should store the current Card object', () => {
     expect(round.currentCard).to.equal(card1);
   });
 
-  it('should default incorrect guesses as empty', () => {
+  it('should default incorrect guesses to an empty array', () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
-  //returnCurrentCard() tests
+  //-----------returnCurrentCard() tests
   it('should return the current card', () => {
     const currentCard = round.returnCurrentCard();
 
@@ -68,8 +83,8 @@ describe('Round', () => {
     expect(currentCard2).to.equal(round.currentCard);
   })
 
-  //takeTurn(guess) tests
-  it('should be able to store a new instance of turn as a property when a guess is made', () => {
+  //-----------takeTurn(guess) tests
+  it('should be able to store a new instance of Turn as a property when a guess is made', () => {
     round.takeTurn(incorrectGuess);
     
     expect(round.currentTurn).to.be.an.instanceof(Turn);
@@ -85,12 +100,20 @@ describe('Round', () => {
     round.takeTurn(incorrectGuess);
    
     expect(round.turns).to.equal(1);
+
+    round.takeTurn(incorrectGuess);
+
+    expect(round.turns).to.equal(2);
   });
 
   it('should update the current card after a turn is taken', () => {
     round.takeTurn(incorrectGuess);
 
     expect(round.currentCard).to.equal(card2);
+
+    round.takeTurn(incorrectGuess);
+
+    expect(round.currentCard).to.equal(card3);
   });
 
   it('should provide feedback regarding whether the guess is correct or incorrect', () => {
@@ -103,7 +126,7 @@ describe('Round', () => {
     expect(feedback2).to.equal('incorrect!')
   })
 
-  it('should store incorrect guesses by id', () => {
+  it('should store the incorrect guesses by id', () => {
     round.takeTurn(incorrectGuess);
   
     expect(round.incorrectGuesses).to.deep.equal([1]);
@@ -113,8 +136,8 @@ describe('Round', () => {
     expect(round.incorrectGuesses).to.deep.equal([1]);
   })
   
-  //calculatePercentCorrect() tests
-  it('should return percent of correct guesses', () => {
+  //-----------calculatePercentCorrect() tests
+  it('should return the percentage of correct guesses', () => {
     round.takeTurn(correctGuess);
     
     let percentCorrect = round.calculatePercentCorrect();
@@ -129,5 +152,4 @@ describe('Round', () => {
     expect(percentCorrect).to.equal(33);
   });
 
- 
 })

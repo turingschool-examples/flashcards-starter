@@ -17,26 +17,30 @@ class Round {
 
   takeTurn(guess) {
     this.currentTurn = new Turn(guess, this.currentCard);
-
     const feedback = this.currentTurn.giveFeedback();
+
     if (feedback === 'incorrect!') {
       this.incorrectGuesses.push(this.currentCard.id);
     }
 
     this.turns += 1;
-   //will code work without this next statement?
     this.currentCard = this.deck[this.turns];
     return feedback;
   }
 
   calculatePercentCorrect() {
-    const percentage = Math.floor(((this.turns - this.incorrectGuesses.length) / this.turns) * 100) ;
+    const percentage = Math.floor(
+      ((this.turns - this.incorrectGuesses.length) / this.turns) * 100
+    );
 
     return percentage;
   }
 
   endRound() {
-    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    console.log(
+      `** Round over! ** You answered 
+      ${this.calculatePercentCorrect()}% of the questions correctly!`
+    )
   }
 
 }
