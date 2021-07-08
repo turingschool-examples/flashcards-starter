@@ -68,4 +68,10 @@ describe('Round', () => {
     round.takeTurn('sea otter');
     expect(round.returnCurrentCard()).to.equal(card2);
   });
+
+  it('should print the end results to the console', () => {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    expect(round.endRound()).to.equal('**Round over!** You answered 50% of the questions correctly!');
+  })
 });
