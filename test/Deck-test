@@ -6,8 +6,8 @@ const Deck = require('../src/Deck');
 describe('Deck', () => {
   let card1, card2, card3, deck;
 
-beforeEach(() => {
-card1 = new Card1,
+  beforeEach(() => {
+    card1 = new Card1,
       "What is Robbie's favorite animal",
       ['sea otter', 'pug', 'capybara'],
       'sea otter'
@@ -24,8 +24,25 @@ card1 = new Card1,
       ['Lex', 'William', 'Fitzgerald'],
       'Fitzgerald'
     );
-})
 
-//it blocks go here...
+    deck = new Deck([card1, card2, card3]);
+  });
+
+  it('should be a function', () => {
+     expect(Deck).to.be.a('function');
+   });
+
+  it('should instantiate a new Deck', () => {
+     expect(deck).to.be.an.instanceof(Deck);
+   });
+
+  it('should initialize with an array of cards', () => {
+    expect(deck.cards).to.be.an('array');
+  });
+
+  it('should know how many cards are in the deck', () => {
+    expect(deck.countCards()).to.equal(3);
+  });
+});
 
 // where are my colors and why is this not commenting out???
