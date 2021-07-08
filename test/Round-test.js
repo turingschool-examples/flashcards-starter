@@ -12,11 +12,11 @@ describe('Round', () => {
   let card2;
   let card3;
   let deck;
-  //do I need cards
   let cards;
   let round;
   let correctGuess;
   let incorrectGuess;
+  const guess = 'guessInputString';
   before(() => {
     card1 = new Card(
       1, 
@@ -36,11 +36,7 @@ describe('Round', () => {
       ["map()", "forEach()", "reduce()"], 
       'map()'
     );
-     //game.start() passes in deck.cards
-     //this does deck.cards...so need to test this way.
-    //  this.currentRound = new Round(deck.cards);
     deck = new Deck([card1, card2, card3]);
-    //do I use this variable cards? ***
     cards = deck.cards;
     correctGuess = 'object';
     incorrectGuess = 'array';
@@ -59,7 +55,6 @@ describe('Round', () => {
   }); 
 
   //-----------default property tests
-  //wording -should store cards passed in
   it('should store given cards', () => {
     expect(round.cards).to.equal(cards);
   });
@@ -70,12 +65,10 @@ describe('Round', () => {
 
   it('should store the current Card object', () => {
     expect(round.currentCard).to.equal(card1);
-    //expect .... to equal (rounds.deck.cards[0])
   });
 
   it('should default incorrect guesses to an empty array', () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
-    //test has length of zero.
   });
 
   //-----------returnCurrentCard() tests
@@ -95,15 +88,17 @@ describe('Round', () => {
   it('should be able to store current turn when given guess', () => {
     //should this be round.takeTurn(guess); just have a guess variable for generic.
     //should I be passing in a string since they will have strings passed in?
-    round.takeTurn(incorrectGuess);
+    // round.takeTurn(incorrectGuess);
+    round.takeTurn(guess);
     
     expect(round.currentTurn).to.be.an.instanceof(Turn);
   });
 
   it('should create a new instance of turn with given guess', () => {
-    round.takeTurn(incorrectGuess);
+    // round.takeTurn(incorrectGuess);
+    round.takeTurn(guess);
 
-    expect(round.currentTurn.guess).to.equal(incorrectGuess);
+    expect(round.currentTurn.guess).to.equal(guess);
   });
 
   it('should store the incorrect guesses by id', () => {
@@ -117,21 +112,21 @@ describe('Round', () => {
   })
 
   it('should increment turns after a turn is taken', () => {
-    round.takeTurn(incorrectGuess);
+    round.takeTurn(guess);
    
     expect(round.turns).to.equal(1);
 
-    round.takeTurn(incorrectGuess);
+    round.takeTurn(guess);
 
     expect(round.turns).to.equal(2);
   });
 
   it('should update the current card after a turn is taken', () => {
-    round.takeTurn(incorrectGuess);
+    round.takeTurn(guess);
 
     expect(round.currentCard).to.equal(card2);
 
-    round.takeTurn(correctGuess);
+    round.takeTurn(guess);
 
     expect(round.currentCard).to.equal(card3);
   });

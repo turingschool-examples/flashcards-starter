@@ -4,7 +4,6 @@ class Round {
   constructor(cards) {
     this.cards = cards;
     this.turns = 0;
-    //get rid of this property below.
     this.currentCard = this.cards[this.turns];
     this.incorrectGuesses = [];
   }
@@ -14,7 +13,6 @@ class Round {
   }
 
   takeTurn(guess) {
-    //don't technically need to store this.
     this.currentTurn = new Turn(guess, this.currentCard);
     const feedback = this.currentTurn.giveFeedback();
 
@@ -23,7 +21,6 @@ class Round {
     }
 
     this.turns += 1;
-    //how will this work then?
     this.currentCard = this.cards[this.turns];
     return feedback;
   }

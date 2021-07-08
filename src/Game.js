@@ -6,6 +6,7 @@ const util = require('./util');
 
 class Game {
   constructor() {
+    //set this to a data type it will eventually be...
     this.currentRound;
   }
 
