@@ -13,9 +13,9 @@ describe('Turn', function() {
 
   it('should have a guess as an argument', function() {
       const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
-      const turn = new Turn('guess', currentCard);
+      const turn = new Turn(guess, currentCard);
 
-      expect(turn).to.have.property('guess');
+      expect(turn).to.have.property(guess);
     });
 
     it('returnGuess returns the guess', function() {
