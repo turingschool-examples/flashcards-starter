@@ -6,7 +6,6 @@ class Round {
     this.turns = 0;
     this.incorrectGuesses = [];
     this.correctGuesses = [];
-    this.correctGuessPercentage = 0;
   }
   returnCurrentCard() {
     return this.currentCard;
@@ -28,11 +27,11 @@ class Round {
     }
   }
   calculatePercentCorrect() {
-    this.correctGuessPercentage += Math.floor(this.turns/(this.correctGuesses.length / this.incorrectGuesses.length));
-    return this.correctGuessPercentage;
+    return Math.floor((this.correctGuesses.length / this.turns) * 100);
   }
   endRound() {
-    console.log(`** Round over! ** You answered ${this.correctGuessPercentage}% of the questions correctly!`);
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 };
 

@@ -102,7 +102,7 @@ describe('Round', () => {
     expect(round.correctGuesses[0]).to.equal(1);
   });
 
-  it.skip('should give a percentage of the correct answer during the game', () => {
+  it('should give a percentage of the correct answer during the game', () => {
 
     round.takeTurn('array');
     round.takeTurn('array');
@@ -110,12 +110,13 @@ describe('Round', () => {
     expect(round.calculatePercentCorrect()).to.deep.equal(50);
   });
 
-  it.skip('should give a percentage of the correct answer during the game', () => {
+  it('should give a percentage of the correct answer during the game', () => {
 
     round.takeTurn('array');
     round.takeTurn('array');
     round.calculatePercentCorrect();
+    round.endRound()
 
-    expect(round.endRound()).to.deep.equal('** Round over! ** You answered 2% of the questions correctly!');
+    expect(round.endRound()).to.deep.equal('** Round over! ** You answered 50% of the questions correctly!');
   });
 });
