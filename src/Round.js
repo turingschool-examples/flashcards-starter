@@ -8,7 +8,11 @@ class Round {
       return this.deck.cards[this.turns];
 
   takeTurn(guess) {
-
+    const currentCard = this.returnCurrentCard();
+    const turn = new Turn(guess, currentCard);
+    this.turns++;
+    if (!turn.evaluateGuess()) {
+      this.incorrectGuesses.push(turn.card.id);
     }
   }
   calculatePercentCorrect() {
