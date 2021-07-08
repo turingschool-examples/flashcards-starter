@@ -1,5 +1,17 @@
 const chai = require('chai');
 const expect = chai.expect;
-
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
+
+describe('Deck', () => {
+  let card1, card2, card3, deck;
+
+beforeEach(() => {
+card1 = new Card(
+// card2, card3, deck
+)
+})
+
+//it blocks go here...
+
+// where are my colors and why is this not commenting out???
