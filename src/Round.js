@@ -3,7 +3,7 @@ class Round {
   constructor(deck) {
     this.deck = deck
     this.turns = 0
-    this.incorrectCards = []
+    this.incorrectGuesses = []
   }
 
   returnCurrentCard() {
@@ -18,14 +18,14 @@ class Round {
     this.deck.cards.shift()
 
     if(!turn.evaluateGuess()) {
-      this.incorrectCards.push(turn.card.id)
+      this.incorrectGuesses.push(turn.card.id)
     } 
     
     return turn.giveFeedback()
   }
 
   calculatePercentCorrect() {
-    const correctCards = this.turns - this.incorrectCards.length
+    const correctCards = this.turns - this.incorrectGuesses.length
     const correctCardsPercentage = (correctCards / this.turns) * 100
 
     return correctCardsPercentage
