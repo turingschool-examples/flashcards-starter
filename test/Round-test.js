@@ -27,7 +27,7 @@ describe('Round', function() {
   })
 
   it('should start with 0 turns', function() {
-    expect(round.turnCounter).to.equal(0)
+    expect(round.turns).to.equal(0)
   })
 
   it('should start with an empty array', function() {
@@ -47,7 +47,7 @@ describe('Round', function() {
       round.takeTurn('current element')
       round.takeTurn('initializer')
      
-       expect(round.turnCounter).to.equal(2)
+       expect(round.turns).to.equal(2)
     })
 
     it('should be able to shuffle to the next card', function() {
