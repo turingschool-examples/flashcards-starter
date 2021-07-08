@@ -8,6 +8,7 @@ describe('Turn', function() {
   //-----------test set-up
   let card;
   //change to correct/inncorrect guess for readability
+  //guess1 is correct guess...
   let guess1;
   let guess2;
   //put turn 1 and 2 here...
