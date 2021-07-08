@@ -1,18 +1,18 @@
 const prototypeData = [{
   "id": 1,
-  "question": "What allows you to define a set of related information using key-value pairs?",
-  "answers": ["object", "array", "function"],
-  "correctAnswer": "object"
+  "question": 'What author invented the detective story?',
+  "answers": ['Dickens', 'Doyle', 'Gaboriau'],
+  "correctAnswer": 'Poe'
 }, {
   "id": 2,
-  "question": "What is a comma-separated list of related values?",
-  "answers": ["array", "object", "function"],
-  "correctAnswer": "array"
+  "question": 'Where did Sherlock Holmes confront Professor Moriarty?',
+  "answers": ['Victoria Falls', 'Niagra Falls', 'Bushkill Falls'],
+  "correctAnswer": 'Reichenbach Falls'
 }, {
   "id": 3,
-  "question": "What type of prototype method directly modifies the existing array?",
-  "answers": ["mutator method", "accessor method", "iteration method"],
-  "correctAnswer": "mutator method"
+  "question": 'What was the profession of G.K. Chestertons famous detective?',
+  "answers": ['Police Officer', 'Socialite', 'University Professor'],
+  "correctAnswer": 'Catholic Priest'
 }, {
   "id": 4,
   "question": "What type of prototype method does not modify the existing array but returns a particular representation of the array?",
@@ -151,5 +151,5 @@ const prototypeData = [{
 }]
 
 module.exports = {
-  prototypeData 
+  prototypeData
 }
