@@ -1,4 +1,10 @@
+class Round {
+  constructor(deck) {
+    this.deck = deck
+  }
+}
 
+module.exports = Round 
 // this.deck = deck 
 // we will probably need a turn counter (updated whether guess is correct or incorrect)
 // incorrect cards []
