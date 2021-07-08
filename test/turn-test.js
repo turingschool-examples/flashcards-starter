@@ -7,7 +7,7 @@ const Card = require('../src/Card');
 describe('Turn', () => {
   let turn;
   beforeEach(() =>  {
-    const card = new Card(2, 'What is a comma-separated list of related values?',['array', 'object', 'function'],'array');
+    const card = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
     turn = new Turn('array', card);
   })
 

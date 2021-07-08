@@ -9,7 +9,7 @@ class Turn {
   returnCard() {
     return this.playedCard;
   }
-  evaluateGuess(){
+  evaluateGuess() {
     if (this.guess === this.playedCard.correctAnswer) {
       return true;
     } else {
@@ -23,5 +23,5 @@ class Turn {
       return "incorrect";
     }
   }
-};
+}
 module.exports = Turn;
