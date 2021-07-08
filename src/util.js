@@ -1,6 +1,5 @@
 const inquirer = require('inquirer');
 
-//look at this when run node and how each works.
 const genList = (round) => {
   let card = round.returnCurrentCard();
   
@@ -18,10 +17,6 @@ const genList = (round) => {
   };
 }
 
-//this the big fuzzy piece.
-//takes in a round and gives you round..
-//what is the point here.
-//this will resolve to a value.
 const getRound = (round) => {
   return Promise.resolve(round);
 }
@@ -37,7 +32,7 @@ const confirmUpdate = (id, round) => {
 async function main(round) {
 
   const currentRound = await getRound(round);
-  const getAnswer = await inquirer.prompt(genList(currentRound));
+  const getAnswer = await inquirer.prompt(genList(round));
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
     if(!round.returnCurrentCard()) {

@@ -33,8 +33,6 @@ describe('Deck', function() {
     );
     deck = new Deck([card1, card2, card3]);
     cards = deck.cards;
-    correctGuess = 'object';
-    incorrectGuess = 'array';
     cards = ([card1, card2, card3]);
     deck = new Deck([card1, card2, card3]);
   });
