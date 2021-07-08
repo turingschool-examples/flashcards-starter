@@ -24,8 +24,6 @@ describe('Turn', function() {
     expect(turn.card).to.equal(card)
   })
   
-
-  // describe block for returnGuess() method
   describe('returnGuess()', function() {
     it('should return the user\'s guess', function() {
       const returnedGuess = turn.returnGuess() 
@@ -34,7 +32,6 @@ describe('Turn', function() {
     })
   })
 
-  // describe block for returnCard() method
   describe('returnCard()', function() {
     it('should return the user\'s card', function() {
       const returnedCard = turn.returnCard() 
@@ -43,7 +40,6 @@ describe('Turn', function() {
     })
   })
 
-  // describe block for evaluateGuess() method
   describe('evaluateGuess()', function() {
     it('should be able to evaluate if an answer is correct', function() {
       const turn = new Turn('callback function', card)
@@ -60,7 +56,6 @@ describe('Turn', function() {
     })
   })
 
-  // describe block for giveFeedback() method
   describe('giveFeedback()', function() {
     it('should display \'Nailed it!\' if the answer is correct', function() {
       const turn = new Turn('callback function', card)
