@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
+
 describe('Deck', function() {
   let deck;
   beforeEach(() =>  {
@@ -9,7 +10,8 @@ describe('Deck', function() {
     const card2 = new Card(2, 'Where did Sherlock Holmes confront Professor Moriarty?',['Victoria Falls', 'Niagra Falls', 'Bushkill Falls'],'Reichenbach Falls');
     const card3 = new Card(3, 'What was the profession of G.K. Chestertons famous detective?',['Police Officer', 'Socialite', 'University Professor'],'Catholic Priest');
     deck = new Deck([card1, card2, card3]);
-  })
+  });
+  
   it('should be a function', function() {
     expect(Deck).to.be.a('function');
   });

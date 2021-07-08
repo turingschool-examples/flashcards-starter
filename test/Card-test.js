@@ -20,17 +20,17 @@ describe('Card', function() {
   });
 
   it('should store a question', function() {
-    const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    const card = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+    expect(card.question).to.equal('What author invented the detective story?');
   });
 
   it('should store a list of possible answers', function() {
     const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+    expect(card.answers).to.deep.equal(['Dickens', 'Doyle', 'Gaboriau']);
   });
 
   it('should store the correct answer', function() {
     const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
-    expect(card.correctAnswer).to.equal('object');
+    expect(card.correctAnswer).to.equal('Poe');
   });
 });
