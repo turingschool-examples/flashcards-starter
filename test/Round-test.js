@@ -44,7 +44,7 @@ describe('Round', function() {
 
   it('takeTurn returns correct or incorrect', function() {
 
-    expect(round.takeTurn('function')).to.equal('Your answer of function is Incorrect!');
+    expect(round.takeTurn('function')).to.equal('Your answer of function is incorrect!');
   });
 
   it('takeTurn should update card in use', function() {
@@ -62,17 +62,13 @@ describe('Round', function() {
 
   it('calculatePercentCorrect should return percentage of correct guesses', function() {
 
-    round.takeTurn('object');
-    expect(round.calculatePercentCorrect()).to.equal('You got 100% correct!');
-    round.takeTurn('filter');
-    expect(round.calculatePercentCorrect()).to.equal('You got 50% correct!');
-    round.takeTurn('for loop');
-    expect(round.calculatePercentCorrect()).to.equal('You got 33% correct!');
+    round.takeTurn('Poe');
+    expect(round.calculatePercentCorrect()).to.equal(100);
 
   });
 
   it('endRound method should return correct answer percentage', function() {
-
+    let currentCard = card1;
     round.takeTurn('Poe');
     round.takeTurn('Victoria Falls');
     round.takeTurn('University Professor');
