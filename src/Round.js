@@ -23,16 +23,19 @@ class Round {
     
     return turn.giveFeedback()
   }
+
+  calculatePercentCorrect() {
+    const correctCards = this.turnCounter - this.incorrectCards.length
+    const correctCardsPercentage = (correctCards / this.turnCounter) * 100
+
+    return correctCardsPercentage
+  }
+
+  endRound() {
+    return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+  }
 }
 
 
 module.exports = Round 
 
-
-//calculatePercentCorrect() 
-// calculates and returns the percentage of correct guesses
-// var correctCards = this.turns - this.incorrectCards.length
-// var correctCardsPercentage = correctCards / this.turnCounter * 100
-
-//endRound() 
-// return `Round over! You answered ${correctCardsPercentage}% of the questions correctly!`
