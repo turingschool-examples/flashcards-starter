@@ -6,8 +6,7 @@ const util = require('./util');
 
 class Game {
   constructor() {
-    //set this to a data type it will eventually be...
-    this.currentRound;
+    this.currentRound = null;
   }
 
   printMessage(deck) {
@@ -21,7 +20,6 @@ class Game {
 
   start() {
     const deck = new Deck(prototypeQuestions);
-    //this does deck.cards...so need to test this way.
     this.currentRound = new Round(deck.cards);
     this.printMessage(deck, this.currentRound);
     this.printQuestion(this.currentRound);
