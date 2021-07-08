@@ -79,6 +79,19 @@ describe('Round', function() {
       expect(correctCards).to.equal(50)
     })
   })
+
+  describe('endRound', function() {
+    it('should return "**Round over!** You answered 50% of the questions correctly!"', function() {
+      round.takeTurn('callback function')
+      round.takeTurn('boolean')
+      round.takeTurn('an array')
+      round.takeTurn('Object.keys()')
+
+      const result = round.endRound()
+
+      expect(result).to.equal('**Round over!** You answered 50% of the questions correctly!')
+    })
+  })
 })
 
   
