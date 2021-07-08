@@ -1,3 +1,4 @@
+const Turn = require('./Turn')
 class Round {
   constructor(deck) {
     this.deck = deck
@@ -6,19 +7,20 @@ class Round {
   }
 
   returnCurrentCard() {
-    // console.log(this.deck.cards[0])
     return this.deck.cards[0]
+  }
+
+  takeTurn(guess) {
+    const card = this.returnCurrentCard() 
+    const turn = new Turn(guess, card)
+    
+    this.turnCounter++
   }
 }
 
 
 module.exports = Round 
 
-// Round class will be the object that takes in responses and records guesses (as well as if they are correct or incorrect). 
-
-// returnCurrentCard()
-// return the current card being played in deck 
-// this.deck.cards[0]
 
 // takeTurn()
 // when a guess is made, a new Turn instance is created (so we'll have access to the properties in the Turn class here)
