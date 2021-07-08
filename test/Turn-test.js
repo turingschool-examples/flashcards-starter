@@ -7,33 +7,35 @@ const Card = require('../src/Card');
 describe('Turn', function() {
 
   it('should be a function', function() {
-    const turn = new Turn();
+    var currentCard
+    const turn = new Turn('Poe', currentCard);
     expect(Turn).to.be.a('function');
   });
 
   it('should have a guess as an argument', function() {
-      const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
-      const turn = new Turn(guess, currentCard);
+      const currentCard = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+      const turn = new Turn("guess", currentCard);
 
-      expect(turn).to.have.property(guess);
+      expect(turn.guess).to.equal("guess");
     });
 
     it('returnGuess returns the guess', function() {
-        const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+        const currentCard = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
         const turn = new Turn('Poe', currentCard);
+    
 
         expect(turn.returnGuess()).to.equal('Poe');
       });
 
       it('returnCard returns the card', function() {
-          const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+          const currentCard = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
           const turn = new Turn('Poe', currentCard);
 
           expect(turn.returnCard()).to.equal(currentCard);
         });
 
         it('evaluateGuess returns true if guess is correct answer', function() {
-            const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+            const currentCard = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
             const turn1 = new Turn('Poe', currentCard);
             const turn2 = new Turn('Dickens', currentCard);
 
@@ -42,7 +44,7 @@ describe('Turn', function() {
           });
 
           it('giveFeedback returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not', function() {
-              const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+              const currentCard = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
               const turn1 = new Turn('Poe', currentCard);
               const turn2 = new Turn('Dickens', currentCard);
 

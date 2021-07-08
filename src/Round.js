@@ -15,21 +15,18 @@ class Round {
   takeTurn(answer) {
     const turn = new Turn(answer, this.returnCurrentCard())
     if (!turn.evaluateGuess()) {
-      this.incorrectGuesses.push(turn.card.id);
+      this.incorrectGuesses.push(turn.card);
     }
     this.turns++;
     return `Your answer of ${turn.guess} is ${turn.giveFeedback()}`;
   }
 
   calculatePercentCorrect() {
-    let correct = this.turns - this.incorrectGuesses.length;
-    let percentage = (correct / this.turns) * 100;
-    console.log(`You got ${Math.round(percentage)}% correct!`);
-    return `You got ${Math.round(percentage)}% correct!`;
+    return (100 - Math.round((this.incorrectGuesses.length/this.deck.cards.length) * 100))
   }
 
   endRound() {
-    return this.calculatePercentCorrect();
+    return `You got ${this.calculatePercentCorrect()}% correct!`
   }
 
 }
