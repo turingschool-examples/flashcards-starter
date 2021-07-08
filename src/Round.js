@@ -22,6 +22,13 @@ class Round {
     return turn.giveFeedback();
   }
 
+  calculatePercentageCorrect() {
+    let numberOfQuestions = this.deck.cards.length;
+    let correctAnswers = numberOfQuestions - this.incorrectGuesses.length;
+    let percentCorrect = Math.round((correctAnswers/numberOfQuestions) * 100);
+    return percentCorrect;
+  };
+
 }
 
 module.exports = Round;

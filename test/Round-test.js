@@ -102,4 +102,20 @@ describe('Round', function() {
     });
 
   });
+
+  describe('calculatePercentageCorrect', function() {
+
+    it('should be a function', function() {
+      expect(round.calculatePercentageCorrect).to.be.a('function');
+    });
+
+    it('should return the percentage of correct guesses', function() {
+      round.takeTurn('object');
+      round.takeTurn('array');
+      expect(round.calculatePercentageCorrect()).to.equal(100);
+      round.takeTurn('potato');
+      expect(round.calculatePercentageCorrect()).to.equal(67);
+    });
+
+  })
 });
