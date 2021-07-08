@@ -31,7 +31,7 @@ describe('Round', function() {
   })
 
   it('should start with an empty array', function() {
-    expect(round.incorrectCards).to.deep.equal([])
+    expect(round.incorrectGuesses).to.deep.equal([])
   })
 
   describe('returnCurrentCard', function() {
@@ -63,7 +63,17 @@ describe('Round', function() {
       round.takeTurn('an array')
       round.takeTurn('Object.keys()')
 
-      expect(round.incorrectCards).to.deep.equal([2, 3])
+      expect(round.incorrectGuesses).to.deep.equal([2, 3])
+    })
+
+    it('should be able to return feedback', function() {
+      const correct = round.takeTurn('callback function')
+
+      expect(correct).to.equal('Nailed it!')
+
+      const incorrect = round.takeTurn('boolean')
+
+      expect(incorrect).to.equal('Nope! Sorry, try again.')
     })
   })
 
