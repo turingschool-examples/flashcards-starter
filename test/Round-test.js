@@ -45,8 +45,8 @@ describe('Round', function() {
   describe('takeTurn', function() {
     it('should increase turn counter by one each turn', function() {
       round.takeTurn('current element')
-      round.takeTurn('an array')
-      // console.log(round.turnCounter)
+      round.takeTurn('initializer')
+     
       expect(round.turnCounter).to.equal(2)
     })
 
@@ -57,16 +57,19 @@ describe('Round', function() {
       expect(nextCard).to.equal(card2)
     })
 
+    it('should be able to shovel incorrect cards into array by id', function() {
+      round.takeTurn('callback function')
+      round.takeTurn('boolean')
+      round.takeTurn('an array')
+      round.takeTurn('Object.keys()')
+
+      expect(round.incorrectCards).to.deep.equal([2, 3])
+    })
+
     })
   })
 })
 
-// takeTurn(guess)
-// should be able to shuffle to next card in deck
-// should be able to evaluate correct
-// should be able to evaluate incorrect 
-// should be able to shovel incorrect guesses into array
-// should be able to return feedback - turn.giveFeedback()
 
 // calculatePercentCorrect()
 // should be able to calculate total number of correct guesses
