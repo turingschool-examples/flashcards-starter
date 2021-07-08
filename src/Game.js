@@ -16,8 +16,16 @@ class Game {
       util.main(round);
   }
   start() {
-    // needs to be a new round and new deck for the new Game
-    // new variables? new instances 
+    let data = prototypeQuestions;
+    let cards = data.map(data => {
+      return new Card(data.id, data.question, data.answers, data.correctAnswer);
+    });
+
+    let deck = new Deck(cards);
+    let round = new Round(deck);
+    this.currentRound = round;
+    this.printMessage(deck, this.currentRound);
+    this.printQuestion(this.currentRound);
   }
 }
 
