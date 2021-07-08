@@ -35,12 +35,15 @@ describe('Round', function() {
     expect(round.incorrectCards).to.deep.equal([])
   })
 
-})
+  describe('returnCurrentCard', function() {
+    it('should return the current card being played in deck', function() {
+      const currentCard = round.returnCurrentCard()
 
-// tests
-// should be a function
-// should be able to count turns taken
-// should start with an empty array for incorrect guesses 
+      expect(currentCard).to.equal(card1)
+    })
+  })
+
+})
 
 // returnCurrentCard()
 // can return the current card being played in deck
