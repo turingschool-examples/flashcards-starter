@@ -43,11 +43,18 @@ describe('Round', function() {
     })
 
   describe('takeTurn', function() {
-    it('should increase by one each turn', function() {
+    it('should increase turn counter by one each turn', function() {
       round.takeTurn('current element')
       round.takeTurn('an array')
       // console.log(round.turnCounter)
       expect(round.turnCounter).to.equal(2)
+    })
+
+    it('should be able to shuffle to the next card', function() {
+      round.takeTurn('current element')
+      const nextCard = round.returnCurrentCard()
+
+      expect(nextCard).to.equal(card2)
     })
 
     })
@@ -55,8 +62,6 @@ describe('Round', function() {
 })
 
 // takeTurn(guess)
-// should create a new turn instance each time a guess is made
-// should be able to add one to the turn counter each turn
 // should be able to shuffle to next card in deck
 // should be able to evaluate correct
 // should be able to evaluate incorrect 
