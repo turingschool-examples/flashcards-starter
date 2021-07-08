@@ -94,13 +94,4 @@ describe('Round', function() {
   })
 })
 
-  
 
-
-
-// calculatePercentCorrect()
-// should be able to calculate total number of correct guesses
-// should be able to return percentage of correct guesses
-
-// endRound()
-// should be able to return 'Round over! You answered 25% of the questions correctly!'
