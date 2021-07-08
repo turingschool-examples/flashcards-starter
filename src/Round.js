@@ -6,5 +6,17 @@ class Round {
   }
   returnCurrentCard() {
       return this.deck.cards[this.turns];
+
+  takeTurn(guess) {
+
     }
   }
+  calculatePercentCorrect() {
+
+  }
+  endRound() {
+
+  }
+}
+
+module.exports = Round;
