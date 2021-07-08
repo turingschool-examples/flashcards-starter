@@ -20,6 +20,13 @@ describe('Round', function() {
   it('should be a function', function() {
     expect(Round).to.be.a('function')
   })
+
+  it('should be able to store deck of cards', function() {
+    // console.log(round.deck)
+    expect(round.deck).to.be.an.instanceOf(Deck)
+    expect(round.deck.cards).to.deep.equal([card1, card2, card3, card4])
+  })
+
 })
 
 // tests
