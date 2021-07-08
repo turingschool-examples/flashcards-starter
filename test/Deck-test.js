@@ -44,5 +44,3 @@ describe('Deck', () => {
     expect(deck.countCards()).to.equal(3);
   });
 });
-
-// where are my colors and why is this not commenting out???
