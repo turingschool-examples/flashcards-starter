@@ -86,16 +86,12 @@ describe('Round', () => {
 
   //-----------takeTurn(guess) tests
   it('should be able to store current turn when given guess', () => {
-    //should this be round.takeTurn(guess); just have a guess variable for generic.
-    //should I be passing in a string since they will have strings passed in?
-    // round.takeTurn(incorrectGuess);
     round.takeTurn(guess);
     
     expect(round.currentTurn).to.be.an.instanceof(Turn);
   });
 
   it('should create a new instance of turn with given guess', () => {
-    // round.takeTurn(incorrectGuess);
     round.takeTurn(guess);
 
     expect(round.currentTurn.guess).to.equal(guess);
