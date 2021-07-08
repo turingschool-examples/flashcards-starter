@@ -15,6 +15,13 @@ class Round {
     const turn = new Turn(guess, card)
     
     this.turnCounter++
+    this.deck.cards.shift()
+
+    // if(turn.guess !== turn.card.correctAnswer) {
+    //   this.incorrectCards.push(turn.card)
+    // }
+
+    // console.log(turn.evaluateGuess())
   }
 }
 
