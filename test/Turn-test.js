@@ -21,7 +21,15 @@ it('should be a function', () => {
     expect(Turn).to.be.a('function');
   });
 
-  it('should instatiate with two arguments', () => {
-      expect(turn.guess).to.equal('pug');
-      expect(turn.card).to.equal(card);
-    });
+it('should instatiate to have two arguments', () => {
+    expect(turn.guess).to.equal('pug');
+    expect(turn.card).to.equal(card);
+  });
+
+it('should return the guess', () => {
+  expect(turn.returnGuess()).to.equal('pug');
+  });
+
+it('should return the card', () => {
+  expect(turn.returnCard()).to.equal(card);
+  });
