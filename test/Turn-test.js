@@ -51,11 +51,3 @@ describe('Turn', function() {
             });
 
           })
-
-
-
-
-
-
-
-// giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.
