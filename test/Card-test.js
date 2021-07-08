@@ -6,7 +6,7 @@ const Card = require('../src/Card');
 describe('Card', function() {
     let card;
     beforeEach(() => {
-        card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+        card = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
     })
 
   it('should be a function', function() {
@@ -25,12 +25,12 @@ describe('Card', function() {
   });
 
   it('should store a list of possible answers', function() {
-    const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+    const card = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
     expect(card.answers).to.deep.equal(['Dickens', 'Doyle', 'Gaboriau']);
   });
 
   it('should store the correct answer', function() {
-    const card = new Card(1, 'what author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
+    const card = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'], 'Poe');
     expect(card.correctAnswer).to.equal('Poe');
   });
 });
