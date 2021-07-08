@@ -18,6 +18,9 @@ describe('Deck', function() {
     expect(Deck).to.be.a('function')
   })
 
-
+  it('should be able to store cards', function() {
+    expect(deck.cards).to.deep.equal([card1, card2, card3])
+  })
 })
+
   
