@@ -22,7 +22,6 @@ describe('Round', function() {
   })
 
   it('should exist and be able to store deck of cards', function() {
-    // console.log(round.deck)
     expect(round.deck).to.be.an.instanceOf(Deck)
     expect(round.deck.cards).to.deep.equal([card1, card2, card3, card4])
   })
@@ -35,40 +34,49 @@ describe('Round', function() {
     expect(round.incorrectCards).to.deep.equal([])
   })
 
-  describe('returnCurrentCard', function() {
-    it('should return the current card being played in deck', function() {
-      const currentCard = round.returnCurrentCard()
+    describe('returnCurrentCard', function() {
+      it('should return the current card being played in deck', function() {
+        const currentCard = round.returnCurrentCard()
 
-      expect(currentCard).to.equal(card1)
+        expect(currentCard).to.equal(card1)
+      })
     })
 
-  describe('takeTurn', function() {
-    it('should increase turn counter by one each turn', function() {
-      round.takeTurn('current element')
-      round.takeTurn('initializer')
+    describe('takeTurn', function() {
+      it('should increase turn counter by one each turn', function() {
+        round.takeTurn('current element')
+        round.takeTurn('initializer')
      
-      expect(round.turnCounter).to.equal(2)
+       expect(round.turnCounter).to.equal(2)
+      })
+
+      it('should be able to shuffle to the next card', function() {
+        round.takeTurn('current element')
+        const nextCard = round.returnCurrentCard()
+
+       expect(nextCard).to.equal(card2)
+      })
+
+      it('should be able to shovel incorrect cards into array by id', function() {
+        round.takeTurn('callback function')
+        round.takeTurn('boolean')
+        round.takeTurn('an array')
+        round.takeTurn('Object.keys()')
+
+        expect(round.incorrectCards).to.deep.equal([2, 3])
+      })
     })
 
-    it('should be able to shuffle to the next card', function() {
-      round.takeTurn('current element')
-      const nextCard = round.returnCurrentCard()
+    describe(calculatePercentCorrect(), function() {
+      it('should be able to calculate total number of correct guesses', function () {
 
-      expect(nextCard).to.equal(card2)
-    })
+        expect()
+      })
+   })
 
-    it('should be able to shovel incorrect cards into array by id', function() {
-      round.takeTurn('callback function')
-      round.takeTurn('boolean')
-      round.takeTurn('an array')
-      round.takeTurn('Object.keys()')
 
-      expect(round.incorrectCards).to.deep.equal([2, 3])
-    })
+  
 
-    })
-  })
-})
 
 
 // calculatePercentCorrect()
