@@ -1,79 +1,40 @@
-# FlashCards Starter Kit
+# FLASHCARDS - TEST YOUR BRAIN GRAPES
 
-## Fork This Repo
 
-On the top right corner of this page, click the **Fork** button.
+This project iterates through a data set and compiles different flashcards. The user is able to test their knowledge of a subject all in their terminal.
 
-## Setup
+### Check it out in action..
+![dleach_tictactoe](https://user-images.githubusercontent.com/81774070/122153106-87a55700-ce1f-11eb-9fd7-fc38e18272a3.gif)
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+### Technologies Used
+- Javascript
+- Mocha/Chai Testing Suites
+
+
+### Install/Setup Instructions
+This application is playable through the Command-Line-Interface. In order for it to run, make sure you follow these steps..
+
+
+Clone down this repo from GitHub using the following command in your terminal:
 
 ```bash
-git clone [remote-address] [what you want to name the repo]
+git clone git@github.com:davidleach724/flashcards.git
 ```
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+After the repo is cloned, navigate into the directory and install the library dependencies but runnint the following code:
 
 ```bash
 npm install
 ```
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Node server running on port 3000
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
+You're almost ready to start testing those brain grapes, run the following command to get going, good luck!
 
 ```bash
 node index.js
 ```
 
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
+Note: At the end of the test you will receive your results. To exit the game, press control+c at any time during the game.
 
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
 
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
----
+### Contributor
+- Dave Leach [github](https://github.com/davidleach724)
