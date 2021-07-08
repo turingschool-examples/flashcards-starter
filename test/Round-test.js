@@ -27,6 +27,10 @@ describe('Round', function() {
     expect(round.deck.cards).to.deep.equal([card1, card2, card3, card4])
   })
 
+  it('should start with 0 turns', function() {
+    expect(round.turnCounter).to.equal(0)
+  })
+
 })
 
 // tests
