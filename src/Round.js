@@ -4,5 +4,7 @@ class Round {
     this.turns = turns;
     this.incorrectGuesses = incorrectGuesses;
   }
-
-  
+  returnCurrentCard() {
+      return this.deck.cards[this.turns];
+    }
+  }
