@@ -10,7 +10,7 @@ describe('Round', () => {
 
   let card1, card2, card3, deck, round;
 
-  beforeEach(() => {
+  beforeEach( () => {
     card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
 
     card2 = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
@@ -47,9 +47,9 @@ describe('Round', () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
-  describe('returnCurrentCard()', function () {
+  describe('returnCurrentCard()', () => {
 
-    it('should be a function', function () {
+    it('should be a function', () => {
       expect(round.returnCurrentCard).to.be.a('function');
     });
 
