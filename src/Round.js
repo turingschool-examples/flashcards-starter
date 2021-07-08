@@ -4,12 +4,15 @@ class Round {
     this.turnCounter = 0
     this.incorrectCards = []
   }
+
+  returnCurrentCard() {
+    // console.log(this.deck.cards[0])
+    return this.deck.cards[0]
+  }
 }
 
+
 module.exports = Round 
-// this.deck = deck 
-// we will probably need a turn counter (updated whether guess is correct or incorrect)
-// incorrect cards []
 
 // Round class will be the object that takes in responses and records guesses (as well as if they are correct or incorrect). 
 
@@ -19,7 +22,7 @@ module.exports = Round
 
 // takeTurn()
 // when a guess is made, a new Turn instance is created (so we'll have access to the properties in the Turn class here)
-// add to turn counter
+// add to turn counter (whether it's correct or incorrect)
 // shuffle to next card in array (remove first item so that first card is now the next card in the deck)
 // evaluate the guess using turn.evaluateGuess() from Turn class
 // guess is recorded? we'll need to shovel the cards that are incorrect into an empty array
