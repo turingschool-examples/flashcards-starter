@@ -28,6 +28,7 @@ describe('Turn', function() {
   }); 
 
   //-----------default property tests
+  //should store given guess.
   it('should store a guess', function() {
     const turn = new Turn(guess1);
     expect(turn.guess).to.equal(guess1);
@@ -36,6 +37,7 @@ describe('Turn', function() {
     expect(turn2.guess).to.equal('array');
   });  
 
+  //should store given card
   it('should store a card', () => {
     const turn = new Turn(guess1, card);
 

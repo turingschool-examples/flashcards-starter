@@ -59,8 +59,8 @@ describe('Round', () => {
   }); 
 
   //-----------default property tests
-  //wording
-  it('should store cards', () => {
+  //wording -should store cards passed in
+  it('should store given cards', () => {
     expect(round.cards).to.equal(cards);
   });
 
@@ -75,6 +75,7 @@ describe('Round', () => {
 
   it('should default incorrect guesses to an empty array', () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
+    //test has length of zero.
   });
 
   //-----------returnCurrentCard() tests
@@ -91,17 +92,29 @@ describe('Round', () => {
   })
 
   //-----------takeTurn(guess) tests
-  it('should be able to store a new instance of Turn as a property when a guess is made', () => {
+  it('should be able to store current turn when given guess', () => {
+    //should this be round.takeTurn(guess); just have a guess variable for generic.
+    //should I be passing in a string since they will have strings passed in?
     round.takeTurn(incorrectGuess);
     
     expect(round.currentTurn).to.be.an.instanceof(Turn);
   });
 
-  it('should create a new instance of turn passing in a guess as an argument', () => {
+  it('should create a new instance of turn with given guess', () => {
     round.takeTurn(incorrectGuess);
 
     expect(round.currentTurn.guess).to.equal(incorrectGuess);
   });
+
+  it('should store the incorrect guesses by id', () => {
+    round.takeTurn(incorrectGuess);
+  
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+      
+    round.takeTurn(round.currentCard.correctAnswer);
+  
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  })
 
   it('should increment turns after a turn is taken', () => {
     round.takeTurn(incorrectGuess);
@@ -118,7 +131,7 @@ describe('Round', () => {
 
     expect(round.currentCard).to.equal(card2);
 
-    round.takeTurn(incorrectGuess);
+    round.takeTurn(correctGuess);
 
     expect(round.currentCard).to.equal(card3);
   });
@@ -131,16 +144,6 @@ describe('Round', () => {
     const feedback2 = round.takeTurn(incorrectGuess);
 
     expect(feedback2).to.equal('incorrect!')
-  })
-
-  it('should store the incorrect guesses by id', () => {
-    round.takeTurn(incorrectGuess);
-  
-    expect(round.incorrectGuesses).to.deep.equal([1]);
-      
-    round.takeTurn(round.currentCard.correctAnswer);
-  
-    expect(round.incorrectGuesses).to.deep.equal([1]);
   })
   
   //-----------calculatePercentCorrect() tests
