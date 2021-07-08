@@ -6,7 +6,9 @@ describe('Game', () => {
   let game;
   beforeEach(() => {
     game = new Game();
+    game.start();
   });
+
   it('should keep track of the current round', () => {
     expect(game.currentRound).to.be.a('number');
   });

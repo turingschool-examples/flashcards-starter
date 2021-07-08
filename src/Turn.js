@@ -11,16 +11,16 @@ class Turn {
   returnCard() {
     return this.card;
   }
-  
+
   evaluateGuess() {
     return this.guess === this.card.correctAnswer;
   }
 
   giveFeedback() {
     if (this.evaluateGuess()) {
-      return 'correct!'
+      return 'correct!';
     } else {
-      return 'incorrect!'
+      return 'incorrect!';
     }
   }
 }

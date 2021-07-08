@@ -72,6 +72,8 @@ describe('Round', () => {
   it('should print the end results to the console', () => {
     round.takeTurn('sea otter');
     round.takeTurn('spleen');
-    expect(round.endRound()).to.equal('**Round over!** You answered 50% of the questions correctly!');
-  })
+    expect(round.endRound()).to.equal(
+      '**Round over!** You answered 50% of the questions correctly!'
+    );
+  });
 });

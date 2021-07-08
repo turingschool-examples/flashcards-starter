@@ -32,13 +32,13 @@ describe('Turn', () => {
 
   it('should return the card', () => {
     expect(turn.returnCard()).to.equal(card);
-  })
+  });
 
-  it('should indicate if the user\'s guess matches the correct answer', () => {
+  it("should indicate if the user's guess matches the correct answer", () => {
     expect(turn.evaluateGuess()).to.equal(false);
-  })
+  });
 
-  it('should give feedback about user\'s guess', () => {
+  it("should give feedback about user's guess", () => {
     expect(turn.giveFeedback()).to.equal('incorrect!');
-  })
+  });
 });
