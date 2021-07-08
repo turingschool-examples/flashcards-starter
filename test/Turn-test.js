@@ -7,8 +7,10 @@ const Card = require('../src/Card');
 describe('Turn', function() {
   //-----------test set-up
   let card;
+  //change to correct/inncorrect guess for readability
   let guess1;
   let guess2;
+  //put turn 1 and 2 here...
 
   before(() => {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -27,7 +29,6 @@ describe('Turn', function() {
 
   //-----------default property tests
   it('should store a guess', function() {
-    const guess1 = 'object';
     const turn = new Turn(guess1);
     expect(turn.guess).to.equal(guess1);
 
@@ -40,7 +41,6 @@ describe('Turn', function() {
 
     expect(turn.card).to.equal(card);
   });
-
 
   //-----------returnGuess() tests
   it('should return guess', () => {
@@ -65,6 +65,7 @@ describe('Turn', function() {
     const turn = new Turn(guess1, card);
     const turn2 = new Turn(guess2, card);
 
+    //change evaluatedGuess to evaluatedGuess1
     const evaluatedGuess = turn.evaluateGuess();
 
     const evaluatedGuess2 = turn2.evaluateGuess();

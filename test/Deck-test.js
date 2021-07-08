@@ -31,8 +31,8 @@ describe('Deck', function() {
       ["map()", "forEach()", "reduce()"], 
       'map()'
     );
-    deck = new Deck([card1, card2, card3]);
-    cards = deck.cards;
+    // deck = new Deck([card1, card2, card3]);
+    // cards = deck.cards;
     cards = ([card1, card2, card3]);
     deck = new Deck([card1, card2, card3]);
   });
@@ -52,9 +52,9 @@ describe('Deck', function() {
   });
 
   it('should count cards', () => {
-    const countCards = deck.countCards();
+    const cardCount = deck.countCards();
   
-    expect(countCards).to.equal(3);
+    expect(cardCount).to.equal(3);
   });
   
 });
