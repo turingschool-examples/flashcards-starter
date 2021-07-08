@@ -21,7 +21,7 @@ describe('Round', function() {
     expect(Round).to.be.a('function')
   })
 
-  it('should be able to store deck of cards', function() {
+  it('should exist and be able to store deck of cards', function() {
     // console.log(round.deck)
     expect(round.deck).to.be.an.instanceOf(Deck)
     expect(round.deck.cards).to.deep.equal([card1, card2, card3, card4])
@@ -29,6 +29,10 @@ describe('Round', function() {
 
   it('should start with 0 turns', function() {
     expect(round.turnCounter).to.equal(0)
+  })
+
+  it('should start with an empty array', function() {
+    expect(round.incorrectCards).to.deep.equal([])
   })
 
 })
