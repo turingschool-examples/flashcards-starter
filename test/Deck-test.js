@@ -25,9 +25,9 @@ describe('Deck', function() {
 
   describe('cardCount()', function() {
     it('should be able to count cards in deck', function() { 
-      const expected = deck.cardCount()
+      const numCards = deck.cardCount()
 
-      expect(expected).to.equal(4)
+      expect(numCards).to.equal(4)
     })
   })
 })
