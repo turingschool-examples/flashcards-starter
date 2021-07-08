@@ -12,7 +12,7 @@ describe('Turn', () => {
   })
 
   it('should be a function', function() {
-    // console.log(turn);
+
     expect(Turn).to.be.a('function');
   });
 
