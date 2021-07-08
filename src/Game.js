@@ -15,6 +15,10 @@ class Game {
   printQuestion(round) {
       util.main(round);
   }
+  start() {
+    // needs to be a new round and new deck for the new Game
+    // new variables? new instances 
+  }
 }
 
 module.exports = Game;
