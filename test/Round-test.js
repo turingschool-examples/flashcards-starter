@@ -41,14 +41,20 @@ describe('Round', function() {
 
       expect(currentCard).to.equal(card1)
     })
-  })
 
+  describe('takeTurn', function() {
+    it('should increase by one each turn', function() {
+      round.takeTurn('current element')
+      round.takeTurn('an array')
+      // console.log(round.turnCounter)
+      expect(round.turnCounter).to.equal(2)
+    })
+
+    })
+  })
 })
 
-// returnCurrentCard()
-// can return the current card being played in deck
-
-// takeTurn()
+// takeTurn(guess)
 // should create a new turn instance each time a guess is made
 // should be able to add one to the turn counter each turn
 // should be able to shuffle to next card in deck
