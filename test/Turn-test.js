@@ -1,8 +1,8 @@
 const chai = require('chai')
 const expect = chai.expect
 
-const Turn = require('../src/Turn')
 const Card = require('../src/Card')
+const Turn = require('../src/Turn')
 
 describe('Turn', function() {
   let card, turn
@@ -18,11 +18,10 @@ describe('Turn', function() {
 
   it('should be able to store a user\'s guess', function() {  
     expect(turn.guess).to.equal('current element')
-    // expect(turn.returnGuess()).to.equal('current element')
   })
  
   it('should be able to store current card in deck', function() {
-    expect(turn.currentCard).to.equal(card)
+    expect(turn.card).to.equal(card)
   })
   
 
@@ -48,16 +47,16 @@ describe('Turn', function() {
   describe('evaluateGuess()', function() {
     it('should be able to evaluate if an answer is correct', function() {
       const turn = new Turn('callback function', card)
-      const expected = turn.evaluateGuess()
+      const evaluatedGuess = turn.evaluateGuess()
       
-      expect(expected).to.equal(true)
+      expect(evaluatedGuess).to.equal(true)
     })
 
     it('should be able to evaluate if an answer is incorrect', function() {
       const turn = new Turn('an array', card)
-      const expected = turn.evaluateGuess()
+      const evaluatedGuess = turn.evaluateGuess()
 
-      expect(expected).to.equal(false)
+      expect(evaluatedGuess).to.equal(false)
     })
   })
 
@@ -65,16 +64,16 @@ describe('Turn', function() {
   describe('giveFeedback()', function() {
     it('should display \'Nailed it!\' if the answer is correct', function() {
       const turn = new Turn('callback function', card)
-      const expected = turn.giveFeedback()
+      const goodFeedback = turn.giveFeedback()
 
-      expect(expected).to.equal('Nailed it!')
+      expect(goodFeedback).to.equal('Nailed it!')
     })
 
     it('should display \'Nope! Sorry, try again.\' if the answer is incorrect', function() {
       const turn = new Turn('an array', card)
-      const expected = turn.giveFeedback()
+      const badFeedback = turn.giveFeedback()
 
-      expect(expected).to.equal('Nope! Sorry, try again.')
+      expect(badFeedback).to.equal('Nope! Sorry, try again.')
     })
   })
 })
