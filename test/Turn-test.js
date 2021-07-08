@@ -16,3 +16,9 @@ describe('Turn', () => {
  );
  turn = new Turn('pug', card);
 });
+
+it('should be a function', () => {
+    expect(Turn).to.be.a('function');
+  });
+
+  
