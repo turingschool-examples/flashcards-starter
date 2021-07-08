@@ -20,6 +20,7 @@ class Game {
 
   start() {
     const deck = new Deck(prototypeQuestions);
+    //this does deck.cards...so need to test this way.
     this.currentRound = new Round(deck.cards);
     this.printMessage(deck, this.currentRound);
     this.printQuestion(this.currentRound);

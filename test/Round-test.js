@@ -6,12 +6,13 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 
-//-----------test set-up
 describe('Round', () => {
+  //-----------test set-up
   let card1;
   let card2;
   let card3;
   let deck;
+  //do I need cards
   let cards;
   let round;
   let correctGuess;
@@ -35,7 +36,11 @@ describe('Round', () => {
       ["map()", "forEach()", "reduce()"], 
       'map()'
     );
+     //game.start() passes in deck.cards
+     //this does deck.cards...so need to test this way.
+    //  this.currentRound = new Round(deck.cards);
     deck = new Deck([card1, card2, card3]);
+    //do I use this variable cards? ***
     cards = deck.cards;
     correctGuess = 'object';
     incorrectGuess = 'array';
@@ -54,8 +59,9 @@ describe('Round', () => {
   }); 
 
   //-----------default property tests
-  it('should store a deck', () => {
-    expect(round.deck).to.equal(cards);
+  //wording
+  it('should store cards', () => {
+    expect(round.cards).to.equal(cards);
   });
 
   it('should default turns to 0', () => {
@@ -64,6 +70,7 @@ describe('Round', () => {
 
   it('should store the current Card object', () => {
     expect(round.currentCard).to.equal(card1);
+    //expect .... to equal (rounds.deck.cards[0])
   });
 
   it('should default incorrect guesses to an empty array', () => {
