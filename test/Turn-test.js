@@ -99,34 +99,33 @@ describe('Turn', () => {
       expect(turn.evaluateGuess()).to.equal(false);
     });
 
+  });
+
+  describe('giveFeedback', () => {
+
+    let turn, card;
+
+    beforeEach( () => {
+      card = new Card(1, "What is Mark's dog", ['dachshund', 'beagle', 'husky'], 'dachshund');        turn = new Turn('dachshund', card);
     });
 
-    describe('giveFeedback', () => {
-
-      let turn, card;
-
-      beforeEach( () => {
-        card = new Card(1, "What is Mark's dog", ['dachshund', 'beagle', 'husky'], 'dachshund');
-        turn = new Turn('dachshund', card);
-      });
-
-      it('should be a function', () => {
-        expect(turn.giveFeedback).to.be.a('function');
-      });
-
-      it('should return a string', () => {
-        expect(turn.giveFeedback()).to.be.a('string');
-      });
-
-      it('should return "correct!" if the guess is the right answer', () => {
-        expect(turn.giveFeedback()).to.equal('correct!');
-      });
-
-      it('should return "incorrect!" if the guess is not the right answer', () => {
-        turn = new Turn('husky', card);
-        expect(turn.giveFeedback()).to.equal('incorrect!');
-      });
-
+    it('should be a function', () => {
+      expect(turn.giveFeedback).to.be.a('function');
     });
+
+    it('should return a string', () => {
+      expect(turn.giveFeedback()).to.be.a('string');
+    });
+
+    it('should return "correct!" if the guess is the right answer', () => {
+      expect(turn.giveFeedback()).to.equal('correct!');
+    });
+
+    it('should return "incorrect!" if the guess is not the right answer', () => {
+      turn = new Turn('husky', card);
+      expect(turn.giveFeedback()).to.equal('incorrect!');
+    });
+
+  });
 
 });
