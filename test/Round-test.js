@@ -103,7 +103,7 @@ describe('Round', function() {
 
   });
 
-  describe('calculatePercentageCorrect', function() {
+  describe('calculatePercentageCorrect()', function() {
 
     it('should be a function', function() {
       expect(round.calculatePercentageCorrect).to.be.a('function');
@@ -115,6 +115,14 @@ describe('Round', function() {
       expect(round.calculatePercentageCorrect()).to.equal(100);
       round.takeTurn('potato');
       expect(round.calculatePercentageCorrect()).to.equal(67);
+    });
+
+  });
+
+  describe('endRound()',function() {
+
+    it('should be a function', function() {
+      expect(round.endRound).to.be.a('function');
     });
 
   })
