@@ -1,6 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
-//const sinon = require('sinon');
+const sinon = require('sinon');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
@@ -98,14 +98,12 @@ describe('Round', () => {
       expect(percent).to.equal(50);
     });
 
-    it('should end the round', () => {
-      const spy = sinon.spy(console, 'log');
-      round.takeTurn('sea otter');
-      round.takeTurn('spleen');
-      round.endRound();
-      const string =
-        '** Round over! ** You answered 50% of the questions correctly!';
-      expect(spy.calledOnce).to.be.true;
-      expect(spy.calledWith(string)).to.be.true;
-    });
+    it('should end the round and print results', () => {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    expect(round.endRound()).to.equal(
+      '**Round over!** You answered 50% of the questions correctly!'
+    );
+  });
+
   });
