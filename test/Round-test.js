@@ -30,4 +30,11 @@ describe('Round', () => {
     );
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
-  });
+
+    it('should be a function', () => {
+      expect(Round).to.be.a('function');
+    });
+
+    it('should instantiate a new Round', () => {
+      expect(round).to.be.an.instanceof(Round);
+    });
