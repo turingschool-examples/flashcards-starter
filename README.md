@@ -20,7 +20,7 @@ This project allows a user to take a flashcards quiz through the Terminal. After
 
 ## Gif of Working Application
 
-[Flashcards-gif](https://user-images.githubusercontent.com/75854628/125007308-2ab35000-e01d-11eb-8840-2f966a5f3a5c.gif)
+![Flashcards-gif](https://user-images.githubusercontent.com/75854628/125007308-2ab35000-e01d-11eb-8840-2f966a5f3a5c.gif)
 
 ## Technologies used
 
