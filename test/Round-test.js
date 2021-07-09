@@ -1,7 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
 const sinon = require('sinon');
-
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
@@ -30,77 +29,83 @@ describe('Round', () => {
     );
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
+  });
 
-    it('should be a function', () => {
-      expect(Round).to.be.a('function');
-    });
+  it('should be a function', () => {
+    expect(Round).to.be.a('function');
+  });
 
-    it('should instantiate a new Round', () => {
-      expect(round).to.be.an.instanceof(Round);
+  it('should instantiate a new Round', () => {
+    expect(round).to.be.an.instanceof(Round);
+  });
 
-    it('should return the first card in the deck', () => {
-      const currentCard = round.returnCurrentCard();
-      expect(currentCard).to.equal(card1);
-      });
+  it('should be played with a deck', () => {
+    expect(round.deck).to.deep.equal(deck);
+  });
 
-    it('should start with zero turns', () => {
-      expect(round.turns).to.equal(0);
-      });
+  it('should return the first card in the deck', () => {
+    const currentCard = round.returnCurrentCard();
+    expect(currentCard).to.equal(card1);
+  });
 
-    it('should start with no incorrect guesses', () => {
-      expect(round.incorrectGuesses).to.deep.equal([]);
-      });
+  it('should start with zero turns', () => {
+    expect(round.turns).to.equal(0);
+  });
 
-    it('should be able to count the turns taken', () => {
-      round.takeTurn('sea otter');
-      expect(round.turns).to.equal(1);
-      round.takeTurn('pug');
-      expect(round.turns).to.equal(2);
-      });
+  it('should start with no incorrect guesses', () => {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+
+  it('should be able to count the turns taken', () => {
+    round.takeTurn('sea otter');
+    expect(round.turns).to.equal(1);
+    round.takeTurn('pug');
+    expect(round.turns).to.equal(2);
+  });
 
     it('should return correct for a correct guess', () => {
       const turn1 = round.takeTurn('sea otter');
       expect(turn1).to.equal('Correct!');
-      });
+    });
 
     it('should return incorrect for an incorrect guess', () => {
       const turn1 = round.takeTurn('spleen');
       expect(turn1).to.equal('Incorrect!');
-        });
+    });
 
-        it('should make the next card the current card after a guess is made', () => {
-          round.takeTurn('sea otter');
-          const currentCard = round.returnCurrentCard();
-          expect(currentCard).to.deep.equal(card2);
-        });
+    it('should make the next card the current card after a guess is made', () => {
+      round.takeTurn('sea otter');
+      const currentCard = round.returnCurrentCard();
+      expect(currentCard).to.deep.equal(card2);
+    });
 
-        it('should store the id of an incorrect guess in an array', () => {
-          round.takeTurn('sea otter');
-          expect(round.incorrectGuesses.length).to.equal(0);
+    it('should store the id of an incorrect guess in an array', () => {
+      round.takeTurn('sea otter');
+      expect(round.incorrectGuesses.length).to.equal(0);
 
-          round.takeTurn('spleen');
-          expect(round.incorrectGuesses.length).to.equal(1);
-          expect(round.incorrectGuesses).to.deep.equal([14]);
+      round.takeTurn('spleen');
+      expect(round.incorrectGuesses.length).to.equal(1);
+      expect(round.incorrectGuesses).to.deep.equal([14]);
 
-          const currentCard = round.returnCurrentCard();
-          expect(currentCard).to.equal(card3);
-        });
+      const currentCard = round.returnCurrentCard();
+      expect(currentCard).to.equal(card3);
+    });
 
-        it('should be able to calculate percent correct', () => {
-          round.takeTurn('sea otter');
-          round.takeTurn('spleen');
-          const percent = round.calculatePercentCorrect();
-          expect(percent).to.equal(50);
-        });
+    it('should be able to calculate percent correct', () => {
+      round.takeTurn('sea otter');
+      round.takeTurn('spleen');
+      const percent = round.calculatePercentCorrect();
+      expect(percent).to.equal(50);
+    });
 
-        it('should end the round', () => {
-          const spy = sinon.spy(console, 'log');
-          round.takeTurn('sea otter');
-          round.takeTurn('spleen');
-          round.endRound();
-          const string =
-            '** Round over! ** You answered 50% of the questions correctly!';
-          expect(spy.calledOnce).to.be.true;
-          expect(spy.calledWith(string)).to.be.true;
-        });
-      });
+    it('should end the round', () => {
+      const spy = sinon.spy(console, 'log');
+      round.takeTurn('sea otter');
+      round.takeTurn('spleen');
+      round.endRound();
+      const string =
+        '** Round over! ** You answered 50% of the questions correctly!';
+      expect(spy.calledOnce).to.be.true;
+      expect(spy.calledWith(string)).to.be.true;
+    });
+  });
