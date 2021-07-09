@@ -13,6 +13,7 @@ class Round {
   }
   takeTurn(guess) {
     let newTurn = new Turn(guess, this.deck.cards[this.turns]);
+
     if(newTurn.giveFeedback() === 'Incorrect') {
       this.incorrectGuesses.push(this.returnCurrentCard().id)
     }

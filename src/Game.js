@@ -12,12 +12,16 @@ class Game {
     this.deck = []
   }
   start() {
+
     prototypeQuestions.forEach((card) => {
       let newCard = new Card(card.id, card.questions, card.answers, card.correctAnswer);
       this.deck.push(newCard);
     });
     let deck = new Deck(this.deck);
     this.deck = deck.deck;
+    let round = new Round(this.deck);
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   }
 
   printMessage(deck, round) {
