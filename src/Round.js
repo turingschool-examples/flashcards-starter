@@ -24,7 +24,7 @@ class Round {
   calculatePercentCorrect() {
   let turnsAmt = this.turns;
   let incorrects = this.incorrectGuesses.length;
-    return (incorrects / turnsAmt) * 100;
+    return 100 - ((incorrects / turnsAmt) * 100);
   }
   determineGameEnd() {
     if(this.turns === this.deck.cards.length) {
@@ -33,7 +33,8 @@ class Round {
   }
   endRound() {
     if(this.determineGameEnd()) {
-      return (`** Round Over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+      console.log(`** Round Over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+      return (`** Round Over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
     }
   }
 };
