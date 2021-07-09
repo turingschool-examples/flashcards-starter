@@ -12,11 +12,11 @@ describe('Game', function() {
   let card1, card2, card3, cards, deck, round, game;
 
   beforeEach( () => {
-     card1 = new Card(1, 'What author invented the detective story?', ['Dickens', 'Doyle', 'Gaboriau'],'Poe');
+     card1 = new Card(1, 'What author invented the detective story?', ['Poe', 'Doyle', 'Gaboriau'],'Poe');
 
-     card2 = new Card(2, 'Where did Sherlock Holmes confront Professor Moriarty?',['Victoria Falls', 'Niagra Falls', 'Bushkill Falls'],'Reichenbach Falls');
+     card2 = new Card(2, 'Where did Sherlock Holmes confront Professor Moriarty?',['Victoria Falls', 'Reichenbach Falls', 'Bushkill Falls'],'Reichenbach Falls');
 
-     card3 = new Card(3, 'What was the profession of G.K. Chestertons famous detective?',['Police Officer', 'Socialite', 'University Professor'],'Catholic Priest');
+     card3 = new Card(3, 'What was the profession of G.K. Chestertons famous detective?',['Police Officer', 'Socialite', 'Catholic Priest'],'Catholic Priest');
 
      cards = [card1, card2, card3]
      deck = new Deck(cards);

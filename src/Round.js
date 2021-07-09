@@ -18,15 +18,18 @@ class Round {
       this.incorrectGuesses.push(turn.card);
     }
     this.turns++;
-    return `Your answer of ${turn.guess} is ${turn.giveFeedback()}`;
+    return `${turn.guess} is ${turn.giveFeedback()}`;
   }
 
   calculatePercentCorrect() {
-    return (100 - Math.round((this.incorrectGuesses.length/this.deck.cards.length) * 100))
+    let correct = this.turns - this.incorrectGuesses.length;
+    let percentage = (correct / this.turns) * 100;
+    console.log(`You got ${Math.round(percentage)}% correct!`);
+    return `You got ${Math.round(percentage)}% correct!`;
   }
 
   endRound() {
-    return `You got ${this.calculatePercentCorrect()}% correct!`
+    return this.calculatePercentCorrect();
   }
 
 }
