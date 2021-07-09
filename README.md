@@ -16,3 +16,13 @@
 + Fork this repository and clone down to your local machine.
 + ```CD``` into the root of the repo and run the line $```npm install``` in your command line.
 + Run the line $```node index.js``` and the game will appear in the command line.
+
+## Project Planning Documentation
++ View my _Notion_ project planner [here](https://www.notion.so/Flash-Cards-Project-1-92ea46c5565846ed85968f071fda9512)
+
+## Project Learning Goals
++ Contribute code to an partially constructed object-oriented application
++ Follow spec/prompts to make a working application
++ Implement ES6 classes
++ Write modular, reusable code that follows SRP (Single Responsibility Principle)
++ Implement a robust testing suite using TDD
