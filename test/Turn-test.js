@@ -39,6 +39,6 @@ describe('Turn', () => {
   });
 
   it("should give feedback about guess", () => {
-    expect(turn.giveFeedback()).to.equal('incorrect!');
+    expect(turn.giveFeedback()).to.equal('Incorrect!');
   });
 });
