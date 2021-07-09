@@ -7,7 +7,7 @@ describe('Turn', () => {
   let card;
   let turn;
 
-  beforeEach(() => { //do I need a parameter???
+  beforeEach(() => {
     card = new Card(
    1,
    "What is Robbie's favorite animal",
