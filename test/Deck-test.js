@@ -8,7 +8,7 @@ describe ('Deck', function() {
 
   it('should be a function', function() {
     //Setup
-    const deck = new Deck();
+    // const deck = new Deck();
     //Execution
     //Assertion
     expect(Deck).to.be.a('function');
