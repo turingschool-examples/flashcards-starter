@@ -62,3 +62,10 @@ describe('Deck', () => {
       ['Lex', 'William', 'Fitzgerald'],
       'Fitzgerald'
     );
+    
+    const deck = new Deck([card1, card2, card3]);
+    const count = deck.countCards();
+
+    expect(count).to.equal(3);
+  });
+});
