@@ -4,6 +4,7 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Game = require('../src/Game');
+const Round = require('../src/Deck');
 const data = require('../src/data');
 const prototypeQuestions = data.prototypeData;
 
@@ -19,13 +20,4 @@ describe('Game', () => {
     game.currentRound;
     expect(game.currentRound).to.equal(null);
   });
-
-//   it('should create a new Round using the Deck', () => {
-//     game.start();
-//     const currentDeck = game.currentRound.deck;
-// console.log(currentDeck);
-//     expect(currentDeck.cards[0]).to.be.an.instanceof(Card);
-//     expect(currentDeck).to.be.an.instanceof(Deck);
-//     expect(currentDeck.cards.length).to.equal(prototypeQuestions.length);
-//   });
  });
