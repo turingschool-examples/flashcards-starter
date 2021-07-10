@@ -12,6 +12,7 @@ describe('Game', () => {
 
   beforeEach(() => {
     game = new Game();
+    //game.start();
   });
 
   it('should have a way to keep track of the current round', () => {
