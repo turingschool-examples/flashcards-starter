@@ -1,3 +1,5 @@
+const Turn = require('./Turn');
+
 class Round {
   constructor(deck, turns = 0, incorrectGuesses = []) {
     this.deck = deck;
