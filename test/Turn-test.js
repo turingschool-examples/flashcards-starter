@@ -44,7 +44,7 @@ describe('Turn', function() {
 
   it('should be able to give feedback on an answer', function() {
     const card = new Card(1,'What is my favorite food?', ['potatoes', 'carrots', 'green beans'], 'potatoes');
-    let turn = new Turn('potatoes', card);
+    const turn = new Turn('potatoes', card);
     expect(turn.giveFeedback(true)).to.equal('Correct!');
     expect(turn.giveFeedback(false)).to.equal('Incorrect!');
   })
