@@ -1,21 +1,52 @@
 const assert = require('chai').assert;
 const Turn = require('../src/Turn.js');
+const Card = require('../src/Card.js');
 
 describe('Turn', function() {
-  it.skip('should take a guess', function(){});
-  it.skip('should take a Card', function(){});
-  it.skip('should return the guess', function(){});
-  it.skip('should return the Card', function(){});
-  it.skip('should evaluate the guess', function(){});
-  it.skip('should tell whether the guess is correct', function(){});
-})
 
-// - Instantiated with two arguments - a string (that represents a user’s guess to the question), and a Card object for the current card in play.
-//
-// - returnGuess: method that returns the guess
-//
-// - returnCard: method that returns the Card
-//
-// - evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card
-//
-// - giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.
+  it('should take a guess', function() {
+    const turn = new Turn('object')
+
+    assert.equal(turn.guess, 'object')
+  });
+
+  it('should take a Card', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
+
+    assert.equal(turn.card, card);
+  });
+
+  it('should return the guess', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
+    let myGuess = turn.returnGuess();
+
+    assert.equal(myGuess, 'object');
+  });
+
+  it('should return the Card', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
+    let myCard = turn.returnCard();
+
+    assert.equal(myCard, card);
+    assert.typeOf(myCard, 'object');
+  });
+
+  it('should evaluate the guess', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', card);
+    let myGuess = turn.evaluateGuess();
+
+    assert.equal(myGuess, true);
+  });
+
+  it('should tell whether the guess is correct', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('array', card);
+    let myFeedback = turn.giveFeedback();
+
+    assert.equal(myFeedback, 'incorrect!');
+  });
+})
