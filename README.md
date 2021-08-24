@@ -1,9 +1,15 @@
+# Flashcards
+
 Abstract at the top (A sentence or two describing the project)
 
+## Usage and Demonstration
+Install/Setup instructions
 A GIF of the working application
 
-Technologies used
+## Programming Languages and Dependencies
 
-Project Board [here](https://github.com/n0land0/flashcards/projects/1)
+## Architecture
 
-Install/Setup instructions
+## Resources
+[Project board](https://github.com/n0land0/flashcards/projects/1)
+[Project spec](https://frontend.turing.edu/projects/flash-cards.html)
