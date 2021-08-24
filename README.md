@@ -12,4 +12,5 @@ A GIF of the working application
 
 ## Resources
 [Project board](https://github.com/n0land0/flashcards/projects/1)
+
 [Project spec](https://frontend.turing.edu/projects/flash-cards.html)
