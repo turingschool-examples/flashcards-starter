@@ -48,7 +48,7 @@ describe('Turn', function(){
   });
 
   it('should return true if the player\s guess is correct', function(){
-    const card2 = new Card(2, 'What is Renee\s favorite animal?', ['dolphin', 'elephant', 'lion'], 'dolphin');
+    const card2 = new Card(2, 'What is a comma-separated list of related values?', ['dolphin', 'elephant', 'lion'], 'dolphin');
     const turn = new Turn('dolphin', card2);
     turn.evaluateGuess();
 
@@ -56,7 +56,7 @@ describe('Turn', function(){
   });
 
   it('should return false if the player\s guess is incorrect', function(){
-    const card2 = new Card(2, 'What is Renee\s favorite animal?', ['dolphin', 'elephant', 'lion'], 'dolphin');
+    const card2 = new Card(2, 'What is Renee\s favorite animal?', ['array', 'object', 'function'], 'array');
     const turn = new Turn('lion', card2);
     turn.evaluateGuess();
 
@@ -64,16 +64,16 @@ describe('Turn', function(){
   });
 
   it('should tell the user if their guess is correct', function(){
-    const card2 = new Card(2, 'What is Renee\s favorite animal?', ['dolphin', 'elephant', 'lion'], 'dolphin');
-    const turn = new Turn('dolphin', card2);
+    const card3 = new Card(3, 'What is Renee\s favorite animal?', ['dolphin', 'elephant', 'lion'], 'dolphin');
+    const turn = new Turn('dolphin', card3);
     turn.giveFeedback();
 
     expect(turn.giveFeedback()).to.equal('Correct!');
   });
 
   it('should tell the user if their guess is incorrect', function(){
-    const card2 = new Card(2, 'What is Renee\s favorite animal?', ['dolphin', 'elephant', 'lion'], 'dolphin');
-    const turn = new Turn('lion', card2);
+    const card3 = new Card(3, 'What is Renee\s favorite animal?', ['dolphin', 'elephant', 'lion'], 'dolphin');
+    const turn = new Turn('lion', card3);
     turn.giveFeedback();
 
     expect(turn.giveFeedback()).to.equal('Incorrect!');
