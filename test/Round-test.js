@@ -73,7 +73,7 @@ describe('Round', function(){
   });
 
   it('should give feedback if a player\s guess is correct', function(){
-    // this works when cardInPlay.hasBeenPlayed is NOT reassigned to true;
+    // this works when cardInPlay.hasBeenPlayed is NOT reassigned to true; (commenting out lines 25 and 29)
     // I've tried: moving the reassignment of cardInPlay.hasBeenPlayed;
     // console.logging deck1 (before and after takeTurn method) -- it seems the correct card is being played?
     // Possible error: order of operations (When reassignment is happening?)
@@ -86,7 +86,6 @@ describe('Round', function(){
     const round1 = new Round(deck1);
 
     round1.takeTurn('sea otter');
-    console.log('currentCard: ',round1.returnCurrentCard());
     expect(round1.takeTurn('sea otter')).to.equal('Correct!');
   });
 

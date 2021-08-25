@@ -18,6 +18,7 @@ class Round {
   takeTurn(guess){
     this.turns++;
     let cardInPlay = this.returnCurrentCard();
+    cardInPlay.hasBeenPlayed = true;
     let turn1 = new Turn(guess, cardInPlay);
     turn1.evaluateGuess();
 
@@ -25,8 +26,9 @@ class Round {
       // cardInPlay.hasBeenPlayed = true;
       this.incorrectGuesses.push(cardInPlay.id);
       return turn1.giveFeedback();
-    }else{
+    }else if(turn1.evaluateGuess() === true){
       // cardInPlay.hasBeenPlayed = true;
+      console.log(cardInPlay);
       return turn1.giveFeedback();
     }
   }
