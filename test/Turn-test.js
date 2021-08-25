@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 
-const Turn = require('../src/Turn.js');
 const Card = require('../src/Card.js');
+const Turn = require('../src/Turn.js');
 
 describe('Turn', function() {
   let card;
