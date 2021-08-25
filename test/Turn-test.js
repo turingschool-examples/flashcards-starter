@@ -59,7 +59,9 @@ describe('Turn', function() {
 
     it('Should be able to return the question as a string', function() {
     
-        
+        expect(testTurn1.card.question).to.deep.equal("Sample Question1")
+        expect(testTurn2.card.question).to.deep.equal("Sample Question2")
+        expect(testTurn3.card.question).to.deep.equal("Sample Question3")
 
     });
 
