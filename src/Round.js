@@ -7,10 +7,12 @@ class Round {
     this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
-    this.correctGuesses = [];
   }
   returnCurrentCard(){
-    return this.deck.cardsInDeck[0];
+    const currentCard = this.deck.cardsInDeck.find(function(card){
+      return !card.hasBeenPlayed;
+    });
+    return currentCard;
   }
 
   takeTurn(guess){
@@ -20,11 +22,11 @@ class Round {
     turn1.evaluateGuess();
 
     if(turn1.evaluateGuess() === false){
+      // cardInPlay.hasBeenPlayed = true;
       this.incorrectGuesses.push(cardInPlay.id);
-      this.deck.cardsInDeck.splice(0, 1);
       return turn1.giveFeedback();
     }else{
-      this.deck.cardsInDeck.splice(0, 1);
+      // cardInPlay.hasBeenPlayed = true;
       return turn1.giveFeedback();
     }
   }
