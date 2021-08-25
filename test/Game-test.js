@@ -25,13 +25,24 @@ describe('Game', function() {
     assert.typeOf(game.currentRound, 'object');
   })
 
-  it('should start a new Round with a Deck of Cards', function() {
-    game.start();
+  // it('should start a new Round with a Deck of Cards', function() {
+  //   // game.start();
+  //   game.newDeck();
+  //
+  //   assert.instanceOf(game.currentRound, Round);
+  //   assert.instanceOf(game.currentRound.deck, Deck);
+  //   assert.instanceOf(game.currentRound.deck.cards[0], Card);
+  //   assert.equal(game.currentRound.deck.cards.length, prototypeData.length);
+  // })
 
+  it('should start a new Round with a Deck of Cards', function() {
+    game.newDeck();
+    game.newRound(game.currentDeck);
+    
     assert.instanceOf(game.currentRound, Round);
     assert.instanceOf(game.currentRound.deck, Deck);
     assert.instanceOf(game.currentRound.deck.cards[0], Card);
     assert.equal(game.currentRound.deck.cards.length, prototypeData.length);
-
   })
+
 })

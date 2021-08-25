@@ -12,16 +12,22 @@ class Round {
   }
   takeTurn(guess) {
     let turn = new Turn(guess, this.currentCard);
+    switch(turn.evaluateGuess()) {
+      case true:
+        break;
+      case false:
+        this.incorrectGuesses.push(this.currentCard.id);
+    }
     this.turns ++;
     this.currentCard = this.deck.cards[this.turns];
-    turn.evaluateGuess() ? console.log() : this.incorrectGuesses.push(guess.id);
     return turn.giveFeedback();
   }
   calculatePercentCorrect() {
     return Math.floor((1 - (this.incorrectGuesses.length/this.turns)) * 100);
   }
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 }
 

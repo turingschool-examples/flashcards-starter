@@ -1,21 +1,24 @@
 const assert = require('chai').assert;
-const Round = require('../src/Round.js');
+
 const Card = require('../src/Card.js');
-const Turn = require('../src/Turn.js');
 const Deck = require('../src/Deck.js');
+const Round = require('../src/Round.js');
 
 describe('Round', function() {
   let card1;
   let card2;
   let card3;
+  let cards;
   let deck;
   let round;
-  let turn;
+  let guess;
+  let myTurn;
   beforeEach(function() {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-    deck = new Deck([card1, card2, card3]);
+    cards = [card1, card2, card3];
+    deck = new Deck(cards);
     round = new Round(deck);
   })
 
@@ -28,7 +31,7 @@ describe('Round', function() {
   })
 
   it('should hold a deck of cards', function() {
-    assert.equal(round.deck.cards, deck.cards);
+    assert.deepEqual(round.deck.cards, cards);
   })
 
   it('should show the card being played', function() {
@@ -42,13 +45,22 @@ describe('Round', function() {
   })
 
   it('should be able to take a turn', function() {
-    let guess = "pug";
-
-    let myTurn = round.takeTurn(guess);
+    guess = "sea otter";
+    myTurn = round.takeTurn(guess);
 
     assert.equal(round.turns, 1);
     assert.equal(round.currentCard, deck.cards[1]);
-    assert.equal(round.incorrectGuesses[0], guess.id);
+    assert.equal(round.incorrectGuesses[0], undefined);
+    assert.equal(myTurn, "correct!");
+  })
+
+  it('should register an incorrect guess', function() {
+    guess = "pug";
+    myTurn = round.takeTurn(guess);
+
+    assert.equal(round.turns, 1);
+    assert.equal(round.currentCard, deck.cards[1]);
+    assert.equal(round.incorrectGuesses[0], card1.id);
     assert.equal(myTurn, "incorrect!");
   })
 
