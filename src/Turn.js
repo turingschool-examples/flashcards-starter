@@ -13,22 +13,20 @@ class Turn {
     evaluateGuess(){
         if (this.guess === this.card.correctAnswer){
             this.correct = true;
-            return true
         }
-        else if (!this.guess === this.card.correctAnswer){
+        else {
             this.correct = false;
-            return false
         }
     }
     giveFeedback(){
-        evaluateGuess();
+        this.evaluateGuess();
         switch (this.correct){
             case true:
                 return 'Correct!';
             case false:
                 return 'Incorrect!';
             default:
-                return `Error this.correct=${this.correct}  this.card=${this.card} this.guess=${this.guess}`;
+                return `Error this.correct=${this.correct}  this.card=${this.card.correctAnswer} this.guess=${this.guess}`;
         }
         
     }
