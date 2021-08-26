@@ -1,12 +1,12 @@
 const Game = require('./Game');
 const Card = require('./Card');
-
-let currentCard = new Card();
+const Deck = require('./Deck');
 
 class Turn {
   constructor(guess, currentCard) {
     this.guess = guess;
     this.cardInPlay = currentCard;
+    this.result = false;
   }
   returnGuess() {
     return this.guess;
@@ -17,21 +17,20 @@ class Turn {
   }
 
   evaluateGuess() {
-    let result = false;
+    // console.log('test', this.cardInPlay.correctAnswer);
+    // let newTurn = new Turn('spleen', this.cardInPlay);
     if (this.guess === this.cardInPlay.correctAnswer) {
-      result = true;
-      return result;
+      this.result = true;
     }
   }
 
   giveFeedback() {
-    if (this.evaluateGuess() === true) {
+    if (this.result === true) {
       return `Correct!`;
     }
     return `Incorrect!`;
   }
 }
-console.log(currentCard);
 
 module.exports = Turn;
 
