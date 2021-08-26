@@ -29,17 +29,15 @@ it('should create an instance of Turn', function() {
    const turn = new Turn("object", card);
    const turn2 = new Turn("array", card);
 
-   expect(turn1.evaluateGuess()).to.equal(true);
+   expect(turn.evaluateGuess()).to.equal(true);
    expect(turn2.evaluateGuess()).to.equal(false);
  });
 
- it('giveFeedback should return "correct!" and "incorrect" where appropriate', function() {
+ it('giveFeedback should return "correct!" and "incorrect!" where appropriate', function() {
    const card = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
    const turn = new Turn("object", card);
    const turn2 = new Turn("array", card);
 
-   expect(turn1.evaluateGuess()).to.equal(true);
+   expect(turn.evaluateGuess()).to.equal(true);
    expect(turn2.evaluateGuess()).to.equal(false);
  });
-
-})
