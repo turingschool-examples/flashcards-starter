@@ -7,29 +7,26 @@ class Round {
     this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
+    this.currentCard = this.deck.cardsInDeck.find(card => !card.hasBeenPlayed);
+    this.cardInPlay = this.returnCurrentCard();
+    this.feedback = '';
   }
   returnCurrentCard(){
-    const currentCard = this.deck.cardsInDeck.find(function(card){
-      return !card.hasBeenPlayed;
-    });
-    return currentCard;
+    this.currentCard.hasBeenPlayed = true;
+    return this.currentCard;
   }
 
   takeTurn(guess){
     this.turns++;
-    let cardInPlay = this.returnCurrentCard();
-    cardInPlay.hasBeenPlayed = true;
-    let turn1 = new Turn(guess, cardInPlay);
-    turn1.evaluateGuess();
+    let turn1 = new Turn(guess, this.cardInPlay);
+    this.currentCard = this.deck.cardsInDeck.find(card => !card.hasBeenPlayed);
+    this.feedback = turn1.giveFeedback();
 
-    if(turn1.evaluateGuess() === false){
-      // cardInPlay.hasBeenPlayed = true;
-      this.incorrectGuesses.push(cardInPlay.id);
-      return turn1.giveFeedback();
-    }else if(turn1.evaluateGuess() === true){
-      // cardInPlay.hasBeenPlayed = true;
-      console.log(cardInPlay);
-      return turn1.giveFeedback();
+    if(this.feedback === 'Incorrect!'){
+      this.incorrectGuesses.push(this.cardInPlay.id)
+      return this.feedback;
+    }else if(this.feedback === 'Correct!'){
+      return this.feedback;
     }
   }
 };
