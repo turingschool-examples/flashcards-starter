@@ -29,11 +29,15 @@ class Round {
     return Math.floor((1 - (this.incorrectGuesses.length/this.turns)) * 100);
   }
   endRound() {
-    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
     this.endTime = Date.now();
     this.roundTime = (this.endTime - this.startTime) / 1000;
-    console.log(`You completed this round in ${Math.floor(this.roundTime / 60)} minutes ${Math.floor(this.roundTime % 60)} seconds.`)
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+
+    let scoreMessage = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    let timerMessage = `You completed this round in ${Math.floor(this.roundTime / 60)} minutes ${Math.floor(this.roundTime % 60)} seconds.`;
+
+    console.log(scoreMessage);
+    console.log(timerMessage);
+    return scoreMessage;
   }
 }
 
