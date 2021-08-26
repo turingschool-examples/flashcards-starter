@@ -13,7 +13,7 @@ class Game {
   }
 
   start() {
-    let cardArr = prototypeData.map((ele) => {
+    let cardArr = prototypeQuestions.map((ele) => {
       return new Card(ele.id, ele.question, ele.answers, ele.correctAnswer);
     });
     let deck = new Deck(cardArr);
