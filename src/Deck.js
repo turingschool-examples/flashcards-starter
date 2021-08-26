@@ -11,7 +11,7 @@ Card objects and should have an accompanying test file.
 It should know how many Cards are in the Deck.
 
 */
-const Card = require('../src/Card');
+const Card = require('./Card');
 
 class Deck {
   constructor(currentDeck) {

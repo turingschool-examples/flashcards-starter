@@ -17,7 +17,7 @@ describe('Deck', function() {
     let currentDeck = [card1, card2, card3];
     let deck = new Deck(currentDeck);
     expect(deck.currentDeck).to.equal(currentDeck);
-  })
+  });
 
   it('should know how many cards are in the deck', () => {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -26,5 +26,5 @@ describe('Deck', function() {
     let currentDeck = [card1, card2, card3];
     let deck = new Deck(currentDeck);
     expect(deck.countCards()).to.equal(3);
-  })
+  });
 });
