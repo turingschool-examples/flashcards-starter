@@ -17,8 +17,6 @@ class Turn {
   }
 
   evaluateGuess() {
-    // console.log('test', this.cardInPlay.correctAnswer);
-    // let newTurn = new Turn('spleen', this.cardInPlay);
     if (this.guess === this.cardInPlay.correctAnswer) {
       this.result = true;
     }
