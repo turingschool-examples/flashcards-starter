@@ -13,6 +13,19 @@ class Game {
   printQuestion(round) {
       util.main(round);
   }
+
+  start() {
+    const cards = [];
+    prototypeQuestions.forEach(cardObject => {
+      let currentCard = new Card(cardObject.id, cardObject.question, cardObject.answers, cardObject.correctAnswer);
+    })
+
+    const deck = new Deck(cards);
+    const round = new Round(deck);
+    this.currentRound = round;
+    this.printMessage(deck, round);
+    this.printQuestion(round);
+  }
 }
 
 module.exports = Game;
