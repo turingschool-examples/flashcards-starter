@@ -1,3 +1,4 @@
+
 const Turn = require("./Turn.js");
 
 class Round {
@@ -27,7 +28,14 @@ class Round {
   }
 
   endRound() {
-    console.log(`*** Round over!*** You answered ${this.calculatePercentCorrect()} of the questions right!`);
+    console.log(`*** Round over!*** You answered ${this.calculatePercentCorrect()}% of the questions right!`);
+  }
+
+  startNewGame(){
+    console.log('******************GOOD JOB! LET\' S START A NEW ROUND!******************')
+    const Game = require("./Game");
+    let game = new Game;
+    game.start()
   }
 }
 
