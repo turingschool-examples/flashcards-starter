@@ -32,5 +32,11 @@ describe('Deck', function() {
         expect(testDeck2.deck[1].answers).to.deep.equal(testCard22.answers)
         expect(testDeck2.deck[1].correctAnswer).to.deep.equal(testCard22.correctAnswer)
     })
+    it('Should be able to return the length of the deck', function() {
+        
+        expect(testDeck1.countCards()).to.deep.equal(3)
+        expect(testDeck2.countCards()).to.deep.equal(3)
+        expect(testDeck3.countCards()).to.deep.equal(6)
+    })
 })
 
