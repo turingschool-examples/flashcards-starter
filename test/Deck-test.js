@@ -13,13 +13,24 @@ describe('Deck', function() {
         testCard21 = new Card(44, "Sample Question4", ["Option1", "Option2", "Option3"], "Option3")
         testCard22 = new Card(55, "Sample Question5", ["Option4", "Option5", "Option6"], "Option4")
         testCard23 = new Card(66, "Sample Question6", ["Option7", "Option8", "Option9"], "Option7")
-        testDeck2 = new Deck([testCard11,testCard12,testCard13])
+        testDeck2 = new Deck([testCard21,testCard22,testCard23])
+        testDeck3 = new Deck([testCard11,testCard12,testCard13,testCard21,testCard22,testCard23])
     })
     it('Should be an instance of Deck class', function() {
         expect(testDeck1).to.be.an.instanceOf(Deck);
+        expect(testDeck2).to.be.an.instanceOf(Deck);
+        expect(testDeck3).to.be.an.instanceOf(Deck);
     })
     it('Should store an array of instances of Card class', function() {
-        expect(testDeck2)
+        expect(testDeck2.deck[0]).to.be.an.instanceOf(Card)
+        expect(testDeck2.deck[1]).to.be.an.instanceOf(Card)
+        expect(testDeck2.deck[02]).to.be.an.instanceOf(Card)
+    })
+    it('Should be able to return the values stored in the card instance', function(){
+    
+        expect(testDeck2.deck[1].question).to.deep.equal(testCard22.question)
+        expect(testDeck2.deck[1].answers).to.deep.equal(testCard22.answers)
+        expect(testDeck2.deck[1].correctAnswer).to.deep.equal(testCard22.correctAnswer)
     })
 })
 
