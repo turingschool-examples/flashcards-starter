@@ -20,7 +20,6 @@ class Round {
         break;
       case false:
         this.incorrectGuesses.push(this.currentCard.id);
-        // this.incorrectGuesses.push(this.currentCard);
         this.deck.cards.push(this.currentCard);
     }
     this.turns ++;
