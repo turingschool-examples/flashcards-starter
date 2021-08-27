@@ -40,22 +40,14 @@ describe('Round', function() {
       let currentDeck = [card1, card2, card3];
       let deck = new Deck(currentDeck);
       let round = new Round(deck);
-      round.turn = 1;
-      expect(round.returnCurrentCard()).to.equal(round.deck.currentDeck[1]);
+      round.turn = 0;
+      expect(round.returnCurrentCard()).to.equal(round.deck.currentDeck[0]);
     });
-
-    // it('should track number of turns taken', () => {
-    //   let round = new Round();
-    //   round.takeTurn();
-    //   round.takeTurn();
-    //   expect(round.turn).to.deep.equal(2);
-    // });
 
     it('should evaluate the guess', () => {
       let currentCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       let turn = new Turn('sea otter', currentCard);
-      turn.evaluateGuess();
-      expect(turn.result).to.equal(true);
+      expect(turn.evaluateGuess(currentCard)).to.equal(true);
     });
 
       it('it should let the user know if guess was correct or incorrect', () => {
@@ -89,18 +81,4 @@ describe('Round', function() {
         round.calculatePercentCorrect();
         expect(round.calculatePercentCorrect()).to.equal(`0%`);
       });
-
-      it('should tell the user that the game is over and provide their score', () => {
-        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-        const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-        let currentDeck = [card1, card2, card3];
-        let deck = new Deck(currentDeck);
-        let round = new Round(deck);
-        let turn = new Turn('spleen', card2);
-        round.takeTurn('pug', card1);
-        round.calculatePercentCorrect();
-        round.endRound();
-        expect(round.endRound()).to.equal(`** Round over! ** You answered 0% of the questions correctly!`);
-      })
 });

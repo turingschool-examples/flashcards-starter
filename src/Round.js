@@ -11,29 +11,27 @@ class Round {
   }
 
   returnCurrentCard() {
-    let deck = new Deck();
-    let currentCard = this.turn;
-      return this.deck.currentDeck[currentCard];
+    return this.deck.currentDeck[0];
   }
 
-  takeTurn(name, currentCard) {
-    this.turn++
-    let newTurn = new Turn(name, currentCard);
-    newTurn.evaluateGuess();
-    newTurn.giveFeedback();
-    if (newTurn.result === false) {
-      this.incorrectGuesses.push(newTurn.cardInPlay.id);
+  takeTurn(guess) {
+    let newTurn = new Turn(guess, this.returnCurrentCard());
+    if (newTurn.evaluateGuess() === false) {
+      this.incorrectGuesses.push(this.returnCurrentCard().id);
     }
+    this.turn++
+    this.deck.currentDeck.shift();
+    return newTurn.giveFeedback();
   };
 
   calculatePercentCorrect() {
     let correctGuesses = this.turn - this.incorrectGuesses.length;
-    return `${correctGuesses / this.turn}%`;
+    return `${correctGuesses / this.turn * 100}%`;
   };
 
   endRound() {
-return `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`
-  }
+       console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`);
+    }
 };
 
 module.exports = Round;
