@@ -46,7 +46,7 @@ class Round {
   printAttempts() {
     let wrongIds = this.incorrectGuesses.reduce((accumulator, current) => {
       {
-        accumulator[current] = this.incorrectGuesses.filter(element => element === current).length
+        accumulator[current] = this.incorrectGuesses.filter(element => element === current).length + 1
       }
       return accumulator;
     }, {})
