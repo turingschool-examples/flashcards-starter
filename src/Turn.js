@@ -17,7 +17,6 @@ class Turn {
   }
 
   evaluateGuess(cardInPlay) {
-  //this.cardInPlay = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     if (this.guess === this.cardInPlay.correctAnswer) {
       return true;
     } else {
@@ -31,10 +30,6 @@ class Turn {
     } else {
       return `Incorrect!`;
     }
-    // if (this.result === true) {
-    //   return `Correct!`;
-    // }
-    // return `Incorrect!`;
   }
 };
 
