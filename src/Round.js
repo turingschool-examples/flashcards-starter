@@ -5,9 +5,13 @@ class Round {
     this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
+    this.startTime = 0;
+    this.endTime = 0;
+
   }
 
   returnCurrentCard() {
+    console.log(this.deck.cards[this.turns])
     return this.deck.cards[this.turns];
   }
 
@@ -24,13 +28,17 @@ class Round {
     let correct = this.turns - this.incorrectGuesses.length;
     let percentage = (correct/this.turns) * 100;
 
-    return `You got ${Math.round(percentage)}% correct!`;
+    console.log(`You got ${Math.round(percentage)}% correct!`);
   }
 
   endRound() {
-    return this.calculatePercentCorrect();
-  }
-
+    this.calculatePercentCorrect();
+    this.endTime = Date.now()
+    let roundTime = this.endTime - this.startTime;
+    let minutes = Math.floor(roundTime / 60000);
+    let seconds = ((roundTime % 60000) / 1000).toFixed(0);
+    console.log(`This round took ${minutes} minutes and ${(seconds < 10 ? '0' : '')} ${seconds} seconds!`)
+}
 }
 
 module.exports = Round;
