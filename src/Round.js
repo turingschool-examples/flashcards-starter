@@ -20,6 +20,8 @@ class Round {
         break;
       case false:
         this.incorrectGuesses.push(this.currentCard.id);
+        // this.incorrectGuesses.push(this.currentCard);
+        this.deck.cards.push(this.currentCard);
     }
     this.turns ++;
     this.currentCard = this.deck.cards[this.turns];
@@ -35,9 +37,25 @@ class Round {
     let scoreMessage = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
     let timerMessage = `You completed this round in ${Math.floor(this.roundTime / 60)} minutes ${Math.floor(this.roundTime % 60)} seconds.`;
 
+
     console.log(scoreMessage);
     console.log(timerMessage);
+    this.printAttempts();
     return scoreMessage;
+  }
+  printAttempts() {
+    let wrongIds = this.incorrectGuesses.reduce((accumulator, current) => {
+      {
+        accumulator[current] = this.incorrectGuesses.filter(element => element === current).length
+      }
+      return accumulator;
+    }, {})
+
+    let wrongKeys = Object.keys(wrongIds);
+
+    wrongKeys.forEach(element => {
+      console.log(`Question #${element} took you ${wrongIds[element]} attempts. Pitiful!`)
+    })
   }
 }
 
