@@ -28,21 +28,21 @@ describe('Turn', function() {
   });
 
 
-  it.skip('should be able to return the guess of the user', function() {
+  it('should be able to return the guess of the user', function() {
     let card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     let turn = new Turn('array', card);
     let result = turn.returnGuess();
     expect(result).to.equal('array');
   });
 
-  it.skip('should be able to return the current card', function() {
+  it('should be able to return the current card', function() {
     let card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     let turn = new Turn('array', card);
     let result = turn.returnCard();
     expect(result).to.deep.equal(card);
   });
 
-  it.skip('should be able to return true or false depending if the user guess matches the correct answer', function() {
+  it('should be able to return true or false depending if the user guess matches the correct answer', function() {
     let card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     let turn1 = new Turn('array', card);
     let turn2 = new Turn('object', card);
@@ -52,7 +52,7 @@ describe('Turn', function() {
     expect(result2).to.equal(true);
   });
 
-  it.skip('should be able to return strings, incorrent! or correct!, depending if the user guess matches the correct answer', function() {
+  it('should be able to return strings, incorrent! or correct!, depending if the user guess matches the correct answer', function() {
     let card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     let turn1 = new Turn('array', card);
     let turn2 = new Turn('object', card);
