@@ -7,18 +7,14 @@ const expect = chai.expect;
 
 describe("Round", () => {
 
-  const card1 = new Card(1, "What is my fav food?", ["rice", "reeses"], "rice");
-  const card2 = new Card(2, "What is my name?", ["Blohn", "Grohn", "John"], "John");
-  const card3 = new Card(3, "What is my fav animal?", ["koala", "panda", "sloth"], "sloth");
-  const deck = new Deck([card1, card2, card3]);
-  const round = new Round(deck);
+  let card1, card2, card3, deck, round;
 
   beforeEach(function() {
-    const card1 = new Card(1, "What is my fav food?", ["rice", "reeses"], "rice");
-    const card2 = new Card(2, "What is my name?", ["Blohn", "Grohn", "John"], "John");
-    const card3 = new Card(3, "What is my fav animal?", ["koala", "panda", "sloth"], "sloth");
-    const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck);
+    card1 = new Card(1, "What is my fav food?", ["rice", "reeses"], "rice");
+    card2 = new Card(2, "What is my name?", ["Blohn", "Grohn", "John"], "John");
+    card3 = new Card(3, "What is my fav animal?", ["koala", "panda", "sloth"], "sloth");
+    deck = new Deck([card1, card2, card3]);
+    round = new Round(deck);
   })
 
   it("should be a function", () => {
@@ -43,6 +39,7 @@ describe("Round", () => {
   });
   
   it("should create a new Turn instance when a guess is made", () => {
+    round.takeTurn("rice");
     expect(round.currentTurn).to.be.an.instanceOf(Turn);
   });
 
@@ -53,7 +50,7 @@ describe("Round", () => {
   });
 
   it("should update the current card to the next card", () => {
-    expect(round.incorrectGuesses).to.equal(0);
+    expect(round.incorrectGuesses.length).to.equal(0);
     round.takeTurn("plogl");
     expect(round.incorrectGuesses.length).to.equal(1);
     expect(round.incorrectGuesses[0]).to.equal(1);
