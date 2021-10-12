@@ -29,6 +29,19 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.equal('Pug')
   })
 
-  
+  it('should return the users card', function() {
+    turn.returnCard()
+    expect(turn.returnCard()).to.equal(card)
+  })
+
+  it('should return true or false if the guess matches the correct answer', function() {
+    turn.evaluateGuess()
+    expect(turn.evaluateGuess()).to.equal(false)
+  })
+
+  it('should provide feedback depending on correct or incorrect', function() {
+    turn.giveFeedback()
+    expect(turn.giveFeedback()).to.equal('incorrect')
+  })
 
 })
