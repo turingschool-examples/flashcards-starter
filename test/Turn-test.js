@@ -50,5 +50,16 @@ describe('Turn', function() {
     let result2 = turn2.evaluateGuess();
     expect(result1).to.equal(false);
     expect(result2).to.equal(true);
-    });
+  });
+
+  it.skip('should be able to return strings, incorrent! or correct!, depending if the user guess matches the correct answer', function() {
+    let card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let turn1 = new Turn('array', card);
+    let turn2 = new Turn('object', card);
+    let result1 = turn1.giveFeedback();
+    let result2 = turn2.giveFeedback();
+    expect(result1).to.equal('incorrect!');
+    expect(result2).to.equal('correct!');
+  });
+
 });
