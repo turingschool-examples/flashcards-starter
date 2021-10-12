@@ -27,4 +27,11 @@ describe('Turn', function() {
     expect(turn.currentCard).to.deep.equal(card);
   });
 
+
+  it.skip('should be able to return the guess of the user', function() {
+    let card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let turn = new Turn('array', card);
+    let result = turn.returnGuess();
+      expect(result).to.equal('array');
+  });
 });
