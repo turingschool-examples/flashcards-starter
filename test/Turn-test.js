@@ -1,14 +1,17 @@
 const expect = require('chai').expect;
+const data = require('../src/data');
+
+const prototypeQuestions = data.prototypeData;
 
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe('Turn', function() {
-  const card1 = new Card(1, "What is a cat?", ['flower', 'animal', 'food'], 'animal');
-  const card2 = new Card(2, "What is a sandwich?", ['flower', 'animal', 'food'], 'food');
+  const card1 = new Card(prototypeQuestions[0]);
+  const card2 = new Card(prototypeQuestions[1]);
 
-  const turn1 = new Turn('flower', card1);
-  const turn2 = new Turn('Food', card2);
+  const turn1 = new Turn('array', card1);
+  const turn2 = new Turn('array', card2);
 
   it(' should be a function', function() {
     expect(Turn).to.be.a('function');
@@ -19,7 +22,7 @@ describe('Turn', function() {
   });
 
   it(' should store a user guess', function() {
-    expect(turn1.userGuess).to.equal('flower');
+    expect(turn1.userGuess).to.equal('array');
   });
 
   it(' should store the current card', function() {
@@ -29,8 +32,8 @@ describe('Turn', function() {
   it(' should have a method that returns the user guess', function() {
     expect(turn1.returnGuess).to.be.a('function');
 
-    expect(turn1.returnGuess()).to.equal('flower');
-    expect(turn2.returnGuess()).to.equal('Food');
+    expect(turn1.returnGuess()).to.equal('array');
+    expect(turn2.returnGuess()).to.equal('array');
   });
 
   it(' should have a method that returns the current card', function() {

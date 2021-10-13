@@ -1,10 +1,12 @@
-const chai = require('chai');
-const expect = chai.expect;
+const expect = require('chai').expect;
+const data = require('../src/data');
+
+const prototypeQuestions = data.prototypeData;
 
 const Card = require('../src/Card');
 
 describe('Card', function() {
-  const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+  const card = new Card(prototypeQuestions[0]);
 
   it('should be a function', function() {
     expect(Card).to.be.a('function');

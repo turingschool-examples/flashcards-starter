@@ -23,7 +23,7 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    const percent = (this.incorrectGuesses.length / this.turns) * 100;
+    let percent = Math.round((this.incorrectGuesses.length / this.turns) * 100);
     return percent;
   }
 

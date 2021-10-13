@@ -1,13 +1,16 @@
 const expect = require('chai').expect;
+const data = require('../src/data');
+
+const prototypeQuestions = data.prototypeData;
 
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
 describe('Round', function() {
-  const card1 = new Card(1, "What is a cat?", ['flower', 'animal', 'food'], 'animal');
-  const card2 = new Card(2, "What is a sandwich?", ['flower', 'animal', 'food'], 'food');
-  const card3 = new Card(3, 'What is a daisy?', ['flower', 'animal', 'food'], 'flower');
+  const card1 = new Card(prototypeQuestions[0]);
+  const card2 = new Card(prototypeQuestions[1]);
+  const card3 = new Card(prototypeQuestions[2]);
 
   const deck = new Deck([card1, card2, card3]);
 
@@ -39,13 +42,13 @@ describe('Round', function() {
     expect(round.takeTurn).to.be.a('function');
 
     // how to check that new turn instance is instanceof Turn? change const to this.turn = ?
-    round.takeTurn('flower');
+    round.takeTurn('array');
 
     expect(round.turns).to.equal(1);
     expect(round.returnCurrentCard()).to.deep.equal(deck.cards[1]);
     expect(round.incorrectGuesses).to.deep.equal([1]);
 
-    round.takeTurn('Food');
+    round.takeTurn('array');
 
     expect(round.turns).to.equal(2);
     expect(round.returnCurrentCard()).to.deep.equal(deck.cards[2]);
