@@ -4,6 +4,7 @@ const expect = chai.expect;
 const Round = require("../src/Round.js");
 const Turn = require("../src/Turn.js");
 const Deck = require("../src/Deck.js");
+const Card = require("../src/Card.js");
 
 describe("Round", function() {
 
@@ -12,12 +13,12 @@ describe("Round", function() {
     expect(Round).to.be.a("function");
   });
 
-  it.skip("should be an instance of Round", function() {
+  it("should be an instance of Round", function() {
     let round = new Round();
     expect(round).to.be.a.instanceof(Round);
   });
 
-  it.skip("should have a deck", function() {
+  it("should have a deck", function() {
     let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
     let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
     let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
@@ -26,7 +27,7 @@ describe("Round", function() {
     let deck = new Deck(cards);
     let round = new Round(deck);
     expect(round.deck).to.equal(deck);
-  })
+  });
 })
 
 // Your Round class will be the object that takes in responses and records these guesses (as well as if they are correct or incorrect). The currentCard should be the first Card in the Deck (the array of Cards) at the start of the Round

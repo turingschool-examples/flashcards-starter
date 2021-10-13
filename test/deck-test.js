@@ -6,17 +6,17 @@ const Card = require("../src/Card.js")
 
 describe("Deck", function() {
 
-  it("should be a function", function() {
+  it.skip("should be a function", function() {
     let deck = new Deck();
     expect(Deck).to.be.a("function");
   });
 
-  it("should be an instance of Deck", function() {
+  it.skip("should be an instance of Deck", function() {
     let deck = new Deck();
     expect(deck).to.be.a.instanceof(Deck);
   });
 
-  it("should contain cards", function() {
+  it.skip("should contain cards", function() {
     let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
     let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
     let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
@@ -26,7 +26,7 @@ describe("Deck", function() {
     expect(deck.cards).to.equal(cards);
   });
 
-  it("should know how many cards are in the deck", function() {
+  it.skip("should know how many cards are in the deck", function() {
     let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
     let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
     let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
