@@ -23,7 +23,8 @@ class Round {
 
   calculatePercentCorrect() {
     if (this.incorrectGuesses.length) {
-      return Math.floor(100 - (this.incorrectGuesses.length / this.turns) * 100);
+      return Math.floor(100 - 
+      (this.incorrectGuesses.length / this.turns) * 100);
     } else {
       return (100);
     }
@@ -31,7 +32,8 @@ class Round {
   }
 
   endRound() {
-    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    console.log(`** Round over! ** You answered\
+     ${this.calculatePercentCorrect()}% of the questions correctly!`);
   }
 }
 
