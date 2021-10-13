@@ -21,4 +21,24 @@ describe("Turn", function() {
       let turn = new Turn("not much", card);
       expect(Turn.guess).to.equal("not much");
     });
+
+    it.skip("should have a card", function() {
+      let card = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+      let turn = new Turn("not much", card);
+      expect(Turn.card).to.equal(card);
+    });
+
+    it.skip("should be able to return the guess", function() {
+      let card = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+      let turn = new Turn("not much", card);
+      expect(Turn.returnGuess).to.equal("not much");
+    });
+
+    it.skip("should be able to return the card", function() {
+      let card = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+      let turn = new Turn("not much", card);
+      expect(Turn.returnCard).to.equal(id: 1, question: "What's up?", answers: ["the sky", "not much", "chicken butt"], correctAnswer: "chicken butt")
+    });
+
+    
 })
