@@ -19,13 +19,13 @@ describe('Turn', function () {
   it('should be able to return user guess', function () {
     const sampleCard = new Card(1, 'In which city was Pluto discovered?', ['Chicago', 'Tucson', 'Flagstaff'], 'Flagstaff')
     const turn = new Turn('Flagstaff', sampleCard)
-    expect(turn.userGuess).to.equal('Flagstaff');
+    expect(turn.returnUserGuess()).to.equal('Flagstaff');
   })
 
   it('should be able to return a card', function () {
     const sampleCard = new Card(1, 'In which city was Pluto discovered?', ['Chicago', 'Tucson', 'Flagstaff'], 'Flagstaff');
     const turn = new Turn('Flagstaff', sampleCard);
-    expect(turn.currentCard).to.equal(sampleCard);
+    expect(turn.returnCard()).to.equal(sampleCard);
   })
 
   it('should be able to evaluate a guess', function () {
@@ -34,7 +34,7 @@ describe('Turn', function () {
     expect(turn.evaluateGuess()).to.equal(true);
   })
 
-  it('should be able to give feedback for a correct or incorrect answer', function () {
+  it('should be able to give feedback for guesses', function () {
     const sampleCard = new Card(1, 'In which city was Pluto discovered?', ['Chicago', 'Tucson', 'Flagstaff'], 'Flagstaff')
     const turn = new Turn('Flagstaff', sampleCard)
     expect(turn.giveFeedback()).to.equal("Correct!");

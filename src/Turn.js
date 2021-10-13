@@ -1,21 +1,19 @@
-let Card = require('../src/Card');
-
 class Turn {
-  constructor(userGuess, currentCard) {
+  constructor(userGuess, card) {
     this.userGuess = userGuess;
-    this.currentCard = currentCard;
+    this.card = card;
   }
 
   returnUserGuess() {
     return this.userGuess;
   }
 
-  returnCurrentCard() {
-    return this.currentCard;
+  returnCard() {
+    return this.card;
   }
 
   evaluateGuess() {
-    if (this.userGuess === this.currentCard.correctAnswer) {
+    if (this.userGuess === this.card.correctAnswer) {
       return true;
     } else {
       return false;
