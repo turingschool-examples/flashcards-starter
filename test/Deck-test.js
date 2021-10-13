@@ -6,16 +6,16 @@ const Card = require('../src/Card');
 
 describe('Deck', function() {
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     expect(Deck).to.be.a('function');
   });
 
-  it.skip('should be an instance of Deck', function() {
+  it('should be an instance of Deck', function() {
     const deck = new Deck();
     expect(deck).to.be.an.instanceof(Deck);
   });
 
-  it.skip('should store an array of Card objects', function() {
+  it('should store an array of Card objects', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -24,7 +24,7 @@ describe('Deck', function() {
     expect(deck.cards).to.deep.equal(cards);
   });
 
-  it.skip('should be able to return how many cards are in the deck', function() {
+  it('should be able to return how many cards are in the deck', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -46,6 +46,6 @@ describe('Deck', function() {
     expect(result4).to.equal(0);
     const deck5 = new Deck();
     const result5 = deck5.countCards();
-    expect(result5).to.equal(undefined);
+    expect(result5).to.equal(0);
   });
 });
