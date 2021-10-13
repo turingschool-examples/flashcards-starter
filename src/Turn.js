@@ -1,5 +1,3 @@
-const Card = require('./Card.js');
-
 class Turn {
   constructor(userGuess, currentCard) {
     this.userGuess = userGuess;
@@ -19,10 +17,7 @@ class Turn {
     // Sad Paths to attend to in future:
       // check if guess is empty?
         // not sure yet if it will be empty string or undefined. Once sorted, add conditional here.
-      // check if guess has characters other than letters?
-        // use parseint and then check if NaN or not
-          // test with mix of integers and numbers...
-          // symbols?
+      // check if guess is none of the possible answers.
     if (guessLowered === this.currentCard.correctAnswer) {
       return true;
     } else {
