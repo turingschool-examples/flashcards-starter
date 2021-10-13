@@ -11,7 +11,7 @@ describe("Game", () => {
   let deck, round, game, cards;
   beforeEach(function() {
     cards = data.prototypeData.map(e => {
-      e = new Card(e["id"], e["question"], e["answers"], e["correctAnswer"])
+      return new Card(e["id"], e["question"], e["answers"], e["correctAnswer"])
     });
     deck = new Deck(cards);
     round = new Round(deck);
@@ -32,6 +32,7 @@ describe("Game", () => {
   });
 
   it("should keep track of the currentRound", () => {
+    game.start();
     expect(game.currentRound).to.be.an.instanceOf(Round);
   })
 })
