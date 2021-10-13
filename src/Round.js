@@ -11,17 +11,21 @@ class Round {
     }
     takeTurn(guess, card) {
         let newTurn = new Turn(guess, card);
+            // // newTurn.evaluateGuess();
+            // newTurn.giveFeedback();
             if (newTurn.evaluateGuess()) {
                 this.turns += 1;
                 this.deck.cards.shift();
                 newTurn.giveFeedback();
-            } else {
+                return "true";
+                } else {
                 this.incorrectGuesses.push(card.id);
                 this.turns += 1;
                 this.deck.cards.shift();
-            }
-        
-    }
+                newTurn.giveFeedback();
+                return "false";
+                }
+        }
     calculatePercentCorrect() {
        if (this.incorrectGuesses.length === 0) {
            return 100;
