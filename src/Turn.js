@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable indent */
 class Turn {
     constructor (guess, card) {
         this.guess = guess;
@@ -10,15 +12,20 @@ class Turn {
         return this.card;
     }
     evaluateGuess() {
-        if(this.guess === this.card.correctAnswer) {
+        if (this.guess === this.card.correctAnswer) {
             return true;
-        } else return false;
+            } else { 
+            return false;
+            }
     }
     giveFeedback() {
-        if(this.guess === this.card.correctAnswer) {
-            return 'correct!';
+        if (this.guess === this.card.correctAnswer) {
+            var correct = 'correct!';
+            return correct;
+            
         } else {
-            return 'incorrect!';
+            var incorrect = "incorrect!"
+            return incorrect;
         }
     }
 }
