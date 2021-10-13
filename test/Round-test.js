@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -26,7 +27,7 @@ describe('Round', function() {
         expect(round.returnCurrentCard()).to.deep.equal(card1);
     });
 
-    it('should update the turn count, evaluate guesses, give feedback, and store ids of incorrect guesses', function () {
+    it('should update the turn count', function () {
         const card1 = new Card(1, "What is the longest river in the world?", ["Nile", "Amazon", "Mississippi"], "Nile");
         const card2 = new Card(2, "What is the fastest land animal?", ["Panther", "Cheetah", "A human running to the bathroom"], "Cheetah");
         const card3 = new Card(3, "What actor played as Doctor Strange?", ["Burlington Candlestick", "Butterfree Crumplesnap", "Benedict Cumberbatch"], "Benedict Cumberbatch");
@@ -35,8 +36,27 @@ describe('Round', function() {
         round.takeTurn("Amazon", card1);
         expect(round.turns).to.equal(1);
         expect(round.returnCurrentCard()).to.deep.equal(card2);
+    });
+
+
+    it('should give feedback', function() {
+        const card1 = new Card(1, "What is the longest river in the world?", ["Nile", "Amazon", "Mississippi"], "Nile");
+        const card2 = new Card(2, "What is the fastest land animal?", ["Panther", "Cheetah", "A human running to the bathroom"], "Cheetah");
+        const card3 = new Card(3, "What actor played as Doctor Strange?", ["Burlington Candlestick", "Butterfree Crumplesnap", "Benedict Cumberbatch"], "Benedict Cumberbatch");
+        const deck = new Deck([card1, card2, card3]);
+        const round = new Round(deck);
+        expect(round.takeTurn("Amazon", card1)).to.equal("false");
+    })
+
+    it('should store ids of incorrect guesses', function() {
+        const card1 = new Card(1, "What is the longest river in the world?", ["Nile", "Amazon", "Mississippi"], "Nile");
+        const card2 = new Card(2, "What is the fastest land animal?", ["Panther", "Cheetah", "A human running to the bathroom"], "Cheetah");
+        const card3 = new Card(3, "What actor played as Doctor Strange?", ["Burlington Candlestick", "Butterfree Crumplesnap", "Benedict Cumberbatch"], "Benedict Cumberbatch");
+        const deck = new Deck([card1, card2, card3]);
+        const round = new Round(deck);
+        round.takeTurn("Amazon", card1);
         expect(round.incorrectGuesses).to.deep.equal([1]);
-       });
+    });
 
     it('should return the percentage of correct guesses', function () {
         const card1 = new Card(1, "What is the longest river in the world?", ["Nile", "Amazon", "Mississippi"], "Nile");
@@ -48,8 +68,7 @@ describe('Round', function() {
         expect(round.calculatePercentCorrect()).to.equal(100);
         round.takeTurn("Panther", card2);
         expect(round.calculatePercentCorrect()).to.equal(50);
-               
-    });
+        });
 
     it('should print a message when the game is done', function () {
         const card1 = new Card(1, "What is the longest river in the world?", ["Nile", "Amazon", "Mississippi"], "Nile");
