@@ -1,5 +1,5 @@
-class Card{
-  constructor(id, question, answers, correct){
+class Card {
+  constructor(id, question, answers, correct) {
     this.id = Date.now();
     this.question = question;
     this.answers = answers;

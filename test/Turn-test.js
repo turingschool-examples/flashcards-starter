@@ -12,18 +12,21 @@ describe('Turn Constructor', function() {
 
   it('should accept a user guess as an argument', function() {
     const turn = new Turn('New York City');
+
     expect(turn.guess).to.equal('New York City');
   })
 
   it('should accept a card as an argument', function() {
     const card = new Card(1, 'Where is the statue of liberty?', ['New York City, Paris, London'], 'New York City')
     const turn = new Turn('New York City', card);
+
     expect(turn.card).to.equal(card);
   })
 
   it('card should be a new version of the card class', function() {
     const card = new Card(1, 'Where is the statue of liberty?', ['New York City, Paris, London'], 'New York City')
     const turn = new Turn('New York City', card);
+
     expect(turn.card).to.be.an.instanceof(Card);
   })
 
