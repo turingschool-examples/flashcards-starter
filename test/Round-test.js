@@ -127,4 +127,34 @@ describe('Round', function() {
     expect(result3).to.equal('incorrect!');
   });
 
+  it.skip('should be able to calculate and return the percentage of correct guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    const result = round.takeTurn('pug');
+    const percentageResult = round.calculatePercentCorrect();
+    expect(percentageResult).to.equal(0);
+    const result2 = round.takeTurn('gallbladder');
+    const percentageResult2 = round.calculatePercentCorrect();
+    expect(percentageResult2).to.equal(1/2);
+    const result3 = round.takeTurn('listening to music');
+    const percentageResult3 = round.calculatePercentCorrect();
+    expect(percentageResult3).to.equal(1/3);
+  });
+
+  it.skip('should print a response when the round is over', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const deck = new Deck([card1, card2, card3]);
+    const round = new Round(deck);
+    round.takeTurn('pug');
+    round.takeTurn('gallbladder');
+    round.takeTurn('listening to music');
+    const result = round.endRound();
+    // (Math.floor((number1 / number2) * 100))
+    expect(result).to.equal('**Round over!** You answered 33% of the questions correctly!');
+  });
 });
