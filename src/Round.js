@@ -22,11 +22,16 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    return (this.incorrectGuesses.length / this.turns) * 100;
+    if (this.incorrectGuesses.length) {
+      return Math.floor(100 - (this.incorrectGuesses.length / this.turns) * 100);
+    } else {
+      return (100);
+    }
+    
   }
 
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
   }
 }
 
