@@ -42,23 +42,29 @@ describe("Turn", function() {
       expect(turn.returnCard()).to.deep.equal({id: 1, question: "What's up?", answers: ["the sky", "not much", "chicken butt"], correctAnswer: "chicken butt"})
     });
 
-    it.skip("should be able to evaluate the guess", function() {
+    it("should be able to evaluate the guess", function() {
       let card = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
       let turn1 = new Turn("not much", card);
-      let turn2 = new Turn ("chicken but", card);
+      let turn2 = new Turn ("chicken butt", card);
       let turn3 = new Turn ("boogers", card);
-      expect(turn1.evaluateGuess).to.equal(false);
-      expect(turn2.evaluateGuess).to.equal(true);
-      expect(turn3.evaluateGuess).to.equal(false);
+      turn1.evaluateGuess();
+      turn2.evaluateGuess();
+      turn3.evaluateGuess();
+      expect(turn1.evaluateGuess()).to.equal(false);
+      expect(turn2.evaluateGuess()).to.equal(true);
+      expect(turn3.evaluateGuess()).to.equal(false);
     });
 
-    it.skip("should be able to return feedback", function() {
+    it("should be able to return feedback", function() {
       let card = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
       let turn1 = new Turn("not much", card);
-      let turn2 = new Turn ("chicken but", card);
+      let turn2 = new Turn ("chicken butt", card);
       let turn3 = new Turn ("boogers", card);
-      expect(turn1.giveFeedback).to.equal("incorrect!");
-      expect(turn2.giveFeedback).to.equal("correct!");
-      expect(turn3.giveFeedback).to.equal("incorrect!");
+      turn1.giveFeedback();
+      turn2.giveFeedback();
+      turn3.giveFeedback();
+      expect(turn1.giveFeedback()).to.equal("incorrect!");
+      expect(turn2.giveFeedback()).to.equal("correct!");
+      expect(turn3.giveFeedback()).to.equal("incorrect!");
     });
 });
