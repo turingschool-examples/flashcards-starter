@@ -37,7 +37,7 @@ describe("Turn", function() {
     it.skip("should be able to return the card", function() {
       let card = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
       let turn = new Turn("not much", card);
-      expect(turn.returnCard).to.equal(id: 1, question: "What's up?", answers: ["the sky", "not much", "chicken butt"], correctAnswer: "chicken butt")
+      expect(turn.returnCard).to.equal({id: 1, question: "What's up?", answers: ["the sky", "not much", "chicken butt"], correctAnswer: "chicken butt"})
     });
 
     it.skip("should be able to evaluate the guess", function() {
@@ -58,5 +58,5 @@ describe("Turn", function() {
       expect(turn1.giveFeedback).to.equal("incorrect!");
       expect(turn2.giveFeedback).to.equal("correct!");
       expect(turn3.giveFeedback).to.equal("incorrect!");
-    })
-})
+    });
+});
