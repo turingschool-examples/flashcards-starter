@@ -11,8 +11,6 @@ class Round {
     }
     takeTurn(guess, card) {
         let newTurn = new Turn(guess, card);
-            // // newTurn.evaluateGuess();
-            // newTurn.giveFeedback();
             if (newTurn.evaluateGuess()) {
                 this.turns += 1;
                 this.deck.cards.shift();
