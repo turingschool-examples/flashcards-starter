@@ -9,12 +9,24 @@ const Card = require("../src/Card.js");
 describe("Round", function() {
 
   it("should be a function", function() {
-    let round = new Round();
+    let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+    let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
+    let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
+    let card4 = new Card(4, "Best food ever?", ["cheese", "pickles", "cheese and pickles"], "cheese and pickles");
+    let cards = [card1, card2, card3, card4];
+    let deck = new Deck(cards);
+    let round = new Round(deck);
     expect(Round).to.be.a("function");
   });
 
   it("should be an instance of Round", function() {
-    let round = new Round();
+    let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+    let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
+    let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
+    let card4 = new Card(4, "Best food ever?", ["cheese", "pickles", "cheese and pickles"], "cheese and pickles");
+    let cards = [card1, card2, card3, card4];
+    let deck = new Deck(cards);
+    let round = new Round(deck);
     expect(round).to.be.a.instanceof(Round);
   });
 
@@ -40,17 +52,29 @@ describe("Round", function() {
     expect(round.currentCard).to.equal(card1);
   });
 
-  it.skip("should have a turn counter with default value 0", function() {
-    let round = new Round();
+  it("should have a turn counter with default value 0", function() {
+    let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+    let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
+    let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
+    let card4 = new Card(4, "Best food ever?", ["cheese", "pickles", "cheese and pickles"], "cheese and pickles");
+    let cards = [card1, card2, card3, card4];
+    let deck = new Deck(cards);
+    let round = new Round(deck);
     expect(round.turns).to.equal(0);
   });
 
-  it.skip("should store incorrect guesses", function() {
-    let round = new Round();
+  it("should store incorrect guesses", function() {
+    let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+    let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
+    let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
+    let card4 = new Card(4, "Best food ever?", ["cheese", "pickles", "cheese and pickles"], "cheese and pickles");
+    let cards = [card1, card2, card3, card4];
+    let deck = new Deck(cards);
+    let round = new Round(deck);
     expect(round.incorrectGuesses).to.equal([]);
   });
 
-  it.skip("should return the current card", function() {
+  it("should return the current card", function() {
     let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
     let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
     let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
@@ -60,7 +84,22 @@ describe("Round", function() {
     let round = new Round(deck);
     expect(round.currentCard).to.equal(card1);
     expect(round.returnCurrentCard).to.equal(card1);
-  })
+  });
+
+  it("should be able to instantiate a new turn", function() {
+    let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+    let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
+    let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
+    let card4 = new Card(4, "Best food ever?", ["cheese", "pickles", "cheese and pickles"], "cheese and pickles");
+    let cards = [card1, card2, card3, card4];
+    let deck = new Deck(cards);
+    let round = new Round(deck);
+    round.takeTurn()
+    expect(round.currentTurn).to.be.a.instanceof(Turn);
+  });
+
+
+
 
 
 })
@@ -78,3 +117,7 @@ describe("Round", function() {
 // Feedback is returned regarding whether the guess is incorrect or correct
 // calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
 // endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
+
+//Add a property for current turn.
+//taketurn can assign to new instance of Turn.
+//Then helper functions for everything that goes in takeTurn can reference the this.currentTurn.

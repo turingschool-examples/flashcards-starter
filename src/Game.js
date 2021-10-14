@@ -13,6 +13,14 @@ class Game {
   printQuestion(round) {
       util.main(round);
   }
+
+  //start() {
+  //let newCards = prototypeQuestions.map(card => new Card(card["id"], card["question"]))
+  //let newDeck = new Deck(newCards);
+  //let newRound = new Round(newDeck)
+  //this.pringMessage(newDeck, newRound)
+  //this.printQuestion(newRound)
+}
 }
 
 module.exports = Game;
