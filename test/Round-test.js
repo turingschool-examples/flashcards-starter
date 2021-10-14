@@ -79,6 +79,6 @@ describe('Round', function() {
     round.takeTurn('spleen');
     round.takeTurn('Lex');
 
-    expect(round.endRound()).to.equal(`** Round over! ** You answered 33% of the questions correctly!`)
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 33% of the questions correctly!`);
   });
 });
