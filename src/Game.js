@@ -11,21 +11,16 @@ class Game {
   }
 
   start() {
-    // const cards = prototypeQuestions.map( (dataPiece) => {
-    //   return new Card(dataPiece['id'], dataPiece['question'], dataPiece['answers'], dataPiece['correctAnswer'])
-    // });
-
     const cards = prototypeQuestions.map(dataPiece => new Card(dataPiece));
-
-
     const deck = new Deck(cards);
-    this.currentRound = new Round('guess', deck);
+    const round = new Round(deck);
 
-    this.printMessage(deck, this.currentRound);
-    this.printQuestion(this.currentRound);
+    this.currentRound = round;
+    this.printMessage(deck);
+    this.printQuestion(round);
   }
 
-  printMessage(deck, round) {
+  printMessage(deck) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }

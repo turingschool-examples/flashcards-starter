@@ -12,7 +12,7 @@ describe('Round', function() {
     card2 = new Card({id: 14, question: 'What organ is Khalid missing?', answers: ['spleen', 'appendix', 'gallbladder'], correctAnswer: 'gallbladder'});
     card3 = new Card({id: 12, question: 'What is Travis\'s middle name?', answers: ['Lex', 'William', 'Fitzgerald'], correctAnswer: 'Fitzgerald'});
     deck = new Deck([card1, card2, card3]);
-    round = new Round('array', deck);
+    round = new Round(deck);
   })
 
   it('should be a function', function() {
