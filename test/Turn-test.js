@@ -55,8 +55,8 @@ describe('Turn', function() {
     let card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     let turn1 = new Turn('array', card);
     let turn2 = new Turn('object', card);
-    let result1 = turn1.evaluateGuess();
-    let result2 = turn2.evaluateGuess();
+    turn1.evaluateGuess();
+    turn2.evaluateGuess();
     let feedback1 = turn1.giveFeedback();
     let feedback2 = turn2.giveFeedback();
     expect(feedback1).to.equal('incorrect!');

@@ -110,13 +110,13 @@ describe('Round', function() {
   });
 
   it('should be able to calculate and return the percentage of correct guesses', function() {
-    const result = round.takeTurn('pug');
+    round.takeTurn('pug');
     const percentageResult = round.calculatePercentCorrect();
     expect(percentageResult).to.equal(0);
-    const result2 = round.takeTurn('gallbladder');
+    round.takeTurn('gallbladder');
     const percentageResult2 = round.calculatePercentCorrect();
     expect(percentageResult2).to.equal(50);
-    const result3 = round.takeTurn('listening to music');
+    round.takeTurn('listening to music');
     const percentageResult3 = round.calculatePercentCorrect();
     expect(percentageResult3).to.equal(33);
   });
