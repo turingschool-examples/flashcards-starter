@@ -3,7 +3,6 @@ const expect = require('chai').expect;
 const Game = require('../src/Game');
 const Round = require('../src/Round');
 const Card = require('../src/Card');
-const Deck = require('../src/Deck');
 
 describe('Game', function() {
   let game;
