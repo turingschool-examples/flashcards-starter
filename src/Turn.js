@@ -27,7 +27,6 @@ class Turn {
       return 'incorrect'
     }
   }
-
 }
 
 

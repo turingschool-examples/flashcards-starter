@@ -2,7 +2,6 @@ const expect = require('chai').expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
-
 describe('Deck', function() {
   let deck;
   beforeEach(function() {
@@ -25,5 +24,4 @@ describe('Deck', function() {
     console.log(deck)
     expect(deck.countCards()).to.equal(3)
   })
-  
 })

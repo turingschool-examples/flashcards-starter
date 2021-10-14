@@ -40,7 +40,6 @@ class Round {
   }
 
   convertTime(time) {
-    console.log(time)
     let minutes = Math.floor(time / 60000);
     let seconds = ((time % 60000) / 1000).toFixed(0)
     console.log(`Your total time was ${minutes} minutes and ${seconds} seconds`)

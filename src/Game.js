@@ -34,7 +34,6 @@ class Game {
     this.printMessage(this.deck, this.currentRound);
     this.printQuestion(this.currentRound);
   }
-
 }
 
 module.exports = Game;

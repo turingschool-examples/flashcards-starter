@@ -20,12 +20,11 @@ describe('Game', function() {
   })
 
   it('should keep track of the current round', function() {
-    expect(game.currentRound).to.deep.equal({})
+    expect(game.currentRound).to.deep.equal(null)
   })
 
   it('should create a new round with a deck of cards', function() {
     game.start()
     expect(game.deck).to.be.an.instanceOf(Deck)
   })
-  
 })
