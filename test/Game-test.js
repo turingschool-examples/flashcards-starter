@@ -12,13 +12,8 @@ describe('Game', function(){
     expect(Game).to.be.a('function')
   })
 
-  it('should be able to keep track of the current round', function(){
+  it('should be a new instance of the game class', function() {
     const game = new Game()
-  expect(game).to.have.property('currentRound')
-  })
-
-  it('should have a method to start the game', function(){
-    const game = new Game()
-    game.createCards();
+    expect(game).to.be.an.instanceof(Game);
   })
 })
