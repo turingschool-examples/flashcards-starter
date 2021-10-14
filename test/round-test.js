@@ -71,7 +71,7 @@ describe("Round", function() {
     let cards = [card1, card2, card3, card4];
     let deck = new Deck(cards);
     let round = new Round(deck);
-    expect(round.incorrectGuesses).to.equal([]);
+    expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
   it("should return the current card", function() {
@@ -83,7 +83,10 @@ describe("Round", function() {
     let deck = new Deck(cards);
     let round = new Round(deck);
     expect(round.currentCard).to.equal(card1);
-    expect(round.returnCurrentCard).to.equal(card1);
+    // expect(round.returnCurrentCard).to.equal({id: 1, question: "What's up?", answers: ["the sky", "not much", "chicken butt"], correctAnswer: "chicken butt" });
+    // expect(round.returnCurrentCard).to.equal(deck.cards[0])
+    round.returnCurrentCard();
+    expect(round.returnCurrentCard()).to.equal(card1);
   });
 
   it("should be able to instantiate a new turn", function() {
