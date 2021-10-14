@@ -41,7 +41,8 @@ class Round {
     return percentCorrect;
   };
   endRound() {
-    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect}% of the questions correctly!`);
+    let endMessage = console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    return endMessage;
   };
 };
 
