@@ -83,8 +83,6 @@ describe("Round", function() {
     let deck = new Deck(cards);
     let round = new Round(deck);
     expect(round.currentCard).to.equal(card1);
-    // expect(round.returnCurrentCard).to.equal({id: 1, question: "What's up?", answers: ["the sky", "not much", "chicken butt"], correctAnswer: "chicken butt" });
-    // expect(round.returnCurrentCard).to.equal(deck.cards[0])
     round.returnCurrentCard();
     expect(round.returnCurrentCard()).to.equal(card1);
   });
@@ -100,6 +98,30 @@ describe("Round", function() {
     round.takeTurn()
     expect(round.currentTurn).to.be.a.instanceof(Turn);
   });
+
+  it("should be able to update turns", function() {
+    let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+    let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
+    let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
+    let card4 = new Card(4, "Best food ever?", ["cheese", "pickles", "cheese and pickles"], "cheese and pickles");
+    let cards = [card1, card2, card3, card4];
+    let deck = new Deck(cards);
+    let round = new Round(deck);
+    round.updateTurns();
+    expect(round.turns).to.equal(1);
+  });
+
+  it("should be able to evaluate guesses and store incorrect ones", function() {
+    let card1 = new Card(1, "What's up?", ["the sky", "not much", "chicken butt"], "chicken butt");
+    let card2 = new Card(2, "Who's the cutest?", ["Percy", "Rufus", "Desilu"], "Desilu");
+    let card3 = new Card(3, "Worst food ever?", ["olives", "pretzels", "pickles"], "olives");
+    let card4 = new Card(4, "Best food ever?", ["cheese", "pickles", "cheese and pickles"], "cheese and pickles");
+    let cards = [card1, card2, card3, card4];
+    let deck = new Deck(cards);
+    let round = new Round(deck);
+    round.takeTurn("oops");
+    expect(round.incorrectGuesses.length).to.equal(1);
+  })
 
 
 

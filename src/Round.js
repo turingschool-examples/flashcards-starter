@@ -22,6 +22,7 @@ class Round {
   };
   updateTurns() {
     this.turns++;
+    return this.turns;
   };
   recordGuess() {
     if (!this.currentTurn.evaluateGuess()) {
