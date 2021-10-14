@@ -23,20 +23,18 @@ class Game {
   }
 
   start() {
-    Round.startTime = this.startTimer()
     this.cards = prototypeQuestions.map((cardDetails) => {
       let newCard = new Card(cardDetails.id, cardDetails.question, cardDetails.answers, cardDetails.correctAnswer);
       return newCard;
     })
     this.deck = new Deck(this.cards);
     this.currentRound = new Round(this.deck);
+    this.currentRound.startTime = Date.now()
+    console.log(Round.startTime)
     this.printMessage(this.deck, this.currentRound);
     this.printQuestion(this.currentRound);
   }
 
-  startTimer() {
-    return this.startTime = Date.now()
-  }
 }
 
 module.exports = Game;

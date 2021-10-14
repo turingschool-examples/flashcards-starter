@@ -4,7 +4,7 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.turns = 0;
-    this.currentCard = this.deck.cards[0];
+    this.currentCard = deck.cards[0];
     this.correct = 0;
     this.incorrect = []
     this.startTime = 0;
@@ -33,15 +33,16 @@ class Round {
   }
 
   endRound() {
-    return (`** Round Over! **  You answered ${this.calculatePercentCorrect()}% correctly!`)
+    console.log(`** Round Over! **  You answered ${this.calculatePercentCorrect()}% correctly!`)
     this.endTime = Date.now()
-    let totalTime = (this.endTime - this.startTime)
+    let totalTime = this.endTime - this.startTime
     this.convertTime(totalTime)
   }
 
   convertTime(time) {
-    var minutes = Math.floor(time / 60000);
-    var seconds = (time % 60000 / 1000)
+    console.log(time)
+    let minutes = Math.floor(time / 60000);
+    let seconds = ((time % 60000) / 1000).toFixed(0)
     console.log(`Your total time was ${minutes} minutes and ${seconds} seconds`)
 
   }
