@@ -21,14 +21,15 @@ class Game {
   }
 
   start() {
-    let cards = prototypeQuestions.map(function() {
+    let cards = prototypeQuestions.map((element) => {
       const card = new Card(element["id"], element["question"], element["answers"], element["correctAnswer"]);
+      return card;
     });
     let deck = new Deck(cards);
     let round = new Round(deck);
     this.currentRound = round;
-    this.printMessage();
-    this.printQuestion();
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   }
 }
 
