@@ -16,7 +16,7 @@ class Round {
     this.turns ++;
     this.returnCurrentCard();
     const message = turn.giveFeedback();
-    if(message === 'incorrect!') {
+    if (message === 'incorrect!') {
       this.incorrectGuesses.push(turn.currentCard.id);
     }
     return message;
