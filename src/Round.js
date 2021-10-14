@@ -13,7 +13,7 @@ class Round {
 
   takeTurn(userGuess) {
     const turn = new Turn(userGuess, this.returnCurrentCard());
-    this.turns += 1;
+    this.turns ++;
     this.returnCurrentCard();
     const message = turn.giveFeedback();
     if(message === 'incorrect!') {

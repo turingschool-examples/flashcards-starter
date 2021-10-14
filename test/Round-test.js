@@ -1,6 +1,5 @@
 const expect = require('chai').expect;
 const data = require('../src/data');
-
 const prototypeQuestions = data.prototypeData;
 
 const Card = require('../src/Card');
@@ -42,8 +41,7 @@ describe('Round', function() {
     expect(round.takeTurn).to.be.a('function');
 
     // how to check that new turn instance is instanceof Turn? change const to this.turn = ?
-    round.takeTurn('array');
-
+    expect(round.takeTurn('array')).to.equal('incorrect!');
     expect(round.turns).to.equal(1);
     expect(round.returnCurrentCard()).to.deep.equal(deck.cards[1]);
     expect(round.incorrectGuesses).to.deep.equal([1]);
@@ -57,7 +55,6 @@ describe('Round', function() {
 
   it(' should be able to calculate percentage of correct guesses', function() {
     expect(round.calculatePercentCorrect).to.be.a('function');
-
     expect(round.calculatePercentCorrect()).to.equal(50);
   });
 

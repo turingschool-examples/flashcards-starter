@@ -22,15 +22,15 @@ class Game {
 
   start() {
     const cards = [];
-    prototypeQuestions.forEach((question, index) => {
-      let card = new Card(prototypeQuestions[index]);
-      cards.push(card);
-    })
-  
+    const createCards = () => {
+      prototypeQuestions.forEach((question) => {
+        let card = new Card(question);
+        cards.push(card);
+      })
+    }
+    createCards();
     const deck = new Deck(cards);
-    
-    this.round = new Round(deck); 
-
+    this.round = new Round(deck);
     this.printMessage(deck, this.round);
     this.printQuestion(this.round);
   }

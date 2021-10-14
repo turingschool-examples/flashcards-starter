@@ -13,12 +13,7 @@ class Turn {
   }
 
   evaluateGuess() {
-    const guessLowered = this.userGuess.toLowerCase();
-    // Sad Paths to attend to in future:
-      // check if guess is empty?
-        // not sure yet if it will be empty string or undefined. Once sorted, add conditional here.
-      // check if guess is none of the possible answers.
-    if (guessLowered === this.currentCard.correctAnswer) {
+    if (this.userGuess === this.currentCard.correctAnswer) {
       return true;
     } else {
       return false;
