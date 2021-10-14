@@ -34,7 +34,9 @@ class Round {
   }
 
   endRound() {
-    return console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`)
+    const message = `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`;
+    console.log(message)
+    return message;
   }
 };
 
