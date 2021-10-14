@@ -30,7 +30,7 @@ class Round {
     };
   };
   returnFeedback() {
-    this.currentTurn.giveFeedback();
+    return this.currentTurn.giveFeedback();
   };
   updateCard() {
     this.currentCard = this.deck.cards[this.turns];
