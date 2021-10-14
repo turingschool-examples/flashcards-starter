@@ -24,7 +24,7 @@ describe('Round', function() {
   });
 
   it('should store a deck', function() {
-    expect(round.deck).to.equal(deck);
+    expect(round.deck).to.equal(deck.cards);
   });
 
   it('should default currentCard to first card in deck', function() {

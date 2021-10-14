@@ -26,8 +26,7 @@ describe('Game', function() {
   });
 
   it('should create cards and add to new deck', function() {
-    expect(game.currentRound.deck).to.be.an.instanceof(Deck);
-    expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
+    expect(game.currentRound.deck[0]).to.be.an.instanceof(Card);
   });
 
 });
