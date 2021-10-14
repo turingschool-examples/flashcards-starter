@@ -21,11 +21,9 @@ class Game {
 
   start() {
     const cards = prototypeQuestions.map( (dataPiece) => {
-      return new Card(dataPiece['id'], dataPiece['queston'], dataPiece['answers'], dataPiece['correctAnswer'])
+      return new Card(dataPiece['id'], dataPiece['question'], dataPiece['answers'], dataPiece['correctAnswer'])
     });
-
     const deck = new Deck(cards);
-
     this.currentRound = new Round('guess', deck);
 
     this.printMessage(deck, this.currentRound);
