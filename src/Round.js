@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const Turn = require('../src/Turn');
 
 class Round {
@@ -10,19 +11,16 @@ class Round {
     this.currentCard = this.deck.cards[0];
     return this.currentCard;
   }
-  takeTurn(guess, card) {
+  takeTurn(guess) {
     let newTurn = new Turn(guess, this.currentCard);
+    this.turns += 1;
+    this.deck.cards.shift();
+    newTurn.giveFeedback();
     if (newTurn.evaluateGuess()) {
-      this.turns += 1;
-      this.deck.cards.shift();
-      newTurn.giveFeedback();
-      return "true";
+      return "correct!";
     } else {
       this.incorrectGuesses.push(this.deck.cards.id);
-      this.turns += 1;
-      this.deck.cards.shift();
-      newTurn.giveFeedback();
-      return "false";
+      return "incorrect!";
     }
     
   }

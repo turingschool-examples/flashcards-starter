@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
