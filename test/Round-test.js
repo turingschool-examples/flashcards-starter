@@ -3,7 +3,6 @@ const expect = require('chai').expect;
 const Round = require('../src/Round');
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
-const Turn = require('../src/Turn');
 
 describe('Round', function() {
   it('should be a function', function() {
@@ -69,6 +68,7 @@ describe('Round', function() {
 
     const round = new Round(deck);
     const turn = round.takeTurn('object');
+    round.returnCurrentCard();
 
     expect(turn).to.equal('correct!');
   });
@@ -82,6 +82,7 @@ describe('Round', function() {
 
     const round = new Round(deck);
     const turn = round.takeTurn('array');
+    round.returnCurrentCard();
 
     expect(turn).to.equal('incorrect!');
   });
@@ -95,6 +96,7 @@ describe('Round', function() {
 
     const round = new Round(deck);
     round.takeTurn('object');
+    round.returnCurrentCard();
 
     expect(round.turns).to.equal(1);
   });
@@ -108,7 +110,9 @@ describe('Round', function() {
 
     const round = new Round(deck);
     round.takeTurn('array');
+    round.returnCurrentCard();
     round.takeTurn('object');
+    round.returnCurrentCard();
 
     expect(round.incorrectGuesses.length).to.equal(2)
     expect(round.incorrectGuesses).to.deep.equal([1, 2])
@@ -126,5 +130,40 @@ describe('Round', function() {
     const cardInPlay = round.returnCurrentCard();
 
     expect(cardInPlay).to.deep.equal(card2);
+  });
+
+  it('should calculate the percentage of correct guesses', function() {
+    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
+    const card3 = new Card(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
+
+    const deck = new Deck([card1, card2, card3]);
+    
+    const round = new Round(deck);
+    round.takeTurn('object');
+    round.returnCurrentCard();
+    round.takeTurn('object');
+    round.returnCurrentCard();
+    const percentOfCorrectGuess = round.calculatePercentCorrect();
+
+    expect(percentOfCorrectGuess).to.equal(50);
+  });
+
+  it('should end the round and log the percentage of correct guesses', function() {
+    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
+    const card3 = new Card(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
+
+    const deck = new Deck([card1, card2, card3]);
+    
+    const round = new Round(deck);
+    round.takeTurn('object');
+    round.returnCurrentCard();
+    round.takeTurn('object');
+    round.returnCurrentCard();
+    round.takeTurn('object');
+    round.calculatePercentCorrect();
+    
+    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
   });
 });
