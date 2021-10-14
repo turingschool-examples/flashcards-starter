@@ -1,10 +1,5 @@
 /* eslint-disable no-console */
 
-const Card = require('../src/Card');
-const Game = require('../src/Game');
-const Deck = require('../src/Deck');
-const Round = require('../src/Round');
-
 class Turn {
   constructor (guess, card) {
     this.guess = guess;
@@ -17,14 +12,14 @@ class Turn {
     return this.card;
   }
   evaluateGuess() {
-    if (this.guess === this.card.correctAnswer) {
+    if (this.guess === this.card) {
       return true;
     } else { 
       return false;
     }
   }
   giveFeedback() {
-    if (this.guess === this.card.correctAnswer) {
+    if (this.guess === this.card) {
       var correct = 'correct!';
       return correct;
             
