@@ -51,7 +51,7 @@ describe("Round", () => {
 
   it("should update the current card to the next card", () => {
     expect(round.incorrectGuesses.length).to.equal(0);
-    round.takeTurn("plogl");
+    round.takeTurn("reeses");
     expect(round.incorrectGuesses.length).to.equal(1);
     expect(round.incorrectGuesses[0]).to.equal(1);
   });
@@ -64,7 +64,8 @@ describe("Round", () => {
   it("should calculate the percent correct", () => {
     round.takeTurn("pie");
     round.takeTurn("John");
-    expect(round.calculatePercentCorrect()).to.equal(50);
+    round.takeTurn("koala");
+    expect(round.calculatePercentCorrect()).to.equal(33);
   });
 
   it("should be able to end round", () => {

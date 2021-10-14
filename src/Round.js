@@ -23,7 +23,7 @@ class Round {
 
   calculatePercentCorrect() {
     if (this.incorrectGuesses.length) {
-      return Math.floor(100 - 
+      return Math.round(100 - 
       (this.incorrectGuesses.length / this.turns) * 100);
     } else {
       return (100);

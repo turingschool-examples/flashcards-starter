@@ -13,7 +13,7 @@ describe("Deck", () => {
     expect(Deck).to.be.a("function");
   });
 
-  it("should contain cards", () => {
+  it("should contain an array of cards", () => {
     expect(deck.cards).to.be.a("array");
   });
 
