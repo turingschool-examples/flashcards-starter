@@ -11,19 +11,17 @@ class Round {
     return this.currentCard;
   }
   takeTurn(guess, card) {
-    let newTurn = new Turn(guess, card);
+    let newTurn = new Turn(guess, this.currentCard);
     if (newTurn.evaluateGuess()) {
       this.turns += 1;
       this.deck.cards.shift();
       newTurn.giveFeedback();
-      this.endRound();
       return "true";
     } else {
       this.incorrectGuesses.push(this.deck.cards.id);
       this.turns += 1;
       this.deck.cards.shift();
       newTurn.giveFeedback();
-      this.endRound();
       return "false";
     }
     
@@ -32,13 +30,13 @@ class Round {
     if (this.incorrectGuesses.length === 0) {
       return 100;
     } else {
-      let incorrect = this.incorrectGuesses.length / this.turns
+      var incorrect = this.incorrectGuesses.length / this.turns
       return (100 - incorrect * 100)                
     }
   }
   endRound() {
     if (this.deck.cards.length === 0) {
-      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
     }
   }
 }
