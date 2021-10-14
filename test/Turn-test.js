@@ -4,8 +4,12 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', function() {
-  var card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-  var turn = new Turn('array', card);
+  let turn, card;
+
+  beforeEach(function() {
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('array', card);
+  })
 
   it('should be a function', function() {
     expect(Turn).to.be.a('function');
