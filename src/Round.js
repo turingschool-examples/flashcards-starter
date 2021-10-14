@@ -28,7 +28,6 @@ class Round {
     } else {
       return (100);
     }
-    
   }
 
   endRound() {
