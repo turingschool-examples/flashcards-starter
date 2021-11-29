@@ -6,12 +6,16 @@ const Card = require('../src/Card');
 describe('Turns', function() {
    
     it('should be a function', function() {
-        const card = new Card();
-        expect(card).to.be.a('function');
+        const turn = new Turn();
+        expect(turn).to.be.a('function');
     });
 
     it('should be an instance of a function', function() {
-        const card = new Card();
-        expect(card).to.be.an.instanceOf(Card);
+        const turn = new Turn();
+        expect(turn).to.be.an.instanceOf(Turn);
     });
+
+    it('should accept two arguments', function() {
+        const.
+    })
 });
