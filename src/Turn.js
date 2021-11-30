@@ -18,6 +18,15 @@ class Turn {
                 return true;
             default:
                 return false;
+        };
+    };
+
+    giveFeedback() {
+        switch (this.guess) {
+            case this.currentCard.correctAnswer:
+                return "Correct!!!";
+            default:
+                return "Incorrect!";
         }
     }
 }
