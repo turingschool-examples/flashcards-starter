@@ -31,4 +31,8 @@ describe('Turn', function() {
     expect(turn.card).to.equal(card)
   })
 
+  it('should be able to return a guess', function() {
+    expect(turn.returnGuess()).to.equal("array");
+  })
+
 })
