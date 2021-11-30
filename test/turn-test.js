@@ -45,5 +45,16 @@ describe('Turn', () => {
         expect(incorrectGuess).to.equal(false);
     })
 
+    it('should be able to give positive feedback', () => {
+        const positiveFeedback = turn.giveFeedback();
+        expect(positiveFeedback).to.equal('correct');
+    })
+
+    it('should be able to give negative feedback', () => {
+        const negativeFeedback = wrongTurn.giveFeedback();
+        expect(negativeFeedback).to.equal('incorrect');
+    })
+
+
 
 })
