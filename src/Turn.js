@@ -7,7 +7,7 @@ class Turn{
   returnGuess(){
     return this.userGuess;
   }
-  returnCard(){
+  returnCard(card){
     return this.card;
   }
   evaluateGuess(){
