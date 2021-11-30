@@ -5,17 +5,17 @@ const Card = require('../src/Card');
 
 describe("Turn", function() {
    
-    it("should be a function", function() {
+    it.skip("should be a function", function() {
         const turn = new Turn();
         expect(turn).to.be.a('function');
     });
 
-    it("should be an instance of a function", function() {
+    it.skip("should be an instance of a function", function() {
         const turn = new Turn();
         expect(turn).to.be.an.instanceOf(Turn);
     });
 
-    it("should store a guess", function() {
+    it.skip("should store a guess", function() {
         const card = new Card("id": 2,
         "question": "What is a comma-separated list of related values?",
         "answers": ["array", "object", "function"],
@@ -24,7 +24,7 @@ describe("Turn", function() {
         expect(turn.returnGuess()).to.equal("array");
     });
 
-    it("should be able to accept different cards", function() {
+    it.skip("should be able to accept different cards", function() {
         const card1 = new Card("id": 2,
         "question": "What is a comma-separated list of related values?",
         "answers": ["array", "object", "function"],
@@ -39,7 +39,7 @@ describe("Turn", function() {
         expect(turn2.returnGuess()).to.equal("object");
     });
 
-    it("should have a method that logs a guess", function() {
+    it.skip("should have a method that logs a guess", function() {
         const card = new Card("id": 1,
         "question": "What allows you to define a set of related information using key-value pairs?",
         "answers": ["object", "array", "function"],
@@ -48,7 +48,7 @@ describe("Turn", function() {
         expect(turn2.returnGuess()).to.equal("object");
     });
 
-    it("should have a method that displays the current card", function() {
+    it.skip("should have a method that displays the current card", function() {
         const card = new Card("id": 1,
         "question": "What allows you to define a set of related information using key-value pairs?",
         "answers": ["object", "array", "function"],
@@ -60,7 +60,7 @@ describe("Turn", function() {
         "correctAnswer": "object");
     });
 
-    it("should have a method to evaluate if the guess is true or false", function() {
+    it.skip("should have a method to evaluate if the guess is true or false", function() {
         const card = new Card("id": 1,
         "question": "What allows you to define a set of related information using key-value pairs?",
         "answers": ["object", "array", "function"],
@@ -71,7 +71,7 @@ describe("Turn", function() {
         expect(turn2.evaluateGuess()).to.equal(true);
     });
 
-    it("should give feedback if answer is correct", function() {
+    it.skip("should give feedback if answer is correct", function() {
         const card = new Card("id": 1,
         "question": "What allows you to define a set of related information using key-value pairs?",
         "answers": ["object", "array", "function"],
@@ -80,7 +80,7 @@ describe("Turn", function() {
         expect(turn.giveFeedback()).to.equal("Correct!!!");
     });
 
-    it("should give feedback if answer is incorrect", function() {
+    it.skip("should give feedback if answer is incorrect", function() {
         const card = new Card("id": 1,
         "question": "What allows you to define a set of related information using key-value pairs?",
         "answers": ["object", "array", "function"],
