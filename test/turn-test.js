@@ -22,4 +22,8 @@ describe( 'Turn', () => {
        expect(turn.guess).to.equal('green');
    })
 
+   it('should have a card', () => {
+       expect(turn.card).to.be.an.instanceOf(Card);
+   })
+
 })
