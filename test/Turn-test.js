@@ -48,9 +48,29 @@ describe('Turn', function() {
     })
 
     it('should tell us if the user guess matches the answer on the card', function() {
-        const card4 = new Card();
+        const card4 = new Card(4, 'whats love got to do with it?', ['second', 'hand', 'emotion'], 'firehose');
+        const turn = new Turn('firehose', card4)
+
+        turn.evaluateGuess();
+
+        expect(turn.evaluateGuess()).to.equal(true);
     })
 
-    it('should throw a message if the guess was correct')
-    it('should throw a message if guess was incorrect')
+    it('should throw a message if the guess was correct', function() {
+        const card5 = new Card(6, 'do you believe in life after love?', ['monkeys', 'llamas'], 'hollywood');
+        const turn = new Turn('hollywood', card5)
+
+        turn.giveFeedback();
+
+        expect(turn.giveFeedback()).to.equal('Correct!');
+    })
+
+    it('should throw a message if guess was incorrect', function() {
+        const card5 = new Card(6, 'do you believe in life after love?', ['monkeys', 'llamas'], 'hollywood');
+        const turn = new Turn('marmalade', card5)
+
+        turn.giveFeedback();
+
+        expect(turn.giveFeedback()).to.equal('Incorrect!');
+    })
 });
