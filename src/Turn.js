@@ -1,6 +1,15 @@
 class Turn {
-    constructor(guess) {
-        this.guess = guess
+    constructor(guess, playedCard) {
+        this.guess = guess;
+        this.playedCard = playedCard;
+    }
+    
+    returnGuess() {
+        return this.guess;
+    }
+
+    returnCard() {
+        return this.playedCard;
     }
 }
 
