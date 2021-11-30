@@ -23,7 +23,7 @@ class Turn {
         if(userAnswer) {
             return 'Correct!'
         } else {
-            return false;
+            return 'Incorrect!';
         }
     }
 }
