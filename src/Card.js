@@ -6,7 +6,7 @@ class Card {
     this.correctAnswer = correctAnswer;
 
   }
-
+ß
 }
 
 module.exports = Card;
