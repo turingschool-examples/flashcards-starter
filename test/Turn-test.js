@@ -47,7 +47,10 @@ describe('Turn', function() {
         expect(turn.returnCard()).to.equal(card3);
     })
 
-    it('should tell us if the user guess matches the answer on the card')
+    it('should tell us if the user guess matches the answer on the card', function() {
+        const card4 = new Card();
+    })
+
     it('should throw a message if the guess was correct')
     it('should throw a message if guess was incorrect')
 });
