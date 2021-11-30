@@ -9,17 +9,31 @@ describe('Turn', function() {
     it('should be a function', function() {
         const turn = new Turn();
         expect(Turn).to.be.a('function');
-    })
+    });
 
     it('should be an instance of Turn', function() {
         const turn = new Turn();
         expect(turn).to.be.an.instanceOf(Turn);
-    })
+    });
+
+    it('user guess should be a string', function() {
+        const turn = new Turn('octopus');
+
+        expect(turn.guess).to.be.a('string');
+
+    });
 
     it('should store the user/s guess', function() {
         const turn = new Turn('octopus');
 
         expect(turn.guess).to.equal('octopus');
+    });
+
+    it('should have the instantiated card passed in be an object', function() {
+        const card1 = new Card();
+        const turn = new Turn('child', card1);
+
+        expect(turn.playedCard).to.be.an('object');
     })
 
     it('should store the card that is currently being played', function () {
