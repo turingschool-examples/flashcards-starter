@@ -26,4 +26,16 @@ describe( 'Turn', () => {
        expect(turn.card).to.be.an.instanceOf(Card);
    })
 
+   it('should return a guess', () => {
+       const guess = turn.returnGuess();
+       expect(guess).to.equal('green');
+   })
+
+   it('should return a card', () => {
+       const card = turn.returnCard();
+       expect(card).to.equal(nextCard);
+   })
+
+
+
 })
