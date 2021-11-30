@@ -8,7 +8,7 @@ describe("Turn", function() {
    
     it("should be a function", function() {
         const turn = new Turn();
-        expect(turn).to.be.a('function');
+        expect(Turn).to.be.a('function');
     });
 
     it.skip("should be an instance of a function", function() {
