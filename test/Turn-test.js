@@ -23,6 +23,12 @@ describe('Turn', function() {
     expect(turn).to.be.an.instanceof(Turn);
   })
 
-  it('should ')
+  it('should have a guess', function() {
+    expect(turn.guess).to.equal("array");
+  })
+
+  it('should have a card', function() {
+    expect(turn.card).to.equal(card)
+  })
 
 })
