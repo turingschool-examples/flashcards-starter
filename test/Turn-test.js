@@ -46,4 +46,9 @@ describe('Turn', function() {
     expect(turn2.evaluateGuess()).to.equal(true);
   })
 
+  it('should be able to give feedback', function() {
+    expect(turn.giveFeedback()).to.equal('Incorrect!')
+    expect(turn2.giveFeedback()).to.equal('Correct!')
+  })
+
 })
