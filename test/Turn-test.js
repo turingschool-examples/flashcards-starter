@@ -6,6 +6,7 @@ const Card = require('../src/Card');
 
 describe('Turn', function() {
   let turn;
+  let turn2;
   let card;
 
   beforeEach(function() {
@@ -13,6 +14,7 @@ describe('Turn', function() {
     ["object", "array", "function"], "object")
 
     turn = new Turn("array", card)
+    turn2 = new Turn("object", card)
   })
 
   it('should be a function', function() {
@@ -33,6 +35,15 @@ describe('Turn', function() {
 
   it('should be able to return a guess', function() {
     expect(turn.returnGuess()).to.equal("array");
+  })
+
+  it('should be able to return a card', function() {
+    expect(turn.returnCard()).to.equal(card);
+  })
+
+  it('should be able to evaluate guess', function() {
+    expect(turn.evaluateGuess()).to.equal(false);
+    expect(turn2.evaluateGuess()).to.equal(true);
   })
 
 })
