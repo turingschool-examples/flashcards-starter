@@ -121,7 +121,6 @@ describe("Round", function () {
             "correctAnswer": "mutator method"
         });
         expect(round.calculatePercentCorrect()).to.equal(50);
-        expect(round.endRound()).to.be.a("function");
-        expect(round.endRound()).to.equal("** Round over! ** You answered 50 % of the questions correctly!");
+        expect(round.endRound()).to.deep.equal("** Round over! ** You answered 50% of the questions correctly!");
     })
 });
