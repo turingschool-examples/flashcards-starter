@@ -33,7 +33,7 @@ describe("Round", function () {
         const card3 = new Card(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
-        expect(round.returnCurrentCard()).to.equal({
+        expect(round.returnCurrentCard()).to.deep.equal({
             "id": 1,
             "question": "What allows you to define a set of related information using key-value pairs?",
             "answers": ["object", "array", "function"],
@@ -51,21 +51,20 @@ describe("Round", function () {
         expect(round.incorrectGuesses).to.deep.equal([]);
     });
 
-    it.skip("should be able to add to the turns count after a turn is taken", function () {
+    it("should be able to add to the turns count after a turn is taken", function () {
         const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
         const card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
         const card3 = new Card(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
-        expect(round.takeTurn()).to.be.a('function');
 
-        round.takeTurn("object");
-        round.takeTurn("array");
+        round.takeTurn();
+        round.takeTurn();
 
         expect(round.turns).to.equal(2);
     });
 
-    it.skip("should move to the next card in the deck once a turn is taken", function () {
+    it("should move to the next card in the deck once a turn is taken", function () {
         const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
         const card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
         const card3 = new Card(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
@@ -74,7 +73,7 @@ describe("Round", function () {
 
         round.takeTurn("object");
 
-        expect(round.returnCurrentCard()).to.equal({
+        expect(round.returnCurrentCard()).to.deep.equal({
             "id": 2,
             "question": "What is a comma-separated list of related values?",
             "answers": ["array", "object", "function"],
@@ -82,7 +81,7 @@ describe("Round", function () {
         });
     });
 
-    it.skip("should have a method to calculate the percentage of correct guesses", function () {
+    it("should have a method to calculate the percentage of correct guesses", function () {
         const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
         const card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
         const card3 = new Card(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
