@@ -19,16 +19,28 @@ class Turn {
             default:
                 return false;
         };
+        // if (this.guess === this.currentCard.correctAnswer) {
+        //     return true;
+        // }
+        // return false;
+        // return this.guess === this.currentCard.correctAnswer ? true : false
+        // const isCorrect = this.guess === this.currentCard.correctAnswer
+        // return isCorrect
     };
 
     giveFeedback() {
-        switch (this.guess) {
-            case this.currentCard.correctAnswer:
+        switch (this.evaluateGuess()) {
+            case true:
                 return "Correct!!!";
             default:
                 return "Incorrect!";
         };
     };
+
+    handleGuess() {
+        this.evaluateGuess();
+        this.giveFeedback();
+    }
 };
 
 
