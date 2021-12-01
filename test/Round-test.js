@@ -90,13 +90,90 @@ describe("Round", function () {
     });
 
     it("should be able to add to the turns count after a turn is taken", function () {
-        const round = new Round();
+        const deck = new Deck({
+            "id": 1,
+            "question": "What allows you to define a set of related information using key-value pairs?",
+            "answers": ["object", "array", "function"],
+            "correctAnswer": "object"
+        }, {
+            "id": 2,
+            "question": "What is a comma-separated list of related values?",
+            "answers": ["array", "object", "function"],
+            "correctAnswer": "array"
+        }, {
+            "id": 3,
+            "question": "What type of prototype method directly modifies the existing array?",
+            "answers": ["mutator method", "accessor method", "iteration method"],
+            "correctAnswer": "mutator method"
+        });
+        const round = new Round(deck);
         expect(round.takeTurn()).to.be.a('function');
 
-        round.takeTurn();
-        round.takeTurn();
+        round.takeTurn("object");
+        round.takeTurn("array");
 
         expect(round.turns).to.equal(2);
     });
 
+    it("should move to the next card in the deck once a turn is taken", function () {
+        const deck = new Deck({
+            "id": 1,
+            "question": "What allows you to define a set of related information using key-value pairs?",
+            "answers": ["object", "array", "function"],
+            "correctAnswer": "object"
+        }, {
+            "id": 2,
+            "question": "What is a comma-separated list of related values?",
+            "answers": ["array", "object", "function"],
+            "correctAnswer": "array"
+        }, {
+            "id": 3,
+            "question": "What type of prototype method directly modifies the existing array?",
+            "answers": ["mutator method", "accessor method", "iteration method"],
+            "correctAnswer": "mutator method"
+        });
+        const round = new Round(deck);
+
+        round.takeTurn("object");
+
+        expect(round.returnCurrentCard()).to.equal({
+            "id": 2,
+            "question": "What is a comma-separated list of related values?",
+            "answers": ["array", "object", "function"],
+            "correctAnswer": "array"
+        });
+    });
+
+    it("should have a method to calculate the percentage of correct guesses", function () {
+        const deck = new Deck({
+            "id": 1,
+            "question": "What allows you to define a set of related information using key-value pairs?",
+            "answers": ["object", "array", "function"],
+            "correctAnswer": "object"
+        }, {
+            "id": 2,
+            "question": "What is a comma-separated list of related values?",
+            "answers": ["array", "object", "function"],
+            "correctAnswer": "array"
+        }, {
+            "id": 3,
+            "question": "What type of prototype method directly modifies the existing array?",
+            "answers": ["mutator method", "accessor method", "iteration method"],
+            "correctAnswer": "mutator method"
+        });
+        const round = new Round(deck);
+
+        round.takeTurn("function");
+        round.takeTurn("array");
+
+        expect(round.turns).to.equal(2);
+        expect(round.incorrectGuesses).to.equal([1]);
+        expect(round.returnCurrentCard()).to.equal({
+            "id": 3,
+            "question": "What type of prototype method directly modifies the existing array?",
+            "answers": ["mutator method", "accessor method", "iteration method"],
+            "correctAnswer": "mutator method"
+        });
+        expect(round.calculatePercentCorrect()).to.equal(50);
+    });
 });
