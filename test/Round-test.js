@@ -4,7 +4,6 @@ const expect = chai.expect;
 const Round = require('../src/Round.js');
 const Card = require("../src/Card.js");
 const Deck = require("../src/Deck.js");
-const Turn = require("../src/Turn.js");
 
 describe('Round', () => {
     let card1, card2, card3, deck, round, game;
@@ -79,18 +78,7 @@ describe('Round', () => {
         expect(goodFeedback).to.equal('correct');
     })
 
-    // it('should be able to calculate percentage of the correct answers', () => {
-    //     const answer1 = round.takeTurn('Javascript');
-    //     const answer2 = round.takeTurn('Kiba');
-    //     const answer3 = round.takeTurn('Breaking Bad');
-    //     const correctPercentage = round.calculatePercentCorrect();
-
-    //     expect(correctPercentage).to.equal(67);
-
-    // })
-
-
-    it('should be able to calculate percentage of correct answers', () => {
+    it('should be able to calculate percentage of correct answers test', () => {
         const answer1 = round.takeTurn('JavaScript');
         const answer2 = round.takeTurn('Kiba');
         const answer3 = round.takeTurn('Breaking Bad');
@@ -99,21 +87,13 @@ describe('Round', () => {
         expect(correctPercentage).to.equal(67);
     })
 
-    //   it('should return 100 percent if all answers are correct', () => {
-        //   const newAnswer1 = round.takeTurn('Javascript');
-        //   const newAnswer2 = round.takeTurn('Dingo');
-        //   const newAnswer3 = round.takeTurn('Breaking Bad');
-        //   const correctPercentage = round.calculatePercentCorrect();
-
-    //       expect(correctPercentage).to.equal(100);
-    //   })
     it('should return 100 percent if all answers are correct', () => {
         const answer1 = round.takeTurn('JavaScript');
         const answer2 = round.takeTurn('Dingo');
         const answer3 = round.takeTurn('Breaking Bad');
         const correctPercentage = round.calculatePercentCorrect();
 
-        expect(round.calculatePercentCorrect()).to.equal(100);
+        expect(correctPercentage).to.equal(100);
     })
 
     it('should be able to end round', () => {
