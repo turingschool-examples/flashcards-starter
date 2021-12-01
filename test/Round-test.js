@@ -41,14 +41,14 @@ describe("Round", function () {
         });
     });
 
-    it.skip("should start out with no turns", function () {
+    it("should start out with no turns", function () {
         const round = new Round();
         expect(round.turns).to.equal(0);
     });
 
-    it.skip("should start out with no incorrect guesses", function () {
+    it("should start out with no incorrect guesses", function () {
         const round = new Round();
-        expect(round.incorrectGuesses).to.equal([]);
+        expect(round.incorrectGuesses).to.deep.equal([]);
     });
 
     it.skip("should be able to add to the turns count after a turn is taken", function () {
