@@ -1,3 +1,6 @@
+const Deck = require("./Deck");
+const Turn = require("./Turn");
+
 class Round {
     constructor(deck = {}) {
         this.deck = deck.cards;
@@ -6,13 +9,27 @@ class Round {
     };
 
     returnCurrentCard() {
-        return this.deck.shift();
+        return this.deck[0];
     };
 
-    takeTurn() {
+    takeTurn(guess) {
         this.turns++;
-        this.returnCurrentCard()
+        const turn = new Turn(guess, this.returnCurrentCard());
+        turn.handleGuess();
+        if (turn.evaluateGuess() === false) {
+            this.incorrectGuesses.push(this.returnCurrentCard().id);
+        };
+        this.deck.shift();
     };
-}
+
+    calculatePercentCorrect() {
+        return (this.turns - this.incorrectGuesses.length)/this.turns * 100;
+    };
+
+    endRound() {
+        return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+    };
+};
+
 
 module.exports = Round;
