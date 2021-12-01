@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const Card = require('../src/Card');
-const Turn = require('../src/Turns');
+const Turn = require('../src/Turn');
 
 describe('Turn', function() {
   it('should instatiate a turn', function() {
