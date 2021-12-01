@@ -27,9 +27,9 @@ class Turn {
                 return "Correct!!!";
             default:
                 return "Incorrect!";
-        }
-    }
-}
+        };
+    };
+};
 
 
 
