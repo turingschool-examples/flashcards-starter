@@ -43,22 +43,42 @@ describe('Round', function() {
 
     expect(round.turnCount).to.equal(3)
   })
-  it('should update current card with each turn', function() {
+  it('should update current card to next card with each turn', function() {
     round.takeTurn()
-    round.takeTurn()
-    round.takeTurn()
+    expect(round.currentCard).to.equal(card1)
 
-    expect(round.currentCard).to.equal(deck.cards[1])
+    round.takeTurn()
+    round.takeTurn()
+    expect(round.currentCard).to.equal(card3)
   })
+  it('should store incorrect guesses with an id', () => {
+    let turn = new Turn('sea otter', card1);
+    round.takeTurn('sea otter')
+    expect(round.incorrectGuesses.length).to.equal(0)
 
+    let turn1 = new Turn('spleen', card2);
+    round.takeTurn('spleen')
+    expect(round.incorrectGuesses.length).to.equal(1)
+  })
+  it('should give feedback', () => {
+    let turn = new Turn('sea otter', card1);
+    round.takeTurn('sea otter')
+    expect(round.turn.giveFeedback()).to.equal('correct!')
 
+    let turn1 = new Turn('spleen', card2);
+    round.takeTurn('spleen')
+    expect(round.turn.giveFeedback()).to.equal('incorrect!')
+  })
+  it('should calculate percentage of correct guesses', () => {
+    let turn = new Turn('sea otter', card1);
+    round.takeTurn('sea otter')
 
-
+    let turn1 = new Turn('spleen', card2);
+    round.takeTurn('spleen')
+    expect(round.calculatePercentageCorrect()).to.equal(50)
+  })
+  it('it should announce the end of round', () => {
+    round.endRound()
+    expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!')
+  })
 });
-
-//Creates instance of Turn
-//Turns count is updated
-//currentCard is updated to next card
-//Guess is evaluated
-//-Incorrect guesses stored in array with an id
-//Feed back for guess is given
