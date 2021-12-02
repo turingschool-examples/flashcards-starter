@@ -14,7 +14,7 @@ describe('Round', () => {
         card3 = new Card(3, 'What is my favorite TV show?', ['House', 'Breaking Bad', 'Grey\'s Anatomy'], 'Breaking Bad');
         deck = new Deck([card1, card2, card3]);
         round = new Round(deck);
-    });
+    })
 
     it('should be a function', () => {
         expect(Round).to.be.a('function');
@@ -53,14 +53,6 @@ describe('Round', () => {
     it('should default to 0 incorrect guesses', () => {
         expect(round.incorrectGuesses).to.deep.equal([]);
     })
-
-    // it('should be able to add to incorrect guesses', () => {
-    //     const correct = round.takeTurn('Javascript');
-    //     expect(round.incorrectGuesses).to.deep.equal([])
-
-    //     const incorrect = round.takeTurn('Kiba');
-    //     expect(round.incorrectGuesses).to.deep.equal([2]);
-    // })
 
     it('should be able to add to incorrect guesses', () => {
         const correct = round.takeTurn('JavaScript');

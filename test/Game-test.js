@@ -27,5 +27,9 @@ describe('Game', () => {
   it('should not set current round until start', () => {
     expect(game.currentRound).to.be.undefined;
   })
+//   it("should keep track of the currentRound", () => {
+//     const startGame = game.start();
+//     expect(game.currentRound).to.be.an.instanceOf(Round);
+//   })
 
 });
