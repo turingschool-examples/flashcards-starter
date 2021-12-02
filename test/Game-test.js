@@ -6,30 +6,30 @@ const Card = require('../src/Card.js');
 const Deck = require('../src/Deck.js');
 
 describe('Game', () => {
-  let game, deck, cards;
-  beforeEach(function() {
-    cards = data.prototypeData.map(e=> {
-      return new Card(e['id'], e['question'], e['answers'], e['correctAnswer']);
+    let game, deck, cards;
+    beforeEach(function() {
+        cards = data.prototypeData.map(e=> {
+            return new Card(e['id'], e['question'], e['answers'], e['correctAnswer']);
+        })
+
+        deck = new Deck(cards);
+        game = new Game;
     })
 
-    deck = new Deck(cards);
-    game = new Game;
-  })
+    it('should be a function', () => {
+        expect(Game).to.be.a('function');
+    })
 
-  it('should be a function', () => {
-    expect(Game).to.be.a('function');
-  })
+    it('should be an instance of Game', () => {
+        expect(game).to.be.an.instanceOf(Game);
+    })
 
-  it('should be an instance of Game', () => {
-    expect(game).to.be.an.instanceOf(Game);
-  })
-
-  it('should not set current round until start', () => {
-    expect(game.currentRound).to.be.undefined;
-  })
-//   it("should keep track of the currentRound", () => {
-//     const startGame = game.start();
-//     expect(game.currentRound).to.be.an.instanceOf(Round);
-//   })
+    it('should not set current round until start', () => {
+        expect(game.currentRound).to.be.undefined;
+    })
+    it("should keep track of the currentRound", () => {
+        game.start();
+        expect(game.currentRound).to.be.an.instanceOf(Round);
+    })
 
 });
