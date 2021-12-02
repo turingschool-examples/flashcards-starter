@@ -7,4 +7,4 @@ class Card {
     }
 }
 
- module.exports = Card;
+module.exports = Card;
