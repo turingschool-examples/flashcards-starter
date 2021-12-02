@@ -6,11 +6,6 @@ const Card = require('../src/Card')
 
 describe('Turn', function() {
 
-  it('should be a function', function() {
-    const turn = new Turn();
-    expect(Turn).to.be.a('function');
-  });
-
   it('should be an instance of Card', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
@@ -52,13 +47,6 @@ describe('Turn', function() {
     const turn = new Turn('object', card)
     turn.evaluateGuess()
     turn.giveFeedback()
-    expect(turn.giveFeedback()).to.deep.equal(console.log("correct!"));
+    expect(turn.giveFeedback()).to.deep.equal("correct!");
   })
 });
-
-// const fairy = new Fairy('Honeysuckle');
-// fairy.makeDresses(['Daffodil', 'Tulip', 'Poppy']);
-// assert.deepEqual(fairy.clothes.dresses, ['Iris', 'Daffodil', 'Tulip', 'Poppy']);
-
-// Class methods
-// Anything that updates class properties
