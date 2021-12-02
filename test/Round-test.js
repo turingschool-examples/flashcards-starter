@@ -4,9 +4,10 @@ const expect = chai.expect;
 const Round = require('../src/Round.js');
 const Card = require("../src/Card.js");
 const Deck = require("../src/Deck.js");
+const Game = require('../src/Game.js');
 
 describe('Round', () => {
-    let card1, card2, card3, deck, round;
+    let card1, card2, card3, deck, round, game;
 
     beforeEach(function () {
         card1 = new Card(1, 'What is my favorite web language?', ['JavaScript', 'Python', 'TypeScript'], 'JavaScript');
@@ -14,6 +15,7 @@ describe('Round', () => {
         card3 = new Card(3, 'What is my favorite TV show?', ['House', 'Breaking Bad', 'Grey\'s Anatomy'], 'Breaking Bad');
         deck = new Deck([card1, card2, card3]);
         round = new Round(deck);
+        game = new Game();
     })
 
     it('should be a function', () => {
@@ -91,6 +93,13 @@ describe('Round', () => {
     it('should be able to end round', () => {
         const end = round.endRound();
         expect(end).to.equal(`** Round over! ** You answered 100% of the questions correctly!`);
+    })
+
+    it('should time the round', () => {
+        expect(round.startingTime).to.be.undefined;
+        game.start();
+        game.currentRound.endRound();
+        expect(game.currentRound.startTime).to.be.above(0);
     })
 
 })
