@@ -25,10 +25,40 @@ describe('Round', function() {
   })
   it('should show current card being played', function() {
     expect(round.returnCurrentCard()).to.equal(card1)
-    //Turn class has this method
+  })
+  it('should keep track of turns', function() {
+    expect(round.turnCount).to.deep.equal(0)
+  })
+  it('should start with no incorrect guesses', function() {
+    expect(round.incorrectGuesses).to.deep.equal([])
+  })
+  it('should instantiate turn when guess is made', function() {
+    round.takeTurn('mousse')
+    expect(round.turn).to.be.an.instanceof(Turn)
+  })
+  it('should update number of turns', function() {
+    round.takeTurn()
+    round.takeTurn()
+    round.takeTurn()
+
+    expect(round.turnCount).to.equal(3)
+  })
+  it('should update current card with each turn', function() {
+    round.takeTurn()
+    round.takeTurn()
+    round.takeTurn()
+
+    expect(round.currentCard).to.equal(deck.cards[1])
   })
 
 
 
 
 });
+
+//Creates instance of Turn
+//Turns count is updated
+//currentCard is updated to next card
+//Guess is evaluated
+//-Incorrect guesses stored in array with an id
+//Feed back for guess is given
