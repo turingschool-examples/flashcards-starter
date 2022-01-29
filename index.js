@@ -1,6 +1,3 @@
-const http = require('http');
-let app = http.createServer();
+// This is where your project starts.
 
-// Start the server on port 3000
-app.listen(3000, '127.0.0.1');  
-console.log('Node server running on port 3000'); 
+console.log('Your project is running...'); 
