@@ -23,7 +23,7 @@ To verify that it is setup correctly, run `npm test` in your terminal. You shoul
 Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
 
 ```bash
-Node server running on port 3000
+Your project is running...
 ```
 
 *Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
