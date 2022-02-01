@@ -29,6 +29,10 @@ describe('Turn', () => {
   })
 
   it('should evaluate a guess', () => {
-    expect(turn.evaluateGuess()).to.equal('2')
+    expect(turn.evaluateGuess()).to.equal('2 is correct!')
+  })
+
+  it('should give feedback', () => {
+    expect(turn.evaluateGuess()).to.equal('2 is correct!')
   })
 })
