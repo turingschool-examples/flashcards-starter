@@ -18,12 +18,20 @@ it('should instantiate Turn as a class', () => {
   expect(turn).to.be.an.instanceof(Turn)
 });
 
+it('should have a method called \'returnGuess\'', () => {
+  expect(turn.returnGuess).to.be.a('function')
+})
+
+it('returnGuess should return a guess string', () => {
+  expect(turn.returnGuess).to.equal(turn.guess)
+})
+
 it('should have a method called \'returnCard\'', () => {
   expect(turn.returnCard).to.be.a('function')
 })
 
 it('returnCard should return a card object', () => {
-  expect(turn.returnCard).to.equal(card)
+  expect(turn.returnCard).to.equal(turn.currentCard)
 })
 
 
