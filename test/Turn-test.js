@@ -59,5 +59,5 @@ it('10. giveFeedback should return \'correct\' if a guess is correct', () => {
 
 it('11. giveFeedback should return \'incorrect\' if a guess is incorrect', () => {
   const turn2 = new Turn('wrong answer', card)
-  expect(turn2.giveFeedback()).to.equal('incorrect')
+  expect(turn2.giveFeedback()).to.equal('incorrect!')
 })
