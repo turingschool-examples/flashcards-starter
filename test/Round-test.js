@@ -41,3 +41,11 @@ it('should instantiate the Round class', () => {
   expect(round).to.be.an.instanceof(Round)
 })
 
+it('should have a method called \'returnCurrentCard\'', () => {
+  expect(round.returnCurrentCard).to.be.a('function')
+})
+
+it('returnCurrentCard should return the first card in the Deck', () => {
+  expect(round.returnCurrentCard()).to.equal(deck[0])
+})
+
