@@ -24,7 +24,7 @@ it('2. should have a method called \'returnGuess\'', () => {
 })
 
 it('3. returnGuess should return a guess string', () => {
-  expect(turn.returnGuess).to.equal(turn.guess)
+  expect(turn.returnGuess()).to.equal(turn.guess)
 })
 
 it('4. should have a method called \'returnCard\'', () => {
@@ -32,7 +32,7 @@ it('4. should have a method called \'returnCard\'', () => {
 })
 
 it('5. returnCard should return a card object', () => {
-  expect(turn.returnCard).to.equal(turn.currentCard)
+  expect(turn.returnCard()).to.equal(turn.currentCard)
 })
 
 it('6. should have a method called \'evaluateGuess\'', () => {
@@ -41,12 +41,12 @@ it('6. should have a method called \'evaluateGuess\'', () => {
 
 it('7. evaluateGuess should return true if the user\'s guess matches the card\'s answer', () => {
   expect(turn.guess).to.equal(card.correctAnswer)
-  expect(turn.evaluateGuess).to.be.true
+  expect(turn.evaluateGuess()).to.be.true
 })
 
 it('8. evaluateGuess should return false if it does not match', () => {
   const turn2 = new Turn('wrong answer', card)
-  expect(turn2.evaluateGuess).to.be.false
+  expect(turn2.evaluateGuess()).to.be.false
 })
 
 it('9. should have a method called \'giveFeedback\'', () => {
@@ -54,10 +54,10 @@ it('9. should have a method called \'giveFeedback\'', () => {
 })
 
 it('10. giveFeedback should return \'correct\' if a guess is correct', () => {
-  expect(turn.giveFeedback).to.equal('correct!')
+  expect(turn.giveFeedback()).to.equal('correct!')
 })
 
 it('11. giveFeedback should return \'incorrect\' if a guess is incorrect', () => {
   const turn2 = new Turn('wrong answer', card)
-  expect(turn2.giveFeedback).to.equal('incorrect')
+  expect(turn2.giveFeedback()).to.equal('incorrect')
 })
