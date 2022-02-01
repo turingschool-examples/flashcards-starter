@@ -29,4 +29,12 @@ describe('Turn', function() {
     expect(firstTurn.returnCard()).to.equal(card)
   })
 
+  it('should have a method that return if users guess is correct or not', function() {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    const firstTurn = new Turn('sea otter', card)
+    const secondTurn = new Turn('pug', card)
+    expect(firstTurn.evaluateGuess()).to.equal(true)
+    expect(secondTurn.evaluateGuess()).to.equal(false)
+  })
+
 })
