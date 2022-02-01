@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
+// const Turn = require('../src/Turn.js');
 
 describe('Card', function() {
 
@@ -30,11 +31,6 @@ describe('Card', function() {
     expect(card.correctAnswer).to.equal('object');
   });
 
-  it('should return a guess', function() {
-    const card = new Card(1, 'What is 1 + 1', [['2', '3', '22'], '2']);
-    const guess = card.guess
-    card.guess('2')
-    expect(card.guess).to.equal('2')
+  
 
-  })
 });
