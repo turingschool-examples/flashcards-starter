@@ -43,4 +43,9 @@ it('evaluateGuess should return true if the user\'s guess matches the card\'s an
   expect(turn.evaluateGuess).to.be.true
 })
 
+it('evaluateGuess should return false if it does not match', () => {
+  const turn2 = new Turn('wrong answer', card)
+  expect(turn2.evaluateGuess).to.be.false
+})
+
 
