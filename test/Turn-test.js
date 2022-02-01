@@ -6,7 +6,7 @@ const Turn = require('../src/Turn');
 describe('Turn', function() {
 
   it('should take in a guess', function() {
-    let firstTurn = Turn('pig')
+    let firstTurn = new Turn('pig')
     expect(firstTurn.guess).to.equal('pig')
   })
 })
