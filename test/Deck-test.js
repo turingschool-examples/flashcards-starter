@@ -33,4 +33,11 @@ it('should instantiate the Deck class', () => {
   expect(deck).to.be.an.instanceof(Deck)
 })
 
+it('should have a method called \'countCards\'', () => {
+  expect(deck.countCards).to.be.a('function')
+})
+
+it('should know how many cards are in a deck', () => {
+  expect(deck.countCards()).to.equal(3)
+})
 
