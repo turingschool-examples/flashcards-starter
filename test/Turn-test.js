@@ -1,28 +1,28 @@
-// file dependencies 
-const chai = require('chai');
-const expect = chai.expect;
+// file dependencies
+const chai = require('chai')
+const expect = chai.expect
 
 const Card = require('../src/Card')
-const Turn = require('../src/Turn');
+const Turn = require('../src/Turn')
 
 describe('Turn Tests', () => {
   let card
   let turn
-  beforeEach( () => {
+  beforeEach(() => {
     card = new Card(
       1,
       'What allows you to define a set of related information using key-value pairs?',
       ['object', 'array', 'function'],
       'object'
-    );
-    turn = new Turn('object', card);
+    )
+    turn = new Turn('object', card)
   })
 
   it('1. should instantiate Turn as a class', () => {
     expect(turn).to.be.an.instanceof(Turn)
-  });
+  })
 
-  it('2. should have a method called \'returnGuess\'', () => {
+  it("2. should have a method called 'returnGuess'", () => {
     expect(turn.returnGuess).to.be.a('function')
   })
 
@@ -30,7 +30,7 @@ describe('Turn Tests', () => {
     expect(turn.returnGuess()).to.equal(turn.guess)
   })
 
-  it('4. should have a method called \'returnCard\'', () => {
+  it("4. should have a method called 'returnCard'", () => {
     expect(turn.returnCard).to.be.a('function')
   })
 
@@ -38,11 +38,11 @@ describe('Turn Tests', () => {
     expect(turn.returnCard()).to.equal(turn.currentCard)
   })
 
-  it('6. should have a method called \'evaluateGuess\'', () => {
+  it("6. should have a method called 'evaluateGuess'", () => {
     expect(turn.evaluateGuess).to.be.a('function')
   })
 
-  it('7. evaluateGuess should return true if the user\'s guess matches the card\'s answer', () => {
+  it("7. evaluateGuess should return true if the user's guess matches the card's answer", () => {
     expect(turn.guess).to.equal(card.correctAnswer)
     expect(turn.evaluateGuess()).to.be.true
   })
@@ -52,17 +52,16 @@ describe('Turn Tests', () => {
     expect(turn2.evaluateGuess()).to.be.false
   })
 
-  it('9. should have a method called \'giveFeedback\'', () => {
+  it("9. should have a method called 'giveFeedback'", () => {
     expect(turn.giveFeedback).to.be.a('function')
   })
 
-  it('10. giveFeedback should return \'correct\' if a guess is correct', () => {
+  it("10. giveFeedback should return 'correct' if a guess is correct", () => {
     expect(turn.giveFeedback()).to.equal('correct!')
   })
 
-  it('11. giveFeedback should return \'incorrect\' if a guess is incorrect', () => {
+  it("11. giveFeedback should return 'incorrect' if a guess is incorrect", () => {
     const turn2 = new Turn('wrong answer', card)
     expect(turn2.giveFeedback()).to.equal('incorrect!')
   })
-
 })
