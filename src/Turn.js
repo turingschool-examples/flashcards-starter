@@ -7,8 +7,12 @@ class Turn {
     return this.guess
     }
     returnCard() {
-      console.log(this.card)
       return this.card
+    }
+    evaluateGuess() {
+      if (this.guess == this.card.correctAnswer) {
+        return this.card.correctAnswer
+      }
     }
 }
 
