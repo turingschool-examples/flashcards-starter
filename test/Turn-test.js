@@ -17,3 +17,7 @@ const turn = new Turn('object', card);
 it('should instantiate Turn as a class', () => {
   expect(turn).to.be.an.instanceof(Turn)
 });
+
+it('should have a method called \'returnCard\'', () => {
+  expect(turn.returnCard).to.be.a('function')
+})
