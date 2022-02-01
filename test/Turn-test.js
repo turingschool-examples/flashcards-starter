@@ -34,4 +34,13 @@ it('returnCard should return a card object', () => {
   expect(turn.returnCard).to.equal(turn.currentCard)
 })
 
+it('should have a method called \'evaluateGuess\'', () => {
+  expect(turn.evaluateGuess).to.be.a('function')
+})
+
+it('evaluateGuess should return true if the user\'s guess matches the card\'s answer', () => {
+  expect(turn.guess).to.equal(card.correctAnswer)
+  expect(turn.evaluateGuess).to.be.true
+})
+
 
