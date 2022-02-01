@@ -16,4 +16,10 @@ describe('Turn', function() {
     let firstTurn = new Turn('pig', card)
     expect(firstTurn.card).to.equal(card)
   })
+
+  it('should create a method that returns the geuss', function() {
+    const card = new Card()
+    const firstTurn = new Turn('pig', card)
+    expect(firstTurn.returnGuess()).to.equal('pig')
+  })
 })
