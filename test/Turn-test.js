@@ -14,50 +14,49 @@ const card = new Card(
 const turn = new Turn('object', card);
 
 //  tests
-it('should instantiate Turn as a class', () => {
+it('1. should instantiate Turn as a class', () => {
   expect(turn).to.be.an.instanceof(Turn)
 });
 
-it('should have a method called \'returnGuess\'', () => {
+it('2. should have a method called \'returnGuess\'', () => {
   expect(turn.returnGuess).to.be.a('function')
 })
 
-it('returnGuess should return a guess string', () => {
+it('3. returnGuess should return a guess string', () => {
   expect(turn.returnGuess).to.equal(turn.guess)
 })
 
-it('should have a method called \'returnCard\'', () => {
+it('4. should have a method called \'returnCard\'', () => {
   expect(turn.returnCard).to.be.a('function')
 })
 
-it('returnCard should return a card object', () => {
+it('5. returnCard should return a card object', () => {
   expect(turn.returnCard).to.equal(turn.currentCard)
 })
 
-it('should have a method called \'evaluateGuess\'', () => {
+it('6. should have a method called \'evaluateGuess\'', () => {
   expect(turn.evaluateGuess).to.be.a('function')
 })
 
-it('evaluateGuess should return true if the user\'s guess matches the card\'s answer', () => {
+it('7. evaluateGuess should return true if the user\'s guess matches the card\'s answer', () => {
   expect(turn.guess).to.equal(card.correctAnswer)
   expect(turn.evaluateGuess).to.be.true
 })
 
-it('evaluateGuess should return false if it does not match', () => {
+it('8. evaluateGuess should return false if it does not match', () => {
   const turn2 = new Turn('wrong answer', card)
   expect(turn2.evaluateGuess).to.be.false
 })
 
-it('should have a method called \'giveFeedback\'', () => {
+it('9. should have a method called \'giveFeedback\'', () => {
   expect(turn.giveFeedback).to.be.a('function')
 })
 
-it('giveFeedback should return \'correct\' if a guess is correct', () => {
+it('10. giveFeedback should return \'correct\' if a guess is correct', () => {
   expect(turn.giveFeedback).to.equal('correct!')
 })
 
-it('giveFeedback should return \'incorrect\' if a guess is incorrect', () => {
+it('11. giveFeedback should return \'incorrect\' if a guess is incorrect', () => {
   const turn2 = new Turn('wrong answer', card)
   expect(turn2.giveFeedback).to.equal('incorrect')
 })
-
