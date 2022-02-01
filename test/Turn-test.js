@@ -21,3 +21,9 @@ it('should instantiate Turn as a class', () => {
 it('should have a method called \'returnCard\'', () => {
   expect(turn.returnCard).to.be.a('function')
 })
+
+it('returnCard should return a card object', () => {
+  expect(turn.returnCard).to.equal(card)
+})
+
+
