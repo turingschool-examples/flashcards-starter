@@ -48,4 +48,16 @@ it('evaluateGuess should return false if it does not match', () => {
   expect(turn2.evaluateGuess).to.be.false
 })
 
+it('should have a method called \'giveFeedback\'', () => {
+  expect(turn.giveFeedback).to.be.a('function')
+})
+
+it('giveFeedback should return \'correct\' if a guess is correct', () => {
+  expect(turn.giveFeedback).to.equal('correct!')
+})
+
+it('giveFeedback should return \'incorrect\' if a guess is incorrect', () => {
+  const turn2 = new Turn('wrong answer', card)
+  expect(turn2.giveFeedback).to.equal('incorrect')
+})
 
