@@ -20,16 +20,34 @@ describe('Turn', () => {
     })
 
     it('should return guess', () => {
-        const card2 = new Card(1, 'What type of object is closest to a list?', ['array', 'string', 'boolean'], 'array');
-        const turn2 = new Turn('array', card2);
+        const card = new Card(1, 'What type of object is closest to a list?', ['array', 'string', 'boolean'], 'array');
+        const turn = new Turn('array', card);
 
-        expect(turn2.returnGuess()).to.equal('array');
+        expect(turn.returnGuess()).to.equal('array');
     })
 
     it('should return the card', () => {
-        const card3 = new Card(1, 'What type of object is closest to a list?', ['array', 'string', 'boolean'], 'array');
-        const turn3 = new Turn('array', card3);
+        const card = new Card(1, 'What type of object is closest to a list?', ['array', 'string', 'boolean'], 'array');
+        const turn = new Turn('array', card);
 
-        expect(turn3.returnCard()).to.deep.equal( { id: 1, question: 'What type of object is closest to a list?', answers: [ 'array', 'string', 'boolean' ], correctAnswer: 'array' });
+        expect(turn.returnCard()).to.deep.equal( { id: 1, question: 'What type of object is closest to a list?', answers: [ 'array', 'string', 'boolean' ], correctAnswer: 'array' });
+    })
+
+    it('should check guess to see if it matches correct answer on card', () => {
+        const card = new Card(1, 'What type of object is closest to a list?', ['array', 'string', 'boolean'], 'array');
+        const turn1 = new Turn('array', card);
+        const turn2 = new Turn('string', card);
+
+        expect(turn1.evaluateGuess()).to.equal(true);
+        expect(turn2.evaluateGuess()).to.equal(false);
+    })
+
+    it('should return feedback based on an incorrect/correct guess', () => {
+        const card = new Card(1, 'What type of object is closest to a list?', ['array', 'string', 'boolean'], 'array');
+        const turn1 = new Turn('array', card);
+        const turn2 = new Turn('string', card);
+
+        expect(turn1.giveFeedback()).to.equal('correct!');
+        expect(turn2.giveFeedback()).to.equal('incorrect!');
     })
 })
