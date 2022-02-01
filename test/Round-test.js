@@ -3,6 +3,7 @@ const chai = require('chai')
 const expect = chai.expect
 
 const Card = require('../src/Card')
+const Turn = require('../src/Turn')
 const Deck = require('../src/Deck')
 const Round = require('../src/Round')
 
@@ -28,7 +29,6 @@ const card3 = new Card(
 );
 
 const deck = new Deck([card1, card2, card3]);
-
 const round = new Round(deck);
 
 // tests
@@ -45,7 +45,18 @@ it('should have a method called \'returnCurrentCard\'', () => {
   expect(round.returnCurrentCard).to.be.a('function')
 })
 
-it('returnCurrentCard should return the first card in the Deck', () => {
-  expect(round.returnCurrentCard()).to.equal(deck[0])
+it('returnCurrentCard should return the current card object', () => {
+  expect(round.returnCurrentCard()).to.equal(deck.cards[round.turns])
 })
 
+it('should have a method called \'takeTurn\'', () => {
+  expect(round.takeTurn).to.be.a('function')
+})
+
+it('takeTurn should end by returning positive feedback if the guess was correct', () => {
+  expect(round.takeTurn('sea otter')).to.equal('correct!')
+}) 
+
+it('takeTurn should end by returning negative feedback if the guess was incorrect', () => {
+  expect(round.takeTurn('wrong answer')).to.equal('incorrect!');
+}); 
