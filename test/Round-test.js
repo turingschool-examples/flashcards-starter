@@ -83,9 +83,7 @@ describe('Round', () => {
         const round = new Round(deck);
         round.takeTurn('array');
 
-        // expect(round.turn).to.be.an.instanceof(Turn);
-
-        ////need to come back to this, how to test for instantiated class without returning it
+        expect(round.turn).to.be.an.instanceof(Turn);
     })
 
     it('should change to next card after each turn', () => {
