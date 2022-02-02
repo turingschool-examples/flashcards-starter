@@ -9,7 +9,6 @@ const Round = require('../src/Round')
 
 class Game {
   constructor() {
-    this.currentIndexes = this.getThreeIndexes()
     this.currentDeck = null
     this.currentRound = null
   }
@@ -23,19 +22,22 @@ class Game {
     util.main(round)
   }
 
-  getRandomIndex(array) {
-    return Math.floor(Math.random() * array.length)
-  }
+  shuffleDeck() {
+    const allCards = prototypeQuestions.map(flashcard => {
+      return new Card(
+        flashcard.id,
+        flashcard.question,
+        flashcard.answers,
+        flashcard.correctAnswer,
+      )
+    })
+    const shuffledArray = allCards.sort((a, b) => 0.5 - Math.random())
+    this.currentDeck = new Deck(shuffledArray)
+  }  
 
-  getThreeIndexes() {
-    let indexes = []
-    do {
-      let indexToAdd = this.getRandomIndex(prototypeQuestions)
-      if (!indexes.includes(indexToAdd)) {
-        indexes.push(indexToAdd)
-      }
-    } while (indexes.length < 3)
-    return indexes
+  createRound() {
+    const round = new Round(this.currentDeck)
+    this.currentRound = round
   }
 }
 
