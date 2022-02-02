@@ -6,8 +6,8 @@ class Round {
         this.turns = 0;
         this.currentCard = this.deck[0];
         this.incorrectGuesses = [];
-        this.turn;
         this.gamePercentage;
+        this.turn;
     }
 
     returnCurrentCard() {
@@ -21,6 +21,7 @@ class Round {
         if (!turn.evaluateGuess()) {
             this.incorrectGuesses.push(turn.currentCard.id);
         }
+        this.turn = turn;
         return turn.giveFeedback();
     }
 
