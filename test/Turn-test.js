@@ -53,4 +53,4 @@ describe('Turn', function() {
 
     expect(turn.giveFeedBack()).to.deep.equal('correct!');
   });
-})
+});
