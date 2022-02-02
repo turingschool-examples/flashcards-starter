@@ -39,6 +39,13 @@ class Game {
     const round = new Round(this.currentDeck)
     this.currentRound = round
   }
+
+  start() {
+    this.shuffleDeck()
+    this.createRound()
+    this.printMessage(this.currentDeck, this.currentRound)
+    this.printQuestion(this.currentRound)
+  }
 }
 
 module.exports = Game
