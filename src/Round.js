@@ -10,10 +10,11 @@ class Round {
     returnCurrentCard() {
         return this.currentCard;
     }
-
+    
     takeTurn(guess) {
         let turn = new Turn(guess, this.currentCard);
         this.turns ++;
+        this.currentCard = this.deck[this.turns];
         return turn;
     }
 }
