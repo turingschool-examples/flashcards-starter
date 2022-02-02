@@ -21,4 +21,9 @@ describe('Round', () => {
     round.takeTurn()
     expect(round.turns).to.equal(1)
   })
+
+  it('should be able to return the current card', () => {
+    round.returnCurrentCard()
+    expect(round.returnCurrentCard()).to.deep.equal(card)
+  })
 })

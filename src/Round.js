@@ -6,6 +6,9 @@ class Round {
   takeTurn() {
     this.turns++
   }
+  returnCurrentCard() {
+    return this.currentCard
+  }
 }
 
 module.exports = Round;
