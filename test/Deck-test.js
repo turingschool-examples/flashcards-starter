@@ -25,4 +25,13 @@ describe('Deck', ()=> {
     expect(deck.cardDeck).to.deep.equal([card1, card2, card3]);
   });
 
+  it('should know how many cards are in the deck', ()=> {
+    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = new Card(2, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card3 = new Card(3, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const cardDeck1 = [card1, card2, card3];
+    const deck = new Deck(cardDeck1);
+    expect(deck.cardCount).to.deep.equal(3);
+  });
+
 });
