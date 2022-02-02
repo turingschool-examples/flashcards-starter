@@ -130,7 +130,9 @@ describe('Round', () => {
         const card3 = new Card(3, 'How do you check the length of a string or array?', ['.length', '.includes', '.sum'], '.length');
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
+        round.takeTurn('array');
+        round.takeTurn('boolean');
 
-        
+        expect(round.calculatePercentCorrect()).to.equal(50);
     })
 })
