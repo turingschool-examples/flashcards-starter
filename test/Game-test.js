@@ -41,6 +41,20 @@ describe('Game Tests', () => {
   })
 
   it('should instantiate as the Game class', () => {
-    expect(game).to.be.an.instanceof(Game);
+    expect(game).to.be.an.instanceof(Game)
   })
+
+  it('should keep track of the current round', () => {
+    game.start()
+    expect(game.currentRound).to.be.an.instanceof(Round)
+  })
+
+  it('should keep track of the current deck', () => {
+    game.start()
+    expect(game.currentDeck).to.be.an.instanceof(Deck)
+  })
+
+  
 })
+
+
