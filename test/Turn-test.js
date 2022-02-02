@@ -4,7 +4,7 @@ const expect = chai.expect;
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
-describe('Turn', function() {
+describe('Turn', () => {
   let card;
   let turn;
   beforeEach(() => {
@@ -12,11 +12,11 @@ describe('Turn', function() {
       turn = new Turn('2', card);
     });
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Turn', function() {
+  it('should be an instance of Turn', () => {
     expect(turn).to.be.an.instanceof(Turn);
   });
 
@@ -25,7 +25,14 @@ describe('Turn', function() {
   });
 
   it('should return a card', () => {
-    const turn = new Turn();
-    expect(turn.returnCard()).to.equal(turn.card);
+      expect(turn.returnCard()).to.equal(turn.card);
+  })
+
+  it('should evaluate a guess', () => {
+    expect(turn.evaluateGuess()).to.equal('2 is correct!')
+  })
+
+  it('should give feedback', () => {
+    expect(turn.evaluateGuess()).to.equal('2 is correct!')
   })
 })
