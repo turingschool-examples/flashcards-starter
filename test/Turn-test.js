@@ -23,4 +23,11 @@ describe('Turn', function() {
 
     expect(turn.returnGuess()).to.equal(turn.guess);
   });
+
+  it('should return the card', function() {
+    const card = new Card(1, 'What is a group of hedgehogs known as?', ['Gaggle', 'Parade', 'Pickle'], 'Gaggle');
+    const turn = new Turn('guess', card);
+
+    expect(turn.returnCard()).to.equal(card);
+  });
 });
