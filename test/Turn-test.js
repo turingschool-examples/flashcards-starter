@@ -33,6 +33,12 @@ describe('Turn', function() {
     //this is a method
   })
 
+  it('should return the current card', () => {
+    const turn = new Turn('Random users guess', Card);
+    turn.returnCard()
+    expect(turn.returnCard()).to.equal(Card)
+  })
+
   it('should evaluate if the guess is correct', () => {
     const card = new Card (1, 'question', [], 'correct answer')
     const turn = new Turn('correct answer', card);

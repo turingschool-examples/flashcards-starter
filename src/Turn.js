@@ -9,6 +9,11 @@ class Turn {
     return this.guess;
   }
 
+  returnCard() {
+    return this.currentCard;
+  }
+
+
   evaluateGuess () {
     if (this.guess === this.currentCard.correctAnswer) {
       return true
