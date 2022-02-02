@@ -16,10 +16,6 @@ describe('Turn', () => {
     expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Turn', () => {
-    expect(turn).to.be.an.instanceof(Turn);
-  });
-
   it('should return a guess', () => {
     expect(turn.returnGuess()).to.equal('2');
   });
