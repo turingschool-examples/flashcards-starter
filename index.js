@@ -1,3 +1,3 @@
-// This is where your project starts.
+// This is where The Magic starts.
 
-console.log('Your project is running...'); 
+console.log('Your project is running... nerd.');
