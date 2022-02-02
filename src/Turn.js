@@ -10,6 +10,7 @@ class Turn {
       return this.card
     }
     evaluateGuess() {
+      console.log()
       if (this.guess == this.card.correctAnswer) {
         return `${this.guess} is correct!`
       } else {

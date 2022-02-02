@@ -2,12 +2,12 @@ class Round {
   constructor(currentCard, turns) {
     this.currentCard = currentCard
     this.turns = 0
+    this.incorrectGuesses = []
   }
   takeTurn() {
     this.turns++
   }
   returnCurrentCard() {
-    console.log(this.currentCard)
     return this.currentCard
   }
 }
