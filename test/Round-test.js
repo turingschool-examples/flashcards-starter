@@ -3,6 +3,8 @@ const expect = chai.expect;
 
 const Round = require('../src/Round');
 const Card = require('../src/Card');
+const Turn = require('../src/Turn');
+
 
 describe('Round', () => {
 
@@ -19,8 +21,13 @@ describe('Round', () => {
   })
 
   it('should be able to take a turn', () => {
-    round.takeTurn()
+    round.takeTurn('2')
     expect(round.turns).to.equal(1)
+  })
+
+  it('should instantiate a new instance of Turn', () => {
+    round.takeTurn('2')
+    expect(round.takeTurn()).to.be.an.instanceOf(Turn)
   })
 
   it('should be able to return the current card', () => {
