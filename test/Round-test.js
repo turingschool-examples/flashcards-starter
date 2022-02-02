@@ -49,8 +49,8 @@ describe('Round', () => {
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
 
-        expect(round.currentCard).to.deep.equal({ id: 1, question: 'What type of object is closest to a list?', answers: ['array', 'string', 'boolean'], correctAnswer: 'array' });
         expect(round.returnCurrentCard()).to.deep.equal({ id: 1, question: 'What type of object is closest to a list?', answers: ['array', 'string', 'boolean'], correctAnswer: 'array' });
+        expect(round.currentCard).to.deep.equal({ id: 1, question: 'What type of object is closest to a list?', answers: ['array', 'string', 'boolean'], correctAnswer: 'array' });
     })
 
     it('should be able to take turns', () => {
@@ -81,8 +81,23 @@ describe('Round', () => {
         const card3 = new Card(3, 'How do you check the length of a string or array?', ['.length', '.includes', '.sum'], '.length');
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
-        round.takeTurn('array');
+        // round.takeTurn('array');
 
         expect(round.takeTurn('array')).to.deep.equal({ guess: 'array', currentCard: { id: 1, question: 'What type of object is closest to a list?', answers: ['array', 'string', 'boolean'], correctAnswer: 'array' }})
+    })
+
+    it('should change to next card after each turn', () => {
+        const card1 = new Card(1, 'What type of object is closest to a list?', ['array', 'string', 'boolean'], 'array');
+        const card2 = new Card(2, 'What data type is 40?', ['boolean', 'integer', 'string'], 'integer');
+        const card3 = new Card(3, 'How do you check the length of a string or array?', ['.length', '.includes', '.sum'], '.length');
+        const deck = new Deck([card1, card2, card3]);
+        const round = new Round(deck);
+        round.takeTurn('array');
+        
+        expect(round.currentCard).to.deep.equal({ id: 2, question: 'What data type is 40?', answers: ['boolean', 'integer', 'string'], correctAnswer: 'integer' });
+        
+        round.takeTurn('integer');
+
+        expect(round.currentCard).to.deep.equal({ id: 3, question: 'How do you check the length of a string or array?', answers: ['.length', '.includes', '.sum'], correctAnswer: '.length' })
     })
 })
