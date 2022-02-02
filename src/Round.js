@@ -22,6 +22,10 @@ class Round {
         }
         return turn.giveFeedback();
     }
+
+    calculatePercentCorrect() {
+        return (this.turns - this.incorrectGuesses.length) / this.turns * 100;
+    }
 }
 
 
