@@ -16,6 +16,13 @@ class Turn {
       return false;
     };
   };
+  giveFeedback() {
+    if (this.evaluateGuess()) {
+      return 'Correct! Great job!';
+    } else {
+      return 'Ope! Incorrect!';
+    };
+  };
 };
 
 

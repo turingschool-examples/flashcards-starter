@@ -42,4 +42,16 @@ describe('Turn', function() {
 
     expect(turn2.evaluateGuess()).to.equal(true);
   });
+
+  it('should give feedback whether user guess is correct or incorrect', function() {
+    const card1 = new Card(1, 'What is a group of hedgehogs known as?', ['Gaggle', 'Parade', 'Pickle'], 'Pickle');
+    const turn1 = new Turn('Pickle', card1);
+
+    expect(turn1.giveFeedback()).to.equal('Correct! Great job!');
+
+    const card2 = new Card(1, 'What is a group of hedgehogs known as?', ['Gaggle', 'Parade', 'Pickle'], 'Pickle');
+    const turn2 = new Turn('Gaggle', card2);
+
+    expect(turn2.giveFeedback()).to.equal('Ope! Incorrect!');
+  });
 });
