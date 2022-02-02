@@ -135,4 +135,18 @@ describe('Round', () => {
 
         expect(round.calculatePercentCorrect()).to.equal(50);
     })
+
+    it('should end game and show percentage correct', () => {
+        const card1 = new Card(1, 'What type of object is closest to a list?', ['array', 'string', 'boolean'], 'array');
+        const card2 = new Card(2, 'What data type is 40?', ['boolean', 'integer', 'string'], 'integer');
+        const card3 = new Card(3, 'How do you check the length of a string or array?', ['.length', '.includes', '.sum'], '.length');
+        const deck = new Deck([card1, card2, card3]);
+        const round = new Round(deck);
+        round.takeTurn('array');
+        round.takeTurn('boolean');
+        round.takeTurn('.length');
+        console.log(round.calculatePercentCorrect());
+
+        expect(round.endRound()).to.equal('** Round Over! ** You answered 67% of the questions correctly!');
+    })
 })
