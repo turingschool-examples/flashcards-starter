@@ -1,25 +1,51 @@
-// const chai = require('chai');
-// const expect = chai.expect;
-//
-// const Card = require('../src/Game');
-// const Deck = require('../src/Deck');
-// const Card = require('../src/card');
-//
-//
-// describe('Deck', function() {
-//
-//   it.skip('should be a function', function() {
-//     const card = new Deck();
-//     expect(Card).to.be.a('function');
-//   });
-//   it.skip('should have a guess and a current card', function() {
-//
-//   });
-// };
+const chai = require('chai');
+const expect = chai.expect;
 
-// Your Turn class should meet the following requirements:
-// Instantiated with two arguments - a string (that represents a user’s guess to the question), and a Card object for the current card in play.
-// returnGuess: method that returns the guess
-// returnCard: method that returns the Card
+const Game = require('../src/Game');
+const Card = require('../src/Card');
+const Turn = require('../src/turn');
+
+
+describe('Turn', function() {
+  let card = null;
+  let turn = null;
+
+  beforeEach(() => {
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    turn = new Turn('object', card)
+  });
+
+  it('should be a function', () => {
+    expect(Turn).to.be.a('function');
+  });
+
+  it('should be an instance of Turn', () => {
+    expect(turn).to.be.an.instanceof(Turn);
+  });
+
+  it('should have a guess', () => {
+    expect(turn.playerGuess).to.equal('object');
+  });
+
+  it('should return the current guess', () => {
+    expect(turn.returnGuess()).to.equal('object')
+  })
+
+  it('should store the current card', () => {
+    turn.returnCard(card);
+
+    expect(turn.currentCard).to.deep.equal(card)
+  })
+
+  it('should return a boolean indicating if the users guess matches the correct answer', () => {
+    expect(turn.evaluateGuess()).to.equal(true)
+  })
+
+  it('Should return either incorrect! or correct! based on whether the guess is correct', () => {
+    turn.giveFeedback()
+  })
+
+});
+
 // evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card
 // giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.
