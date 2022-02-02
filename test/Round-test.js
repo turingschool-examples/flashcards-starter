@@ -10,6 +10,7 @@ describe('Round', () => {
 
   beforeEach(() => {
     card = new Card(1, 'What is 1 + 1 ?', ['2', '3', '4'], '2');
+    card2 = new Card(2, 'What is 2 + 2 ?', ['2', '3', '4'], '4');
     round = new Round(card, 0);
     });
 
@@ -25,5 +26,8 @@ describe('Round', () => {
   it('should be able to return the current card', () => {
     round.returnCurrentCard()
     expect(round.returnCurrentCard()).to.deep.equal(card)
+    round = new Round(card2, 0);
+    round.returnCurrentCard()
+    expect(round.returnCurrentCard()).to.deep.equal(card2)
   })
 })

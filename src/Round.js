@@ -7,6 +7,7 @@ class Round {
     this.turns++
   }
   returnCurrentCard() {
+    console.log(this.currentCard)
     return this.currentCard
   }
 }
