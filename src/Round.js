@@ -1,3 +1,5 @@
+const Turn = require("./Turn.js")
+
 class Round {
   constructor(deck) {
     this.deck = deck
@@ -5,15 +7,17 @@ class Round {
   }
 
   returnCurrentCard() {
-    console.log(this.deck.deck[0])
-    return this.deck.deck[0]
+    return this.deck.cards[this.turnCount]
   }
 
-  takeTurn(){
+  takeTurn(guess) {
+    var newTurn = new Turn(guess, this.returnCurrentCard())
     this.turnCount ++
+    return newTurn.giveFeedback()
+
+
   }
 }
 
-// module.exports = Turn;
+
 module.exports = Round;
-// module.exports = Card;
