@@ -17,9 +17,12 @@ describe('Turn', function() {
   });
 
   it('should keep track of the user\'s guess', function() {
-    const turn = new Turn('Random users guess', Card);
+    const card = new Card (1, 'question', [], 'correct answer')
+    const turn = new Turn('Random users guess', card);
     expect(turn.guess).to.equal('Random users guess');
   })
+
+  //lines 19-30. See if you can just use Card, or if you need the card instance...)
 
   it('should keep track of the current card at play', () => {
     const turn = new Turn('Random users guess', Card);
