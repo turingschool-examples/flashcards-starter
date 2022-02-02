@@ -165,7 +165,7 @@ var round = null;
     //
     // const deck = new Deck([card1, card2, card3]);
     const turn = new Turn("pig");
-    // const round = new Round(deck);
+
 
     round.takeTurn("pig");
 
@@ -177,7 +177,7 @@ var round = null;
   });
 
   it('should change cards with each turn', function(){
-  
+
     const turn = new Turn("pig");
 
 
@@ -186,5 +186,14 @@ var round = null;
 
     expect(round.currentCard).to.equal(card2);
 
+  })
+
+  it('should be able to record incorect guesses', function(){
+    expect(round.incorrectGuesses).to.deep.equal([])
+  })
+
+  it('should store the card ID for the incorrect guess', function() {
+    round.takeTurn('pig')
+    expect(round.incorrectGuesses[0]).to.equal(1)
   })
 });
