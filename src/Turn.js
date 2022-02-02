@@ -12,9 +12,21 @@ class Turn {
     return this.card;
   }
 
-  evaluateGuess() {}
+  evaluateGuess() {
+    if (this.guess === this.card.correctAnswer) {
+      return true
+    } else {
+      return false
+    }
+  }
 
-  giveFeedback() {}
+  giveFeedback() {
+    if (this.guess === this.card.correctAnswer) {
+      return 'correct!';
+    } else {
+      return 'incorrect!';
+    }
+  }
 
 }
 

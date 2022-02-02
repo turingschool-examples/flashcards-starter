@@ -35,10 +35,24 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.equal(turn.guess);
   });
 
-  it('should have a method for returning the card', function() {
+  it('should return a boolean if the user\'s guess matches the correct answer', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn = new Turn('Is mayonnaise an instrument?', card);
-    turn.returnCard();
-    expect(turn.returnCard()).to.equal(turn.card);
+    const turn1 = new Turn('notObject', card);
+    const turn2 = new Turn('object', card);
+    turn1.evaluateGuess();
+    turn2.evaluateGuess();
+    expect(turn1.evaluateGuess()).to.equal(false);
+    expect(turn2.evaluateGuess()).to.equal(true);
   });
+
+  it('should return a boolean if the user\'s guess matches the correct answer', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn1 = new Turn('notObject', card);
+    const turn2 = new Turn('object', card);
+    turn1.giveFeedback();
+    turn2.giveFeedback();
+    expect(turn1.giveFeedback()).to.equal('incorrect!');
+    expect(turn2.giveFeedback()).to.equal('correct!');
+  });
+
 });
