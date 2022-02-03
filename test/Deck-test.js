@@ -32,6 +32,7 @@ describe('Deck', ()=> {
     const cardDeck1 = [card1, card2, card3];
     const deck = new Deck(cardDeck1);
     expect(deck.cardCount).to.deep.equal(3);
+    expect(deck.cardDeck.length).to.deep.equal(3);
   });
 
 });
