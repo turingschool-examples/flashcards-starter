@@ -27,21 +27,11 @@ class Round {
   calculatePercentCorrect() {
     return Math.floor(100 * (1 - this.incorrectGuesses.length / this.turns))
   }
-
+  
   endRound() {
-    if (this.calculatePercentCorrect() > 89) {
-      console.log(
-        `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!
-        Since you answered over 90% correct, you get a treat: (you may need to resize your terminal)
-
- \/$$     \/$$                                                                  \/$$                               \/$$\r\n|  $$   \/$$\/                                                                 | $$                              | $$\r\n \\  $$ \/$$\/\/$$$$$$  \/$$   \/$$        \/$$$$$$   \/$$$$$$   \/$$$$$$         \/$$$$$$$  \/$$$$$$   \/$$$$$$   \/$$$$$$ | $$\r\n  \\  $$$$\/\/$$__  $$| $$  | $$       |____  $$ \/$$__  $$ \/$$__  $$       \/$$__  $$ \/$$__  $$ \/$$__  $$ \/$$__  $$| $$\r\n   \\  $$\/| $$  \\ $$| $$  | $$        \/$$$$$$$| $$  \\__\/| $$$$$$$$      | $$  | $$| $$  \\ $$| $$  \\ $$| $$$$$$$$|__\/\r\n    | $$ | $$  | $$| $$  | $$       \/$$__  $$| $$      | $$_____\/      | $$  | $$| $$  | $$| $$  | $$| $$_____\/    \r\n    | $$ |  $$$$$$\/|  $$$$$$\/      |  $$$$$$$| $$      |  $$$$$$$      |  $$$$$$$|  $$$$$$\/| $$$$$$$\/|  $$$$$$$ \/$$\r\n    |__\/  \\______\/  \\______\/        \\_______\/|__\/       \\_______\/       \\_______\/ \\______\/ | $$____\/  \\_______\/|__\/\r\n                                                                                           | $$                    \r\n                                                                                           | $$                    \r\n                                                                                           |__\/                    `
-      )
-    } else {
-      console.log(`
-      ** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!
-      Let's pump those numbers up, those are rookie numbers! 
-      Go again!`)
-    }
+    console.log(
+      `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    )
   }
 }
 

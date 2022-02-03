@@ -1,5 +1,4 @@
-const Game = require('./src/Game')
-
+// This is where your project starts.
 const game = new Game()
 
 const playGame = () => {
@@ -7,3 +6,4 @@ const playGame = () => {
 }
 
 playGame()
+
