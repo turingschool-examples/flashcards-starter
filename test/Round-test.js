@@ -46,6 +46,14 @@ describe('Round', function() {
 
     round.takeTurn();
     expect(round.turns).to.equal(1);
-  })
-
+  });
+  //return the current card being played
+  it('should return the current card being played', function() {
+    //on first turn, the current card in the deck should be at index 0
+    round.takeTurn();
+    expect(round.currentCard).to.equal(deck.cards[0]);
+    //on second turn, the current card in the deck should be at index 1
+    round.takeTurn();
+    expect(round.currentCard).to.equal(deck.cards[1]);
+  });
 });

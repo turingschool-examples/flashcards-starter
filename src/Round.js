@@ -11,6 +11,7 @@ class Round {
     return this.currentCard;
   };
   takeTurn() {
+    this.returnCurrentCard();
     this.turns += 1;
   }
 }
