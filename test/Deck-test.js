@@ -5,8 +5,8 @@ const Card = require('../src/Card');
 
 describe('Deck', function() {
   let card1, card2, card3;
-  // let cards;
-  // let deck;
+  let cards;
+  let deck;
 
   beforeEach(function() {
     card1 = new Card(1, 'What is a group of hedgehogs called?', ['Gaggle', 'Parade', 'Pickle'], 'Pickle');
