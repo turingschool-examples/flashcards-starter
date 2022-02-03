@@ -56,4 +56,11 @@ describe('Round', function() {
     round.takeTurn();
     expect(round.currentCard).to.equal(deck.cards[1]);
   });
+  //it should decide if the user guess is correct or incorrect
+  it('should determine if a guess is correct or incorrect', function() {
+    //display correct message if guess is correct
+    expect(round.takeTurn('Pickle')).to.equal('Correct! Great job!');
+    //display incorrect message if guess is incorrect
+    expect(round.takeTurn('Parade')).to.equal('Ope! Incorrect!');
+  });
 });
