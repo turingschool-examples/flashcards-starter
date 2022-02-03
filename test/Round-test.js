@@ -35,6 +35,10 @@ describe('Round', function() {
   //round should be an instance of Round
   it('should be an instance of a Round', function() {
     expect(round).to.be.an.instanceOf(Round);
-  })
+  });
+  //when a new round starts, it should return the first card in the deck
+  it('should return the first card in the deck when new round starts', function() {
+    expect(round.returnCurrentCard()).to.deep.equal(card1);
+  });
 
 });
