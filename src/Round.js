@@ -5,10 +5,13 @@ class Round {
     this.deck = deck;
     this.currentCard = deck.cards[0];
     this.turns = 0;
-  }
+  };
   returnCurrentCard() {
     this.currentCard = this.deck.cards[this.turns];
     return this.currentCard;
+  };
+  takeTurn() {
+    this.turns += 1;
   }
 }
 

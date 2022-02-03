@@ -40,5 +40,12 @@ describe('Round', function() {
   it('should return the first card in the deck when new round starts', function() {
     expect(round.returnCurrentCard()).to.deep.equal(card1);
   });
+  //update the turn by one count after each turn
+  it('should increase the turn count each time the user plays a turn', function() {
+    expect(round.turns).to.equal(0);
+
+    round.takeTurn();
+    expect(round.turns).to.equal(1);
+  })
 
 });
