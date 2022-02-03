@@ -8,6 +8,7 @@
   "extends": "eslint:recommended",
   "parserOptions": { "sourceType": "module" },
   "rules": {
+    "no-console": "off",
     "eqeqeq": ["error", "always"],
     "brace-style": "error",
     "comma-spacing": ["warn", { "before": false, "after": true }],
