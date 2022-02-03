@@ -27,8 +27,15 @@ class Round {
     }
   };
   calculatePercentCorrect() {
-    return 100 * ((this.turns - this.incorrectGuesses.length) / this.turns);
-  }
+    //create new variable for correct answers
+    //whatever turn it is minus the length of the incorrectGuesses array
+    let correctAnswers = this.turns - this.incorrectGuesses.length;
+    //create new variable for percent of correct answers
+    //correct answers divided by the number of turns x 100
+    let percentCorrect = ((correctAnswers / this.turns) * 100);
+    //return percent correct variable
+    return percentCorrect;
+  };
 };
 
 

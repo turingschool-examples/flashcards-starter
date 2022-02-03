@@ -70,4 +70,10 @@ describe('Round', function() {
     //push to new array
     expect(round.incorrectGuesses).to.deep.equal([1]);
   })
+  //it should be able to calculate the percentage of correct answers
+  it('should calculate the number of correct answers by percentage', function() {
+    //new turn in round with correct answer
+    round.takeTurn('Pickle');
+    expect(round.calculatePercentCorrect()).to.equal(100);
+  })
 });
