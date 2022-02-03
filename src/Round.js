@@ -5,6 +5,7 @@ class Round {
     this.deck = deck;
     this.currentCard = deck.cards[0];
     this.turns = 0;
+    this.incorrectGuesses = [];
   };
   returnCurrentCard() {
     this.currentCard = this.deck.cards[this.turns];
@@ -14,8 +15,10 @@ class Round {
     let turn = new Turn(guess, this.currentCard);
     this.returnCurrentCard();
     this.turns += 1;
-    //if evaluateGuess is true
-    if (turn.evaluateGuess) {
+    //if evaluateGuess is not true
+    if (!turn.evaluateGuess()) {
+      //push current card to incorrectGuesses array
+      this.incorrectGuesses.push(this.currentCard.id);
       //invoke giveFeedback function
       return turn.giveFeedback();
       //if its false, invoke giveFeedback function
@@ -23,6 +26,9 @@ class Round {
       return turn.giveFeedback();
     }
   };
+  calculatePercentCorrect() {
+    return 100 * ((this.turns - this.incorrectGuesses.length) / this.turns);
+  }
 };
 
 

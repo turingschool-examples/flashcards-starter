@@ -63,4 +63,11 @@ describe('Round', function() {
     //display incorrect message if guess is incorrect
     expect(round.takeTurn('Parade')).to.equal('Ope! Incorrect!');
   });
+  //it should push incorrect guesses to new incorrectGuesses array
+  it('should add incorrect guesses to a new array', function() {
+    //new turn on Round
+    round.takeTurn('Parade');
+    //push to new array
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  })
 });
