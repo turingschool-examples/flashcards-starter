@@ -36,6 +36,9 @@ class Round {
     //return percent correct variable
     return percentCorrect;
   };
+  endRound() {
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+  }
 };
 
 

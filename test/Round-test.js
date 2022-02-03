@@ -76,4 +76,12 @@ describe('Round', function() {
     round.takeTurn('Pickle');
     expect(round.calculatePercentCorrect()).to.equal(100);
   })
+  //it should be able to print a message when the round is over
+  //including the percentage of correct correct answers
+  it('should end the round and display message with percentage of correct answers', function() {
+    round.takeTurn('Gaggle');
+    round.takeTurn('Pickle');
+
+    expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!');
+  });
 });
