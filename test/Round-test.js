@@ -133,13 +133,4 @@ describe('Round', ()=> {
     expect(round.calculatePercentCorrect()).to.equal(33);
   });
 
-  it('Should calculate the percentage of correct guesses', ()=> {
-    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object1', 'array', 'function'], 'object1');
-    const card2 = new Card(2, 'What allows you to define a set of related information using key-value pairs?', ['object2', 'array', 'function'], 'object2');
-    const card3 = new Card(3, 'What allows you to define a set of related information using key-value pairs?', ['object3', 'array', 'function'], 'object3');
-    const deck = new Deck([card1, card2, card3]);
-    const round = new Round(deck);
-    expect(round.endRound()).to.equal('** Round over! ** You answered <>% of the questions correctly!');
-  });
-
 });
