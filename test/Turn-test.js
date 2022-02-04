@@ -1,34 +1,34 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Turns = require('../src/Turns');
+const Turn = require('../src/Turns');
 
 describe('Turns', function() {
 
-it.skip('should be a function', function() {
-  const turn = new Turns();
-  expect(Turns).to.be.a('function')
+it('should be a function', function() {
+  const turn = new Turn();
+  expect(Turn).to.be.a('function')
 })
 
-it.skip('should be an instance of Turns', function() {
-  const turns = new Turns()
-  expect(turns).to.be.a.instanceOf(Turns)
+it('should be an instance of Turn', function() {
+  const turn = new Turn()
+  expect(turn).to.be.a.instanceOf(Turn)
 })
 
-it.skip('should store a guess', function() {
-  const turns = new Turns(guess)
-  expect(turns.guess)to.equal(turns.guess)
+it('should store a guess', function() {
+  const turn = new Turn("guess")
+  expect(turn.guess).to.equal("guess")
 })
 
-it.skip('should store a card', function() {
+it('should store a card', function() {
   const card = new Card({
     "id": 1,
     "question": "What allows you to define a set of related information using key-value pairs?",
     "answers": ["object", "array", "function"],
     "correctAnswer": "object"
   })
-  const turns = new Turns('guess', card)
-  expect(turns.card).to.equal(card)
+  const turn = new Turn('guess', card)
+  expect(turn.currentCard).to.equal(card)
 })
 
 it.skip('should return the guess', () => {
@@ -38,11 +38,11 @@ it.skip('should return the guess', () => {
     "answers": ["object", "array", "function"],
     "correctAnswer": "object"
   })
-  const turns = new Turns('guess', card)
+  const turn = new Turn('guess', card)
 
   returnGuess()
 
-  expect(turns.returnGuess()).to.equal(turns.guess)
+  expect(turn.returnGuess()).to.equal(turn.guess)
 })
 
 it.skip('should return the Card', () => {
@@ -52,25 +52,25 @@ it.skip('should return the Card', () => {
     "answers": ["object", "array", "function"],
     "correctAnswer": "object"
   })
-  const turns = new Turns('guess', card)
+  const turn = new Turn('guess', card)
 
   returnCard()
 
-  expect(turns.returnCard()).to.equal(turns.card)
+  expect(turn.returnCard()).to.equal(turn.card)
 })
 
 it.skip('should return true if guess matches correct answer on card', () => {
-  const card = new Card{
+  const card = new Card({
     "id": 1,
     "question": "What allows you to define a set of related information using key-value pairs?",
     "answers": ["object", "array", "function"],
     "correctAnswer": "object"
   })
-  const turns = new Turns("object", card)
+  const turn = new Turn("object", card)
 
   evaluateGuess()
 
-  expect(turns.evaluateGuess())to.equal(true)
+  expect(turn.evaluateGuess()).to.equal(true)
 })
 
 it.skip('should return string of "correct!" if guess is correct', () => {
@@ -80,11 +80,11 @@ it.skip('should return string of "correct!" if guess is correct', () => {
     "answers": ["object", "array", "function"],
     "correctAnswer": "object"
   })
-  const turns = new Turns("object", card)
+  const turn = new Turn("object", card)
 
   giveFeedback()
 
-  expect(turns.giveFeedback()).to.equal('correct!')
+  expect(turn.giveFeedback()).to.equal('correct!')
 })
 
 it.skip('should return string of "incorrect!" if guess is incorrect', () => {
@@ -94,10 +94,10 @@ it.skip('should return string of "incorrect!" if guess is incorrect', () => {
     "answers": ["object", "array", "function"],
     "correctAnswer": "object"
   })
-  const turns = new Turns("array", card)
+  const turn = new Turn("array", card)
 
   giveFeedback()
 
-  expect(turns.giveFeedback()).to.equal('incorrect!')
+  expect(turn.giveFeedback()).to.equal('incorrect!')
 })
 })
