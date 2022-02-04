@@ -9,7 +9,6 @@ class Game {
   constructor(deck) {
     this.deck = deck;
     this.everyCard = [];
-    this.currentRound = new Round(deck);
   }
 
   printMessage(deck, round) {
@@ -22,16 +21,28 @@ class Game {
   }
 
   start() {
+    this.createCards()
+    this.createDeck()
+    this.createRound()
+    this.printQuestion(this.currentRound)
+    this.printMessage(this.deck, this.currentRound);
+
   }
 
   createCards() {
     prototypeQuestions.forEach(card => {
       this.everyCard.push(new Card (card.id, card.question, card.answers, card.correctAnswer));
-    })
+    });
+  };
 
-    //need to iterate over protype data and push into
-    //the all cards array
-  }
+  createDeck() {
+    this.deck = new Deck(this.everyCard);
+  };
+
+  createRound() {
+    this.currentRound = new Round(this.deck)
+  };
+
 }
 
 module.exports = Game;

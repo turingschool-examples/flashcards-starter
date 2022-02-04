@@ -6,6 +6,7 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Game = require('../src/Game');
+const data = require('../src/data');
 
 describe('Game', function() {
   let round
@@ -35,15 +36,20 @@ describe('Game', function() {
      expect(game).to.be.an.instanceof(Game);
    });
 
-   it('should keep track of current round', function() {
-     expect(game.currentRound).to.be.an.instanceof(Round)
-   });
-
    it('should have a method that creates cards for a new round', function () {
      game.createCards()
      expect(game.everyCard[0].id).to.equal(1);
+   });
 
-     //  expect(game.everyCard)[0].id.to.equal(1)
+   it('should be able to put cards in a deck', function () {
+     game.createCards()
+     game.createDeck()
+     expect(game.deck.cards[2].id).to.equal(3);
+   });
+
+   it('should be able to create a new round', function () {
+     game.start()
+     expect(game.currentRound).to.be.an.instanceof(Round);
    });
 
  });
