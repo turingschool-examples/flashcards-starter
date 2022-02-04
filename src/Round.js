@@ -21,6 +21,17 @@ class Round {
     this.turnCount ++
     return newTurn.giveFeedback()
   }
+
+  calculatePercentCorrect() {
+    let percentage = this.incorrectGuesses.length / this.deck.cards.length * 100
+    let grade = 100 - percentage.toFixed(2)
+    let gradeWithSymbol = `${grade}%`
+    return gradeWithSymbol
+  }
+
+  endRound() {
+    console.log(`Round over! You answered ${this.calculatePercentCorrect()} of the questions correctly!`)
+  }
 }
 
 

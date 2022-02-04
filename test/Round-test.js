@@ -7,11 +7,11 @@ const Card = require("../src/Card.js");
 const Deck = require("../src/Deck.js");
 
 describe("Round", function () {
-var card1 = null;
-var card2 = null;
-var card3 = null;
+var card1, card2, card3, deck, round 
+// var card2 = null;
+// var card3 = null;
 var deck = null;
-var round = null;
+var round ;
 
   beforeEach(function() {
        card1 = new Card(
@@ -39,7 +39,7 @@ var round = null;
   })
 
   it("should be a function", function () {
-    
+
     expect(Round).to.be.a("function");
   });
 
@@ -65,7 +65,6 @@ var round = null;
     expect(round.turnCount).to.equal(1);
 
     round.takeTurn('hello');
-
 
     expect(round.turnCount).to.equal(2);
   });
@@ -132,5 +131,28 @@ var round = null;
   it('should store the card ID for the incorrect guess', function() {
     round.takeTurn('pig')
     expect(round.incorrectGuesses[0]).to.equal(1)
+  })
+
+  it('should calculate and return the percentage of correct guesses', function() {
+    round.takeTurn('pig')
+    round.takeTurn('gallbladder')
+    round.takeTurn('playing with bubble wrap')
+
+    expect(round.calculatePercentCorrect()).to.equal('66.67%')
+  })
+
+  it('should reset the turn count if theres more turns than cards', function() {
+    round.takeTurn('pig')
+    round.takeTurn('pig')
+    expect(round.turnCount).to.equal(2)
+    round.takeTurn('pig')
+    expect(round.turnCount).to.equal(0)
+  })
+
+  it("should tell the user 'Round over! You answered <>% of the questions correctly!'", function() {
+    round.takeTurn('pig')
+    round.takeTurn('gallbladder')
+    round.takeTurn('playing with bubble wrap')
+    expect(round.endRound()).to.equal('Round over! You answered 66.67% of the questions correctly!')
   })
 });

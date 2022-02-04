@@ -1,7 +1,10 @@
+const Deck = require("../src/Deck.js");
+
 class Turn {
   constructor(guess, card) {
-    this.guess = guess
-    this.card = card
+    this.guess = guess;
+    this.card = card;
+    // this.turnCount = 0;
   }
 
   returnGuess() {
@@ -21,7 +24,7 @@ class Turn {
   }
 
   giveFeedback() {
-    if (this.guess === this.card.correctAnswer) {
+    if (this.evaluateGuess()) {
       return 'correct!'
     } else {
       return 'incorrect!'
