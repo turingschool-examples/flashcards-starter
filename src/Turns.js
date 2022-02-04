@@ -11,6 +11,14 @@ class Turn {
   returnCard() {
     return this.currentCard
   }
+
+  evaluateGuess() {
+    if (this.guess === this.currentCard) {
+      return true
+    } else {
+      return false
+    }
+  }
 }
 
 
