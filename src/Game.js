@@ -13,9 +13,9 @@ class Game {
   }
 
   start() {
-    let theCardDeck = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
-    let deck = new Deck(theCardDeck);
-    let round = new Round(deck);
+    const theCardDeck = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
+    const deck = new Deck(theCardDeck);
+    const round = new Round(deck);
     this.currentRound = round;
     this.printMessage(deck, round);
     this.printQuestion(round);
