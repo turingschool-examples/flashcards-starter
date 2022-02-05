@@ -26,6 +26,7 @@ const card3 = new Card(
   "mutator method"
 )
 const deck = new Deck([card1, card2, card3]);
+const round = new Round(deck)
 
 describe('Round', () => {
 
@@ -49,6 +50,8 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.equal(card1)
   })
 
+  it.skip('should create a new Turn instance')
+
   it.skip('should update turn count when a turn is taken', () => {
     round.takeTurn()
     expect(round.turnCount).to.equal(1)
@@ -62,8 +65,51 @@ describe('Round', () => {
     expect(round.takeTurn("array")).to.return(false)
   })
 
-  it.skip('should say "correct!" when answer is correct', () => {
-    expect(round.takeTurn('array').to.return('correct!')
-
+  it.skip('should store an incorrect guess', () => {
+    const round = new Round(deck)
+    round.takeTurn("array")
+    expect(round.incorrectGuesses).to.equal([1])
   })
+
+  it.skip('should say "correct!" when answer is correct', () => {
+    const round = new Round(deck);
+    expect(round.takeTurn("object")).to.return('correct!')
+  })
+
+  it.skip('should say "incorrect!" when answer is incorrect', () => {
+    const round = new Round(deck);
+    expect(round.takeTurn("array")).to.return('incorrect!')
+  })
+
+  it.skip('should create and instance of Turn', () => {
+    const round = new Round(deck);
+    round.takeTurn('array')
+    expect(turn).to.be.an.instanceOf(Turn)
+  })
+
+  it.skip('should change currentCard to the next card', () => {
+    const round = new Round(deck);
+    round.takeTurn('array')
+    expect(round.currentCard).to.equal(card2)
+    round.takeTurn('array')
+    expect(round.currentCard).to.equal(card3)
+  })
+
+  it.skip('should calculate the percentage of correct guesses', () => {
+    const round = new Round(deck);
+    round.takeTurn('array')
+    round.takeTurn('array')
+    round.takeTurn('accessor method')
+    expect(round.calculatePercentCorrect).to.equal(33)
+  })
+
+  it.skip('should end the round', () => {
+    const round = new Round(deck);
+    round.takeTurn('array')
+    round.takeTurn('array')
+    round.takeTurn('accessor method')
+    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
+  })
+  )
 })
+//expect(card).to.be.an.instanceof(Card);
