@@ -28,19 +28,19 @@ const deck = new Deck([card1, card2, card3]);
 
 describe('Deck', function() {
 
-  it.skip('should be a function', () => {
-    expect(deck).to.be.a('function');
+  it('should be a function', () => {
+    expect(Deck).to.be.a('function');
   });
 
-  it.skip('should be an instance of Deck', () =>  {
+  it('should be an instance of Deck', () =>  {
     expect(deck).to.be.an.instanceof(Deck);
   });
 
-  it.skip('should have some cards', () => {
-    expect(deck.cards).to.equal([card1, card2, card3]);
+  it('should have some cards', () => {
+    expect(deck.cards).to.deep.equal([card1, card2, card3]);
   })
 
-  it.skip('should be able to count the cards', () => {
+  it('should be able to count the cards', () => {
     expect(deck.countCards()).to.equal(3)
   })
 })
