@@ -4,7 +4,7 @@ const expect = chai.expect;
 const Turn = require('../src/Turns');
 const Card = require("../src/Card");
 
-describe('Turns', function() {
+describe('Turn', function() {
 
 it('should be a function', function() {
   const turn = new Turn();
