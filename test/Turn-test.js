@@ -26,12 +26,12 @@ describe("Turn", function() {
     expect(turn.card).to.equal(card)
   })
 
-  it.skip('should return a guess', function() {
-    const turn = new Turn('guess', card)
+  it('should return a guess', function() {
+    const turn = new Turn('object', card)
       expect(turn.returnGuess()).to.equal('object')
   })
 
-  it.skip('should return the current card', function() {
+  it('should return the current card', function() {
     const turn = new Turn('object', card)
       expect(turn.returnCard()).to.equal(card)
   })
