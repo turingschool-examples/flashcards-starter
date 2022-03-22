@@ -21,15 +21,16 @@ describe('Deck', function() {
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = new Deck([card1, card2, card3]);
-    expect(deck.cards[0]).to.be.an.instanceof(Card)
+    expect(deck.cards[0]).to.be.an.instanceof(Card);
   });
 
-  it.skip('should not intake any elements which are not card objects', function() {
+  it('should not intake any elements which are not card objects', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = 12
-    const card3 = false
-    const deck = new Deck([card1, card2, card3]);
-    expect(deck.cards.length).to.equal(1)
+    const card2 = 7549;
+    const card3 = false;
+    const card4 = "This is not a card";
+    const deck = new Deck([card1, card2, card3, card4]);
+    expect(deck.cards.length).to.equal(1);
   });
 
   it('should know how many cards are in the deck', function() {
@@ -39,5 +40,5 @@ describe('Deck', function() {
     const deck = new Deck([card1, card2, card3]);
     expect(deck.countCards()).to.equal(3)
   });
-  
+
 });
