@@ -9,6 +9,20 @@ class Turn {
     returnCard() {
         return this.currentCard
     }
+    evaluateGuess() {
+        if (this.userGuess !== this.currentCard.correctAnswer) {
+            return false
+        }
+        return true
+    }
+    giveFeedback() {
+        if (this.evaluateGuess() === false) {
+            return 'Incorrect!'
+        }
+        if (this.evaluateGuess() === true) {
+            return 'Correct!'
+        }
+    }
 }
 
 module.exports = Turn;

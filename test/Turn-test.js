@@ -30,4 +30,31 @@ describe('Turn', function() {
 
         expect(turn.returnCard()).to.equal(card);
     })
+    it('should be false if answer is wrong', function() {
+        const card = new Card(3, 'What is H2O', ['water', 'iron', 'tungsten', 'oxygen'], 'water')
+        const turn = new Turn('iron', card)
+
+        turn.evaluateGuess();
+
+        expect(turn.evaluateGuess()).to.equal(false)
+    })
+    it('should be true if answer is correct', function() {
+        const card = new Card(3, 'What is H2O', ['water', 'iron', 'tungsten', 'oxygen'], 'water')
+        const turn = new Turn('water', card)
+
+        turn.evaluateGuess();
+
+        expect(turn.evaluateGuess()).to.equal(true)
+    })
+    it('should give feedback based on if it is correct or incorrect', function() {
+        const card = new Card(2, 'What is the color of the the ocean', ['blue', 'red', 'orange', 'purple'], 'blue')
+        const turn = new Turn('red', card);
+        const turn2 = new Turn('blue', card);
+        
+        turn.giveFeedback();
+        turn2.giveFeedback();
+        
+        expect(turn.giveFeedback()).to.equal('Incorrect!');
+        expect(turn2.giveFeedback()).to.equal('Correct!')
+    })
 })
