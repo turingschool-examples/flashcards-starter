@@ -5,7 +5,7 @@ const Card = require('../src/Card');
 
 const Turn = require('../src/Turn');
 
-describe('Turn', function() {
+describe.skip('Turn', function() {
 
   it('should be a function', () => {
     expect(Turn).to.be.a('function')
@@ -17,28 +17,28 @@ describe('Turn', function() {
     expect(turn).to.be.an.instanceof(Turn)
   });
 
-  it.skip('should be able to return a user\'s guess', () => {
+  it('should be able to return a user\'s guess', () => {
     const sampleCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('sea otter', sampleCard)
 
     expect(turn.returnGuess()).to.equal('sea otter')
   });
 
-  it.skip('should be able to return a card', () => {
+  it('should be able to return a card', () => {
     const sampleCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', sampleCard)
 
     expect(turn.returnCard()).to.equal(sampleCard)
   });
 
-  it.skip('should be able to evaluate guess', () => {
+  it('should be able to evaluate guess', () => {
     const sampleCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', sampleCard)
 
     expect(turn.evaluateGuess()).to.equal(false)
   });
 
-  it.skip('should be able to give feedback', () => {
+  it('should be able to give feedback', () => {
     const sampleCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('sea otter', sampleCard)
 
