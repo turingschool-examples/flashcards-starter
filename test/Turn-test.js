@@ -6,6 +6,18 @@ const Card = require('../src/Card');
 
 describe('Turn', function() {
 
+  //declare variables for what you'll define in beforeEach, using let
+  //in this case, define turn and card with new instances
+  //let turn;
+
+  //beforeEach(() => {
+  //assign variables declared above as instances of card/deck
+  // turn = new Turn()
+  // })
+
+  //automatically invokes inside of each it block
+  //consider if you need it in beforeEach - how many times are you using it?
+
   it('should be a function', function() {
     const turn = new Turn();
     expect(Turn).to.be.a('function');
