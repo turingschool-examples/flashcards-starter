@@ -36,12 +36,12 @@ describe("Turn", function() {
       expect(turn.returnCard()).to.equal(card)
   })
 
-  it.skip('should return false if guess is wrong', function() {
+  it('should return false if guess is wrong', function() {
     const turn = new Turn('array', card)
       expect(turn.evaluateGuess()).to.equal(false)
   })
 
-  it.skip('should return true if guess is correct', function() {
+  it('should return true if guess is correct', function() {
     const turn = new Turn('object', card)
       expect(turn.evaluateGuess()).to.equal(true)
   })
