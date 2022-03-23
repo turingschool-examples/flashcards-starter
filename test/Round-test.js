@@ -85,4 +85,14 @@ describe('Round', function() {
     expect(round.incorrectGuesses.length).to.equal(1);
   });
 
+  it('the user should receive feedback on their guess', function() {
+    const cardOne = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const cardTwo = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
+    const cardThree = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
+    const deck = new Deck([cardOne, cardTwo, cardThree]);
+    const round = new Round(deck);
+    expect(round.takeTurn('guess')).to.equal('incorrect!');
+    expect(round.takeTurn('mutator method')).to.equal('correct!');
+  });
+
 })

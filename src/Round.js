@@ -10,7 +10,7 @@ class Round {
 
   returnCurrentCard() {
     this.currentCard = this.deck.cards[this.turns];
-    return this.deck.cards[this.turns];
+    return this.currentCard;
   }
 
   takeTurn(guess) {
@@ -18,7 +18,10 @@ class Round {
     this.turns++;
     this.returnCurrentCard();
     if (guess !== this.currentCard.correctAnswer) {
-      this.incorrectGuesses.push(this.currentCard.id)
+      this.incorrectGuesses.push(this.currentCard.id);
+      return `incorrect!`;
+    } else {
+      return `correct!`;
     }
     // return newTurn;
   }
