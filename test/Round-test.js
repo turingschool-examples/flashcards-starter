@@ -60,7 +60,7 @@ describe('Round', function() {
     const cardThree = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
     const deck = new Deck([cardOne, cardTwo, cardThree]);
     const round = new Round(deck);
-    round.takeTurn();
+    round.takeTurn('guess');
     expect(round.turns).to.equal(1);
   });
 
@@ -70,8 +70,19 @@ describe('Round', function() {
     const cardThree = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
     const deck = new Deck([cardOne, cardTwo, cardThree]);
     const round = new Round(deck);
-    round.takeTurn();
+    round.takeTurn('guess');
     expect(round.currentCard).to.equal(cardTwo);
+  });
+
+  it('the guess is evaluated and recorded for each turn', function() {
+    const cardOne = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const cardTwo = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
+    const cardThree = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
+    const deck = new Deck([cardOne, cardTwo, cardThree]);
+    const round = new Round(deck);
+    expect(round.incorrectGuesses.length).to.equal(0);
+    round.takeTurn('guess');
+    expect(round.incorrectGuesses.length).to.equal(1);
   });
 
 })
