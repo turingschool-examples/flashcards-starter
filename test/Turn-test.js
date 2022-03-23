@@ -47,10 +47,10 @@ describe('Turn', function() {
   });
 
   it('should have a method that returns either "incorrect!" or "correct!" based on the guess of the user', function() {
-    const turn1 = new Turn('function', card1);
+    let turn1 = new Turn('function', card1);
     expect(turn1.giveFeedback()).to.equal('incorrect!');
 
-    const turn2 = new Turn('object', card1);
+    let turn2 = new Turn('object', card1);
     expect(turn2.giveFeedback()).to.equal('correct!');
   });
 })
