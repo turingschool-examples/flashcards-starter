@@ -95,7 +95,7 @@ describe('Round', function() {
     expect(round.takeTurn('mutator method')).to.equal('correct!');
   });
 
-  it('the user should see what percentage of their guesses they have gotten correct', function() {
+  it('there should be a method that calculates what percentage of answers a user has gotten correct', function() {
     const cardOne = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const cardTwo = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
     const cardThree = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
@@ -105,6 +105,18 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal('0%');
     round.takeTurn('mutator method');
     expect(round.calculatePercentCorrect()).to.equal('50%');
+  });
+
+  it('the user should see feedback about the round when they end the round', function() {
+    const cardOne = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const cardTwo = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
+    const cardThree = new Card(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
+    const deck = new Deck([cardOne, cardTwo, cardThree]);
+    const round = new Round(deck);
+    round.takeTurn('guess');
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 0% of the questions correctly!`);
+    round.takeTurn('mutator method');
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`);
   });
 
 })
