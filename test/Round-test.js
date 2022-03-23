@@ -23,5 +23,9 @@ describe("Round", () => {
   });
   it("should pass in a deck", () => {
     expect(round.deck).to.be.an.instanceof(Deck);
-  })
+  });
+  it("should have a method to return current card", () => {
+    let currCard = round.returnCurrentCard();
+    expect(currCard).to.deep.equal(card1);
+  });
 });
