@@ -23,8 +23,34 @@ describe('Turn', function() {
   });
 
   it('should be able to store a card object in play', function() {
-    const card = new Card()
-    const turn = new Turn(card)
-    expect(turn.card).to.equal(new Card(id, question ))
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    const turn = new Turn('potato', card)
+    expect(turn.card).to.equal(card)
+  });
+
+  it('should be able to return the guess', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    const turn = new Turn('potato', card);
+    expect(turn.returnGuess()).to.equal('potato')
   })
+
+  it('should be able to return the card', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    const turn = new Turn('potato', card);
+    expect(turn.returnCard()).to.equal(card)
+  });
+
+  it('should be able to tell if the user guess matches the correct answer on the card', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    const turn = new Turn('object', card);
+    expect(turn.evaluateGuess()).to.equal(true)
+  });
+
+  it('should tell you if your guess is correct or incorrect', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    const turn = new Turn('potato', card);
+    expect(turn.giveFeedback()).to.equal('incorrect')
+  });
+
 })
+
