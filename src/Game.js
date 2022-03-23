@@ -15,4 +15,16 @@ class Game {
   }
 }
 
-module.exports = Game;
+class Turn {
+  constructor(playerGuess, ) {
+
+  }
+  returnGuess() {
+
+  }
+}
+
+class Deck {
+  constructor () {}
+}
+module.exports = Game, Turn;
