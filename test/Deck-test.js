@@ -30,6 +30,6 @@ describe('Deck', function() {
   });
 
   it('should have a counter of how many cards are in the deck', function() {
-    expect(deck.cardCount).to.equal(2);
-  })
+    expect(deck.countCards()).to.equal(2);
+  });
 })
