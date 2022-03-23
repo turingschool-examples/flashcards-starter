@@ -21,4 +21,8 @@ describe("Deck", () => {
   it("should take in an array of cards", () => {
     expect(deck.cards).to.deep.equal([card1, card2, card3]);
   });
+  it("should have a method to count cards", () => {
+    let cardCount = deck.countCards();
+    expect(cardCount).to.equal(3);
+  });
 });
