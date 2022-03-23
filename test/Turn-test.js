@@ -6,15 +6,15 @@ const Card = require('../src/Card');
 
 describe('Turn', function() {
 
-  let card
-  let turn
-  let turn2
+  let card;
+  let turn;
+  let turn2;
 
   beforeEach(() => {
     card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     turn = new Turn('pug', card);
     turn2 = new Turn('sea otter', card);
-  })
+  });
 
   it('should be a function', function() {
     expect(Turn).to.be.a('function');
@@ -48,5 +48,4 @@ describe('Turn', function() {
     expect(turn.giveFeedback()).to.equal('incorrect!');
     expect(turn2.giveFeedback()).to.equal('correct!');
   });
-
 });
