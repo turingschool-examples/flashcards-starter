@@ -8,7 +8,7 @@ describe("Turn", () => {
   let card;
   let turn;
   beforeEach(() => {
-    card = new Card("What is Robbie's favorite animal", ["sea otter", "pug", "capybara"], "sea otter");
+    card = new Card(1, "What is Robbie's favorite animal", ["sea otter", "pug", "capybara"], "sea otter");
     turn = new Turn("pug", card);
   });
   it("should be a function", () => {
@@ -34,5 +34,10 @@ describe("Turn", () => {
   it("should have a method that returns false if guess is incorrect", () => {
     let guessResult = turn.evaluateGuess();
     expect(guessResult).to.equal(false);
+  });
+  it("should allow the same method to return true if guess is correct", () => {
+    turn.guess = "sea otter";
+    let guessResult = turn.evaluateGuess();
+    expect(guessResult).to.equal(true);
   });
 });
