@@ -23,4 +23,8 @@ describe("Turn", () => {
   it("should also pass in a card object for current card in play", () => {
     expect(turn.currentCard).to.be.an.instanceof(Card);
   });
+  it("should have a method that returns user's guess", () => {
+    let guess = turn.returnGuess();
+    expect(guess).to.equal("pug");
+  });
 });
