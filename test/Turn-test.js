@@ -38,28 +38,44 @@ it('should evaluate guess to check if correct', function() {
   const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
   const turn = new Turn('object', card);
   //console.log(turn.card)
+<<<<<<< Updated upstream
   turn.evaluateGuess();
+=======
+  //turn.evaluateGuess();
+>>>>>>> Stashed changes
   expect(turn.evaluateGuess()).to.equal(true);
 });
 
 it('should evaluate guess to check if incorrect', function() {
   const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
   const turn = new Turn('array', card);
+<<<<<<< Updated upstream
   turn.evaluateGuess();
+=======
+  //turn.evaluateGuess();
+>>>>>>> Stashed changes
   expect(turn.evaluateGuess()).to.equal(false);
 });
 
 it('should tell if correct', function() {
   const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
   const turn = new Turn('object', card);
+<<<<<<< Updated upstream
   turn.giveFeedback();
+=======
+  //turn.giveFeedback();
+>>>>>>> Stashed changes
   expect(turn.giveFeedback()).to.equal("Correct!")
 });
 
 it('should tell if incorrect', function() {
   const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
   const turn = new Turn('array', card);
+<<<<<<< Updated upstream
   turn.giveFeedback();
+=======
+  //turn.giveFeedback();
+>>>>>>> Stashed changes
   expect(turn.giveFeedback()).to.equal("Incorrect!")
 });
 
