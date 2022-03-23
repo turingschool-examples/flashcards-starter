@@ -26,6 +26,14 @@ class Round {
     // return newTurn;
   }
 
+  calculatePercentCorrect() {
+    if (this.turns === this.incorrectGuesses.length) {
+      return `0%`;
+    } else {
+      return `${this.incorrectGuesses.length / this.turns *100}%`;
+    }
+  }
+
 }
 
 module.exports = Round;
