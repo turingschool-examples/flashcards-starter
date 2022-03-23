@@ -27,4 +27,8 @@ describe("Turn", () => {
     let guess = turn.returnGuess();
     expect(guess).to.equal("pug");
   });
+  it("should have a method that returns current card", () => {
+    let card1 = turn.returnCard();
+    expect(card1).to.be.an.instanceof(Card);
+  });
 });
