@@ -31,13 +31,22 @@ describe("Turn", () => {
     let card1 = turn.returnCard();
     expect(card1).to.be.an.instanceof(Card);
   });
-  it("should have a method that returns false if guess is incorrect", () => {
+  it("should have a method that returns true if guess is correct", () => {
+  turn.guess = "sea otter";
+    let guessResult = turn.evaluateGuess();
+    expect(guessResult).to.equal(true);
+  });
+  it("should allow the same method to return false if guess is incorrect", () => {
     let guessResult = turn.evaluateGuess();
     expect(guessResult).to.equal(false);
   });
-  it("should allow the same method to return true if guess is correct", () => {
+  it("should have a method that indicates to user if guess is correct", () => {
     turn.guess = "sea otter";
-    let guessResult = turn.evaluateGuess();
-    expect(guessResult).to.equal(true);
+    let feedback = turn.giveFeedback();
+    expect(feedback).to.equal("correct!");
+  });
+  it("should allow the same method to indicate if guess is incorrect", () => {
+    let feedback = turn.giveFeedback();
+    expect(feedback).to.equal("incorrect!");
   });
 });
