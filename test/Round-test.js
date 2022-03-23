@@ -71,8 +71,9 @@ it('should evaluate if guesses are correct or incorrect, and update the turns co
   expect(round.takeTurn('spleen')).to.equal('Incorrect');
   expect(round.returnCurrentCard()).to.equal(card3);
   expect(round.turns).to.equal(2);
-  expect(round.calculatePercentCorrect()).to.equal(50)
-  expect(round.incorrectGuesses).to.deep.equal([14])
+  expect(round.calculatePercentCorrect()).to.equal(50);
+  expect(round.incorrectGuesses).to.deep.equal([14]);
+  expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`)
 
 
 });
