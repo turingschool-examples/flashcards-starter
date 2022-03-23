@@ -31,4 +31,8 @@ describe("Turn", () => {
     let card1 = turn.returnCard();
     expect(card1).to.be.an.instanceof(Card);
   });
+  it("should have a method that returns false if guess is incorrect", () => {
+    let guessResult = turn.evaluateGuess();
+    expect(guessResult).to.equal(false);
+  });
 });
