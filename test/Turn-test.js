@@ -20,4 +20,7 @@ describe("Turn", () => {
   it("should pass in user's guess to the question", () => {
     expect(turn.guess).to.equal("pug");
   });
+  it("should also pass in a card object for current card in play", () => {
+    expect(turn.currentCard).to.be.an.instanceof(Card);
+  });
 });
