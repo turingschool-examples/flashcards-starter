@@ -8,6 +8,7 @@ const Round = require('../src/Round');
 const Game = require('../src/Game');
 
 let game = new Game();
+game.start();
 
 describe('Game', function() {
 

@@ -9,7 +9,6 @@ const Card = require('../src/Card');
 class Game {
   constructor() {
     this.currentRound;
-    
   };
 
   start() {
