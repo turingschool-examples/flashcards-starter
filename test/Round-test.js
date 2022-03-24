@@ -34,6 +34,30 @@ beforeEach(() => {
     expect(round.turns).to.equal(0)
   })
 
+  it('should store incorrect guesses', () => {
+    expect(round.incorrectGuesses).to.deep.equal([])
+  })
+
+  it('should return "correct!" if guess is correct', () => {
+    expect(round.takeTurn('sea otter')).to.equal('correct!')
+  })
+
+  it('should return "incorrect!" if guess is incorrect', () => {
+    expect(round.takeTurn('spleen')).to.equal('incorrect!')
+  })
+
+  it('should add 1 to number of turns every turn', () => {
+    round.takeTurn('sea otter')
+    round.takeTurn('spleen')
+    expect(round.turns).to.equal(2)
+  })
+
+  it('should store incorrect guesses', () => {
+    round.takeTurn('sea otter')
+    round.takeTurn('spleen')
+    expect(round.incorrectGuesses).to.deep.equal([14])
+  })
+
 
 
 
