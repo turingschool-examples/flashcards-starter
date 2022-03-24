@@ -42,12 +42,20 @@ describe("Round", () => {
     let guessResult = round.takeTurn("pug");
     expect(guessResult).to.equal("incorrect!");
   });
-  it("should increment turn counter", () => {
+  it("should increment turn counter every turn", () => {
     expect(round.turns).to.equal(0);
 
     round.takeTurn("sea otter");
-    round.takeTurn("sea otter");
+    round.takeTurn("spleen");
 
     expect(round.turns).to.equal(2);
+  });
+  it("should use a new card per turn", () => {
+    expect(round.currentCard).to.deep.equal(card1);
+    
+    round.takeTurn("sea otter");
+    round.takeTurn("spleen");
+    
+    expect(round.currentCard).to.deep.equal(card3);
   });
 });
