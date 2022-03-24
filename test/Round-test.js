@@ -73,11 +73,4 @@ describe('Round', function() {
     round.takeTurn('spleen');
     expect(round.calculatePercentCorrect()).to.deep.equal(50);
   });
-
-  it('should be able to end a round', function() {
-    round.takeTurn('sea otter');
-    round.takeTurn('spleen');
-    round.takeTurn('playing with bubble wrap');
-    expect(round.endRound()).to.equal(`** Round over! ** You answered 67% of the questions correctly!`);
-  });
 });
