@@ -42,4 +42,12 @@ describe("Round", () => {
     let guessResult = round.takeTurn("pug");
     expect(guessResult).to.equal("incorrect!");
   });
+  it("should increment turn counter", () => {
+    expect(round.turns).to.equal(0);
+
+    round.takeTurn("sea otter");
+    round.takeTurn("sea otter");
+
+    expect(round.turns).to.equal(2);
+  });
 });
