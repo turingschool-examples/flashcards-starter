@@ -79,7 +79,21 @@ describe('Round', function() {
 
     expect(round.incorrectGuesses.length).to.equal(1);
   });
-  
+
+  it('should be able to calculate the percentage of correct answers', () => {
+    round.takeTurn('sea otter')
+    round.takeTurn('spleen')
+
+    expect(round.calculatePercentCorrect()).to.equal(.50);
+  });
+
+  it('should be able to end round', () => {
+
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen')
+
+    expect(round.endRound()).to.equal('** You answered 50% of the questions correctly!')
+  })
 
 
 
