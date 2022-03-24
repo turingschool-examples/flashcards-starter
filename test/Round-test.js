@@ -58,6 +58,18 @@ beforeEach(() => {
     expect(round.incorrectGuesses).to.deep.equal([14])
   })
 
+  it('should update current card after each turn', () => {
+    round.takeTurn('sea otter')
+    round.takeTurn('spleen')
+    expect(round.returnCurrentCard()).to.equal(card3)
+  })
+
+  it('should calculate percent of correct answeres', () => {
+    round.takeTurn('sea otter')
+    round.takeTurn('spleen')
+    expect(round.calculatePercentCorrect()).to.equal(50)
+  })
+
 
 
 
