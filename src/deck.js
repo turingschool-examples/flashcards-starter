@@ -1,5 +1,5 @@
 class Deck {
-  constructor() {
+  constructor(cards) {
     this.cards = cards
   }
   countCards() {
