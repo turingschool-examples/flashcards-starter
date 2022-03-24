@@ -9,7 +9,8 @@ const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 
 
 describe('Deck', function() {
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
+    console.log('deck[0]', this.currentCard)
     const deck = new Deck([card1, card2, card3]);
     expect(Deck).to.be.a('function');
   })
