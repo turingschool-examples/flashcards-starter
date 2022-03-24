@@ -31,6 +31,8 @@ class Round {
     return Math.round(percentCorrect * 100)
   }
 
-  endRound() {}
+  endRound() {
+     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+  }
 }
 module.exports = Round;
