@@ -53,14 +53,14 @@ it('should tell if correct', function() {
   const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
   const turn = new Turn('object', card);
   turn.giveFeedback();
-  expect(turn.giveFeedback()).to.equal("Correct!")
+  expect(turn.giveFeedback()).to.equal("correct!")
 });
 
 it('should tell if incorrect', function() {
   const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
   const turn = new Turn('array', card);
   turn.giveFeedback();
-  expect(turn.giveFeedback()).to.equal("Incorrect!")
+  expect(turn.giveFeedback()).to.equal("incorrect!")
 });
 
 
