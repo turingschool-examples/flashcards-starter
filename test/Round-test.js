@@ -74,4 +74,12 @@ describe("Round", () => {
 
     expect(prcCorrect).to.equal(33);
   });
+  it("should have method that indicates end of round and percentage correct", () => {
+    round.takeTurn("sea otter");
+    round.takeTurn("gallbladder");
+    round.takeTurn("Lex");
+    let endMsg = round.endRound();
+
+    expect(endMsg).to.equal("** Round over! ** You answered 67% of the questions correctly!");
+  });
 });
