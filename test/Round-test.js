@@ -34,4 +34,12 @@ describe("Round", () => {
   it("should have an array of incorrect guesses", () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
+  it("should allow user to take turn with a method", () => {
+    let guessResult = round.takeTurn("sea otter");
+    expect(guessResult).to.equal("correct!");
+  });
+  it("should return incorrect on wrong guess", () => {
+    let guessResult = round.takeTurn("pug");
+    expect(guessResult).to.equal("incorrect!");
+  });
 });
