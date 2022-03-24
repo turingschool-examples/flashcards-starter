@@ -61,10 +61,9 @@ describe('Round', function() {
   })
 
   it('should print round over message with correct answer percentage', () => {
-      expect(round.endRound()).to.equal(`** Round over! ** You answered 0% of the questions correctly!`)
-    round.takeTurn('array')
-    round.endRound()
-    expect(round.endRound()).to.equal(`** Round over! ** You answered 100% of the questions correctly!`)
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 0% of the questions correctly!`);
+    round.takeTurn('array');
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 100% of the questions correctly!`);
   })
 
 });

@@ -25,11 +25,12 @@ class Round{
   calculatePercentCorrect(){
     const correctAnswers = this.turnCount - this.incorrectGuesses.length;
     const correctPercent = Math.ceil((correctAnswers / this.turnCount) * 100);
-    return correctPercent;
+    return this.turnCount ? correctPercent : 0;
   }
 
   endRound(){
     console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
 
