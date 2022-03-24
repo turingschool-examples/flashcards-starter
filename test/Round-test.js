@@ -6,19 +6,21 @@ const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
 
-describe('Round', () => {
-  const card1 = {
-    "id": 1,
-    "question": "What allows you to define a set of related information using key-value pairs?",
-    "answers": ["object", "array", "function"],
-    "correctAnswer": "object"
-  }
-  const card2 = { "id": 2,
-    "question": "What is a comma-separated list of related values?",
-    "answers": ["array", "object", "function"],
-    "correctAnswer": "array"
-  }
-  const round = new Round([card1, card2]);
+describe('Round', function() {
+  let cardOne, cardTwo, cardThree, cards, deck, round
+  this.beforeEach(() => {
+
+   cardOne = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object")
+
+   cardTwo = new Card(2, "What is a comma-separated list of related values?",["array", "object", "function"], "array");
+
+   cardThree = new Card(3,
+   "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method")
+
+   cards = [cardOne, cardTwo, cardThree];
+   deck = new Deck(cards);
+   round = new Round(deck);
+});
 
   it('should be an instance of Round', () => {
     expect(round).to.be.an.instanceof(Round);
@@ -26,41 +28,46 @@ describe('Round', () => {
 
   it('should have a returnCurrentCard method that returns the first card in the deck', () => {
     const returnCurrentCard = round.returnCurrentCard();
-    expect(returnCurrentCard).to.equal(card1);
+    expect(returnCurrentCard).to.equal(cardOne);
   })
 
   it('should update turn count with takeTurn method', () => {
-    const takeTurn = round.takeTurn();
-    expect(takeTurn).to.
-
+    round.takeTurn('object');
+    expect(round.turnCount).to.equal(1);
   })
 
-  it('should evaluate guesses with takeTurn method', () => {
-    const takeTurn = round.takeTurn();
-    expect(takeTurn).to.
+  it('should move second card in deck to current card', ()=> {
+    round.takeTurn('No idea');
+    expect(round.returnCurrentCard()).to.equal(cardTwo)
+  })
 
+  it('should store the ids of incorrect guesses', () => {
+    round.takeTurn('No idea');
+    expect(round.incorrectGuesses).to.deep.equal([ 2 ]);
   })
 
   it('should give feedback with takeTurn method', () => {
-    const takeTurn = round.takeTurn();
-    expect(takeTurn).to.
-
+    let takeTurn = round.takeTurn('array');
+    expect(takeTurn).to.equal('correct!')
+    takeTurn = round.takeTurn('iteration method')
+    expect(takeTurn).to.equal('incorrect!')
   })
 
-  it('should stores ids of incorrect guesses with takeTurn method', () => {
-    const takeTurn = round.takeTurn();
-    expect(takeTurn).to.
-
+  it('should calculate percentage of correctly answered questions', () => {
+    round.takeTurn('who knows')
+    round.takeTurn('mutator method')
+    let correctPercent = round.calculatePercentCorrect()
+    expect(correctPercent).to.equal(50)
   })
+
+  it('should print round over message with correct answer percentage', () => {
+      expect(round.endRound()).to.equal(`** Round over! ** You answered 0% of the questions correctly!`)
+    round.takeTurn('array')
+    round.endRound()
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 100% of the questions correctly!`)
+  })
+
 });
 
-// takeTurn: method that updates turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses
-//
-// When a guess is made, a new Turn instance is created.
-// The turns count is updated, regardless of whether the guess is correct or incorrect
-// The next card becomes current card
-// Guess is evaluated/recorded. Incorrect guesses will be stored (via the id) in an array of incorrectGuesses
-// Feedback is returned regarding whether the guess is incorrect or correct
 
-// calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
-// endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correct
+// endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!'
