@@ -58,4 +58,12 @@ describe("Round", () => {
     
     expect(round.currentCard).to.deep.equal(card3);
   });
+  it("should pass card id into array when guess is incorrect", () => {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+    
+    round.takeTurn("sea otter");
+    round.takeTurn("spleen");
+
+    expect(round.incorrectGuesses).to.deep.equal([14]);
+  });
 });
