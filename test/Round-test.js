@@ -28,4 +28,7 @@ describe("Round", () => {
     let currCard = round.returnCurrentCard();
     expect(currCard).to.deep.equal(card1);
   });
+  it("should have a turn counter", () => {
+    expect(round.turns).to.equal(0);
+  });
 });
