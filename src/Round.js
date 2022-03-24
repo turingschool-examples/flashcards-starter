@@ -19,7 +19,7 @@ class Round {
     if (turn.evaluateGuess() === false) {
       this.incorrectGuesses.push(this.deck.cards[0].id)
     }
-    this.deck.cards.push(this.deck.cards.shift());
+    this.deck.cards.shift();
     this.turns += 1;
     return turn.giveFeedback();
     }
@@ -31,7 +31,8 @@ class Round {
 
   endRound() {
     var correctGuesses = this.calculatePercentCorrect();
-    return (`** Round over! ** You answered ${correctGuesses}% of the questions correctly!`)
+    console.log(`** Round over! ** You answered ${correctGuesses}% of the questions correctly!`)
+    // return process.exit()
   }
 }
 
