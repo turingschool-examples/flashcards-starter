@@ -13,10 +13,6 @@ describe("Turn", () => {
     turn = new Turn("pug", card);
   });
 
-  it("should be a function", () => {
-    expect(Turn).to.be.a("function");
-  });
-
   it("should be an instance of Turn", () => {
     expect(turn).to.be.an.instanceof(Turn);
   });
@@ -55,7 +51,7 @@ describe("Turn", () => {
     let feedback = turn.giveFeedback();
     expect(feedback).to.equal("correct!");
   });
-  
+
   it("should allow the same method to indicate if guess is incorrect", () => {
     let feedback = turn.giveFeedback();
     expect(feedback).to.equal("incorrect!");
