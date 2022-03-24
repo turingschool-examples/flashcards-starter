@@ -66,4 +66,12 @@ describe("Round", () => {
 
     expect(round.incorrectGuesses).to.deep.equal([14]);
   });
+  it("should calculate percent correct with a method", () => {
+    round.takeTurn("sea otter");
+    round.takeTurn("spleen");
+    round.takeTurn("Lex");
+    let prcCorrect = round.calculatePercentCorrect();
+
+    expect(prcCorrect).to.equal(33);
+  });
 });
