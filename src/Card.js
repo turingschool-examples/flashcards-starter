@@ -1,8 +1,12 @@
 class Card {
-   constructor(question, answer) {
-this.question = 'What allows you to define a set of related information using key-value pairs?'
-this.answers = ['object', 'array', 'function']
-this.correctAnswer = 'object'
+   constructor(id, question, answers, correctAnswer) {
+     this.id = id;
+     this.question = question;
+     this.answers = answers;
+     this.correctAnswer = correctAnswer
  }
 }
 module.exports = Card;
+
+
+//const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
