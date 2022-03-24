@@ -19,4 +19,9 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game);
   });
 
+  it('should be able to create a round', function() {
+    game.createRound()
+    expect(game.currentRound.deck.cards.length).to.be.equal(30)
+  })
+
 });
