@@ -31,4 +31,7 @@ describe("Round", () => {
   it("should have a turn counter", () => {
     expect(round.turns).to.equal(0);
   });
+  it("should have an array of incorrect guesses", () => {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
 });
