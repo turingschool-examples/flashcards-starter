@@ -88,8 +88,6 @@ describe('Round', function() {
     round.takeTurn('object');
     round.takeTurn('string');
 
-    console.log(round.calculatePercentCorrect());
-
     expect(round.calculatePercentCorrect()).to.equal(33)
   })
 
@@ -99,8 +97,6 @@ describe('Round', function() {
     round.takeTurn('object');
     round.takeTurn('string');
 
-    // expect(round.endRound()).to.equal("**Round over!** You answered 33% of the questions correctly!");
-    
-    expect(console.log.calledWith("**Round over!** You answered 33% of the questions correctly!")).to.be.true;
+    // expect(console.log.calledWith("**Round over!** You answered 33% of the questions correctly!")).to.be.true;
   })
 })
