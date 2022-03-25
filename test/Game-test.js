@@ -33,14 +33,20 @@ describe("Game", () => {
     game = new Game(round)
   });
 
-  it("should be an instance of Game", () => {
+  it.skip("should be an instance of Game", () => {
     expect(game).to.be.an.instanceof(Game);
   });
 
-  it('should keep track of the current Round', () => {
+  it.skip('should keep track of the current Round', () => {
     expect(game.currentRound).to.deep.equal(round)
   })
 
-  
+  it.skip('should create cards', () => {
+    game.start()
+    expect(game.start(cards)).to.equal(deck.cards)
+
+  })
+
+
 
 })

@@ -6,7 +6,7 @@ const Deck = require("../src/Deck");
 const Round = require("../src/Round");
 
 describe("Round", () => {
-  let card1, card2, card3, deck, round;
+  let card1, card2, card3, deck, round, turn;
 
   beforeEach(() => {
     card1 = new Card(
@@ -29,6 +29,7 @@ describe("Round", () => {
     );
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck.cards);
+
   });
 
   it.skip("should be an instance of Round", () => {
@@ -42,6 +43,11 @@ describe("Round", () => {
   it.skip("should show current card", () => {
     expect(round.returnCurrentCard()).to.deep.equal(card1);
   });
+
+  it('should make a new turn with every guess', () => {
+    round.takeTurn('object')
+    expect(round.currentTurn).to.be.an.instanceof(Turn)
+  })
 
   it.skip("should show how many turns have happened in the current round", () => {
     expect(round.turns).to.equal(0);
