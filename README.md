@@ -15,17 +15,14 @@ FlashCards is a project to create a multiple choice 'flashcard' game playable in
 
 This project's deployment is [here](https://friotious.github.io/flashcards-starter/)
 
+fork and `git clone`
+
+run `node index.js` in terminal
+
+use arrow keys and enter for gameplay
 ---
 
 ### Tech Used
 
-This project uses Javascript, written in Atom.
----
-### Features
-
-Terminal play multiple choice quiz game
-
-guess answer of 3 options using arrow keys and enter
-get a return of correct or incorrect on each turn
-get a percentage correct at end of game
+This project uses Javascript, written in Atom, using TDD
 ---
