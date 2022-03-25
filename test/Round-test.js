@@ -37,9 +37,7 @@ describe('Round', function() {
     it('should return the first card on the deck', function() {
         const round = new Round(deck);
 
-        let returnCard = round.returnCurrentCard();
-
-        expect(returnCard).to.equal(card);
+        expect(round.returnCurrentCard()).to.equal(card);
     })
 
     it('should start at 0 rounds', function() {
@@ -118,7 +116,7 @@ describe('Round', function() {
         expect(round.calculatePercentCorrect()).to.equal(correct)
     })
 
-    it('should tell the user the round is over', function() {
+    it('should make endRound a function', function() {
         const turn = new Turn('slice()', card)
         const round = new Round(deck)
 
@@ -129,7 +127,7 @@ describe('Round', function() {
 
         round.endRound();
 
-        expect(round.endRound()).to.equal(`**Round over!** You answered <${correctPercent}>% of the questions correctly!`)
+        expect(round.endRound())
     })
 
 })
