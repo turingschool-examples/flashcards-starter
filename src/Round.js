@@ -18,6 +18,7 @@ class Round {
     let turn = new Turn(guess, this.currentCard)
     this.currentTurn = turn
     this.turns++;
+
     if (guess === this.currentCard.correctAnswer) {
       this.currentCard = this.deck[this.turns];
       return "correct!";
