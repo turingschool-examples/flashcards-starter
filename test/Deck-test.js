@@ -14,17 +14,17 @@ describe('Deck', function() {
     expect(Deck).to.be.a('function');
   })
 
-  it.skip('should be an instance of Deck', function() {
+  it('should be an instance of Deck', function() {
     const deck = new Deck();
     expect(deck).to.be.an.instanceof(Deck);
   });
 
-  it.skip('should contain an array of cards', function() {
+  it('should contain an array of cards', function() {
     const deck = new Deck([card1, card2, card3]);
     expect(deck.cards).to.deep.equal([card1, card2, card3])
   })
 
-  it.skip('should know how many Cards are in the Deck', function() {
+  it('should know how many Cards are in the Deck', function() {
     const deck = new Deck([card1, card2, card3]);
     expect(deck.countCards()).to.equal(3)
   })
