@@ -5,7 +5,11 @@ const expect = chai.expect;
 const Turn = require('../src/Turn');
 
 describe('Turn', function() {
-
+  let turn
+  beforeEach(() => {
+     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+     turn = new Turn('potato', card)
+  })
   it('should be a function', function() {
     const turn = new Turn();
     expect(Turn).to.be.a('function');
@@ -23,20 +27,17 @@ describe('Turn', function() {
   });
 
   it('should be able to store a card object in play', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    const turn = new Turn('potato', card)
+    
     expect(turn.card).to.equal(card)
   });
 
   it('should be able to return the guess', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    const turn = new Turn('potato', card);
+   
     expect(turn.returnGuess()).to.equal('potato')
   })
 
   it('should be able to return the card', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    const turn = new Turn('potato', card);
+    
     expect(turn.returnCard()).to.equal(card)
   });
 
@@ -47,10 +48,11 @@ describe('Turn', function() {
   });
 
   it('should tell you if your guess is correct or incorrect', () => {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    const turn = new Turn('potato', card);
+    
     expect(turn.giveFeedback()).to.equal('incorrect')
   });
+
+ 
 
 })
 
