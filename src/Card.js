@@ -7,6 +7,3 @@ class Card {
  }
 }
 module.exports = Card;
-
-
-//const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');

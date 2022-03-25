@@ -23,12 +23,12 @@ describe('Turn', function()  {
 
  let card;
  beforeEach(function() {
-   const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+   card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
  })
 
  it('should also instanciate an object or the current card played', function() {
    const turn = new Turn('sea otter', card)
-   expect(turn.CardinPlay).to.equal(card)
+   expect(turn.cardInPlay).to.equal(card)
  });
 
  it('should have method to return the guess', function() {
@@ -43,17 +43,15 @@ describe('Turn', function()  {
 
  it('should have method that returns a boolean for the correct card answer', function() {
    const turn = new Turn('pug', card)
-   const turn2 = new Turn('sea otter', card)
+   const turn1 = new Turn('sea otter', card)
    expect(turn.evaluateGuess()).to.equal(false)
-   expect(turn2.evaluateGuess()).to.equal(true)
+   expect(turn1.evaluateGuess()).to.equal(true)
  });
- // ^^^^
-// i dont know why this isnt working...
- //
- // it('should have a method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not', function() {
- //    const turn = new Turn('pug', card);
- //    const turn2 = new Turn('sea otter', card);
- //    expect(turn.giveFeedback()).to.equal('incorrect!');
- //    expect(turn2.giveFeedback()).to.equal('correct!');
- //  });
+
+ it('should have a method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not', function() {
+    const turn = new Turn('pug', card);
+    const turn2 = new Turn('sea otter', card);
+    expect(turn.giveFeedback()).to.equal('incorrect!');
+    expect(turn2.giveFeedback()).to.equal('correct!');
+  });
   });
