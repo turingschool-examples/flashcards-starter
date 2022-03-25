@@ -12,15 +12,12 @@ describe('Turn', function() {
         card = new Card(1, 'What is this animal', ['pig', 'otter', 'pub'], 'otter')
         turn = turn = new Turn('penguin', card)
     })
-    
-
 
     it('should be a function', function() {
-        // const turn = new Turn()
         expect(Turn).to.be.a('function');
     })
     it('should be an instance of Turn', function() {
-        // const turn = new Turn();
+
         expect(turn).to.be.an.instanceof(Turn);
     }); 
 
