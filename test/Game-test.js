@@ -28,16 +28,10 @@ describe('Round', function() {
 
   it('should make a new deck', () => {
     game.start()
-    // console.log(game.deck)
     expect(game.deck).to.deep.equal(deck)
   })
 
-  it('should make a new instance of round', () => {
-    game.start()
-    // console.log(game.deck)
-    expect(game.currentRound).to.be.an.instanceOf(Round)
-  })
-
+ 
 
 
 })

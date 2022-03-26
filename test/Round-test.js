@@ -59,7 +59,6 @@ describe('Round', function() {
   it('should be able to change to the next card', () => {
     round.takeTurn()
     expect(round.returnCurrentCard()).to.equal(card2)
-    console.log('this is incorrect guesses ', round.incorrectGuesses)
   })
 
   it('should store incorrect guesses', () => {
@@ -78,9 +77,9 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal(0)
   })
 
-  it('should tell you percentage of correct answers at the end of the round', () => {
+  it('should call endRound', () => {
     round.takeTurn()
-      expect(round.endRound()).to.equal(`** Round over!** You answered 0% of the questions correctly!`)
+      expect(round.endRound()).to.equal(true)
     
   })
 
