@@ -20,17 +20,7 @@ class Round {
       this.incorrectGuesses.push(this.returnCurrentCard().id)
     }
     this.deck.shift()
-    //  this.feedback = newTurn
      return newTurn.giveFeedback()
-
-
-// make a new turn variable and assign it to new instance of Turn.
-//Make a parameter to take in a guess from the user.
-// Update the turn count regardless if it was correct or not.
-// Make an if statement to evaluate if turn.guess is not equal to this.deck[0].correct answer
-// if not the same you want to push the ID of that card into the incorrect guesses array
-// remove the current card (try splice or shift) 
-// invoke a helper method to give feedback on if they were correct or incorrect
   }
 
   calculatePercentCorrect() {
@@ -39,7 +29,7 @@ class Round {
   }  
 
   endRound() {
-    return `** Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log( `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
   }
 }
 
