@@ -45,6 +45,13 @@ describe('Turn', function() {
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
+  it('evaluateGuess should test if user guess is correct', function() {
+    const card = new Card(1,'Example?',['example','Example'], 'Example');
+    const turn = new Turn('example', card);
+
+    expect(turn.evaluateGuess()).to.equal(false);
+  });
+
   it('should have a giveFeedback function', function() {
     const card = new Card(1,'Example?',['example','Example'], 'Example');
     const turn = new Turn('Example', card);
