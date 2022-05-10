@@ -22,4 +22,32 @@ describe('Turn', function() {
 
     expect(turn.card).to.deep.equal(card);
   });
+
+  it.skip('should have a returnGuess function', function() {
+    const card = new Card(1,'Example?',['example','Example'], 'Example');
+    const turn = new Turn('Example', card);
+
+    expect(turn.returnGuess()).to.equal('Example');
+  });
+
+  it.skip('should have a returnCard function', function() {
+    const card = new Card(1,'Example?',['example','Example'], 'Example');
+    const turn = new Turn('Example', card);
+
+    expect(turn.returnCard()).to.deep.equal(card);
+  });
+
+  it.skip('should have a evaluateGuess function', function() {
+    const card = new Card(1,'Example?',['example','Example'], 'Example');
+    const turn = new Turn('Example', card);
+
+    expect(turn.evaluateGuess()).to.equal(true);
+  });
+
+  it.skip('should have a giveFeedback function', function() {
+    const card = new Card(1,'Example?',['example','Example'], 'Example');
+    const turn = new Turn('Example', card);
+
+    expect(turn.giveFeedback(turn.evaluateGuess())).to.equal('correct!');
+  });
 })
