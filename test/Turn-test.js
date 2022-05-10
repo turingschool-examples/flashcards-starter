@@ -5,8 +5,21 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
   describe("Turn", () => {
+let turn, card, card3;
+
+    beforeEach(() => {
+      const card3 = new Card(
+        3,
+        "What type of prototype method directly modifies the existing array?",
+        ["mutator method", "accessor method", "iteration method"],
+        "mutator method"
+      );
+      const turn = new Turn();
+      const card = new Card();
+    });
+
     it("should be a function", () => {
-      const card = new Turn();
+      const turn = new Turn();
       expect(Turn).to.be.a("function");
     });
   
@@ -16,54 +29,31 @@ const Turn = require('../src/Turn');
     });
   
     it("should be able to store a user's guess", () => {
-      const turn = new Turn("filter method");
-      expect(turn.userGuess).to.equal("filter method");
+      const turn2 = new Turn("filter method");
+      expect(turn2.userGuess).to.equal("filter method");
     });
   
     it("should be able to reference the flashcard in play", () => {
-      const card = new Card(
-        3,
-        "What type of prototype method directly modifies the existing array?",
-        ["mutator method", "accessor method", "iteration method"],
-        "mutator method"
-      );
-      const turn = new Turn("filter method", card);
-      expect(turn.card).to.equal(card);
+      const turn3 = new Turn("filter method", card3);
+      expect(turn3.card).to.equal(card3);
     });
   
     it("should be able to return the player's guess", () => {
-      const card = new Card(
-        3,
-        "What type of prototype method directly modifies the existing array?",
-        ["mutator method", "accessor method", "iteration method"],
-        "mutator method"
-      );
-      const janesTurn = new Turn("array", card);
-      const janesGuess = janesTurn.returnGuess();
-      expect(janesGuess).to.equal("array");
+      const erinsTurn = new Turn("array", card);
+      const erinsGuess = erinsTurn.returnGuess();
+      expect(erinsGuess).to.equal("array");
     });
   
     it("should be able return the stored flashcard's information", () => {
-      const card = new Card(
-        3,
-        "What type of prototype method directly modifies the existing array?",
-        ["mutator method", "accessor method", "iteration method"],
-        "mutator method"
-      );
-      const turn = new Turn("paper", card);
+      const turn = new Turn("paper", card3);
       const currentCard = turn.returnCard();
-      expect(currentCard).to.equal(card);
+      expect(currentCard).to.equal(card3);
     });
   
-    it("should be able to determine if player's guess is correct or not", () => {
-      const card = new Card(
-        3,
-        "What type of prototype method directly modifies the existing array?",
-        ["mutator method", "accessor method", "iteration method"],
-        "mutator method"
-      );
-      const turn = new Turn("mutator method", card);
+    it("should be able to determine if player's guess is correct", () => {
+      const turn = new Turn("mutator method", card3);
       expect(turn.userGuess).to.equal("mutator method");
       expect(turn.giveFeedback()).to.equal("You are Correct! 🌟 ");
     });
+
   });
