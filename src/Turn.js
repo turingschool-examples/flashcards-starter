@@ -15,14 +15,14 @@ class Turn {
     };
 
     evaluateGuess() {
-        if (this.guess === this.card.correct){
+        if (this.guess === this.card.correctAnswer){
             this.evaluate = true;
         }
         return this.evaluate;
     }
 
     giveFeedback() {
-        if (this.evalute === true){
+        if (this.evaluate === true){
             this.feedback = 'Correct!'
         }
         return this.feedback;

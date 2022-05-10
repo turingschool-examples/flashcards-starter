@@ -6,10 +6,11 @@ const Card = require('../src/Card');
 
 describe('Turn', () => {
 
+    let card = new Card (2,'where','here','denver')
     let turn;
 
     beforeEach(() => {
-        turn = new Turn('', Card)
+        turn = new Turn('denver', card)
     });
 
     it('should be a function', () => {
@@ -21,11 +22,11 @@ describe('Turn', () => {
     });
 
     it('should take in an guess', () => {
-        expect(turn.guess).to.equal('')
+        expect(turn.guess).to.equal('denver')
     });
 
     it('should use a Card to play', () => {
-        expect(turn.card).to.equal(Card)
+        expect(turn.card).to.be.an.instanceOf(Card)
     });
 
     it('should return guess', () => {
@@ -40,16 +41,32 @@ describe('Turn', () => {
         expect(turn.returnCard()).to.equal(turn.card)
     });
 
-    it('should check a users guess', () => {
+    it('should check a users correct guess', () => {
         turn.evaluateGuess();
 
-        expect(turn.evaluateGuess()).to.equal(turn.evaluate)
+        expect(turn.evaluateGuess()).to.equal(true)
     });
+
+    it('should check users incorrect guess', () => {
+        turn = new Turn('atlanta', card)
+        turn.evaluateGuess();
+
+        expect(turn.evaluateGuess()).to.equal(false)
+    })
 
     it('should give correct feedback', () => {
+        turn.evaluateGuess();
         turn.giveFeedback();
 
-        expect(turn.giveFeedback()).to.equal(turn.feedback)
+        expect(turn.giveFeedback()).to.equal('Correct!')
     });
+
+    it('should give incorrect feedback', () => {
+        turn = new Turn('boston', card)
+        turn.evaluateGuess();
+        turn.giveFeedback();
+
+        expect(turn.giveFeedback()).to.equal('Incorrect')
+    })
 
 })
