@@ -29,5 +29,11 @@ describe('Turn', function() {
     const card = new Card(1, 'How many mates will a seahorse have in a lifetime?', ['one', 'as many as possible', 'none'], 'one')
     const turn = new Turn('one', card)
     expect(turn.currentCard).to.equal(card)
+  });
+
+  it('should return a user guess', function() {
+    const card = new Card(1, 'How many mates will a seahorse have in a lifetime?', ['one', 'as many as possible', 'none'], 'one')
+    const turn = new Turn('one', card)
+    expect(turn.returnGuess()).to.equal('one')
   })
 })
