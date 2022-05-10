@@ -28,15 +28,22 @@ describe('Turn', () => {
     });
 
     it.skip('Should be able to return the user\'s guess', () => {
-        const card = new Card (2, 'Who was the guitarist for Pink Floyd?', ['Roger Waters', 'David Gilmour', 'Richard Wright', 'Nick Mason'], 'Nick Mason');
+        const card = new Card (2, 'Who was the guitarist for Pink Floyd?', ['Roger Waters', 'David Gilmour', 'Richard Wright', 'Nick Mason'], 'David Gilmour');
         const turn = new Turn('David Gilmour', card);
         
         expect(turn.returnGuess()).to.equal('David Gilmour');
     });
     it.skip('Should be able to return the current card in play', () => {
-        const card = new Card (3, 'Who was the keyboardist for Pink Floyd?', ['Roger Waters', 'David Gilmour', 'Richard Wright', 'Nick Mason'], 'Nick Mason');
+        const card = new Card (3, 'Who was the keyboardist for Pink Floyd?', ['Roger Waters', 'David Gilmour', 'Richard Wright', 'Nick Mason'], 'Richard Wright');
         const turn = new Turn('Richard Wright', card);
 
         expect(turn.returnCard()).to.equal(card);
     });
+
+    it.skip('Should be able to evaluate the user\'s guess', () => {
+        const card = new Card (3, 'Who was the bassist for Pink Floyd?', ['Roger Waters', 'David Gilmour', 'Richard Wright', 'Nick Mason'], 'Roger Waters');
+        const turn = new Turn('Richard Wright', card);
+
+        expect(turn.evaluateGuess()).to.equal(false);
+    })
 });
