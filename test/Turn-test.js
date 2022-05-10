@@ -43,7 +43,18 @@ describe('Turn', () => {
     it.skip('Should be able to evaluate the user\'s guess', () => {
         const card = new Card (3, 'Who was the bassist for Pink Floyd?', ['Roger Waters', 'David Gilmour', 'Richard Wright', 'Nick Mason'], 'Roger Waters');
         const turn = new Turn('Richard Wright', card);
+        const turn2 = new Turn ('Roger Waters', card);
 
         expect(turn.evaluateGuess()).to.equal(false);
-    })
+        expect(turn2.evaluateGuess()).to.equal(true);
+    });
+
+    it.skip('Should give feedback based on the user\'s answer', () => {
+        const card = new Card (3, 'Who was the bassist for Pink Floyd?', ['Roger Waters', 'David Gilmour', 'Richard Wright', 'Nick Mason'], 'Roger Waters');
+        const turn = new Turn('Richard Wright', card);
+        const turn2 = new Turn ('Roger Waters', card);
+
+        expect(turn.giveFeedback).to.equal('incorrect!');
+        expect(turn2.giveFeedback).to.equal('correct!');
+    });
 });
