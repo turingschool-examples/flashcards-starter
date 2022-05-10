@@ -12,12 +12,24 @@ class Turn {
     return this.currentCard;
   };
 
-  evaluateGuess() {
-    if (this.guess === this.currentCard.correctAnswer) {
+  evaluateGuess(guess) {
+    var correctAnswer = this.currentCard.correctAnswer;
+    var guess = this.guess;
+    
+    if (guess === correctAnswer) {
+      this.giveFeedback(true);
       return true;
-    } else if (this.guess !== this.currentCard.correctAnswer) {
+    } else if (guess !== correctAnswer) {
+      this.giveFeedback(false);
       return false;
     };
+  };
+  giveFeedback(feedback) {
+    if (feedback === true) {
+      return 'correct!'
+    } else if (feedback === false) {
+      return 'incorrect!'
+    }
   };
 };
 

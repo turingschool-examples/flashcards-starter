@@ -6,12 +6,12 @@ const Turn = require('../src/Turn');
 describe('Turn', function() {
 
   it('should be a function', function() {
-    const turn = new Turn;
+    const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
   it('should be an instance of Turn', function() {
-    const turn = new Turn;
+    const turn = new Turn();
     expect(turn).to.be.a.instanceof(Turn);
   });
 
@@ -54,4 +54,16 @@ describe('Turn', function() {
     const turn = new Turn('twenty-four', card);
     expect(turn.evaluateGuess()).to.equal(false);
   });
-})
+
+  it('should return "correct!" if the guess is right', function() {
+    const card = new Card(2, 'How many hours a day can an adult panda spend eating?', ['two', 'twenty-four', 'twelve'], 'twelve');
+    const turn = new Turn('twelve', card);
+    expect(turn.giveFeedback(true)).to.equal('correct!');
+  });
+
+  it('should return "incorrect!" if the guess is wrong', function() {
+    const card = new Card(2, 'How many hours a day can an adult panda spend eating?', ['two', 'twenty-four', 'twelve'], 'twelve');
+    const turn = new Turn('twenty-four', card);
+    expect(turn.giveFeedback(false)).to.equal('incorrect!');
+  })
+});
