@@ -27,4 +27,11 @@ describe('Turn', () => {
         expect(turn.guess).to.equal('Nick Mason');
     });
 
+    it.skip('Should be able to return the user\'s guess', () => {
+        const card = new Card (1, 'Who was the guitarist for Pink Floyd?', ['Roger Waters', 'David Gilmour', 'Richard Wright', 'Nick Mason'], 'Nick Mason');
+        const turn = new Turn('David Gilmour', card);
+        
+        expect(turn.returnGuess()).to.equal('David Gilmour');
+    });
+
 });
