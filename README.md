@@ -1,5 +1,12 @@
 # Turing Mod 2 Project 1 : FlashCards
 
+## Table Of Contents
+*[About](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#about)
+*[Demo GIF](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#demo-gif)
+*[New Methodologies Used](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#new-methodologies-used)
+*[Resources](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#resources)
+*[Install Instructions](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#install--setup-instructions)
+
 ## About 
 
 ### Functionality
@@ -28,8 +35,8 @@ These are the goals
 * String interpolation
 
 ## Resources
-[Foreach Loop](https://stackoverflow.com/questions/47433451/foreach-loop-on-array-with-fat-arrow)
-[Ternary Conditional using the '?'](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript/)
+*[Foreach Loop](https://stackoverflow.com/questions/47433451/foreach-loop-on-array-with-fat-arrow)
+*[Ternary Conditional using the '?'](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript/)
 
 ## Install & Setup Instructions
 * Clone this repo to your local machine
