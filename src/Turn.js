@@ -24,7 +24,7 @@ class Turn {
       return false;
     };
   };
-  
+
   giveFeedback(feedback) {
     if (feedback === true) {
       return 'correct!'
