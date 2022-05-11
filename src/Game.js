@@ -7,8 +7,10 @@ const Deck = require('../src/Deck');
 
 class Game {
     constructor() {
-		this.currentRound;
-		
+		var cards = [];
+		prototypeQuestions.forEach(x => cards.push(new Card(x.id, x.question, x.answers, x.correctAnswer)))
+		var deck = new Deck(cards);
+		this.currentRound = new Round(deck);
 	}
 
     printMessage(deck, round) {
@@ -21,10 +23,6 @@ class Game {
     }
 
     start(){
-		var cards = [];
-		prototypeQuestions.forEach(x => cards.push(new Card(x.id, x.question, x.answers, x.correctAnswer)))
-		var deck = new Deck(cards);
-		this.currentRound = new Round(deck);
 		this.printMessage(deck, this.currentRound);
 		this.printQuestion(this.currentRound);
 	}
