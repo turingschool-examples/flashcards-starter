@@ -36,8 +36,8 @@ These are the goals
 * String interpolation
 
 ## Resources
-*[Foreach Loop](https://stackoverflow.com/questions/47433451/foreach-loop-on-array-with-fat-arrow)
-*[Ternary Conditional using the '?'](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript/)
+* [Foreach Loop](https://stackoverflow.com/questions/47433451/foreach-loop-on-array-with-fat-arrow)
+* [Ternary Conditional using the '?'](https://www.freecodecamp.org/news/how-the-question-mark-works-in-javascript/)
 
 ## Install & Setup Instructions
 * Clone this repo to your local machine
