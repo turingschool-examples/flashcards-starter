@@ -4,30 +4,35 @@ const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
 describe('Deck', function() {
+  let card1;
+  let card2;
+  let card3;
+  let deck;
+  let round;
+  beforeEach(() => {
+
+    card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object")
+    card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
+    card3 = new Card (3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method")
+
+    deck = new Deck([card1, card2, card3]);
+
+
+  });
 
   it('should be a function', function() {
-    const deck = new Deck;
     expect(Deck).to.be.a('function');
   });
 
   it('should be a new instance of a deck', function() {
-    const deck = new Deck;
       expect(deck).to.be.a.instanceOf(Deck);
   });
 
   it('should be initialized with a new array of Card objects', function() {
-    const antCard = new Card(1, 'How many ants are there for every human in the world?', ['two billion', 'one hundred', 'one million'], 'one million');
-    const octopusCard = new Card(2, 'How many hearts does an octopus have?', ['five', 'one', 'three'], 'three');
-    const viperCard = new Card(3, 'How many times over could a gram of king cobra venom kill a human?', ['could not kill a human', 'once', '150 times'], '150 times');
-    const deck = new Deck([antCard, octopusCard, viperCard]);
-    expect(deck.cards).to.deep.equal([antCard, octopusCard, viperCard])
+    expect(deck.cards).to.deep.equal([card1, card2, card3])
   });
 
   it('should calculate how many cards are in a deck', function() {
-    const antCard = new Card(1, 'How many ants are there for every human in the world?', ['two billion', 'one hundred', 'one million'], 'one million');
-    const octopusCard = new Card(2, 'How many hearts does an octopus have?', ['five', 'one', 'three'], 'three');
-    const viperCard = new Card(3, 'How many times over could a gram of king cobra venom kill a human?', ['could not kill a human', 'once', '150 times'], '150 times');
-    const deck = new Deck([antCard, octopusCard, viperCard]);
     expect(deck.countCards()).to.equal(3);
   });
 });
