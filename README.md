@@ -1,11 +1,12 @@
 # Turing Mod 2 Project 1 : FlashCards
 
 ## Table Of Contents
-*[About](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#about)
-*[Demo GIF](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#demo-gif)
-*[New Methodologies Used](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#new-methodologies-used)
-*[Resources](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#resources)
-*[Install Instructions](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#install--setup-instructions)
+
+* [About](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#about)
+* [Demo GIF](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#demo-gif)
+* [New Methodologies Used](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#new-methodologies-used)
+* [Resources](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#resources)
+* [Install Instructions](https://github.com/dbirdflyshi/turing-m2-p1-flashcards#install--setup-instructions)
 
 ## About 
 
