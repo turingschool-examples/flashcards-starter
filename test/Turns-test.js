@@ -44,8 +44,7 @@ describe('Turns', () => {
         expect(turns.returnCard()).to.equal(card);
 
       })
-      //evaluateGuess: method that returns a boolean indicating 
-    //   if the user’s guess matches the correct answer on the card
+ 
       it('should be able to return a boolean indicating if the user’s guess matches the correct answer on the card', () => {
         const card = new Card(1,"What allows you to define a set of related information using key-value pairs?",["object", "array", "function"],"object"); //instance of card
         const turns1 = new Turns("object", card);
@@ -58,6 +57,21 @@ describe('Turns', () => {
         expect(turns2.evaluateGuess()).to.equal(false);
 
       })
+ 
+      it('should tell if the guess is correct or incorrect!', () => {
+        const card = new Card(1,"What allows you to define a set of related information using key-value pairs?",["object", "array", "function"],"object"); //instance of card
+        const turns1 = new Turns("object", card);
+        const turns2 = new Turns("array",card);
+        
+        turns1.evaluateGuess();
+        turns1.giveFeedback();
+        turns2.evaluateGuess();
+        turns2.giveFeedback();
 
-     
+        // expect(turns1.evaluateGuess()).to.equal(true);
+        expect(turns1.giveFeedback()).to.equal('correct!');
+        // expect(turns2.evaluateGuess()).to.equal(false);
+        expect(turns2.giveFeedback()).to.equal('incorrect!');
+
+      })
 })
