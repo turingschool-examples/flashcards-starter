@@ -2,7 +2,6 @@ const chai = require('chai');
 const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
 describe('Round', () => {
@@ -22,7 +21,38 @@ describe('Round', () => {
         expect(round.returnCurrentCard()).to.equal(card1);
     })
 
-    it('should be able to to take a turn', () => {
-        expect(round.takeTurn()).to.be.an.instanceOf(Turn)
-    });
+    it('should record that there was a turn taken', () => {
+        round.takeTurn('object');
+        round.takeTurn('object');
+        expect(round.turns).to.equal(2)
+    })
+
+    it('should move to the next card', () => {
+        round.takeTurn('object');
+        expect(round.returnCurrentCard()).to.equal(card2)
+    })
+    it('should evaluate and record guess', () => {
+        round.takeTurn('bananas');
+        round.takeTurn('apple');
+        expect(round.incorrectGuesses[0]).to.equal(1)
+        expect(round.incorrectGuesses.length).to.equal(2)
+    })
+    it('should return feedback if wrong', () => {
+        expect(round.takeTurn('bananas')).to.equal('incorrect!');
+    })
+
+    it('should return feedback if correct', () => {
+        expect(round.takeTurn('object')).to.equal('correct!');
+    })
+    
+    it('should calculate the percentage of correct answers', () => {
+        round.takeTurn('object');
+        round.takeTurn('bananas');
+        expect(round.calculatePercentage()).to.equal(50);
+    })
+
+    it('should be able to end the round', () => {
+        round.takeTurn('object');
+        expect(round.endRound()).to.equal(`** Round over! ** You answered 100% of the questions correctly!`)
+    })
 })
