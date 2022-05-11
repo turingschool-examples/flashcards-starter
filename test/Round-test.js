@@ -85,7 +85,7 @@ describe('Round', function(){
 
   })
 
-  it.skip('should change current card when a turn has been taken', function() {
+  it('should change current card when a turn has been taken', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -99,7 +99,7 @@ describe('Round', function(){
     expect(round.returnCurrentCard()).to.deep.equal(deck.cards[2]);
   })
 
-  it.skip('should change current card whether the guess is incorrect or not', function() {
+  it('should change current card whether the guess is incorrect or not', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -112,7 +112,7 @@ describe('Round', function(){
     expect(round.returnCurrentCard()).to.deep.equal(deck.cards[2]);
   })
 
-  it.skip('should track incorrect guesses', function() {
+  it('should track incorrect guesses', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -125,7 +125,7 @@ describe('Round', function(){
     round.takeTurn('appendix');
     expect(round.incorrectGuesses).to.deep.equal([1,14]);
   })
-  it.skip('should have the ability to evaluate percent of correct guesses', function(){
+  it('should have the ability to evaluate percent of correct guesses', function(){
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -140,7 +140,7 @@ describe('Round', function(){
     expect(round.calculatePercentCorrect()).to.equal(33);
   })
 
-  it.skip('should print result', function(){
+  it('should print result', function(){
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
