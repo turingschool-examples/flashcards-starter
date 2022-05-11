@@ -3,7 +3,7 @@
 ## About 
 
 ### Functionality
-This is a flash card quiz about array prototype methods performed completely in the command line. 
+This is a flash card quiz about array prototype methods performed completely in the command line. The user will be able to see questions, take guesses and see a final score at thends of the round. 
 
 ### Goals and Objectives
 For the start of module 2, we will focus on test driven development. What this means is that we will be making the code based on the tests you first make.
@@ -15,6 +15,7 @@ These are the goals
 * Write modular code using SRP
 * Implement a robust testing suite using TDD
 
+[The Lesson Is here](https://frontend.turing.edu/projects/flash-cards.html)
 
 ## Where to Add Your Code
 
