@@ -1,32 +1,19 @@
-# FlashCards Starter Kit
+# Turing Mod 2 Project 1 : FlashCards
 
-## Fork This Repo
+## About 
 
-On the top right corner of this page, click the **Fork** button.
+### Functionality
+This is a flash card quiz about array prototype methods performed completely in the command line. 
 
-## Setup
+### Goals and Objectives
+For the start of module 2, we will focus on test driven development. What this means is that we will be making the code based on the tests you first make.
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+These are the goals
+* Contribute to a partially constructed object oriented application
+* folllow prompts to make a working application
+* implement ES6 classes
+* Write modular code using SRP
+* Implement a robust testing suite using TDD
 
 
 ## Where to Add Your Code
