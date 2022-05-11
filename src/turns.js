@@ -13,7 +13,6 @@ class Turns {
  };
  evaluateGuess() {
      if (this.guess === this.currentCard.correctAnswer) {
-         // anlamadim nasil bir baglanti var currentcard ile correctanswer arasinda
          return true;
      };
         return false;
