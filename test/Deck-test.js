@@ -32,7 +32,7 @@ describe('Deck', function(){
     var testArray = ([]);
 
     var cardChecker = deck.cardArray.forEach(deckCard => {
-      if (deckCard instanceof Card){
+      if (deckCard instanceof Card) {
         testArray.push(deckCard);
       }
     });
