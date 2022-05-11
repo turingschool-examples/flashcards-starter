@@ -1,4 +1,5 @@
 const Turn = require('../src/Turn');
+const Deck = require('../src/Deck');
 
 class Round{
     constructor(deck){
@@ -22,7 +23,7 @@ class Round{
         return ((this.turns-this.incorrectGuesses.length)/ this.turns) * 100
     }
     endRound(){
-        return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+        console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
     }
 }
 module.exports = Round;
