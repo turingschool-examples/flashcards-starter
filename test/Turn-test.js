@@ -3,19 +3,23 @@ const Card = require('../src/Card');
 const expect = chai.expect;
 const Turn = require('../src/Turn');
 
-describe('Turn', function() {
+describe('Turn', () => {
     let turn;
     let card;
-    beforeEach(() =>{
+    
+    beforeEach(() => {
         card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
         turn = new Turn('object', card)
     })
+    
     it('should be a function', () => {
         expect(Turn).to.be.a('function');
     });
+    
     it('should take in a string as an argument', () => {
         expect(turn.guess).to.be.a('string');
     });
+    
     it('should take in a Card instance as a second argument', () => {
         expect(turn.card).to.be.an.instanceOf(Card)
     })
