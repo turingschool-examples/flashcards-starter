@@ -1,19 +1,12 @@
 class Deck {
-  constructor(){
+  constructor(cardArray){
+    this.cardArray = cardArray;
+  }
 
+  countCards() {
+    return this.cardArray.length;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
