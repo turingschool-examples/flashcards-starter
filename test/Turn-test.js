@@ -58,7 +58,7 @@ describe('Turn', function() {
     const nextCard = new Card(2,'Test?',['Test','test'], 'test');
     const nextTurn = new Turn('Test', nextCard);
 
-    expect(turn.giveFeedback(turn.evaluateGuess())).to.equal('correct!');
+    expect(turn.giveFeedback()).to.equal('correct!');
     expect(nextTurn.giveFeedback(nextTurn.evaluateGuess())).to.equal('incorrect!');
   });
 })
