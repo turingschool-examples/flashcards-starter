@@ -6,15 +6,11 @@ class Turn{
         this.card = card;
     }
 
-    returnGuess(){
-        return this.guess;
-    }
+    returnGuess = () => this.guess;
 
-    returnCard(){
-        return this.card;
-    }
+    returnCard = () => this.card;
 
-    evaluateGuess(){
+    evaluateGuess = () => {
         if(this.guess === this.card.correctAnswer){
             return true;
         } else {
@@ -22,7 +18,7 @@ class Turn{
         }
     }
 
-    giveFeedback(){
+    giveFeedback = () => {
         if(this.guess === this.card.correctAnswer){
             return "correct!";
         } else {

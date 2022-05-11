@@ -10,7 +10,7 @@ class Game {
         this.currentRound;
     }
 
-    start(invoke){
+    start = invoke => {
         const flashCards = [];
         prototypeQuestions.forEach(object => {
            flashCards.push(new Card(object.id, object.question, object.answers, object.correctAnswer));
@@ -23,14 +23,12 @@ class Game {
         };
     }
 
-    printMessage(deck, round){
+    printMessage = (deck, round) => {
         console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
   -----------------------------------------------------------------------`)
     }
 
-    printQuestion(round){
-        util.main(round);
-    }
+    printQuestion = round => util.main(round);
 }
 
 module.exports = Game;
