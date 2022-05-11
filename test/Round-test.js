@@ -58,6 +58,10 @@ describe('Round', function(){
 
   })
 
+  it('should make a new turn instance when using takeTurn', function() {
+
+  })
+
   it('should increment turn counter when a turn has been taken', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -113,6 +117,36 @@ describe('Round', function(){
     round.takeTurn('pug');
     round.takeTurn('appendix');
     expect(round.incorrectGuesses).to.deep.equal([1,14]);
+  })
+  it('should have the ability to evaluate percent of correct guesses', function(){
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const deck = new Deck([card1,card2,card3]);
+
+    const round = new Round(deck);
+
+    round.takeTurn('pug');
+    round.takeTurn('appendix');
+    round.takeTurn('Fitzgerald');
+    expect(round.calculatePercentCorrect()).to.equal(33);
+  })
+
+  it('should print result', function(){
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const deck = new Deck([card1,card2,card3]);
+
+    const round = new Round(deck);
+
+    round.takeTurn('pug');
+    round.takeTurn('appendix');
+    round.takeTurn('Fitzgerald');
+    round.calculatePercentCorrect();
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 33% of the questions correctly!`);
   })
 })
 
