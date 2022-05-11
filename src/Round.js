@@ -6,24 +6,24 @@ class Round{
         this.turns = 0;
         this.incorrectGuesses = [];
     }
-    returnCurrentCard(){
-        return this.deck.deck[this.turns]
-    }
-    takeTurn(guess){
-        const turn = new Turn(guess, this.returnCurrentCard())
+
+    returnCurrentCard = () => this.deck.deck[this.turns];
+
+    takeTurn = guess => {
+        const turn = new Turn(guess, this.returnCurrentCard());
         this.turns++;
         if(turn.evaluateGuess() === false){
             this.incorrectGuesses.push(turn.card.id);
-            return turn.giveFeedback()
+            return turn.giveFeedback();
         } else{
-            return turn.giveFeedback()
+            return turn.giveFeedback();
         }
     }
-    calculatePercentCorrect(){
-        return (this.incorrectGuesses.length/this.turns) * 100;
-    }
-    endRound(){
-        const amount = this.calculatePercentCorrect()
+
+    calculatePercentCorrect = () => this.incorrectGuesses.length/this.turns) * 100;
+
+    endRound = () => {
+        const amount = this.calculatePercentCorrect();
         return `** Round over! ** You answered ${amount}% of the questions correctly!`;
     }
 }
