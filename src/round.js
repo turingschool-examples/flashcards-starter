@@ -1,19 +1,28 @@
 const Deck = require('../src/Deck');
-// const Turns = require('../src/Turns');
+const Turns = require('../src/Turns');
 
 class Round {
 constructor(decks) {
-    this.deck = decks
-    this.turns = 0
+    this.deck = decks;
+    this.turns = 0;
+    this.incorrectGuesses = [];
 }
-currentCard() {
+returnCurrentCard() {
     return this.deck.cards[0]
 }
 takeTurn(guess) {
-    return this.turns++
-}
+    const turn = new Turns(guess,this.returnCurrentCard())
+    this.turns++
+    if (turn.evaluateGuess()) {
+        return 'correct!'
+     };
+        return 'incorrect!'
+     };
+  
 
 }
+
+
 
 
 module.exports = Round;
