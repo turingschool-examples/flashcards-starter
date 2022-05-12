@@ -3,10 +3,26 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
+const Round = require('../src/Round');
 
 class Game {
-  constructor(round) {
-    this.currentRound = round;
+  constructor() {
+    this.currentRound;
+  };
+
+  start() {
+    let cards = prototypeQuestions.map((card) => {
+        return new Card(card.id, card.question, card.answers, card.correctAnswer)
+
+    });
+
+    let deck = new Deck(cards)
+    this.currentRound = new Round(deck)
+
+
+
+    this.printMessage(deck, this.currentRound)
+    this.printQuestion(this.currentRound)
   };
 
   printMessage(deck, round) {
@@ -18,18 +34,6 @@ class Game {
       util.main(round);
   };
 
-  start() {
-  this.cardCreator()
-  };
-
-  cardCreator(id, question, possibleAnswers, correctAnswer) {
-    let card1 = new Card(id, question, possibleAnswers, correctAnswer);
-    let card2 = new Card(id, question, possibleAnswers, correctAnswer);
-    let card3 = new Card(id, question, possibleAnswers, correctAnswer);
-
-    let deck = new Deck([card1, card2, card3]);
-    return deck
-  };
 
 };
 
