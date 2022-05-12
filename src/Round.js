@@ -10,27 +10,23 @@ class Round {
     };
 
     returnCurrentCard() {
-        return this.deck.cards[this.turns]
+        return this.deck.cards[this.turns];
     };
 
     takeTurn(guess) {
         this.currentCard = this.deck.cards[this.turns];
-        let playTurn = new Turn(guess, this.currentCard)
-        this.turns++
-        playTurn.evaluateGuess();
-        playTurn.giveFeedback();
-        
+        let playTurn = new Turn(guess, this.currentCard);
+        this.turns++;
+        playTurn.evaluateGuess();    
 
         if(!playTurn.evaluate) {
             this.incorrectGuesses.push(this.currentCard.id)
-        }
-
-        return playTurn;
-
+        };
+        return playTurn.giveFeedback();
     };
 
     calculatePercentCorrect() {
-        return Math.round(((this.turns - this.incorrectGuesses.length)/this.turns)*100)
+        return Math.round(((this.turns - this.incorrectGuesses.length)/this.turns)*100);
     }
 }
 

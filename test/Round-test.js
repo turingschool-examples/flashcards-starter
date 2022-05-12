@@ -50,23 +50,18 @@ describe('Round', () => {
         expect(round.incorrectGuesses).to.be.a('array')
     });
 
-    it('should take a turn and create new Turn class', () => {
-        turn = round.takeTurn('CO');
-
-        expect(turn).to.be.an.instanceOf(Turn)
-    });
     
     it('should give feedback, Correct!', () => {
         turn = round.takeTurn('CO');
-
-        expect(turn.feedback).to.equal('Correct!')
+    
+        expect(turn).to.equal('Correct!')
         expect(round.turns).to.equal(1)
     });
 
     it('should give incorrect feedback', () => {
         turn = round.takeTurn('NV');
         
-        expect(turn.feedback).to.equal('Incorrect')
+        expect(turn).to.equal('Incorrect')
         expect(round.turns).to.equal(1)
     });
 
