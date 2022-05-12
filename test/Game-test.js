@@ -28,8 +28,8 @@ describe('Game', function() {
     round1 = new Round(deck);
     round2 = new Round(deck2);
 
-    game = new Game(round1);
-    game2 = new Game(round2)
+    game = new Game();
+    game2 = new Game();
   });
 
   it('should be a function', function() {
@@ -40,20 +40,4 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game)
   });
 
-  it('should keep track of the current round', function() {
-    expect(game.currentRound).to.equal(round1)
-  });
-
-  it('should have a method to start everything', function() {
-    expect(game.start())
-  });
-
-  it('should place three cards in a deck', function() {
-    expect(game.start()).to.equal(round1)
-  });
-
-  it('should store the new deck in a round', function() {
-    console.log(game.currentRound)
-    expect(game.start()).to.equal(round1)
-  });
 });
