@@ -28,7 +28,7 @@ class Round {
   }
 
   endRound() {
-    // method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
 
