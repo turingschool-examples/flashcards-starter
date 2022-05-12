@@ -17,11 +17,10 @@ describe('Round',() => {
          deck = new Deck([card1, card2, card3]);
          round = new Round(deck);
          turn = new Turn('object',card); 
+    })
 
-    });
     it('should be a function', function() {
-        const round = new Round();
-        expect(Deck).to.be.a('function');
+        expect(Round).to.be.a('function');
     })
 
     it('should be an instance of Round',() => { 
@@ -43,8 +42,16 @@ describe('Round',() => {
 
     it('should be able to record incorrect guesses',() => {
         round.takeTurn('friend');
-        expect(round.incorrectGuesses).to.equal([1]);
+        expect(round.incorrectGuesses).to.deep.equal([2]);
     })
+    
+    it('should calculate percent correct',() => {
+        round.calculatePercentCorrect();
+        expect(round.calculatePercentCorrect()).to.equal(100);
+    } )
 
-
+    it('should display message when round is over',() => {
+        round.endRound();
+        expect(round.endRound()).to.equal(`** Round over! ** You answered 100% of the questions correctly!`);
+    } )
 });
