@@ -3,8 +3,6 @@ const Game = require('../src/Game');
 const Round = require('../src/Round');
 const expect = chai.expect;
 
-
-
 describe('Game', () => {
 
     let game;
@@ -24,4 +22,4 @@ describe('Game', () => {
 
         expect(game.currentRound).to.be.an.instanceOf(Round);
     });
-})
+});

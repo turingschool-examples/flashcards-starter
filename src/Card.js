@@ -4,7 +4,7 @@ class Card {
         this.question = question;
         this.answers = answers;
         this.correctAnswer = correct;
-    }
+    };
 }
 
 module.exports = Card;

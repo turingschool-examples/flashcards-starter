@@ -3,7 +3,7 @@ class Turn {
         this.guess = guess;
         this.card = card;
         this.evaluate = false;
-        this.feedback = 'Incorrect'
+        this.feedback = 'Incorrect';
     };
 
     returnGuess() {
@@ -15,18 +15,18 @@ class Turn {
     };
 
     evaluateGuess() {
-        if (this.guess === this.card.correctAnswer){
+        if (this.guess === this.card.correctAnswer) {
             this.evaluate = true;
         }
         return this.evaluate;
-    }
+    };
 
     giveFeedback() {
-        if (this.evaluate === true){
-            this.feedback = 'Correct!'
+        if (this.evaluate === true) {
+            this.feedback = 'Correct!';
         }
         return this.feedback;
-    }
+    };
 }
 
 module.exports = Turn;

@@ -20,14 +20,14 @@ class Round {
         playTurn.evaluateGuess();    
 
         if(!playTurn.evaluate) {
-            this.incorrectGuesses.push(this.currentCard.id)
+            this.incorrectGuesses.push(this.currentCard.id);
         };
         return playTurn.giveFeedback();
     };
 
     calculatePercentCorrect() {
         return Math.round(((this.turns - this.incorrectGuesses.length)/this.turns)*100);
-    }
+    };
 }
 
 module.exports = Round;
