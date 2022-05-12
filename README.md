@@ -1,71 +1,35 @@
 # FlashCards Starter Kit
 
-## Fork This Repo
+## Abstract
 
-On the top right corner of this page, click the **Fork** button.
+This project was completed as a part of the Mod 2 Front End Development Program. The goals of this project included learning implementation of TDD and class to class interaction through developing a flashcard game that could be fully playable in the console. 
 
 ## Setup
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+- Fork and clone this repo. 
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+- Install the library dependencies. Run:
 
 ```bash
 npm install
 ```
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
+- To verify that it is setup correctly, run `npm test` in your terminal.
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+- Running `node index.js` from the root of your project will make the game playable!
+ 
+- You can select an answer prompt by using the arrows to move up and down the selected choices, or select a number. Hit enter once your chosen answer is highlighted.  
 
-```bash
-Your project is running...
-```
+You will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
 
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/98493391/168172745-fa372381-4f3d-433f-9cc7-0bed493bbb34.gif)
 
+## Reflections 
 
-## Where to Add Your Code
+- Without having the 'luxury' of a visual component in this code base, I had a lot of difficult figuring out my next steps, and understanding how the code was connecting together. The prompts for functionality were very specific and I often misinterpreted some of what the rubric was prompting! Also, while writing the tests I often questioned whether or not the tests I wrote were effective. I did end up learning a lot about my learning style, that I am very visual- next time I am faced with this set of issues I will focus on making my own visuals!
 
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
-
+## Technologies Used:
+- Chai
+- Mocha
+- Javascript
+- Terminal
