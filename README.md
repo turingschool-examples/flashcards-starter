@@ -1,4 +1,4 @@
-# FlashCards Starter Kit
+# FlashCards
 
 ## Abstract
 
@@ -33,3 +33,6 @@ You will be prompted for each question, have the opportunity to select an answer
 - Mocha
 - Javascript
 - Terminal
+
+## Countributor: 
+- Catlyn Bowles ([LinkedIn](https://www.linkedin.com/in/catlyn-bowles-a94aa61ab/) || [GitHub](https://github.com/catlynbowles))
