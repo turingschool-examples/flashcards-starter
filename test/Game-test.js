@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 const Game = require('../src/Game');
+const Round = require('../src/Round');
 
 
 describe('Game', () => {
@@ -14,7 +15,8 @@ describe('Game', () => {
         expect(game).to.be.an.instanceOf(Game);
     })
     
-    it('should start with empty object for current Round', () => {
-        expect(game.currentRound).to.deep.equal({})
+    it('should show the current round', () => {
+        game.start();
+        expect(game.currentRound).to.be.an.instanceOf(Round)
     })
 })
