@@ -1,10 +1,14 @@
-class Round {
-  constructor() {
+const Deck = require('../src/Deck');
 
+class Round {
+  constructor(deck) {
+    this.deck = deck.cards;
+    this.turns = 0
+    this.incorrectGuesses = [];
   }
 
   returnCurrentCard() {
-    // method that returns the current card being played
+    return this.deck[this.turns];
   }
 
   takeTurn() {
@@ -24,3 +28,5 @@ class Round {
     // method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
   }
 }
+
+module.exports = Round;
