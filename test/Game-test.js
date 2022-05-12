@@ -49,6 +49,11 @@ describe('Game', function() {
   });
 
   it('should place three cards in a deck', function() {
-    expect(game.start()).to.deep.equal(Deck[card1, card2, card3])
+    expect(game.start()).to.equal(round1)
+  });
+
+  it('should store the new deck in a round', function() {
+    console.log(game.currentRound)
+    expect(game.start()).to.equal(round1)
   });
 });
