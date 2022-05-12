@@ -6,6 +6,5 @@ var game = new Game();
 
 
 game.start()
-console.log('Your project is running...');
 
 module.exports = Game;
