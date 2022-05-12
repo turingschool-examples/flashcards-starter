@@ -18,7 +18,7 @@ describe('Turns', () => {
     it('should have a user’s guess to the question and object for the current card in play', () => {
         const card = new Card(1,"What allows you to define a set of related information using key-value pairs?",["object", "array", "function"],"object"); //instance of card
         const turns = new Turns("array", card);
-
+      // console.log(turns.guess,'<<>>>guess');
         expect(turns.guess).to.be.a('string');
         expect(turns.guess).to.equal("array");
         expect(turns.currentCard).to.be.an('object');
