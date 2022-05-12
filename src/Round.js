@@ -21,7 +21,7 @@ class Round {
         playTurn.giveFeedback();
         
 
-        if(playTurn.evalute === false) {
+        if(!playTurn.evaluate) {
             this.incorrectGuesses.push(this.currentCard.id)
         }
 
@@ -30,8 +30,7 @@ class Round {
     };
 
     calculatePercentCorrect() {
-//math.round
-        return Math.round((this.incorrectGuesses.length/this.turns)*100)
+        return Math.round(((this.turns - this.incorrectGuesses.length)/this.turns)*100)
     }
 }
 

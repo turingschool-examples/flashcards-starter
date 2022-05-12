@@ -72,7 +72,6 @@ describe('Round', () => {
 
     it('should check incorrect guesses array', () => {
         turn = round.takeTurn('NV');
-        console.log(round.incorrectGuesses)
 
         expect(round.incorrectGuesses).to.deep.equal([1])
     });
@@ -92,11 +91,9 @@ describe('Round', () => {
 
     it('should calculate percentage correct', () => {
         round.takeTurn('CO');
-        round.takeTurn('TX');
-        console.log(round.incorrectGuesses)
-        console.log(round.calculatePercentCorrect())
+        round.takeTurn('TV');
 
-        expect(round.calculatePercentCorrect()).to.equal(100)
+        expect(round.calculatePercentCorrect()).to.equal(50)
     })
 
 
