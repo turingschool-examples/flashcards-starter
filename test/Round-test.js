@@ -19,7 +19,7 @@ describe('Round',() => {
          turn = new Turn('object',card); 
     })
 
-    it('should be a function', function() {
+    it('should be a function',() => {
         expect(Round).to.be.a('function');
     })
 
