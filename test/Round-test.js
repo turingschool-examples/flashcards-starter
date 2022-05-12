@@ -6,6 +6,7 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 
+
 describe('Round', () => {
     let round;
     let deck;
@@ -68,8 +69,15 @@ describe('Round', () => {
 
     it('should store incorrect guesses in an array of incorrect guesses', () =>{
         round.takeTurn('function')
-
+        //:(
         expect(round.incorrectGuess.length).to.equal(1)
+    });
+
+    it('should store correct guesses in an array of correct guesses', () =>{
+        round.takeTurn('object')
+        //:) created a correct guess array to avoid math issues in
+        // calculatepercentcorrect 
+        expect(round.correctGuess.length).to.equal(1)
     });
 
     it('should provide feedback for a correct guess', () => {
@@ -82,14 +90,43 @@ describe('Round', () => {
         expect(round.takeTurn('function')).to.equal('incorrect!')
     });
 
-    it('should calculate and return the percentage of correct guess', () => {
-    
-        round.takeTurn('function')
+    it('should calculate and return 100% when all answers are correct', () => {
+    //object, array, mutator method
+        round.takeTurn('object')
+        round.takeTurn('array')
+        round.takeTurn('mutator method')
+        //:)
+        console.log(round.calculatePercentCorrect())
+        expect(round.calculatePercentCorrect()).to.equal(100)
+    });
+
+    it('should calculate and return 0% when all answers are incorrect', () => {
+        //object, array, mutator method
+            round.takeTurn('array')
+            round.takeTurn('object')
+            round.takeTurn('array')
+            //:)
+            console.log(round.calculatePercentCorrect())
+            expect(round.calculatePercentCorrect()).to.equal(0)
+        });
+
+        it('should calculate and return the percentage of correct answers to incorrect answers', () => {
+            //object, array, mutator method
+                round.takeTurn('object')
+                round.takeTurn('function')
+                round.takeTurn('mutator method')
+                //:)
+                console.log(round.calculatePercentCorrect())
+                expect(round.calculatePercentCorrect()).to.equal(67)
+                //making toFixed not round is above my paygrade
+            });
+
+    it('should print **Round over!** You answered <>% of the questions correctly!', () => {
+        round.takeTurn('object')
         round.takeTurn('array')
         round.takeTurn('mutator method')
 
-        
-        console.log(round.calculatePercentCorrect())
-        expect(round.calculatePercentCorrect()).to.equal(0.66)
+        expect(round.endRound()).to.equal(`**Round over!** You answered 100% of the questions correctly!`)
     });
+
 });
