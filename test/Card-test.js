@@ -18,7 +18,7 @@ describe('Card',() => {
     expect(Card).to.be.a('function');
   });
 
-  it('should be an instance of Card', function() {
+  it('should be an instance of Card', () => {
     expect(card).to.be.an.instanceof(Card);
   }); 
 
