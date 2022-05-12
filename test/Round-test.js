@@ -53,33 +53,33 @@ describe("Round", () => {
     expect(round.turns).to.equal(1);
   });
 
-  it.skip("should increase the turns by 1 each turn", () => {
+  it("should increase the turns by 1 each turn", () => {
     round.takeTurn("dot notation");
     round.takeTurn("bracket notation");
     round.takeTurn("variables");
     expect(round.turns).to.equal(3);
   });
 
-  it.skip("should be able to evaluate if the player's guess is correct", () => {
-    expect(round.takeTurn("object")).to.equal("YIPPEE! You're Correct!");
+  it("should be able to evaluate if the player's guess is correct", () => {
+    expect(round.takeTurn("object")).to.equal("You are Correct! 🌟 ");
   });
 
-  it.skip("should be able to evaluate if the player's guess is incorrect", () => {
-    expect(round.takeTurn("variables")).to.equal("Incorrect");
+  it("should be able to evaluate if the player's guess is incorrect", () => {
+    expect(round.takeTurn("variables")).to.equal("Incorrect 😩 ");
   });
 
-  it.skip("should store the incorrect guesses", () => {
+  it("should store the incorrect guesses", () => {
     round.takeTurn("variables");
     expect(round.incorrectGuesses[0]).to.equal(1);
   });
 
-  it.skip("should return the percent correct to the player in a message", () => {
+  it("should return the percent correct to the player in a message", () => {
     round.takeTurn("object");
     round.takeTurn("variables");
     round.calculatePercentCorrect();
     expect(round.calculatePercentCorrect()).to.equal(50);
   });
-  it.skip("should inform the user of their percentage correct answers", () => {
+  it("should inform the user of their percentage correct answers", () => {
     round.takeTurn("object");
     round.takeTurn("variables");
     expect(round.endRound()).to.equal(
