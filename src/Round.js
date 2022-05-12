@@ -21,7 +21,7 @@ class Round {
         playTurn.giveFeedback();
         
 
-        if(!playTurn.evalute) {
+        if(playTurn.evalute === false) {
             this.incorrectGuesses.push(this.currentCard.id)
         }
 

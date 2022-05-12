@@ -38,10 +38,6 @@ describe('Round', () => {
         expect(round.deck).to.deep.equal(deck)
     });
 
-    it('should check first card', () => {
-        expect(round.currentCard).to.equal(card1)
-    });
-
     it('should return current card', () => {
         expect(round.returnCurrentCard()).to.be.a('object')
     });
@@ -76,9 +72,16 @@ describe('Round', () => {
 
     it('should check incorrect guesses array', () => {
         turn = round.takeTurn('NV');
+        console.log(round.incorrectGuesses)
 
         expect(round.incorrectGuesses).to.deep.equal([1])
     });
+
+    it('should check correct guesses', () =>{
+        turn = round.takeTurn('CO');
+
+        expect(round.incorrectGuesses).to.deep.equal([])
+    })
 
     it('should go to next card each turn', () => {
         round.takeTurn('CO');
@@ -89,10 +92,11 @@ describe('Round', () => {
 
     it('should calculate percentage correct', () => {
         round.takeTurn('CO');
-        round.takeTurn('NV');
-        round.calculatePercentCorrect();
+        round.takeTurn('TX');
+        console.log(round.incorrectGuesses)
+        console.log(round.calculatePercentCorrect())
 
-        expect(round.calculatePercentCorrect).to.equal(100)
+        expect(round.calculatePercentCorrect()).to.equal(100)
     })
 
 
