@@ -54,30 +54,36 @@ describe('Round', function() {
   });
 
   it('should store incorrect guesses in an array', function() {
-    round1.takeTurn();
+    round1.takeTurn(turn1.guess);
+    round1.takeTurn(turn2.guess);
     expect(round1.incorrectGuesses).to.deep.equal([1])
   });
 
-  it('should still give feedback for a right answer', function() {
+  it('should give feedback for a right answer', function() {
     round1.takeTurn();
     round1.takeTurn();
-    console.log(round1.turnCounter)
-    console.log(round1);
-    console.log(round1.deck[0])
-    expect(round1.takeTurn()).to.equal('correct!');
+
+    expect(round1.takeTurn('mutator method')).to.equal('correct!');
   });
 
-  it('should still give feedback for a wrong answer', function() {
+  it('should give feedback for a wrong answer', function() {
     expect(round1.takeTurn()).to.equal('incorrect!');
-    console.log(round1.incorrectGuesses)
   });
 
-  // it.skip('should calculate and return the percent of correct guesses', function() {
-  //   round1.takeTurn();
-  //   round1.takeTurn();
-  //   round1.takeTurn();
-  //
-  //
-  //   expect(round1.calculatePercentCorrect()).to.equal(2/3)
-  // });
+  it('should calculate and return the percent of correct guesses', function() {
+    round1.takeTurn(turn1.guess);
+    round1.takeTurn(turn2.guess);
+    round1.takeTurn(turn3.guess);
+
+
+    expect(round1.calculatePercentCorrect()).to.equal(2/3)
+  });
+
+  it('should let the user know when the game is over', function() {
+    round1.takeTurn(turn1.guess);
+    round1.takeTurn(turn2.guess);
+    round1.takeTurn(turn3.guess);
+
+    expect(round1.endRound()).to.equal(`** ROUND OVER ** You answered ${round1.numberCorrect} of the questions correctly!`)
+  });
 });
