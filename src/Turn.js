@@ -1,27 +1,24 @@
+const Card = require('../src/Card');
+const card = new Card();
 class Turn{
-  constructor(string, card){
+  constructor(guess, card){
+    this.guess = guess;
+    this.card = card;
   }
   returnGuess(){
-    var newCard = new Card();
-    return newCard.question;
+    return this.guess;
   }
   returnCard(){
-    var newCard = new Card();
-    return newCard;
+    return this.card;
   }
-  evaluateGuess(){
-var newCard = new Card();
-if(newCard.possibleAnswers[i] === newCard.correctAnswer){
-  return true;
-}
-  return false;
+  evaluateGuess() {
+    return this.guess === this.card.correctAnswer;
   }
   giveFeedback(){
-  var newCard = new Card();
-  if(newCard.correctAnswer === false){
-    return 'Incorrect!';
+    const correct = 'Correct!';
+    const incorrect = 'Incorrect!';
+    const feedBack = this.evaluateGuess() ? correct : incorrect;
+    return feedBack;
   }
-  return 'Correct!';
-
-  }
-}
+};
+module.exports = Turn;
