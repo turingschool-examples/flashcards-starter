@@ -12,25 +12,15 @@ class Turn {
     return this.currentCard;
   };
 
-  evaluateGuess(guess) {
-    var correctAnswer = this.currentCard.correctAnswer;
-    var guess = this.guess;
-
-    if (guess === correctAnswer) {
-      this.giveFeedback(true);
-      return true;
-    } else if (guess !== correctAnswer) {
-      this.giveFeedback(false);
-      return false;
-    };
+  evaluateGuess() {
+    return this.guess === this.currentCard.correctAnswer
   };
 
-  giveFeedback(feedback) {
-    if (feedback === true) {
+  giveFeedback() {
+    if (this.evaluateGuess()) {
       return 'correct!'
-    } else if (feedback === false) {
-      return 'incorrect!'
     }
+    return 'incorrect!'
   };
 };
 

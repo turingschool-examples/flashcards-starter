@@ -63,10 +63,10 @@ describe('Turn', function() {
   });
 
   it('should return "correct!" if the guess is right', function() {
-    expect(turn.giveFeedback(true)).to.equal('correct!');
+    expect(turn2.giveFeedback()).to.equal('correct!');
   });
 
   it('should return "incorrect!" if the guess is wrong', function() {
-    expect(turn.giveFeedback(false)).to.equal('incorrect!');
+    expect(turn1.giveFeedback()).to.equal('incorrect!');
   })
 });
