@@ -1,4 +1,5 @@
-const Deck = require('../src/Deck');
+const Turn = require('../src/Turn');
+
 
 class Round {
   constructor(deck) {
@@ -11,7 +12,13 @@ class Round {
     return this.deck[this.turns];
   }
 
-  takeTurn() {
+  takeTurn(guess) {
+    let newTurn = new Turn(guess, this.returnCurrentCard())
+    this.turns++
+    return newTurn.giveFeedback()
+
+
+
     // method that updates turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses
       // When a guess is made, a new Turn instance is created.
       // The turns count is updated, regardless of whether the guess is correct or incorrect
