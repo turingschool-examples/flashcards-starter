@@ -23,18 +23,19 @@ class Round {
     }
     this.currentCard = this.cards[this.turnCounter];
     return this.currentTurn.giveFeedback();
+    this.endRound();
   };
 
   calculatePercentCorrect() {
     this.numberCorrect = this.turnCounter - this.incorrectGuesses.length;
-    if (this.turnCounter === 3) {
-      this.endRound()
-    }
     return this.numberCorrect / this.turnCounter;
   };
 
   endRound() {
-    return `** ROUND OVER ** You answered ${this.numberCorrect} of the questions correctly!`
+    this.numberCorrect = this.turnCounter - this.incorrectGuesses.length;
+    if (this.turnCounter === 30) {
+      console.log(`** ROUND OVER ** You answered ${this.numberCorrect} of the questions correctly!`)
+    }
   };
 };
 

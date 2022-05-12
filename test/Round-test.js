@@ -76,10 +76,9 @@ describe('Round', function() {
   });
 
   it('should let the user know when the game is over', function() {
-    round1.takeTurn(turn1.guess);
-    round1.takeTurn(turn2.guess);
-    round1.takeTurn(turn3.guess);
+    round1.turnCounter = 29;
+    round1.takeTurn();
 
-    expect(round1.endRound()).to.equal(`** ROUND OVER ** You answered ${round1.numberCorrect} of the questions correctly!`)
+    expect(round1.endRound()).to.equal(console.log(`** ROUND OVER ** You answered ${round1.numberCorrect} of the questions correctly!`))
   });
 });
