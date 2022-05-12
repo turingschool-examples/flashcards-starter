@@ -18,6 +18,13 @@ class Round {
     }
     return turn.giveFeedback();
   }
+  calculatePercentCorrect() {
+    let correct = this.deck.cards.length - this.incorrectGuesses.length;
+    return Math.floor((correct / this.deck.cards.length) * 100);
+  }
+  endRound() {
+    return `** Round over! You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+  }
 }
 
 module.exports = Round;

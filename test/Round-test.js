@@ -60,4 +60,32 @@ describe("Round", () => {
     round.takeTurn("iteration method");
     expect(round.incorrectGuesses.length).to.equal(1);
   });
+
+  it("should cycle through the cards in the deck", () => {
+    expect(round.currentCard).to.equal(card1);
+    round.takeTurn();
+    expect(round.currentCard).to.equal(card2);
+    round.takeTurn();
+    expect(round.currentCard).to.equal(card3);
+  });
+
+  it("should give users feedback for their guesses", () => {
+    expect(round.takeTurn("object")).to.equal("correct!");
+  });
+
+  it("should calculate percentage of questions answered correctly", () => {
+    round.takeTurn("object");
+    round.takeTurn("iteration method");
+    round.takeTurn("filter()");
+    expect(round.calculatePercentCorrect()).to.equal(66);
+  });
+
+  it("should end the round", () => {
+    round.takeTurn("object");
+    round.takeTurn("iteration method");
+    round.takeTurn("filter()");
+    expect(round.endRound()).to.equal(
+      "** Round over! You answered 66% of the questions correctly!"
+    );
+  });
 });

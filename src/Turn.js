@@ -15,8 +15,8 @@ class Turn {
     }
     return false;
   }
-  giveFeedback(result) {
-    if (result === true) {
+  giveFeedback() {
+    if (this.evaluateGuess()) {
       return "correct!";
     }
     return "incorrect!";
