@@ -65,7 +65,7 @@ describe("Round", () => {
   });
 
   it("should store incorrect guess", () => {
-    expect(round.incorrectGuesses).to.deep.equal(8);
+    expect(round.incorrectGuesses).to.be.an("array"));
   });
 
   it("should evaluate the current guess", () => {
