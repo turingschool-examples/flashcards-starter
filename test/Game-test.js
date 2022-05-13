@@ -29,8 +29,4 @@ describe('Game',() => {
         expect(game).to.be.an.instanceOf(Game);
     })
 
-    it('should start a new game',() => {
-        game.startGame();
-        expect(game.startGame()).to.equal(game)
-    })
 });
