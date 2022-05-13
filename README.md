@@ -2,7 +2,6 @@
 
 ## Table of Contents
 
-- [Overview](#overview)  
 - [Contributor](#contributor)  
 - [Technologies Used](#technologies-used)  
 - [Set Up](#set-up)
