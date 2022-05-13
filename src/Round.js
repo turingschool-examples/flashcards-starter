@@ -8,20 +8,25 @@ class Round {
         this.isCorrect = true;
     }
     returnCurrentCard() {
+        // this.deck.cards[this.turnCount];
+       if (this.deck.cards[0] === undefined) {
+           return false
+       } else {
         return this.deck.cards[0]
-
-
     }
+}
     takeTurn(guess) {
         this.turnCount += 1;
 
         const turn = new Turn(guess, this.returnCurrentCard())
-        const previousCard = this.deck.cards.shift();
-        this.deck.cards.push(previousCard)
-    
+        this.deck.cards.shift();
+        // this.deck.cards.push(previousCard)
+
+
         if (turn.evaluateGuess() === false) {
             this.incorrectGuess.push(this.deck.cards.id)
             this.isCorrect = false;
+           
             return turn.giveFeedback();
         } else {
             this.correctGuess.push(this.deck.cards.id)
@@ -35,9 +40,9 @@ class Round {
         return (this.correctGuess.length / this.turnCount).toFixed(2) * 100;
     }
     endRound() {
+        console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
         return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
     }
-
 }
 
    
