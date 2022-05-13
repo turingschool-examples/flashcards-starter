@@ -15,7 +15,7 @@ class Turns {
     if (this.guess === this.currentCard.correctAnswer) {
       return true;
     }
-    return false;
+      return false;
   }
   giveFeedback() {
     if (this.evaluateGuess()) {

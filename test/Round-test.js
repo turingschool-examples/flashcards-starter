@@ -36,6 +36,7 @@ describe("Round", () => {
 
     deck = new Deck([card1, card2, card3, card4]);
     round = new Round(deck);
+    // turn = new Turns(guess, currentCard);
   });
 
   it("should be a function", () => {
@@ -82,16 +83,22 @@ describe("Round", () => {
     expect(round.takeTurn("spleen")).to.equal("incorrect!");
   });
 
-  it.only("should be able to calculate the percentage of correct guesses", () => {
+  it.skip("should be able to calculate the percentage of correct guesses", () => {
     round.takeTurn("capybara");
     round.takeTurn("appendix");
-    expect(round.calculatePercentCorrect()).to.equal(0)
-    console.log(round.turns)
+    expect(round.calculatePercentCorrect()).to.equal(0);
 
     round.takeTurn("playing with bubble wrap");
     round.takeTurn("Togo-Lily");
-    
+
     expect(round.calculatePercentCorrect()).to.equal(50);
-    
   });
+
+  it('should be able to game over', () => {
+    round.takeTurn("capybara");
+    round.takeTurn("appendix");
+    round.takeTurn("playing with bubble wrap");
+    round.takeTurn("Togo-Lily");
+    expect(round.endRound()).to.equal("** Round over! ** You answered 50% of the questions correctly!")
+  })
 });

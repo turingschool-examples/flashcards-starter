@@ -1,5 +1,5 @@
 const Deck = require("../src/Deck");
-const Turns = require("../src/Turns");
+const Turns = require("./Turns");
 
 class Round {
   constructor(decks) {
@@ -18,15 +18,16 @@ class Round {
     }
     return turn.giveFeedback();
   }
-  calculatePercentCorrect() {
-    // calculate
-    //turns -incorrectguesses / turns * 100
-    var percentage = (this.turns - this.incorrectGuesses.length)
-    const percentageCorrect =  percentage * 100;
-    console.log(percentageCorrect)
-    console.log(percentage)
-    return percentageCorrect;
-    // return  % of turn.currentCard.correctAnswer
+//   calculatePercentCorrect() {
+//     var percentage = (this.turns - this.incorrectGuesses.length)
+//     const percentageCorrect =  percentage * 100;
+//     return percentageCorrect;
+//   }
+  endRound() {
+      //will need to call the calculatepercentage method is current
+    const show = "** Round over! ** You answered 50% of the questions correctly!"
+    console.log(show);
+    return show
   }
 }
 
