@@ -35,9 +35,10 @@ describe('Turn', () => {
     expect(turn.returnGuess()).to.equal('pug')
  });
 
- it('should have method to return the card', function() {
+ it.skip('should have method to return the card', function() {
     const turn = new Turn('pug', card)
     expect(turn.returnCard()).to.equal(card)
+    // expect(turn.returnCard()).to.equal(cardInPlay)
  });
 
  it.skip('should have method that returns a boolean for the correct card answer', function() {

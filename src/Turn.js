@@ -3,7 +3,7 @@ const Card = require('../src/Card')
 class Turn {
     constructor(guess, card) {
         this.guess = guess;
-        this.cardInPlay = card
+        this.cardInPlay = card;
     }
     returnGuess() {
         return this.guess
@@ -11,9 +11,9 @@ class Turn {
     returnCard() {
         return this.CardinPlay
     }
-    evaluateGuess() {
-        return this.guess === this.CardinPlay.correctAnswer
-    }
+    // evaluateGuess() {
+    //     return this.guess === this.CardinPlay.correctAnswer
+    // }
     giveFeedBack() {
         if(this.evaluateGuess()) {
             return 'correct!'
