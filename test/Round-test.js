@@ -65,7 +65,9 @@ describe("Round", () => {
   });
 
   it("should store incorrect guess", () => {
-    expect(round.incorrectGuesses).to.be.an("array"));
+    round.takeTurn("Fritz");
+
+    expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
   it("should evaluate the current guess", () => {
@@ -78,5 +80,18 @@ describe("Round", () => {
     round.takeTurn("spleen");
 
     expect(round.takeTurn("spleen")).to.equal("incorrect!");
+  });
+
+  it.only("should be able to calculate the percentage of correct guesses", () => {
+    round.takeTurn("capybara");
+    round.takeTurn("appendix");
+    expect(round.calculatePercentCorrect()).to.equal(0)
+    console.log(round.turns)
+
+    round.takeTurn("playing with bubble wrap");
+    round.takeTurn("Togo-Lily");
+    
+    expect(round.calculatePercentCorrect()).to.equal(50);
+    
   });
 });
