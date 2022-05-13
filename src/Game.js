@@ -26,10 +26,9 @@ class Game {
     
     const deck = new Deck(this.cards);
     this.printMessage(deck);
-    this.currentRound = new Round(deck)
+    this.currentRound = new Round(deck);
     this.printQuestion(this.currentRound);
-    return this.cards
+    return this.cards;
       }
-
 }
 module.exports = Game;
