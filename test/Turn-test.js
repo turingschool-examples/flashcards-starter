@@ -35,20 +35,20 @@ describe('Turn', () => {
     expect(turn.returnGuess()).to.equal('pug')
  });
 
- it.skip('should have method to return the card', function() {
+ it.skip('should have method to return the card', () => {
     const turn = new Turn('pug', card)
     expect(turn.returnCard()).to.equal(card)
     // expect(turn.returnCard()).to.equal(cardInPlay)
  });
 
- it.skip('should have method that returns a boolean for the correct card answer', function() {
+ it.skip('should have method that returns a boolean for the correct card answer', () => {
     const turn = new Turn('pug', card)
     const turn1 = new Turn('sea otter', card)
     expect(turn.evaluateGuess()).to.equal(false)
     expect(turn1.evaluateGuess()).to.equal(true)
  });
 
- it.skip('should have a method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not', function() {
+ it.skip('should have a method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not', () => {
      const turn = new Turn('pug', card);
      const turn2 = new Turn('sea otter', card);
      expect(turn.giveFeedback()).to.equal('incorrect!');

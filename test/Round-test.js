@@ -47,7 +47,7 @@ describe('Round', function() {
     expect(round.turns).to.equal(2)
   });
 
-  it.skip('should make the next card become the current card', function() {
+  it.skip('should make the next card become the current card', () => {
       round.takeTurn('sea otter')
       round.takeTurn('hi')
     expect(round.turns).to.equal(2);

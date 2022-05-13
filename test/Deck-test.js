@@ -18,11 +18,11 @@ describe('Deck', () => {
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald')
  });
- it('should instantiate with an array of cards', function() {
+ it('should instantiate with an array of cards', () => {
     const deck = new Deck([card1, card2, card3]);
     expect(deck.cards).to.deep.equal([card1, card2, card3])
  });
- it('should have a method to know how many cards are in the deck', function(){
+ it('should have a method to know how many cards are in the deck', () => {
     const deck = new Deck([card1, card2, card3]);
     expect(deck.countCards()).to.equal(3)
  });
