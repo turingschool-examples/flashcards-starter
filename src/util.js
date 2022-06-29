@@ -1,3 +1,4 @@
+//provided as part of starter kit
 const inquirer = require('inquirer');
 
 const genList = (round) => {
