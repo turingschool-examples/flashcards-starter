@@ -9,4 +9,4 @@ class Card {
 
 module.exports = Card;
 
-//properties of each question: id, question, answers, correctAnswer
+//properties of each question: id, question, answers(array of answers), correctAnswer
