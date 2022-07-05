@@ -71,5 +71,6 @@ Put all of your test files in the test directory. As a convention, all test file
 ## Running Your Tests
 Run your test suite using the command:
 
-- npm test
-- The test results will output to the terminal.
+`npm test`
+
+The test results will output to the terminal.
