@@ -8,7 +8,7 @@
 <!-- //Insert overview of project here. -->
 
 ## Technologies Used
-- JavaScript
+JavaScript
 
 ## Features
 <!-- Insert features of project here. -->
