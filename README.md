@@ -66,7 +66,9 @@ When the game is functioning appropriately, you will be prompted for each questi
 ## Test Files Organization
 Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
 
-Put all of your test files in the test directory. As a convention, all test filenames should end with -test.js. For instance: `Round-test.js`.
+Put all of your test files in the test directory. As a convention, all test filenames should end with `-test.js`. 
+
+For instance: `Round-test.js`.
 
 ## Running Your Tests
 Run your test suite using the command:
