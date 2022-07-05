@@ -4,14 +4,14 @@
 - Cohort 2205 | Mod 2 | Solo Project
 - Contributors: Maia Cochran
 
-<!-- ## Overview
-//Insert overview of project here. -->
+## Overview
+<!-- //Insert overview of project here. -->
 
 ## Technologies Used
 - JavaScript
 
-<!-- ## Features
-Insert features of project here. -->
+## Features
+<!-- Insert features of project here. -->
 
 <!-- ## Possible Future Extensions -->
 <!-- insert a different extension from possibly CYOA -->
