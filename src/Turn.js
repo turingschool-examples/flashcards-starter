@@ -4,6 +4,7 @@ const Card = require("./Card");
 
 class Turn{
     constructor(userGuess, currentCard){
+
       this.userGuess = userGuess;
       this.currentCard = currentCard;
 
@@ -37,4 +38,6 @@ class Turn{
  // - giveFeedback
 
 
- module.exports = Turn;
+
+ module.Exports = Turn;
+

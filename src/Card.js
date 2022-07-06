@@ -1,4 +1,5 @@
 
+
 class Card {
     constructor(id, question, possible, answer) {
         this.id = id;
@@ -6,7 +7,6 @@ class Card {
         this.answers = possible;
         this.correctAnswer = answer;
 
-    }
-};
 
 module.exports = Card;
+
