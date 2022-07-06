@@ -39,4 +39,13 @@ it.('should be right or wrong', function(){
     const turn2 = new Turn('Tampa', card2)
     expect(turn2.evaluateGuess().to.equal(false))
 })
+
+it.('should give feedback', function() {
+    const card = new Card('What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
+    const turn = new Turn('Sioux Falls', card)
+    expect(turn.giveFeedback()).to.equal('correct!')
+    const card2 = new Card('What city is Emma from?', ['Chicago', 'Pittsburg', 'Tampa'], 'Chicago')
+    const turn2 = new Turn('Tampa', card2)
+    expect(turn2.giveFeedback().to.equal('incorrect!'))
+})
 })
