@@ -2,7 +2,25 @@
 class Turn{
     constructor(){
 
+      this.userGuess = userGuess;
+      this.currentCard = cardInfo.currentCard;
 
+    }
+
+    returnGuess(){
+        //userGuess
+        return this.input
+    }
+
+    returnCard(){
+        return this.card
+    }
+
+    evaluateGuess(){
+
+    }
+
+    giveFeedback(){
 
     }
 };
@@ -15,3 +33,7 @@ class Turn{
 // - returnCard
  // - evaluateGuess
  // - giveFeedback
+
+
+ module.Exports = Turn;
+
