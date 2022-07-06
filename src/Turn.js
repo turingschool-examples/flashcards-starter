@@ -11,6 +11,9 @@ class Turn {
     returnCard(card){
         return this.currentCard;
     };
+    returnGuess(){
+        return this.userGuess;
+    };
 };
 
 module.exports = Turn;
