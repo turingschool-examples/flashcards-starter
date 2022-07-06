@@ -6,20 +6,60 @@ const Turn = require("../src/Turn");
 
 describe("Turn", function () {
   it("should be a function", function () {
-    const turn1 = new Turn();
     expect(Turn).to.be.a("function");
   });
 
   it("should be an instance of Turn", function () {
-    const turn2 = new Turn("", card);
-    expect(turn).to.be.an.instanceof(Turn);
+    const turn2 = new Turn();
+    expect(turn2).to.be.an.instanceof(Turn);
   });
 
-  it.skip("should return user guess", function () {
-    const turn3 = new Turn();
+  it("should return a guess", function () {
+    const guess = "dog";
+    const card3 = new Card(
+      1,
+      "What are animals?",
+      ["cat", "dog", "bunny"],
+      "bunny"
+    );
+    const turn3 = new Turn(guess, card3);
 
-    turn.returnGuess();
+    expect(turn3.returnGuess()).to.be.equal("dog");
+  });
 
-    expect(turn.answer).to.equal("300");
+  it("should return the card", function () {
+    const card4 = new Card(
+      2,
+      "What is the answer?",
+      ["hat", "boot", "scarf"],
+      "glove"
+    );
+    const turn4 = new Turn("boot", card4);
+
+    expect(turn4.returnCard()).to.be.an.instanceOf(Card);
+  });
+
+  it("should evaluate guess", function () {
+    const card5 = new Card(
+      3,
+      "Why?",
+      ["Hi", "Bye", "All the help"],
+      "All the help"
+    );
+    const turn5 = new Turn("Hi", card5);
+
+    expect(turn5.evaluateCard()).to.equal(false);
+  });
+
+  it("should give feedback", function () {
+    const card6 = new Card(
+      4,
+      "How?",
+      ["Because", "The moon", "Bad Luck"],
+      "Bad Luck"
+    );
+    const turn6 = new Turn("Because", card6);
+
+    expect(turn6.giveFeedback()).equal("Incorrect");
   });
 });
