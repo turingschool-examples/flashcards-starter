@@ -1,6 +1,7 @@
 
 class Turn{
     constructor(){
+
       this.userGuess = userGuess;
       this.currentCard = cardInfo.currentCard;
 
@@ -35,3 +36,4 @@ class Turn{
 
 
  module.Exports = Turn;
+
