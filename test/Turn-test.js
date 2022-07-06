@@ -28,4 +28,36 @@ describe('Turn', function() {
 
         expect(turn.currentCard).to.equal(card);
     })
+
+    it('should be able to return the users guess', function() {
+        const card = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+        const turn = new Turn("object", card);
+        let guess = turn.returnGuess();
+
+        expect(guess).to.equal("object");
+    })
+
+    it('should be able to return the users card', function () {
+        const card = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+        const turn = new Turn("object", card);
+        let returnedCard = turn.returnCard();
+
+        expect(returnedCard).to.equal(card);
+    })
+
+    it('should determine if the users guess matches the correct answer on the card', function() {
+        const card = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+        const turn = new Turn("object", card);
+        let evaluateGuess = turn.evaluateGuess();
+
+        expect(evaluateGuess).to.equal(true);
+    })
+
+    it('should tell the user of their guess is correct or incorrect', function () {
+        const card = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+        const turn = new Turn("object", card);
+        let feedback = turn.giveFeedback();
+
+        expect(feedback).to.equal("correct");
+    })
 });

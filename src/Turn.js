@@ -4,9 +4,31 @@ class Turn {
         this.currentCard = currentCard;
 
     }
+
+    returnGuess() {
+        return this.guess;
+    }
+
+    returnCard() {
+        return this.currentCard
+    }
+
+    evaluateGuess() {
+        return this.guess === this.currentCard.correctAnswer
+    }
+
+    giveFeedback() {
+    if (this.guess === this.currentCard.correctAnswer) {
+        return "correct"
+     } else {
+        return "incorrect"
+     }
+    }
+
+    
 }
 
 
 
 
-module.exports = Turn
+module.exports = Turn;
