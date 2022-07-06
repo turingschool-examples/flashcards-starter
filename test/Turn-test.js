@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const Card = require('../src/Card')
 const Turn = require('../src/Turn');
 
 describe('Turn', function() {
@@ -10,12 +11,13 @@ const turn = new Turn();
 expect(Turn).to.be.a('function');
 });
 
-it.skip('should be an instance of Turn', function() {
+it('should be an instance of Turn', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn)
 })
 
-it.skip('should store a guess', function() {
+it('should store a guess', function() {
+    const card = new Card(1, 'What is Maya\'s favorite animal?', ['panda', 'frog', 'cat'], 'panda')
     const turn = new Turn('panda', card)
     expect(turn.guess).to.equal('panda')
     })
@@ -40,7 +42,7 @@ it.skip('should be right or wrong', function(){
     expect(turn2.evaluateGuess().to.equal(false))
 })
 
-it.('should give feedback', function() {
+it.skip('should give feedback', function() {
     const card = new Card('What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
     const turn = new Turn('Sioux Falls', card)
     expect(turn.giveFeedback()).to.equal('correct!')
