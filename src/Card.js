@@ -1,5 +1,3 @@
-const { createPromptModule } = require("inquirer");
-
 class Card {
     constructor(id, question, answers, correctAnswer) {
         this.id = id
