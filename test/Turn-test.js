@@ -23,25 +23,25 @@ it('should store a guess', function() {
     })
 
 it('should return a guess', function() {
-    const card = new Card('What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip')
+    const card = new Card(1, 'What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip')
     const turn = new Turn('mint-chip', card)
     expect(turn.returnGuess()).to.equal('mint-chip')
 })
 
 it('should return a Card', function() {
-    const card = new Card('What town is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
+    const card = new Card(1, 'What town is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
     const turn = new Turn('Sioux Falls', card)
     expect(turn.returnCard()).to.equal(card)
     expect(card).to.be.an.instanceof(Card)
 })
 
-it.skip('should be right or wrong', function(){
-    const card = new Card('What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
+it('should be right or wrong', function(){
+    const card = new Card(1, 'What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
     const turn = new Turn('Sioux Falls', card)
-    expect(turn.evaluateGuess().to.equal(true))
-    const card2 = new Card('What city is Emma from?', ['Chicago', 'Pittsburg', 'Tampa'], 'Chicago')
+    expect(turn.evaluateGuess()).to.equal(true)
+    const card2 = new Card(2, 'What city is Emma from?', ['Chicago', 'Pittsburg', 'Tampa'], 'Chicago')
     const turn2 = new Turn('Tampa', card2)
-    expect(turn2.evaluateGuess().to.equal(false))
+    expect(turn2.evaluateGuess()).to.equal(false)
 })
 
 it.skip('should give feedback', function() {
