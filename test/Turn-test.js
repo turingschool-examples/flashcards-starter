@@ -19,9 +19,15 @@ it('should store a guess', function() {
     const turn = new Turn('panda', card)
     expect(turn.guess).to.equal('panda')
     })
+
 it('should be able to return a guess', function() {
     const turn = new Turn('mint-chip', card)
     expect(turn.returnGuess()).to.equal('mint-chip')
+})
 
+it.('should return a Card', function(){
+    const card = new Card('What town is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
+    const turn = new Turn('Sioux Falls', card)
+    expect(turn.returnCard().to.equal(card))
 })
 })
