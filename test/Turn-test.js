@@ -41,4 +41,3 @@ describe('Turn', function() {
         expect(turn.giveFeedback()).to.equal(`incorrect!`);
     });
 });
-// console.log(card);
