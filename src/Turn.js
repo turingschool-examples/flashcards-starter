@@ -14,6 +14,12 @@ class Turn {
     returnGuess(){
         return this.userGuess;
     };
+    evaluateGuess() {
+        return false;
+    };
+    giveFeedback() {
+        return `incorrect!`;
+    };
 };
 
 module.exports = Turn;

@@ -28,7 +28,17 @@ describe('Turn', function() {
     it('should be able to return the user guess', function() {
         const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const turn = new Turn('pug', card);
-        expect(turn.returnGuess()).to.equal(turn.userGuess);
+        expect(turn.returnGuess()).to.equal('pug');
+    });
+    it('should be able to evaluate guess', function() {
+        const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const turn = new Turn('pug', card);
+        expect(turn.evaluateGuess()).to.equal(false);
+    });
+    it('should give feedback', function() {
+        const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const turn = new Turn('pug', card);
+        expect(turn.giveFeedback()).to.equal(`incorrect!`);
     });
 });
 // console.log(card);
