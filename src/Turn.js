@@ -1,18 +1,21 @@
+const Card = require("./Card");
+
+
 
 class Turn{
-    constructor(){
+    constructor(userGuess, currentCard){
       this.userGuess = userGuess;
-      this.currentCard = cardInfo.currentCard;
+      this.currentCard = currentCard;
 
     }
 
     returnGuess(){
-        //userGuess
-        return this.input
+        //userGuess  
+        return this.userGuess
     }
 
     returnCard(){
-        return this.card
+        // return this.currentCard
     }
 
     evaluateGuess(){
@@ -34,4 +37,4 @@ class Turn{
  // - giveFeedback
 
 
- module.Exports = Turn;
+ module.exports = Turn;
