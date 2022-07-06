@@ -14,9 +14,11 @@ class Turn {
 
     evaluateGuess() {
         if (this.input === this.card.correctAnswer) {
-            return this.evaluation = true
+            this.evaluation = true
+            return this.evaluation
         } else {
-            return this.evaluation = false
+            this.evaluation = false
+            return this.evaluation
         }
     }
 
