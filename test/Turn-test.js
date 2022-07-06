@@ -22,7 +22,8 @@ it('should store a guess', function() {
     expect(turn.guess).to.equal('panda')
     })
 
-it.skip('should be able to return a guess', function() {
+it('should return a guess', function() {
+    const card = new Card('What is Emma\'s favorite ice cream?', ['cookie-dough', 'mint-chip', 'strawberry'], 'mint-chip')
     const turn = new Turn('mint-chip', card)
     expect(turn.returnGuess()).to.equal('mint-chip')
 })
