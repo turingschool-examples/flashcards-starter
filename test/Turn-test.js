@@ -30,4 +30,13 @@ it.('should return a Card', function(){
     const turn = new Turn('Sioux Falls', card)
     expect(turn.returnCard().to.equal(card))
 })
+
+it.('should be right or wrong', function(){
+    const card = new Card('What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
+    const turn = new Turn('Sioux Falls', card)
+    expect(turn.evaluateGuess().to.equal(true))
+    const card2 = new Card('What city is Emma from?', ['Chicago', 'Pittsburg', 'Tampa'], 'Chicago')
+    const turn2 = new Turn('Tampa', card2)
+    expect(turn2.evaluateGuess().to.equal(false))
+})
 })
