@@ -14,11 +14,14 @@ it('should be an instance of Turn', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn)
 })
-})
 
 it('should store a guess', function() {
-    const card = new Card(1, 'What is Maya\'s favorite animal?', ['cat', 'dog', 'panda'], 'panda');
-    const turn = new Turn('panda', card )
+    const turn = new Turn('panda', card)
     expect(turn.guess).to.equal('panda')
     })
+it('should be able to return a guess', function() {
+    const turn = new Turn('mint-chip', card)
+    expect(turn.returnGuess()).to.equal('mint-chip')
+
+})
 })
