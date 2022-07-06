@@ -5,33 +5,33 @@ const Turn = require('../src/Turn');
 
 describe('Turn', function() {
 
-    it('should be a function', function() {
-    const turn = new Turn();
-    expect(Turn).to.be.a('function');
+it('should be a function', function() {
+const turn = new Turn();
+expect(Turn).to.be.a('function');
 });
 
-it('should be an instance of Turn', function() {
+it.skip('should be an instance of Turn', function() {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn)
 })
 
-it('should store a guess', function() {
+it.skip('should store a guess', function() {
     const turn = new Turn('panda', card)
     expect(turn.guess).to.equal('panda')
     })
 
-it('should be able to return a guess', function() {
+it.skip('should be able to return a guess', function() {
     const turn = new Turn('mint-chip', card)
     expect(turn.returnGuess()).to.equal('mint-chip')
 })
 
-it.('should return a Card', function(){
+it.skip('should return a Card', function() {
     const card = new Card('What town is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
     const turn = new Turn('Sioux Falls', card)
     expect(turn.returnCard().to.equal(card))
 })
 
-it.('should be right or wrong', function(){
+it.skip('should be right or wrong', function(){
     const card = new Card('What city is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
     const turn = new Turn('Sioux Falls', card)
     expect(turn.evaluateGuess().to.equal(true))
