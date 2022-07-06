@@ -4,13 +4,13 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 
 class Turn {
-    constructor() {
-        this.userGuess = 'pug';
-        this.currentCard  = new Card();
+    constructor(userGuess, card) {
+        this.userGuess = userGuess;
+        this.currentCard  = card;
     };
-    // userGuess(){
-    //     return 'pug';
-    // };
+    returnCard(card){
+        return this.currentCard;
+    };
 };
 
 module.exports = Turn;
