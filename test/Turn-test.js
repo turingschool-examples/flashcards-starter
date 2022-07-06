@@ -28,10 +28,11 @@ it('should return a guess', function() {
     expect(turn.returnGuess()).to.equal('mint-chip')
 })
 
-it.skip('should return a Card', function() {
+it('should return a Card', function() {
     const card = new Card('What town is Maya from?', ['San Francisco', 'Santa Fe', 'Sioux Falls'], 'Sioux Falls')
     const turn = new Turn('Sioux Falls', card)
-    expect(turn.returnCard().to.equal(card))
+    expect(turn.returnCard()).to.equal(card)
+    expect(card).to.be.an.instanceof(Card)
 })
 
 it.skip('should be right or wrong', function(){
