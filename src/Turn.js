@@ -4,7 +4,7 @@ class Turn {
         this.card = card
         this.evaluation = false
     }
-    returnGuess(){
+    returnGuess() {
         return this.input
     }
 
@@ -24,7 +24,7 @@ class Turn {
         if (this.evaluation === true) {
             return 'Correct!'
         } else {
-            return 'Sorry! Try again.'
+            return 'Incorrect!'
         }
     }
 }
