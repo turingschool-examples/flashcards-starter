@@ -8,21 +8,21 @@ class Turn {
         this.userGuess = userGuess;
         this.currentCard  = card;
     };
-    returnCard(){
+    returnCard() {
         return this.currentCard;
     };
-    returnGuess(){
+    returnGuess() {
         return this.userGuess;
     };
     evaluateGuess() {
-        if(this.userGuess === this.currentCard.correctAnswer){
+        if(this.userGuess === this.currentCard.correctAnswer) {
             return true;
         } else {
             return false;
         };
     };
     giveFeedback() {
-        if(this.evaluateGuess() === true){
+        if(this.evaluateGuess() === true) {
             return `correct!`;
         } else {
             return `incorrect!`;
