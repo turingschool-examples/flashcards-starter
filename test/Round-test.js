@@ -63,5 +63,5 @@ describe('Round', function() {
 
 
 
-//The currentCard should be the first Card in the Deck (the array of Cards) at the start of the Round
+
 
