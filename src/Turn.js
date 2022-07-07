@@ -25,12 +25,13 @@ class Turn{
     }
     }
     giveFeedback(){
-        if (this.userGuess !== this.currentCard.correctAnswer){
-            return 'NEXT TIME! :(';
-        } else {
-            return 'ON POINT!';
-      }
-    }
+            if (this.evaluateGuess() === false){
+                return 'NEXT TIME! :(';
+            } else {
+                return 'ON POINT!'; 
+            }
+        }
+
 };
 
 //instantiate two arguments

@@ -6,8 +6,10 @@ class Deck {
         this.cardQuantity = cardQuantity;
     }
     countCards(){
+        console.log(this.cardQuantity, 2)
         return this.cardQuantity
     }
+    // refactor to count cards in cardQuantity using =>
 };
 
 //this deck holds all of the cards. 

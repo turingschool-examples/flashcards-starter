@@ -9,8 +9,7 @@ describe('Turn', () => {
   let turn2;
   let card;
 
-  beforeEach(() => {
-    
+  beforeEach(() => {  
     card = new Card(9, 'What does the callback function for find() return?', ["boolean", "array", "object"], 'boolean');
     turn1 = new Turn('object', card);
     turn2 = new Turn('iteration method', card) 
