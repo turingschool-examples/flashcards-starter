@@ -4,6 +4,7 @@ class Card {
         this.question = cardData.question;
         this.answers = cardData.answers;
         this.correctAnswer = cardData.correctAnswer;
+        
     };
     
 };
