@@ -4,12 +4,23 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
+const data = require('../src/data.js')
+
+
 
 describe('Round', function() {
-  const card1 = new Card(1, 'What is Tom\'s favorite music genre?', ['techno', 'house', 'classic rock'], 'techno');
-  const card2 = new Card(2, 'What is Tom\'s favorite live music venue?', ['The Fillmore', 'Red Rocks', 'Mission Ballroom'], 'Red Rocks');
-  const card3 = new Card(3, 'How many times has Tom seen Bassnectar perform live?', [4, 13, 25], 25);
-  const deck = new Deck([card1, card2, card3]);
+
+let card1;
+let card2;
+let card3;
+let deck;
+
+  beforeEach(function() {
+    card1 = new Card(1, 'What is Tom\'s favorite music genre?', ['techno', 'house', 'classic rock'], 'techno');
+    card2 = new Card(2, 'What is Tom\'s favorite live music venue?', ['The Fillmore', 'Red Rocks', 'Mission Ballroom'], 'Red Rocks');
+    card3 = new Card(3, 'How many times has Tom seen Bassnectar perform live?', [4, 13, 25], 25);
+    deck = new Deck([card1, card2, card3]);
+  });
 
   it('should be a function', function() {
     const round = new Round(deck)
@@ -26,7 +37,8 @@ describe('Round', function() {
   it('should begin with the current card being the first card in the deck', function() {
     const round = new Round(deck)
 
-    expect(round.currentCard).to.equal(card1);
+    round.returnCurrentCard()
+    expect(round.returnCurrentCard()).to.equal(card1);
   });
 
   it('should be able to return which card is currently being played', function() {
@@ -35,12 +47,12 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.equal(card1);
   });
 
-  // it('should be able to update the current card to the next card in the deck after a turn is taken', function() {
-  //   const round = new Round(deck);
+  it('should be able to update the current card to the next card in the deck after a turn is taken', function() {
+    const round = new Round(deck);
 
-  //   round.takeTurn();
-  //   expect(round.currentCard).to.equal(card2);
-  // });
+    round.takeTurn();
+    expect(round.returnCurrentCard()).to.equal(card2);
+  });
 
   it('should return feedback telling the user whether the guess was correct or incorrect', function() {
     const round = new Round(deck);
@@ -58,7 +70,7 @@ describe('Round', function() {
   })
 
   it('should be able to update the turn count when a turn is taken', function() {
-    const round = new Round(deck)
+    const round = new Round(deck);
 
     round.takeTurn();
     expect(round.turnCount).to.equal(1);
@@ -67,8 +79,16 @@ describe('Round', function() {
     expect(round.turnCount).to.equal(2);
 
     round.takeTurn();
-    round.takeTurn();
-    expect(round.turnCount).to.equal(4);
+    expect(round.turnCount).to.equal(3);
+  });
+
+  it('should be able to calculate the percent of quesions answered correctly', function() {
+    const round = new Round(deck);
+
+    round.takeTurn('techno');
+    round.takeTurn('The Fillmore');
+    round.takeTurn(25)
+    expect(round.calculatePercentCorrect()).to.equal(66)
   });
 
 });
