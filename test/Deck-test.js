@@ -14,7 +14,7 @@ describe('Deck', () => {
         card1 = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
         card2 = new Card(7, 'Which array prototype is not an accessor method?', ['join()', 'slice()', 'splice()'], 'splice()');
         card3 = new Card(26, 'shift(), unshift(), pop(), and push() are examples of what type of array property method?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
-        deck = [card1, card2, card3];
+        deck = new Deck([card1, card2, card3]);
 
     });
 
@@ -28,10 +28,13 @@ describe('Deck', () => {
 
     });
 
+    it('should have an deck of cards', () => {
+        expect(deck.cards).to.deep.equal([card1, card2, card3]);
+    });
+
     it('should know how many cards are in the deck', () => {
         const cardAmount = deck.countCards();
         expect(cardAmount).to.equal(3);
-        expect(cardAmount).to.deep.equal([card1, card2, card3]);
 
     });
 
