@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const cardData = require('../src/data');
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
@@ -9,7 +10,7 @@ describe('Turn', () => {
     let turn;
 
     beforeEach(() => {
-        card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+        card = new Card(cardData.prototypeData[0]);
         turn = new Turn('object', card);
 
     });
