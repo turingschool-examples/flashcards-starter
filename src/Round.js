@@ -7,18 +7,19 @@ const Deck = require('../src/Deck');
 class Round {
     constructor(deck) {
        this.deck = deck;
-       this.turns = 0;
-       this.currentCard = deck[this.turns];
+       this.turnCount = 0;
+       this.currentCard = deck[this.turnCount];
     };
     returnCurrentCard() {
         return this.currentCard;
     };
    
-    takeTurn() {
-        this.turns++;
-        this.currentCard = this.deck[this.turns];
-        let turn = new Turn();
-        return turn;
+    takeTurn(guess) {
+        this.turnCount++;
+        this.currentCard = this.deck[this.turnCount];
+        let newTurn = new Turn();
+        // newTurn.evaluateGuess();
+        return newTurn.evaluateGuess();
     };
 };
 

@@ -2,11 +2,13 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
+const Deck = require('../src/Deck');
+const Round = require('..//src/Round');
 
 class Turn {
     constructor(userGuess, card) {
         this.userGuess = userGuess;
-        this.currentCard  = card;
+        this.currentCard  = card.currentCard;
     };
     returnCard() {
         return this.currentCard;
@@ -31,4 +33,6 @@ class Turn {
 };
 
 module.exports = Turn;
-
+module.exports = Card;
+module.exports = Deck;
+module.exports = Round;
