@@ -8,17 +8,25 @@ class Turn {
         this.userGuess = userGuess;
         this.currentCard  = card;
     };
-    returnCard(card){
+    returnCard(){
         return this.currentCard;
     };
     returnGuess(){
         return this.userGuess;
     };
     evaluateGuess() {
-        return false;
+        if(this.userGuess === this.currentCard.correctAnswer){
+            return true;
+        } else {
+            return false;
+        };
     };
     giveFeedback() {
-        return `incorrect!`;
+        if(this.evaluateGuess() === true){
+            return `correct!`;
+        } else {
+            return `incorrect!`;
+        };
     };
 };
 

@@ -2,33 +2,25 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-// const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 
 describe('Deck', function() {
-    it('should be a function', function() {
-        // const deck = new Deck(cards);
-        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-        const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    let card1, card2, card3, deck, round;
 
-        const deck = new Deck([card1, card2, card3]);
-        expect(Deck).to.be.a('function');
+    beforeEach(function() {
+      card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+      card2 = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
+      card3 = new Card(4, 'What type of prototype method does not modify the existing array but returns a particular representation of the array?', ['mutator method', 'accessor method', 'iteration method'], 'accessor method');
+      deck = new Deck([card1, card2, card3]);
+    });
+
+    it('should be a function', function() {
+         expect(Deck).to.be.a('function');
     });
     it('should be an instance of Deck', function() {
-        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-        const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-        const deck = new Deck([card1, card2, card3]);
         expect(deck).to.be.an.instanceof(Deck);
     });
     it('should count each deck of cards', function() {
-        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-        const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-        const deck = new Deck([card1, card2, card3]);
         const numberOfCards = deck.countCards();
         expect(numberOfCards).to.equal(deck.cards.length);
     });
