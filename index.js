@@ -1,7 +1,9 @@
 // This is where your project starts.
 
-new Game()
+const Card = require("./src/Card");
 
+new Game();
+let flashCard = new Card();
 
 
 
@@ -10,4 +12,4 @@ new Game()
 
 console.log('Your project is running...'); 
 
-module.Exports = Turn;
+
