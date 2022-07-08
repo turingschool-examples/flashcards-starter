@@ -4,10 +4,14 @@ const Turn = require('../src/Turn');
 
 class Round{
     constructor(deck){
-        this.deck = deck;
-
+        // this.deck = deck;
+        this.currentCard = deck.currentCard;
+        console.log(this.currentCard, 2)
     }
-
+    returnCurrentCard(){
+        console.log(currentCard, 2)
+        return this.currentCard;
+    }
 };
 
 

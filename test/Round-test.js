@@ -21,24 +21,26 @@ describe('Round', () => {
       newDeck = new Deck([card1, card2, card3])
       newRound = new Round(newDeck)
     })
-    it.skip('should be a function', () => {
+    it('should be a function', () => {
      
       expect(Round).to.be.a('function');
     })
-    it.skip('should be an instance of Round', () => {
+    it('should be an instance of Round', () => {
     
       expect(newRound).to.be.an.instanceof(Round);
     })
-    it.skip('should have a Deck object for the current deck in play', () => {
+    it('should have a Deck object for the current deck in play', () => {
 // need to represent .deck as an object of deck
      var deck1 = new Deck({ 
             cardQuantity: 30,
      })
       expect(newRound.deck).to.be.an.instanceof(Deck)
     })
-    it.skip('should have a method that returns the current card being played', () => {
+    it('should have a method that returns the current card being played', () => {
 
-      expect(newRound.returnCurrentCard()).to.equal('');
+      
+      expect(newRound.currentCard).to.equal();
+      expect(newRound.returnCurrentCard()).to.be.a('function');
     })
     it.skip('should be able to take turns', () => {
 
