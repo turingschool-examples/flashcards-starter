@@ -1,8 +1,9 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Deck = require('../src/Deck');
+const data = require('../src/data')
 const Card = require('../src/Card');
+const Deck = require('../src/Deck');
 
 describe('Deck', function() {
     let cards;
@@ -23,6 +24,10 @@ describe('Deck', function() {
 
     it('should be a new instance of Deck', function() {
         expect(deck).to.be.an.instanceOf(Deck)
+    })
+
+    it('should be able to store cards', function() {
+        expect(deck.cards).to.deep.equal(cards);
     })
 
     it('should be able to count cards in a deck', function() {
