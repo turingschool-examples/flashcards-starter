@@ -56,4 +56,7 @@ describe('Round', function() {
         round.takeTurn('userGuess');
         expect(round.calculatePercentCorrect()).to.equal(50);
     });
+    it('should end the round and tell the user their percent correct', function() {
+        expect(round.endRound()).to.equal(`** Round over! ** You answered ${round.calculatePercentCorrect()}% of the questions correctly!`);
+    });
 });

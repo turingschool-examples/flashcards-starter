@@ -21,8 +21,10 @@ class Round {
         return this.newTurn.giveFeedback();
     };
     calculatePercentCorrect() {
-        var percentCorrect = (this.incorrectGuesses.length / this.turnCount) * 100;
-       return percentCorrect;
+        return (this.incorrectGuesses.length / this.turnCount) * 100;
+    };
+    endRound() {
+        return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
     };
 };
 module.exports = Round;
