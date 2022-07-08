@@ -23,10 +23,13 @@ class Round {
     };
 
     takeTurn(userGuess) {
-        if(userGuess === this.currentCard.correctAnswer) {
-            this.guesses.right.push(this.currentCard.id);
-        } else {
-            this.guesses.wrong.push(this.currentCard.id);
+        switch (userGuess) {
+            case this.currentCard.correctAnswer:
+                this.guesses.right.push(this.currentCard.id);
+                break;
+            default:
+                this.guesses.wrong.push(this.currentCard.id);
+                
         };
         
         return this.currentTurn.giveFeedback();
