@@ -15,8 +15,9 @@ describe('Turn', function() {
 
     beforeEach(() => {
         turn = new Turn("Morgan", card)
-        card = new Card(1, "What is my name?", ["Morgan", "Sassy", "Zoey"], "Morgan")
         turn2 = new Turn("Zoey", card)
+        card = new Card(1, "What is my name?", ["Morgan", "Sassy", "Zoey"], "Morgan")
+       
     });
 
 
@@ -50,6 +51,7 @@ describe('Turn', function() {
 
 
 });
+
 
 
 

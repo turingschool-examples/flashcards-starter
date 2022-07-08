@@ -1,21 +1,38 @@
-// const chai = require('chai');
-// const expect = chai.expect;
 
-// const Game = require('../src/Game');
-// const Turn = require('../src/Turn');
-// const Card = require('../src/Card');
-// const Round = require('../src/Round');
+const Turn = require('../src/Turn');
 
-// describe('Round', function() {
+class Round {
+    constructor(deck) {
+        this.deck = deck
+        this.turns = 0;
+        this.incorrectGuesses = []
 
-// it('should be a funcion', function() {
-// const Round = new Round();
-// expect(Round).to.be.a('function');
-// });
 
-// it('should be an instance of Round', function() {
-//     const round = new Card();
-//     expect(round).to.be.an.instanceof(Round);
-//   }); 
+    }
+    returnCurrentCard() {
+        return this.deck.cards[this.turns]
+       
+    }
 
-// });
+    takeTurn(guess) {
+        var currentCard = this.returnCurrentCard();
+        var turn = new Turn(guess, currentCard)
+        this.turns++
+        if(turn.giveFeedback() === "INCORRECT") {
+            this.incorrectGuesses.push(this.currentCard.id);
+        }
+    }
+
+    calculatePercentCorrect() {
+        var num = this.turns - this.incorrectGuesses.length;
+        var percentCorrect = (num / this.turns) * 100;
+        return percentCorrect;
+
+    }
+
+}
+
+
+
+
+module.exports = Round;
