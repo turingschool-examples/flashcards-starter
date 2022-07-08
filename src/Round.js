@@ -6,7 +6,7 @@ class Round {
         this.guesses = {
             right: [],
             wrong: []
-        }
+        };
 
     };
 
@@ -54,5 +54,5 @@ class Round {
 };
 
 var cardData = require('../src/data');
-var Turn = require('../src/Turn')
+var Turn = require('../src/Turn');
 module.exports = Round;
