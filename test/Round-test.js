@@ -2,19 +2,22 @@ const chai = require('chai');
 const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
-const Round = require('../src/Round');
 const Turn = require('../src/Turn');
+const Round = require('../src/Round');
 
 describe('Round', function() {
-    let card1, card2, card3, deck, round, turn;
+    let card, card1, card2, card3, cards, deck, round, turn, wrongAnswers;
 
     beforeEach(function() {
-      card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-      card2 = new Card(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
-      card3 = new Card(4, 'What type of prototype method does not modify the existing array but returns a particular representation of the array?', ['mutator method', 'accessor method', 'iteration method'], 'accessor method');
-      deck = new Deck([card1, card2, card3]);
-      round = new Round(deck);
-      turn = new Turn();
+        card = new Card({cardIdNumber: this.cardIdNumber, question: this.question, answers: this.answers, correctAnswer: this.correctAnswer});
+        cards = [
+        card1 = new Card(),
+        card2 = new Card(),
+        card3 = new Card(),
+        ]
+        deck = new Deck(cards);
+        round = new Round(deck);
+        turn = new Turn('userGuess', deck.cards);
     });
     it('should be a function', function() {
           expect(Round).to.be.a('function');
@@ -22,27 +25,38 @@ describe('Round', function() {
     it('should be an instance of Round', function() {
         expect(round).to.be.an.instanceOf(Round);
     });
-    it('should first card of the deck be the default current card', function() {
-        expect(round.returnCurrentCard()).to.equal(deck[0]);
+    it('should start with first card of the deck as default', function() {
+        expect(round.currentCard).to.equal(round.deck[0]);
     });
-    it('should instantiate a new Turn when a guess is made', function() {
-        expect(round.takeTurn()).to.be.an.instanceof(Turn);
-    });
+    it('should keep track of the number of turns', function() {
+        expect(round.turnCount).to.equal(0);
+      });
     it('should update turn count', function() {
         round.takeTurn();
         round.takeTurn();
         round.takeTurn();
         expect(round.turnCount).to.equal(3);
-    });
+    });  
     it('should be able to shuffle cards', function() {
-        expect(round.returnCurrentCard()).to.equal(deck[0]);
+        expect(round.returnCurrentCard()).to.equal(round.deck.cards[card1]);
         round.takeTurn();
-        expect(round.returnCurrentCard()).to.equal(deck[1]);
         round.takeTurn();
-        expect(round.returnCurrentCard()).to.equal(deck[2]);
         round.takeTurn();
     });
-    it('should evaluate and record user guesses', function() {
-        expect(round.takeTurn('guess')).to.equal(turn);
+    it('should store incorrect guesses', function() {
+        expect(round.incorrectGuesses).to.deep.equal([]);
+    });
+    it('should store correct guesses', function() {
+        expect(round.correctGuesses).to.deep.equal([]);
+    });
+    it('should give feedback regardless of whether the guess is incorrect or correct', function(){
+        expect(round.takeTurn()).to.equal(`correct!` || `incorrect!`);
+    });
+    it('should be able to calculate percentage of correct answers', function(){
+        expect(round.calculatePercentCorrect()).to.equal(wrongAnswers);
+        //I need this to be a function 
+        //which calculates the number of cards in the deck
+        //and divides that number by the total number of elements in the incorrectGuesses array
+        //needs to take 
     });
 });

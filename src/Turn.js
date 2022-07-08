@@ -1,30 +1,26 @@
-const chai = require('chai');
-const expect = chai.expect;
-
 const Card = require('../src/Card');
-const Deck = require('../src/Deck');
-const Round = require('..//src/Round');
-
 class Turn {
     constructor(userGuess, card) {
         this.userGuess = userGuess;
-        this.currentCard  = card.currentCard;
+        this.currentCard = card = new Card({cardIdNumber: this.cardIdNumber, question: this.question, answers: this.answers, correctAnswer: this.correctAnswer});
     };
     returnCard() {
         return this.currentCard;
     };
-    returnGuess() {
+    returnGuess(guess) {
+        this.userGuess = guess;
         return this.userGuess;
     };
-    evaluateGuess() {
+    evaluateGuess(guess) {
+        this.userGuess = guess
         if(this.userGuess === this.currentCard.correctAnswer) {
             return true;
         } else {
             return false;
         };
     };
-    giveFeedback() {
-        if(this.evaluateGuess() === true) {
+    giveFeedback(guess) {
+        if(this.evaluateGuess(guess) === true) {
             return `correct!`;
         } else {
             return `incorrect!`;
@@ -33,6 +29,3 @@ class Turn {
 };
 
 module.exports = Turn;
-module.exports = Card;
-module.exports = Deck;
-module.exports = Round;
