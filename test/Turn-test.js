@@ -32,9 +32,9 @@ describe("Turn", function () {
       2,
       "What is the answer?",
       ["hat", "boot", "scarf"],
-      "glove"
+      "scarf"
     );
-    const turn4 = new Turn("boot", card4);
+    const turn4 = new Turn("scarf", card4);
 
     expect(turn4.returnCard()).to.be.an.instanceOf(Card);
   });
