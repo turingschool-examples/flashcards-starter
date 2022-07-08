@@ -2,27 +2,25 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const cardData = require('../src/data');
+const cards = cardData.prototypeData;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 const Turn = require('../src/Turn');
 
 describe('Round', () => {
-    let cards;
     let deck;
     let round;
 
     beforeEach(() => {
-        cards = cardData.prototypeData
-        
         deck = new Deck(cards);
-        round = new Round(deck);
+        round = new Round(deck.cards);
 
     });
 
     it('should be a function', () => {
         expect(Round).to.be.a('function');
-
+        
     });
 
     it('should be an istance of Round', () => {
