@@ -1,6 +1,8 @@
+const Turn = require('../src/Turn');
+
 class Round {
-    constructor() {
-        this.currentTurn = new Turn(null, cardData.prototypeData[0]);
+    constructor(deck) {
+        this.currentTurn = new Turn(null, deck[0]);
         this.currentCard = this.currentTurn.returnCard();
         this.turnCount = 0;
         this.guesses = {
@@ -11,6 +13,7 @@ class Round {
     };
 
     turnHandeler(userGuess, nextCard) {
+        this.currentTurn.userGuess = userGuess;
         this.addToTurnCounter();
         const messege = this.takeTurn(userGuess);
         this.newTurn(userGuess, nextCard);
@@ -18,8 +21,13 @@ class Round {
 
     };
 
+    updateUserGuess(userGuess) {
+        this.currentTurn.userGuess = userGuess;
+    };
+
     addToTurnCounter() {
         this.turnCount++;
+        
     };
 
     takeTurn(userGuess) {
@@ -53,6 +61,4 @@ class Round {
 
 };
 
-var cardData = require('../src/data');
-var Turn = require('../src/Turn');
 module.exports = Round;
