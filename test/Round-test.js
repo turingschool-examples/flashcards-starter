@@ -100,17 +100,19 @@ describe("Round", function () {
   it("should calculate the correct percentage", function () {
     round.takeTurn("sea otter");
     round.takeTurn("manatee");
+    round.takeTurn("manatee");
     round.calculatePercentCorrect();
 
-    expect(round.calculatePercentCorrect()).to.equal(50);
+    expect(round.calculatePercentCorrect()).to.equal(33.33);
   });
 
   it("should end the round", function () {
     round.takeTurn("sea otter");
     round.takeTurn("manatee");
+    round.takeTurn("manatee");
     round.calculatePercentCorrect();
 
-    expect(round.endRound()).to.equal(`Round over! You answered %${50}`);
+    expect(round.endRound()).to.equal(`Round over! You answered %${33.33}`);
   });
 });
 

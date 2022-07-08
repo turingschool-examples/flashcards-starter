@@ -37,7 +37,8 @@ class Round {
   }
   calculatePercentCorrect() {
     let wins = this.turns - this.incorrectGuesses.length;
-    let percent = (wins / this.turns) * 100;
+    let percent = parseFloat(((wins / this.turns) * 100).toFixed(2));
+    // return Number.parseFloat(x).toFixed(2);
     return percent;
   }
   endRound() {
