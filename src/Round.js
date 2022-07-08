@@ -13,11 +13,16 @@ class Round {
     };
 
     turnHandeler(userGuess, nextCard) {
+        this.currentTurn.userGuess = userGuess;
         this.addToTurnCounter();
         const messege = this.takeTurn(userGuess);
         this.newTurn(userGuess, nextCard);
         return messege;
 
+    };
+
+    updateUserGuess(userGuess) {
+        this.currentTurn.userGuess = userGuess;
     };
 
     addToTurnCounter() {
