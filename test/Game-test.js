@@ -5,7 +5,7 @@
  const Round = require('../src/Round');
  const Turn = require('../src/Turn');
  const Game = require('../src/Game');
- const data = require('../src/data');//this gives us an object
+ const data = require('../src/data');
  const prototypeQuestions = data.prototypeData;
 
 describe('Game', function() {
@@ -30,5 +30,3 @@ describe('Game', function() {
     })
 });
 
-//Your Game class should meet these other requirements:
-// Should keep track of the currentRound

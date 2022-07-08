@@ -12,9 +12,7 @@ class Round {
     }
     
     takeTurn(guess) {
-        // let currentCard = this.returnCurrentCard();
         let turn = new Turn(guess, this.returnCurrentCard());
-        //turn.evaluateGuess();
         if(!turn.evaluateGuess()) {
             this.incorrectGuesses.push(turn.currentCard.id);
         }
@@ -24,7 +22,6 @@ class Round {
     }
 
     calculatePercentCorrect() {
-        //divide the correct guesses by the turns
         let correctGuesses = this.turns - this.incorrectGuesses.length;
         return parseFloat(((correctGuesses / this.turns) * 100).toFixed(2));
     }

@@ -47,16 +47,12 @@ describe('Round', function() {
 
     it('should start out with 0 turns', function() {
         expect(round.turns).to.equal(0);
-        // console.log(round.deck.deck)
     });
 
     it('should start out with an empty array of incorrect guesses', function() {
         expect(round.incorrectGuesses).to.deep.equal([]);
     });
     
-    // it('the current card should be the first card in the deck', function() {
-    //     expect(round.deck).to.equal(deck);
-    // });
 
     it('should make sure the current card is the first card in the deck', function() {
        expect(round.returnCurrentCard()).to.equal(card1);
@@ -86,8 +82,7 @@ describe('Round', function() {
         round.takeTurn('spleen');
         round.calculatePercentCorrect();
         expect(round.calculatePercentCorrect()).to.equal(50);
-        //compare the number of guess to the number of turns
-    })
+    });
 
     it('should end the round and return a statement', function() {
         round.takeTurn('object');
@@ -99,8 +94,3 @@ describe('Round', function() {
 });
 
 
-
-//endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
-
-
-//calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
