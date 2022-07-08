@@ -3,9 +3,12 @@
 const Game = require("./src/Game");
 const data = require('./src/data');
 const Deck = require("./src/Deck");
+const Card = require('./src/Card');
+const Turn = require('./src/Turn');
+const Round = require('./src/Round');
 
-const deck = new Deck(data.prototypeData)
+const deck = new Deck(data.prototypeData);
+const cardData = data.prototypeData
 const game = new Game(deck);
 
-// console.log(deck.cards);
-game.start(deck)
+game.start(deck, cardData)
