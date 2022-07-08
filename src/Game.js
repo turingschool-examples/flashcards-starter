@@ -28,9 +28,8 @@ class Game {
     
   };
 
-  printFeedback(userGuess, nextCard) {
-    const feedback = this.currentRound.turnHandeler(userGuess, nextCard);
-    return feedback;
+  updateTurnGuess(userGuess, nextCard) {
+    this.currentRound.currentTurn.userGuess = userGuess;
 
   };
 

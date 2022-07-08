@@ -22,6 +22,7 @@ class Round {
 
     addToTurnCounter() {
         this.turnCount++;
+        
     };
 
     takeTurn(userGuess) {
