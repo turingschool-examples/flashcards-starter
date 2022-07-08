@@ -12,8 +12,11 @@ class Game {
 
   };
 
-  start(cards) {
-    this.createDeck(cards);
+  start(deck, round) {
+      this.createDeck(deck);
+      this.newRound(this.deck.cards);
+      this.printMessage(deck, round);
+      this.printQuestion(round);
 
   };
 
@@ -24,13 +27,7 @@ class Game {
 
   createDeck(cards) {
     this.deck = new Deck(cards);
-    this.newRound(this.deck.cards);
-    
-  };
-
-  updateTurnGuess(userGuess, nextCard) {
-    this.currentRound.currentTurn.userGuess = userGuess;
-
+  
   };
 
   printMessage(deck, round) {
