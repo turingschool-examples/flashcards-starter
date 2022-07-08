@@ -22,7 +22,7 @@ class Round {
         this.turnCount++;
     };
 
-    takeTurn(userGuess, nextCard) {
+    takeTurn(userGuess) {
         if(userGuess === this.currentCard.correctAnswer) {
             this.guesses.right.push(this.currentCard.id);
         } else {

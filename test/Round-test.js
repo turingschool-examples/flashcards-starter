@@ -66,7 +66,7 @@ describe('Round', () => {
 
     });
 
-    it('should keep track right and wrong answers', () => {
+    it('should keep track of right and wrong answers', () => {
         let userGuess = deck.cards[0].answers[1];
         round.turnHandeler(userGuess, deck.cards[1]);
         
