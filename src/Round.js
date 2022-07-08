@@ -6,9 +6,7 @@ class Round {
        this.deck = deck;
        this.turnCount = 0;
        this.currentCard = this.deck[this.turnCount];
-       this.newTurn = new Turn('userGuess', this.currentCard);
        this.incorrectGuesses = [];
-       this.correctGuesses = [];
     };
     returnCurrentCard() {
         return this.currentCard;
@@ -16,15 +14,15 @@ class Round {
    
     takeTurn(guess) { 
         this.turnCount++;
+        this.newTurn = new Turn(guess, this.currentCard);
         if(!this.newTurn.evaluateGuess(guess)){
             this.incorrectGuesses.push(this.newTurn.currentCard.cardIdNumber);
         };
-        this.correctGuesses.push(this.newTurn.currentCard.cardIdNumber);
         return this.newTurn.giveFeedback();
     };
-    calculatePercentCorrect(wrongAnswers) {
-       return wrongAnswers
+    calculatePercentCorrect() {
+        var percentCorrect = (this.incorrectGuesses.length / this.turnCount) * 100;
+       return percentCorrect;
     };
 };
 module.exports = Round;
-// module.exports = Turn; 

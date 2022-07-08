@@ -35,8 +35,9 @@ describe('Turn', function() {
     });
     it('should be able to evaluate guess', function() {
         expect(turn.evaluateGuess(turn.userGuess)).to.equal(true || false);
-        // expect(turn1.evaluateGuess('object')).to.equal(true);
+      
         // expect(turn2.evaluateGuess('array')).to.equal(false);
+        // expect(turn1.evaluateGuess('object')).to.equal(true);
     });
     it('should give feedback', function() {
         expect(turn.giveFeedback()).to.equal(`correct!` || `incorrect!`)
