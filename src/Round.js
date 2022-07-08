@@ -1,12 +1,14 @@
+const Turn = require('../src/Turn');
+
 class Round {
-    constructor() {
-        this.currentTurn = new Turn(null, cardData.prototypeData[0]);
+    constructor(deck) {
+        this.currentTurn = new Turn(null, deck[0]);
         this.currentCard = this.currentTurn.returnCard();
         this.turnCount = 0;
         this.guesses = {
             right: [],
             wrong: []
-        }
+        };
 
     };
 
@@ -53,6 +55,4 @@ class Round {
 
 };
 
-var cardData = require('../src/data');
-var Turn = require('../src/Turn')
 module.exports = Round;
