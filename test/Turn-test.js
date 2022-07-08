@@ -40,19 +40,19 @@ describe('Turn', () => {
 
      
     expect(turn1.currentCard).to.be.an.instanceof(Card)
-    // expect(turn1.currentCard).to.equal(newCard);
+    
   });
 
   it('should be a method that returns a user guess input', () => {
-
+    
     expect(turn1.userGuess).to.be.a('string');
-    expect(turn2.userGuess).to.equal('iteration method');
+    expect(turn2.returnGuess()).to.equal('iteration method');
   });
 
   it('should be a method that returns the Card', () => {
 
     expect(turn1.returnCard()).to.equal(turn1.currentCard);
-    // expect(turn2.currentCard).to.equal(turn2.currentCard);
+    
   });
   it('should be a method that returns a boolean indicating if the user/s guess matches the correct answer on the card', () => {
 
