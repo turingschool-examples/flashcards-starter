@@ -22,7 +22,6 @@ describe('Round', function() {
          round = new Round(deck);
          turn1 = new Turn("pug", card1);
          turn2 = new Turn("gallbladder", card2);
-
     });
 
     it('should be a function', function() {
@@ -35,15 +34,16 @@ describe('Round', function() {
 
     it('should start out with 0 turns', function() {
         expect(round.turns).to.equal(0);
+        console.log(round.deck.deck)
     });
 
     it('should start out with an empty array of incorrect guesses', function() {
         expect(round.incorrectGuesses).to.deep.equal([]);
     });
     
-    it('the current card should be the first card in the deck', function() {
-        expect(round.deck).to.equal(deck);
-    });
+    // it('the current card should be the first card in the deck', function() {
+    //     expect(round.deck).to.equal(deck);
+    // });
 
     it('should make sure the current card is the first card in the deck', function() {
        expect(round.returnCurrentCard()).to.equal(card1);
@@ -58,10 +58,36 @@ describe('Round', function() {
         expect(round.turns).to.equal(1);
     });
 
+    it('should evaluate the guess and give feedback', function() {
+        let correct = round.takeTurn( 'sea otter');
+        expect(correct).to.equal('correct');
+    });
+
+    it('should store incorrect guess by id in the incorrect guesses array', function() {
+        round.takeTurn('spleen');
+        expect(round.incorrectGuesses).to.deep.equal([1]);
+    });
+
+    it('should return the percentage of correct guesses', function () {
+        round.takeTurn('sea otter');
+        round.takeTurn('spleen');
+        round.calculatePercentCorrect();
+        expect(round.calculatePercentCorrect()).to.equal(50);
+        //compare the number of guess to the number of turns
+    })
+
+    it('should end the round and return a statement', function() {
+        round.takeTurn('sea otter');
+        round.takeTurn('spleen');
+        expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!')
+    })
+
+
 });
 
 
 
+//endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
 
 
-
+//calculatePercentCorrect: method that calculates and returns the percentage of correct guesses

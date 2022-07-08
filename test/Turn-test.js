@@ -7,11 +7,10 @@ const Card = require('../src/Card');
 describe('Turn', function() {
     let card;
     let turn;
-    this.beforeEach(() => {
+    beforeEach(() => {
         card = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
         turn = new Turn("object", card);
-
-    })
+    });
 
     it('should be a function', function () {
         expect(Turn).to.be.a('function');
@@ -24,7 +23,7 @@ describe('Turn', function() {
     it('should take in a users guess to a question', function () {
         expect(turn.guess).to.be.a("string");
         expect(turn.guess).to.equal("object");
-    })
+    });
 
     it('should know the current card being played', function () {
         expect(turn.currentCard).to.equal(card);
