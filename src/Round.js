@@ -1,3 +1,6 @@
+const cardData = require('../src/data');
+const Turn = require('../src/Turn');
+
 class Round {
     constructor() {
         this.currentTurn = new Turn(null, cardData.prototypeData[0]);
@@ -53,6 +56,4 @@ class Round {
 
 };
 
-var cardData = require('../src/data');
-var Turn = require('../src/Turn');
 module.exports = Round;
