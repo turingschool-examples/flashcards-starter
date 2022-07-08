@@ -12,10 +12,15 @@ class Round {
 
     };
 
-    turnHandeler(userGuess, nextCard) {
-        this.currentTurn.userGuess = userGuess;
+    returnCurrentCard() {
+        return this.currentCard;
+        
+    };
+
+    takeTurn(userGuess, nextCard) {
+        this.updateUserGuess(userGuess);
         this.addToTurnCounter();
-        const messege = this.takeTurn(userGuess);
+        const messege = this.evaluateGuess(userGuess);
         this.newTurn(userGuess, nextCard);
         return messege;
 
@@ -30,7 +35,7 @@ class Round {
         
     };
 
-    takeTurn(userGuess) {
+    evaluateGuess(userGuess) {
         switch (userGuess) {
             case this.currentCard.correctAnswer:
                 this.guesses.right.push(this.currentCard.id);
