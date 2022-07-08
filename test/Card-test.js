@@ -5,8 +5,14 @@ const Card = require('../src/Card');
 
 describe('Card', function() {
   let card;
+  let question = "What allows you to define a set of related information using key-value pairs?";
   this.beforeEach(() => {
-    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');   
+    card = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    });   
   });
 
   it('should be a function', function() {
@@ -18,7 +24,7 @@ describe('Card', function() {
   }); 
 
   it('should store a question', function() {
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    expect(card.question).to.equal(question);
   });  
 
   it('should store a list of possible answers', function() {

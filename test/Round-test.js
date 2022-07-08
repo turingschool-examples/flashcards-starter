@@ -8,15 +8,28 @@ const Turn = require('../src/Turn')
 describe('Round', function() {
     let round;
     let deck;
-    let turn1;
-    let turn2;
     let card1;
     let card2;
     let card3;
     beforeEach (() => {
-         card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-         card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-         card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+        card1 = new Card({
+            "id": 1,
+            "question": "What allows you to define a set of related information using key-value pairs?",
+            "answers": ["object", "array", "function"],
+            "correctAnswer": "object"
+        });
+        card2 = new Card({
+            "id": 14,
+            "question": "Which iteration method can turn an array into a single value of any data type?",
+            "answers": ["reduce()", "map()", "filter()"],
+            "correctAnswer": "reduce()"
+        });
+        card3 = new Card({
+            "id": 12,
+            "question": "Which iteration method returns an array of the same length as the original array?",
+            "answers": ["map()", "forEach()", "reduce()"],
+            "correctAnswer": "map()"
+        });
 
          deck = new Deck([card1, card2, card3]);
          round = new Round(deck);
@@ -34,7 +47,7 @@ describe('Round', function() {
 
     it('should start out with 0 turns', function() {
         expect(round.turns).to.equal(0);
-        console.log(round.deck.deck)
+        // console.log(round.deck.deck)
     });
 
     it('should start out with an empty array of incorrect guesses', function() {
@@ -59,7 +72,7 @@ describe('Round', function() {
     });
 
     it('should evaluate the guess and give feedback', function() {
-        let correct = round.takeTurn( 'sea otter');
+        let correct = round.takeTurn('object');
         expect(correct).to.equal('correct');
     });
 
@@ -69,7 +82,7 @@ describe('Round', function() {
     });
 
     it('should return the percentage of correct guesses', function () {
-        round.takeTurn('sea otter');
+        round.takeTurn('object');
         round.takeTurn('spleen');
         round.calculatePercentCorrect();
         expect(round.calculatePercentCorrect()).to.equal(50);
@@ -77,7 +90,7 @@ describe('Round', function() {
     })
 
     it('should end the round and return a statement', function() {
-        round.takeTurn('sea otter');
+        round.takeTurn('object');
         round.takeTurn('spleen');
         expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!')
     })

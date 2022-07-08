@@ -8,7 +8,12 @@ describe('Turn', function() {
     let card;
     let turn;
     beforeEach(() => {
-        card = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+        card = new Card({
+            "id": 1,
+            "question": "What allows you to define a set of related information using key-value pairs?",
+            "answers": ["object", "array", "function"],
+            "correctAnswer": "object"
+        });
         turn = new Turn("object", card);
     });
 
@@ -41,6 +46,7 @@ describe('Turn', function() {
 
     it('should determine if the users guess matches the correct answer on the card', function() {
         let evaluateGuess = turn.evaluateGuess();
+        
         expect(evaluateGuess).to.equal(true);
     });
 
