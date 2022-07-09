@@ -8,8 +8,9 @@ class Deck {
 cardCounter() {
    return this.cards.length;
    
-}
+    }
     
 }
+
 
 module.exports = Deck;

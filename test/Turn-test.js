@@ -14,12 +14,11 @@ describe('Turn', function() {
     let card
 
     beforeEach(() => {
-        turn = new Turn("Morgan", card)
-        turn2 = new Turn("Zoey", card)
-        card = new Card(1, "What is my name?", ["Morgan", "Sassy", "Zoey"], "Morgan")
+        turn = new Turn("Morgan", card);
+        turn2 = new Turn("Zoey", card);
+        card = new Card(1, "What is my name?", ["Morgan", "Sassy", "Zoey"], "Morgan");
        
     });
-
 
     it('should be a function', function() {
         expect(Turn).to.be.a('function');
@@ -41,7 +40,7 @@ describe('Turn', function() {
     });
 
     it('should evaluate guess', () => {
-        expect(turn.evaluateGuess()).to.equal(false)
+        expect(turn.evaluateGuess()).to.equal(false);
     })
 
     it('should give the user/s feedback', () => {
