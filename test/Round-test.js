@@ -18,8 +18,6 @@ describe('Round', function() {
         deck = new Deck(cards);
         round = new Round(deck);
         turn = new Turn('userGuess', deck.cards);
-        // round1 = new Round(deck);
-        // round2 = new Round(deck);
     });
     it('should be a function', function() {
           expect(Round).to.be.a('function');
