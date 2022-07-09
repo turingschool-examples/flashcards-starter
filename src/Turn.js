@@ -2,12 +2,13 @@ const Card = require('../src/Card');
 class Turn {
     constructor(userGuess, card) {
         this.userGuess = userGuess;
-        this.currentCard = card = new Card({cardIdNumber: this.cardIdNumber, question: this.question, answers: this.answers, correctAnswer: this.correctAnswer});
+        this.currentCard = card;
     };
     returnCard() {
         return this.currentCard;
     };
     returnGuess(guess) {
+        console.log(this.currentCard.correctAnswer)
         this.userGuess = guess;
         return this.userGuess;
     };

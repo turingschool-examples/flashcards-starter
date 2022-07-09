@@ -26,7 +26,7 @@ describe('Round', function() {
         expect(round).to.be.an.instanceOf(Round);
     });
     it('should start with first card of the deck as default', function() {
-        expect(round.currentCard).to.equal(round.deck[0]);
+        expect(round.currentCard).to.equal(deck.cards[0]);
     });
     it('should keep track of the number of turns', function() {
         expect(round.turnCount).to.equal(0);
@@ -38,7 +38,7 @@ describe('Round', function() {
         expect(round.turnCount).to.equal(3);
     });  
     it('should be able to shuffle cards', function() {
-        expect(round.returnCurrentCard()).to.equal(round.deck.cards[card1]);
+        expect(round.returnCurrentCard()).to.equal(deck.cards[0]);
         round.takeTurn();
         round.takeTurn();
         round.takeTurn();
