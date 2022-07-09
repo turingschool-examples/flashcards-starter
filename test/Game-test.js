@@ -32,22 +32,22 @@ describe('Game', function() {
 
   it('should be able to create Cards', function() {
 
-    const cards = game.createCards(data.prototypeData);
+    const cards = game.createCards(data.games.prototype);
     expect(cards[0]).to.be.an.instanceOf(Card);
     expect(cards.length).to.equal(30);
   });
 
   it('should be able to put Cards in a Deck', function() {
 
-    const cards = game.createCards(data.prototypeData);
+    const cards = game.createCards(data.games.prototype);
     const deck = game.createDeck(cards);
     expect(deck).to.be.an.instanceOf(Deck);
-    expect(deck.cards).to.deep.equal(data.prototypeData);
+    expect(deck.cards).to.deep.equal(data.games.prototype);
   });
 
   it('should be able to start a new Round using the Deck', function() {
 
-    const cards = game.createCards(data.prototypeData);
+    const cards = game.createCards(data.games.prototype);
     const deck = game.createDeck(cards);
     const round = game.createRound(deck);
     expect(round).to.be.an.instanceOf(Round);
