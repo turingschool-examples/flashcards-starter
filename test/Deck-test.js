@@ -1,28 +1,20 @@
-const chai = require('chai');
+const chai = require("chai");
 const expect = chai.expect;
-const Card = require("../src/Card");
+const data = require("../src/data.js");
 const Deck = require("../src/Deck");
 
-describe ('Deck', () => {
-let deck
-let card1
-let card2
-let card3
+describe("Deck", () => {
+  let deck;
 
-beforeEach(() => {
-card1 = new Card()
-card2 = new Card()
-card3 = new Card()
-deck = new Deck([card1, card2, card3])
-})
+  beforeEach(() => {
+    deck = new Deck(data.prototypeData);
+  });
 
-it('shoud have an array of cards', () => {
-    console.log(deck)
-    expect(deck.deckOfCards).to.deep.equal([card1, card2, card3])
-})
+  it("shoud have an array of cards", () => {
+    expect(deck.deckOfCards).to.deep.equal(data.prototypeData);
+  });
 
-it('should know how many cards in the deck', () => {
-    expect(deck.countCards()).to.equal(3)
-})
-
-})
+  it("should know how many cards are in the deck", () => {
+    expect(deck.countCards()).to.equal(30);
+  });
+});
