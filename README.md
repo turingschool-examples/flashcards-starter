@@ -12,7 +12,7 @@ In this project, I was asked to write a program to simulate a set of flash cards
 - With mre time, I would love to make this a full functioning game for a user to play.
 - I would love to add a timer for the users
 
-# Contributor
+## Contributor
 
 - Morgan Berry
 
