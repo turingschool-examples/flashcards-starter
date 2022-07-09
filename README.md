@@ -18,7 +18,7 @@ If you want to play the second version of the game, with questions that I wrote 
 node index.js
 ```
 
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
+E5ADB524-8FB6-48F4-9DA5-97C487A70ED4_4_5005_c.jpeg
 
 ---
 
