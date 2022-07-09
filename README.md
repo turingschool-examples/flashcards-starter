@@ -18,9 +18,9 @@ If you want to play the second version of the game, with questions that I wrote 
 node index.js
 ```
 
-E5ADB524-8FB6-48F4-9DA5-97C487A70ED4_4_5005_c.jpeg
 
----
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/101140241/178085892-0ef33d27-c39d-4d89-8442-0515ecfc2981.gif)
+
 
 # Technologies Used
 
