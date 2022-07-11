@@ -24,7 +24,7 @@ class Game {
   }
 
   createCards() {
-   this.cards = prototypeQuestions.map(card => {
+    this.cards = prototypeQuestions.map(card => {
       return new Card(card.id, card.question, card.answers, card.correctAnswer)
     })
   }
