@@ -5,7 +5,6 @@ class Turn {
     }
 
     returnGuess() {
-        console.log(this.guess);
         return this.guess;
     }
 
@@ -21,10 +20,10 @@ class Turn {
     }
 
     giveFeedback() {
-        if(this.evaluateGuess() !== true) {
-            return 'incorrect!';
+        if(this.evaluateGuess()) {
+            return 'Correct!';
         }
-            return 'correct!';
+            return 'Incorrect!';
     }
 }   
 

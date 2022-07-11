@@ -1,20 +1,17 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Turn = require('../src/Turn');
 const Card = require('../src/Card');
+const Turn = require('../src/Turn');
 
 describe('Turn', function() {
     let card;
     let turn;
 
     beforeEach(function() {
-        card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-        turn = new Turn('pug', card);
+        card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+        turn = new Turn('array', card);
     })
-
-    // let card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    // let turn = new Turn('pug', card);
 
     it('should be a function', function() {
         expect(Turn).to.be.a('function');
@@ -25,11 +22,11 @@ describe('Turn', function() {
     })
    
     it('should return a user\'s guess', function() {
-        expect(turn.guess).to.be.a('string');
-        expect(turn.guess).to.equal('pug');
+        expect(turn.guess).to.equal('array');
     })
 
-    it('should return the current card', function() {
+    it('should return the current instance of Card in play', function() {
+        expect(turn.card.id).to.equal(card.id)
         expect(turn.card).to.be.an.instanceOf(Card);
     })
 
@@ -38,6 +35,6 @@ describe('Turn', function() {
     })
 
     it('should be give user feedback on their guess', function() {
-        expect(turn.giveFeedback()).to.equal('incorrect!');
+        expect(turn.giveFeedback()).to.equal('Incorrect!');
     }) 
 });
