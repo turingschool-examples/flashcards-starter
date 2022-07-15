@@ -39,9 +39,6 @@ describe('Round', function() {
     });  
     it('should be able to shuffle cards', function() {
         expect(round.returnCurrentCard()).to.equal(deck.cards[0]);
-        round.takeTurn();
-        round.takeTurn();
-        round.takeTurn();
     });
     it('should store incorrect guesses', function() {
         expect(round.incorrectGuesses).to.deep.equal([]);

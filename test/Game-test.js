@@ -4,7 +4,10 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 const Game = require('../src/Game');
-
+const data = require('../src/data');
+const prototypeCards = data.prototypeData.map((card) => {
+    return new Card(card.id, card.question, card.answers, card.correctAnswer);
+   });
 describe('Game', function() {
     let card, cards, deck, round, game, card1, card2, card3;
 
@@ -30,13 +33,17 @@ describe('Game', function() {
         // console.log('game', game)
         expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
     });
-    it('should put cards into the deck', () => {
-        console.log('cries', game.cardToDeck())
-        expect(game.cardToDeck()).to.equal(deck.cards);
+
+    it.only('should create new round', () => {
+        game.createRound();
+        console.log('pls werk', game.currentRound, 'previous round', round);
+        expect(game.currentRound).to.be.an.instanceOf(Round);
     });
-    it('should create new round using the deck', () => {
-        // console.log('pls werk', game.createRound())
-        expect(game.createRound()).to.equal(Round)
+    it.only('should start new Round with a deck', () => {
+        game.createRound();
+        // console.log('cries', game.currentRound.deck)
+        
+        expect(game.currentRound.deck.cards).to.equal(prototypeCards);
     });
     it('should be able to start the game', () => {
         expect(game.startGame).to.be.a('function');

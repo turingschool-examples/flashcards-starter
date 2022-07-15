@@ -1,4 +1,7 @@
 const Turn = require('../src/Turn');
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
+const util = require('./util');
 class Round {
     constructor(deck) {
        this.deck = deck;
@@ -11,12 +14,14 @@ class Round {
     };
    
     takeTurn(guess) { 
+        console.log(this.currentCard);
         this.turnCount++;
-        const newTurn = new Turn(guess, this.currentCard);
-        if(!newTurn.evaluateGuess(guess)){
-            this.incorrectGuesses.push(newTurn.currentCard);
-            console.log(this.incorrectGuesses)
-        };
+        const newTurn = new Turn(guess, this.currentCard.cardIdNumber);
+        if(!newTurn.evaluateGuess(guess)) {
+            this.incorrectGuesses.push(newTurn.currentCard.cardIdNumber)
+        } if (this.turns === 30) {
+            console.log(this.endRound())
+        }
         return newTurn.giveFeedback();
     };
     calculatePercentCorrect() {

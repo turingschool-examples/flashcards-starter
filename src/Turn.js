@@ -1,16 +1,17 @@
-const Card = require('../src/Card');
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
+const util = require('./util');
 class Turn {
     constructor(userGuess, card) {
         this.userGuess = userGuess;
         this.currentCard = card;
     };
     returnCard() {
+        console.log('SHOW CARD HERE', this.currentCard)
         return this.currentCard;
     };
-    returnGuess(guess) {
-        console.log(this.currentCard.correctAnswer)
-        this.userGuess = guess;
-        return this.userGuess;
+    returnGuess() {
+           return this.userGuess;
     };
     evaluateGuess(guess) {
         this.userGuess = guess
@@ -20,8 +21,8 @@ class Turn {
             return false;
         };
     };
-    giveFeedback(guess) {
-        if(this.evaluateGuess(guess) === true) {
+    giveFeedback() {
+        if(this.evaluateGuess() === true) {
             return `correct!`;
         } else {
             return `incorrect!`;

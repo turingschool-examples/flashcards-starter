@@ -11,16 +11,16 @@ class Game {
     this.currentRound = round;
   };
 
-  createCard(){
-    const newCard = prototypeQuestions.map((card) => {
+  createCards(){
+    const newCards = prototypeQuestions.map((card) => {
      return new Card(card.id, card.question, card.answers, card.correctAnswer);
     });
-    return newCard;
+    return newCards;
   }
 
   cardToDeck(){
-    const deck = new Deck(this.createCard());
-    return deck
+    const deck = new Deck(this.createCards());
+   return deck;
   }
 
   createRound(){

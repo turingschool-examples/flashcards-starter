@@ -1,3 +1,6 @@
+const data = require('./data');
+const prototypeQuestions = data.prototypeData;
+const util = require('./util');
 class Card {
     constructor(cardIdNumber, question, answers, correctAnswer) {
         this.cardIdNumber = cardIdNumber;
