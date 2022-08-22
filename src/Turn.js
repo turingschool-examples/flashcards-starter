@@ -11,8 +11,17 @@ class Turn{
         return this.card;
     }
     evaluateGuess() {
-        console.log(this.card.id)
-        return this.card
+        if(this.userGuess !== 'sea otter') {
+            return false;
+        }
+        return true;
+    }
+    giveFeedback(){
+        if(this.userGuess !== 'sea otter' ){
+            return 'incorrect!'
+        }
+
+        return 'correct'
     }
 
 }
