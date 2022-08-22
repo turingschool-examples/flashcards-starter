@@ -15,7 +15,11 @@ describe('Turn', () => {
         expect(result).to.equal('pug')
     });
 
-    it.skip('should return card', () => {
+    it('should return card', () => {
+        let newCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+        let newGuess = new Turn("pug", newCard);
+        let result = newGuess.returnCard();
+        expect(newCard.id).to.equal(1)
 
     });
 
