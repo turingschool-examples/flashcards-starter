@@ -28,6 +28,6 @@ describe ('Turn', () => {
     const currentCard = new Card((1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object'));
     const turn = new Turn('object', currentCard);
 
-    expect(turn.returnGuess())
+    expect(turn.returnGuess()).to.equal('object');
   })
 });
