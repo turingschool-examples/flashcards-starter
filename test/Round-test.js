@@ -5,4 +5,12 @@ describe('Round', () => {
         expect(Round).to.a('function');
     });
 
+    it('should returns the current card being played', () => {
+
+    });
+
+    it('should update turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses' () => {
+        
+    } )
+
 })
