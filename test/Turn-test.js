@@ -46,4 +46,13 @@ describe ('Turn', () => {
     expect(turn.evaluateGuess()).to.equal(true);
     expect(turn2.evaluateGuess()).to.equal(false);
   });
+
+  it('should be able to give a user feedback on their guess', () => {
+    const currentCard = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', currentCard);
+    const turn2 = new Turn('array', currentCard);
+
+    expect(turn.giveFeedback()).to.equal('correct!');
+    expect(turn2.giveFeedback()).to.equal('incorrect!');
+  });
 });
