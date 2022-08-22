@@ -14,27 +14,36 @@ describe ('Turn', () => {
   it('should instantiate a turn', () => {
     const turn = new Turn();
     expect(turn).to.be.an.instanceOf(Turn);
-  })
+  });
 
   it('should store a user guess and the current card in play', () => {
-    const currentCard = new Card((1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object'));
+    const currentCard = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', currentCard);
 
     expect(turn.guess).to.equal('object');
     expect(turn.currentCard).to.equal(currentCard);
-  })
+  });
 
   it('should return the user guess', () => {
-    const currentCard = new Card((1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object'));
+    const currentCard = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', currentCard);
 
     expect(turn.returnGuess()).to.equal('object');
-  })
+  });
 
   it('should return the current card', () => {
-    const currentCard = new Card((1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object'));
+    const currentCard = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const turn = new Turn('object', currentCard);
 
     expect(turn.returnCard()).to.equal(currentCard);
-  })
+  });
+
+  it('should be able to evaluate whether a user guess is corret or incorrect', () => {
+    const currentCard = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const turn = new Turn('object', currentCard);
+    const turn2 = new Turn('array', currentCard);
+
+    expect(turn.evaluateGuess()).to.equal(true);
+    expect(turn2.evaluateGuess()).to.equal(false);
+  });
 });
