@@ -17,14 +17,17 @@ describe('Turn', () => {
 
     it('should return card', () => {
         let newCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
-        let newGuess = new Turn("pug", newCard);
-        let result = newGuess.returnCard();
-        expect(newCard.id).to.equal(1)
+        let card = new Turn("pug", newCard);
+        let result = card.returnCard();
+        expect(result).to.equal(1)
 
     });
 
     it.skip('should returns a boolean indicating if the guess matches the correct answer on the card', () => {
-
+        let newCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+        let newGuess = new Turn("pug", newCard);
+        let result = newGuess.evaluateGuess;
+        expect(newCard.id).to.equal(1)
     });
 
     it.skip('should returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.', () => {

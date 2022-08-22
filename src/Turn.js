@@ -10,6 +10,10 @@ class Turn{
        
         return this.card;
     }
+    evaluateGuess() {
+        console.log(this.card.id)
+        return this.card
+    }
 
 }
 
