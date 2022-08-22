@@ -1,10 +1,18 @@
-describe('Turn', () => {
-    it.skip('should be a function', () => {
+const { expect } = require("chai");
 
+const Card = require('../src/Card')
+const Turn = require('../src/Turn');
+
+describe('Turn', () => {
+    it('should be a function', () => {
+        expect(Turn).to.a('function');
     });
 
-    it.skip('should return guessed answer', () => {
-
+    it('should return guessed answer', () => {
+        let newCard = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+        let newGuess = new Turn("pug", newCard);
+        let result = newGuess.returnGuess();
+        expect(result).to.equal('pug')
     });
 
     it.skip('should return card', () => {
