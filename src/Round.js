@@ -13,6 +13,7 @@ class Round {
   takeTurn(guess) {
     this.turns += 1;
     let turn = new Turn(guess, this.currentCard);
+    this.currentCard = this.deck[this.turns];
   }
 }
 

@@ -61,4 +61,16 @@ describe('Round', () => {
     round.takeTurn('hooks');
     expect(round.turns).to.equal(2);
   });
+
+  it('should reassign the current card to the next card in the deck after a turn', () => {
+    expect(round.currentCard).to.equal(card);
+    expect(round2.currentCard).to.equal(card3);
+
+    round.takeTurn('object');
+    round2.takeTurn('array');
+    round2.takeTurn('hooks');
+
+    expect(round.currentCard).to.equal(card2);
+    expect(round2.currentCard).to.equal(card);
+  });
 });
