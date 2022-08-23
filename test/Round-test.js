@@ -88,7 +88,19 @@ describe('Round', () => {
 
   it ('should return feedback regarding whether or not guess is correct', () => {
     expect(round.takeTurn('object')).to.equal('correct!');
+    expect(round.takeTurn('hooks')).to.equal('correct!');
     expect(round2.takeTurn('object')).to.equal('incorrect!');
     expect(round2.takeTurn('Mocha')).to.equal('incorrect!');
   });
+
+  it ('should calculate and return the percentage of correct guesses', () => {
+    round.takeTurn('object');
+    round.takeTurn('hooks');
+    round.takeTurn('object');
+    expect(round.calculatePercentCorrect()).to.equal(67);
+
+    round2.takeTurn('object');
+    round2.takeTurn('hooks');
+    expect(round2.calculatePercentCorrect()).to.equal(50);
+  })
 });
