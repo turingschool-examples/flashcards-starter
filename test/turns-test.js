@@ -8,9 +8,10 @@ describe('Turns', function() {
     let card;
 
     beforeEach(() => {
-        console.log("My code is running!")
-        card = new Card(1, 'Weird Question', ['Dope Answer', 'Answer Two'], 'puppy')
+        // console.log("My code is running!")
+        card = new Card(1, 'What animal is cuter, a puppy or a kitten?', ['puppy', 'kitten'], 'puppy')
         turn = new Turn('puppy', card)
+        turn2 = new Turn('kitten', card)
         
     })
 
@@ -42,10 +43,12 @@ describe('Turns', function() {
 
     it('should be able to match the correct answer', () =>  {
         expect(turn.evaluateGuess()).to.equal(true)
+        expect(turn2.evaluateGuess()).to.equal(false)
     })    
 
     it('should tell if a guess is correct or incorrect', () =>  {
         turn.evaluateGuess()
         expect(turn.giveFeedback()).to.equal('correct')
+        expect(turn2.giveFeedback()).to.equal('incorrect')
     })
 })
