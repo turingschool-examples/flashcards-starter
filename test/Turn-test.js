@@ -11,7 +11,9 @@ describe('Turn', function() {
   beforeEach(() => {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     turn = new Turn('object', card)
-    turn2 = new 
+    turn2 = new Turn('wrong Answer', card)
+
+
   })
 
  it('should be a function', function() {
@@ -40,11 +42,11 @@ describe('Turn', function() {
 
  it('should tell you if the answer is correct', function() {
     expect(turn.evaluateGuess()).to.equal(true)
-    //expect(turn.evaluateGuess()).to.equal(false)
+    expect(turn2.evaluateGuess()).to.equal(false)
  })
  it('should give feedback of answer', function(){
    expect(turn.giveFeedback()).to.equal('Correct!')
-   //expect(turn.giveFeedback()).to.equal('Incorrect!')
+   expect(turn2.giveFeedback()).to.equal('Incorrect!')
  })
 
 })
