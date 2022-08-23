@@ -21,32 +21,34 @@ describe('Turn', function() {
         expect(turn.guess).to.equal('');
     });
 
-    // it.skip('should have a current card in play', function() {
-    //     const turn = new Turn('', Card{});
+    it('should have a current card in play', function() {
+        const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+        const turn = new Turn('', card);
 
-    //     expect(turn.cardInPlay).to.deepEqual(Card{});
-    // });
+        expect(turn.cardInPlay).to.equal(card);
+    });
 
-    it.skip('should return a guess', function() {
-        const turn = new Turn('');
+    it('should return a guess', function() {
+        const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+        const turn = new Turn('', card);
 
         turn.returnGuess();
     });
 
-    it.skip('should return the Card', function() {
-        const turn = new Turn('');
-        const card = new Card();
+    it('should return the Card', function() {
+        const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+        const turn = new Turn('', card);
 
         turn.returnCard();
     });
 
-    it.skip('should let user know if they answered the question correctly', function() {
-        const turn = new Turn();
-        const card = new Card();
+    it('should let user know if they answered the question correctly', function() {
+        const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+        const turn = new Turn('', card);
 
         turn.evaluateGuess();
 
-        expect(card.correctAnswer).to.equal(true);
+        expect(turn.guess).to.equal(true);
     });
 
     it.skip('should let the user know if the guess is correct or not', function() {
