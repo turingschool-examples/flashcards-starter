@@ -4,12 +4,14 @@ const Card = require('../src/Card');
 const Turn = require('../src/turns');
 
 describe('Turns', function() {
-    let turn = new Turn()
-    let card = new Card()
+    let turn;
+    let card;
 
     beforeEach(() => {
         console.log("My code is running!")
-        turn = new Turn('guess', card)
+        card = new Card(1, 'Weird Question', ['Dope Answer', 'Answer Two'], 'puppy')
+        turn = new Turn('puppy', card)
+        
     })
 
     it('should be a function', function(){
@@ -19,7 +21,31 @@ describe('Turns', function() {
     it('should be an instance of Turn', function() {
         expect(turn).to.be.an.instanceOf(Turn);
     });
+
+    it('should be able to store a guess', function() {
+        expect(turn.guess).to.equal('puppy')
+    })
+
+    it('should be able to store a Card', function() {
+        expect(turn.currentCard).to.equal(card)
+    })
+
     it('should be able to return a guess', function() {
-        
+        turn.returnGuess();
+        expect(turn.guess).to.equal('puppy')
+    })
+
+    it('should be able to return a Card', function() {
+        turn.returnCard();
+        expect(turn.currentCard).to.equal(card)
+    })
+
+    it('should be able to match the correct answer', function() {
+        expect(turn.evaluateGuess()).to.equal(true)
+    })    
+
+    it('should tell if a guess is correct or incorrect', function() {
+        evaluateGuess()
+        expect(turn.giveFeedback()).to.equal('correct')
     })
 })
