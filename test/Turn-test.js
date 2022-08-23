@@ -20,7 +20,7 @@ describe ('Turn', () => {
     expect(Turn).to.be.a('function');
   });
 
-  it('should instantiate a turn', () => {
+  it('should be an instance of Turn', () => {
     expect(turn).to.be.an.instanceOf(Turn);
   });
 
