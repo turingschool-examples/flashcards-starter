@@ -14,38 +14,38 @@ describe('Turns', function() {
         
     })
 
-    it('should be a function', function(){
+    it('should be a function', () => {
         expect(Turn).to.be.a('function');
     })
 
-    it('should be an instance of Turn', function() {
+    it('should be an instance of Turn', () =>  {
         expect(turn).to.be.an.instanceOf(Turn);
     });
 
-    it('should be able to store a guess', function() {
+    it('should be able to store a guess', () =>  {
         expect(turn.guess).to.equal('puppy')
     })
 
-    it('should be able to store a Card', function() {
+    it('should be able to store a Card', () =>  {
         expect(turn.currentCard).to.equal(card)
     })
 
-    it('should be able to return a guess', function() {
+    it('should be able to return a guess', () =>  {
         turn.returnGuess();
         expect(turn.guess).to.equal('puppy')
     })
 
-    it('should be able to return a Card', function() {
+    it('should be able to return a Card', () =>  {
         turn.returnCard();
         expect(turn.currentCard).to.equal(card)
     })
 
-    it('should be able to match the correct answer', function() {
+    it('should be able to match the correct answer', () =>  {
         expect(turn.evaluateGuess()).to.equal(true)
     })    
 
-    it('should tell if a guess is correct or incorrect', function() {
-        evaluateGuess()
+    it('should tell if a guess is correct or incorrect', () =>  {
+        turn.evaluateGuess()
         expect(turn.giveFeedback()).to.equal('correct')
     })
 })
