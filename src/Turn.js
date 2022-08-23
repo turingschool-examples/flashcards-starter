@@ -1,27 +1,32 @@
 class Turn{
     constructor(userGuess, card){
         this.userGuess = userGuess; 
-        this.card = card.id;
+        this.card = card;
     }
     returnGuess(){
         return this.userGuess;
     }
     returnCard(){
        
-        return this.card;
+        return this.card.id;
     }
     evaluateGuess() {
-        if(this.userGuess !== 'sea otter') {
+        if(this.userGuess !== this.card.correctAnswer) {
+            console.log(this.card.correctAnswer)
             return false;
+        } else {
+            return true;
         }
-        return true;
+        
     }
     giveFeedback(){
-        if(this.userGuess !== 'sea otter' ){
+        let result = this.evaluateGuess();
+
+        if(result === true){
+            return 'correct!';
+        }else{
             return 'incorrect!'
         }
-
-        return 'correct'
     }
 
 }
