@@ -8,6 +8,7 @@ describe ('Deck', function(){
   let card
   let card2
   let card3
+  let card4
   let deck
 
   beforeEach(() => {
@@ -15,7 +16,7 @@ describe ('Deck', function(){
     card2 = new Card(2, 'What is the name of Hunters cat?', ['Mittens', 'Tiger', 'Rex', 'Socks' ], 'Rex')
     card3 = new Card(3, 'What is the name of Hazels dog?', ['Rocky', 'Rogue', 'Ang', 'Zuko'], 'Rogue')
     card4 = new Card(4, 'What is the name of Lanas dog?', ['Apollo', 'Moon', 'Pluto', 'Comet'], 'Apollo')
-    deck = new Deck([card, card2, card3])
+    deck = new Deck([card, card2, card3, card4])
   })
 
   it('should be a function', function(){
