@@ -73,4 +73,22 @@ describe('Round', () => {
     expect(round.currentCard).to.equal(card2);
     expect(round2.currentCard).to.equal(card);
   });
+
+  it ('should evaluate a user guess and store incorrect guesses via id', () => {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+    expect(round2.incorrectGuesses).to.deep.equal([]);
+
+    round.takeTurn('object');
+    round2.takeTurn('object');
+    round2.takeTurn('Mocha');
+
+    expect(round.incorrectGuesses).to.deep.equal([]);
+    expect(round2.incorrectGuesses).to.deep.equal([3, 2])
+  });
+
+  it ('should return feedback regarding whether or not guess is correct', () => {
+    expect(round.takeTurn('object')).to.equal('correct!');
+    expect(round2.takeTurn('object')).to.equal('incorrect!');
+    expect(round2.takeTurn('Mocha')).to.equal('incorrect!');
+  });
 });
