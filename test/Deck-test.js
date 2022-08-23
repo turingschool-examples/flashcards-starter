@@ -16,13 +16,17 @@ describe ('Deck', function(){
     card3 = new Card(3, '', [], '')
     deck = new Deck([card, card2, card3])
   })
+
   it('should be a function', function(){
     expect(Deck).to.be.a('function')
   })
+
   it('should be an instance of', function(){
     expect(deck).to.be.a.instanceof(Deck)
   })
+  
   it('should be able to count the amount of cards', function(){
     expect(deck.countCards()).to.equal(3)
   })
+
 })
