@@ -1,24 +1,24 @@
 const chai = require('chai');
-const flashcards = require('../src/data')
-const Card = require('../src/Card');
 const expect = chai.expect;
 
+const flashcards = require('../src/data');
+const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
 describe('Deck', () => {
-  let cards = [];
-  let deck = {};
+  let cards;
+  let deck;
 
   beforeEach(() => {
     cards = 
     [
       new Card(flashcards.prototypeData[0]),
+      new Card(flashcards.prototypeData[1]),
       new Card(flashcards.prototypeData[2]),
-      new Card(flashcards.prototypeData[3]),
     ]
 
     deck = new Deck(cards)
-  }) 
+  });
 
   it('should be a function', () => {
     expect(Deck).to.be.a('function');
