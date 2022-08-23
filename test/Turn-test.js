@@ -11,6 +11,7 @@ describe('Turn', () => {
   beforeEach(() => {
     card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     turn = new Turn('sea otter', card)
+    turn2 = new Turn('wrong', card)
   })
 
   it('should be a function', () => {
@@ -39,10 +40,13 @@ describe('Turn', () => {
 
   it('should evaluate the guess against the correct answer', () => {
     expect(turn.evaluateGuess()).to.equal(true)
+    expect(turn2.evaluateGuess()).to.equal(false)
   })
 
-  it('should give feed', () => {
+  it('should give feedback on the answer', () => {
+    turn.evaluateGuess()
     expect(turn.giveFeedback()).to.equal('correct')
+    expect(turn2.giveFeedback()).to.equal('incorrect')
   })
 
 })
