@@ -7,7 +7,6 @@ class Turn {
         return this.guess
     }
     returnCard() {
-        console.log(this.card)
         return this.currentCard
     }
     evaluateGuess() {
