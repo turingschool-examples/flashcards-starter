@@ -4,6 +4,7 @@ class Turn {
     constructor(userGuess, currentCard) {
         this.guess = userGuess;
         this.cardInPlay = currentCard;
+        
     }
 
     returnGuess() {
@@ -15,10 +16,16 @@ class Turn {
     }
 
     evaluateGuess() {
-        let card = new Card;
-        console.log('ayy', this.guess);
-        if (this.guess === card.correctAnswer) {
+        if (this.guess === this.cardInPlay.correctAnswer) {
             return true;
+        }
+    }
+
+    giveFeedback() {
+        if (this.guess === this.cardInPlay.correctAnswer) {
+            return 'correct!';
+        } else {
+            return 'incorrect!';
         }
     }
 }
