@@ -13,6 +13,7 @@ describe('Turn', function() {
     turn = new Turn('object', card)
     turn2 = new Turn('wrong Answer', card)
 
+
   })
 
  it('should be a function', function() {
