@@ -94,6 +94,8 @@ describe('Round', () => {
   });
 
   it ('should calculate and return the percentage of correct guesses', () => {
+    expect(round.calculatePercentCorrect()).to.equal(0);
+
     round.takeTurn('object');
     round.takeTurn('hooks');
     round.takeTurn('object');
@@ -102,5 +104,10 @@ describe('Round', () => {
     round2.takeTurn('object');
     round2.takeTurn('hooks');
     expect(round2.calculatePercentCorrect()).to.equal(50);
-  })
+  });
+
+  // it ('should alert a user when the round is over and of their percentage correct', () => {
+    // not sure how to test console output with Chai syntax without requiring
+    // something called, 'mocha-sinon'?
+  // })
 });

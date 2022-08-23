@@ -20,9 +20,17 @@ class Round {
     return turn.giveFeedback();
   }
   calculatePercentCorrect() {
-    let correctGuesses = this.turns - this.incorrectGuesses.length;
-    let percentage = 100 * (correctGuesses / this.turns);
-    return Math.round(percentage);
+    if (this.turns === 0) {
+      return 0;
+    }
+    else {
+      let correctGuesses = this.turns - this.incorrectGuesses.length;
+      let percentage = 100 * (correctGuesses / this.turns);
+      return Math.round(percentage);
+    }
+  }
+  endRound() {
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
   }
 }
 
