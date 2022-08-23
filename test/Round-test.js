@@ -48,9 +48,17 @@ describe('Round', () => {
 
   it ('should start with 0 turns recorded', () => {
     expect(round.turns).to.equal(0);
-  })
+  });
 
   it ('should start with no incorrect guesses recorded', () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
-  })
+  });
+
+  it ('should be update turn count when a turn is taken', () => {
+    round.takeTurn('object');
+    expect(round.turns).to.equal(1);
+
+    round.takeTurn('hooks');
+    expect(round.turns).to.equal(2);
+  });
 });
