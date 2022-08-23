@@ -42,4 +42,31 @@ describe('Round', () => {
     expect(round.currentCard).to.equal(card);
     expect(round2.currentCard).to.equal(card3);
   });
+
+  it ('should return the current card being played', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = new Card(2, 'What can you use to make unit testing code DRYer?', ['hooks', 'assertion libraries', 'Mocha'], 'hooks');
+    const card3 = new Card(3, 'What can you use to store similar data in a list?', ['object', 'array', 'function'], 'array');
+    const deck = new Deck([card, card2, card3]);
+    const round = new Round(deck);
+    const deck2 = new Deck([card3, card2, card]);
+    const round2 = new Round(deck2);
+
+    expect(round.returnCurrentCard()).to.equal(round.currentCard);
+    expect(round2.returnCurrentCard()).to.equal(round2.currentCard);
+  });
+
+  it ('should start with 0 turns recorded', () => {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = new Card(2, 'What can you use to make unit testing code DRYer?', ['hooks', 'assertion libraries', 'Mocha'], 'hooks');
+    const card3 = new Card(3, 'What can you use to store similar data in a list?', ['object', 'array', 'function'], 'array');
+    const deck = new Deck([card, card2, card3]);
+    const round = new Round(deck);
+
+    expect(round.turns).to.equal(0);
+  })
+
+  it ('should start with no incorrect guesses recorded', () => {
+
+  })
 });
