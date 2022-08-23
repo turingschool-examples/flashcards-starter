@@ -51,6 +51,6 @@ describe('Round', () => {
   })
 
   it ('should start with no incorrect guesses recorded', () => {
-
+    expect(round.incorrectGuesses).to.deep.equal([]);
   })
 });
