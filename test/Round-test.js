@@ -106,8 +106,16 @@ describe('Round', () => {
     expect(round2.calculatePercentCorrect()).to.equal(50);
   });
 
-  // it ('should alert a user when the round is over and of their percentage correct', () => {
+  it ('should alert a user when the round is over and of their percentage correct', () => {
     // not sure how to test console output with Chai syntax without requiring
-    // something called, 'mocha-sinon'?
-  // })
+    // something called, 'mocha-sinon'? used variable return for testing solution for now
+    round.takeTurn('object');
+    round.takeTurn('hooks');
+    round.takeTurn('object');
+    round2.takeTurn('object');
+    round2.takeTurn('hooks');
+
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 67% of the questions correctly!`)
+    expect(round2.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`)
+  })
 });
