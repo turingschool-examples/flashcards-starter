@@ -6,7 +6,6 @@ const Deck = require('./Deck');
 const Round = require('./Round');
 const Turn = require('./Turn');
 
-
 class Game {
   constructor() {
     this.currentRound = '';
@@ -26,6 +25,18 @@ class Game {
     let card2 = new Card(2, 'What can you use to make unit testing code DRYer?', ['hooks', 'assertion libraries', 'Mocha'], 'hooks');
     let card3 = new Card(3, 'What can you use to store similar data in a list?', ['object', 'array', 'function'], 'array');
     let deck = new Deck([card, card2, card3]);
+    let round = new Round(deck);
+    this.currentRound = round;
+    this.printMessage(deck, round);
+    this.printQuestion(round);
+  }
+  startRefactor() {
+    // console.log('inside of startRefactor');
+    let cards = prototypeQuestions.reduce((acc, question) => {
+      acc.push(new Card(question.id, question.question, question.answers, question.correctAnswer));
+      return acc;
+    }, []);
+    let deck = new Deck(cards);
     let round = new Round(deck);
     this.currentRound = round;
     this.printMessage(deck, round);

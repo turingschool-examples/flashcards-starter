@@ -1,4 +1,4 @@
 const Game = require('./src/Game');
 
-let game = new Game();
-game.start();
+const game = new Game();
+game.startRefactor();
