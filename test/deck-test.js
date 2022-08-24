@@ -11,7 +11,6 @@ describe('Deck', function(){
     let deck;
 
     this.beforeEach(() => {
-        console.log('My deck code is running!')
         card = new Card(1, 'What animal is cuter, a puppy or a kitten?', ['puppy', 'kitten'], 'puppy');
         card1 = new Card(11, 'What is Jimmy\'s favorite toy', ['bunny', 'ball', 'sea turtle'], 'bunny');
         card2 = new Card(14, 'What color are Beth\'s eyes?', ['blue', 'green', 'hazel'], 'hazel');
@@ -24,6 +23,10 @@ describe('Deck', function(){
 
     it('should be an instance of Deck', () => {
         expect(deck).to.be.an.instanceOf(Deck);
+    })
+
+    it('should be able to store an array of cards', function() {
+        expect(deck.cards).to.deep.equal([card, card1, card2]);
     })
 
     it('should be able to count how many cards are in each deck', function() {
