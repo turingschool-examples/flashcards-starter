@@ -30,14 +30,43 @@ describe('Round', function() {
     })
 
     it('should return current card being played', function() {
-        expect(round.returnCurrentCard()).to.equal(deck.cards[0])
-        //expect(round.returnCurrentCard()).to.equal(deck.cards[1])
-       // console.log("deck 0", deck.cards[1])
+        expect(round.returnCurrentCard()).to.equal(card)
+       
     })
 
     it('should be able to take turns', function() {
-        round.takeTurn()
+        round.takeTurn('puppy')
         expect(round.turns).to.equal(1)
+    })
+
+    it('should be an instance of Turn', function() {
+        expect(turn).to.be.an.instanceOf(Turn);
+    })
+
+    it('should track correct and incorrect guesses in an array', function() {
+        expect(round.takeTurn('puppy')).to.equal('correct')
+        expect(round.takeTurn('puppy')).to.equal('incorrect')
+    })
+
+    it('should be able to return feedback whether or not the guess is correct or not', function() {
+        round.takeTurn('puppy')
+        round.takeTurn('bunny')
+        round.takeTurn('bunny')
+        expect(round.correctGuesses).to.deep.equal([1, 2])
+        expect(round.correctGuesses).to.deep.equal([1, 2])
+        expect(round.incorrectGuesses).to.deep.equal([3])
+    })
+
+    it('should calculate the percentage of the score', function() {
+        round.takeTurn('puppy')
+        round.takeTurn('puppy')
+        expect(round.calculatePercentCorrect()).to.equal(50)
+    })
+
+    it('should be able to return an end statement with the user correct answer percentage', function() {
+        round.takeTurn('puppy')
+        round.takeTurn('puppy')
+        expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`)
     })
 
 })
