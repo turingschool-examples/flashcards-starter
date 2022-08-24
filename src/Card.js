@@ -1,6 +1,4 @@
-
-
-class Card {
+class Card { // make parse prototypeData
   constructor(id, question, answers, correctAnswer) {
     this.id = id;
     this.question = question;
