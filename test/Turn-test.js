@@ -45,8 +45,8 @@ describe('Turn', () => {
 
   it('should give feedback on the answer', () => {
     turn.evaluateGuess()
-    expect(turn.giveFeedback()).to.equal('correct')
-    expect(turn2.giveFeedback()).to.equal('incorrect')
+    expect(turn.giveFeedback()).to.equal('correct!')
+    expect(turn2.giveFeedback()).to.equal('incorrect!')
   })
 
 })
