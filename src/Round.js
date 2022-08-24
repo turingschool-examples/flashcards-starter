@@ -20,6 +20,14 @@ class Round {
     this.turn ++
     return currentTurn.giveFeedback()
   }
+  calculatePercentage(){
+    let percentage = this.correctGuesses.length / this.turn * 100
+    return percentage
+  }
+  endRound(){
+    return `** Round over! ** You answered ${this.calculatePercentage()}% of the questions correctly!`
+  }
+
 
 }
 

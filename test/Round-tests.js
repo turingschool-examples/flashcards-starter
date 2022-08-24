@@ -47,22 +47,45 @@ describe('Round', () => {
   })
 
   it('should count the number of turns', () => {
-    round.takeTurn()
+    round.takeTurn('puppy')
     expect(round.turn).to.equal(1)
   })
 
   it('should be a new instance of turn', () => {
-    expect(round.takeTurn('pug')).to.be.equal('incorrect')
-    expect(round.takeTurn('pizza')).to.be.equal('correct')
+    expect(round.takeTurn('pug')).to.be.equal('incorrect!')
+    expect(round.takeTurn('pizza')).to.be.equal('correct!')
   })
 
-  it('should store incorrectGuesses id in an array', () => {
+  it('should store incorrect guesses id in an array', () => {
     round.takeTurn('pug')
     expect(round.incorrectGuesses).to.deep.equal([1])
   })
 
-  it('should store correrctGuesses id in an array', () => {
+  it('should store correct guesses id in an array', () => {
     round.takeTurn('sea otter')
-    expect(round.correctGuesses).to.deep.equal([1])
+    round.takeTurn('pizza')
+    expect(round.correctGuesses).to.deep.equal([1 ,2])
+
   })
+
+  it('should calculate a winning percentage', () => {
+    round.takeTurn('sea otter')
+    round.takeTurn('pizza')
+
+    expect(round.calculatePercentage()).to.equal(100)
+  })
+
+  it('should calculate a different percentage', () => {
+    round.takeTurn('too')
+    round.takeTurn('pizza')
+    expect(round.calculatePercentage()).to.equal(50)
+  })
+  it('should return a message when the round is over', () => {
+    round.takeTurn('sea otter')
+    round.takeTurn('burrito')
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`)
+  })
+
+
+
 })
