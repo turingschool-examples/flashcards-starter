@@ -8,7 +8,8 @@ describe('Turns', function() {
     let card;
 
     beforeEach(() => {
-        card = new Card(1, 'What is the cutest animal baby, a kitten or puppy?', ['kitten', 'puppy'], 'puppy')
+        // console.log("My code is running!")
+        card = new Card(1, 'What animal is cuter, a puppy or a kitten?', ['puppy', 'kitten'], 'puppy')
         turn = new Turn('puppy', card)
         turn2 = new Turn('kitten', card)
         
