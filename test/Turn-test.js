@@ -9,10 +9,9 @@ describe('Turn', function() {
   let turn = new Turn()
 
   beforeEach(() => {
-    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    turn = new Turn('object', card)
+    card = new Card(1, 'What is the name of Beths dog?', ['Doug', 'Fido', 'Buddy', 'Jimmy'], 'Jimmy')
+    turn = new Turn('Jimmy', card)
     turn2 = new Turn('wrong answer', card)
- 
 
   })
 
@@ -25,7 +24,7 @@ describe('Turn', function() {
 })
 
  it('should store a guess to the question', function () {
-  expect(turn.guess).to.equal('object')
+  expect(turn.guess).to.equal('Jimmy')
 })
 
  it('should store the current card in play', function (){
@@ -33,7 +32,7 @@ describe('Turn', function() {
  })
 
  it('should return the users guess', function(){
-   expect(turn.returnGuess()).to.equal('object')
+   expect(turn.returnGuess()).to.equal('Jimmy')
  })
 
  it('should return the card', function(){

@@ -4,7 +4,7 @@ const expect = chai.expect
 const Deck = require('../src/Deck')
 const Card = require('../src/Card')
 const Turn = require('../src/turn')
-const Round = require('..src/Round')
+const Round = require('../src/Round')
 
 describe('Round', function(){
   let card
@@ -15,14 +15,60 @@ describe('Round', function(){
   let round
   let turn
 
-  beforeEach(() =>{
+  beforeEach(() => {
     card = new Card(1, 'What is the name of Beths dog?', ['Doug', 'Fido', 'Buddy', 'Jimmy'], 'Jimmy')
     card2 = new Card(2, 'What is the name of Hunters cat?', ['Mittens', 'Tiger', 'Rex', 'Socks' ], 'Rex')
     card3 = new Card(3, 'What is the name of Hazels dog?', ['Rocky', 'Rogue', 'Ang', 'Zuko'], 'Rogue')
     card4 = new Card(4, 'What is the name of Lanas dog?', ['Apollo', 'Moon', 'Pluto', 'Comet'], 'Apollo')
     deck = new Deck([card, card2, card3, card4])
-    round = new Round(deck)
     turn = new Turn('Jimmy', card)
+    round = new Round(deck)
   })
-  
+
+  it('should be a function', function() {
+    expect(Round).to.be.a('function')
+  })
+
+  it('should be an instance of Turn', function() {
+   expect(round).to.be.an.instanceof(Round)
+  })
+
+  it('should return the current card being played', function() {
+   expect(round.returnCurrentCard()).to.equal(card)
+  })
+
+  it('should update the turn count', function(){
+    round.takeTurn('Jimmy')
+    expect(round.turns).to.equal(1)
+    round.takeTurn('Mittens')
+    expect(round.turns).to.equal(2)
+  })
+
+  it('should evaluate guess and store incorrect guesses', function(){
+   let guess1 = round.takeTurn('Jimmy')
+   expect(guess1).to.equal('Correct!')
+   expect(round.incorrectGuesses.length).to.equal(0)
+   let guess2 = round.takeTurn('Mittens')
+   expect(guess2).to.equal('Incorrect!')
+   expect(round.incorrectGuesses.length).to.equal(1)
+ })
+
+ it('should calculate and return the percentage of correct guesses', function(){
+   let guess1 = round.takeTurn('Jimmy')
+   expect(guess1).to.equal('Correct!')
+   expect(round.calculatePercentCorrect()).to.equal(100)
+   let guess2 = round.takeTurn('Mittens')
+   expect(guess2).to.equal('Incorrect!')
+   expect(round.calculatePercentCorrect()).to.equal(50)
+ })
+ it('should notify user when the round is over', function(){
+   round.takeTurn('Jimmy')
+   round.takeTurn('Mittens')
+   round.takeTurn('Rogue')
+   round.takeTurn('Pluto')
+   expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!')
+ })
+
+
+
 })
