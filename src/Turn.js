@@ -22,9 +22,9 @@ class Turn {
 
   giveFeedback() {
     if (this.guess !== this.card.correctAnswer) {
-      return 'Incorrect!'
+      return "Incorrect!";
     } else {
-      return 'Correct!'
+      return "Correct!";
     }
   }
 }
