@@ -17,7 +17,9 @@
   - Mocha
   - Chai
 ## Illustrations
-  ![Flashcards ](<iframe src="https://giphy.com/embed/kPdr0C95vaZDB8FvEz" width="480" height="350" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/kPdr0C95vaZDB8FvEz">via GIPHY</a></p>)
+
+![giphy](https://user-images.githubusercontent.com/102885322/186781099-8ad8a9fd-2ef5-4739-9104-c3e017bd43ad.gif)
+
 ## Features
   - This application features a fully functional Flash Card game. Users can select an answer and the application will tell them if it is correct or not.
 ## Possible Future Extensions
