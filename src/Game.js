@@ -4,6 +4,7 @@ const util = require('./util');
 
 const Card = require('../src/Card')
 const Turn = require('../src/Turn')
+const Round = require('../src/Round')
 
 class Game {
   constructor() {
@@ -19,8 +20,18 @@ class Game {
       util.main(round);
   }
 
-  round() {
+  createGameDeck(cardData) {
+    let cards = cardData.map((card) => {
+      return new Card(card.id, card.question, card.answers, card.correctAnswer)
+    })
+    let deck = new Deck(cards)
+    this.currentRound = new Round(deck)
+  }
 
+  startGame() {
+    this.createGameDeck(prototypeQuestions)
+    this.printMessage(this.currentRound.deck, this.currentRound)
+    this.printQuestion(this.currentRound)
   }
 }
 
