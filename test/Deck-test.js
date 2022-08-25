@@ -24,6 +24,7 @@ describe("Deck", () => {
   })
 
   it("should be a function", () => {
+    
     expect(Deck).to.be.a('function')
   })
 
