@@ -15,11 +15,10 @@ This solo project created a flash card simulation that was playable through the 
 ## Setup
 - Fork & Clone this repository down to your local machine
 - Navigate into the flashcards directory
-- Run npm test in the terminal to interact with the application
+- Run node index.js in the terminal to interact with the application
 
 ## Screenshots
 
-<iframe src="https://giphy.com/embed/MoFm5YbOTjeAusHBdz" width="480" height="282" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/MoFm5YbOTjeAusHBdz">via GIPHY</a></p>
 
 ## Contributors
 - [Hazel Pablo](https://github.com/Hpablo08?tab=repositories)
@@ -27,3 +26,4 @@ This solo project created a flash card simulation that was playable through the 
 ## Technologies
   - Javascript
   - Mocha/Chai
+  -TDD
