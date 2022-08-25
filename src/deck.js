@@ -2,7 +2,7 @@ class Deck {
     constructor(cards){
         this.cards = cards
     }
-    deckCountCards() {
+    countCards() {
         return this.cards.length
     }
 }

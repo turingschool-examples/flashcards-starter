@@ -30,6 +30,6 @@ describe('Deck', function(){
     })
 
     it('should be able to count how many cards are in each deck', function() {
-        expect(deck.deckCountCards()).to.equal(3);                    
+        expect(deck.countCards()).to.equal(3);                    
     })
 })
