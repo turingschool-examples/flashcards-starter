@@ -5,29 +5,28 @@ class Round {
     this.deck = deck
     this.turns = 0
     this.correctGuesses = []
-    this.incorrectGuesses= []
+    this.incorrectGuesses = []
   }
-  returnCurrentCard(){
-    //console.log(this.deck.cards)
+  returnCurrentCard() {
     return this.deck.cards[this.turns]
   }
-  takeTurn(guess){
+  takeTurn(guess) {
     let turn = new Turn(guess, this.returnCurrentCard())
     turn.evaluateGuess()
-    if(!turn.evaluateGuess()){
+    if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.deck.cards[this.turns].id)
-      } else {
+    } else {
       this.correctGuesses.push(this.deck.cards[this.turns].id)
     }
-    this.turns ++
+    this.turns++
     return turn.giveFeedback()
   }
-  calculatePercentCorrect(){
-    return Math.floor((this.correctGuesses.length / this.turns) *100)
+  calculatePercentCorrect() {
+    return Math.floor((this.correctGuesses.length / this.turns) * 100)
     console.log(correctPercentage)
 
   }
-  endRound(){
+  endRound() {
     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }

@@ -20,9 +20,10 @@ class Game {
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
-  start(){
+
+  start() {
     const deck = new Deck(prototypeQuestions)
     this.currentRound = new Round(deck)
 

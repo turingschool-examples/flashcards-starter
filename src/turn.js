@@ -1,32 +1,28 @@
-
-
-class Turn{
-  constructor(guess, currentCard){
+class Turn {
+  constructor(guess, currentCard) {
     this.guess = guess
     this.currentCard = currentCard
   }
-  returnGuess(){
+  returnGuess() {
     return this.guess
   }
-  returnCard(){
+  returnCard() {
     return this.currentCard
   }
-  evaluateGuess(){
-    //console.log(this.guess)
-    //console.log(this.currentCard.correctAnswer)
-    if (this.guess === this.currentCard.correctAnswer){
+  evaluateGuess() {
+    if (this.guess === this.currentCard.correctAnswer) {
       return true
     } else {
       return false
     }
   }
-   giveFeedback(){
-     if (this.guess === this.currentCard.correctAnswer){
-       return 'Correct!'
-     } else {
-       return 'Incorrect!'
-     }
-   }
+  giveFeedback() {
+    if (this.guess === this.currentCard.correctAnswer) {
+      return 'Correct!'
+    } else {
+      return 'Incorrect!'
+    }
+  }
 }
 
 
