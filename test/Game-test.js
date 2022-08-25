@@ -8,7 +8,6 @@ describe('Game', function() {
 
 it('should keep track of the current round', () => {
     const game = new Game();
-    game.start()
     expect(game.currentRound).to.be.an.instanceof(Round)
   });
 });
