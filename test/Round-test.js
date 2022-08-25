@@ -16,10 +16,10 @@ describe('Round', function(){
   let turn
 
   beforeEach(() => {
-    card = new Card(1, 'What is the name of Beths dog?', ['Doug', 'Fido', 'Buddy', 'Jimmy'], 'Jimmy')
-    card2 = new Card(2, 'What is the name of Hunters cat?', ['Mittens', 'Tiger', 'Rex', 'Socks' ], 'Rex')
-    card3 = new Card(3, 'What is the name of Hazels dog?', ['Rocky', 'Rogue', 'Ang', 'Zuko'], 'Rogue')
-    card4 = new Card(4, 'What is the name of Lanas dog?', ['Apollo', 'Moon', 'Pluto', 'Comet'], 'Apollo')
+    card = new Card(1, 'What is the name of Beth\s dog?', ['Doug', 'Fido', 'Buddy', 'Jimmy'], 'Jimmy')
+    card2 = new Card(2, 'What is the name of Hunter\s cat?', ['Mittens', 'Tiger', 'Rex', 'Socks' ], 'Rex')
+    card3 = new Card(3, 'What is the name of Hazel\s dog?', ['Rocky', 'Rogue', 'Ang', 'Zuko'], 'Rogue')
+    card4 = new Card(4, 'What is the name of Lana\s dog?', ['Apollo', 'Moon', 'Pluto', 'Comet'], 'Apollo')
     deck = new Deck([card, card2, card3, card4])
     turn = new Turn('Jimmy', card)
     round = new Round(deck)
@@ -65,10 +65,7 @@ describe('Round', function(){
    round.takeTurn('Jimmy')
    round.takeTurn('Mittens')
    round.takeTurn('Rogue')
-   round.takeTurn('Pluto')
-   expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!')
+   round.takeTurn('Apollo')
+   expect(round.endRound()).to.equal('** Round over! ** You answered 75% of the questions correctly!')
  })
-
-
-
 })

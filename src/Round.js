@@ -23,9 +23,9 @@ class Round {
     return turn.giveFeedback()
   }
   calculatePercentCorrect(){
-    let correctPercentage = (this.correctGuesses.length / this.turns) *100
+    return Math.floor((this.correctGuesses.length / this.turns) *100)
     console.log(correctPercentage)
-    return correctPercentage
+
   }
   endRound(){
     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`

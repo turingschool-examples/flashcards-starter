@@ -47,5 +47,4 @@ describe('Turn', function() {
    expect(turn.giveFeedback()).to.equal('Correct!')
    expect(turn2.giveFeedback()).to.equal('Incorrect!')
  })
-
 })
