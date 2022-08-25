@@ -31,39 +31,35 @@ describe('Turn', () => {
   });
 
   it('should return the user\'s guess', () => {
-    const userGuess = turn.returnGuess();
+    const guess = turn.getGuess();
 
-    expect(userGuess).to.equal('mutator method');
-    expect(turn.returnGuess).to.be.a('function');
+    expect(guess).to.equal('mutator method');
   });
 
   it('should return the current card', () => {
-    const currentCard = turn.returnCard();
+    const currentCard = turn.getCard();
 
     expect(currentCard).to.equal(card);
-    expect(turn.returnCard).to.be.a('function');
   });
 
   it('should check if guess is the correct answer and return a boolean', () => {
-    const isCorrect = turn.evaluateGuess();
+    const isCorrect = turn.isCorrectlyAnswered();
 
     expect(isCorrect).to.be.a('boolean');
-    expect(turn.evaluateGuess).to.be.a('function');
 
     turn.guess = 'accessor method';
-    const isIncorrect = turn.evaluateGuess();
+    const isIncorrect = turn.isCorrectlyAnswered();
 
     expect(isIncorrect).to.equal(false);
   });
 
   it('should tell user if their guess is the correct or incorrect answer', () => {
-    const positiveFeedback = turn.giveFeedback();
+    const positiveFeedback = turn.getFeedback();
 
     expect(positiveFeedback).to.equal('Correct!');
-    expect(turn.giveFeedback).to.be.a('function');
 
     turn.guess = 'accessor method';
-    const negativeFeedback = turn.giveFeedback();
+    const negativeFeedback = turn.getFeedback();
 
     expect(negativeFeedback).to.equal('Incorrect!');
   });
