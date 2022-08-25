@@ -17,7 +17,7 @@ class Turn {
   }
 
   getFeedback() {
-    return (this.isCorrectlyAnswered() ? 'Correct!' : 'Incorrect!');
+    return (this.isCorrectlyAnswered() ? 'correct!' : 'incorrect!');
   }
 }
 

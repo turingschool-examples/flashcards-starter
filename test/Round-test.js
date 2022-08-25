@@ -61,12 +61,12 @@ describe('Round', () => {
 
   it('should tell user if guess is correct', () => {
     const result = round.takeTurn('object');
-    expect(result).to.equal('Correct!'); 
+    expect(result).to.equal('correct!'); 
   });
   
   it('should tell user if guess is incorrect', () => {
     const result = round.takeTurn('array');
-    expect(result).to.equal('Incorrect!'); 
+    expect(result).to.equal('incorrect!'); 
   });
   
   it('should return percent of correct guesses', () => {
@@ -76,7 +76,7 @@ describe('Round', () => {
     
     const grade = round.getCorrectPercentage();
     expect(grade).to.equal(66.67);
-  })
+  });
 
   it('should tell user when round is over', () => {
     round.takeTurn('object'); 
