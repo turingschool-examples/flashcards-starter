@@ -86,6 +86,4 @@ describe('Round', () => {
     expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`)
   })
 
-
-
 })

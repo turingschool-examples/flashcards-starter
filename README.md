@@ -1,71 +1,42 @@
-# FlashCards Starter Kit
-
-## Fork This Repo
-
-On the top right corner of this page, click the **Fork** button.
-
-## Setup
-
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
-
+# Flash Cards 
+## Table of Contents
+  - [Introduction](#introduction)
+  - [Technologies](#technologies)
+  - [Features](#features)
+  - [Illustrations](#illustrations)
+  - [Possible Future Extensions](#possible-future-extensions)
+  - [Set Up](#set-up)
+  - [Organizational Resources](#organizational-resources)
+  - [Sources](#sources)
+  - [Contributors](#contributors)
+  - [Project Specs](#project-specs)
+## Introduction
+  - In this project, I used JavaScript, HTML and CSS in order to make a fully functional Tic Tac Toe game. I focused on using the DOM to display the Data model. I focused on using semantic HTML, DRY javascript, and clean CSS in-order to make a fully functional application.
+## Technologies
+  - Javascript
+  - HTML
+  - CSS
+## Illustrations
+  ![Tic Tac Toe](/assets/Screenshot1.png)
+  ![Tic Tac Toe](/assets/Screenshot2.png)
+## Features
+  - This application features a fully functional Tic Tac Toe game. Users can select a spot on the board, and place their icon. If they get three in a row they are a winner! If they cannot get three in a row the game declares a draw and resets the board. The users wins are displayed under their respective icons.
+## Possible Future Extensions
+  - Future extensions would allow the user to pick their character, and token. Another possible extension would be adding a login page when the user first accesses the application.
+## Set Up
+1. Fork this repo
+2. Clone the repo to your local machine
+3. View the project in the browser by running open index.html in your terminal.
+## Sources
+  - [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
+  - [YouTube](https://www.youtube.com/watch?v=K0KQP7qfrYo)
+  - [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
+  - [CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+## Contributors
+  - Hunter Monroe
+## LinkedIn Profiles
+  - Hunter Monroe: https://www.linkedin.com/in/hunter-monroe-035ab0188/
+## Github
+  - Hunter Monroe: https://github.com/Hmonroe2
+## Project Specs
+ - [Turing](https://frontend.turing.edu/projects/module-1/tic-tac-toe-solo-v2.html)

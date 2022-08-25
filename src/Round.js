@@ -27,8 +27,6 @@ class Round {
   endRound(){
     return `** Round over! ** You answered ${this.calculatePercentage()}% of the questions correctly!`
   }
-
-
 }
 
 
