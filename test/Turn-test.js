@@ -56,11 +56,11 @@ describe('Turn', () => {
   it('should tell user if their guess is the correct or incorrect answer', () => {
     const positiveFeedback = turn.getFeedback();
 
-    expect(positiveFeedback).to.equal('Correct!');
+    expect(positiveFeedback).to.equal('correct!');
 
     turn.guess = 'accessor method';
     const negativeFeedback = turn.getFeedback();
 
-    expect(negativeFeedback).to.equal('Incorrect!');
+    expect(negativeFeedback).to.equal('incorrect!');
   });
 })
