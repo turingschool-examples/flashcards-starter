@@ -30,7 +30,8 @@ class Round {
     console.log(
       `** Round over! ** You answered ${this.calculatePercentage()}% of the questions correctly`
     )
-    console.timeLog("Game Run Time")
+    console.timeLog('Game Run Time')
+    return `** Round over! ** You answered ${this.calculatePercentage()}% of the questions correctly!`
   }
 }
 
