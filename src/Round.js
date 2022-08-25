@@ -12,17 +12,17 @@ class Round {
 
   takeTurn(guess) {
     const turn = new Turn(guess, this.getCurrentCard());
-    this.storeTurnResult(turn); 
+    this.storeTurnResult(guess, turn); 
     this.goToNextTurn(); 
     return turn.getFeedback();
   } 
 
-  storeTurnResult(turn) {
+  storeTurnResult(guess, turn) {
     const cardId = turn.currentCard.id;
     if (turn.isCorrectlyAnswered()) {
       this.answeredCardIds.correct.push(cardId);
     } else {
-      this.answeredCardIds.incorrect.push(cardId);
+      this.answeredCardIds.incorrect.push({cardId, guess});
     }
   }
 
@@ -44,11 +44,12 @@ class Round {
 
   endRound() {
     if (this.currentTurnIteration === this.deck.countCards()) {
-      const grade = this.getCorrectPercentage();
-  
-      return `**Round over!**You answered ${grade} of the questions correctly!`
+      const score = this.getCorrectPercentage();
+      
+      return `**Round over!**You answered ${score}% of the questions correctly!`;
     }
   }
+
 }
 
 module.exports = Round;

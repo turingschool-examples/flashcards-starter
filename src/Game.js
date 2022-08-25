@@ -1,4 +1,5 @@
 const data = require('./data');
+const ReportCard = require('./ReportCard');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
@@ -19,7 +20,16 @@ class Game {
   }
 
   printQuestion(round) {
-    util.main(round);
+    util.main(round)
+      .then(() => {
+        console.log('done')
+        this.printReportCard(round);
+      });
+  }
+
+  printReportCard(round) {
+    const reportCard = new ReportCard(round);
+    console.log(reportCard.getIncorrectQuestionResults());
   }
 }
 

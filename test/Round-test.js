@@ -56,7 +56,7 @@ describe('Round', () => {
 
   it('should handle unsuccessful guess', () => {
     round.takeTurn('array');
-    expect(round.answeredCardIds.incorrect).to.deep.equal([1]);
+    expect(round.answeredCardIds.incorrect).to.deep.equal([{cardId: 1, guess: 'array'}]);
   });
 
   it('should tell user if guess is correct', () => {
@@ -74,17 +74,16 @@ describe('Round', () => {
     round.takeTurn('array'); 
     round.takeTurn('accessor method'); 
     
-    const grade = round.getCorrectPercentage();
-    expect(grade).to.equal(66.67);
+    const score = round.getCorrectPercentage();
+    expect(score).to.equal(66.67);
   });
 
-  it('should tell user when round is over', () => {
+  it('should tell user when round is over with their score', () => {
     round.takeTurn('object'); 
     round.takeTurn('array'); 
     round.takeTurn('accessor method'); 
 
-    const finishedMsg = round.endRound();
-    const grade = round.getCorrectPercentage();
-    expect(finishedMsg).to.equal(`**Round over!**You answered ${grade} of the questions correctly!`)
+    const endRound = round.endRound();
+    expect(endRound).to.equal(`**Round over!**You answered 66.67% of the questions correctly!`)
   });
 })

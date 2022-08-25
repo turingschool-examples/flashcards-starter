@@ -1,6 +1,3 @@
-// This is where your project starts.
-
-// need to import game, create a new game with all required data, and call start()
 const flashcards = require('./src/data');
 const Game = require('./src/Game');
 const Round = require('./src/Round');
