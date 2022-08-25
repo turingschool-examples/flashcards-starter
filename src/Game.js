@@ -9,11 +9,11 @@ class Game {
     this.currentRound = {}
   }
   start() {
-   const currentDeck = new Deck(prototypeQuestions)
-   this.currentRound = new Round(currentDeck)
-   this.printMessage(currentDeck, this.currentRound)
-   this.printQuestion(this.currentRound)
- }
+    const currentDeck = new Deck(prototypeQuestions)
+    this.currentRound = new Round(currentDeck)
+    this.printMessage(currentDeck, this.currentRound)
+    this.printQuestion(this.currentRound)
+  }
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
@@ -21,7 +21,7 @@ class Game {
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 

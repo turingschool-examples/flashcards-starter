@@ -5,10 +5,10 @@ const Card = require('../src/Card')
 const Deck = require('../src/Deck')
 
 describe('Deck', () => {
-  // let card1;
-  // let card2;
-  // let card3;
-  // let deck;
+  let card1;
+  let card2;
+  let card3;
+  let deck;
   beforeEach(() => {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     card2 = new Card(2, 'What is the Beth\'s favortie food', ['tacos', 'burritos', 'pizza'], 'pizza')

@@ -64,7 +64,7 @@ describe('Round', () => {
   it('should store correct guesses id in an array', () => {
     round.takeTurn('sea otter')
     round.takeTurn('pizza')
-    expect(round.correctGuesses).to.deep.equal([1 ,2])
+    expect(round.correctGuesses).to.deep.equal([1, 2])
 
   })
 
