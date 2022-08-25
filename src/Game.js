@@ -9,8 +9,8 @@ const Round = require('../src/Round')
 class Game {
   constructor(data) {
     this.currentRound = null
-    this.deck = null
-    this.data = data
+    this.data = data || prototypeQuestions
+
 
   }
 
@@ -22,20 +22,14 @@ class Game {
   printQuestion(round) {
       util.main(round);
   }
-  createCards(){
-
-  }
-  putCardsInDeck(){
-
-  }
-  createRound(){
-
-  }
   start(){
+    const deck = new Deck(prototypeQuestions)
+    this.currentRound = new Round(deck)
+
+    this.printMessage(deck, this.currentRound)
+    this.printQuestion(this.currentRound)
 
   }
 }
-
-
 
 module.exports = Game;
