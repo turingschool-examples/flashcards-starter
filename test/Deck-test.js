@@ -17,7 +17,7 @@ describe('Deck', () => {
       new Card(flashcards.prototypeData[2]),
     ]
 
-    deck = new Deck(cards)
+    deck = new Deck(cards);
   });
 
   it('should be a function', () => {
