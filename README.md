@@ -32,4 +32,6 @@
  - [Beth]
 ## Project Specs
 - https://frontend.turing.edu/projects/flash-cards.html 
+## Project Tracking Board
+- https://trello.com/b/ztOW0dwF/flashcards-command-line
 
