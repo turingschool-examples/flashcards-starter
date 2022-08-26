@@ -14,7 +14,7 @@ class Turn {
   evaluateGuess() {
     if (this.userGuess === this.card.correctAnswer) {
       return true;
-    } else {
+    } else if (this.userGuess !== this.card.correctAnswer){
       return false;
     }
   }
@@ -25,6 +25,7 @@ class Turn {
       return `Incorrect!`
     }
   }
+
 }
 
 module.exports = Turn;
