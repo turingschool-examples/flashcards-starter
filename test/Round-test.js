@@ -84,6 +84,6 @@ describe('Round', () => {
     round.takeTurn('accessor method'); 
 
     const endRound = round.endRound();
-    expect(endRound).to.equal(`**Round over!**You answered 66.67% of the questions correctly!`)
+    expect(endRound).to.equal(`**Round over!**You answered 66.67% of the questions correctly!`);
   });
 })

@@ -7,8 +7,8 @@ const Round = require('../src/Round');
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
-
 describe('Game', () => {
+  let cards;
   let deck;
   let round;
   let game;

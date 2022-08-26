@@ -15,8 +15,7 @@ describe('Deck', () => {
       new Card(flashcards.prototypeData[0]),
       new Card(flashcards.prototypeData[1]),
       new Card(flashcards.prototypeData[2]),
-    ]
-
+    ];
     deck = new Deck(cards);
   });
 
