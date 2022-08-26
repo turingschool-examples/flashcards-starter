@@ -22,7 +22,6 @@ class Game {
   printQuestion(round) {
     util.main(round)
       .then(() => {
-        console.log('done')
         this.printReportCard(round);
       });
   }
