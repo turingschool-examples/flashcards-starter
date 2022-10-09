@@ -1,4 +1,22 @@
-# FlashCards Starter Kit
+# FlashCards
+
+## Abstract
+
+This project creates a basic flash card app which can be run through the command line. Users will be able to interact with the app when presented with the flash card and their responses should be scored for correctness.
+
+## GIF of Application
+
+## Technologies Used
+
+Mocha
+Javascript
+HTML
+
+## Install Instructions
+
+1. Open terminal and clone the project to your local machine.
+1. Navigate into the cloned project directory. 
+1. Run `node index.js` from your command line.
 
 ## Fork This Repo
 
@@ -51,7 +69,6 @@ When the game is functioning appropriately, you will be prompted for each questi
 ![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
 
 ---
-
 ## Test Files Organization
 
 Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
