@@ -22,5 +22,10 @@ describe('Turn', () => {
     expect(turn.card).to.equal(card)
   })
 
+  it.skip('should have a .returnGuess() method to return the users guess', () => {
+    card = new Card(1, "This is a test question", ["Yes", "No"], "Yes")
+    turn = new Turn('Yes', card)
 
+    expect(turn.returnGuess()).to.equal('Yes')
+  })
 })
