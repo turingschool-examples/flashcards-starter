@@ -15,4 +15,12 @@ describe('Turn', () => {
 
     expect(turn.guess).to.equal(guess)
   })
+  
+  it.skip('should accept the currently played card as an argument', () => {
+    guess = 'guess'
+    card = new Card(1, "This is a test question", ["Yes", "No"], "Yes")
+    turn = new Turn(guess, card)
+
+    expect(turn.card).to.equal(card)
+  })
 })
