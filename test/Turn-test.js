@@ -1,3 +1,4 @@
+const { util } = require('chai');
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -34,5 +35,17 @@ describe('Turn', () => {
     turn = new Turn('Yes', card);
 
     expect(turn.returnCard()).to.equal(card);
+  })
+
+  it.skip('should have an evaluateGuess() method returning a boolean that indicates if the guess was right or wrong', () => {
+    card = new Card(1, "This is a test question", ["Yes", "No"], "Yes");
+    turn = new Turn('Yes', card);
+
+    expect(turn.evaluateGuess()).to.equal(true);
+
+    card = new Card(1, "This is a test question", ["Yes", "No"], "Yes");
+    turn = new Turn('No', card);
+
+    expect(turn.evaluateGuess()).to.equal(false);
   })
 })
