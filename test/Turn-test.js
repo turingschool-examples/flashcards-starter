@@ -8,7 +8,6 @@ const Turn = require('../src/Turn');
 describe(`Turn`, () => {
   let turn;
   let card;
-  let guess;
 
   it.skip(`should accept a string argument representing a users guess`, () => {
     turn = new Turn('guess');
