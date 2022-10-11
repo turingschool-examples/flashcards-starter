@@ -5,31 +5,30 @@ const Turn = require('../src/Turn.js');
 const Card = require('../src/Card.js');
 
 describe('Turn', function() {
-  it.skip('should be a function', () => {
-    var turn = new Turn;
+  it('should be a function', () => {
 
-    expect(turn).to.be.a('function');
+    expect(Turn).to.be.a('function');
   })
 
-  it.skip('should be a new instance of Turn', () => {
+  it('should be a new instance of Turn', () => {
     var turn = new Turn;
 
     expect(turn).to.be.an.instanceOf(Turn);
   })
 
-  it.skip('should take the player\'s guess as an argument', () => {
+  it('should take the player\'s guess as an argument', () => {
     var turn = new Turn('gary');
 
     expect(turn.guess).to.equal('gary');
   })
 
-  it.skip('player\'s guess should be a string', () => {
+  it('player\'s guess should be a string', () => {
     var turn = new Turn('pancakes');
 
     expect(turn.guess).to.be.a('string');
   })
 
-  it.skip('should take an instance of card as an argument', () => {
+  it('should take an instance of card as an argument', () => {
     var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     var turn = new Turn('pants', card);
     var testCard = {
@@ -42,14 +41,14 @@ describe('Turn', function() {
     expect(turn.card).to.eql(testCard);
   })
 
-  it.skip('should have a method that returns the guess', () => {
+  it('should have a method that returns the guess', () => {
     var turn = new Turn('carrot cake');
     var guess = turn.returnGuess();
 
     expect(turn.guess).to.equal(guess);
   })
 
-  it.skip('should have a method that returns the card', () => {
+  it('should have a method that returns the card', () => {
     var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     var turn = new Turn('Jake from State Farm', card);
     var testCard = {
@@ -63,7 +62,7 @@ describe('Turn', function() {
     expect(returnedCard).to.eql(testCard);
   })
 
-  it.skip('should be able to determine if the answer is correct', () => {
+  it('should be able to determine if the answer is correct', () => {
     var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     var card2 = new Card(2, 'What is the best 2000\'s emo band?', ['Emery', 'My Chemical Romance', 'The Starting Line', 'Mae', 'Copeland', 'Senses Fail'], 'Copeland');
     var turn = new Turn('sea otter', card);
@@ -76,7 +75,7 @@ describe('Turn', function() {
     expect(card2Answer).be.false;
   })
 
-  it.skip('should tell the player is their answer was correct or incorrect', () => {
+  it('should tell the player is their answer was correct or incorrect', () => {
     var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     var card2 = new Card(2, 'What is the best 2000\'s emo band?', ['Emery', 'My Chemical Romance', 'The Starting Line', 'Mae', 'Copeland', 'Senses Fail'], 'Copeland');
     var turn = new Turn('sea otter', card);
