@@ -40,7 +40,7 @@ describe('Turn', function() {
 
         let presentCard = turn.returnCard();
 
-        expect(presentCard).to.equal({id: 1, question: 'What is Robbie\'s favorite animal' ,answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'})
+        expect(presentCard).to.deep.equal({id: 1, question: 'What is Robbie\'s favorite animal' ,answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'})
     })
 
 });
