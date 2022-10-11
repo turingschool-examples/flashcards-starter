@@ -22,14 +22,10 @@ class Turn {
    }
  }
  giveFeedBack() {
-    console.log("SWEATER:", this.guess)
-    console.log('HAT:',this.card.correctAnswer)
     if(this.guess === this.card.correctAnswer){
-        console.log("Anythang")
-      return 'Correct!'  
+    return 'Correct!'  
     } else {
-        console.log("something")
-        return 'Incorrect!'
+         return 'Incorrect!'
     }
  }
 };
