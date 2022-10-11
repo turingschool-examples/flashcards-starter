@@ -2,6 +2,4 @@ const chai = require('chai');
 const expect = chai.expect;
 const Card = require('../src/Turns');
 
-describe('Turn',function()) {
-    
-}
+describe('Turn')
