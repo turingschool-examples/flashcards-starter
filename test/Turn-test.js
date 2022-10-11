@@ -62,31 +62,13 @@ describe('Turn', function() {
     it("should give feedback if user's guess was incorrect", function() {
         const card = new Card(1,'What is Robbie\'s favorite animal',['sea otter','pug', 'capybara'],'sea otter')
         const turn = new Turn('pug', card)
-        expect(turn.giveFeedback().to.equal('Incorrect!'))
+        
+        expect(turn.giveFeedBack()).to.equal('Incorrect!')
     });
 
     it("should give feedback if user's guess was correct", function() {
         const card = new Card(1,'What is Robbie\'s favorite animal',['sea otter','pug', 'capybara'],'sea otter')
-        const turn = new Turn('sea otter', card)
-        expect(turn.giveFeedBack().to.equal('Correct!'))
+        const turn = new Turn('sea otter', card);
+        expect(turn.giveFeedBack()).to.equal('Correct!')
     });
-
-
-
 });
-
-
-
-
-
-
-// 
-
-
-
-// 10 ) evaluateGuess a method?
-// 11) will it return true if true  ( if guess === correct) CARD CLASS // add file export and src
-// 12 will it return false if false ( if guess !== correct)  CARD CLASS // add file import and export
-// 13 is giveFeedback a method
-// 14) return  a string ' incorrect) if evaluate.guess if false
-// 15) return a string ' correct) if evaluate.guess is true; 

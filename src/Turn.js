@@ -12,8 +12,8 @@ class Turn {
  returnCard() {
     return this.card;
  }
- evaluateGuess(card) {
-   if(this.guess === card.correctAnswer) {
+ evaluateGuess() {
+   if(this.guess === this.card.correctAnswer) {
      this.won = true;
     return true
    } else {
@@ -21,11 +21,15 @@ class Turn {
     return false;
    }
  }
- giveFeedBack(){
-    if(this.won === true){
-      return 'Correct'  
+ giveFeedBack() {
+    console.log("SWEATER:", this.guess)
+    console.log('HAT:',this.card.correctAnswer)
+    if(this.guess === this.card.correctAnswer){
+        console.log("Anythang")
+      return 'Correct!'  
     } else {
-        return Incorrect
+        console.log("something")
+        return 'Incorrect!'
     }
  }
 };
