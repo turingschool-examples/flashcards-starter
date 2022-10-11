@@ -1,5 +1,5 @@
 const data = require('./data');
-const prototypeQuestions = data.prototypeData;
+const prototypeQuestions = data.prototypeData; //array of flashcards
 const util = require('./util');
 
 class Game {

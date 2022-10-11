@@ -3,6 +3,18 @@ const expect = chai.expect;
 
 const Turn = require('../src/Turn.js');
 const Card = require('../src/Card.js');
+const data = {
+  id: 1, 
+  question: 'What is Robbie\'s favorite animal', 
+  answers: ['sea otter', 'pug', 'capybara'], 
+  correctAnswer: 'sea otter'
+}
+const data2 = {
+  id: 2, 
+  question: 'What is the best 2000\'s emo band?', 
+  answers: ['Emery', 'My Chemical Romance', 'The Starting Line', 'Mae', 'Copeland', 'Senses Fail'], 
+  correctAnswer: 'Copeland'
+}
 
 describe('Turn', function() {
   it('should be a function', () => {
@@ -29,7 +41,7 @@ describe('Turn', function() {
   })
 
   it('should take an instance of card as an argument', () => {
-    var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    var card = new Card(data);
     var turn = new Turn('pants', card);
     var testCard = {
       id: 1,
@@ -49,7 +61,7 @@ describe('Turn', function() {
   })
 
   it('should have a method that returns the card', () => {
-    var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    var card = new Card(data);
     var turn = new Turn('Jake from State Farm', card);
     var testCard = {
       id: 1,
@@ -63,8 +75,8 @@ describe('Turn', function() {
   })
 
   it('should be able to determine if the answer is correct', () => {
-    var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    var card2 = new Card(2, 'What is the best 2000\'s emo band?', ['Emery', 'My Chemical Romance', 'The Starting Line', 'Mae', 'Copeland', 'Senses Fail'], 'Copeland');
+    var card = new Card(data);
+    var card2 = new Card(data2);
     var turn = new Turn('sea otter', card);
     var turn2 = new Turn('My Chemical Romance', card2);
     
@@ -76,8 +88,8 @@ describe('Turn', function() {
   })
 
   it('should tell the player is their answer was correct or incorrect', () => {
-    var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    var card2 = new Card(2, 'What is the best 2000\'s emo band?', ['Emery', 'My Chemical Romance', 'The Starting Line', 'Mae', 'Copeland', 'Senses Fail'], 'Copeland');
+    var card = new Card(data);
+    var card2 = new Card(data2);
     var turn = new Turn('sea otter', card);
     var turn2 = new Turn('My Chemical Romance', card2);
     
