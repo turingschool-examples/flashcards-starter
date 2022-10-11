@@ -43,4 +43,22 @@ describe('Turn', function() {
         expect(presentCard).to.deep.equal({id: 1, question: 'What is Robbie\'s favorite animal' ,answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'})
     })
 
+    it('should indicate whether the users guess was correct', () => {
+        const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const turn = new Turn('sea otter', card);
+
+        let evaluation = turn.evaluateGuess();
+
+        expect(evaluation).to.equal(true);
+    })
+
+    it('should indicate whether the users guess was incorrect', () => {
+        const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const turn = new Turn('pug', card);
+
+        let evaluation = turn.evaluateGuess();
+
+        expect(evaluation).to.equal(false);
+    })
+
 });
