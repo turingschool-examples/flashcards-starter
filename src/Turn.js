@@ -4,4 +4,4 @@
 
 
 
-module.exports = Turns;
+module.exports = Turn;
