@@ -42,6 +42,26 @@ describe('Turn', function() {
     expect(turn.card).to.eql(testCard);
   })
 
-  it.skip()
+  it.skip('should have a method that returns the guess', () => {
+    var turn = new Turn('carrot cake');
+    var guess = turn.returnGuess();
+
+    expect(turn.guess).to.equal(guess);
+  })
+
+  it.skip('should have a method that returns the card', () => {
+    var card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    var turn = new Turn('khakis', card);
+    var testCard = {
+      id: 1,
+      question: 'What is Robbie\'s favorite animal',
+      answers: ['sea otter', 'pug', 'capybara'],
+      correctAnswer: 'sea otter'
+    }
+
+    expect(turn.card).to.eql(testCard);
+  })
+
+  it.skip('')
 
 })
