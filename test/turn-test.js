@@ -29,9 +29,9 @@ describe('Turn', function() {
         const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const turn = new Turn('pug', card);
 
-        turn.returnGuess();
+        let guess = turn.returnGuess();
 
-        expect(turn.returnGuess).to.equal('pug');
+        expect(guess).to.equal('pug');
     })
 
 });
