@@ -12,13 +12,13 @@ describe(`Deck`, () => {
   let cards = [card1, card2, card3];
   let deck;
 
-  it.skip(`should be initialized with an array of Card objects`, () => {
+  it(`should be initialized with an array of Card objects`, () => {
     deck = new Deck(cards);
 
     expect(deck.cards).to.equal(cards);
   })
 
-  it.skip(`should know how many Cards are in the Deck`, () => {
+  it(`should know how many Cards are in the Deck`, () => {
     deck = new Deck(cards);
 
     expect(deck.numberOfCards).to.equal(cards.length)
