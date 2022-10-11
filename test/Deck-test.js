@@ -17,4 +17,10 @@ describe(`Deck`, () => {
 
     expect(deck.cards).to.equal(cards);
   })
+
+  it.skip(`should know how many Cards are in the Deck`, () => {
+    deck = new Deck(cards);
+
+    expect(deck.numberOfCards).to.equal(cards.length)
+  })
 })
