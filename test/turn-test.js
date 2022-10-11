@@ -25,4 +25,13 @@ describe('Turn', function() {
         expect(turn.card).to.equal(card);
     })
 
+    it('should have a method that returns the guess', () => {
+        const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const turn = new Turn('pug', card);
+
+        turn.returnGuess();
+
+        expect(turn.returnGuess).to.equal('pug');
+    })
+
 });
