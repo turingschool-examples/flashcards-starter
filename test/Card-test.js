@@ -1,13 +1,13 @@
 const chai = require('chai');
 const expect = chai.expect;
+
+const Card = require('../src/Card');
 const data = {
   id: 1, 
   question: 'What allows you to define a set of related information using key-value pairs?', 
   answers: ['object', 'array', 'function'], 
   correctAnswer: 'object'
 }
-
-const Card = require('../src/Card');
 
 describe('Card', function() {
 
