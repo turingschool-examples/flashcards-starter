@@ -14,20 +14,20 @@ describe('Deck', () => {
         deck = new Deck([card1, card2, card3])
     })
 
-    it.skip('should be a function', () => {
+    it('should be a function', () => {
         expect(Deck).to.be.a('function')
     })
 
-    it.skip('should be an instance of Deck', () => {
-        expect(Deck).to.be.a.instanceOf(Deck)
+    it('should be an instance of Deck', () => {
+        expect(deck).to.be.a.instanceOf(Deck)
     })
 
-    it.skip('should have an array of cards', () => {
+    it('should have an array of cards', () => {
         expect(deck.cards[0].correctAnswer).to.deep.equal('object')
         expect(deck.cards[1].correctAnswer).to.deep.equal('array')
     })
 
-    it.skip('should count the cards in a deck', () => {
+    it('should count the cards in a deck', () => {
         expect(deck.countCards()).to.equal(3)
     })
 
