@@ -5,7 +5,7 @@ class Round {
     this.deck = deck;
     this.currentCard = deck.cards[0];
     this.turnNumber = 0;
-    this.turn = new Turn (guess, card)
+    // this.turn = new Turn (guess, card)
   }
   
   returnCurrentCard() {
@@ -16,7 +16,7 @@ class Round {
     this.turnNumber++;
 
   }
-      // takeTurn: method that updates turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses
+      // takeTurn: evaluates guesses, gives feedback, and stores ids of incorrect guesses
       // When a guess is made, a new Turn instance is created.
       // The turns count is updated, regardless of whether the guess is correct or incorrect
       // The next card becomes current card

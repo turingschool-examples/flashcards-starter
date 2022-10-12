@@ -37,7 +37,10 @@ describe('Round', () => {
     expect(round.turnNumber).to.equal(0)
   });
 
-  it('')
+  it('should increment the turn counter', () => {
+    round.takeTurn();
+    expect(round.turnNumber).to.equal(1);
+  });
 
   // it should have the currentCard at index 0 of the Deck array at the start of the round
 
