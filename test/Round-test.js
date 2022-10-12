@@ -60,6 +60,6 @@ describe('Round', () => {
         round.takeTurn('Ryan');
         round.takeTurn('Bryan');
         round.takeTurn('Lou');
-        expect(round.endRound()).to.equal('**Round over!** You answered 66.67% of the questions correctly!')
+        expect(round.endRound()).to.equal('** Round over! ** You answered 66.67% of the questions correctly!')
     })
 })
