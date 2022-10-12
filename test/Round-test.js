@@ -57,7 +57,7 @@ describe('Round', function () {
     var deck = new Deck(testDeck);
     var round = new Round(deck);
 
-    round.takeTurn();
+    round.takeTurn('pug');
 
     expect(round.incorrectGuesses[0]).to.equal(24);
   })

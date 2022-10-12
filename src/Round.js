@@ -13,12 +13,14 @@ class Round {
     return this.currentCard;
   }
 
-  takeTurn() {
+  takeTurn(guess) {
+    this.turn = new Turn(guess, this.currentCard);
     this.turnsTaken += 1;
-    this.turn = new Turn('pug', this.currentCard);
     if (!this.turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.currentCard.id);
     }
+    this.turn.giveFeedback();
+    this.currentCard = this.deck.cards[this.turnsTaken];
   }
 
   calculatePercentCorrect() {
