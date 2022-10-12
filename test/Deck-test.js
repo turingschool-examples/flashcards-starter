@@ -29,7 +29,9 @@ describe('Deck', () => {
     const card2 = new Card(2, 'What is the capital of Louisiana?', ['New Orleans', 'Lafayette', 'Lake Charles'], 'New Orleans')
     const card3 = new Card(3, 'What is the capital of Colorado?', ['Boulder', 'Denver', 'Aspen'], 'Denver')
     const deck = new Deck([card1, card2, card3])
-    expect(deck.cardCollection[0]).to.be.an('object')
+    for (var i = 0; i < deck.cardCollection.length; i++) {
+      expect(deck.cardCollection[i]).to.be.an('object')
+    }
   })
 
   it('should return length of card collection array with the method countCards()', () => {
