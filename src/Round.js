@@ -30,6 +30,7 @@ class Round {
     endRound() {
         let endMessage = `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`;
         console.log(endMessage);
+        console.timeEnd('Total time spent');
         return endMessage;
     }
 }
