@@ -29,6 +29,9 @@ class Round {
     // console.log("this.turns", this.turns)
     return Math.floor(percent)
   }
+  endRound() {
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+  }
 }
 
 module.exports = Round 
