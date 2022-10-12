@@ -92,4 +92,15 @@ describe('Round', function() {
 
         expect(round.incorrectGuesses).to.deep.equal([1, 14]);
     })
+
+    it('should calculate the percentage of correct answers', () => {
+
+        round.takeTurn('sea otter');
+
+        round.takeTurn('spleen');
+
+        let score = round.calculateScore();
+
+        expect(score).to.equal(50);
+    })
 })

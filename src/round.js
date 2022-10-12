@@ -26,6 +26,10 @@ class Round{
         this.currentCard = this.deck.at(this.numOfTurns)
         return feedback;
     }
+
+    calculateScore() {
+        return ((this.numOfTurns - this.incorrectGuesses.length) / this.numOfTurns) * 100
+    }
 }
 
 module.exports = Round;
