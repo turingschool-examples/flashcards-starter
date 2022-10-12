@@ -28,7 +28,15 @@ class Round{
     }
 
     calculateScore() {
-        return ((this.numOfTurns - this.incorrectGuesses.length) / this.numOfTurns) * 100
+        const score = ((this.numOfTurns - this.incorrectGuesses.length) / this.numOfTurns) * 100
+        const stringScore = score.toFixed(0)
+        return parseInt(stringScore);
+    }
+
+    endRound() {
+        const endRoundStatement = `** Round over! ** You answered ${this.calculateScore()}% of the questions correctly!`;
+        console.log(endRoundStatement);
+        return endRoundStatement;
     }
 }
 

@@ -103,4 +103,19 @@ describe('Round', function() {
 
         expect(score).to.equal(50);
     })
+
+    it('should print something to indicate the round is over', () => {
+        
+        round.takeTurn('sea otter');
+
+        round.takeTurn('spleen');
+
+        round.takeTurn('playing with bubble wrap');
+
+        round.calculateScore()
+
+        let endRound = round.endRound();
+
+        expect(endRound).to.equal('** Round over! ** You answered 67% of the questions correctly!')
+    })
 })
