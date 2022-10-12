@@ -40,6 +40,6 @@ describe('Turn', () => {
 
     it('should have a method that returns if the answer is incorrect the guess is incorrect', () => {
         let feedback2 = turn1.giveFeedback();
-        expect(feedback2).to.equal('incorrect!!');
+        expect(feedback2).to.equal('incorrect!');
     });
 });
