@@ -5,7 +5,7 @@ class Round {
    this.turns = 0
    this.incorrectGuesses = []
    this.deck = deck
-  //  this.currentCard = this.deck[0]
+  //  this.currentCard = this.deck.newDeck[0]
   }
   returnCurrentCard(deck) {
     return deck.newDeck[0]
@@ -19,14 +19,12 @@ class Round {
     }
     let feedback = newTurn.giveFeedback()
     this.deck.newDeck.shift()
-    // console.log("feedback +++++++",feedback)
     return feedback
   }
   calculatePercentCorrect() {
-    let percent = this.incorrectGuesses.length / this.turns
+    this.correctGuesses = this.turns - this.incorrectGuesses.length
+    let percent = this.correctGuesses / this.turns
     percent = percent * 100
-    // console.log("this.incorrectGuesses", this.incorrectGuesses.length)
-    // console.log("this.turns", this.turns)
     return Math.floor(percent)
   }
   endRound() {
