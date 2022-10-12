@@ -9,7 +9,21 @@ class Turn {
     returnCard() {
         return this.card
     }
-   
+    evaluateGuess() {
+        if(this.playerGuess === this.card.correctAnswer){
+            return true
+        } else {
+            this.isCorrect = false
+            return false
+        }
+    }
+    giveFeedback() {
+        if(this.evaluateGuess() === true) {
+            return 'That is correct!'
+        } else {
+            return 'That is incorrect!'
+        }
+    }
 }
 
 

@@ -54,11 +54,31 @@ describe('Turn', function () {
 
         const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
 
+        const card2 = new Card(2, 'What is a comma-separated list of related values?', ["array", "object", "function"], 'array')
+
         const playerGuess = 'object'
         const turn = new Turn(playerGuess, card);
+        const turn2 = new Turn(playerGuess, card2)
 
         expect(turn.evaluateGuess()).to.equal(true)
-    })
+        expect(turn2.evaluateGuess()).to.equal(false)
+    });
 
+    it('Should should give feedback based on the players guess', function() {
+
+        const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+
+        const card2 = new Card(2, 'What is a comma-separated list of related values?', ["array", "object", "function"], 'array')
+
+        const playerGuess = 'object'
+        const turn = new Turn(playerGuess, card);
+        const turn2 = new Turn(playerGuess, card2)
+
+        turn.evaluateGuess()
+        turn2.evaluateGuess()
+
+        expect(turn.giveFeedback()).to.equal('That is correct!')
+        expect(turn2.giveFeedback()).to.equal('That is incorrect!')
+    });
 
 }); 
