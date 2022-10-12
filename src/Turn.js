@@ -1,4 +1,5 @@
 const Card = require('../src/Card')
+const Round = require('./Round')
 
 class Turn {
   constructor(userGuess, cardObject) {
@@ -13,16 +14,22 @@ class Turn {
     return this.card
   }
   evaluateGuess() {
-    if (this.userGuess === this.card.correctAnswer) {
+    // console.log("Correct answer++++++",this.card.newDeck[0].correctAnswer)
+    // console.log("User guess +++++", this.userGuess)
+    // console.log("result ++++", this.userGuess === this.card.newDeck[0].correctAnswer)
+
+    if (this.userGuess === this.card.newDeck[0].correctAnswer) {
       return true 
     } else {
       return false 
     }
   }
   giveFeedback() {
-    if (this.evaluateGuess() === true) {
+    // console.log(this.currentCard)
+    // console.log("evaluate guess ++++", this.evaluateGuess())
+    if (this.evaluateGuess()) {
       return 'correct!'
-    } else {
+    } else if (!this.evaluateGuess()) {
       return 'incorrect!'
     }
   }
