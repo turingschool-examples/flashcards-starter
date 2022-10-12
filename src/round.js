@@ -17,6 +17,11 @@ class Round{
         const turn = new Turn(guess, this.currentCard)
         this.numOfTurns++;
         turn.evaluateGuess();
+        
+        if(!turn.evaluateGuess()) {
+            this.incorrectGuesses.push(this.currentCard.id)
+        }
+
         const feedback = turn.giveFeedback();
         this.currentCard = this.deck.at(this.numOfTurns)
         return feedback;

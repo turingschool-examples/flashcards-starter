@@ -79,5 +79,17 @@ describe('Round', function() {
 
         expect(round.currentCard).to.deep.equal(card3);
         expect(round.returnCurrentCard()).to.deep.equal(card3);
+    });
+
+    it('should record incorrect guesses', () => {
+        
+        let outcome = round.takeTurn('pug');
+
+        expect(outcome).to.equal('incorrect!');
+        expect(round.incorrectGuesses).to.deep.equal([1]);
+
+        let outcome2 = round.takeTurn('spleen');
+
+        expect(round.incorrectGuesses).to.deep.equal([1, 14]);
     })
 })
