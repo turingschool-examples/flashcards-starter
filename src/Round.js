@@ -27,6 +27,9 @@ class Round {
         const percentCorrect = this.incorrectGuesses.length / totalCards
         return Math.floor(percentCorrect * 100)
     }
+    endRound() {
+        return (`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    }
 }
 
 module.exports = Round;

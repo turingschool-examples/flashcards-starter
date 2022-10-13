@@ -123,4 +123,20 @@ describe('Round', function () {
 
         expect(round1.calculatePercentCorrect()).to.equal(33)
     });
+
+    it('Should have a method to end the round and display the percentage correct', function() {
+
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+        
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
+        
+        const card3 = (12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap')
+
+        const deck = new Deck([card1, card2, card3])
+        const round1 = new Round(deck)
+        const turn = new Turn('gallbladder', card1)
+        round1.takeTurn(turn)
+
+        expect(round1.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
+    });
 });
