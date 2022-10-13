@@ -1,6 +1,5 @@
 var Turn = require('./turn');
 
-
 class Round{
     constructor(deck) {
         this.deck = deck;
@@ -38,6 +37,8 @@ class Round{
         console.log(endRoundStatement);
         return endRoundStatement;
     }
+    
+
 }
 
 module.exports = Round;

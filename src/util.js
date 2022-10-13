@@ -36,9 +36,19 @@ async function main(round) {
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
     if(!round.returnCurrentCard()) {
-      round.endRound();
+      round.endRound()
+      determineMorePractice();
     } else {
       main(round);
+    }
+  
+    function determineMorePractice() {
+      const Game = require('./Game')
+      if(round.calculateScore() < 90) {
+          console.log('****It is recommended you go through the game again to practice more!****')
+          const anotherGame = new Game()
+          anotherGame.start()
+      }
     }
 }
 
