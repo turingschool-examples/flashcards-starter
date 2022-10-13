@@ -15,5 +15,9 @@ describe('Game', () => {
     expect(game.currentRound).to.equal(0);
   })
 
-  
+  it.skip('should have a start() method', () => {
+    game = new Game();
+
+    expect(game.start()).to.exist
+  })
 })
