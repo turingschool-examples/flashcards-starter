@@ -141,5 +141,20 @@ describe('Round', function() {
         expect(round.calculatePercentCorrect()).to.equal(33)
      })
 
+     it("should be able to end a round",function() {
+         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+         const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+         const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+         const deck = new Deck([card1, card2, card3]);
+         const round = new Round(deck);
+         const currentTurn = new Turn('pug', card1);
+         const currentTurn2 = new Turn('gallbladder', card2)
+         const currentTurn3 = new Turn('watching Netflix', card3)
+         round.takeTurn(currentTurn);
+         round.takeTurn(currentTurn2);
+         round.takeTurn(currentTurn3);
+         round.calculatePercentCorrect();
+         expect(round.endRound(round.calculatePercentCorrect())).to.equal('** Round Over! You answered 33 % of the questions correctly!')
+     })
 
 });

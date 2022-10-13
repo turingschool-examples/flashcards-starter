@@ -23,11 +23,14 @@ class Round {
       const incorrectNum = this.incorrectGuesses.length
       const CorrectAnswers =  total - incorrectNum;
       const winPercent = CorrectAnswers / total * 100;
-      return Math.floor(winPercent)
-        
-        // console.log("HERE",total)
+      const winPercentRounded = Math.floor(winPercent);
+       
+      return winPercentRounded  
     }
-     
+     endRound(num) {
+        //  console.log("LOCATION", num)
+        return `** Round Over! You answered ${num} % of the questions correctly!`
+     }
 };
 
 
