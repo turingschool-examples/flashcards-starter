@@ -1,8 +1,8 @@
-const chai = require('chai');
-const expect = chai.expect;
+const chai = require('chai')
+const expect = chai.expect
 
-const Turn = require('../src/Turn');
-const Card = require('../src/Card');
+const Turn = require('../src/Turn')
+const Card = require('../src/Card')
 
 describe('Turn', function() {
 
@@ -12,8 +12,8 @@ describe('Turn', function() {
     })
 
     it('should be an instance of Card', () => {
-        const card = new Turn();
-        expect(card).to.be.an.instanceof(Turn);
+        const card = new Turn()
+        expect(card).to.be.an.instanceof(Turn)
       })
 
     it('should store a guess', () => {
