@@ -38,7 +38,7 @@ class Game {
       return newCard;
     });
     const deck = new Deck(cards);
-    const round = new Round(deck);
+    const round = new Round(deck, this);
     this.currentRound = round;
     this.testingArray = [cards, deck, round];
     return this.testingArray;

@@ -31,6 +31,11 @@ class Round {
         return percent.toFixed(2) + '%';
     };
 
+    refreshDeck() {
+        this.deck.cards = this.deck.cards.filter(card => this.incorrectGuesses.includes(card.id));
+        this.currentCard = this.deck.cards[0];
+        this.turns = 0;
+    }
     endRound() {
         let endMessage = `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`;
         if (this.incorrectGuesses.length > 0) {
@@ -38,12 +43,9 @@ class Round {
                 console.log('\x1b[41m%s\x1b[0m', endMessage, '\n');
             };
             this.tries++;
-            this.deck.cards = this.deck.cards.filter(card => this.incorrectGuesses.includes(card.id));
+            this.refreshDeck();
             console.log('\x1b[41m%s\x1b[0m', `You've missed ${this.deck.cards.length} questions. Let's try those again!`, '\n');
-            this.currentCard = this.deck.cards[0];
-            this.turns = 0;
             this.game.printQuestion(this);
-       
         } else {
         console.log('\x1b[41m%s\x1b[0m', `You did it! You answered all questions correctly!`);
         console.timeEnd('Total time spent');
