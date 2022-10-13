@@ -28,7 +28,6 @@ class Round {
       return winPercentRounded  
     }
      endRound(num) {
-        //  console.log("LOCATION", num)
         return `** Round Over! You answered ${num} % of the questions correctly!`
      }
 };
