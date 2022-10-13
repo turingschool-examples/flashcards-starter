@@ -46,8 +46,8 @@ describe('Round', function() {
         const deck = new Deck([card1, card2, card3]);
         const round = new Round(deck);
         expect(round.returnCurrentCard()).to.deep.equal(deck[0])
-    })
-
+    });
+    
     it("should be able to take a turn ", function() {
         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -58,6 +58,18 @@ describe('Round', function() {
         round.takeTurn(currentTurn)
         expect(round.turn).to.equal(1)
     })
+
+    it ("should demonstrate turn increments", function() {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+        const deck = new Deck([card1, card2, card3]);
+        const round = new Round(deck);
+        const currentTurn = new Turn('pug',card1);
+        round.takeTurn(currentTurn)
+        round.takeTurn(currentTurn)
+        expect(round.turn).to.equal(2)
+    });
 
     it("should be able to evaluate if guess is incorrect", function(){
         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -91,7 +103,40 @@ describe('Round', function() {
         expect(round.incorrectGuesses).to.deep.equal([1])
     })
 
-    it("should move   ")
-// it should push current card to end of deck 
-// shift off the first card  return array starting with the 2nd card as current card. 
+    it("should be able to shuffle deck ",function(){ 
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+        const deck = new Deck([card1, card2, card3]);
+        const round = new Round(deck);
+        const currentTurn = new Turn('pug',card1);
+        round.takeTurn(currentTurn);
+        expect(round.deck.cards[2]).to.equal(card1)
+    })
+
+    it("Should remove the current card from the top of the deck", function () {
+        const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+        const deck = new Deck([card1, card2, card3]);
+        const round = new Round(deck);
+        const currentTurn = new Turn('pug',card1);
+        round.takeTurn(currentTurn);
+        
+       expect(round.deck.cards[0]).to.equal(card2);
+     })
+
+     it.skip('should be able to calculate percent of correct guesses', function() {
+         const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+         const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+         const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+         const deck = new Deck([card1, card2, card3]);
+         const round = new Round(deck);
+         const currentTurn = new Turn('pug', card1);
+         round.takeTurn(currentTurn);
+         expect(round.calculatePercentCorrect()).to.equal (33)
+
+     })
+
+
 });
