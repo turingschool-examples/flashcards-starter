@@ -27,25 +27,31 @@ describe('Round', () => {
 
     it('when taking a turn, should update the turn count', () => {
         round.takeTurn('Ryan');
+        
         expect(round.turns).to.equal(1);
 
         round.takeTurn('Ryan');
+
         expect(round.turns).to.equal(2);
     });
 
     it('when taking a turn, should change the current card', () => {
         round.takeTurn('Ryan');
+
         expect(round.currentCard).to.equal(card2);
 
         round.takeTurn('Ryan');
+
         expect(round.currentCard).to.equal(card3);
     });
 
     it('when taking a turn and guessing incorrectly, should push card id into incorrectGuesses', () => {
         round.takeTurn('Michael');
+
         expect(round.incorrectGuesses).to.deep.equal([1]);
 
         round.takeTurn('Bryan');
+
         expect(round.incorrectGuesses).to.deep.equal([1, 2]);
     });
 
@@ -53,6 +59,7 @@ describe('Round', () => {
         round.takeTurn('Ryan');
         round.takeTurn('Bryan');
         round.takeTurn('Lou');
+
         expect(round.calculatePercentCorrect()).to.equal('66.67%')
     });
 
@@ -60,6 +67,7 @@ describe('Round', () => {
         round.takeTurn('Ryan');
         round.takeTurn('Bryan');
         round.takeTurn('Lou');
+
         expect(round.endRound()).to.equal('** Round over! ** You answered 66.67% of the questions correctly!')
     });
 })

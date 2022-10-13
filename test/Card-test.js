@@ -16,7 +16,6 @@ describe('Card', function() {
     it('should be an instance of Card', function() {
       expect(card).to.be.an.instanceof(Card);
     }); 
-
   });
 
   beforeEach(() => {
@@ -33,7 +32,5 @@ describe('Card', function() {
     it('should store the correct answer', function() {
       expect(card.correctAnswer).to.equal('object');
     });
-
   });
-
 });

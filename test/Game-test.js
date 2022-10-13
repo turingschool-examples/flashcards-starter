@@ -9,7 +9,7 @@ describe('Game', () => {
     let game;
 
     beforeEach(() => {
-        game = new Game()
+        game = new Game();
     });
 
     it('should create 30 new cards from the prototypeQuestions', () => {
@@ -28,5 +28,4 @@ describe('Game', () => {
     it('should assign the round to the currentRound Game property', () => {
         expect(game.testStart()[2]).to.equal(game.currentRound);
     });
-
 });

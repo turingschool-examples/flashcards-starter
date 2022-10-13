@@ -17,7 +17,6 @@ describe('Deck', () => {
         card3 = new Card(3, 'Who is the best dog?', ['Kya', 'Lou', 'Toby'], 'Lou');
         cards = [card1, card2, card3];
         deck = new Deck(cards);
-
     });
 
     it('should be able to pass an array of Card objects as an argument', () => {
@@ -31,5 +30,4 @@ describe('Deck', () => {
     it('should be able to count cards', () => {
         expect(deck.countCards()).to.equal(3);
     });
-
 });
