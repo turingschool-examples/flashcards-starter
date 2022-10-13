@@ -19,7 +19,7 @@ describe('Round', function() {
     
     it('should take in the cards in a deck', () => {
 
-        expect(round.deck).to.deep.equal(deck.cards);
+        expect(round.deck.cards).to.deep.equal(deck.cards);
     })
 
     it('should keep track of the current card in the deck', () => {
