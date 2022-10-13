@@ -32,12 +32,6 @@ describe('Deck', () => {
     expect(deck.cardCollection).to.be.an('array')
   })
 
-  it('should only contain Card objects in the array', () => {
-    for (var i = 0; i < deck.cardCollection.length; i++) {
-      expect(deck.cardCollection[i]).to.be.an('object')
-    }
-  })
-
   it('should return length of card collection array with the method countCards()', () => {
     expect(deck.countCards()).to.equal(3)
   })
