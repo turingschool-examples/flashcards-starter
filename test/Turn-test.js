@@ -6,15 +6,14 @@ const Card = require('../src/Card');
 
 describe('Turn', () => {
   it('should be a function', () => {
-    const turn = new Turn()
 
     expect(Turn).to.be.a('function')
   })
   it('should have a guess and a instantiation of card as parameters', () => {
-    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
-    const turn = new Turn('pug', card)
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    const turn = new Turn('pug', card1)
 
-    expect(turn.card).to.equal(card)
+    expect(turn.card).to.deep.equal(card1)
     expect(turn.guess).to.equal('pug')
   })
   it('should return guess', () => {
@@ -29,7 +28,7 @@ describe('Turn', () => {
     const turn = new Turn('pug', card)
     //turn.returnCard()
 
-    expect(turn.returnCard()).to.equal(card)
+    expect(turn.returnCard()).to.deep.equal(card)
   })
   it('should check the guess', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
