@@ -6,6 +6,18 @@ const Card = require('../src/Card');
 const Game = require('../src/Game');
 
 describe('Game', function () {
+  let card1
+  let card2
+  let card3
+  let deck
+
+  beforeEach(() => {
+    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    deck = new Deck([card1, card2, card3]);
+  })
+
   it('should be a function', () => {
     const game = new Game();
     expect(Game).to.be.a('function');
@@ -17,18 +29,11 @@ describe('Game', function () {
   });
 
   it('should have data and currentRound properties', () => {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-    const deck = new Deck([card1, card2, card3]);
     const game = new Game(deck);
     expect(game.data).to.equal(deck);
   });
 
   it('should create cards from an array of data', () => {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const data = [card1, card2, card3]
     const game = new Game(data)
     game.createCard()
@@ -38,9 +43,6 @@ describe('Game', function () {
   });
 
   it('should instantiate a deck from an array of cards', () => {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const data = [card1, card2, card3]
     const game = new Game(data)
     game.createCard()
@@ -50,9 +52,6 @@ describe('Game', function () {
   });
 
   it('should instantiate a round of the game', () => {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const data = [card1, card2, card3]
     const game = new Game(data)
     game.createCard()

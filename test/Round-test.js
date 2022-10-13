@@ -5,6 +5,18 @@ const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
 describe('Round', function () {
+  let card1
+  let card2
+  let card3
+  let deck = new Deck([card1, card2, card3]);
+
+  this.beforeEach(() => {
+    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    deck = new Deck([card1, card2, card3]);
+  })
+
   it('should be a function', () => {
     const round = new Round();
     expect(Round).to.be.a('function');
@@ -16,19 +28,11 @@ describe('Round', function () {
   });
 
   it('should return current card', () => {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-    const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
     expect(round.returnCurrentCard(deck)).to.deep.equal(card1);
   });
 
   it('should be able to take a turn', () => {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-    const deck = new Deck([card1, card2, card3]);
     const round = new Round(deck);
 
     expect(round.turns).to.equal(0);
