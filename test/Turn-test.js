@@ -4,9 +4,9 @@ const expect = chai.expect;
 const Deck = require('../src/Deck');
 const Turn = require('../src/Turn');
 
-describe('Turn', function() {
+describe('Turn', function () {
 
-  it('should be a function', () =>  {
+  it('should be a function', () => {
     const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
@@ -54,5 +54,5 @@ describe('Turn', function() {
     expect(turn.giveFeedback()).to.equal('incorrect!');
     expect(turn2.giveFeedback()).to.equal('correct!');
   });
- 
+
 })

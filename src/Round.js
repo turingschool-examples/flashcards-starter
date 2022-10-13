@@ -2,16 +2,10 @@ const Turn = require('../src/Turn')
 
 class Round {
   constructor(deck) {
-   this.turns = 0
-   this.incorrectGuesses = []
-   this.deck = deck
-  //  this.currentCard = this.deck.newDeck[0]
+    this.turns = 0
+    this.incorrectGuesses = []
+    this.deck = deck
   }
-  // returnCurrentCard() {
-  //   // return deck.newDeck[0]
-  //   console.log("LOOK HERE ++++++",this.currentCard)
-  //   return this.currentCard
-  // }
   returnCurrentCard(deck) {
     return this.deck.newDeck[0]
   }
@@ -34,8 +28,8 @@ class Round {
   }
   endRound() {
     console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
-
 
 module.exports = Round 

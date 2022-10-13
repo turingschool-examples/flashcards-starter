@@ -7,7 +7,8 @@ const util = require('./util');
 
 class Game {
   constructor(data) {
-    this.currentRound 
+    this.data = data
+    this.currentRound
   }
 
   printMessage(deck, round) {
@@ -16,14 +17,13 @@ class Game {
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
   createCard() {
-    const mapCards = prototypeQuestions.map((cardInfo) => { 
+    return this.data.map((cardInfo) => {
       return new Card(cardInfo.id, cardInfo.question, cardInfo.answers, cardInfo.correctAnswer)
-  })
-  return mapCards
-}
+    })
+  }
   createDeck() {
     return new Deck(this.createCard())
   }
@@ -33,8 +33,7 @@ class Game {
   start() {
     this.printMessage(this.createDeck(), this.createRound)
     this.printQuestion(this.createRound())
-    }
   }
-
+}
 
 module.exports = Game;

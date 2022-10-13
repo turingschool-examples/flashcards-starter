@@ -3,8 +3,8 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
-describe('Deck', function() {
-  it('should be a function', () =>  {
+describe('Deck', function () {
+  it('should be a function', () => {
     const turn = new Deck();
     expect(Deck).to.be.a('function');
   });
