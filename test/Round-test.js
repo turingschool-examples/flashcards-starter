@@ -17,26 +17,28 @@ describe(`Round`, () => {
 
   it.skip(`should have a returnCurrentCard() method that returns the current card being played`, () =>  {
     deck = new Deck(cards)
-    round = new Round()
+    round = new Round(deck)
 
     expect(round.returnCurrentCard()).to.equal(cards[0])
   })
 
   it.skip(`should have a turn count with a value of 0`, () => {
-    round = new Round()
+    deck = new Deck(cards)
+    round = new Round(deck)
 
     expect(round.turnCount).to.equal(0)
   })
 
   it.skip(`should have a takeTurn() method`, () => {
-    round = new Round()
+    deck = new Deck(cards)
+    round = new Round(deck)
 
     expect(round.takeTurn()).to.be.a('function')
   })
 
   it.skip(`takeTurn() method should create a new Turn class instance`, () => {
-    round = new Round()
     deck = new Deck(cards)
+    round = new Round(deck)
     guess = 'guess'
 
     round.takeTurn(guess, round.returnCurrentCard())
@@ -46,7 +48,8 @@ describe(`Round`, () => {
   })
 
   it.skip(`takeTurn() method should accept a guess as a parameter`, () => {
-    round = new Round()
+    deck = new Deck(cards)
+    round = new Round(deck)
     guess = 'guess'
     round.takeTurn(guess)
 
@@ -54,7 +57,8 @@ describe(`Round`, () => {
   })
 
   it.skip(`takeTurn() method should update turns count`, () => {
-    round = new Round()
+    deck = new Deck(cards)
+    round = new Round(deck)
     const turnCheckBefore = round.turns
     
     round.takeTurn()
@@ -65,7 +69,7 @@ describe(`Round`, () => {
 
   it.skip(`the next card should become the current card`, () => {
     deck = new Deck(cards)
-    round = new Round()
+    round = new Round(deck)
     guess = 'guess'
 
     round.takeTurn(guess)
@@ -73,8 +77,17 @@ describe(`Round`, () => {
     expect(round.returnCurrentCard()).to.equal(cards[1])
   })
 
-  it.skip(`the guess should be evaluated`, () => {
+  it.skip(`the guess should be evaluated to correct or incorrect`, () => {
+    deck = new Deck(cards)
+    round = new Round(deck)
+    guess = 'guess'
+    let outcome = round.takeTurn(guess)
 
+    expect(outcome).to.equal(`Sorry, your answer of 'guess' is incorrect.`)
+
+    guess = 'array'
+    outcome = round.takeTurn(guess)
+
+    expect(outcome).to.equal(`Great! Your answer of 'array' is correct!`)
   })
-
 })
