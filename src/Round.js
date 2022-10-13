@@ -10,7 +10,7 @@ class Round {
   }
   
   returnCurrentCard() {
-    return this.deck.cards[turnCount]
+    return this.deck.cards[this.turnCount]
   }
 
   takeTurn(guess) {
@@ -28,14 +28,14 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    let correctCount = correctGuesses.length
-    let incorrectCount = incorrectGuesses.length
-    let percentageCorrect = correctCount / (correctCount + incorrectCount)
+    let correctCount = this.correctGuesses.length
+    let incorrectCount = this.incorrectGuesses.length
+    let percentageCorrect = Math.floor((correctCount / (correctCount + incorrectCount)) * 100)
     return percentageCorrect
   }
 
   endRound() {
-    console.log(`**Round over!** You answered ${this.calculatePercentCorrect()} of the questions correctly!`)
+    console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
   }
 }
 

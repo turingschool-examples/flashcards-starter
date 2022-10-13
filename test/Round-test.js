@@ -15,28 +15,29 @@ describe(`Round`, () => {
   let deck;
   let round;
 
-  it.skip(`should have a returnCurrentCard() method that returns the current card being played`, () =>  {
+  it(`should have a returnCurrentCard() method that returns the current card being played`, () =>  {
     deck = new Deck(cards)
     round = new Round(deck)
 
     expect(round.returnCurrentCard()).to.equal(cards[0])
   })
 
-  it.skip(`should have a turn count with a value of 0`, () => {
+  it(`should have a turn count with a value of 0`, () => {
     deck = new Deck(cards)
     round = new Round(deck)
 
     expect(round.turnCount).to.equal(0)
   })
 
-  it.skip(`should have a takeTurn() method`, () => {
+  it(`should have a takeTurn() method`, () => {
     deck = new Deck(cards)
     round = new Round(deck)
+    guess = 'guess'
 
-    expect(round.takeTurn()).to.be.a('function')
+    expect(round.takeTurn(guess)).to.exist
   })
 
-  it.skip(`takeTurn() method should create a new Turn class instance`, () => {
+  it(`takeTurn() method should create a new Turn class instance`, () => {
     deck = new Deck(cards)
     round = new Round(deck)
     guess = 'guess'
@@ -47,27 +48,30 @@ describe(`Round`, () => {
     expect(round.returnCurrentCard()).to.equal(deck.cards[1])
   })
 
-  it.skip(`takeTurn() method should accept a guess as a parameter`, () => {
+  it(`takeTurn() method should accept a guess as a parameter`, () => {
     deck = new Deck(cards)
     round = new Round(deck)
     guess = 'guess'
     round.takeTurn(guess)
 
-    expect(round.guess).to.equal(guess)
+    expect(round.takeTurn(guess)).to.equal(`Sorry, your answer of 'guess' is incorrect.`)
   })
 
-  it.skip(`takeTurn() method should update turns count`, () => {
+  it(`takeTurn() method should update turns count`, () => {
     deck = new Deck(cards)
     round = new Round(deck)
-    const turnCheckBefore = round.turns
+    guess = 'guess'
+
+    const turnCheckBefore = round.turnCount
     
-    round.takeTurn()
-    const turnCheckAfter = round.turns
+    round.takeTurn(guess)
+
+    const turnCheckAfter = round.turnCount
 
     expect(turnCheckAfter).to.equal(turnCheckBefore + 1)
   })
 
-  it.skip(`the next card should become the current card`, () => {
+  it(`the next card should become the current card`, () => {
     deck = new Deck(cards)
     round = new Round(deck)
     guess = 'guess'
@@ -77,7 +81,7 @@ describe(`Round`, () => {
     expect(round.returnCurrentCard()).to.equal(cards[1])
   })
 
-  it.skip(`the guess should be evaluated to correct or incorrect`, () => {
+  it(`the guess should be evaluated to correct or incorrect`, () => {
     deck = new Deck(cards)
     round = new Round(deck)
     guess = 'guess'
@@ -89,5 +93,16 @@ describe(`Round`, () => {
     outcome = round.takeTurn(guess)
 
     expect(outcome).to.equal(`Great! Your answer of 'array' is correct!`)
+  })
+
+  it(`calculatePercentCorrect() should return the percentage of correct guesses`, () => {
+    deck = new Deck(cards)
+    round = new Round(deck)
+
+    round.takeTurn('wrong')
+    round.takeTurn('array')
+    round.takeTurn('wrong')
+
+    expect(round.calculatePercentCorrect()).to.equal(33)
   })
 })
