@@ -56,23 +56,27 @@ describe('Round', () => {
     round.takeTurn();
     expect(round.incorrectGuesses).to.deep.equal([14])
   });
-
-  // ----------- Are these really a necessary tests? ---------------------
-//   it.skip('should create a new Turn instance when a guess is made', () => {
-// // How do I test for this?
-//     // round.takeTurn();
-//     // console.log(round.takeTurn())
-//     // expect().to.equal()
-//     // expect(.......newTurn).to.equal({})
-//   });
-
+  
   it('should have a method that evaluates guesses', () => {
     round.takeTurn();
     expect(round.incorrectGuesses).to.deep.equal([14])
   });
-
+  
   it('should have a method that calculates and returns the percentage of correct guesses', () => {
     round.takeTurn()
     expect(round.calculatePercentCorrect()).to.equal(33)
   });
-})
+  
+  it('should have a method that prints the following to the console: \'** Round over! ** You answered <>% of the questions correctly!', () => {
+    round.takeTurn()
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 33% of the questions correctly!`)
+  })
+  // ----------- Are these really a necessary tests? ---------------------
+  //   it.skip('should create a new Turn instance when a guess is made', () => {
+    // // How do I test for this?
+    //     // round.takeTurn();
+    //     // console.log(round.takeTurn())
+    //     // expect().to.equal()
+    //     // expect(.......newTurn).to.equal({})
+    //   });  
+  })

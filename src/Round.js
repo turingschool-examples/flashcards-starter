@@ -22,15 +22,14 @@ class Round {
     return newTurn.giveFeedback();
     }  
 
-    calculatePercentCorrect() {
-      const percentage = this.incorrectGuesses.length/this.deck.cards.length;
-      return (Math.floor(percentage * 100))
+  calculatePercentCorrect() {
+    const percentage = this.incorrectGuesses.length/this.deck.cards.length;
+    return (Math.floor(percentage * 100))
+    }
+    
+    endRound() {
+      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
     }
   }   
-
-
-
-  //endRound() {}
-    // method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
 
 module.exports = Round;
