@@ -5,7 +5,7 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', function() {
-  
+
   it('should be function', function() {
     const turn = new Turn ();
     expect(Turn).to.be.a('function');
