@@ -12,7 +12,7 @@ class Round {
   }
   takeTurn = (guess) => {
     let turn = new Turn(guess, this.currentCard)
-    if (turn.guess !== turn.card.correctAnswer) {
+    if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(turn.card.id)
     }
     this.turns++
