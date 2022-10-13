@@ -18,7 +18,15 @@ class Round {
         }
          return currentTurn.giveFeedBack()
     }
-    
+    calculatePercentCorrect(){
+      const total = this.turn;
+      const incorrectNum = this.incorrectGuesses.length
+      const CorrectAnswers =  total - incorrectNum;
+      const winPercent = CorrectAnswers / total * 100;
+      return Math.floor(winPercent)
+        
+        // console.log("HERE",total)
+    }
      
 };
 
