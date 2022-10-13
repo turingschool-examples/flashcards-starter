@@ -19,16 +19,16 @@ describe('Turn', () => {
   it('should return guess', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     const turn = new Turn('pug', card)
-    //turn.returnGuess()
+    const pugGuess = turn.returnGuess()
 
-    expect(turn.returnGuess()).to.equal('pug')
+    expect(pugGuess).to.equal('pug')
   })
   it("should return card", () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     const turn = new Turn('pug', card)
-    //turn.returnCard()
+    const cardReturned = turn.returnCard()
 
-    expect(turn.returnCard()).to.deep.equal(card)
+    expect(cardReturned).to.deep.equal(card)
   })
   it('should check the guess', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
