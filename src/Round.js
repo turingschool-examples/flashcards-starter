@@ -18,11 +18,8 @@ class Round {
     if(turn.evaluateGuess()=== false) {
       this.incorrectGuesses.push(this.deck[0].id)
     }
-    let feedback = turn.giveFeedback()
-   // this.deck.push(this.deck[0])
+    const feedback = turn.giveFeedback()
     this.deck.shift()
-     //Is there a way to do this using an iterator method? To change the order of the items in an array?
-     //Look at reduce or splice 
     return feedback
   }
   calculatePercentCorrect() {
@@ -32,7 +29,6 @@ class Round {
   }
   endRound() {
     console.log (`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
-    //Do I need a test for this?
   }
 }
 
