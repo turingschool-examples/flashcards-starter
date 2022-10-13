@@ -4,8 +4,6 @@ const expect = chai.expect
 const Card = require('../src/Card')
 const Deck = require('../src/Deck')
 const dataArray = require('../src/data').prototypeData
-
-
 const cardArray = dataArray.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer))
 
 describe('Deck', function() {
