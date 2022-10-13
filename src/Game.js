@@ -28,8 +28,8 @@ class Game {
 
   start() {
     this.newRound()
-    this.printMessage()
-    this.printQuestion()
+    this.printMessage(this.currentRound.deck, this.currentRound)
+    this.printQuestion(this.currentRound)
   }
  
 }
