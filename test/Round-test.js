@@ -35,7 +35,7 @@ describe('Round', function() {
 
     it('should start with no incorrect guesses', () => {
         const round = new Round()
-        expect(round.incorrectGuesses).to.equal([])
+        expect(round.incorrectGuesses).to.deep.equal([])
     })
 
     it('should evaluate the guess and return correct or incorrect', () => {
@@ -50,7 +50,7 @@ describe('Round', function() {
         const round = new Round(deck)
         round.takeTurn('array')
         round.takeTurn('function')
-        expect(round.incorrectGuesses).to.equal([1, 2])
+        expect(round.incorrectGuesses).to.deep.equal([1, 2])
     })
 
     it('should be able to calculate the percentage of correct answers', () => {
