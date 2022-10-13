@@ -62,12 +62,4 @@ describe('Round', () => {
 
         expect(round.calculatePercentCorrect()).to.equal('66.67%')
     });
-
-    it('should be able to end round and provide results', () => {
-        round.takeTurn('Ryan');
-        round.takeTurn('Bryan');
-        round.takeTurn('Lou');
-
-        expect(round.endRound()).to.equal('** Round over! ** You answered 66.67% of the questions correctly!')
-    });
-})
+});
