@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
+const Game = require('../src/Game');
 const Round = require('../src/Round');
 
 describe('Round', () => {
@@ -18,7 +19,8 @@ describe('Round', () => {
         card3 = new Card(3, 'Who is the best dog?', ['Kya', 'Lou', 'Toby'], 'Lou');
         cards = [card1, card2, card3];
         deck = new Deck(cards);
-        round = new Round(deck);
+        game = new Game();
+        round = new Round(deck, game);
     });
 
     it('should be able to return the current card', () => {
@@ -55,6 +57,26 @@ describe('Round', () => {
         expect(round.incorrectGuesses).to.deep.equal([1, 2]);
     });
 
+    it('when taking a turn, should not re-push card id into incorrectGuesses if the card is already in the array', () => {
+        game.testStart();
+        round.takeTurn('Ryan');
+        round.takeTurn('Bryan');
+        round.takeTurn('Lou');
+        round.refreshDeck();
+        round.takeTurn('Adam');
+        expect(round.incorrectGuesses).to.deep.equal([2]);
+    });
+
+    it('when taking a turn, should splice card id out of incorrectGuesses if guessing correctly', () => {
+        game.testStart();
+        round.takeTurn('Ryan');
+        round.takeTurn('Bryan');
+        round.takeTurn('Lou');
+        round.refreshDeck();
+        round.takeTurn('Matthew');
+        expect(round.incorrectGuesses).to.deep.equal([]);
+    });
+
     it('should be able to calculate and return the percentage of correct guesses', () => {
         round.takeTurn('Ryan');
         round.takeTurn('Bryan');
@@ -62,4 +84,5 @@ describe('Round', () => {
 
         expect(round.calculatePercentCorrect()).to.equal('66.67%')
     });
+
 });
