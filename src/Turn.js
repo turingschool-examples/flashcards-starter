@@ -13,7 +13,6 @@ class Turn {
         if(this.playerGuess === this.card.correctAnswer){
             return true
         } else {
-            this.isCorrect = false
             return false
         }
     }
