@@ -8,6 +8,7 @@ const Deck = require('./Deck')
 
 class Game {
   constructor(data) {
+    this.data = data
     this.currentRound
   }
 
@@ -19,7 +20,7 @@ class Game {
       util.main(round);
   }
   createCard() {
-   return prototypeQuestions.map((cardInfo) => {
+   return this.data.map((cardInfo) => {
      return new Card(cardInfo.id, cardInfo.question, cardInfo.answers, cardInfo.correctAnswer)
     })
   }
@@ -33,7 +34,6 @@ class Game {
   start() {
     this.printMessage(this.makeDeck(), this.createRound())
     this.printQuestion(this.createRound())
-   
   }
 }
 
