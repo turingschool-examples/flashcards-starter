@@ -91,8 +91,8 @@ describe('Round', () => {
   })
 
   it('should return feedback regarding whether the guess is correct or incorrect with the method takeTurn()', () => {
-    expect(round.takeTurn('Austin')).to.equal('Correct!')
-    expect(round.takeTurn('Lake Charles')).to.equal('Incorrect!')
+    expect(round.takeTurn('Austin')).to.equal('correct!')
+    expect(round.takeTurn('Lake Charles')).to.equal('incorrect!')
   })
 
   it('should calculate and return the percentage of correct guesses with the method calculatePercentCorrect()', () => {
@@ -103,12 +103,5 @@ describe('Round', () => {
     expect(round.calculatePercentCorrect()).to.equal(50)
     round.takeTurn('Denver')
     expect(round.calculatePercentCorrect()).to.equal(67)
-  })
-
-  it('should print the following to the console: "** Round over! ** You answered <>% of the questions correctly!"', () => {
-    round.takeTurn('Houston')
-    round.takeTurn('Lake Charles')
-    round.takeTurn('Denver')
-    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
   })
 })

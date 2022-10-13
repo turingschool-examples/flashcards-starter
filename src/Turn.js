@@ -19,9 +19,9 @@ class Turn {
   giveFeedback = () => {
     let guess = this.evaluateGuess()
     if (guess === true) {
-      return 'Correct!'
+      return 'correct!'
     } else {
-      return 'Incorrect!'
+      return 'incorrect!'
     }
   }
 }

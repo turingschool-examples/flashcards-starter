@@ -26,7 +26,7 @@ class Round {
     return 100 - Math.round((this.incorrectGuesses.length/this.turns)*100)
   }
   endRound = () => {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
   }
 }
 
