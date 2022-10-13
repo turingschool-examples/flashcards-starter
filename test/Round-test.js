@@ -19,11 +19,11 @@ describe('Round', () => {
         cards = [card1, card2, card3];
         deck = new Deck(cards);
         round = new Round(deck);
-    })
+    });
 
     it('should be able to return the current card', () => {
         expect(round.returnCurrentCard()).to.equal(card1);
-    })
+    });
 
     it('when taking a turn, should update the turn count', () => {
         round.takeTurn('Ryan');
@@ -31,7 +31,7 @@ describe('Round', () => {
 
         round.takeTurn('Ryan');
         expect(round.turns).to.equal(2);
-    })
+    });
 
     it('when taking a turn, should change the current card', () => {
         round.takeTurn('Ryan');
@@ -39,7 +39,7 @@ describe('Round', () => {
 
         round.takeTurn('Ryan');
         expect(round.currentCard).to.equal(card3);
-    })
+    });
 
     it('when taking a turn and guessing incorrectly, should push card id into incorrectGuesses', () => {
         round.takeTurn('Michael');
@@ -47,19 +47,19 @@ describe('Round', () => {
 
         round.takeTurn('Bryan');
         expect(round.incorrectGuesses).to.deep.equal([1, 2]);
-    })
+    });
 
     it('should be able to calculate and return the percentage of correct guesses', () => {
         round.takeTurn('Ryan');
         round.takeTurn('Bryan');
         round.takeTurn('Lou');
         expect(round.calculatePercentCorrect()).to.equal('66.67%')
-    })
+    });
 
     it('should be able to end round and provide results', () => {
         round.takeTurn('Ryan');
         round.takeTurn('Bryan');
         round.takeTurn('Lou');
         expect(round.endRound()).to.equal('** Round over! ** You answered 66.67% of the questions correctly!')
-    })
+    });
 })
