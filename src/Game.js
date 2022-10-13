@@ -8,20 +8,24 @@ const Round = require('./round');
 class Game {
   constructor() {
     this.currentRound;
-    this.card;
+    this.cards;
     this.deck;
   }
 
   start() {
+    this.createGameInfo()
+    this.printMessage(this.deck, this.currentRound);
+    this.printQuestion(this.currentRound);
+  }
+
+  createGameInfo() {
     const newCards = prototypeQuestions.map((element) => {
-      return this.card = new Card(element.id, element.question, element.answers, element.correctAnswer)
+      return new Card(element.id, element.question, element.answers, element.correctAnswer)
     })
+    this.cards = newCards
     this.deck = new Deck(newCards);
 
     this.currentRound = new Round(this.deck);
-
-    this.printMessage(this.deck, this.currentRound);
-    this.printQuestion(this.currentRound);
   }
 
   printMessage(deck, round) {
@@ -32,6 +36,7 @@ class Game {
   printQuestion(round) {
       util.main(round);
   }
+
 }
 
 module.exports = Game;
