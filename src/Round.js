@@ -7,8 +7,13 @@ class Round {
    this.deck = deck
   //  this.currentCard = this.deck.newDeck[0]
   }
+  // returnCurrentCard() {
+  //   // return deck.newDeck[0]
+  //   console.log("LOOK HERE ++++++",this.currentCard)
+  //   return this.currentCard
+  // }
   returnCurrentCard(deck) {
-    return deck.newDeck[0]
+    return this.deck.newDeck[0]
   }
   takeTurn(userChoice) {
     let newTurn = new Turn(userChoice, this.deck)
@@ -31,5 +36,6 @@ class Round {
     return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
   }
 }
+
 
 module.exports = Round 
