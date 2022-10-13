@@ -22,10 +22,10 @@ describe(`Round`, () => {
     expect(round.returnCurrentCard()).to.equal(cards[0])
   })
 
-  it.skip(`should have a turns count with a value of 0`, () => {
+  it.skip(`should have a turn count with a value of 0`, () => {
     round = new Round()
 
-    expect(round.turns).to.equal(0)
+    expect(round.turnCount).to.equal(0)
   })
 
   it.skip(`should have a takeTurn() method`, () => {
