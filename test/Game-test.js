@@ -12,13 +12,19 @@ describe('Game', function() {
 
     beforeEach(() => {
         game = new Game();
-        // game.start()
-    });
+    }) 
 
-    it('should put the new cards in a deck', () => {
-       
+    it('should create new instances of cards', () => {
+        game.createGameInfo();
 
-        
+        expect(game.cards[0]).to.be.an.instanceOf(Card);
+    })
+
+    it('should create a new deck and round', () =>{
+        game.createGameInfo();
+
+        expect(game.deck).to.be.an.instanceOf(Deck)
+        expect(game.currentRound).to.be.an.instanceOf(Round)
     })
  
 })
