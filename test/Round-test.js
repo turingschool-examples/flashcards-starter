@@ -60,4 +60,12 @@ describe('Round', function() {
         round.takeTurn('function')
         expect(round.calculatePercentCorrect()).to.equal(50)
     })
+
+    it('should be able to end the current round', () => {
+        const deck = new Deck(cardArray)
+        const round = new Round(deck)
+        round.takeTurn('object')
+        round.takeTurn('function')
+        expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!')
+    })
 })
