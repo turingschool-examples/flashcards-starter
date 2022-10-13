@@ -21,10 +21,14 @@ class Round {
       }
     return newTurn.giveFeedback();
     }  
+
+    calculatePercentCorrect() {
+      const percentage = this.incorrectGuesses.length/this.deck.cards.length;
+      return (Math.floor(percentage * 100))
+    }
   }   
 
-  // calculatePercentCorrect() {}
-    // method that calculates and returns the percentage of correct guesses
+
 
   //endRound() {}
     // method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’

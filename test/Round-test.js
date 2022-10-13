@@ -42,12 +42,7 @@ describe('Round', () => {
     round.takeTurn();
     expect(round.currentCard).to.equal(deck.cards[1])
   });
-  
-  it('should have a method that evaluates guesses', () => {
-    round.takeTurn();
-    expect(round.incorrectGuesses).to.deep.equal([14])
-  });
-
+ 
   it('should have a method that gives feedback for an incorrect answer', () => {
   
     expect(round.takeTurn()).to.equal('incorrect!')
@@ -57,43 +52,27 @@ describe('Round', () => {
     expect(round.takeTurn('sea otter')).to.equal('correct!')
   });
   
-  // // it('should have a method that stores ids of incorrect guesses', () => {
-  //   round.takeTurn();
-  //   expect().to.be.equal()
-  // // });
-  
-  // // it('should create a new Turn instance when a guess is made', () => {
-  //   round.takeTurn();
-  //   expect().to.be.equal()
-  // // });
-  
-  // // it('should have a method that...', () => {
-  //   round.takeTurn();
-  //   expect().to.be.equal()
-  // // });
-  
-  // // it('should have a method that...', () => {
-  //   round.takeTurn();
-  //   expect().to.be.equal()
-  // // });
-  
-  // // it('should have a method that...', () => {
-  //   round.takeTurn();
-  //   expect().to.be.equal()
-  // // });
-  
-  // // it('should have a method that...', () => {
-  //   round.takeTurn();
-  //   expect().to.be.equal()
-  // // });
-  
+  it('should have a method that stores ids of incorrect guesses', () => {
+    round.takeTurn();
+    expect(round.incorrectGuesses).to.deep.equal([14])
+  });
+
+  // ----------- Are these really a necessary tests? ---------------------
+//   it.skip('should create a new Turn instance when a guess is made', () => {
+// // How do I test for this?
+//     // round.takeTurn();
+//     // console.log(round.takeTurn())
+//     // expect().to.equal()
+//     // expect(.......newTurn).to.equal({})
+//   });
+
+  it('should have a method that evaluates guesses', () => {
+    round.takeTurn();
+    expect(round.incorrectGuesses).to.deep.equal([14])
+  });
+
+  it('should have a method that calculates and returns the percentage of correct guesses', () => {
+    round.takeTurn()
+    expect(round.calculatePercentCorrect()).to.equal(33)
+  });
 })
-
-
-
-// TESTS NEEDED:
-// takeTurn: 
-// it('should take in the user\'s responses', () => {
-//     expect(round.)
-//   }
-
