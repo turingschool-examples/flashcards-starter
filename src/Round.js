@@ -19,10 +19,19 @@ class Round {
 
     if (guess === this.turn.card["correctAnswer"]) {
       this.correctGuesses.push(this.turn.card["id"])
+      return `Great! Your answer of '${guess}' is correct!`
     }
     else if (guess !== this.turn.card["correctAnswer"]) {
       this.incorrectGuesses.push(this.turn.card["id"])
+      return `Sorry, your answer of '${guess}' is incorrect.`
     }
+  }
+
+  calculatePercentCorrect() {
+    let correctCount = correctGuesses.length
+    let incorrectCount = incorrectGuesses.length
+    let percentageCorrect = correctCount / (correctCount + incorrectCount)
+    return percentageCorrect
   }
 }
 
