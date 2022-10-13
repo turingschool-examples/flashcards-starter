@@ -19,10 +19,6 @@ describe('Round', () => {
     expect(Round).to.be.a('function');
   });
   
-  // it('should take in the user\'s responses', () => {
-  //     expect(round.)
-  //   }
-
   it('should take in a deck argument', () => expect(round.deck).to.deep.equal(deck));
   
   it('should have the currentCard at index 0 of the Deck array at the start of the round', () => {
@@ -32,20 +28,72 @@ describe('Round', () => {
   it('should have a method that returns the current card being played', () => {
     expect(round.returnCurrentCard()).to.equal(deck.cards[0])
   });
-
+  
   it('should have a turn counter that starts at 0', () => {
     expect(round.turnNumber).to.equal(0)
   });
-
-  it('should increment the turn counter', () => {
+  
+  it('should have a method that increments the turn counter', () => {
     round.takeTurn();
     expect(round.turnNumber).to.equal(1);
   });
+  
+  it('should have a method that updates current card', () => {
+    round.takeTurn();
+    expect(round.currentCard).to.equal(deck.cards[1])
+  });
+  
+  it('should have a method that evaluates guesses', () => {
+    round.takeTurn();
+    expect(round.incorrectGuesses).to.deep.equal([14])
+  });
 
-  // it should have the currentCard at index 0 of the Deck array at the start of the round
-
-  // it should record the user's guesses
-  // it should record if the guesses are correct or not
-
-
+  it('should have a method that gives feedback for an incorrect answer', () => {
+  
+    expect(round.takeTurn()).to.equal('incorrect!')
+  });
+  
+  it('should have a method that gives feedback for a correct answer', () => {
+    expect(round.takeTurn('sea otter')).to.equal('correct!')
+  });
+  
+  // // it('should have a method that stores ids of incorrect guesses', () => {
+  //   round.takeTurn();
+  //   expect().to.be.equal()
+  // // });
+  
+  // // it('should create a new Turn instance when a guess is made', () => {
+  //   round.takeTurn();
+  //   expect().to.be.equal()
+  // // });
+  
+  // // it('should have a method that...', () => {
+  //   round.takeTurn();
+  //   expect().to.be.equal()
+  // // });
+  
+  // // it('should have a method that...', () => {
+  //   round.takeTurn();
+  //   expect().to.be.equal()
+  // // });
+  
+  // // it('should have a method that...', () => {
+  //   round.takeTurn();
+  //   expect().to.be.equal()
+  // // });
+  
+  // // it('should have a method that...', () => {
+  //   round.takeTurn();
+  //   expect().to.be.equal()
+  // // });
+  
 })
+
+
+
+// TESTS NEEDED:
+// takeTurn: 
+// it('should take in the user\'s responses', () => {
+//     expect(round.)
+//   }
+
