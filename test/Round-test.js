@@ -84,7 +84,6 @@ describe("Round", () => {
     const spleenTest = round.takeTurn('spleen');
   
     expect(spleenTest).to.equal("incorrect!")
-    //ASK SARAH ON THIS!!! does this count as the execution if it is in the assertion?
   })
   it("should count turns", () => {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -134,5 +133,4 @@ describe("Round", () => {
 
     expect(round.calculatePercentCorrect()).to.equal(33)
   })
-  //Do I need a test for end round? Is there a way to test console.logs?
 })
