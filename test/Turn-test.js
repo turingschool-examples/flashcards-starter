@@ -5,7 +5,7 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Turn = require("/Users/gusderibeaux/projects/flashcards-project/src/Turn");
 
-describe('Test', function() {
+describe('Turn', function() {
 
     it('should be a function', function(){
         const turn = new Turn();
