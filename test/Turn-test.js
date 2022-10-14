@@ -7,15 +7,7 @@ const Turn = require('../src/Turn.js');
 
 
 describe('Turn', function() {
-    it('should return true', function() { //take out when done!
-        expect(true).to.equal(true);
-    });
-
-    // it('should be a function', () => {
-    //     expect.isFunction(Turn);
-    // }); 
-
-    it('should be instantiated with a string that represents a user\'s guess', () => {
+   it('should be instantiated with a string that represents a user\'s guess', () => {
         const turn1 = new Turn ('array');
 
         expect(turn1.guess).to.equal('array');
