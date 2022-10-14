@@ -5,10 +5,6 @@ const Deck = require('../src/Deck.js');
 const prototypeData = require('../src/data.js');
 
 describe('Deck', function () {
-    it('should return true', function () { //take out when done!
-        expect(true).to.equal(true);
-    });
-
     it('should be instantiated with an array of Card objects', () => {
             const card1 = new Card(1, 'What is Courtney\'s favorite animal?', ['bee', 'horse', 'platypus'], 'bee');
             const card2 = new Card(12, 'What organ is Courtney missing?', ['kidney', 'appendix', 'gallbladder'], 'appendix');
