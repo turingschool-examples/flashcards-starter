@@ -19,26 +19,25 @@ class Game {
 
   printQuestion(round) {
       util.main(round);
-  }
+  };
 
   createRound() {
     this.createDeckOfCards();
     this.currentRound += 1;
     this.round = new Round(this.deck);
-  }
+  };
 
   createDeckOfCards() {
-    let cards = []
-    for (let i = 0; i < prototypeQuestions.length; i++) {
-    cards[i] = new Card(prototypeQuestions[i].id, prototypeQuestions[i].question, prototypeQuestions[i].answers, prototypeQuestions[i].correctAnswer)
-    };
-    this.deck = new Deck(cards)
-  }
+    const cards = prototypeQuestions.map(card => {
+      return this.card = new Card(card.id, card.question, card.answers, card.correctAnswer)
+    });
+    this.deck = new Deck(cards);
+  };
 
   start() {
     this.createRound();
-    this.printMessage();
-    this.printQuestion();
+    this.printMessage(this.deck, this.round);
+    this.printQuestion(this.round);
   };
 };
 

@@ -39,8 +39,4 @@ describe('Round', () => {
     it('should begin by displaying the first card', () => {
         expect(round.returnCurrentCard()).to.deep.equal(card1);
     });
-
-    it('should begin by displaying the first card', () => {
-        expect(round.returnCurrentCard()).to.deep.equal(card1);
-    });
 });
