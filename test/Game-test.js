@@ -23,4 +23,29 @@ describe('Game', () => {
     expect(game.currentRound()).to.equal(2);
   })
 
+  it('should have a method that creates cards', () => {
+    const cardDeck = game.createCards()
+    expect(cardDeck).to.equal(30)
+  })
+
+  it('should have a method that creates a deck', () => {
+    // expect(game.createDeck()).to.equal('idk')
+  })
+
+  it('should have a method that...', () => {
+    expect().to.equal()
+  })
+
+  it('should have a method that...', () => {
+    expect().to.equal()
+  })
+
+  it('should have a method that...', () => {
+    expect().to.equal()
+  })
+
+  it('should have a method that...', () => {
+    expect().to.equal()
+  })
+
 })

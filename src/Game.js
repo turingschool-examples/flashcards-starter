@@ -1,11 +1,16 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
-// const round = require('./Round');
+const Card = require('./Card');
+const Deck = require('./Deck');
+const Round = require('./Round');
+
 
 class Game {
-  constructor() {
-    this.round = 0;
+  constructor(round) {
+    this.roundCounter = 0;
+    this.round = round;
+    this.deck = [];
   }
 
   printMessage(deck, round) {
@@ -18,26 +23,32 @@ class Game {
   }
 
   currentRound() {
-    return this.round++;
+    return this.roundCounter++;
+  }
+
+  createCards() {
+    let cards = [];
+    let deckWithCards = prototypeQuestions.forEach((card) => cards.push(card));
+    return cards;
+  }
+
+  createDeck(cards) {
+    const deck = new Deck(cards);
+    return deck;
+  }
+
+  createRound(deck) {
+    const round = new Round(deck);
+    return round;
+  }
+
+  start() {
+    const cards = this.createCards();
+    const deck = this.createDeck(cards);
+    const round = this.createRound(deck);
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   }
 }
 
 module.exports = Game;
-// DON'T TEST GAME.START!!!!
-
-// Your Game class should meet these other requirements:
-
-  // currentRound()
-    // Should keep track of the currentRound
-    // 
-
-  //start()
-  // start: method that starts everything
-  // Creates Cards
-  // Puts Cards in a Deck
-  // Creates a new Round using the Deck
-  // invokes printMessage to display the message in the CLI
-  // invokes printQuestion to kick off our helper functions that allow interaction via the CLI
-  // Your game.start() method should be invoked to make the game playable in the console.
-  // Look at the file being run when we want to start the game (node index.js). Think about where you need to invoke your Game.start method.
-  // For example : game.currentRound; // => Round {...} (The new Round object that has been instantiated)

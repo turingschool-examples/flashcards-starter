@@ -4,4 +4,5 @@ const Game = require('./src/Game');
 
 
 console.log('Your project is running...'); 
-// game.start()
+const game = new Game();
+game.start();
