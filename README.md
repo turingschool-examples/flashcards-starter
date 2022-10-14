@@ -1,71 +1,43 @@
-# FlashCards Starter Kit
+# Flaschcards Solo Project
+## Abstract:
+This is a flashcards game that will be run in the command line interface (CLI). It cycles through 30 multiple-choice questions that the user can answer, then a final score of correct answers is offered at the end. 
 
-## Fork This Repo
+## Installation Instructions:
+1. Go to [this repo](https://github.com/justenanderson-commits/cli-flashcards) on Github
+2. Click Fork > Create New Fork
+3. Click Code
+4. Copy the SSH url provided by GitHub
+5. In the terminal, navigate to the new project repository
+6. Type git clone and paste the URL
+7. Type `node index.js` in the terminal
+8. Play the game by typing the number of your guess and pressing `enter`. A score will print to the CLI when all 30 questions have been answered.
 
-On the top right corner of this page, click the **Fork** button.
-
-## Setup
-
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+## Preview of App:
 
 
-## Where to Add Your Code
+## Context:
+Working independently in the 1st weeks of Mod2 classes at Turing, I invested at least 25 - 30 hours to create this application's functionality from scratch using  Javascript. The Mocha framework and chai Library were used for testing.
 
-### JavaScript
+## Contributor:
+- [Justen Anderson](https://github.com/justenanderson-commits)
 
-**Create all of your feature code files in the `src` directory.**
+## Learning Goals:
+- Contribute code to an partially constructed object-oriented application
+- Follow spec/prompts to make a working application
+- Implement ES6 classes
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Implement a robust testing suite using TDD
 
-We will be using the `module.exports` and `require` syntax to share code across files.
+## Tech Used:
+- GitHub
+- Terminal
+- VS Code
+- Chrome Browser/Dev tools
+- Zoom
+- Slack
+- Mocha
+- Chai
 
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
+### Additional Notes:
+- Trying to interpret the project spec was very difficult. Trying to figure out how to write a test for a function that wasn't yet written and whose description was hard to interpret was extremely challenging. I attempted to maintain fidelity of the testing first, writing the implementation code second throughout the entire project, but definitely hit a wall at the game.start() method.
 
