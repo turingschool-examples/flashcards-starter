@@ -37,9 +37,9 @@ describe('Round', function () {
         const deck = new Deck([card1, card2, card3])
         const round1 = new Round(deck)
         const turn = new Turn('sea otter', card1)
-        round1.returnCurrentCard()
+        //round1.returnCurrentCard()
         
-        expect(round1.returnCurrentCard()).to.equal(card1)
+        expect(round1.returnCurrentCard()).to.deep.equal(card1)
     });
     
     it('Should be able to create a new instance of turn and count how many turns have been taken', function() {
@@ -63,11 +63,9 @@ describe('Round', function () {
 
         const deck = new Deck([card1, card2, card3])
         const round1 = new Round(deck)
-        const turn = new Turn('sea otter', card1)
-        const turn2 = new Turn('gallbladder', card1)
 
-        expect(round1.takeTurn(turn)).to.equal('That is correct!')
-        expect(round1.takeTurn(turn2)).to.equal('That is incorrect!')
+        expect(round1.takeTurn('sea otter')).to.equal('That is correct!')
+        expect(round1.takeTurn('playing with bubble wrap')).to.equal('That is incorrect!')
         expect(round1.turns).to.equal(2)
     });
 
