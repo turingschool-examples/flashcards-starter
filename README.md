@@ -1,71 +1,47 @@
-# FlashCards Starter Kit
+# FlashCards
 
-## Fork This Repo
+### Abstract:
+If you are a Mod 2 student looking for a way to practice your array iterator methods, look no further! FlashCards is an application that runs in your computer's terminal. FlashCards consists of a deck of 30 cards with multiple choice questions. After each response, you get in the moment feedback, and it will receive a percentage correct once you have completed the full round of 30 cards.
 
-On the top right corner of this page, click the **Fork** button.
+### Installation Instructions:
+- Clone this repo to your local computer
+- Use the `cd` command in the terminal to go into the directory
+- Run `npm install` in your terminal
+- Run `node index.js` in your terminal to play!
 
-## Setup
-
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+### Preview of App:
 
 
-## Where to Add Your Code
+### Context:
+This was our first solo project in Mod 2 at Turing. The project was completed in two days after seven full weeks as a developer. The spec for this project can be found [here](https://frontend.turing.edu/projects/flash-cards.html).
 
-### JavaScript
+### Contributors:
+Jennifer Yacoubian ([GitHub](https://github.com/jmyacobn), [LinkedIn](https://www.linkedin.com/in/jennifer-yacoubian/))
 
-**Create all of your feature code files in the `src` directory.**
+### Learning Goals:
+- Contribute code to an partially constructed object-oriented application
+- Implement a robust testing suite using TDD
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Follow spec/prompts to make a working application
+- Implement ES6 classes
 
-We will be using the `module.exports` and `require` syntax to share code across files.
+### Technology Used
+- Atom
+- JavaScript
+- Mocha
+- Chai
+- Github
 
-## How to View Your Code in Action
+### Wins:
+- Although we wrote code to pass unit tests throughout Mod 1, this was my first time writing my own unit tests using Mocha and Chai frameworks.
+- Implementing TDD by writing my tests before writing any code.
+- Using hooks to create cleaner, DRYer code.
 
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
+### Challenges:
+- The greatest challenge was creating the Game class where all of the other classes merge to create a functional game. It took me a while to figure out how all of the classes were interacting and how to pull the pieces together.
+- Writing unit tests for the first time was extremely challenging, especially adhering to a true TDD model of writing the tests before writing a single line of implementation code
 
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
-
+### Future Features:
+- Add additional topics and data sets for the user to choose from
+- Add functionality so that a score of less than 90% will require the user to go through the entire dataset again
+- Add a timer so the user knows how long it took them to go through all of the questions
