@@ -72,10 +72,46 @@ describe("Round", () => {
   });
 
   it("should evaluate if a guess is correct, and push the incorrect id into the incorrect guesses array if so", () => {
-    const guess = new Turn("pink", card);
+    // const guess = new Turn("pink", card);
 
     round.takeTurn("pink");
 
     expect(round.incorrectGuesses).to.deep.equal([1]);
   });
+
+  it("should have a way to store correct guesses", () => {
+    expect(round.correctGuesses).to.deep.equal([]);
+  });
+
+  it("should store the id of the correct answer in the correct answer array", () => {
+    round.takeTurn("blue");
+
+    expect(round.correctGuesses.length).to.equal(1);
+  });
+
+  it("should give feedback if the answer is correct", () => {
+    expect(round.takeTurn("blue")).to.equal("Your answer is correct!");
+  });
+
+  it("should provide feedback if the answer is incorrect", () => {
+    expect(round.takeTurn("pink")).to.equal("Your answer is incorrect :(");
+  });
+
+  it("should be able to calculate the percentage of correct answers", () => {
+
+    round.takeTurn("blue");
+    round.takeTurn("array");
+    round.takeTurn("mutator method");
+
+    expect(round.calculatePercentCorrect()).to.equal(100);
+  });
+
+  it("should be able to print to the console how many answers were correct when the round is over", () => {
+
+    round.takeTurn("blue");
+    round.takeTurn("array");
+    round.takeTurn("mutator method");
+    
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 100% of the questions correctly!`)
+  })
 });
