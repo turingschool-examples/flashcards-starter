@@ -43,5 +43,12 @@ describe('Turn', function() {
         const currentCard = turn.returnCard();
 
         expect(currentCard).to.deep.equal(currentCard);
-    })
+    });
+
+    it('should return true if the guess is correct', function() {
+        const turn = new Turn('object', prototypeData[0]);
+        const checkAnswer = turn.evaluateGuess();
+
+        expect(checkAnswer).to.equal(true);
+    });
 }); 
