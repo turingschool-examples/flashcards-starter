@@ -2,6 +2,7 @@ const chai = require("chai");
 const expect = chai.expect;
 const Turn = require("../src/Turns");
 const Card = require("../src/Card");
+const Round = require("../src/Round");
 
 describe("Turn", function () {
   let turn;
@@ -46,7 +47,7 @@ describe("Turn", function () {
   it("should provide feedback if the correct answer was chosen", () => {
     expect(turn.provideFeedback()).to.equal("Your answer is correct!");
   });
-  
+
   it("should also provide feedback if the incorrect answer was chosen", () => {
     const newTurn = new Turn("pink", card);
     expect(newTurn.provideFeedback()).to.equal("Your answer is incorrect :(");
