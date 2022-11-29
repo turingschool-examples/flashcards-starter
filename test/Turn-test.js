@@ -22,11 +22,46 @@ describe('Turn', function() {
 
   it('should store a user\'s guess', function() {
     expect(newTurn.guess).to.equal('pug');
+
+    const newTurn1 = new Turn('sea otter');
+    expect(newTurn1.guess).to.equal('sea otter');
   });
 
   it('should store a new instaniation of Card', function() {
     expect(newTurn.card).to.equal(newCard);
   });
 
-  
+  it('should have a method that returns the guess', function() {
+    newTurn.returnGuess();
+    expect(newTurn.returnGuess()).to.equal('pug');
+  });
+
+  it('should have a method that returns the card object', function() {
+    newTurn.returnCard();
+    expect(newTurn.returnCard()).to.deep.equal({
+      id: 1,
+      question: "What is Robbie's favorite animal",
+      answers: [ 'sea otter', 'pug', 'capybara' ],
+      correctAnswer: 'sea otter'
+    });
+  });
+
+  it('should have a method that evaluates the user\'s guess', function() {
+    newTurn.evaluateGuess();
+    expect(newTurn.evaluateGuess()).to.equal(false);
+
+    const newTurn1 = new Turn('sea otter', newCard);
+    newTurn1.evaluateGuess();
+    expect(newTurn1.evaluateGuess()).to.equal(true);
+  });
+
+  it('should give feedback', function() {
+    newTurn.giveFeedBack();
+    expect(newTurn.giveFeedBack()).to.equal('incorrect!');
+
+    const newTurn1 = new Turn('sea otter', newCard);
+    newTurn1.giveFeedBack();
+    expect(newTurn1.giveFeedBack()).to.equal('correct!');
+  })
+
 });
