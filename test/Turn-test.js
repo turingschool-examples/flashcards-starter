@@ -72,6 +72,4 @@ describe('Turn', function() {
 
         expect(feedback).to.equal('incorrect');
     });
-
-    
 }); 
