@@ -1,7 +1,14 @@
-turn .userGuess
-turn .card
+class Turn {
+    constructor(guess, card) {
+        this.userGuess = guess;
+        this.card = card;
+    }
+}
 
-returnGuess
-returnCard
-evaluateGuess
-giveFeedback
+
+// returnGuess
+// returnCard
+// evaluateGuess
+// giveFeedback
+
+module.exports = Turn;

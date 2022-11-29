@@ -5,10 +5,10 @@ const Card = require ('../src/Card');
 
 describe ('Turn', function() {
 //are we using beforeEach?
-    it('should be a function', () => {
-        const turn = new Turn();
-        expect(turn).to.be.a('function');
-    });
+    // it('should be a function', () => {
+    //     const turn = new Turn();
+    //     expect(turn).to.be.a('function');
+    // });
 
     it('should instantiate our good friend Turn', () => {
         const turn = new Turn();
