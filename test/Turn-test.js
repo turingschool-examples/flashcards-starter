@@ -57,5 +57,14 @@ describe('Turn', function() {
         const checkAnswer = turn.evaluateGuess();
 
         expect(checkAnswer).to.equal(false);
-    })
+    });
+
+    it('should return correct if answer is correct', function() {
+        const turn = new Turn('object', prototypeData[0]);
+        const feedback = turn.giveFeedback();
+
+        expect(feedback).to.equal('correct');
+    });
+
+    
 }); 
