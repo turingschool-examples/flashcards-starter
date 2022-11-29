@@ -8,7 +8,7 @@ describe('Turn', function() {
     let testcounter = 0;
     beforeEach(function () {
         testcounter ++;
-        console.log(`Turn: Test ${testcounter}`);
+        console.log(`Test #${testcounter}`);
     });
 
     it('should be a function', function() {
@@ -38,5 +38,10 @@ describe('Turn', function() {
         expect(guess).to.equal('String');
     });
 
-    
+    it('should return a card', function() {
+        const turn = new Turn('One', prototypeData[4]);
+        const currentCard = turn.returnCard();
+
+        expect(currentCard).to.deep.equal(currentCard);
+    })
 }); 
