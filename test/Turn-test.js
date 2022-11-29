@@ -12,6 +12,10 @@ describe ('Turn', function() {
         turn = new Turn("sort", card);
     });
 
+    it('should be a function', () => {
+        expect(Turn).to.be.a('function');
+    })
+
     it('should instantiate our good friend Turn', () => {
         expect(turn).to.be.an.instanceof(Turn);
     });
@@ -23,7 +27,6 @@ describe ('Turn', function() {
     });
 
     it('should store an instance of the Card class', () => {
-        console.log(Card);
         expect(turn).to.be.an.instanceof(Turn);
     });
 
