@@ -41,4 +41,24 @@ describe("Turn", () => {
         expect(currentCard).to.equal(card);
     });
 
+    it('Should be able to evaluate if a guess is correct', () => {
+        let newTurn = new Turn("Hollow Knight", card);
+
+        let guess1 = turn.evaluateGuess();
+        let guess2 = newTurn.evaluateGuess();
+
+        expect(guess1).to.equal(false);
+        expect(guess2).to.equal(true);
+    });
+
+    it('Should be able to give feedback if the answer is correct or incorrect', () => {
+        let newTurn = new Turn("Hollow Knight", card);
+        
+        let feedback1 = turn.giveFeedback();
+        let feedback2 = newTurn.giveFeedback();
+
+        expect(feedback1).to.equal('incorrect!');
+        expect(feedback2).to.equal('correct!');
+    });
+
 });
