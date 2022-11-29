@@ -4,7 +4,7 @@ class Turn {
     constructor(guess, card) {
         this.userGuess = guess;
         this.card = card;
-        this.guessedAnswer = true;
+        this.guessedAnswer = null;
     }
 
     returnGuess() {
@@ -30,8 +30,7 @@ class Turn {
     giveFeedback() {
         if (this.guessedAnswer === true) {
             return 'correct!';
-        }
-        if (this.guessedAnswer === false) {
+        } else {
             return 'incorrect!';
         }
     }
