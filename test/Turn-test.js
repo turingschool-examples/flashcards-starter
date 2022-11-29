@@ -21,7 +21,7 @@ describe('Turn', () => {
     const turn = new Turn('pug', card);
 
     expect(turn.usersAnswer).to.equal('pug');
-    expect(turn.card).to.equal(card);
+    expect(turn.currentCard).to.equal(card);
   });
 
   it('should return guess', () => {
@@ -39,7 +39,7 @@ describe('Turn', () => {
 
     turn.returnCard();
     
-    expect(turn.card).to.equal(card);
+    expect(turn.currentCard).to.equal(card);
   });
 
   it('should evaluate users guess', () => {
