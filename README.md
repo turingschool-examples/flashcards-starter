@@ -68,4 +68,9 @@ npm test
 
 The test results will output to the terminal.
 
+Abstract at the top (A sentence or two describing the project)
+A GIF of the working application
+Technologies used
+Install/Setup instructions
+
 
