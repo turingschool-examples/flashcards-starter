@@ -28,7 +28,7 @@ it('Should return the Card', function() {
     const turn = new Turn(answer, card)
     expect(turn.returnCard()).to.equal(card)
 })
-it('Should return a boolean if the answer is true or false', function() {
+it('Should return if the answer is true or false', function() {
     const card = new Card(id,question,answers,correctAnswer)
     const turn = new Turn(answer, card)
     turn.evaluateGuess()
