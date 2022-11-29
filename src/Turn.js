@@ -19,7 +19,6 @@ class Turn {
         return this.correct;
     }
     giveFeedback() {
-        console.log(this.correct)
         if(this.correct) {
             return 'correct!';
         }
