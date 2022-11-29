@@ -19,7 +19,7 @@ class Turn {
     if (this.evaluateGuess() === true) {
       return "Your answer is correct!";
     } else if (this.evaluateGuess() === false) {
-      return "Your answer is incorrect :( ";
+      return "Your answer is incorrect :(";
     }
   }
 }
