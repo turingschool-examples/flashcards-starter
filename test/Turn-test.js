@@ -28,8 +28,17 @@ describe('Turn', function() {
     }); 
     it('should evaluate whether the user guess matches the correct answer', function() {
         const incorrectTurn = new Turn ('array', newCard)
-        
+
         expect(correctTurn.evaluateGuess()).to.equal(true);
         expect(incorrectTurn.evaluateGuess()).to.equal(false);
+        expect(correctTurn.correct).to.equal(true)
+        expect(incorrectTurn.correct).to.equal(false)
+    });
+    it('should evaluate whether the user guess matches the correct answer', function() {
+        const incorrectTurn = new Turn ('array', newCard)
+        incorrectTurn.evaluateGuess();
+        correctTurn.evaluateGuess();
+        expect(correctTurn.giveFeedback()).to.equal('correct!');
+        expect(incorrectTurn.giveFeedback()).to.equal('incorrect!');
     });
 });
