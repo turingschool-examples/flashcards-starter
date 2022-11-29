@@ -15,28 +15,54 @@ describe('Round', function() {
     testCards = dataSet.prototypeData.filter(card => {
       return card.id % 4 === 0;
     });
+    testRound = new Round();
+    currentTurn = new Turn();
   });
 
   it('should have a current card that starts with the first card at the start of a round', function() {
-    testRound = new Round();
     expect(testRound.currentCard).to.equal(dataSet.prototypeData[0]);
   });
 
   it('should have a method to return the current card being played', function() {
-    testRound = new Round(3);
-    expect(testRound.returnCurrentCard(currentTurn)).to.equal(dataSet.prototypeData[3])
+
+    testRound.currentCard = testCards[3];
+
+    expect(testRound.returnCurrentCard()).to.equal(dataSet.prototypeData[15])
   });
 
-  it.skip('should have a method to update turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses', function() {
-    // call it "takeTurn"
-    // Wow, this is a tough one. This is going to need to bring in the other classes and update thier values.
-    // Will need to have a constructor for turns count which is updated whether its correct or not.
+  it('when a guess is made a new Turn instance is created', function() {
+
+    testRound.takeTurn('This is a guess', testCards[3]);
+
+    expect(testRound.turns[0]).to.be.an.instanceOf(Turn);
+  })
+
+  it('should have a method to update turns count regardless of if the guess was correct', function() {
+
+    testRound.takeTurn();
+    testRound.takeTurn();
+    testRound.takeTurn();
+
+    expect(testRound.turns.length).to.equal(3);
+  });
+
+  it.skip('the next card should become the current card after a guess is made', function() {
     // Will need to move to the next card in the deck.
+    testRound.takeTurn('This is a guess', testCards[3]);
+
+    expect(testRound.currentCard).to.equal(testCards[4]);
+  })
+
+  it.skip('should have a method that evaluates guesses', function() {
     // Guess will need to be an argument and passed in to the Turn class to evaluate.
     // Guess will need to be stored in a constructor
+
+  })
+
+
+
     // Feedback returned via the turn.evaluateGuess and .giveFeedback methods
-    expect()
-  });
+    
 
   it.skip('should have a method that calculates and returns the percentage of correct guesses', function() {
     // call it "calculatePercentCorrect"
