@@ -4,6 +4,11 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 
 describe('Card', function() {
+  let testcounter = 0;
+  beforeEach(function () {
+    testcounter ++;
+    console.log(`Card: Test ${testcounter}`);
+  })
 
   it('should be a function', function() {
     const card = new Card();
