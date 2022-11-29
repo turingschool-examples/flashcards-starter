@@ -8,6 +8,7 @@ describe('Deck', function() {
     let cardsArray;
     let newDeck;
     beforeEach(function() {
+
         cardsArray = [new Card(prototypeData[0]), new Card(prototypeData[1]), new Card(prototypeData[2])];
         newDeck = new Deck(cardsArray);
     });

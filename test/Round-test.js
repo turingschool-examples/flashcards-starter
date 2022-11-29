@@ -14,14 +14,18 @@ describe('Round', function() {
         newDeck = new Deck(cardsArray);
         newRound = new Round(newDeck);
     });
+
     it('should be a function', function() {
         expect(Round).to.be.a('function');
     });
+
     it('should instantiate a new Round', function() {
         expect(newRound).to.be.an.instanceof(Round);
     }); 
-    it('should take in a deck of cards and start with first card in the deck as the current card', function() {
 
+    it('should instantiate with a turn counter, a deck of cards and start with first card in the deck as the current card', function() {
+
+        expect(newRound.turns).to.equal(0);
         expect(newRound.deck.cards.length).to.equal(3);
         expect(newRound.currentCard).to.deep.equal({
             "id": 1,
@@ -30,6 +34,51 @@ describe('Round', function() {
             "correctAnswer": "object"
         });
     });
+
+    it('should return the current card', function() {
+        expect(newRound.returnCurrentCard()).to.deep.equal({
+            "id": 1,
+            "question": "What allows you to define a set of related information using key-value pairs?",
+            "answers": ["object", "array", "function"],
+            "correctAnswer": "object"
+        });
+        //take turn
+        //return next card
+    });
+
+    it('should take a turn when a guess is made', function() {
+        const guess = 1;
+        
+        newRound.takeTurn(guess);
+
+        expect(newRound.currentTurn).to.be.an.instanceof(Turn);
+        expect(newRound.turns).to.equal(1);
+    });
+
+    it('should start with first card in deck on first turn and advance one for each subsequent turn', function() {
+        newRound.takeTurn();
+
+        expect(newRound.turns).to.equal(1)
+        expect(newRound.currentCard).to.deep.equal(newDeck.cards[0]);
+
+        newRound.takeTurn();
+        newRound.takeTurn();
+
+        expect(newRound.turns).to.equal(3)
+        expect(newRound.currentCard).to.deep.equal(newDeck.cards[2]);
+    });
+
+    it('should evaluate the guess and record any incorrect guesses on each turn', function() {
+        const guess1 = 'object';
+        const guess2 = 'function';
+        
+        expect(newRound.takeTurn(guess1)).to.equal('correct!');
+        expect(newRound.currentTurn.correct).to.equal(true);
+   
+        expect(newRound.takeTurn(guess2)).to.equal('incorrect!');
+        expect(newRound.currentTurn.correct).to.equal(false);
+    });
+
     // it('', function() {
     //     expect().to.deep.equal();
     // });
