@@ -16,43 +16,43 @@ describe('Round', () => {
         deck1 = new Deck(cards);
     });
 
-    it.skip('Should be a function', () => {
+    it('Should be a function', () => {
         expect(Round).to.be.a('function');
     });
 
-    it.skip('Should be an instance of the Round class', () => {
+    it('Should be an instance of the Round class', () => {
         let round1 = new Round(deck1);
 
         expect(round1).to.be.an.instanceOf(Round);
     });
 
-    it.skip('Should accept a deck as an argument', () => {
+    it('Should accept a deck as an argument', () => {
         let round1 = new Round(deck1);
 
-        expect(round1.deck).to.equal(deck1);
+        expect(round1.deck).to.equal(deck1.deck);
     });
 
-    it.skip('Should return the current card being played', () => {
+    it('Should return the current card being played', () => {
         let round1 = new Round(deck1);
 
-        var currentCard = round1.returnCurrentCard();
-
+        let currentCard = round1.returnCurrentCard();
+        
         expect(currentCard).to.equal(round1.deck[0]);
     });
 
-    it.skip('Should have a turns property', () => {
+    it('Should have a turns property', () => {
         let round1 = new Round(deck1);
 
         expect(round1.turns).to.equal(0);
     });
 
-    it.skip('Should have an incorrectGeusses property', () => {
+    it('Should have an incorrectGeusses property', () => {
         let round1 = new Round(deck1);
 
-        expect(round1.incorrectGuesses).to.equal([]);
+        expect(round1.incorrectGuesses).to.be.a('array');
     });
 
-    it.skip('Should create a new instance of Turn, and return if the answer is correct', () => {
+    it('Should create a new instance of Turn, and return if the answer is correct', () => {
         let round1 = new Round(deck1);
 
         let feedback = round1.takeTurn('sea otter');
@@ -60,7 +60,7 @@ describe('Round', () => {
         expect(feedback).to.equal('correct!');
     });
 
-    it.skip('Should create a new instance of Turn, and return if the answer is incorrect', () => {
+    it('Should create a new instance of Turn, and return if the answer is incorrect', () => {
         let round1 = new Round(deck1);
 
         let feedback = round1.takeTurn('spleen');
@@ -68,7 +68,7 @@ describe('Round', () => {
         expect(feedback).to.equal('incorrect!');
     });
     
-    it.skip('Should update the turn count every turn', () => {
+    it('Should update the turn count every turn', () => {
         let round1 = new Round(deck1);
 
         round1.takeTurn('sea otter');
@@ -77,26 +77,26 @@ describe('Round', () => {
         expect(round1.turns).to.equal(2);
     });
 
-    it.skip('Should add id\'s of incorrect guesses into incorrectGuesses', () => {
+    it('Should add id\'s of incorrect guesses into incorrectGuesses', () => {
         let round1 = new Round(deck1);
 
         round1.takeTurn('sea otter');
         round1.takeTurn('spleen');
 
-        expect(round1.incorrectGuesses).to.equal([14]);
+        expect(round1.incorrectGuesses).to.deep.equal([14]);
     });
 
-    it.skip('Should return the updated current card after each turn', () => {
+    it('Should return the updated current card after each turn', () => {
         let round1 = new Round(deck1);
 
         round1.takeTurn('sea otter');
         round1.takeTurn('spleen');
-        let currentCard = round1.currentCard();
+        let currentCard = round1.returnCurrentCard();
 
         expect(currentCard).to.equal(card3);
     });
 
-    it.skip('Should be able to return the current correct answer percentage', () => {
+    it('Should be able to return the current correct answer percentage', () => {
         let round1 = new Round(deck1);
 
         round1.takeTurn('sea otter');
