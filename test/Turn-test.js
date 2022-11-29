@@ -51,4 +51,11 @@ describe('Turn', function() {
 
         expect(checkAnswer).to.equal(true);
     });
+
+    it('should return false if the guess is incorrect', function() {
+        const turn = new Turn('variable', prototypeData[0]);
+        const checkAnswer = turn.evaluateGuess();
+
+        expect(checkAnswer).to.equal(false);
+    })
 }); 
