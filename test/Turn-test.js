@@ -25,4 +25,7 @@ describe('Turn', function() {
     it('should be able to return the user guess', function() {
         expect(correctTurn.returnGuess()).to.equal('object');
     }); 
+    it('should be able to return the card', function() {
+        expect(correctTurn.returnCard()).to.deep.equal({ id: 1, question: 'What allows you to define a set of related information using key-value pairs?', choices: ['object', 'array', 'function'], correctAnswer: 'object' });
+    }); 
 });
