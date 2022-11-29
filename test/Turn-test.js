@@ -12,6 +12,7 @@ describe("Turn", () => {
   });
 
   it("should be a function", () => {
+    // eslint-disable-next-line no-unused-vars
     const turn = new Turn();
     expect(Turn).to.be.a("function");
   });

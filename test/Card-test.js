@@ -6,6 +6,7 @@ const Card = require('../src/Card');
 describe('Card', function() {
 
   it('should be a function', function() {
+    // eslint-disable-next-line no-unused-vars
     const card = new Card();
     expect(Card).to.be.a('function');
   });
