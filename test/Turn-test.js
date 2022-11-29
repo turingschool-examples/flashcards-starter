@@ -30,4 +30,13 @@ describe('Turn', function() {
         const turn = new Turn('Variable', prototypeData[2]);
         expect(turn.currentCard).to.deep.equal(prototypeData[2]);
     });
+
+    it('should return a guess', function() {
+        const turn = new Turn('String', prototypeData[3]);
+        const guess = turn.returnGuess();
+
+        expect(guess).to.equal('String');
+    });
+
+    
 }); 
