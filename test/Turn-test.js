@@ -8,6 +8,7 @@ let id = 1
 let question = 'What allows you to define a set of related information using key-value pairs?'
 let answers = ['object', 'array', 'function']
 let correctAnswer = 'object'
+let cardInfo = {id,question,answers,correctAnswer}
 
 //turn example
 const answer = 'object'
@@ -29,20 +30,20 @@ it('Should return the Card', function() {
     expect(turn.returnCard()).to.equal(card)
 })
 it('Should return if the answer is true or false', function() {
-    const card = new Card(id,question,answers,correctAnswer)
+    const card = new Card(cardInfo)
     const turn = new Turn(answer, card)
     turn.evaluateGuess()
     expect(turn.evaluateGuess()).to.equal(true)
-    const turn2 = new Turn('aray', card)
+    const turn2 = new Turn('array', card)
     turn2.evaluateGuess()
     expect(turn2.evaluateGuess()).to.equal(false)
 })
 it('Should return a correct or incorrect statement', function() {
-    const card = new Card(id,question,answers,correctAnswer)
+    const card = new Card(cardInfo)
     const turn = new Turn(answer, card)
     turn.evaluateGuess() 
     expect(turn.giveFeedback()).to.equal('correct!')
-    const turn2 = new Turn('aray', card)
+    const turn2 = new Turn('array', card)
     turn2.evaluateGuess()
     expect(turn2.giveFeedback()).to.equal('incorrect!')
 })
