@@ -27,15 +27,19 @@ describe("Deck", () => {
   beforeEach(() => {
     deck = new Deck([card1, card2, card3]);
   });
+
   it("should be a function", () => {
     expect(Deck).to.be.a("function");
   });
+
   it("should be an instance of Deck", () => {
     expect(deck).to.be.an.instanceof(Deck);
   });
+
   it("should be able to store the cards", () => {
     expect(deck.cards).to.deep.equal([card1, card2, card3]);
   });
+  
   it("should be able to count how many cards are in a deck", () => {
     expect(deck.countCards()).to.equal(3);
   });
