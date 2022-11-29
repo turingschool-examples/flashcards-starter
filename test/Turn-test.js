@@ -4,16 +4,15 @@ const Turn = require ('../src/Turn');
 const Card = require ('../src/Card');
 
 describe ('Turn', function() {
-    let turn;
-    let card;
+    // let turn;
+    let card = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     beforeEach(function() {
         console.log('Initialising...')
-        let turn = new Turn('user guess', Card);
-        let card = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
+        let turn = new Turn("sort", card);
     });
     
     it('should be a function', () => {
-        let turn = new Turn('user guess', Card);
+        // let turn = new Turn('user guess', Card);
         expect(Turn).to.be.a('function');
     });
 
@@ -62,9 +61,7 @@ describe ('Turn', function() {
         let turn = new Turn("sort()", card);
         
         turn.evaluateGuess();
-        console.log(turn.evaluateGuess());
         turn.giveFeedback();
-        console.log(turn.giveFeedback());
         
         
         expect(card.correctAnswer).to.equal("sort()");
@@ -76,9 +73,7 @@ describe ('Turn', function() {
         let turn2 = new Turn("map()", card);
         
         turn2.evaluateGuess();
-        console.log(turn2.evaluateGuess());
         turn2.giveFeedback();
-        console.log(turn2.giveFeedback());
     })
 
 });
