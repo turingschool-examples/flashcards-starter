@@ -66,5 +66,12 @@ describe('Turn', function() {
         expect(feedback).to.equal('correct');
     });
 
+    it('should return incorrect if guess is incorrect', function() {
+        const turn = new Turn('variable', prototypeData[0]);
+        const feedback = turn.giveFeedback();
+
+        expect(feedback).to.equal('incorrect');
+    });
+
     
 }); 
