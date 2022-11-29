@@ -15,17 +15,16 @@ describe('Round', function() {
     testCards = dataSet.prototypeData.filter(card => {
       return card.id % 4 === 0;
     });
-    testRound = new Round();
-    currentTurn = new Turn();
   });
 
   it('should have a current card that starts with the first card at the start of a round', function() {
-    expect(testRound.currentCard).to.equal(testCards[0]);
+    testRound = new Round();
+    expect(testRound.currentCard).to.equal(dataSet.prototypeData[0]);
   });
 
-  it.skip('should have a method to return the current card being played', function() {
-    // call it "returnCurrentCard"
-    expect(testRound.returnCurrentCard()).to.equal(currentTurn.card)
+  it('should have a method to return the current card being played', function() {
+    testRound = new Round(3);
+    expect(testRound.returnCurrentCard(currentTurn)).to.equal(dataSet.prototypeData[3])
   });
 
   it.skip('should have a method to update turns count, evaluates guesses, gives feedback, and stores ids of incorrect guesses', function() {
