@@ -155,3 +155,5 @@ const prototypeData = [{
 module.exports = {
   prototypeData 
 }
+
+module.exports = prototypeData;
