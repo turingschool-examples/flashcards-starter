@@ -4,14 +4,18 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 
 describe('Card', function() {
+  beforeEach(function() {
+    let card = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
+  });
 
   it('should be a function', function() {
-    const card = new Card();
+    const card = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     expect(Card).to.be.a('function');
   });
 
   it('should be an instance of Card', function() {
-    const card = new Card();
+    // const card = new Card();
+    const card = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     expect(card).to.be.an.instanceof(Card);
   }); 
 
