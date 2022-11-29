@@ -20,7 +20,7 @@ describe('Turn', function() {
         expect(Turn).to.be.a('function')
     });
 
-    it('shouldbe a new instance of turn', function() {
+    it('should be an instance of turn', function() {
         expect(turn1).to.be.an.instanceOf(Turn)
     });
 
@@ -44,17 +44,21 @@ describe('Turn', function() {
         expect(turn2.returnCard()).to.equal(card3)
     });
 
-    it('should evaluate the users guess', function() {
-        expect(turn1.evaluateGuess()).to.equal(false)
+    it('should evaluate the users correct guess as true', function() {
         expect(turn2.evaluateGuess()).to.equal(true)
     });
 
-    it('should return a message if correct or incorrect', function() {
+    it('should evaluate the users incorrect guess as false', function() {
+        expect(turn1.evaluateGuess()).to.equal(false)
+    });
+
+    it('should return a message if incorrect', function() {
         expect(turn1.evaluateGuess()).to.equal(false)
         expect(turn1.giveFeedback()).to.equal('incorrect!')
+    });
 
+    it('should return a message if the guess was correct', function() {
         expect(turn2.evaluateGuess()).to.equal(true)
         expect(turn2.giveFeedback()).to.equal('correct!')
-
-    });
+    })
 });

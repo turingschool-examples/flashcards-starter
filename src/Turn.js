@@ -11,7 +11,6 @@ returnGuess() {
 }
 
 returnCard() {
-
     return this.currentCard
 }
 
