@@ -10,9 +10,7 @@ describe('Turn', () => {
   let card
   beforeEach(() => {
     turn = new Turn('object', card)
-    card = new Card(1, "What allows you to define a set of related information using key-value pairs?",
-    ["object", "array", "function"],
-    "object")
+    card = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object")
   })
 
   it('should be a function', () => {
@@ -35,9 +33,18 @@ describe('Turn', () => {
     expect(turn.returnCard()).to.deep.equal({
       id: 1,
       question: 'What allows you to define a set of related information using key-value pairs?',
-      answers: [ 'object', 'array', 'function' ],
+      answers: ['object', 'array', 'function'],
       correctAnswer: 'object'
     })
   })
 
+  it('should return true or false if guess matches the correct answer', () => {
+    const turn1 = new Turn('wrong guess', card)
+
+    turn.evaluateGuess()
+    turn1.evaluateGuess()
+
+    expect(turn.evaluateGuess()).to.equal(true)
+    expect(turn1.evaluateGuess()).to.equal(false)
+  })
 })
