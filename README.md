@@ -20,7 +20,7 @@ npm install
 
 To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+Running `` from the root of your project should result in the following message being displayed in your terminal: 
 
 ```bash
 Your project is running...
