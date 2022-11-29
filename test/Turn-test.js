@@ -16,24 +16,21 @@ describe("Turn", function () {
     turn = new Turn("pug", card);
   });
 
-  it("should be an instance of Turn", function () {
-    expect(turn).to.be.an.instanceof(Turn);
-  });
+  it("should be an instance of Turn", () =>
+    expect(turn).to.be.an.instanceof(Turn));
 
-  it("should have a guess and a card", function () {
+  it("should have a guess and a card", () => {
     expect(turn.guess).to.deep.equal("pug");
     expect(turn.card).to.deep.equal(card);
   });
 
-  it("should be able to return a guess", function () {
-    expect(turn.returnGuess()).to.deep.equal("pug");
-  });
+  it("should be able to return a guess", () =>
+    expect(turn.returnGuess()).to.deep.equal("pug"));
 
-  it("should be able to return the card", function () {
-    expect(turn.returnCard()).to.deep.equal(card);
-  });
+  it("should be able to return the card", () =>
+    expect(turn.returnCard()).to.deep.equal(card));
 
-  it("should be able to evaluate the guess", function () {
+  it("should be able to evaluate the guess", () => {
     expect(turn.evaluateGuess()).to.deep.equal(false);
 
     turn.guess = "sea otter";
@@ -41,7 +38,7 @@ describe("Turn", function () {
     expect(turn.evaluateGuess()).to.deep.equal(true);
   });
 
-  it("should give feedback", function () {
+  it("should give feedback", () => {
     expect(turn.giveFeedback()).to.deep.equal("incorrect!");
 
     turn.guess = "sea otter";
