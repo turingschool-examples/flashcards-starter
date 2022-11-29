@@ -5,6 +5,7 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', function() {
+  
   let newTurn = new Object();
   let card = new Object();
 
