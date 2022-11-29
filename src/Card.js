@@ -1,5 +1,5 @@
 class Card{
-    constructor(){
+    constructor(id, question, answers, correctAnswer){
         this.id = id
         this.question = question
         this.answers = answers
@@ -7,3 +7,4 @@ class Card{
     }
 }
 
+module.exports = Card
