@@ -7,7 +7,10 @@ const Card = require('../src/Card');
 const { prototype } = require('../src/Card');
 
 describe ('Deck', function() {
-
+  // let card1, card2, card3, // --> can i go through an array of objects that is not limited to a certain number
+  // beforeEach() //defines variables
+  // const deck = new Deck()
+  
   it.skip('should be a function', function() {
     //setup
     //*execute
