@@ -9,7 +9,7 @@ describe('Turn', function() {
     beforeEach(function () {
         testcounter ++;
         console.log(`Turn: Test ${testcounter}`);
-    })
+    });
 
     it('should be a function', function() {
         const turn = new Turn();
@@ -19,11 +19,15 @@ describe('Turn', function() {
     it('should be an instance of Turn', function() {
         const turn = new Turn();
         expect(turn).to.be.an.instanceOf(Turn);
-    })
+    });
 
     it('should store a guess', function() {
         const turn = new Turn('Array', prototypeData[1]);
-        console.log(turn);
         expect(turn.guess).to.equal('Array');
-    })
-}) 
+    });
+
+    it('should store a currentCard', function() {
+        const turn = new Turn('Variable', prototypeData[2]);
+        expect(turn.currentCard).to.deep.equal(prototypeData[2]);
+    });
+}); 
