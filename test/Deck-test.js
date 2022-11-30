@@ -19,31 +19,25 @@ describe ('Deck', function() {
         'What type of prototype method does not modify the existing array but returns a particular representation of the array?', ["mutator method", "accessor method", "iteration method"],
        'accessor method')
     deck = new Deck([card1, card2, card3]) 
-    console.log('here', deck)//defines variables
     }) 
-  // const deck = new Deck()
   
   it('should be a function', function() {
    
     expect(Deck).to.be.a('function')
   })
 
-  it.skip('should be an instance of Deck', function() {
-    //const deck = new Deck()
+  it('should be an instance of Deck', function() {
 
-    //expect(deck).to.be.an.instanceof(Deck)
+    expect(deck).to.be.an.instanceof(Deck)
   })
 
-  it.skip('should start with new set of Cards', function() {
-    //const deck = new Deck ([cards])
-
-    //expect(deck).to.be.deeply.equal.to('[{}]')
+  it('should show the set of cards in the deck', function() {
+    
+    expect(deck.set).to.deep.equal([card1, card2, card3])
   })
 
-  it.skip('should show how many cards are in the Deck', function() {
-    //const deck = new Deck([])
-
-    //expect.deck
-      //array.length == 'specify integer value *HERE*'
+  it('should show how many cards are in the Deck', function() {
+    
+    expect(deck.countCards()).to.equal(3)
   })
 })
