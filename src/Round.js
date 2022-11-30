@@ -4,7 +4,6 @@ const Turn = require('./Turn');
 
 class Round {
   constructor() {
-    // needs currentCard, guesses (id#), 
     this.currentCard = dataSet.prototypeData[0];
     this.turns = 0;
     this.correctGuesses = [];
@@ -25,6 +24,15 @@ class Round {
       this.incorrectGuesses.push(newTurn.card.id);
     }
     return newTurn.giveFeedback();
+  };
+
+  calculatePercentCorrect() {
+    return this.correctGuesses.length / (this.correctGuesses.length + this.incorrectGuesses.length);
+  };
+
+  endRound() {
+    let percentCorrect = this.calculatePercentCorrect().toFixed(2) * 100;
+    return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`;
   };
 };
 
