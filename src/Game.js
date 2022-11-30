@@ -7,7 +7,7 @@ const util = require('./util');
 
 class Game {
   constructor() {
-    this.currentRound = undefined;
+    this.currentRound = Object.prototype;
   }
 
   printMessage(deck, round) {
@@ -24,7 +24,6 @@ class Game {
     // This is going to be an array of objects that need to be instantiated as a class of
     // Card for each element, thinking .map of .forEach will be needed here
     // Card(id, question, answers, correctAnswer)
-    // TESTED IN CONSOLE, WORKS!
     const cardData = prototypeQuestions;
     let newCards = cardData.map(card => {
       let newCard = new Card(card.id, card.question, card.answers, card.correctAnswer);
