@@ -1,8 +1,7 @@
-const prototypeData = require('../src/data.js');
 
 class Deck {
-    constructor() {
-
+    constructor(cards) {
+        this.cardDeck = cards;
     }
 }
 
