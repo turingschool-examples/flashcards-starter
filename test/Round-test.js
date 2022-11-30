@@ -34,7 +34,7 @@ describe('Round', () => {
   })
 
   it('should start with 0 turns as default', () => {
-    expect(round.turn).to.equal(0)
+    expect(round.turns).to.equal(0)
   })
 
   it('should be able to keep track of cards that were guessed incorrectly', () => {
@@ -43,5 +43,11 @@ describe('Round', () => {
 
   it('should keep track of the current card', () => {
     expect(round.returnCurrentCard()).to.deep.equal(card)
+  })
+
+  it('should be able to update turns count after guess is made', () => {
+    round.takeTurn()
+
+    expect(round.turns).to.equal(1)
   })
 })
