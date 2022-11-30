@@ -40,4 +40,8 @@ describe('Round', () => {
   it('should be able to keep track of cards that were guessed incorrectly', () => {
     expect(round.incorrectGuesses).to.deep.equal([])
   })
+
+  it('should keep track of the current card', () => {
+    expect(round.returnCurrentCard()).to.deep.equal(card)
+  })
 })
