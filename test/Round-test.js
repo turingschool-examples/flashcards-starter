@@ -74,11 +74,23 @@ describe('Round', function() {
         
         expect(newRound.takeTurn(guess1)).to.equal('correct!');
         expect(newRound.currentTurn.correct).to.equal(true);
-   
+
         expect(newRound.takeTurn(guess2)).to.equal('incorrect!');
         expect(newRound.currentTurn.correct).to.equal(false);
     });
+    it('should collect the ids of any questions answered incorrectly', function() {
+        const guess = 'array';
+        //answer 1 wrong
+        newRound.takeTurn(guess)
+       //answer 2 right
+        newRound.takeTurn(guess)
+       //answer 3 wrong
+        newRound.takeTurn(guess)
 
+        expect(newRound.wrongAnswers).to.deep.equal([1, 3]);
+    });
+
+    it('should')
     // it('', function() {
     //     expect().to.deep.equal();
     // });
