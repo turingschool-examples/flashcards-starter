@@ -25,6 +25,9 @@ class Round {
         let decimal = (this.deck.cards.length / this.wrongAnswers.length).toFixed(2)
         return `${decimal * 10}%`;
     }
+    endRound() {
+        return `** Round over! ** You answered ${this.calculatePercentCorrect()} of the questions correctly!`
+    }
 }
 
 module.exports = Round;
