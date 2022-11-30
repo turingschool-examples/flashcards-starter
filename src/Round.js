@@ -14,8 +14,10 @@ class Round {
   }
   takeTurn(guess, card) {
     this.turns++;
-    this.guesses.push(new Turn(guess, card));
     this.currentCard = dataSet.prototypeData[this.turns];
+    let newTurn = (new Turn(guess, card));
+    this.guesses.push(newTurn);
+    return newTurn.evaluateGuess();
   };
 }
 

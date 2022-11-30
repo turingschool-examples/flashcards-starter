@@ -45,17 +45,22 @@ describe('Round', function() {
   });
 
   it('the next card should become the current card after a guess is made', function() {
-    // Will need to move to the next card in the deck.
     testRound.takeTurn('This is a guess', testCards[0]);
 
     expect(testRound.currentCard).to.equal(testCards[1]);
   });
 
-  it.skip('should have a method that evaluates guesses', function() {
+  it('takeTurn should evaluate guesses and return a boolean', function() {
     // Guess will need to be an argument and passed in to the Turn class to evaluate.
     // Guess will need to be stored in a constructor
+    const incorrectGuess = testRound.takeTurn('incorrect', testCards[0]);
 
-  })
+    const correctGuess = testRound.takeTurn('array', testCards[1]);
+
+    expect(incorrectGuess).to.equal(false);
+
+    expect(correctGuess).to.equal(true);
+  });
 
 
 
