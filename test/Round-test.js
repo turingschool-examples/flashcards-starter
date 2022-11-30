@@ -18,8 +18,6 @@ describe('Round', function() {
   });
 
   it('should have a current card that starts with the first card at the start of a round', function() {
-    console.log(testRound.currentCard);
-
     expect(testRound.currentCard).to.equal(testCards[0]);
   });
 
@@ -39,19 +37,19 @@ describe('Round', function() {
 
   it('should have a method to update turns count regardless of if the guess was correct', function() {
 
-    testRound.takeTurn();
-    testRound.takeTurn();
-    testRound.takeTurn();
+    testRound.takeTurn('Incorrect guess', testCards[0]);
+    testRound.takeTurn('array', testCards[1]);
+    testRound.takeTurn('Another incorrect guess', testCards[2]);
 
     expect(testRound.turns).to.equal(3);
   });
 
-  it.skip('the next card should become the current card after a guess is made', function() {
+  it('the next card should become the current card after a guess is made', function() {
     // Will need to move to the next card in the deck.
-    testRound.takeTurn('This is a guess', testCards[3]);
+    testRound.takeTurn('This is a guess', testCards[0]);
 
-    expect(testRound.currentCard).to.equal(testCards[4]);
-  })
+    expect(testRound.currentCard).to.equal(testCards[1]);
+  });
 
   it.skip('should have a method that evaluates guesses', function() {
     // Guess will need to be an argument and passed in to the Turn class to evaluate.
