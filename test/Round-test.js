@@ -59,4 +59,20 @@ describe('Round', () => {
 
     expect(round.turn).to.be.an.instanceof(Turn)
   })
+
+  it('should evaluate guess', () => {
+    const turn = new Turn('object', card)
+
+    round.takeTurn(turn.guess)
+    turn.evaluateGuess()
+
+    expect(turn.evaluateGuess()).to.equal(true)
+
+    const turn1 = new Turn('avocado', card1)
+
+    round.takeTurn(turn1.guess)
+    turn.evaluateGuess()
+
+    expect(turn1.evaluateGuess()).to.equal(false)
+  })
 })
