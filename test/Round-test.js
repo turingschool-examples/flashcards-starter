@@ -80,17 +80,23 @@ describe('Round', function() {
     });
     it('should collect the ids of any questions answered incorrectly', function() {
         const guess = 'array';
-        //answer 1 wrong
+
         newRound.takeTurn(guess)
-       //answer 2 right
         newRound.takeTurn(guess)
-       //answer 3 wrong
         newRound.takeTurn(guess)
 
         expect(newRound.wrongAnswers).to.deep.equal([1, 3]);
     });
 
-    it('should')
+    it('should calculate the percentage of correct guesses', function () {
+        
+        newRound.takeTurn('object');
+        newRound.takeTurn('array');
+        newRound.takeTurn('grass');
+
+
+        expect(newRound.calculatePercentCorrect()).to.equal('30%');
+    })
     // it('', function() {
     //     expect().to.deep.equal();
     // });

@@ -21,6 +21,10 @@ class Round {
         }
         return this.currentTurn.giveFeedback();
     }
+    calculatePercentCorrect() {
+        let decimal = (this.deck.cards.length / this.wrongAnswers.length).toFixed(2)
+        return `${decimal * 10}%`;
+    }
 }
 
 module.exports = Round;
