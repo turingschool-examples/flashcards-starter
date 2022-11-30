@@ -28,8 +28,18 @@ describe('Deck', function () {
         const card3 = new Card(prototypeData[2]);
 
         const deck = new Deck([card1, card2, card3]);
-        console.log(deck);
 
         expect(deck.cardDeck).to.deep.equal([card1, card2, card3]);
+    });
+
+    it('should be able to count number of cards in the deck', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+
+        const deck = new Deck([card1, card2, card3]);
+        const numOfCardsInDeck = deck.countCards();
+
+        expect(numOfCardsInDeck).to.equal(3);
     });
 })
