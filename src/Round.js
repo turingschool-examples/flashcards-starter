@@ -13,24 +13,24 @@ class Round {
   }
 
   takeTurn(guess) {
-    let turn = new Turn(guess, this.currentCard)
+    let turn = new Turn(guess, this.currentCard);
     this.turns++;
     this.currentCard = this.deck.cards[this.turns];
     if(!turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.currentCard.id)
-    }
+    };
     return turn.giveFeedBack();
   }
 
   calculatePercentCorrect() {
     let correctGuesses = this.turns - this.incorrectGuesses.length;
     let decimal = correctGuesses / this.turns;
-    let percent = decimal * 100
+    let percent = decimal * 100;
     return parseInt(percent);
   }
 
   endRound() {
-    return `** Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    return `** Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 }
 

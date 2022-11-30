@@ -32,34 +32,34 @@ describe('Round', () => {
   });
 
   it('should return the current card being played', () => {
-    newRound.returnCurrentCard()
+    newRound.returnCurrentCard();
     expect(newRound.returnCurrentCard()).to.deep.equal({
       id: 1,
       question: "What is Robbie's favorite animal",
       answers: [ 'sea otter', 'pug', 'capybara' ],
       correctAnswer: 'sea otter'
-    })
+    });
   });
 
   it('should start the round with 0 turns', () => {
-    expect(newRound.turns).to.equal(0)
+    expect(newRound.turns).to.equal(0);
   });
 
   it('should increase turns', () => {
     newRound.takeTurn();
     newRound.takeTurn();
-    expect(newRound.turns).to.equal(2)
+    expect(newRound.turns).to.equal(2);
   })
 
   it('should evaluate guess', () => {
-    expect(newRound.takeTurn('sea otter')).to.equal('correct!')
-    expect(newRound.takeTurn('spleen')).to.equal('incorrect!')
+    expect(newRound.takeTurn('sea otter')).to.equal('correct!');
+    expect(newRound.takeTurn('spleen')).to.equal('incorrect!');
   });
 
   it('should store incorrect guesses', () => {
-    expect(newRound.incorrectGuesses).to.deep.equal([])
-    newRound.takeTurn('wrong answer')
-    expect(newRound.incorrectGuesses).to.deep.equal([newRound.currentCard.id])
+    expect(newRound.incorrectGuesses).to.deep.equal([]);
+    newRound.takeTurn('wrong answer');
+    expect(newRound.incorrectGuesses).to.deep.equal([newRound.currentCard.id]);
     
   });
 
@@ -67,7 +67,7 @@ describe('Round', () => {
     newRound.takeTurn('sea otter');
     newRound.takeTurn('spleen');
     newRound.takeTurn('Fitzgerald');
-    expect(newRound.calculatePercentCorrect()).to.equal(66)
+    expect(newRound.calculatePercentCorrect()).to.equal(66);
   });
 
   it('should print game over message', () => {
@@ -75,7 +75,7 @@ describe('Round', () => {
     newRound.takeTurn('spleen');
     newRound.takeTurn('Fitzgerald');
     newRound.calculatePercentCorrect();
-    expect(newRound.endRound()).to.equal('** Round over!** You answered 66% of the questions correctly!')
+    expect(newRound.endRound()).to.equal('** Round over!** You answered 66% of the questions correctly!');
   });
 
 });
