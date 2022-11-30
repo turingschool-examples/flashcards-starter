@@ -1,7 +1,11 @@
  class Deck {
   constructor(cards) {
-    this.set = cards//pass in an array of cards
+    this.set = cards
+  }
+  
+  countCards(){
+   return this.set.length
   }
 }
 
-module.exports = Deck//show length of Deck array
+module.exports = Deck
