@@ -90,4 +90,17 @@ describe('Round', () => {
     round.takeTurn(turn2.guess)
     expect(round.turn.card).to.deep.equal(card2)
   })
+
+  it('should give feedback for correct or incorrect guesses', () => {
+    const turn = new Turn('object', card)
+
+
+    expect(round.takeTurn(turn.guess)).to.equal('correct!')
+
+    const turn1 = new Turn('maple tree', card1)
+
+
+
+    expect(round.takeTurn(turn1.guess)).to.equal('incorrect!')
+  })
 })

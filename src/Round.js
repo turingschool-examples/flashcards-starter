@@ -11,10 +11,11 @@ class Round {
     return this.deck.cards[0]
   }
   takeTurn(guess) {
-    this.turn = new Turn(guess, this.deck.cards[this.turns])
-    this.turns++
-    this.turn.evaluateGuess()
 
+    this.turn = new Turn(guess, this.deck.cards[this.turns])
+    this.turn.evaluateGuess()
+    this.turns++
+    return this.turn.giveFeedback()
 
 
   }
