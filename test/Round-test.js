@@ -12,29 +12,29 @@ describe('Round', function() {
   let currentTurn = Object.prototype;
 
   this.beforeEach(() => {
-    testCards = dataSet.prototypeData.filter(card => {
-      return card.id % 4 === 0;
-    });
+    testCards = dataSet.prototypeData;
     testRound = new Round();
     currentTurn = new Turn();
   });
 
   it('should have a current card that starts with the first card at the start of a round', function() {
-    expect(testRound.currentCard).to.equal(dataSet.prototypeData[0]);
+    console.log(testRound.currentCard);
+
+    expect(testRound.currentCard).to.equal(testCards[0]);
   });
 
   it('should have a method to return the current card being played', function() {
 
     testRound.currentCard = testCards[3];
 
-    expect(testRound.returnCurrentCard()).to.equal(dataSet.prototypeData[15])
+    expect(testRound.returnCurrentCard()).to.equal(dataSet.prototypeData[3])
   });
 
   it('when a guess is made a new Turn instance is created', function() {
 
     testRound.takeTurn('This is a guess', testCards[3]);
 
-    expect(testRound.turns[0]).to.be.an.instanceOf(Turn);
+    expect(testRound.guesses[0]).to.be.an.instanceOf(Turn);
   })
 
   it('should have a method to update turns count regardless of if the guess was correct', function() {
@@ -43,7 +43,7 @@ describe('Round', function() {
     testRound.takeTurn();
     testRound.takeTurn();
 
-    expect(testRound.turns.length).to.equal(3);
+    expect(testRound.turns).to.equal(3);
   });
 
   it.skip('the next card should become the current card after a guess is made', function() {
@@ -75,5 +75,4 @@ describe('Round', function() {
     // Uses above % correct method and interpolates it in to a string of "** Round over! ** You answered <>% of the questions correctly!"
 
   });
-
-})
+});
