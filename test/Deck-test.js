@@ -1,6 +1,6 @@
 const chai = require('chai');
-const Deck = require('../src/Deck');
 const expect = chai.expect;
+const Deck = require('../src/Deck');
 
 describe('Deck', function () {
 it('Should be a function', function () {
