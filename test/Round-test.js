@@ -20,22 +20,22 @@ describe ('Round', function() {
    
   })
 
-  it('should be a function', function() {
+  it.skip('should be a function', function() {
     
     expect(Round).to.be.a('function')
   })
 
-  it('should be an instance of a Round', function() {
+  it.skip('should be an instance of a Round', function() {
    
     expect(round).to.be.an.instanceof(Round)
   })
 
-  it('should take a new set of cards', function() {
+  it.skip('should take a new set of cards', function() {
     
     expect(round.deck).to.deep.equal([card1, card2, card3])
   })
 
-  it('should show the current card at play from deck', function() {
+  it.skip('should show the current card at play from deck', function() {
 
     expect(round.returnCurrentCard).to.deep.equal({ //this.deck.set[0]
       "id": 6,
@@ -45,33 +45,48 @@ describe ('Round', function() {
     })
   })
 
-  it('should start user\'s turn at 0', function() {
-    //expect(round.turns).to.equal(0) //increment/decrement
+  it.skip('should start user\'s turn at 0', function() {
+    
+    expect(round.turns).to.equal(0) //increment/decrement
   }) 
 
-  it('should take a record of incorrect guesses', function() {
-    //expect(round.incorrectGuesses).to.equal([]) //push into array incorrectGuess(turn.attempt/turn.currentCard)
+  it.skip('should start empty to have a record of incorrect guesses', function() {
+    
+    expect(round.incorrectGuesses).to.equal([]) //push into array incorrectGuess(turn.attempt/turn.currentCard)
   })
 
-  it('should account for the correct and incorrect answers', function() {
-    //round.takeTurn() --> 'correct!' //turn.giveFeedback()
-    //round.takeTurn() --> 'incorrect!' //turn.giveFeedback()
+  it.skip('should show if the guess is correct', function() {
+    
+    expect(round.takeTurn()).to.equal('correct!') //turn.giveFeedback()  
+  })
+  
+  it.skip('should show if the guess is incorrect', function() {
+    
+    expect(round.takeTurn()).to.equal('incorrect!') //turn.giveFeedback()
   })
 
-  it('should show the amount of turns taken', function() {
-    //expect(round.turns).to.equal(2)
+  it.skip('should account for the turns taken', function() {
+    
+    expect(round.turns).to.equal(2)
   })
 
-  it('should record the card of the incorrect guess', function() {
-     //expect(round.incorrectGuesses).to.equal([7]) //deck[i].card.id
+  it.skip('should record the card of the incorrect guess', function() {
+    
+    expect(round.incorrectGuesses).to.equal([7]) //deck[i].card.id
   })
 
-  it('should give next card from the deck after answer attempts', function() {
-    //card3
+  it.skip('should give next card from the deck after answer attempts', function() {
+    
+    expect(round.returnCurrentCard).to.deep.equal({
+      "id": 8,
+      "question": "What do iterator methods take in as their first argument?",
+      "answers": ["callback function", "current element", "an array"],
+      "correctAnswer": "callback function"
+    })
   })
 
-  it('should calculate overall correct answers', function() {
-    //round.calculatePercentCorrect()
+  it.skip('should calculate overall correct answers', function() {
+    expect(round.calculatePercentCorrect()).to.equal(50)
   })
 
 })
