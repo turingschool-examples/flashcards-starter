@@ -3,7 +3,7 @@ class Card {
         this.id = id;
         this.question = question;
         this.answers = answers;
-        this.correct - correct
+        this.correct = correct
     }
 }
 
