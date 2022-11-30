@@ -88,19 +88,47 @@ describe('Round', () => {
     expect(round.turn.card).to.deep.equal(card1)
 
     round.takeTurn(turn2.guess)
-    expect(round.turn.card).to.deep.equal(card2)
+    expect(round.turn.card).to.deep.equal(card2) 
   })
 
   it('should give feedback for correct or incorrect guesses', () => {
     const turn = new Turn('object', card)
 
-
     expect(round.takeTurn(turn.guess)).to.equal('correct!')
 
     const turn1 = new Turn('maple tree', card1)
 
-
-
     expect(round.takeTurn(turn1.guess)).to.equal('incorrect!')
   })
+
+  it('should gather all incorrect card id\'s in the incorrect guesses array', () => {
+    const turn = new Turn('object', card)
+
+    round.takeTurn(turn.guess)
+
+    const turn1 = new Turn('blue', card1)
+
+    round.takeTurn(turn1.guess)
+
+    expect(round.incorrectGuesses).to.deep.equal([2])
+  })
+
+  it('should calculate the percetage of correct guesses', () => {
+    card3 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object")
+    card4 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
+
+    const turn = new Turn('object', card)
+    round.takeTurn(turn.guess)
+    
+    const turn1 = new Turn('array', card1)
+    round.takeTurn(turn1.guess)
+
+    const turn2 = new Turn('oranges', card2)
+    round.takeTurn(turn2.guess)
+
+    round.calculatePercentage()
+
+    expect(round.calculatePercentage()).to.equal(67)
+  })
 })
+
