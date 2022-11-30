@@ -26,7 +26,9 @@ class Round {
     return this.currentCard;
   }
   calculatePercentCorrect() {
-    return (this.correctGuesses.length / this.deck.cards.length) * 100;
+    const percentCorrect =
+      (this.correctGuesses.length / this.deck.cards.length) * 100;
+    return percentCorrect.toFixed(0);
   }
   endRound() {
     const amountCorrect = this.calculatePercentCorrect();

@@ -98,20 +98,20 @@ describe("Round", () => {
   });
 
   it("should be able to calculate the percentage of correct answers", () => {
-
     round.takeTurn("blue");
     round.takeTurn("array");
     round.takeTurn("mutator method");
 
-    expect(round.calculatePercentCorrect()).to.equal(100);
+    expect(round.calculatePercentCorrect()).to.equal("100");
   });
 
   it("should be able to print to the console how many answers were correct when the round is over", () => {
-
     round.takeTurn("blue");
     round.takeTurn("array");
     round.takeTurn("mutator method");
-    
-    expect(round.endRound()).to.equal(`** Round over! ** You answered 100% of the questions correctly!`)
-  })
+
+    expect(round.endRound()).to.equal(
+      `** Round over! ** You answered 100% of the questions correctly!`
+    );
+  });
 });
