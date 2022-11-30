@@ -7,18 +7,25 @@ class Round {
     // needs currentCard, guesses (id#), 
     this.currentCard = dataSet.prototypeData[0];
     this.turns = 0;
-    this.guesses = [];
-  }
+    this.correctGuesses = [];
+    this.incorrectGuesses = [];
+  };
+
   returnCurrentCard() {
     return this.currentCard;
-  }
+  };
+
   takeTurn(guess, card) {
     this.turns++;
     this.currentCard = dataSet.prototypeData[this.turns];
     let newTurn = (new Turn(guess, card));
-    this.guesses.push(newTurn);
-    return newTurn.evaluateGuess();
+    if (newTurn.evaluateGuess()) {
+      this.correctGuesses.push(newTurn.card.id);
+    } else {
+      this.incorrectGuesses.push(newTurn.card.id);
+    }
+    return newTurn.giveFeedback();
   };
-}
+};
 
 module.exports = Round;

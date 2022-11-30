@@ -28,13 +28,6 @@ describe('Round', function() {
     expect(testRound.returnCurrentCard()).to.equal(dataSet.prototypeData[3])
   });
 
-  it('when a guess is made a new Turn instance is created', function() {
-
-    testRound.takeTurn('This is a guess', testCards[3]);
-
-    expect(testRound.guesses[0]).to.be.an.instanceOf(Turn);
-  })
-
   it('should have a method to update turns count regardless of if the guess was correct', function() {
 
     testRound.takeTurn('Incorrect guess', testCards[0]);
@@ -50,22 +43,26 @@ describe('Round', function() {
     expect(testRound.currentCard).to.equal(testCards[1]);
   });
 
-  it('takeTurn should evaluate guesses and return a boolean', function() {
-    // Guess will need to be an argument and passed in to the Turn class to evaluate.
-    // Guess will need to be stored in a constructor
-    const incorrectGuess = testRound.takeTurn('incorrect', testCards[0]);
+  it('should store correct guesses in an array with the card id', function() {
+    testRound.takeTurn('array', testCards[1]);
 
-    const correctGuess = testRound.takeTurn('array', testCards[1]);
+    expect(testRound.correctGuesses.length).to.equal(1);
+  })
 
-    expect(incorrectGuess).to.equal(false);
+  it('should store incorrect guesses in an array seperate from guesses with card id', function() {
+    testRound.takeTurn('This is an incorrect guess', testCards[0]);
 
-    expect(correctGuess).to.equal(true);
+    expect(testRound.incorrectGuesses.length).to.equal(1);
   });
 
-
-
+  it('should evaluate guesses and provide the user feedback on whether thier guess was correct or not', function() {
     // Feedback returned via the turn.evaluateGuess and .giveFeedback methods
-    
+    const incorrectGuess = testRound.takeTurn('incorrect', testCards[0]);
+    const correctGuess = testRound.takeTurn('array', testCards[1]);
+
+    expect(incorrectGuess).to.equal(`incorrect!`);
+    expect(correctGuess).to.equal(`correct!`);
+  })
 
   it.skip('should have a method that calculates and returns the percentage of correct guesses', function() {
     // call it "calculatePercentCorrect"
