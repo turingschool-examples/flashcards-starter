@@ -46,6 +46,7 @@ class Game {
   }
   createRound() {
     let round = new Round(this.createDeck());
+    console.log(round.deck);
     return round;
   }
 }

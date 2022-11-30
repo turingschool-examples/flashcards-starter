@@ -48,6 +48,6 @@ describe("Game", () => {
   //   expect(game.createDeck().cards[0]).to.deep.equal(deck.cards[0]);
   // })
   it("should create a new round using the new deck", () => {
-    expect(game.createRound()).to.equal(round)
-  })
+    expect(game.createRound().deck[0]).to.be.an.instanceOf(round);
+  });
 });
