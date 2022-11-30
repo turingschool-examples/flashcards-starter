@@ -114,9 +114,6 @@ describe('Round', () => {
   })
 
   it('should calculate the percetage of correct guesses', () => {
-    card3 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object")
-    card4 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
-
     const turn = new Turn('object', card)
     round.takeTurn(turn.guess)
     
@@ -129,6 +126,25 @@ describe('Round', () => {
     round.calculatePercentage()
 
     expect(round.calculatePercentage()).to.equal(67)
+  })
+
+  it('should print to the console that the  round is over', () => {
+    const turn = new Turn('object', card)
+    round.takeTurn(turn.guess)
+    
+    const turn1 = new Turn('array', card1)
+    round.takeTurn(turn1.guess)
+
+    const turn2 = new Turn('oranges', card2)
+    round.takeTurn(turn2.guess)
+
+    round.calculatePercentage()
+
+    expect(round.calculatePercentage()).to.equal(67)
+
+    round.endRound()
+
+    expect(round.endRound()).to.equal(`** Round over! ** You answered <67>% of the questions correctly!`)
   })
 })
 

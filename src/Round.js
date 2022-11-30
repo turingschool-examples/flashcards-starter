@@ -25,6 +25,10 @@ class Round {
     let correctPercentage = 100 - percentageIncorrect
     return +correctPercentage.toFixed(0)
   }
+  endRound() {
+    console.log(`** Round over! ** You answered <${this.calculatePercentage()}>% of the questions correctly!`)
+    return `** Round over! ** You answered <${this.calculatePercentage()}>% of the questions correctly!`
+  }
 }
 
 module.exports = Round
