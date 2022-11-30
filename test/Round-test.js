@@ -32,4 +32,8 @@ describe('Round', () => {
   it('should start with a deck of cards', () => {
     expect(round.deck).to.equal(deck)
   })
+
+  it('should start with 0 turns as default', () => {
+    expect(round.turn).to.equal(0)
+  })
 })
