@@ -59,9 +59,23 @@ describe('Round', () => {
   it('should store incorrect guesses', () => {
     expect(newRound.incorrectGuesses).to.deep.equal([])
     newRound.takeTurn('wrong answer')
-    console.log(newRound.currentCard.id)
     expect(newRound.incorrectGuesses).to.deep.equal([newRound.currentCard.id])
     
+  });
+
+  it('should calculate percentage of correct guesses', () => {
+    newRound.takeTurn('sea otter');
+    newRound.takeTurn('spleen');
+    newRound.takeTurn('Fitzgerald');
+    expect(newRound.calculatePercentCorrect()).to.equal(66)
+  });
+
+  it('should print game over message', () => {
+    newRound.takeTurn('sea otter');
+    newRound.takeTurn('spleen');
+    newRound.takeTurn('Fitzgerald');
+    newRound.calculatePercentCorrect();
+    expect(newRound.endRound()).to.equal('** Round over!** You answered 66% of the questions correctly!')
   });
 
 });
