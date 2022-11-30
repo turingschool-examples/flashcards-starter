@@ -10,13 +10,13 @@ class Turn {
     return this.card
   }
   evaluateGuess() {
-    if(this.guess === this.card.correctAnswer) {
+    if(this.card.correctAnswer === this.guess) {
       return true
     }
     return false
   }
   giveFeedback() {
-    if(this.evaluateGuess() === true) {
+    if(this.evaluateGuess()) {
       return 'correct!'
     }
     return 'incorrect!'

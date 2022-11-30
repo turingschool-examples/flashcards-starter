@@ -64,15 +64,30 @@ describe('Round', () => {
     const turn = new Turn('object', card)
 
     round.takeTurn(turn.guess)
-    turn.evaluateGuess()
+
 
     expect(turn.evaluateGuess()).to.equal(true)
 
     const turn1 = new Turn('avocado', card1)
 
     round.takeTurn(turn1.guess)
-    turn.evaluateGuess()
+
 
     expect(turn1.evaluateGuess()).to.equal(false)
+  })
+
+  it('should make the next card the current card', () => {
+    const turn = new Turn('object', card)
+    const turn1 = new Turn('array', card1)
+    const turn2 = new Turn('mutator method', card2)
+
+    round.takeTurn(turn.guess)
+    expect(round.turn.card).to.deep.equal(card)
+
+    round.takeTurn(turn1.guess)
+    expect(round.turn.card).to.deep.equal(card1)
+
+    round.takeTurn(turn2.guess)
+    expect(round.turn.card).to.deep.equal(card2)
   })
 })
