@@ -11,7 +11,7 @@ describe('Round', function() {
 
   this.beforeEach(() => {
     testCards = dataSet.prototypeData;
-    testRound = new Round();
+    testRound = new Round(testCards);
   });
 
   it('should have a current card that starts with the first card at the start of a round', function() {

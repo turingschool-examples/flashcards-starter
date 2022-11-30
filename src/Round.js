@@ -1,10 +1,8 @@
-const dataSet = require('../src/data');
 const Turn = require('./Turn');
-
-
 class Round {
-  constructor() {
-    this.currentCard = dataSet.prototypeData[0];
+  constructor(deck) {
+    this.deck = deck;
+    this.currentCard = deck[0];
     this.turns = 0;
     this.correctGuesses = [];
     this.incorrectGuesses = [];
@@ -16,7 +14,7 @@ class Round {
 
   takeTurn(guess, card) {
     this.turns++;
-    this.currentCard = dataSet.prototypeData[this.turns];
+    this.currentCard = this.deck[this.turns];
     let newTurn = (new Turn(guess, card));
     if (newTurn.evaluateGuess()) {
       this.correctGuesses.push(newTurn.card.id);
