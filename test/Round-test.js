@@ -4,6 +4,7 @@ const expect = chai.expect
 const Round = require('../src/Round')
 const Deck = require('../src/Deck')
 const Card = require('../src/Card')
+const Turn = require('../src/Turn')
 
 describe('Round', () => {
   
@@ -44,10 +45,18 @@ describe('Round', () => {
   it('should keep track of the current card', () => {
     expect(round.returnCurrentCard()).to.deep.equal(card)
   })
-
+  
   it('should be able to update turns count after guess is made', () => {
     round.takeTurn()
-
+    
     expect(round.turns).to.equal(1)
+  })
+  
+  it('should instatiate new turn instance after every guess', () => {
+    const turn = new Turn('object', card)
+
+    round.takeTurn(turn.guess)
+
+    expect(round.turn).to.be.an.instanceof(Turn)
   })
 })
