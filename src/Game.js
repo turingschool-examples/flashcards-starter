@@ -1,11 +1,14 @@
 const data = require('./data');
 const Round = require('./Round');
 const Card = require('./Card')
+const Deck = require('./Deck')
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
 class Game {
-  constructor() {}
+  constructor() {
+    this.currentRound = undefined;
+  }
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
@@ -23,25 +26,24 @@ class Game {
     // Card(id, question, answers, correctAnswer)
     // TESTED IN CONSOLE, WORKS!
     const cardData = prototypeQuestions;
-    let newDeck = cardData.map(card => {
+    let newCards = cardData.map(card => {
       let newCard = new Card(card.id, card.question, card.answers, card.correctAnswer);
       return newCard;
     });
-
-
     // Needs to put cards in a Deck
     // The new array of Card objects created above will then need to be added to a new Deck
     // instance in its constructor
-    
+    const newDeck = new Deck(newCards);
 
     // Needs to create a new Round using the Deck
-    // Need to go back and change Round to have a parameter of deck, then current card
-    // will be that deck[0].
+    const newRound = new Round(newDeck);
+    this.currentRound = newRound;
 
     // Must invoke printMessage to display in the CLI
+    this.printMessage(newRound);
 
     // Must invoke printQuestion to kick off helper functions to allow CLI interaction
-
+    this.printQuestion(newDeck, newRound);
   };
 };
 
