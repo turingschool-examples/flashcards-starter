@@ -72,8 +72,6 @@ describe("Round", () => {
   });
 
   it("should evaluate if a guess is correct, and push the incorrect id into the incorrect guesses array if so", () => {
-    // const guess = new Turn("pink", card);
-
     round.takeTurn("pink");
 
     expect(round.incorrectGuesses).to.deep.equal([1]);
