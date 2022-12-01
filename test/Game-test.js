@@ -39,4 +39,11 @@ describe('Game', () => {
 
       expect(game.cards.length).to.equal(30)
     })
+
+    it('should put all cards into Deck class', () => {
+      game.makeCards()
+      game.makeDeck() 
+
+      expect(game.deck.cards.length).to.equal(30)
+    })
 })
