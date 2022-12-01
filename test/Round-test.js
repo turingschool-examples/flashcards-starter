@@ -1,7 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
 const Card = require('../src/Card');
-const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
@@ -31,6 +30,16 @@ describe('Round', () => {
     expect(newRound.deck.cards).to.deep.equal([card1, card2, card3])
   });
 
+  it('should start the round with 0 turns', () => {
+    expect(newRound.turns).to.equal(0);
+  });
+
+  it('should increase turns', () => {
+    newRound.takeTurn();
+    newRound.takeTurn();
+    expect(newRound.turns).to.equal(2);
+  }); 
+
   it('should return the current card being played', () => {
     newRound.returnCurrentCard();
     expect(newRound.returnCurrentCard()).to.deep.equal({
@@ -40,16 +49,6 @@ describe('Round', () => {
       correctAnswer: 'sea otter'
     });
   });
-
-  it('should start the round with 0 turns', () => {
-    expect(newRound.turns).to.equal(0);
-  });
-
-  it('should increase turns', () => {
-    newRound.takeTurn();
-    newRound.takeTurn();
-    expect(newRound.turns).to.equal(2);
-  })
 
   it('should evaluate guess', () => {
     expect(newRound.takeTurn('sea otter')).to.equal('correct!');
