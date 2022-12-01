@@ -15,7 +15,7 @@ class Round {
   takeTurn(userGuess) {
     const turn = new Turn (userGuess, this.currentCard)
     this.turns +=1 //correct/incorrect
-    console.log('10' , this.deck)
+    console.log('10' , this.currentCard)
     turn.giveFeedback()
     //if the user guess correct
     //return this.deck
