@@ -25,8 +25,9 @@ class Round {
 
   }
 
-  calculatePercentCorrect(){
-    //if correctanswers = (questions array.length / incorrectGuesses array.length )
+  calculatePercentCorrect() {
+    const correctAnswers = (this.incorrectGuesses.length/this.turns) * 100
+      return correctAnswers
   }
 }
 
