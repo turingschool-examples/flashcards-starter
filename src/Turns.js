@@ -8,7 +8,7 @@ class Turn{
     }
     
     returnGuess(){
-        return playerGuess
+        return this.playerGuess
     }
 
     returnCard(){
@@ -16,15 +16,18 @@ class Turn{
     }
 
     evaluateGuess(){
-       if(Card.correctAnswer === this.playerGuess) {
-        this.correct = true
+       if(this.newCard.correctAnswer === this.playerGuess) {
+        
+       }
+       else{
+        return false
        }
             
     }
 
     giveFeedback(){
-        if (this.correct){
-            
+        if(this.correct){
+            return 'great job'
         }
         else{
             return 'incorrect!'
