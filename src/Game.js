@@ -1,5 +1,5 @@
 const data = require('./data');
-const prototypeQuestions = data.prototypeData;
+// const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Round = require('./Round');
 const Deck = require('./Deck');
@@ -12,18 +12,8 @@ class Game {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
-  printQuestion(round) {
+   printQuestion(round) {
       util.main(round);
-  }
-  playGame() {
-    this.start()
-    console.log(this.round.calculatePercentCorrect())
-    if (this.round.calculatePercentCorrect() < 90) {
-      console.log(`Sorry, you got less than 90%, try this deck again`)
-      this.start()
-    } else {
-      console.log(`Congrats! You passed!`)
-    }
   }
   setUpFunctions() { 
     this.deck = new Deck()

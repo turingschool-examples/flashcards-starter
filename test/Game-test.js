@@ -24,9 +24,4 @@ it('Should create an instance of Deck and Round', function () {
     expect(game).to.have.property('round')
     expect(game).to.have.property('deck')
 })
-//game.playGame will run game, then evaluate score to see if the user passes
-it('Should have a function to play again', function () {
-    const game = new Game()
-    expect(game.playGame).to.be.a('function')
-})
 })

@@ -24,6 +24,9 @@ class Round {
     endRound() {
         const endMessage = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
         console.log(endMessage)
+        if (this.calculatePercentCorrect() > 90) {
+            console.log(`This sucks`)
+        }
         return endMessage
     }
 }
