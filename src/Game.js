@@ -8,8 +8,8 @@ const Deck = require('./Deck');
 class Game {
   constructor() {
     this.currentRound = Object.prototype;
-    this.cards = [];
-    this.deck = Object.prototype;
+    // this.cards = [];
+    // this.deck = Object.prototype;
   }
 
   printMessage(deck, round) {
@@ -26,23 +26,27 @@ class Game {
       let newCard = new Card(card.id, card.question, card.answers, card.correctAnswer);
       return newCard;
     });
-    this.cards = newCards;
-  };
-
-  putCardsInDeck() {
-    this.deck = new Deck(this.cards);
-  };
-
-  createNewRound() {
-    const newRound = new Round(this.deck.cards);
+    // Main issue here is that this is not creating instances of cards correctly
+    // Answer cannot be read because of this
+    let newDeck = new Deck(newCards);
+    let newRound = new Round(newDeck);
     this.currentRound = newRound;
   };
 
+  // putCardsInDeck() {
+  //   this.deck = new Deck(this.cards);
+  // };
+
+  // createNewRound() {
+  //   const newRound = new Round(this.deck);
+  //   this.currentRound = newRound;
+  // };
+
   start(cardData) {
     this.createCards(cardData);
-    this.putCardsInDeck();
-    this.createNewRound();
-    this.printMessage(this.deck, this.currentRound);
+    // this.putCardsInDeck();
+    // this.createNewRound();
+    this.printMessage(this.currentRound.deck, this.currentRound);
     this.printQuestion(this.currentRound);
   };
 

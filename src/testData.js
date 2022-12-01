@@ -25,4 +25,4 @@ const testData = [{
   "correctAnswer": "iteration method"
 }];
 
-module.exports = testData;
+module.exports = testData

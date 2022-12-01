@@ -3,15 +3,16 @@ const expect = chai.expect;
 
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
+const testData = require('../src/testData');
 
 describe('Turn', function() {
   
-  let newTurn = new Object();
-  let card = new Object();
+  let newTurn = Object.prototype;
+  let card = Object.prototype;
 
   this.beforeEach(() => {
-    card = new Card(8, "What is the best coding language?", undefined, "JavaScript")
-    newTurn = new Turn('Python', card);
+    card = testData[0];
+    newTurn = new Turn('array', card);
   });
 
   it('should instantiate a new Turn', function() {
@@ -19,7 +20,7 @@ describe('Turn', function() {
   });
 
   it('should be instantiated with a guess as its first argument', function() {
-    expect(newTurn.guess).to.equal('Python');
+    expect(newTurn.guess).to.equal('array');
   });
 
   it('should be instantiated with the current Card as its second argument', function() {
@@ -27,7 +28,7 @@ describe('Turn', function() {
   });
 
   it('should have a method returnGuess that returns the guess', function() {
-    expect(newTurn.returnGuess()).to.equal('Python');
+    expect(newTurn.returnGuess()).to.equal('array');
   });
 
   it('should have a method returnCard that returns the current Card', function () {

@@ -6,7 +6,6 @@ const Game = require('../src/Game');
 const Round = require('../src/Round');
 const Card = require('../src/Card')
 const Deck = require('../src/Deck')
-const util = require('../src/util');
 const testData = require('../src/testData');
 
 describe('Game', function() {
@@ -16,13 +15,12 @@ describe('Game', function() {
   this.beforeEach(() => {
     currentGame = new Game();
     currentGame.createCards(testData);
-    currentGame.putCardsInDeck();
-    currentGame.createNewRound();
+    // currentGame.putCardsInDeck();
+    // currentGame.createNewRound();
   });
 
   // Tests on lines 25 - 75 are nearly identical to round tests, but added them to test that
   // I am meeting the "Should keep track of the currentRound" rubric requirement in the Game class
-  // Do I really need these though?
 
   it('currentRound should keep track of turns taken', function() {
     currentGame.currentRound.takeTurn('Incorrect guess', currentGame.currentRound.currentCard);
@@ -77,15 +75,21 @@ describe('Game', function() {
   // These tests are testing the methods I broke out to test in the Game.start() method
 
   it('should create instances of Cards', function() {
-    expect(currentGame.cards[0]).is.an.instanceOf(Card);
+    expect(currentGame.currentRound.deck[0]).is.an.instanceOf(Card);
   });
 
   it('should put instances of Cards in a Deck', function() {
-    expect(currentGame.deck).is.an.instanceOf(Deck);
+    expect(currentGame.currentRound.deck).is.an.instanceOf(Deck);
   });
 
   it('should create a new instance of Round using the Deck', function() {
     expect(currentGame.currentRound).is.an.instanceOf(Round);
   });
 
+// Debugging the program
+
+  // let testGame = new Game();
+  // testGame.start(testData);
+  // console.log(testGame.currentRound.deck.length);
+  // console.log(test.currentRound.deck[0]);
 });

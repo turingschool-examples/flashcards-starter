@@ -14,10 +14,10 @@ describe('Deck', function(){
   });
 
   it('should be initialized with an array of Card objects', function() {
-    expect(newDeck.cards).to.equal(testData);
+    expect(newDeck.cards).to.deep.equal(testData);
   });
 
   it('should know how many cards are in the deck', function() {
-    expect(newDeck.countCards()).to.equal(testData.length);
+    expect(newDeck.countCards()).to.equal(5);
   });
 });
