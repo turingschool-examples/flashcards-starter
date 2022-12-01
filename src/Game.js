@@ -62,7 +62,7 @@ class Game {
   };
 
   createNewRound() {
-    const newRound = new Round(this.deck);
+    const newRound = new Round(this.deck.cards);
     this.currentRound = newRound;
   };
 

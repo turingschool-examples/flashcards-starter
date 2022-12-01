@@ -24,3 +24,5 @@ const testData = [{
   "answers": ["mutator method", "accessor method", "iteration method"],
   "correctAnswer": "iteration method"
 }];
+
+module.exports = testData;
