@@ -38,8 +38,9 @@ describe ('Round', function() {
 
   it('should show the current card at play from deck', function() {
     //set var to execute class method. .returnCurrentCard()
+    const currentCard = round.returnCurrentCard()
 
-    expect(round.returnCurrentCard()).to.deep.equal({ 
+    expect(currentCard).to.deep.equal({ 
       "id": 6,
       "question": "What is an example of a mutator method?",
       "answers": ["sort()", "map()", "join()"],
@@ -71,9 +72,14 @@ describe ('Round', function() {
   })
 
   it('should track how many questions are answered', function() {
+    //this.turns ++
     
-    
+    expect(round.currentCard).to.equal(card1)
+
     round.takeTurn('sort()')
+
+    expect(round.currentCard).to.equal(card2) //change this.currentCard
+
     round.takeTurn('slice()')
 
     expect(round.turns).to.equal(2)
