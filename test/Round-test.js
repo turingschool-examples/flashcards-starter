@@ -95,9 +95,19 @@ describe ('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([7])
   })
 
-  it.skip('should give next card from the deck after answer attempts', function() {
+  it('should give next card from the deck after answer attempts', function() {
+    // const currentCard = round.returnCurrentCard()
     
-    expect(round.returnCurrentCard).to.deep.equal({
+    expect(round.currentCard).to.equal(card1)
+    
+    round.takeTurn('sort()')
+    
+    expect(round.currentCard).to.equal(card2)
+    
+    round.takeTurn('slice()')
+    round.returnCurrentCard()
+    
+    expect(round.currentCard).to.deep.equal({
       "id": 8,
       "question": "What do iterator methods take in as their first argument?",
       "answers": ["callback function", "current element", "an array"],
