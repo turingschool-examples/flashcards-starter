@@ -18,9 +18,8 @@ class Round {
 
     if (turn.giveFeedback() === 'incorrect!') {
       this.incorrectGuesses.push(turn.currentCard.id)
-      console.log('2', this.incorrectGuesses)
     }
-
+    // this.returnCurrentCard()
     this.currentCard = this.deck[this.turns]
     return turn.giveFeedback()
 
