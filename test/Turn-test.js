@@ -23,7 +23,7 @@ describe('Turn', function() {
   });
 
   it('should be instantiated with the current Card as its second argument', function() {
-    expect(newTurn.card).to.equal(card);
+    expect(newTurn.card).to.deep.equal(card);
   });
 
   it('should have a method returnGuess that returns the guess', function() {

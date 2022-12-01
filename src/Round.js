@@ -35,6 +35,7 @@ class Round {
   endRound() {
     let percentCorrect = this.calculatePercentCorrect().toFixed(2) * 100;
     console.log(`** Round over! ** You answered ${percentCorrect}% of the questions correctly!`);
+    return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`;
   };
 };
 
