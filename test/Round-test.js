@@ -127,12 +127,91 @@ describe('Round', function() {
         
         const round = new Round(deck);
 
-        round.takeTurn();
-        round.takeTurn();
-        round.takeTurn();
+        let currentCard = round.returnCurrentCard();
+        expect(currentCard).to.deep.equal(prototypeData[0])
+        expect(currentCard).to.equal(round.currentCard);
 
-        const currentCard = round.returnCurrentCard();
+        round.takeTurn();
+        currentCard = round.returnCurrentCard();
+        expect(currentCard).to.deep.equal(prototypeData[1]);
+        expect(currentCard).to.equal(round.currentCard);
 
+        round.takeTurn();
+        currentCard = round.returnCurrentCard();
+        expect(currentCard).to.deep.equal(prototypeData[2])
+        expect(currentCard).to.equal(round.currentCard);
+
+        round.takeTurn();
+        currentCard = round.returnCurrentCard();
         expect(currentCard).to.deep.equal(prototypeData[3]);
+        expect(currentCard).to.equal(round.currentCard);
     });
+
+    // Test #9
+
+    it('should store incorrect guesses', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        const card4 = new Card(prototypeData[3]);
+        
+        const deck = new Deck([card1, card2, card3, card4]);
+        
+        const round = new Round(deck);
+
+        const newTurn = round.takeTurn('guess');
+
+        expect(round.incorrectGuesses).to.deep.equal([prototypeData[0]]);
+    });
+
+    // Test #11
+
+    it('should store multiple incorrect guesses', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        const card4 = new Card(prototypeData[3]);
+        
+        const deck = new Deck([card1, card2, card3, card4]);
+        
+        const round = new Round(deck);
+
+        round.takeTurn('guess');
+      
+        round.takeTurn('second guess');
+
+        round.takeTurn('third guess');
+
+        expect(round.incorrectGuesses).to.deep.equal([prototypeData[0], prototypeData[1], prototypeData[2]]);
+    });
+
+    it('should return correct if guess is correct', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        const card4 = new Card(prototypeData[3]);
+        
+        const deck = new Deck([card1, card2, card3, card4]);
+        
+        const round = new Round(deck);
+
+        const feedback = round.takeTurn('object');
+
+        expect(feedback).to.equal('correct');
+    });
+
+    it('should return incorrect if guess is incorrect', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        const card4 = new Card(prototypeData[3]);
+        
+        const deck = new Deck([card1, card2, card3, card4]);
+        
+        const round = new Round(deck);
+
+        const feedback = round.takeTurn('array');
+
+        expect(feedback).to.equal('incorrect');
+    })
 });

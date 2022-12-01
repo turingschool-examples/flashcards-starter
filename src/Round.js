@@ -1,23 +1,30 @@
+const { prototype } = require("mocha");
+const Turn = require("./Turn");
+
 class Round {
     constructor(deck) {
         this.deck = deck;
         this.turns = 0;
         this.incorrectGuesses = [];
-        this.currentCard = 0;
+        this.currentCardCount = 0;
+        this.currentCard = deck.cardDeck[this.currentCardCount]
     }
     returnCurrentCard() {
-        return this.deck.cardDeck[this.currentCard];
+        this.currentCard = this.deck.cardDeck[this.currentCardCount];
+        return this.currentCard;
     }
-    takeTurn() {
+    takeTurn(guess) {
+        this.returnCurrentCard();
+        let newTurn = new Turn(guess, this.currentCard);
+        if(!newTurn.evaluateGuess()) {
+            this.incorrectGuesses.push(this.currentCard);
+        };
         this.turns ++;
-        this.currentCard ++;
+        this.currentCardCount ++;
+        return newTurn.giveFeedback();
     }
 }
 
 module.exports = Round;
 
 
-// When takeTurn is called....I want the next card in the deck to become the 
-// current card.  Right now returnCurrentCard is written so that it is hard
-// coded to return the first element of deck.  I need this to be more 
-// dynamic
