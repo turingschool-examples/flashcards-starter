@@ -11,7 +11,7 @@ describe('Turn', function() {
   let card = Object.prototype;
 
   this.beforeEach(() => {
-    card = testData[0];
+    card = testData.cards[0];
     newTurn = new Turn('array', card);
   });
 

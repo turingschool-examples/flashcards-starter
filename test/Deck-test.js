@@ -10,11 +10,11 @@ describe('Deck', function(){
   let newDeck = Object.prototype;
 
   this.beforeEach(() => {
-    newDeck = new Deck(testData);
+    newDeck = new Deck(testData.cards);
   });
 
   it('should be initialized with an array of Card objects', function() {
-    expect(newDeck.cards).to.deep.equal(testData);
+    expect(newDeck).to.deep.equal(testData);
   });
 
   it('should know how many cards are in the deck', function() {

@@ -21,31 +21,19 @@ class Game {
       util.main(round);
   }
 
-  createCards(cardData) {
+  createCardDeckRound(cardData) {
     let newCards = cardData.map(card => {
       let newCard = new Card(card.id, card.question, card.answers, card.correctAnswer);
       return newCard;
     });
-    // Main issue here is that this is not creating instances of cards correctly
-    // Answer cannot be read because of this
+
     let newDeck = new Deck(newCards);
     let newRound = new Round(newDeck);
     this.currentRound = newRound;
   };
 
-  // putCardsInDeck() {
-  //   this.deck = new Deck(this.cards);
-  // };
-
-  // createNewRound() {
-  //   const newRound = new Round(this.deck);
-  //   this.currentRound = newRound;
-  // };
-
   start(cardData) {
-    this.createCards(cardData);
-    // this.putCardsInDeck();
-    // this.createNewRound();
+    this.createCardDeckRound(cardData);
     this.printMessage(this.currentRound.deck, this.currentRound);
     this.printQuestion(this.currentRound);
   };
