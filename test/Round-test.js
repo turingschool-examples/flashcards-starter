@@ -17,27 +17,29 @@ describe ('Round', function() {
     card3 = new Card (8, "What do iterator methods take in as their first argument?", ["callback function", "current element", "an array"], "callback function")
     deck = new Deck([card1, card2, card3])
     round = new Round(deck)
-   
+   //do i need to instantiate a new Turn(userGuess, currentCard)?
+
   })
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     
     expect(Round).to.be.a('function')
   })
 
-  it.skip('should be an instance of a Round', function() {
+  it('should be an instance of a Round', function() {
    
     expect(round).to.be.an.instanceof(Round)
   })
 
-  it.skip('should take a new set of cards', function() {
-    
+  it('should take a new set of cards', function() {
+
     expect(round.deck).to.deep.equal([card1, card2, card3])
   })
 
-  it.skip('should show the current card at play from deck', function() {
+  it('should show the current card at play from deck', function() {
+    //set var to execute class method. .returnCurrentCard()
 
-    expect(round.returnCurrentCard).to.deep.equal({ //this.deck.set[0]
+    expect(round.returnCurrentCard()).to.deep.equal({ 
       "id": 6,
       "question": "What is an example of a mutator method?",
       "answers": ["sort()", "map()", "join()"],
@@ -45,34 +47,45 @@ describe ('Round', function() {
     })
   })
 
-  it.skip('should start user\'s turn at 0', function() {
+  it('should start user\'s turn at 0', function() {
     
-    expect(round.turns).to.equal(0) //increment/decrement
+    expect(round.turns).to.equal(0) //increment
   }) 
 
-  it.skip('should start empty to have a record of incorrect guesses', function() {
+  it('should have a place to store data of incorrect guesses', function() {
     
-    expect(round.incorrectGuesses).to.equal([]) //push into array incorrectGuess(turn.attempt/turn.currentCard)
+    expect(round.incorrectGuesses).to.deep.equal([]) //push into array incorrectGuess(turn.attempt/turn.currentCard)
   })
 
-  it.skip('should show if the guess is correct', function() {
+  it('should show if the guess is correct', function() {
+    let turnFeedback = round.takeTurn('sort()') //turn goes up and card should change
     
-    expect(round.takeTurn()).to.equal('correct!') //turn.giveFeedback()  
+    expect(turnFeedback).to.equal('correct!') 
   })
   
-  it.skip('should show if the guess is incorrect', function() {
+  it('should show if the guess is incorrect', function() {
     
-    expect(round.takeTurn()).to.equal('incorrect!') //turn.giveFeedback()
+    turnFeedback = round.takeTurn('slice()') //turn goes up and card should change
+    
+    expect(turnFeedback).to.equal('incorrect!') //push into array incorrectGuess(turn.attempt/turn.currentCard)
   })
 
-  it.skip('should account for the turns taken', function() {
+  it('should track how many questions are answered', function() {
     
+    
+    round.takeTurn('sort()')
+    round.takeTurn('slice()')
+
     expect(round.turns).to.equal(2)
   })
 
-  it.skip('should record the card of the incorrect guess', function() {
-    
-    expect(round.incorrectGuesses).to.equal([7]) //deck[i].card.id
+  it('should record the card of the incorrect guess', function() {
+    expect(round.incorrectGuesses).to.deep.equal([7])
+
+    round.takeTurn('sort()')
+    round.takeTurn('slice()')
+
+    expect(round.incorrectGuesses).to.deep.equal([7]) //deck[i].card.id
   })
 
   it.skip('should give next card from the deck after answer attempts', function() {
