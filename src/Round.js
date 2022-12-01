@@ -1,6 +1,6 @@
 class Round {
-    counstructor (deck) {
-        this.deck = deck;
+    constructor(deck) {
+        this.cardDeck = deck;
     }
 }
 

@@ -29,4 +29,16 @@ describe('Round', function() {
         expect(round).to.be.an.instanceOf(Round);
     });
 
+    it('should hold a card deck', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+
+        const deck = new Deck([card1, card2, card3]);
+
+        const round = new Round(deck);
+        
+        expect(round.cardDeck).to.deep.equal(deck)
+    });
+
 });
