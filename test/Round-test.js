@@ -54,7 +54,7 @@ describe('Round', function() {
 
     expect(incorrectGuess).to.equal(`incorrect!`);
     expect(correctGuess).to.equal(`correct!`);
-  })
+  });
 
   it('should have a method that calculates and returns the percentage of correct guesses', function() {
     testRound.takeTurn('Incorrect guess', testData[0]);
