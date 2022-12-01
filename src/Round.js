@@ -1,6 +1,9 @@
 class Round {
     constructor(deck) {
-        this.cardDeck = deck;
+        this.deck = deck;
+    }
+    returnCurrentCard() {
+        return this.deck.cardDeck[0];
     }
 }
 

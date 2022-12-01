@@ -37,8 +37,22 @@ describe('Round', function() {
         const deck = new Deck([card1, card2, card3]);
 
         const round = new Round(deck);
+    
+        expect(round.deck).to.deep.equal(deck)
+    });
+
+    it('should return the first card in the deck', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
         
-        expect(round.cardDeck).to.deep.equal(deck)
+        const deck = new Deck([card1, card2, card3]);
+        
+        const round = new Round(deck);
+        
+        const currentCard = round.returnCurrentCard();
+        
+        expect(currentCard).to.deep.equal(prototypeData[0]);
     });
 
 });
