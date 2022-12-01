@@ -1,6 +1,6 @@
-const chai = require('chai');
-const Turn = require('../src/Turn');
-const Card = require('../src/Card');
+const chai = require('chai')
+const Turn = require('../src/Turn')
+const Card = require('../src/Card')
 const expect = chai.expect;
 
 //card example

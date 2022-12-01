@@ -4,6 +4,7 @@
   "description": "OOP Flashcards Application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint 'src/**.js' 'test/**.js'"
   },

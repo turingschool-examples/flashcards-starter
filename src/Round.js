@@ -22,7 +22,9 @@ class Round {
         return ((this.turnCount-this.incorrectGuesses.length)/this.turnCount)*100
     }
     endRound() {
-        return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+        const endMessage = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+        console.log(endMessage)
+        return endMessage
     }
 }
 module.exports = Round
