@@ -2,13 +2,12 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Turn = require('../src/Turn');
-const Card = require('../src/Card');
 const testData = require('../src/testData');
 
 describe('Turn', function() {
   
-  let newTurn = Object.prototype;
-  let card = Object.prototype;
+  let newTurn;
+  let card;
 
   this.beforeEach(() => {
     card = testData.cards[0];
@@ -42,5 +41,4 @@ describe('Turn', function() {
   it('should have a method giveFeedback that returns a string based on whether or not the user guess is correct', function() {
     expect(newTurn.giveFeedback()).to.equal('incorrect!');
   });
-
 });

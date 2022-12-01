@@ -7,7 +7,7 @@ const testData = require('../src/testData');
 
 describe('Deck', function(){
 
-  let newDeck = Object.prototype;
+  let newDeck;
 
   this.beforeEach(() => {
     newDeck = new Deck(testData.cards);
