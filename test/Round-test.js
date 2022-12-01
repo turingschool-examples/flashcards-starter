@@ -55,4 +55,34 @@ describe('Round', function() {
         expect(currentCard).to.deep.equal(prototypeData[0]);
     });
 
+    it('should update the turn count', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        
+        const deck = new Deck([card1, card2, card3]);
+        
+        const round = new Round(deck);
+
+        round.takeTurn();
+
+        expect(round.turns).to.equal(1);
+    });
+
+    it('should update the turn count multiple times', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        
+        const deck = new Deck([card1, card2, card3]);
+        
+        const round = new Round(deck);
+
+        round.takeTurn();
+        round.takeTurn();
+        round.takeTurn();
+
+        expect(round.turns).to.equal(3);
+    });
+
 });
