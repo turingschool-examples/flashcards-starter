@@ -24,6 +24,10 @@ class Round {
     return turn.giveFeedback()
 
   }
+
+  calculatePercentCorrect(){
+    //if correctanswers = (questions array.length / incorrectGuesses array.length )
+  }
 }
 
 module.exports = Round
