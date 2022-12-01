@@ -115,7 +115,16 @@ describe ('Round', function() {
     })
   })
 
-  it.skip('should calculate overall correct answers', function() {
+  it('should calculate overall correct answers', function() {
+    
+    expect(round.currentCard).to.equal(card1)
+
+    round.takeTurn('sort()')
+
+    expect(round.currentCard).to.equal(card2)
+
+    round.takeTurn('slice()')
+
     const averageScore = round.calculatePercentCorrect()
     
     expect(averageScore).to.equal(50)
