@@ -9,7 +9,11 @@ class Round {
   };
 
   returnCurrentCard() {
+    if (this.currentCard === undefined) {
+      return false;
+    } else {
     return this.currentCard;
+    }
   };
 
   takeTurn(guess) {
@@ -30,7 +34,7 @@ class Round {
 
   endRound() {
     let percentCorrect = this.calculatePercentCorrect().toFixed(2) * 100;
-    return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`;
+    console.log(`** Round over! ** You answered ${percentCorrect}% of the questions correctly!`);
   };
 };
 
