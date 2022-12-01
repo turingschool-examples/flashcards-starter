@@ -12,6 +12,7 @@ class Game {
     this.cards
   }
 
+  
   start() {
     
   }
@@ -24,6 +25,9 @@ class Game {
     this.deck = new Deck(this.cards)
   }
 
+  startRound() {
+    return this.round = new Round(this.deck)
+  }
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
