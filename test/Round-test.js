@@ -96,7 +96,6 @@ describe ('Round', function() {
   })
 
   it('should give next card from the deck after answer attempts', function() {
-    // const currentCard = round.returnCurrentCard()
     
     expect(round.currentCard).to.equal(card1)
     
@@ -129,5 +128,4 @@ describe ('Round', function() {
     
     expect(averageScore).to.equal(50)
   })
-
 })
