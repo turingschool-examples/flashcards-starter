@@ -17,6 +17,18 @@ describe('Game', function() {
     currentGame.createCardDeckRound(testData.cards);
   });
 
+  it('should create instances of Cards', function() {
+    expect(currentGame.currentRound.deck.cards[2]).is.an.instanceOf(Card);
+  });
+
+  it('should put instances of Cards in a Deck', function() {
+    expect(currentGame.currentRound.deck).is.an.instanceOf(Deck);
+  });
+
+  it('should create a new instance of Round using the Deck', function() {
+    expect(currentGame.currentRound).is.an.instanceOf(Round);
+  });
+
   it('currentRound should keep track of turns taken', function() {
     currentGame.currentRound.takeTurn('Incorrect guess', currentGame.currentRound.currentCard);
     currentGame.currentRound.takeTurn('array', currentGame.currentRound.currentCard);
@@ -24,7 +36,7 @@ describe('Game', function() {
     expect(currentGame.currentRound.turns).to.equal(3);
   });
 
-  it('the next card should become the current card in currentRound after a guess is made', function() {
+  it('should make the next card become the current card in currentRound after a guess is made', function() {
     currentGame.currentRound.takeTurn('This is a guess');
     expect(currentGame.currentRound.currentCard).to.deep.equal(currentGame.currentRound.deck.cards[1]);
   });
@@ -35,12 +47,12 @@ describe('Game', function() {
     expect(currentGame.currentRound.correctGuesses.length).to.equal(1);
   });
 
-  it('currentRound should store incorrect guesses in an array seperate from guesses with card id', function() {
+  it('currentRound should store incorrect guesses in an array separate from guesses with card id', function() {
     currentGame.currentRound.takeTurn('This is an incorrect guess');
     expect(currentGame.currentRound.incorrectGuesses.length).to.equal(1);
   });
 
-  it('currentRound should evaluate guesses and provide the user feedback on whether thier guess was correct or not', function() {
+  it('currentRound should evaluate guesses and provide the user feedback on whether their guess was correct or not', function() {
     const incorrectGuess = currentGame.currentRound.takeTurn('incorrect');
     const correctGuess = currentGame.currentRound.takeTurn('array');
     expect(incorrectGuess).to.equal(`incorrect!`);
@@ -54,24 +66,12 @@ describe('Game', function() {
     expect(currentGame.currentRound.calculatePercentCorrect()).to.equal(1/3);
   });
 
+// Is there a better way to test this console log?
+// Also, I'd like to prevent it from logging on the test result.
   it('currentRound should have a method that prints the a string to the console saying the round is over and the % of correctly answered questions', function() {
     currentGame.currentRound.takeTurn('Incorrect guess');
     currentGame.currentRound.takeTurn('array');
     currentGame.currentRound.takeTurn('Another incorrect guess');
     expect(currentGame.currentRound.endRound()).to.equal("** Round over! ** You answered 33% of the questions correctly!");
-  });
-
-  // These tests are testing the methods I broke out to test in the Game.start() method
-
-  it('should create instances of Cards', function() {
-    expect(currentGame.currentRound.deck.cards[2]).is.an.instanceOf(Card);
-  });
-
-  it('should put instances of Cards in a Deck', function() {
-    expect(currentGame.currentRound.deck).is.an.instanceOf(Deck);
-  });
-
-  it('should create a new instance of Round using the Deck', function() {
-    expect(currentGame.currentRound).is.an.instanceOf(Round);
   });
 });

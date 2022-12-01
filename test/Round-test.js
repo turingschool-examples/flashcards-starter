@@ -21,6 +21,11 @@ describe('Round', function() {
     expect(testRound.returnCurrentCard()).to.deep.equal(testData.cards[3])
   });
 
+  it('should return false if currentCard is undefined', function() {
+    testRound.currentCard = testData.cards[5];
+    expect(testRound.returnCurrentCard()).to.equal(false);
+  });
+
   it('should have a method to update turns count regardless of if the guess was correct', function() {
     testRound.takeTurn('Incorrect guess', testData.cards[0]);
     testRound.takeTurn('array', testData.cards[1]);
@@ -28,10 +33,9 @@ describe('Round', function() {
     expect(testRound.turns).to.equal(3);
   });
 
-  it('the next card should become the current card after a guess is made', function() {
+  it('should make the next card become the current card after a guess is made', function() {
     testRound.takeTurn('This is a guess', testData.cards[0]);
-
-    expect(testRound.currentCard).to.equal(testData.cards[1]);
+    expect(testRound.currentCard).to.deep.equal(testData.cards[1]);
   });
 
   it('should store correct guesses in an array with the card id', function() {
@@ -40,13 +44,13 @@ describe('Round', function() {
     expect(testRound.correctGuesses[0]).to.equal(3);
   });
 
-  it('should store incorrect guesses in an array seperate from guesses with card id', function() {
+  it('should store incorrect guesses in an array separate from guesses with card id', function() {
     testRound.currentCard = testData.cards[4];
     testRound.takeTurn('This is an incorrect guess');
     expect(testRound.incorrectGuesses[0]).to.equal(5);
   });
 
-  it('should evaluate guesses and provide the user feedback on whether thier guess was correct or not', function() {
+  it('should evaluate guesses and provide the user feedback on whether their guess was correct or not', function() {
     const incorrectGuess = testRound.takeTurn('incorrect');
     const correctGuess = testRound.takeTurn('array');
     expect(incorrectGuess).to.equal(`incorrect!`);
@@ -60,6 +64,8 @@ describe('Round', function() {
     expect(testRound.calculatePercentCorrect()).to.equal(1/3);
   });
 
+// Is there a better way to test this console log?
+// Also, I'd like to prevent it from logging on the test result.
   it('should have a method that prints the a string to the console saying the round is over and the % of correctly answered questions', function() {
     testRound.takeTurn('Incorrect guess');
     testRound.takeTurn('array');

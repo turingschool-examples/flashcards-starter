@@ -12,7 +12,7 @@ class Round {
     if (this.currentCard === undefined) {
       return false;
     } else {
-    return this.currentCard;
+      return this.currentCard;
     }
   };
 

@@ -31,7 +31,7 @@ describe('Turn', function() {
   });
 
   it('should have a method returnCard that returns the current Card', function () {
-    expect(newTurn.returnCard()).to.equal(card);
+    expect(newTurn.returnCard()).to.deep.equal(card);
   });
 
   it('should have a method evaluateGuess that compares the user guess to the correct answer on the current Card', function() {
