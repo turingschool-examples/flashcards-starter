@@ -11,31 +11,34 @@ class Game {
     this.deck
     this.cards
   }
-
   
-  start() {
-    
+  printQuestion(round) {
+    util.main(round);
   }
-
+  
   makeCards() {
     this.cards = prototypeQuestions.map(card => card = new Card(card.id, card. question, card.answers, card.correctAnswer))
   }
-
+  
   makeDeck() {
     this.deck = new Deck(this.cards)
   }
-
+  
+  printMessage(deck) {
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    -----------------------------------------------------------------------`)
+  }
+  
   startRound() {
     return this.round = new Round(this.deck)
   }
-
-  printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
-  }
-
-  printQuestion(round) {
-      util.main(round);
+    
+  start() {
+    this.makeCards()
+    this.makeDeck()
+    this.startRound()
+    this.printQuestion(this.round)
+    this.printMessage(this.deck)
   }
 }
 

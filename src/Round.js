@@ -8,7 +8,7 @@ class Round {
     this.turn;
   }
   returnCurrentCard() {
-    return this.deck.cards[0]
+    return this.deck.cards[this.turns]
   }
   takeTurn(guess) {
     this.turn = new Turn(guess, this.deck.cards[this.turns])
