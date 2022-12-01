@@ -116,7 +116,9 @@ describe ('Round', function() {
   })
 
   it.skip('should calculate overall correct answers', function() {
-    expect(round.calculatePercentCorrect()).to.equal(50)
+    const averageScore = round.calculatePercentCorrect()
+    
+    expect(averageScore).to.equal(50)
   })
 
 })
