@@ -8,6 +8,8 @@ const util = require('./util');
 class Game {
   constructor() {
     this.currentRound = Object.prototype;
+    this.cards = [];
+    this.deck = Object.prototype;
   }
 
   printMessage(deck, round) {
@@ -19,12 +21,11 @@ class Game {
       util.main(round);
   }
 
-  start() {
+  start(cardData) {
     // Needs to create Cards
     // This is going to be an array of objects that need to be instantiated as a class of
-    // Card for each element, thinking .map of .forEach will be needed here
+    // Card for each element, thinking .map of .forEach might be needed here
     // Card(id, question, answers, correctAnswer)
-    const cardData = prototypeQuestions;
     let newCards = cardData.map(card => {
       let newCard = new Card(card.id, card.question, card.answers, card.correctAnswer);
       return newCard;
@@ -44,6 +45,27 @@ class Game {
     // Must invoke printQuestion to kick off helper functions to allow CLI interaction
     this.printQuestion(newDeck, newRound);
   };
+
+// ---- Below this are methods from start() broken out for testing -----
+// Need to reflect all changes in start() above once tests are passing
+
+  createCards(cardData) {
+    let newCards = cardData.map(card => {
+      let newCard = new Card(card.id, card.question, card.answers, card.correctAnswer);
+      return newCard;
+    });
+    this.cards = newCards;
+  };
+
+  putCardsInDeck() {
+    this.deck = new Deck(this.cards);
+  };
+
+  createNewRound() {
+    const newRound = new Round(this.deck);
+    this.currentRound = newRound;
+  };
+
 };
 
 module.exports = Game;
