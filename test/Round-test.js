@@ -17,7 +17,6 @@ describe ('Round', function() {
     card3 = new Card (8, "What do iterator methods take in as their first argument?", ["callback function", "current element", "an array"], "callback function")
     deck = new Deck([card1, card2, card3])
     round = new Round(deck)
-   
   })
 
   it('should be a function', function() {

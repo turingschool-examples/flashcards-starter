@@ -19,7 +19,7 @@ class Round {
     if (turn.giveFeedback() === 'incorrect!') {
       this.incorrectGuesses.push(turn.currentCard.id)
     }
-    // this.returnCurrentCard()
+    
     this.currentCard = this.deck[this.turns]
     return turn.giveFeedback()
 
@@ -27,7 +27,13 @@ class Round {
 
   calculatePercentCorrect() {
     const correctAnswers = (this.incorrectGuesses.length/this.turns) * 100
-      return correctAnswers
+    this.endRound()  
+    return correctAnswers
+  }
+
+  endRound() {
+    const correctAnswers = (this.incorrectGuesses.length/this.turns) * 100
+    console.log(`You have answered ${correctAnswers}% correct!`)
   }
 }
 
