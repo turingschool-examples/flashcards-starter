@@ -66,12 +66,10 @@ describe('Game', function() {
     expect(currentGame.currentRound.calculatePercentCorrect()).to.equal(1/3);
   });
 
-// Is there a better way to test this console log?
-// Also, I'd like to prevent it from logging on the test result.
-  it('currentRound should have a method that prints the a string to the console saying the round is over and the % of correctly answered questions', function() {
+  it('should show round duration in only seconds if a user finishes the game in less than a minute', function() {
     currentGame.currentRound.takeTurn('Incorrect guess');
     currentGame.currentRound.takeTurn('array');
     currentGame.currentRound.takeTurn('Another incorrect guess');
-    expect(currentGame.currentRound.endRound()).to.equal("** Round over! ** You answered 33% of the questions correctly!");
+    expect(currentGame.currentRound.endRound()).to.equal("** Round over! ** You answered 33% of the questions correctly! Total round duration: 0 seconds");
   });
 });

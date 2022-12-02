@@ -63,13 +63,4 @@ describe('Round', function() {
     testRound.takeTurn('Another incorrect guess');
     expect(testRound.calculatePercentCorrect()).to.equal(1/3);
   });
-
-// Is there a better way to test this console log?
-// Also, I'd like to prevent it from logging on the test result.
-  it('should have a method that prints the a string to the console saying the round is over and the % of correctly answered questions', function() {
-    testRound.takeTurn('Incorrect guess');
-    testRound.takeTurn('array');
-    testRound.takeTurn('Another incorrect guess');
-    expect(testRound.endRound()).to.equal("** Round over! ** You answered 33% of the questions correctly!");
-  });
 });

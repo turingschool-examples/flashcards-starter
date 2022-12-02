@@ -8,7 +8,7 @@ const Deck = require('./Deck');
 class Game {
   constructor() {
     this.currentRound = Object.prototype;
-  }
+  };
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
@@ -23,10 +23,10 @@ class Game {
     let newCards = cardData.map(card => {
       return new Card(card.id, card.question, card.answers, card.correctAnswer);
     });
-
     let newDeck = new Deck(newCards);
     let newRound = new Round(newDeck);
     this.currentRound = newRound;
+    this.currentRound.startTime = Date.now();
   };
 
   start(cardData) {

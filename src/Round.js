@@ -6,6 +6,9 @@ class Round {
     this.turns = 0;
     this.correctGuesses = [];
     this.incorrectGuesses = [];
+    this.startTime = undefined;
+    this.endTime = undefined;
+    this.roundDuration = undefined;
   };
 
   returnCurrentCard() {
@@ -34,8 +37,18 @@ class Round {
 
   endRound() {
     let percentCorrect = this.calculatePercentCorrect().toFixed(2) * 100;
-    console.log(`** Round over! ** You answered ${percentCorrect}% of the questions correctly!`);
-    return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`;
+    let stopTimer = Date.now().toString();
+    this.endTime = Number(stopTimer);
+    this.roundDuration = Math.round((this.endTime - this.startTime) / 1000);
+    if (this.roundDuration < 60) {
+      console.log(`** Round over! ** You answered ${percentCorrect}% of the questions correctly! Total round duration: ${this.roundDuration} seconds`);
+      return `** Round over! ** You answered ${percentCorrect}% of the questions correctly! Total round duration: ${this.roundDuration} seconds`;
+    } else {
+      let secondsLeftOver = (this.roundDuration % 60);
+      let minutes = ((this.roundDuration / 60).toString()).charAt(0);
+      console.log(`** Round over! ** You answered ${percentCorrect}% of the questions correctly! Total round duration: ${minutes} minutes and ${secondsLeftOver} seconds`);
+      return `** Round over! ** You answered ${percentCorrect}% of the questions correctly! Total round duration: ${minutes} minutes and ${secondsLeftOver} seconds`;
+    }
   };
 };
 
