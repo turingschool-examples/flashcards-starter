@@ -24,8 +24,13 @@ class Round {
         return currentTurn.giveFeedback();
     }
 
+    endRound(){
+        console.log(`** Round over! **`);
+        console.log(`You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+    }
+
     calculatePercentCorrect(){
-        return ((this.incorrectGuesses.length / this.turns) * 100)
+        return (((this.turns - this.incorrectGuesses.length)/ this.turns) * 100).toFixed(0)
     }
 
 }
