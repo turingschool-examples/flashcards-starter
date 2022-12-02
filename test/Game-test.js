@@ -2,11 +2,8 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Game = require('../src/Game')
-const Round = require('../src/Round');
-const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
 const Card = require('../src/Card');
-const { prototype } = require('../src/Card');
+const { prototype } = require('../src/data');
 
 describe ('Game', function() {
   let game
@@ -15,41 +12,24 @@ describe ('Game', function() {
     game = new Game()
   })
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
 
     expect(Game).to.be.a('function')
   })
 
-  it.skip('should be an instance of a Game', function() {
+  it('should be an instance of a Game', function() {
 
     expect(game).to.be.an.instanceof(Game)
   })
   
-  it.skip('should be able to keep track of the current round', function() {
-    //new cards --> new decks & turn --> round = currentRound
-    // expect(game.currentRound).to.be.an.instanceof(Round)
-  })
-
-  it.skip('should have a way to start the game that creates new Cards', function() {
-    //taking in the cards to the the deck
-    // const startGame = game.start()
-      //hold new card from array of cards
-    //expect(game.current)
-  })
-
-  it.skip('should put the new cards into a deck', function() {
+  it('should be able to keep track of the current round', function() {
     
+    expect(game.currentRound).to.be.equal()
   })
 
-  it.skip('should play the deck into a new round', function() {
+  it('should have a way to start the game that creates new Cards', function() {
+    const startGame = game.start()
     
-  })
-
-  it.skip('should print message to display in the CLI-CommandLineInterface', function() {
-    
-  })
-
-  it.skip('should print questionnaires to display in and interact with the CLI-CommandLineInterface', function() {
-    
+    expect(game.currentRound.deck[0]).to.be.an.instanceof(Card)
   })
 })
