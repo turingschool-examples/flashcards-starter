@@ -238,7 +238,7 @@ describe('Round', function() {
 
         const percentCorrect = round.calculatePercentCorrect();
 
-        expect(percentCorrect).to.equal('25% correct');
+        expect(percentCorrect).to.equal(25);
     });
 
     // Test #14
@@ -260,7 +260,29 @@ describe('Round', function() {
 
         const percentCorrect = round.calculatePercentCorrect();
 
-        expect(percentCorrect).to.equal('50% correct');
+        expect(percentCorrect).to.equal(50);
     });
+
+    // Test #15
+
+    it('should return a end round message with percentage of correct answers', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        const card4 = new Card(prototypeData[3]);
+
+        const deck = new Deck([card1, card2, card3, card4]);
+        
+        const round = new Round(deck);
+
+        round.takeTurn('object');
+        round.takeTurn('array');
+        round.takeTurn('guess 3');
+        round.takeTurn('guess 4');
+
+        const roundOver = round.endRound();
+        
+        expect(roundOver).to.equal('**Round over!** You ansered 50% of the questions correctly!');
+    })
 
 });
