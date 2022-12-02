@@ -2,7 +2,6 @@ const chai = require('chai');
 const Card = require('../src/Card');
 const Deck = require('../src/deck');
 const data = require('../src/data');
-const Game = require('../src/Game');
 const expect = chai.expect;
 
 describe("Deck", () => {

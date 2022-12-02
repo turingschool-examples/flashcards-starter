@@ -7,5 +7,4 @@ class Deck {
         return this.deck.length;
     }
 }
-
 module.exports = Deck;

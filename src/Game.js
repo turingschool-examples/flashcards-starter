@@ -32,5 +32,4 @@ class Game {
     util.main(round);
   }
 }
-
 module.exports = Game;

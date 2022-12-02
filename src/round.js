@@ -32,7 +32,5 @@ class Round {
     calculatePercentCorrect(){
         return (((this.turns - this.incorrectGuesses.length)/ this.turns) * 100).toFixed(0)
     }
-
 }
-
 module.exports = Round;

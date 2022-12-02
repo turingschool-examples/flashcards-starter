@@ -20,7 +20,7 @@ describe('Game', () => {
 
         expect(newGame.currentDeck).to.equal(null);
         expect(newGame.currentRound).to.equal(null);
-    })
+    });
 
     it('Should instantiate a new instance of Deck', () => {
         const newGame = new Game();
@@ -28,7 +28,7 @@ describe('Game', () => {
         newGame.initializeGame();
         
         expect(newGame.currentDeck).to.be.an.instanceOf(Deck);
-    })
+    });
 
     it('Should instantiate a new instance of Round', () => {
         const newGame = new Game();
@@ -36,5 +36,5 @@ describe('Game', () => {
         newGame.initializeGame();
 
         expect(newGame.currentRound).to.be.an.instanceOf(Round);
-    })
+    });
 });
