@@ -4,7 +4,7 @@ class Round {
     constructor(deck) {
         this.deck = deck;
         this.turns = 0;
-        this.IncorrectGuesses = [];
+        this.incorrectGuesses = [];
     }
 
     returnCurrentCard() {
@@ -15,7 +15,7 @@ class Round {
         const turn = new Turn(guess, this.returnCurrentCard())
         const feedback = turn.giveFeedback();
         if(!turn.evaluateGuess()) {
-            this.IncorrectGuesses.push(this.returnCurrentCard().id)
+            this.incorrectGuesses.push(this.returnCurrentCard().id)
         }
     this.turns += 1;
     return feedback;
@@ -26,7 +26,7 @@ class Round {
     }
 
     correctGuesses() {
-        return this.turns - this.IncorrectGuesses.length
+        return this.turns - this.incorrectGuesses.length
     }
 
     endRound() {
