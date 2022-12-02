@@ -23,6 +23,12 @@ class Round {
         this.currentCardCount ++;
         return newTurn.giveFeedback();
     }
+    calculatePercentCorrect() {
+        const incorrectGuesses = this.incorrectGuesses.length;
+        const correctGuesses = this.turns - incorrectGuesses;
+        const percentCorrect = (correctGuesses / this.turns) * 100;
+        return `${percentCorrect}% correct`;
+    }
 }
 
 module.exports = Round;

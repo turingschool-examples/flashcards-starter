@@ -164,7 +164,7 @@ describe('Round', function() {
         expect(round.incorrectGuesses).to.deep.equal([prototypeData[0]]);
     });
 
-    // Test #11
+    // Test #10
 
     it('should store multiple incorrect guesses', function() {
         const card1 = new Card(prototypeData[0]);
@@ -185,6 +185,8 @@ describe('Round', function() {
         expect(round.incorrectGuesses).to.deep.equal([prototypeData[0], prototypeData[1], prototypeData[2]]);
     });
 
+    // Test #11
+
     it('should return correct if guess is correct', function() {
         const card1 = new Card(prototypeData[0]);
         const card2 = new Card(prototypeData[1]);
@@ -200,6 +202,8 @@ describe('Round', function() {
         expect(feedback).to.equal('correct');
     });
 
+    // Test #12
+
     it('should return incorrect if guess is incorrect', function() {
         const card1 = new Card(prototypeData[0]);
         const card2 = new Card(prototypeData[1]);
@@ -214,4 +218,49 @@ describe('Round', function() {
 
         expect(feedback).to.equal('incorrect');
     })
+
+    // Test #13
+
+    it('should return percentage of correct guesses', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        const card4 = new Card(prototypeData[3]);
+
+        const deck = new Deck([card1, card2, card3, card4]);
+        
+        const round = new Round(deck);
+
+        round.takeTurn('object');
+        round.takeTurn('guess 2');
+        round.takeTurn('guess 3');
+        round.takeTurn('guess 4');
+
+        const percentCorrect = round.calculatePercentCorrect();
+
+        expect(percentCorrect).to.equal('25% correct');
+    });
+
+    // Test #14
+
+    it('should return a different percentage of correct guesses', function() {
+        const card1 = new Card(prototypeData[0]);
+        const card2 = new Card(prototypeData[1]);
+        const card3 = new Card(prototypeData[2]);
+        const card4 = new Card(prototypeData[3]);
+
+        const deck = new Deck([card1, card2, card3, card4]);
+        
+        const round = new Round(deck);
+
+        round.takeTurn('object');
+        round.takeTurn('array');
+        round.takeTurn('guess 3');
+        round.takeTurn('guess 4');
+
+        const percentCorrect = round.calculatePercentCorrect();
+
+        expect(percentCorrect).to.equal('50% correct');
+    });
+
 });
