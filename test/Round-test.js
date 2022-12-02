@@ -95,7 +95,7 @@ describe('Round', () => {
 
         expect(currentCard).to.equal(card3);
     });
-
+    
     it('Should be able to return the current correct answer percentage', () => {
         let round1 = new Round(deck1);
 
@@ -103,6 +103,6 @@ describe('Round', () => {
         round1.takeTurn('spleen');
         let percentCorrect = round1.calculatePercentCorrect();
 
-        expect(percentCorrect).to.equal(50);
+        expect(percentCorrect).to.equal('50');
     });
 });
