@@ -25,23 +25,26 @@ describe ('Turn', function() {
   })
 
   it('should take the user\'s attempt', function() {
+    const userGuess = turn.returnGuess()
 
-    expect(turn.returnGuess()).to.equal('iterators')
+    expect(userGuess).to.equal('iterators')
   })
 
   it('should have a method that takes in a new Card', function() {
+    const questionCard = turn.returnCard()
 
-    expect(turn.returnCard()).to.equal(card)
+    expect(questionCard).to.equal(card)
   })
 
   it('should evaluate if the user\'s guess matches the correct answer' , function() {
+    const evaluateAnswer = turn.evaluateGuess()
 
-    expect(turn.evaluateGuess()).to.equal(false)
+    expect(evaluateAnswer).to.equal(false)
   })
 
   it('should provide a feedback based on the attempted answer', function() {
+    const feedback = turn.giveFeedback()
 
-    expect(turn.giveFeedback()).to.equal('incorrect!')
+    expect(feedback).to.equal('incorrect!')
   })
-
 })

@@ -1,7 +1,6 @@
 const data = require('./data');
 const Round = require('../src/Round');
 const Deck = require('../src/Deck');
-
 const Card = require('../src/Card');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
