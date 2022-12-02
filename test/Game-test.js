@@ -4,20 +4,19 @@ const expect = chai.expect
 const Round = require('../src/Round.js')
 
 describe('Game', function () {
+    beforeEach(() => {
+        game = new Game()
+})
 it('Should have currentRound', function () {
-    const game = new Game()
     expect(game).to.have.property('currentRound')
 })
 it('Should have a start method', function () {
-    const game = new Game()
     expect(game.start).to.be.a('function')
 })
 it('Should have a function to set up deck and round', function () {
-    const game = new Game()
     expect(game.setUpFunctions).to.be.a('function')
 })
 it('Should create an instance of Deck and Round', function () {
-    const game = new Game()
     expect(game).to.not.have.property('round')
     expect(game).to.not.have.property('deck')
     game.setUpFunctions()
