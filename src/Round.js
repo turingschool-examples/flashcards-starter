@@ -1,13 +1,15 @@
 const Turn = require("./Turns")
 
 class Round{
-    constructor(){
+    constructor(newTurn){
+        this.newTurn = newTurn
         this.incorrectGuesses = []
         this.turnCount = 0
 
     }
     // method that returns the current card being played
     returnCurrentCard(){
+        return Turn.newCard
 
     } 
     
@@ -17,14 +19,15 @@ class Round{
         Turn.evaluateGuess()
         Turn.giveFeedback()
         if(Turn.correct === false){
-            this.incorrectGuesses.push(Card.id)
+            this.incorrectGuesses.push(Turn.newCard.id)
         }
         
     }
     
     //method that calculates and returns the percentage of correct guesses
     calculatePercentCorrect(){
-        return this.turnCount / this.incorrectGuesses.length
+        winCount = this.turnCount - this.incorrectGuesses.length
+        return (winCount / this.turnCount) * 100 
     }
 
 

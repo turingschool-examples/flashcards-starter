@@ -10,4 +10,10 @@ describe('Deck', () => {
         let deck = new Deck()
         expect(deck).to.be.an.instanceof(Deck)
       })
+
+      it('should return card count', () => {
+        let card = new Card(1, 'whats my name', ['john' ,'katie','joe'],'john')
+        let deck = new Deck([card])
+        expect(deck.countCards()).to.equal(1)
+      })
 })

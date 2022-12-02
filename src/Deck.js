@@ -1,4 +1,3 @@
-const Card = require("./Card")
 
 class Deck{
     constructor(cards){
