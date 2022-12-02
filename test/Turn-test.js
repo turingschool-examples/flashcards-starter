@@ -62,6 +62,5 @@ describe('Turn', () => {
     const newTurn1 = new Turn('sea otter', newCard);
     newTurn1.giveFeedBack();
     expect(newTurn1.giveFeedBack()).to.equal('correct!');
-  })
-
+  });
 });

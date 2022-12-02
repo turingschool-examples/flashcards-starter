@@ -76,5 +76,4 @@ describe('Round', () => {
     newRound.calculatePercentCorrect();
     expect(newRound.endRound()).to.equal('** Round over!** You answered 66% of the questions correctly!');
   });
-
 });

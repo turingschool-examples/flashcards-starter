@@ -29,7 +29,7 @@ describe('Game', () => {
     }];
     newDeck = new Deck(miniPrototypeData);
     newRound = new Round(newDeck);
-    newGame = new Game()
+    newGame = new Game();
 
   });
 
@@ -66,7 +66,7 @@ describe('Game', () => {
         answers: [ 'mutator method', 'accessor method', 'iteration method' ],
         correctAnswer: 'mutator method'
       }
-    ])
+    ]);
   });
 
   it('should put cards in a deck', () => {

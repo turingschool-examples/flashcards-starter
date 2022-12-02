@@ -14,7 +14,7 @@ class Game {
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+-----------------------------------------------------------------------`);
   }
 
   printQuestion(round) {
@@ -28,15 +28,15 @@ class Game {
   }
 
   instatiateClasses() {
-    this.cards = this.createCards(prototypeQuestions)
+    this.cards = this.createCards(prototypeQuestions);
     this.deck = new Deck(this.cards);
     this.currentRound = new Round(this.deck);
   }
 
   createCards(prototypeCards) {
     return prototypeCards.map(property => {
-      return new Card(property.id, property.question, property.answers, property.correctAnswer)
-    })
+      return new Card(property.id, property.question, property.answers, property.correctAnswer);
+    });
   }
 
 }
