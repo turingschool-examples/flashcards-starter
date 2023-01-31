@@ -64,19 +64,19 @@ describe('Turn', () => {
 
     it('should return correct if the guess was correct', () => {
         turn = new Turn("object", card);
-        expect(turn.giveFeedback()).to.equal('correct');
+        expect(turn.giveFeedback()).to.equal('correct!');
     });
 
     it('should return incorrect if the guess was not correct', () => {
-        expect(turn.giveFeedback()).to.equal('incorrect');
+        expect(turn.giveFeedback()).to.equal('incorrect!');
     });
 
     it('should return incorrect if the guess was not one of the possible answers', () => {
         turn = new Turn('💩', card);
-        expect(turn.giveFeedback()).to.equal('incorrect');
+        expect(turn.giveFeedback()).to.equal('incorrect!');
 
         turn = new Turn(8, card);
-        expect(turn.giveFeedback()).to.equal('incorrect');
+        expect(turn.giveFeedback()).to.equal('incorrect!');
 
     })
 

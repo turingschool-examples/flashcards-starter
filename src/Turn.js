@@ -14,10 +14,10 @@ class Turn {
     }
     giveFeedback() {
         if (this.evaluateGuess()) {
-            return 'correct';
+            return 'correct!';
         }
         else {
-            return 'incorrect';
+            return 'incorrect!';
         }
     }
 }
