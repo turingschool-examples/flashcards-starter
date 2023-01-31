@@ -38,8 +38,16 @@ describe('Turn', () => {
   it('should check if guess matches answer', () => {
     expect(turn.evaluateGuess()).to.equal(true);
 
-    turn.guess = 'rat'
+    turn.guess = 'rat';
 
     expect(turn.evaluateGuess()).to.equal(false);
+  });
+
+  it('should give feedback if the answer is right or wrong', () => {
+    expect(turn.giveFeedBack()).to.equal('correct!');
+
+    turn.guess = 'rat';
+
+    expect(turn.giveFeedBack()).to.equal('incorrect!');
   });
 });
