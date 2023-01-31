@@ -23,7 +23,7 @@ describe('Turn', () => {
     expect(turn.guess).to.equal('capybara');
   });
 
-  it('should have a card', () => {
+  it('should have an instance of card', () => {
     expect(turn.card).to.be.an.instanceOf(Card);
     expect(turn.card).to.deep.equal({
       id: 1,
@@ -34,11 +34,16 @@ describe('Turn', () => {
   });
 
   it('should return the guess', () => {
-    expect(turn.returnGuess()).to.equal(turn.guess);
+    expect(turn.returnGuess()).to.equal('capybara');
   });
 
   it('should return the card', () => {
-    expect(turn.returnCard()).to.equal(turn.card);
+    expect(turn.returnCard()).to.deep.equal({
+      id: 1,
+      question: 'What is the best rodent?',
+      answers: ['rat', 'chipmunk', 'capybara'],
+      correctAnswer: 'capybara'
+    });
   });
 
   it('should check if guess matches answer', () => {
