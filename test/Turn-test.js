@@ -71,6 +71,15 @@ describe('Turn', () => {
         expect(turn.giveFeedback()).to.equal('incorrect');
     });
 
+    it('should return incorrect if the guess was not one of the possible answers', () => {
+        turn = new Turn('💩', card);
+        expect(turn.giveFeedback()).to.equal('incorrect');
+
+        turn = new Turn(8, card);
+        expect(turn.giveFeedback()).to.equal('incorrect');
+
+    })
+
 });
 
 //what if user inputs an emoji for their guess?
