@@ -11,8 +11,8 @@ describe('Deck', () => {
     card1 = new Card(1, 'What is Joe\'s favorite color?', ['orange', 'purple', 'yellow', 'red'], 'orange');
     card2 = new Card(2, 'What is the capital of Pennsylvania?', ['Idaho', 'Pittsburgh', 'Harrisburg', 'Paris'], 'Harrisburg');
     card3 = new Card(3, 'Can you not?', ['NO WAY', 'Maybe??', 'YEP', 'A little'], 'YEP');
-    card4 = new Card(4, 'What is Joe\'s favorite color?', ['orange', 'purple', 'yellow', 'red'], 'orange');
-    card5 = new Card(5, 'What is Joe\'s favorite color?', ['orange', 'purple', 'yellow', 'red'], 'orange');
+    card4 = new Card(4, 'How old is Joe?', [15, 29, 42, 20], 29);
+    card5 = new Card(5, 'Where does Joe live?', ['Philadelphia', 'Pittsburgh', 'Harrisburg', 'Paris'], 'Philadelphia');
 
     let cards = [card1, card2, card3, card4, card5];
 
