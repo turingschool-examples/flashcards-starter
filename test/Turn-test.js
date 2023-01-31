@@ -24,11 +24,11 @@ describe("Turn", () => {
     expect(turn.guess).to.equal('sea otter');
   });
   
-  it("should have a method that returns the guess", () => {
-    expect(turn.returnGuess()).to.equal('sea otter');
-  })
+  it("should have a method that returns the player's guess", () => {
+    expect(turn.returnGuess()).to.equal("sea otter");
+  });
   
-  it("should have a method that returns the card", () => {
+  it("should have a method that returns the card object", () => {
     expect(turn.returnCard()).to.equal(card);
   });
   
@@ -36,14 +36,18 @@ describe("Turn", () => {
     expect(turn.evaluateGuess()).to.equal(true);
     
   });
-  it("should have a method that returns if the answer is correct", () => {
-    expect(turn.giveFeedback()).to.equal("correct!")
-    
+  it("should have a method that returns a boolean indicating if the user's guess is incorrect", () => {
+    incorrectTurn = new Turn("pug", card);
+    expect(turn.evaluateGuess()).to.equal(true);
   });
+
+  it("should have a method that returns if the answer is correct", () => {
+    expect(turn.giveFeedback()).to.equal("correct!") 
+  });
+  
   it("should have a method that returns if the answer is incorrect", () => {
     const incorrectTurn = new Turn("pug", card)
-    expect(incorrectTurn.giveFeedback()).to.equal("incorrect!");
-    
+    expect(incorrectTurn.giveFeedback()).to.equal("incorrect!"); 
   });
   
 });
