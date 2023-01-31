@@ -34,4 +34,12 @@ describe('Turn', () => {
   it('should return the card', () => {
     expect(turn.returnCard()).to.equal(turn.card);
   });
+
+  it('should check if guess matches answer', () => {
+    expect(turn.evaluateGuess()).to.equal(true);
+
+    turn.guess = 'rat'
+
+    expect(turn.evaluateGuess()).to.equal(false);
+  });
 });
