@@ -12,7 +12,7 @@ class Turn {
     return this.card
   }
 
-  eveluateGuess() {
+  evaluateGuess() {
     if (this.guess === this.card.correctAnswer) {
       return true
     } else {
@@ -21,7 +21,7 @@ class Turn {
   }
 
   giveFeedback() {
-    if (Turn.eveluateGuess() === true) {
+    if (this.evaluateGuess()) {
       return 'Correct!'
     } else {
       return 'Incorrect!'
