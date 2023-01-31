@@ -39,16 +39,16 @@ describe('Turn', () => {
     expect(turn.evaluateGuess(card)).to.equal(true);
   });
   
-  if('should give feedback when the asnwer is incorrect', () => {
+  it('should give feedback for the asnwer', () => {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn1 = new Turn('pug', card);
+    const turn1 = new Turn('pug', card1);
     
     turn1.evaluateGuess(card1);
     
     expect(turn1.giveFeedback()).to.equal('Incorrect!');
 
     const card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const turn2 = new Turn('pug', card2);
+    const turn2 = new Turn('sea otter', card2);
 
     turn2.evaluateGuess(card2);
     

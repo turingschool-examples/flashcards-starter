@@ -22,7 +22,7 @@ class Turn {
   }
 
   giveFeedback() {
-    if(this.correctAnswer) {
+    if(this.isCorrect) {
       return 'Correct!';
     } else {
       return 'Incorrect!';
