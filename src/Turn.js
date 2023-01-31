@@ -5,19 +5,27 @@ class Turn {
   }
 
   returnGuess() {
-    //userGuess
+    return this.guess
   }
   
   returnCard() {
-    //object
+    return this.card
   }
 
   eveluateGuess() {
-    //true or false
+    if (this.guess === this.card.correctAnswer) {
+      return true
+    } else {
+      return false
+    }
   }
 
   giveFeedback() {
-    //correct or incorrect
+    if (Turn.eveluateGuess() === true) {
+      return 'Correct!'
+    } else {
+      return 'Incorrect!'
+    }
   }
 }
 
