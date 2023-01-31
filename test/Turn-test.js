@@ -26,4 +26,12 @@ describe('Turn', () => {
   it('should have an instance of Card', () => {
     expect(turn.card).to.be.an.instanceOf(Card);
   });
+
+  it('should return the guess', () => {
+    expect(turn.returnGuess()).to.equal(turn.guess);
+  });
+
+  it('should return the card', () => {
+    expect(turn.returnCard()).to.equal(turn.card);
+  });
 });
