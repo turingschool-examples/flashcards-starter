@@ -1,7 +1,7 @@
 const chai = require('chai');
-const Card = require('../src/Card');
 const expect = chai.expect;
 
+const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe('Turn', () => {
@@ -13,10 +13,6 @@ describe('Turn', () => {
     card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     turn = new Turn('sea otter', card);
   })
-
-  it('should be a function', () => {
-    expect(Turn).to.be.a('function');
-  });
 
   it('should be an instance of turn', () => {
     expect(turn.guess).to.equal('sea otter');
@@ -34,8 +30,19 @@ describe('Turn', () => {
   it('should check if the guess is correct', () => {
     expect(turn.evaluateGuess(card)).to.equal(true);
   });
+
+  it('should check if the guess is inncorrect', () => {
+    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    turn = new Turn('pug', card);
+    expect(turn.evaluateGuess(card)).to.equal(false);
+  })
   
-  it('should give feedback for the asnwer', () => {
+  it('should give feedback for correct answer', () => {
+    turn.evaluateGuess(card);
+    expect(turn.giveFeedback()).to.equal('Correct!');
+  });
+
+  it('should give feedback for the incorrect asnwer', () => {
     card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     turn = new Turn('pug', card);
     

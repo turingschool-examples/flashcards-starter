@@ -1,8 +1,8 @@
 class Card {
-  constructor(cardNumber, question, answers, correctAnswer) {
-    this.id = cardNumber;
+  constructor(cardId, question, possibleAnswers, correctAnswer) {
+    this.id = cardId;
     this.question = question;
-    this.answers = answers;
+    this.answers = possibleAnswers;
     this.correctAnswer = correctAnswer;
   }
 }
