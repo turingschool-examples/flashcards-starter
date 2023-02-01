@@ -28,7 +28,7 @@ it('should have a guess and card', function () {
     assert.equal(turn3.guess, 'sea otter');
     assert.deepEqual(turn.card, card);
     assert.deepEqual(turn2.card, card2);
-    assert.deepEqual(turn3.card, card2);
+    assert.deepEqual(turn3.card, card3);
 });
 });
     
@@ -45,9 +45,6 @@ it('should return a guess', function() {
     assert.equal(turn.guess, 'pug');
     assert.equal(turn2.guess, 'capybara');
     assert.equal(turn3.guess, 'sea otter');
-    assert.deepEqual(turn.card, card);
-    assert.deepEqual(turn2.card, card2);
-    assert.deepEqual(turn3.card, card3);
     turn.returnGuess('pug');
     turn.returnGuess('capybara')
     turn.returnGuess('sea otter');
@@ -102,9 +99,6 @@ it('should return answer of correct! or incorrect!', function() {
     assert.equal(turn.guess, 'pug');
     assert.equal(turn2.guess, 'capybara');
     assert.equal(turn3.guess, 'sea otter');
-    assert.deepEqual(turn.card, card);
-    assert.deepEqual(turn2.card, card2);
-    assert.deepEqual(turn3.card, card2);
     turn.evaluateGuess(false)
     turn2.evaluateGuess(true)
     turn3.evaluateGuess(false)
