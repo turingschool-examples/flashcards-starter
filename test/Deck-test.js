@@ -24,6 +24,12 @@ describe('Deck', function() {
     expect(deck).to.be.an.instanceof(Deck);
   })
 
+  it('should hold an array', function() {
+    expect(deck.deck).to.be.a('array')
+  })
+
+  
+
   it('should be able to count how many cards in the deck', function() {
     var cardLength = deck.countCards()
     expect(cardLength).to.equal(3)
