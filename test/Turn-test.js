@@ -41,13 +41,19 @@ describe('Turn', () => {
         expect(turn.returnCard()).to.deep.equal(card);
     });
 
-    it('should be able to evaluate a guess', () => {
+    it('should be able to evaluate a correct guess', () => {
         expect(turn.evaluateGuess()).to.equal(true);
-        expect(incorrectTurn.evaluateGuess()).to.equal(false);
     });
 
-    it('should be able to give feedback on a guess', () => {
+    it('should be able to evaluate an incorrect guess', () => {
+        expect(incorrectTurn.evaluateGuess()).to.equal(false);
+    });
+    
+    it('should be able to give feedback on a correct guess', () => {
         expect(turn.giveFeedback()).to.equal('correct!')
+    });
+
+    it('should be able to give feedback on an incorrect guess', () => {
         expect(incorrectTurn.giveFeedback()).to.equal('incorrect!')
     });
 });
