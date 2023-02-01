@@ -41,8 +41,67 @@ describe('Deck', function() {
   });  
 
   it('should be able to take a turn', () => {
+    expect(round.turns).to.equal(0);
+
+    round.takeTurn("guess")
+
+    expect(round.turns).to.equal(1);
+    expect(round.userTurn).to.be.an.instanceof(Turn);
+  });  
+
+  it('should be able to guess INCORRECTLY', () => {
+    expect(round.turns).to.equal(0);
+
     round.takeTurn("guess")
 
     expect(round.userTurn).to.be.an.instanceof(Turn);
-  });  
+    expect(round.turns).to.equal(1);
+    expect(round.userTurn.match).to.equal(false);
+  }); 
+
+  it('should be able to save cards that were answered incorrectly', () => {
+    expect(round.turns).to.equal(0);
+    expect(round.incorrectGuesses).to.deep.equal([]);
+
+    round.takeTurn("guess")
+
+    expect(round.turns).to.equal(1);
+    expect(round.userTurn.match).to.equal(false);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  }); 
+
+  it('should be able to guess CORRECTLY', () => {
+    expect(round.turns).to.equal(0);
+    expect(round.incorrectGuesses).to.deep.equal([]);
+
+    round.takeTurn("sea otter")
+
+    expect(round.turns).to.equal(1);
+    expect(round.userTurn.match).to.equal(true);
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  }); 
+
+  it('should be able to guess CORRECTLY', () => {
+    round.takeTurn("sea otter")
+    round.takeTurn("bad guess 1")
+    round.takeTurn("bad guess 2")
+
+    expect(round.incorrectGuesses).to.deep.equal([14, 12]);
+    expect(round.calculatePercentCorrect()).to.equal(100);
+    expect(round.turns).to.equal(3);
+  }); 
+
+  it('should be able to end round and let user know their score', () => {
+    round.takeTurn("sea otter")
+    round.takeTurn("bad guess")
+    round.takeTurn("Fitzgerald")
+
+    expect(round.incorrectGuesses).to.deep.equal([14]);
+    expect(round.calculatePercentCorrect()).to.equal(50);
+    expect(round.turns).to.equal(3);
+
+    expect(round.endRound()).to.equal("** Round over! ** You answered 50% of the questions correctly!")
+
+  }); 
+
 });

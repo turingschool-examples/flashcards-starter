@@ -5,7 +5,7 @@ class Round {
     this.deckStack = deckObj
     this.turns = 0
     this.currentCard
-    this.userGuess
+    this.userTurn
     this.incorrectGuesses = []
   }
   returnCurrentCard(){
@@ -15,20 +15,12 @@ class Round {
   takeTurn(guess){
     this.currentCard = this.returnCurrentCard()
     this.userTurn = new Turn(guess, this.currentCard);
-    console.log("new Turn ins", this.userTurn)
-    console.log("turns before", this.turns);
     this.turns++ 
-    console.log("turns after",this.turns);
-    this.returnCurrentCard()
-    this.userTurn.evaluateGuess()
-    if(this.userTurn.evaluateGuess() === true){
-      this.userTurn.giveFeedback()
-    } else {
-      this.userTurn.giveFeedback()
-      console.log("incorrect before", this.incorrectGuesses)
+    if(!this.userTurn.evaluateGuess()){
       this.incorrectGuesses.push(this.currentCard.id)
-      console.log("incorrect after", this.incorrectGuesses)
     }
+    this.returnCurrentCard()
+    this.userTurn.giveFeedback()
   }
   calculatePercentCorrect(){
     return this.incorrectGuesses.length * 50
