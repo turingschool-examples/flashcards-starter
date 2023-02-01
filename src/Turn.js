@@ -24,7 +24,7 @@ class Turn {
   giveFeedback() {
     if(this.isCorrect) {
       return 'Correct!';
-    } else {
+    } else if(!this.isCorrect) {
       return 'Incorrect!';
     }
   }
