@@ -4,9 +4,10 @@ const expect = chai.expect;
 const Card = require("../src/Card");
 const Deck = require("../src/Deck");
 
-describe('Deck', function() {
+describe('Deck', () => {
   it('should be a function', function() {
-    expect(Deck).to.be.a('function');
+    
+      expect(Deck).to.be.a('function');
   });
   it("should hold an array of cards", function () {
       const card1 = new Card(1,"What is Robbie's favorite animal",["sea otter", "pug", "capybara"],"sea otter");
