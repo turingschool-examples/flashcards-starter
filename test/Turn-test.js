@@ -44,6 +44,4 @@ describe('Turn', () => {
     turn.guess = 'orange';
     expect(turn.giveFeedback()).to.equal('correct!');
   });
-
-
 });

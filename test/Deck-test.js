@@ -19,11 +19,11 @@ describe('Deck', () => {
     deck = new Deck(cards)
   });
 
-  it ('should be an instance of Deck', () => {
+  it('should be an instance of Deck', () => {
     expect(deck).to.be.an.instanceOf(Deck);
   });
 
-  it ('should accept an array of cards as an argument', () => {
+  it('should accept an array of cards as an argument', () => {
     expect(deck.cards[0]).to.deep.equal(card1);
     expect(deck.cards[1]).to.deep.equal(card2);
     expect(deck.cards[4]).to.deep.equal(card5);
