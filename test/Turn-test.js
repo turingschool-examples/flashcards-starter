@@ -68,4 +68,29 @@ describe('Turn', function() {
 
   });
 
+  it('should be able to tell user if they NOT correct', () => {
+    expect(turn.match).to.be.null
+
+    const checkAnswer = turn.evaluateGuess()
+    const tellUser = turn.giveFeedback()
+
+    expect(checkAnswer).to.equal(false);
+    expect(turn.match).to.equal(false);
+    expect(tellUser).to.be.a('string');
+    expect(tellUser).to.equal('incorrect!');
+  });
+
+  it('should be able to tell user if they ARE correct', () => {
+    turn = new Turn('sea otter', card)
+
+    expect(turn.match).to.be.null
+
+    const checkAnswer = turn.evaluateGuess()
+    const tellUser = turn.giveFeedback()
+    
+    expect(checkAnswer).to.equal(true);
+    expect(turn.match).to.equal(true);
+    expect(tellUser).to.equal('correct!');
+  });
+  
 });
