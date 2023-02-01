@@ -7,7 +7,7 @@ const Card = require('../src/Card');
 
 
 describe('Round', () => {
-  let round, deck, card1, card2, card3, card4, card5;
+  let round, deck, card1, card2, card3, card4, card5, cards;
 
   beforeEach(() => {
     card1 = new Card(1, 'What is Joe\'s favorite color?', ['orange', 'purple', 'yellow', 'red'], 'orange');
