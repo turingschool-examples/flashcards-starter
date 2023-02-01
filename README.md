@@ -1,71 +1,33 @@
-# FlashCards Starter Kit
+# JS Prototype Flash Cards
 
-## Fork This Repo
+## Abstract:
+[//]: <>
+I built a terminal-based flashcards application that allows the user to cycle through JS Prototype-related questions, ultimately delivering their score at the end of the round. The goal of this project was to use TDD (Test Driven Development) to write tests using Mocha/Chai, and then create class-functionality to successfully pass those tests.
 
-On the top right corner of this page, click the **Fork** button.
+## Installation Instructions:
+[//]: <> 
+1. Fork and clone [this repo](https://github.com/jfogiato/flashcards)
+1. Copy the SSH key from the green "Code" button within the repo.
+1. In your terminal, use the command `git clone git@github.com:[the link to your repo]`.
+1. Open the repo in your text editor to make any changes or inspect code.
+1. Use `node index.js` to open the app in your terminal.
 
-## Setup
+## Preview of App:
+[//]: <> 
+![gif](gif link)
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+## Context:
+[//]: <> 
+This project was the first solo project of Mod 2 at Turing. We were given an overview of what the application was intended to do, as well as a dataset and files to enable our application to run in the terminal. From there, we were tasked with building out classes and class tests to test functionality without running the application. This project took about 4 hours to complete.
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+## Contributors:
+[//]: <> 
+[Joseph 'Joe' Fogiato](https://github.com/jfogiato)
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+## Learning Goals:
+[//]: <> 
+The goal of this project was to utilize TDD to write unit & class-to-class tests prior to actually writing functional code. 
 
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
+## Wins + Challenges:
+[//]: <>
 
