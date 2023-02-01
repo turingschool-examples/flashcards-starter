@@ -2,6 +2,7 @@ class Round {
   constructor(deckObject) {
     this.deck = deckObject
     this.currentCard = deckObject.deck[0]
+    console.log(deckObject.deck[0])
     this.turns = 0
     this.incorrectGuesses = []
   }
@@ -10,9 +11,15 @@ class Round {
     return this.currentCard
   }
 
-  takeTurn() {
-    return this.turns += 1
+  takeTurn(userGuess, cardObject) {
+    this.turns += 1
+    var newTurn = new Turn(userGuess, cardObject)
+    if (newTurn.evaluateGuess()) {
+    
+  } else {
+    this.incorrectGuesses.push(userGuess) 
   }
+}
 
   calculatePercentCorrect() {
 
