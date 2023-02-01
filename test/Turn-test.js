@@ -38,4 +38,34 @@ describe('Turn', function() {
     expect(showGuess).to.be.a('string');
     expect(showGuess).to.equal('pug');
   });
+
+  it('should be able to show current card', () => {
+    const showCard = turn.returnCard()
+
+    expect(showCard).to.be.an('object');
+    expect(showCard.answers).to.deep.equal(['sea otter', 'pug', 'capybara']);
+  });
+  
+  it('should be able to determine if user guess is NOT correct', () => {
+    const checkAnswer = turn.evaluateGuess()
+
+    expect(checkAnswer).to.be.a('boolean');
+    expect(checkAnswer).to.equal(false);
+    expect(card.correctAnswer).to.equal('sea otter');
+    expect(turn.guess).to.equal('pug');
+    expect(turn.match).to.equal(false);
+  });
+
+  it('should be able to determine if user guess IS correct', () => {
+    turn = new Turn('sea otter', card)
+    const checkAnswer = turn.evaluateGuess()
+
+    expect(checkAnswer).to.be.a('boolean');
+    expect(checkAnswer).to.equal(true);
+    expect(card.correctAnswer).to.equal('sea otter');
+    expect(turn.guess).to.equal('sea otter');
+    expect(turn.match).to.equal(true);
+
+  });
+
 });
