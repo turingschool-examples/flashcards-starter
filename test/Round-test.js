@@ -50,33 +50,36 @@ it('should return the current card in play', function() {
 })
 
 it('should update turns', function() {
-  round.takeTurn()
+  round.takeTurn('object')
   expect(round.turns).to.equal(1)
 })
 
 it('should return correct for a correct guess', function() {
-  round.takeTurn()
-  expect().to.equal()
+  expect(round.takeTurn('object')).to.equal('Correct!')
 })
 
 it('should return incorrect for an incorrect guess', function() {
-  round.takeTurn()
+  expect(round.takeTurn('array')).to.equal('Incorrect!')
 })
 
 it('should store incorrect guesses', function() {
-  round.takeTurn()
+  round.takeTurn('array')
+  expect(round.incorrectGuesses.length).to.equal(1)
 })
 
 it('should update current card', function() {
-  round.takeTurn()
+  round.takeTurn('array')
+  expect(round.currentCard).to.deep.equal(secondCard)
 })
 
-it('', function() {
- round.calculatePercentCorrect()
+it('calculate the perecentage of questions answered correctly', function() {
+ round.takeTurn('object') 
+ expect(round.calculatePercentCorrect()).to.equal(100)
 })
 
 it('', function() {
  
+
 })
 
 
