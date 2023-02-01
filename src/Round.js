@@ -29,7 +29,14 @@ class Round {
     const numIncorrect = this.incorrectGuesses.length;
     const numCards = this.deck.cards.length;
 
-    return Math.floor((100 * numIncorrect) / numCards);
+    return Math.floor((100 * (numCards - numIncorrect)) / numCards);
+  }
+
+  endRound() { 
+    const message = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    
+    console.log(message);
+    return message;
   }
 }
 

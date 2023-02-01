@@ -116,6 +116,14 @@ describe('Round', () => {
     round.takeTurn('all of it');
     round.takeTurn('peuce');
 
-    expect(round.calculatePercentCorrect()).to.equal(66)
+    expect(round.calculatePercentCorrect()).to.equal(33)
+  });
+
+  it('should log a message to let the user know how they did', () => {
+    round.takeTurn('capybara');
+    round.takeTurn('a little');
+    round.takeTurn('peuce');
+
+    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
   });
 });
