@@ -4,19 +4,14 @@ const expect = chai.expect;
 const Round = require('../src/Round');
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
-
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
 
 describe('Round', () => {
-  let round, deck, card1, card2, card3, card4, card5, cards;
+  let round, deck, cards;
 
   beforeEach(() => {
-    card1 = new Card(1, 'What is Joe\'s favorite color?', ['orange', 'purple', 'yellow', 'red'], 'orange');
-    card2 = new Card(2, 'What is the capital of Pennsylvania?', ['Idaho', 'Pittsburgh', 'Harrisburg', 'Paris'], 'Harrisburg');
-    card3 = new Card(3, 'Can you not?', ['NO WAY', 'Maybe??', 'YEP', 'A little'], 'YEP');
-    card4 = new Card(4, 'How old is Joe?', [15, 29, 42, 20], 29);
-    card5 = new Card(5, 'Where does Joe live?', ['Philadelphia', 'Pittsburgh', 'Harrisburg', 'Paris'], 'Philadelphia');
-
-    cards = [card1, card2, card3, card4, card5];
+    cards = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
 
     deck = new Deck(cards);
 
@@ -53,7 +48,7 @@ describe('Round', () => {
     expect(round.currentCard).to.deep.equal(deck.cards[1]);
     expect(round.incorrectGuesses[0]).to.equal(1);
 
-    expect(round.takeTurn('Harrisburg')).to.equal('correct!');
+    expect(round.takeTurn('array')).to.equal('correct!');
     expect(round.turns).to.equal(2);
     expect(round.incorrectGuesses[0]).to.equal(1);
     expect(round.incorrectGuesses.length).to.equal(1);
@@ -63,9 +58,9 @@ describe('Round', () => {
   it('should be able to calculate the percent correct', () => {
     round.takeTurn('purple'); // incorrect
     round.takeTurn('Paris'); // incorrect
-    round.takeTurn('YEP'); // correct
-    round.takeTurn(29); // correct
-    round.takeTurn('Philadelphia'); // correct
+    round.takeTurn('mutator method'); // correct
+    round.takeTurn('accessor method'); // correct
+    round.takeTurn('iteration method'); // correct
 
     expect(round.incorrectGuesses[0]).to.equal(1);
     expect(round.incorrectGuesses[1]).to.equal(2);
@@ -75,7 +70,7 @@ describe('Round', () => {
 
   it('should be able to end a round', () => {
     round.takeTurn('purple'); // incorrect
-    round.takeTurn('Harrisburg'); // correct
+    round.takeTurn('array'); // correct
     expect(round.endRound()).to.equal(`** Round over! ** You answered 50% of the questions correctly!`);
   });
 });
