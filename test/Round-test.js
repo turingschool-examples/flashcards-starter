@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 const Card = require("../src/Card");
 const Deck = require("../src/Deck");
+const Turn = require("../src/Turn");
 const Round = require("../src/Round")
 
     
@@ -22,10 +23,42 @@ describe("Round", () => {
   });
 
   it("should hold the current deck", () => {
-    expect(round.deck).to.be.an.instanceOf(Deck)
+    expect(round.deck).to.deep.equal([card1, card2, card3]);
   })
 
   it("should return the current card being played", () => {
-    expect(round.returnCurrentCard()).to.deep.equal(this.deck[0])
+    expect(round.returnCurrentCard()).to.equal(card1)
   })
+  
+  it("should have a method that updates the number of turns taken", () => {
+     card1 = new Card(
+       1,
+       "What is Robbie's favorite animal",
+       ["sea otter", "pug", "capybara"],
+       "sea otter"
+     );
+    round.takeTurn("pug")
+    expect(round.turns).to.equal(1);
+  });
+
+  it("should have a property to store incorrect guesses", () => {
+    round.takeTurn("pug")
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  });
+
+  it("should give feedback for correct guesses", () => {
+    round.takeTurn("sea otter");
+    expect(round.takeTurn()).to.equal("correct!");
+  });
+
+  it("should give feedback for incorrect guesses", () => {
+    round.takeTurn("pug");
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  });
+
+  it("should update the next card", () => {
+    round.takeTurn("pug");
+    expect(round.returnCurrentCard()).to.equal(card2);
+  });
+
 })
