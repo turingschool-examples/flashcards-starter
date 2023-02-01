@@ -24,6 +24,13 @@ class Round {
 
     return this.turn.giveFeedBack();
   }
+
+  calculatePercentCorrect() {
+    const numIncorrect = this.incorrectGuesses.length;
+    const numCards = this.deck.cards.length;
+
+    return Math.floor((100 * numIncorrect) / numCards);
+  }
 }
 
 module.exports = Round;

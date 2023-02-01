@@ -110,4 +110,12 @@ describe('Round', () => {
     expect(correctGuess).to.equal('correct!')
     expect(incorrectGuess).to.equal('incorrect!')
   });
+
+  it('should calculate the percentage of correct guesses', () => {
+    round.takeTurn('rat');
+    round.takeTurn('all of it');
+    round.takeTurn('peuce');
+
+    expect(round.calculatePercentCorrect()).to.equal(66)
+  });
 });
