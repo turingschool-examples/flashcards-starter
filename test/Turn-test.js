@@ -8,7 +8,7 @@ describe('Turn', function() {
 
   let card, turn;
   
-  beforeEach('turn instance', () => {
+  beforeEach('turn and card instance', () => {
     card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     turn = new Turn('pug', card);
   });
