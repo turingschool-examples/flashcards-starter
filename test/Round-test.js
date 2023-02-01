@@ -33,7 +33,7 @@ it('should hold a deck', function() {
 })
 
 it('should have the current card be the first card in the deck', function() {
-  expect(round.currentCard).to.deep.equal(deck.deck[0])
+  expect(round.currentCard).to.deep.equal(firstCard)
 })
 
 it('should start with zero turns', function() {
@@ -46,14 +46,38 @@ it('should start with an empty array', function() {
 
 it('should return the current card in play', function() {
   const current = round.returnCurrentCard()
-  expect(current).to.equal(deck.deck[0])
+  expect(current).to.equal(firstCard)
 })
 
 it('should update turns', function() {
-  const takeATurn = round.takeTurn()
-  expect(takeATurn).to.equal(1)
+  round.takeTurn()
+  expect(round.turns).to.equal(1)
 })
 
+it('should return correct for a correct guess', function() {
+  round.takeTurn()
+  expect().to.equal()
+})
+
+it('should return incorrect for an incorrect guess', function() {
+  round.takeTurn()
+})
+
+it('should store incorrect guesses', function() {
+  round.takeTurn()
+})
+
+it('should update current card', function() {
+  round.takeTurn()
+})
+
+it('', function() {
+ round.calculatePercentCorrect()
+})
+
+it('', function() {
+ 
+})
 
 
 

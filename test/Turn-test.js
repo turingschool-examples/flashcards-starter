@@ -35,8 +35,8 @@ it('should return the users guess', function() {
 })
 
 it('should return the card', function() {
-  const card = turn.returnCard()
-  expect(card).to.equal(card)
+  const userCard = turn.returnCard()
+  expect(userCard).to.equal(card)
 })
 
 it('should return true based on a correct guess', function() {
@@ -45,7 +45,7 @@ it('should return true based on a correct guess', function() {
 })
 
 it('should return false based on an incorrect guess', function() {
-  turn = new Turn('array', card)
+  turn.guess = 'array'
   const answer = turn.evaluateGuess()
   expect(answer).to.equal(false)
 })
@@ -56,11 +56,8 @@ it('should return the string correct when user makes correct guess', function() 
 })
 
 it('should return the string incorrect when user makes an incorrect guess', function() {
-  turn = new Turn('array', card)
+  turn.guess = 'array'
   const feedback = turn.giveFeedback()
   expect(feedback).to.equal('Incorrect!')
 })
-
-
-
-});
+})
