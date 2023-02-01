@@ -44,7 +44,7 @@ describe("Turn", () => {
   it("should have a method that returns if the answer is correct", () => {
     expect(turn.giveFeedback()).to.equal("correct!") 
   });
-  
+
   it("should have a method that returns if the answer is incorrect", () => {
     const incorrectTurn = new Turn("pug", card)
     expect(incorrectTurn.giveFeedback()).to.equal("incorrect!"); 
