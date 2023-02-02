@@ -34,7 +34,7 @@ describe('Turn', function() {
 
     it('should store give feedback', function() {
         var result = turn.evaluateGuess()
-        expect(turn.giveFeedback(result)).to.equal("Correct");
+        expect(turn.giveFeedback(result)).to.equal("Correct")
     }); 
 
-  });
+  })
