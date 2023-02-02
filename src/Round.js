@@ -23,11 +23,9 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    if (this.takeTurns === 0) {
-      return 0
-    }
-    const percent = (100 - ((this.incorrectGuesses.length / this.turns) * 100)) 
-    return percent
+      const percent = (100 - ((this.incorrectGuesses.length / this.turns) * 100)) 
+      return percent
+      
   }
 
   endRound() {
