@@ -4,8 +4,8 @@ class Round {
   constructor(deck) {
     this.deck = deck;
     this.turns = 0;
-    this.currentTurn = undefined;
-    this.currentCard = undefined;
+    this.currentTurn = null;
+    this.currentCard = null;
     this.correctGuesses = [];
     this.incorrectGuesses = [];
   }
@@ -38,13 +38,16 @@ class Round {
   }
   
   calculatePercentCorrect() {
-    const totalCorrect = this.correctGuesses.length/this.turns * 100;
-    return `${totalCorrect.toFixed(0)}%`;
+    if(this.turns >= 1) {
+      const totalCorrect = this.correctGuesses.length/this.turns * 100;
+      return `${totalCorrect.toFixed(0)}%`;
+    } 
+    return `no questions answered.`;
   }
 
   endRound() {
     const total = this.calculatePercentCorrect();
-    const endMessage = `** Round over! ** You answered ${total} of the questions correctly!`
+    const endMessage = `** Round over! ** You answered ${total} of the questions correctly!`;
     console.log(endMessage);
     return endMessage;
   }
