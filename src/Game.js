@@ -4,12 +4,12 @@ const util = require('./util');
 const Round = require('../src/Round')
 const Card = require('../src/Card')
 const Deck = require('../src/Deck')
-const Game = require('../src/Game');
 const { prototype } = require('mocha');
 
 class Game {
-  constructor(round) {
-    this.currentRound = round
+  constructor() {
+    this.currentRound 
+    this.currentDeck
   }
 
   printMessage(deck, round) {
@@ -22,35 +22,27 @@ class Game {
   }
 
   start() {
-    this.createCards()
-    this.createDeck()
     this.createRound()
-    this.printMessage
-    this.printQuestion
+    this.printMessage(this.currentDeck, this.currentRound)
+    this.printQuestion(this.currentRound)
   }
 
   createCards() {
     const gameCards = prototypeQuestions.map(question => {
-    const cards = new Card(question.id, question.question, question.answers, question.correctAnswer)
+    const cards = new Card(question['id'], question['question'], question['answers'], question['correctAnswer'])
     return cards
    })
    return gameCards
   }
 
   createDeck() {
-    const newDeck = new Deck(this.createCards())
-    return newDeck
+    this.currentDeck = new Deck(this.createCards())
+    return this.currentDeck
   }
 
   createRound() {
-
+    this.currentRound = new Round(this.createDeck())
   }
-
-
-
-
-
-
 }
 
 module.exports = Game;
