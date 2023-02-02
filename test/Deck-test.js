@@ -1,6 +1,8 @@
 const chai = require('chai');
-const Card = require('../src/Card');
 const expect = chai.expect;
+const Card = require('../src/Card');
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
 
 const Deck = require('../src/Deck');
 
@@ -9,9 +11,9 @@ describe('Deck', () => {
 
   beforeEach(() => {
     deck = new Deck([
-      new Card(1, 'What is the best rodent?', ['rat', 'chipmunk', 'capybara'], 'capybara'),
-      new Card(2, 'How much wood would a wood chuck chuck if a wood chuck could chuck wood?', ['a little', 'a lot', 'all of it'], 'all of it'),
-      new Card(3, 'What is the color of the sky?', ['blue', 'peuce', 'salmon'], 'blue')
+      new Card(prototypeQuestions[0]),
+      new Card(prototypeQuestions[1]),
+      new Card(prototypeQuestions[2])
     ]);
   })
 
@@ -24,26 +26,22 @@ describe('Deck', () => {
   });
 
   it('should have cards', () => {
-    expect(deck.cards).to.deep.equal([
-      {
-        id: 1,
-        question: 'What is the best rodent?',
-        answers: ['rat', 'chipmunk', 'capybara'],
-        correctAnswer: 'capybara'
-      },
-      {
-        id: 2,
-        question: 'How much wood would a wood chuck chuck if a wood chuck could chuck wood?',
-        answers: ['a little', 'a lot', 'all of it'],
-        correctAnswer: 'all of it'
-      },
-      {
-        id: 3,
-        question: 'What is the color of the sky?',
-        answers: ['blue', 'peuce', 'salmon'],
-        correctAnswer: 'blue'
-      },
-    ]);
+    expect(deck.cards).to.deep.equal([{
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    }, {
+      "id": 2,
+      "question": "What is a comma-separated list of related values?",
+      "answers": ["array", "object", "function"],
+      "correctAnswer": "array"
+    }, {
+      "id": 3,
+      "question": "What type of prototype method directly modifies the existing array?",
+      "answers": ["mutator method", "accessor method", "iteration method"],
+      "correctAnswer": "mutator method"
+    }]);
   });
 
   it('should count how many cards it has', () => {
