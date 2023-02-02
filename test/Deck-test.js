@@ -1,19 +1,19 @@
 const chai = require('chai');
-const Card = require('../src/Card');
 const expect = chai.expect;
+const Card = require('../src/Card');
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
 
 const Deck = require('../src/Deck');
 
 describe('Deck', () => {
   let deck;
+  let cards = prototypeQuestions;
 
   beforeEach(() => {
-    deck = new Deck([
-      new Card(1, 'What is the best rodent?', ['rat', 'chipmunk', 'capybara'], 'capybara'),
-      new Card(2, 'How much wood would a wood chuck chuck if a wood chuck could chuck wood?', ['a little', 'a lot', 'all of it'], 'all of it'),
-      new Card(3, 'What is the color of the sky?', ['blue', 'peuce', 'salmon'], 'blue')
-    ]);
-  })
+    cards = cards.map(card => new Card(card));
+    deck = new Deck(cards);
+  });
 
   it('should be a function', () => {
     expect(Deck).to.be.a('function');
@@ -23,30 +23,11 @@ describe('Deck', () => {
     expect(deck).to.be.an.instanceOf(Deck);
   });
 
-  it('should have cards', () => {
-    expect(deck.cards).to.deep.equal([
-      {
-        id: 1,
-        question: 'What is the best rodent?',
-        answers: ['rat', 'chipmunk', 'capybara'],
-        correctAnswer: 'capybara'
-      },
-      {
-        id: 2,
-        question: 'How much wood would a wood chuck chuck if a wood chuck could chuck wood?',
-        answers: ['a little', 'a lot', 'all of it'],
-        correctAnswer: 'all of it'
-      },
-      {
-        id: 3,
-        question: 'What is the color of the sky?',
-        answers: ['blue', 'peuce', 'salmon'],
-        correctAnswer: 'blue'
-      },
-    ]);
+  it('should have some cards', () => {
+    expect(deck.cards).to.deep.equal(prototypeQuestions)
   });
 
   it('should count how many cards it has', () => {
-    expect(deck.countCards()).to.equal(3);
+    expect(deck.countCards()).to.equal(30);
   });
 });
