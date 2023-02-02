@@ -9,23 +9,14 @@ class Game {
   constructor() {
     this.round;
   }
-
-  printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
-  }
-
-  printQuestion(round) {
-      util.main(round);
-  }
-
+  
   start() {
-    const deck = this.makeDeck();
-    this.round = new Round(deck);
-    this.printMessage(deck, this.round);
+    const deck = this.makeDeck()
+    this.round = new Round(deck)
+    this.printMessage(deck);
     this.printQuestion(this.round);
   }
-
+  
   makeDeck() {
     const cards = prototypeQuestions.map((card) => {
       const newCard = new Card(card.id, card.question, card.answers, card.correctAnswer);
@@ -33,6 +24,15 @@ class Game {
     });
     const deck = new Deck(cards);
     return deck;
+  }
+  
+  printMessage(deck) {
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+-----------------------------------------------------------------------`)
+  }
+
+  printQuestion(round) {
+      util.main(round);
   }
 
 }
