@@ -2,7 +2,7 @@ class Turn {
   constructor(userGuess, selectedCard) {
     this.guess = userGuess;
     this.currentCard = selectedCard;
-    this.isCorrect = undefined;
+    this.isCorrect = null;
   }
 
   returnGuess() {
@@ -25,7 +25,7 @@ class Turn {
     if(this.isCorrect) {
       return 'Correct!';
     } else if(!this.isCorrect) {
-      return 'Incorrect!';
+      return `Incorrect! The correct answer is ${this.currentCard.correctAnswer}.`;
     }
   }
 }

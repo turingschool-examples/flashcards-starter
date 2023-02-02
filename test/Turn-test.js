@@ -32,7 +32,6 @@ describe('Turn', () => {
   });
 
   it('should check if the guess is inncorrect', () => {
-    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     turn = new Turn('pug', card);
     expect(turn.evaluateGuess(card)).to.equal(false);
   })
@@ -43,11 +42,9 @@ describe('Turn', () => {
   });
 
   it('should give feedback for the incorrect asnwer', () => {
-    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     turn = new Turn('pug', card);
     
     turn.evaluateGuess(card);
-    
-    expect(turn.giveFeedback()).to.equal('Incorrect!');
+    expect(turn.giveFeedback()).to.equal('Incorrect! The correct answer is sea otter.');
   });
 });
