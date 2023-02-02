@@ -11,7 +11,7 @@ class Round {
   }
   
   returnCurrentCard() {
-    this.currentCard = this.deck.cards[this.turns]
+    this.currentCard = this.deck.cards[this.turns];
     return this.currentCard;
   }
  
@@ -38,13 +38,15 @@ class Round {
   }
   
   calculatePercentCorrect() {
-    let totalCorrect = this.correctGuesses.length/this.turns * 100;
+    const totalCorrect = this.correctGuesses.length/this.turns * 100;
     return `${totalCorrect.toFixed(0)}%`;
   }
 
   endRound() {
-    let total = this.calculatePercentCorrect();
-    console.log(`** Round over! ** You answered ${total} of the questions correctly!`);
+    const total = this.calculatePercentCorrect();
+    const endMessage = `** Round over! ** You answered ${total} of the questions correctly!`
+    console.log(endMessage);
+    return endMessage;
   }
 }
 
