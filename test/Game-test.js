@@ -36,16 +36,12 @@ describe('Game', function() {
 
     it('should invoke print message', function() {
         const game = new Game()
-        game.test()
-        game.test2()
-        expect(game.printMessage()).to.equal('printed')
+        expect(game.printMessageTest()).to.equal('printed')
     })
 
     it('should invoke print question', function() {
         const game = new Game()
-        game.test()
-        game.test2()
-        expect(game.printQuestion()).to.equal('printed')
+        expect(game.printQuestionTest()).to.equal('called util')
     })
 
   })
