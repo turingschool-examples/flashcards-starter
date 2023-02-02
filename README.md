@@ -1,71 +1,47 @@
-# FlashCards Starter Kit
+# Rock, Paper, Scissors
 
-## Fork This Repo
+### Abstract:
 
-On the top right corner of this page, click the **Fork** button.
+The goal of this project was to create a game playable in the CLI. Using provided files we were expected to use TDD to create necessary classes and import data from outside files to create a playable flashcard quiz.
 
-## Setup
+### Installation Instructions:
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+To clone a copy of the project to a remote repository, follow these steps:
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+1. Go to the project [page on GitHub](https://github.com/kirkhauck/flashcards).
+1. Fork the repository.
+1. Click the "<> Code" button and copy your preferred clone link.
+1. Open your Terminal.
+1. Navigate to the directory you would like to clone the repository to.
+1. Enter the command `git clone cloneLink` replacing `cloneLink` with the link you copied in Step 3
+1. Use command `code .` to open the project in your preferred text editor.
+1. To play the game, make sure you are in the `flashcards` directory, then run `node index.js` in your terminal. **NOTE**: This method works assuming you have `Node.js` installed.
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+### Preview of App:
 
-```bash
-npm install
-```
+![App Preview](https://media3.giphy.com/media/CXa6nb6Cdd0jC61JKp/giphy.gif?cid=790b76111a6500f39d3760a8ff32cf87d3bc03a5c0a2345a&rid=giphy.gif&ct=g)
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
+### Context:
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+Completed as part of the Turing School of Software Development 2211 FE Mod 2 curriculum
+Approximate hours to completion: 12
 
-```bash
-Your project is running...
-```
+### Contributors:
 
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+[Kirk Hauck](https://github.com/kirkhauck)
 
+### Learning Goals:
 
-## Where to Add Your Code
+- Contribute code to an partially constructed object-oriented application
+- Follow spec/prompts to make a working application
+- Implement ES6 classes
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Implement a robust testing suite using TDD
 
-### JavaScript
+### Wins + Challenges:
 
-**Create all of your feature code files in the `src` directory.**
+**Challenge:**
+Using a variable from a different `.js` file
 
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
-
+**Win**
+In this project, we were provided with a `data.js` file containing an array of card objects. To play the game, we were expected to utilize this file to instantiate new cards using our `Card.js`. In the final iteration, I realized I had been writing my own card objects in the test files, but had not utilized `data.js`. After researching and reaching out to fellow students, I found the correct method to access the array in `data.js`. To link my `Game.js` file to `data.js`, I needed to export the desired variable, `prototypeData`, by using `module.exports = { prototypeData }`. Then I needed to import it in my `Game.js` file by assigning it to a variable using `const prototypeQuestions = data.prototypeData`. This allowed me to use `prototypeData` in my `Game.js` file.
