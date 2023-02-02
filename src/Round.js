@@ -30,25 +30,18 @@ class Round{
     }
 
     calculatePercentCorrect(){
-        
-    }
-      
-
-        // turn.giveFeedback(){
-        //     if (this.evaluateGuess()) {
-        //         return 'correct!'
-        //     } else {
-        //         return 'incorrect!';
-        //     }
-  
+      const correctGuessNum =  this.turns - this.incorrectGuesses.length
+      this.percentCorrect = Math.round(correctGuessNum/this.turns * 100)
+      console.log(this.percentCorrect)
+      return this.percentCorrect
     }
 
-    // calculatePercentCorrect(){
+    endRound(){
+        var message = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+        console.log (message)
+        return message
 
-    // }
-
-    // endRound(){
-
-    // }
+    }
+}
 
 module.exports = Round
