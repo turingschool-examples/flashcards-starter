@@ -49,8 +49,13 @@ it('should return the current card in play', function() {
   expect(current).to.equal(firstCard)
 })
 
-it('should update turns', function() {
+it('should update turns with a correct guess', function() {
   round.takeTurn('object')
+  expect(round.turns).to.equal(1)
+})
+
+it('should update turns with an incorrect guess', function() {
+  round.takeTurn('array')
   expect(round.turns).to.equal(1)
 })
 
