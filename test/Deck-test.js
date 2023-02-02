@@ -25,10 +25,8 @@ describe('Deck', function() {
   })
 
   it('should hold an array', function() {
-    expect(deck.deck).to.be.a('array')
+    expect(deck.cards).to.be.a('array')
   })
-
-  
 
   it('should be able to count how many cards in the deck', function() {
     var cardLength = deck.countCards()
