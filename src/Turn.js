@@ -20,12 +20,9 @@ class Turn {
     if (this.evaluateGuess()) {
       return 'Correct!'
     } else {
-      return 'Incorrect!'
-    }
+        return 'Incorrect!'
+      }
   }
 }
-
-
-
 
 module.exports = Turn

@@ -6,11 +6,11 @@ const Deck = require('../src/Deck')
 const Round = require('../src/Round')
 
 describe('Round', function() {
-  var firstCard
-  var secondCard
-  var thirdCard
-  var deck
-  var round
+  let firstCard
+  let secondCard
+  let thirdCard
+  let deck
+  let round
 
   beforeEach(function () {
   firstCard = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
@@ -49,8 +49,13 @@ it('should return the current card in play', function() {
   expect(current).to.equal(firstCard)
 })
 
-it('should update turns', function() {
+it('should update turns with a correct guess', function() {
   round.takeTurn('object')
+  expect(round.turns).to.equal(1)
+})
+
+it('should update turns with an incorrect guess', function() {
+  round.takeTurn('array')
   expect(round.turns).to.equal(1)
 })
 
