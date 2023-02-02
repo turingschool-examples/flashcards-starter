@@ -29,10 +29,10 @@ class Game {
 
   createCards() {
     const gameCards = prototypeQuestions.map(question => {
-    const cards = new Card(question['id'], question['question'], question['answers'], question['correctAnswer'])
-    return cards
-   })
-   return gameCards
+      const cards = new Card(question['id'], question['question'], question['answers'], question['correctAnswer'])
+      return cards
+    })
+      return gameCards
   }
 
   createDeck() {
@@ -44,5 +44,4 @@ class Game {
     this.currentRound = new Round(this.createDeck())
   }
 }
-
 module.exports = Game;
