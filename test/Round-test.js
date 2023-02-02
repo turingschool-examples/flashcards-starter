@@ -31,12 +31,6 @@ describe("Round", () => {
   })
   
   it("should have a method that updates the number of turns taken", () => {
-     card1 = new Card(
-       1,
-       "What is Robbie's favorite animal",
-       ["sea otter", "pug", "capybara"],
-       "sea otter"
-     );
     round.takeTurn("pug")
     expect(round.turns).to.equal(1);
   });
@@ -47,8 +41,7 @@ describe("Round", () => {
   });
 
   it("should give feedback for correct guesses", () => {
-    round.takeTurn("sea otter");
-    expect(round.takeTurn()).to.equal("correct!");
+    expect(round.takeTurn("sea otter")).to.equal("correct!");
   });
 
   it("should give feedback for incorrect guesses", () => {
@@ -61,4 +54,20 @@ describe("Round", () => {
     expect(round.returnCurrentCard()).to.equal(card2);
   });
 
+  it("should have a method to calculate the percentage correct", () => {
+    round.takeTurn("sea otter");
+    round.takeTurn("appendix");
+    round.takeTurn("William");
+    console.log(round.calculatePercentCorrect())
+    expect(round.calculatePercentCorrect()).to.equal(33);
+  });
+
+  it("should print a message in the console after the round is over containing the percentage correct", () => {
+    round.takeTurn("sea otter");
+    round.takeTurn("appendix");
+    round.takeTurn("William");
+    expect(round.endRound()).to.equal(
+      `** Round over! ** You answered 33% of the questions correctly!`
+    );
+   });
 })
