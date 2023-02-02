@@ -9,12 +9,6 @@ const prototypeQuestions = data.prototypeData;
 const Round = require('../src/Round');
 
 describe('Round', () => {
-  // const card1 = new Card(1, 'What is the best rodent?', ['rat', 'chipmunk', 'capybara'], 'capybara');
-  // const card2 = new Card(2, 'How much wood would a wood chuck chuck if a wood chuck could chuck wood?', ['a little', 'a lot', 'all of it'], 'all of it');
-  // const card3 = new Card(3, 'What is the color of the sky?', ['blue', 'peuce', 'salmon'], 'blue');
-  // const deck = new Deck([card1, card2, card3]);
-  // let round;
-
   let cards = prototypeQuestions;
   cards = cards.map(card => new Card(card));
   let deck = new Deck(cards);
