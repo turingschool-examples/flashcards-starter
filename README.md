@@ -2,10 +2,12 @@
 
 ## Abstract
 [//]: <>
-  This app is a flashcard game that is playable through the command line of the terminal. There are a variety of questions primarily surrounding methods and iterator methods in JavaScript. The questions are all multiple choice or true or false
+  This app is a flashcard game that is playable through the command line of the terminal. There are a variety of questions primarily surrounding methods and iterator methods in JavaScript. The questions are all multiple choice or true or false and when an incorrect answer is selected the correct answer is shown. 
 
 ## Game Preview
 [//]: <>
+![Game play example for Flashcards in the Terminal](https://user-images.githubusercontent.com/117314181/216382470-4e2a90a9-f788-4c16-853b-64d3b17b7bbf.gif)
+
 
 ## Tech Used
 [//]: <>
