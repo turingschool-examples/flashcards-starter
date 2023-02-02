@@ -72,18 +72,25 @@ it('should update current card', function() {
   expect(round.currentCard).to.deep.equal(secondCard)
 })
 
-it('calculate the perecentage of questions answered correctly', function() {
+it('should calculate 100 if all answered right', function() {
  round.takeTurn('object') 
  expect(round.calculatePercentCorrect()).to.equal(100)
 })
 
-it('', function() {
- 
+it('should calculate 0 if none are answered right', function() {
+  round.takeTurn('array') 
+  expect(round.calculatePercentCorrect()).to.equal(0)
+ })
 
+ it('should calculate 50 if half are answered right', function() {
+  round.takeTurn('array') 
+  round.takeTurn( "splice()") 
+  expect(round.calculatePercentCorrect()).to.equal(50)
+ })
+
+it('should tell you what percentage you answered right',function() {
+  round.takeTurn('object')
+  round.calculatePercentCorrect()
+  expect(round.endRound()).to.equal(`Round over! ** You answered ${100} % of the questions correctly!`)
 })
-
-
-
-
-
 })
