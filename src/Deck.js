@@ -1,7 +1,11 @@
 class Deck {
-    constructor() {
-        this.deck = [];
+    constructor(deckObject) {
+        this.deck = deckObject;
+        this.cardCount = []
+    }
+    storeCard(card) {
+       this.cardCount.push(card);
     }
 }
 
-module.exports = Deck
+module.exports = Deck;
