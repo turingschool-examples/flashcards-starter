@@ -5,7 +5,8 @@ const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
 describe('Deck', function() {
-    let deckOfcards;
+    
+  let deckOfcards;
 
     beforeEach(() => {
         const card1 = new Card(
