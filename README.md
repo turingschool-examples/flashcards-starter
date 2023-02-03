@@ -1,71 +1,30 @@
-# FlashCards Starter Kit
+# JS Prototype FlashCards 
 
-## Fork This Repo
+## Description
 
-On the top right corner of this page, click the **Fork** button.
+Studying has never been easier than with this flashcard application. Relax and bring your knowledge for iterators. Keep track of your progress with scores automated and immediate feedback for correct or incorrect answers. As your knowledge advances, a user can easily adapt the application and add to the data set for effective and easy studying. 
 
-## Setup
+## Contributors
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+Samantha McElhinney
 
 
-## Where to Add Your Code
+## Preview of the App
 
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
+![Flash cards example](../../../Desktop/e64665a45cce7e6565b1fc95b02dae8fe9721148.gif)
 ---
 
-## Test Files Organization
+## Technology Used
 
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
+* Javascript
+* TDD-- Mocha/Chai
+* Node.js
 
 
+## Set-Up
+
+Fork the repo from git@github.com:SamanthaMcElhinney/flashcards.git and clone the forked repository to a local machine typing `git clone` followed by the `SSH` key or `HTTPS` linke provided. Once cloned, `cd` into the `flashcards` folder and type `node index.js` to run the file with flashcards provided.  You should see a welcome message as follows: `Welcome to FlashCards! You are playing with 30 cards.` At the end of the quiz a score will be provided. To exit you can hold down `control` + `c` to quit.
+
+## Takeaways
+
+This application was created using test driven development with Mocha framework and Chai testing library. I was given a spec with prompts to make a working application using modular, reusable code that follows Single Responsibility Principle. This was my frist time implementing test driven development, which was challenging and time consuming; however, it forced me to be more intential with my approach and avoid any bugs once created. This project was also challenging using many different objects to create the application, which helped sharpen my object oriented programming skills.
