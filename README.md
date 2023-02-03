@@ -1,4 +1,5 @@
 # Rock, Paper, Scissors
+[Project Planning Board](https://trello.com/b/Qg9XFbRk/mod-2-flashcards-project)
 
 ### Abstract:
 
