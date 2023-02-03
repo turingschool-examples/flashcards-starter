@@ -20,7 +20,7 @@ describe('Game', function() {
     it('should create cards', function() {
         const game = new Game()
         game.test()
-        expect(game.cards.length).to.equal(5)
+        expect(game.cards.length).to.equal(10)
     }); 
 
     it('should put cards in a deck', function() {
@@ -31,7 +31,6 @@ describe('Game', function() {
 
     it('should start a new round using deck', function() {
         const game = new Game()
-
     })
 
     it('should invoke print message', function() {

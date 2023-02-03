@@ -33,6 +33,11 @@ class Round {
         console.log(endMessage)
         return endMessage
     }
+
+    endRoundTest() {
+        var endMessage = `**Round over!**You answered ${this.correctPercent()}% of the questions correctly!`
+        return endMessage
+    }
 }
 
 module.exports = Round

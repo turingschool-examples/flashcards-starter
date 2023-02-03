@@ -13,12 +13,14 @@ class Game {
   }
 
   start() {
-    for(var i = 0; i < 5; i++) {
+    for(var i = 0; i < 10; i++) {
       this.cards.push(prototypeQuestions[this.randomCard()])
     }
+
     this.deck = new Deck(this.cards)
 
     const round = new Round(this.deck)
+    
     this.printMessage()
     this.printQuestion(round)
   }
@@ -40,15 +42,18 @@ class Game {
   }
 
   test() {
-    for(var i = 0; i < 5; i++) {
+    for(var i = 0; i < 10; i++) {
       this.cards.push(prototypeQuestions[this.randomCard()])
     }
     this.deck = new Deck(this.cards)
   }
-  
-  test2() {
-    this.printMessage()
-    this.printQuestion(round)
+
+  printMessageTest() {
+    return 'printed'
+  }
+
+  printQuestionTest() {
+    return 'called util'
   }
 }
 
