@@ -11,7 +11,8 @@ Samantha McElhinney
 
 ## Preview of the App
 
-![Flash cards example](../../../Desktop/e64665a45cce7e6565b1fc95b02dae8fe9721148.gif)
+
+![flashcard preview](../../../Desktop/flashcards.gif)
 ---
 
 ## Technology Used
