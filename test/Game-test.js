@@ -8,22 +8,11 @@ const Round = require('../src/Round')
 
 
 describe('Game', function() {
-  let firstCard 
-  let secondCard
-  let thirdCard 
-  let deck 
-  let round 
   let currentGame 
 
 beforeEach(function () {
-  firstCard = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-  secondCard = new Card(8, 'Which array prototype is not an accessor method?', ["join()", "slice()", "splice()"], "splice()" )
-  thirdCard = new Card(11,'Which iteration method returns a new array with all elements that match a given condition?', ["filter()", "find()", "map()"], "filter()") 
-  deck = new Deck([firstCard, secondCard, thirdCard])
-  round = new Round(deck)
-  currentGame = new Game(round)
+  currentGame = new Game()
 })
-
 
 it('should be a function', function() {
   expect(Game).to.be.a('function')
@@ -34,29 +23,53 @@ it('should be an instance of Game', function() {
 })
 
 it('should keep track of current round', function() {
-  expect(currentGame.currentRound).to.equal(round)
+  expect(currentGame.currentRound).to.equal(this.currentRound)
 })
 
-// it('', function() {
-//   expect().to.equal()
-// })
+it('should keep track of current Deck', function() {
+  currentGame.createRound()
+  expect(currentGame.currentDeck).to.be.an.instanceof(Deck)
+})
 
-// it('', function() {
-//   expect().to.equal()
-// })
+it('should keep track of current Round', function() {
+  currentGame.createRound()
+  expect(currentGame.currentRound).to.be.an.instanceof(Round)
+})
 
-// it('', function() {
-//   expect().to.equal()
-// })
+it('should create Cards', function() {
+  expect(currentGame.createCards()[0]).to.be.an.instanceof(Card)
+})
 
-// it('', function() {
-//   expect().to.equal()
-// })
+it('should create a deck', function() {
+ expect(currentGame.createDeck()).to.be.an.instanceof(Deck)
+})
 
-// it('', function() {
-//   expect().to.equal()
-// })
+
 
 
 
 })
+
+
+// it('', function() {
+//   expect().to.equal()
+// })
+
+// it('', function() {
+//   expect().to.equal()
+// })
+
+// it('', function() {
+//   expect().to.equal()
+// })
+
+// it('', function() {
+//   expect().to.equal()
+// })
+
+// it('', function() {
+//   expect().to.equal()
+// })
+
+
+
