@@ -2,29 +2,29 @@
 
 ## Description
 
-Studying has never been easier than with this flashcard application. Relax and bring your knowledge for iterators. Keep track of your progress with scores automated and immediate feedback for correct or incorrect answers. As your knowledge advances, a user can easily adapt the application and add to the data set for effective and easy studying. 
+Studying has never been easier than with this flashcard application. Relax and bring your knowledge for prototypes with multiple choice questions. Keep track of your progress with scores automated with immediate feedback for correct or incorrect answers. As your knowledge advances, a user can easily adapt the application and add to the data set for effective and easy studying. 
 
 ## Contributors
 
-Samantha McElhinney
-
+- [Samantha](https://github.com/SamanthaMcElhinney)
 
 ## Preview of the App
 
-
-![flashcard preview](../../../Desktop/flashcards.gif)
----
+![Alt text](src/flashcards.gif)
 
 ## Technology Used
 
 * Javascript
 * TDD-- Mocha/Chai
-* Node.js
-
 
 ## Set-Up
 
-Fork the repo from git@github.com:SamanthaMcElhinney/flashcards.git and clone the forked repository to a local machine typing `git clone` followed by the `SSH` key or `HTTPS` linke provided. Once cloned, `cd` into the `flashcards` folder and type `node index.js` to run the file with flashcards provided.  You should see a welcome message as follows: `Welcome to FlashCards! You are playing with 30 cards.` At the end of the quiz a score will be provided. To exit you can hold down `control` + `c` to quit.
+1. Fork this Repo
+1. Open terminal and navigate where you would like to store the application. 
+1. Click `SSH` and copy and paste key or `git@github.com:SamanthaMcElhinney/flashcards.git` into your terminal.
+1. Once cloned, `cd` into the `flashcards` folder and type `node index.js` to run the file with flashcards provided.  
+1. You should see a welcome message as follows: "Welcome to FlashCards! You are playing with 30 cards." At the end of the quiz a score will be provided. 
+1. To exit you can hold down `control` + `c` to quit.
 
 ## Takeaways
 
