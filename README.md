@@ -5,6 +5,12 @@
 
 The goal of this project was to create a game playable in the CLI. Using provided files we were expected to use TDD to create necessary classes and import data from outside files to create a playable flashcard quiz.
 
+### Technologies Used:
+- JavaScript
+- Node
+- Mocha
+- Chai
+
 ### Installation Instructions:
 
 To clone a copy of the project to a remote repository, follow these steps:
