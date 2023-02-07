@@ -21,8 +21,10 @@ To clone a copy of the project to a remote repository, follow these steps:
 1. Open your Terminal.
 1. Navigate to the directory you would like to clone the repository to.
 1. Enter the command `git clone cloneLink` replacing `cloneLink` with the link you copied in Step 3
+1. Use command `cd <dir>` to move into the directory (replace `<dir>` with the director name).
+1. Run `npm install`.
 1. Use command `code .` to open the project in your preferred text editor.
-1. To play the game, make sure you are in the `flashcards` directory, then run `node index.js` in your terminal. **NOTE**: This method works assuming you have `Node.js` installed.
+1. To play the game, make sure you are in the project directory, then run `node index.js` in your terminal. **NOTE**: This method works assuming you have `Node.js` installed.
 
 ### Preview of App:
 
