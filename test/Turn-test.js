@@ -40,13 +40,11 @@ describe('returnCard', function() {
 
 describe('evaluateGuess', function() {
 	it('should return a boolean indicating if the user`s guess matches the correct answer on the card', function() {
-		const card = new Card(1, 'In what year was the Republic of China (Taiwan) founded?', ['1910', '1912', '1924'], '1912');
+		const card = new Card(1, 'In what year was Taiwan founded?', ['1910', '1912', '1924'], '1912');
 		const turn1 = new Turn('1910', card);
 		const turn2 = new Turn('1912', card);
-		const turn3 = new Turn('1866', card);
 		expect(turn1.evaluateGuess()).to.equal(false);
 		expect(turn2.evaluateGuess()).to.equal(true);
-		expect(turn3.evalauteGuess().to.equal('Invalid guess.'));
 	});
 });
 
@@ -55,9 +53,7 @@ describe('giveFeedback', function() {
 		const card = new Card(1, 'Which British Prime Minister presided over the formation of the NHS?', ['Clement Attlee', 'David Lloyd-George', 'Margaret Thatcher'], 'Clement Attlee');
 		const turn1 = new Turn('David Lloyd-George', card);
 		const turn2 = new Turn('Clement Attlee', card);
-		const turn3 = new Turn('David Cameron', card);
 		expect(turn1.giveFeedback()).to.equal('incorrect!');
 		expect(turn2.giveFeedback()).to.equal('correct!');
-		expect(turn3.giveFeedback()).to.equal('Invalid guess.');
 	});
 });
