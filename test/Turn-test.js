@@ -12,6 +12,7 @@ describe('Turn', function() {
     
     it('should be a function', () => {
       const turn = new Turn();
+
       expect(Turn).to.be.a('function');
     });
 
@@ -21,15 +22,31 @@ describe('Turn', function() {
 
     it('should take in the user guess', () => {
         const turn = new Turn("reduce()", card14);
+
         expect(turn.guess).to.equal("reduce()");
-    })
+    });
 
     it('should take in a flashcard', () => {
         const turn = new Turn("reduce()", card14);
+
         expect(turn.card).to.equal(card14);
-    })
+    });
 
     it('should return the guess', () => {
+        const turn = new Turn("reduce()", card14);
+
+        expect(turn.returnGuess()).to.equal("reduce()");
+    });
+
+    it('should return the card', () => {
+        const turn = new Turn("reduce()", card14);
+
+        expect(turn.returnCard()).to.equal({id: 14, question: "Which iteration method can turn an array into a single value of any data type?", answers: ["reduce()", "map()", "filter()"], correctAnswer: "reduce()"});
+    });
+
+    it("should evaluate guess to true or false", () => {
+        const turn = new Turn("reduce()", card14);
+
         
-    })
+    });
 })
