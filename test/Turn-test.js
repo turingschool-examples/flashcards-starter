@@ -39,9 +39,37 @@ describe('Turn', () => {
     })
   })
 
-  it('should have a return guess method', () => {
-    
+  it('should have a return guess method that returns guess', () => {
+    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    turn = new Turn('sea otter', card);
+
+    expect(turn.returnGuess()).to.deep.equal(turn.guess)
+
   })
- 
+
+  it('should have a return card method to return instance of card', () => {
+    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    turn = new Turn('sea otter', card);
+
+    expect(turn.returnCard()).to.deep.equal(turn.card)
+  })
+
+  it.skip('should have a method that returns a boolean indicating if the users guess matches the correct answer on the card', () => {
+    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    turn = new Turn('sea otter', card);
+
+    expect(turn.evaluateGuess()).to.deep.equal(true)
+  })
+
+  it.skip('giveFeedback should be a method that can return a string of incorrect!', () => {
+
+    expect(turn.giveFeedback()).to.deep.equal('incorrect!')
+  })
+
+  it.skip('giveFeedback should be a method that can return a string of correct!', () => {
+
+    expect(turn.giveFeedback()).to.deep.equal('correct!')
+  })
+  
   })
 
