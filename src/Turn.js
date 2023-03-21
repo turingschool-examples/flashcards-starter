@@ -9,7 +9,9 @@ returnGuess() {
 }
 
 returnCard() {
+    console.log(this.card)
     return this.card
+
 }
 
 evaluateGuess() {
