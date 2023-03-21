@@ -4,7 +4,6 @@ const expect = chai.expect;
 
 const Turn = require('../src/Turn');
 
-
 describe('Turn', function() {
 
   it('should be a function', function() {
@@ -47,7 +46,7 @@ describe('Turn', function() {
     expect(turn.evaluateGuess()).to.equal(false);
     const card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
     const turn2 = new Turn('array', card2);
-    expect(turn2.returnCard()).to.equal(true);
+    expect(turn2.evaluateGuess()).to.equal(true);
   });
 
   it('should have a method that gives feedback based on the guess', function() {
