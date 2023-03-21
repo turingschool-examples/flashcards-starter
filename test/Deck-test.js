@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const Deck = require('../src/Deck');
 const testData = require('../src/test-data.js');
-const sampleCards = testData.testData.map;(playingCard => playingCard);
+const sampleCards = testData.testData.map(playingCard => playingCard);
 
 let deck;
 
