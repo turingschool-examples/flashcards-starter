@@ -45,8 +45,18 @@ describe('Turn', function() {
     });
 
     it("should evaluate guess to true or false", () => {
-        const turn = new Turn("reduce()", card14);
+        const turn1 = new Turn("reduce()", card14);
+        const turn2 = new Turn("map()", card14);
 
-        
+        expect(turn1.evaluateGuess()).to.be.true;
+        expect(turn2.evaluateGuess()).to.be.false;
+    });
+
+    it('should give feedback', () => {
+        const turn1 = new Turn("reduce()", card14);
+        const turn2 = new Turn("map()", card14);
+
+        expect(turn1.giveFeedback()).to.equal("correct!");
+        expect(turn2.giveFeedback()).to.equal("incorrect!");
     });
 })
