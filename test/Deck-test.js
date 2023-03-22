@@ -26,7 +26,7 @@ describe('Deck', () => {
 
   it('should know how many cards it has', () => {
 
-    deck.findNumberOfCards();
+    deck.countCards();
 
     expect(deck.numberOfCards).to.equal(7);
   });
