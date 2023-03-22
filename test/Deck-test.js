@@ -25,7 +25,12 @@ describe('Deck', function() {
     expect(deck).to.be.an.instanceof(Deck);
   }); 
 
-  it('should return the number of cards in deck when countCards() is called', () => {
+  it('should return the number of cards in the deck when countCards() is called', () => {
     expect(deck.countCards()).to.be.equal(3);
+  });  
+
+  it('should return a different number of cards in the deck when countCards() is called', () => {
+    deck = new Deck([card1, card2]);
+    expect(deck.countCards()).to.be.equal(2);
   });  
 });
