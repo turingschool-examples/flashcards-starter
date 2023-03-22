@@ -1,7 +1,12 @@
 class Deck {
   constructor(cards = []) {
     this.cards = cards;
-    console.log(this.cards);
+    this.countedCards = 0;
+  }
+  countCards()  {
+    this.cards.forEach((cards) => {
+      this.countedCards = (this.countedCards +1);
+    });
   }
 }
 
