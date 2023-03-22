@@ -1,10 +1,12 @@
 class Deck {
-    constructor(sampleCards) {
-    this.cards = sampleCards
-    }
+    constructor(cards) {
+    this.cards = cards
+  }
+
+    
 
 countCards() {
-  return this.cards.length
+  return this.cards.length 
 }
 }
 

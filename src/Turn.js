@@ -22,7 +22,7 @@ evaluateGuess() {
 }
 
 giveFeedback() {
-    if (this.userGuess === this.card.correctAnswer) {
+    if (this.evaluateGuess()) {
         return `correct!`
     } else {
         return `incorrect!`
