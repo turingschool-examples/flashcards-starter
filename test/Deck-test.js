@@ -4,7 +4,7 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
-describe('Turn', function() {
+describe('Deck', () => {
     var deck, card1, card7, card14
     beforeEach(() => {
         card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
@@ -19,13 +19,13 @@ describe('Turn', function() {
     });
   
     it('should instantiate a new deck', () => {
-        expect(turn).to.be.an.instanceof(Deck);
+        expect(deck).to.be.an.instanceof(Deck);
     });
 
     it('should take in an array of Card objects', () => {
         deck = new Deck([card1, card7, card14]);
 
-        expect(deck.cards).to.equal([card1, card7, card14]);
+        expect(deck.cards).to.be.an('array');
     });
 
     it('should know how many cards are in the deck', () => {

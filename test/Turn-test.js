@@ -4,13 +4,13 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
-describe('Turn', function() {
+describe('Turn', () => {
     var turn, card14
     beforeEach(() => {
         card14 = new Card(14, "Which iteration method can turn an array into a single value of any data type?", ["reduce()", "map()", "filter()"], "reduce()")
 
         turn = new Turn();
-    })
+    });
     
     it('should be a function', () => {
       expect(Turn).to.be.a('function');
