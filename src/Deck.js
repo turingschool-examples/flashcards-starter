@@ -4,7 +4,7 @@ class Deck {
     this.numberOfCards = 0;
   }
 
-  findNumberOfCards() {
+  countCards() {
     this.numberOfCards = this.cards.length
   }
 }
