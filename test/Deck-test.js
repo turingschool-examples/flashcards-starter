@@ -32,6 +32,5 @@ describe('Turn', function() {
         deck = new Deck([card1, card7, card14]);
 
         expect(deck.countCards()).to.equal(3);
-    })
-
+    });
 })
