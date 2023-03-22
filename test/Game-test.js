@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const { testData } = require('../src/test-data.js');
 const Game = require('../src/Game')
+const Deck = require('../src/Deck')
 
 let game;
 
@@ -32,12 +33,12 @@ describe('Game', () => {
   // });
 
   it('shold have start method that creates cards', () => {
-    game.start()
+    game.start(testData)
     expect(game.gameCards).to.deep.equal(testData);
   });  
 
-  it.skip('should add cards to the deck', () => {
-    game.start()
-    expect()
+  it('should add cards to the deck', () => {
+    game.start(testData)
+    expect(game.gameDeck).to.deep.equal(new Deck(testData));
   });
 });
