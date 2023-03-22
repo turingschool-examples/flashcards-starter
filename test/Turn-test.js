@@ -26,6 +26,11 @@ describe('Turn', function() {
     expect(Turn).to.be.a('function');
   });
 
+  it('should return a string or an object', function() {
+    expect(turn1.guess).to.be.a('string');
+    expect(card1).to.be.an('object');
+  });
+
   it('should store an users guess', function() {
     expect(turn1.guess).to.equal('for loop');
   });
