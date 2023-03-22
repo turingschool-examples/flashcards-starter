@@ -26,3 +26,30 @@ const sampleCards =  [{
     "answers": ["mutator method", "accessor method", "iteration method"],
     "correctAnswer": "accessor method"
   }]
+
+  let deck
+  let deck2
+
+  describe('Deck', function() {
+  beforeEach(function() {
+    deck = new Deck()
+    deck2 = new Deck(sampleCards)
+  })
+    
+  it('should be a function', function() {
+    expect(Deck).to.be.a('function')
+   })
+
+   it('should be an instance of Deck', function() {
+    expect(deck).to.be.an.instanceOf(Deck)
+   })
+
+   it('should store an array of cards', function() {
+    expect(deck2.cards).to.deep.equal(sampleCards)
+   })
+    
+   it('should count the number of cards in the deck', function() {
+    expect(deck2.countCards()).to.deep.equal(4)
+   })
+
+})
