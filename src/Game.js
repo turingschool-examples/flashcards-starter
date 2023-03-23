@@ -3,19 +3,24 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const { testData } = require('../src/test-data.js');
 const Deck = require('../src/Deck');
+const Round = require('../src/Round')
 
 class Game {
   constructor() {
-    this.currentRound = 1;
+    this.currentRound;
     this.gameCards = [];
     this.gameDeck;
   }
 
-  start(gameData) {
-    this.gameCards = gameData;
-    this.gameDeck = new Deck(gameData)
-    this.pringMessage()
-    this.printQuestion()
+  start() {
+    this.gameCards = testData;
+    this.gameDeck = new Deck(testData)
+    this.currentRound = new Round(this.gameDeck)
+    this.printMessage(this.gameDeck, this.currentRound)
+    this.printQuestion(this.currentRound)
+  //   console.log('deck length', this.gameDeck)
+  //   this.gameDeck.countCards()
+  //   console.log('deck length', this.gameDeck)
   }
 
   printMessage(deck, round) {
