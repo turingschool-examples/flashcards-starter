@@ -23,16 +23,18 @@ class Round {
     } else {
       this.incorrectGuesses.push(this.deck.cards[0].id);
       this.deck.cards.shift();
-    }
+    } 
     
     return this.turn.giveFeedback();
   }
 
   calculatePercentCorrect() {
-    this.percentCorrect = 100 - ((this.incorrectGuesses.length / this.deckSize) * 100);
+    this.percentCorrect = Math.ceil(100 - ((this.incorrectGuesses.length / this.deckSize) * 100));
   }
 
   endRound() {
+    this.calculatePercentCorrect()
+    console.log(`Round Over! You answered ${this.percentCorrect}% of the questions correctly!`)
     return `Round Over! You answered ${this.percentCorrect}% of the questions correctly!`
   }
 }
