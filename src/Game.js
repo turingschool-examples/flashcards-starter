@@ -3,7 +3,7 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const { testData } = require('../src/test-data.js');
 const Deck = require('../src/Deck');
-const Round = require('../src/Round')
+const Round = require('../src/Round');
 
 class Game {
   constructor() {
@@ -12,20 +12,18 @@ class Game {
     this.gameDeck;
   }
 
-  start() {
-    this.gameCards = testData;
-    this.gameDeck = new Deck(testData)
-    this.currentRound = new Round(this.gameDeck)
-    this.printMessage(this.gameDeck, this.currentRound)
-    this.printQuestion(this.currentRound)
-  //   console.log('deck length', this.gameDeck)
-  //   this.gameDeck.countCards()
-  //   console.log('deck length', this.gameDeck)
+  start(gameData) {
+    this.gameCards = gameData;
+    this.gameDeck = new Deck(gameData);
+    this.currentRound = new Round(this.gameDeck);
+    this.gameDeck.countCards();
+    this.printMessage(this.gameDeck, this.currentRound);
+    this.printQuestion(this.currentRound);
   }
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+-----------------------------------------------------------------------`);r
   }
 
   printQuestion(round) {
