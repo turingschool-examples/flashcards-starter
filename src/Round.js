@@ -21,6 +21,17 @@ class Round {
         this.currentCard = this.deck.cards[this.turns];
         return turn.giveFeedback();
     }
+
+    calculatePercentCorrect() {
+        let numberCorrect = this.deck.cards.length - this.incorrectGuesses.length;
+        return Math.floor(numberCorrect / this.deck.cards.length) * 100;
+    }
+
+    endRound() {
+        let message = `** Round over! ** You answered <${this.calculatePercentCorrect()}>% of the questions correctly!`;
+        // console.log(message);
+        return message;
+    }
 }
 
 module.exports = Round;

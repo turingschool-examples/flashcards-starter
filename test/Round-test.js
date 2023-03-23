@@ -59,10 +59,26 @@ describe('Round', function() {
     });
 
     it('should store incorrect guesses in an array', () => {
+        round.takeTurn("Denver");
 
+        expect(round.incorrectGuesses).to.be.lengthOf(1);
     });
 
     it('should return a feedback', () => {
+        expect(round.takeTurn("Denver")).to.equal("incorrect!");
+        expect(round.takeTurn("splice()")).to.equal("correct!");
+    });
+
+    it('should calculate and return percentage of correct guesses', () => {
+        round.incorrectGuesses.length = 0;
         
+        expect(round.calculatePercentCorrect()).to.equal(100);
+    });
+
+    it('should print ‘** Round over! ** You answered <>% of the questions correctly!’ to the console', () => {
+        round.incorrectGuesses.length = 0;
+        
+        expect(round.calculatePercentCorrect()).to.equal(100);
+        expect(round.endRound()).to.equal("** Round over! ** You answered <100>% of the questions correctly!");
     });
 })
