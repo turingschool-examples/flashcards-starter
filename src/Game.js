@@ -1,7 +1,4 @@
-const data = require('./data');
-const prototypeQuestions = data.prototypeData;
 const util = require('./util');
-const { testData } = require('../src/test-data.js');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
@@ -23,7 +20,7 @@ class Game {
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`);r
+-----------------------------------------------------------------------`);
   }
 
   printQuestion(round) {
