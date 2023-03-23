@@ -1,71 +1,39 @@
-# FlashCards Starter Kit
+### FlashCards 
 
-## Fork This Repo
-
-On the top right corner of this page, click the **Fork** button.
+# Abstract
+This project is the first solo project of Module 2. This is the first time writing tests and implementing ES6. In this project, I wrote a program that simulates a set of flash cards through the command line.
+A user will be able to see the questions, take guesses, and see a final score at the end of the round.
 
 ## Setup
+Fork and clone this [repo](https://github.com/Devynnem/flashcards).
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+Install the library dependencies. Run:
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+```npm install```
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+To verify that it is setup correctly, run ```npm test``` in your terminal.
 
-```bash
-npm install
-```
+Running ```node index.js``` from the root of your project will make the game playable!
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
+You can select an answer prompt by using the arrows to move up and down the selected choices, or select a number. Hit enter once your chosen answer is highlighted.
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+You will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
 
-```bash
-Your project is running...
-```
+<![Flashcards](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTA0NDE4NDA3ZjllMTc4ZDI0MGIzMmJlOTVmNzhhYmU0NjMwNThlOCZjdD1n/0IXZcD054bh4wFMNRI/giphy.gif)
 
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+## Reflections:
+
+This is the first project I have done where I was unable to visualize in the momemnt if what I was doing was correct. Even when I would write the tests first, and then write the code to see if it worked, and the tests passed, I still was not sure if I was on the right track. Leaning on the other students to ask questions and see if I was on track was very helpful. 
+
+## Technologies Used:
+Chai
+Mocha
+Javascript
+Terminal
+
+Countributor:
+Devynne Marshall ([LinkedIn](https://www.linkedin.com/in/devynnemarshall/) || [github](https://github.com/Devynnem))
 
 
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
 
 
