@@ -18,8 +18,8 @@ describe('Game', () => {
         deck = new Deck([card1, card7, card14]);
         round = new Round(deck);
         game = new Game();
-
     });
+
     it('should be a function', () => {
         expect(Game).to.be.a('function');
     });
@@ -32,5 +32,23 @@ describe('Game', () => {
         expect(game.currentRound).to.equal(round);
     });
 
-    it('')
+    it('should create cards', () => {
+
+    });
+
+    it('should put cards in a deck', () => {
+
+    });
+
+    it('should create a new round using the deck', () => {
+
+    });
+
+    it('should invoke printMessage', () => {
+
+    });
+
+    it('should invoke printQuestion', () => {
+
+    });
 })
