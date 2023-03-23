@@ -1,7 +1,8 @@
-// This is where your project starts.
-const Game = require('../flashcards/src/Game')
+const data = require('../flashcards/src/data');
+const prototypeQuestions = data.prototypeData;
+const Game = require('../flashcards/src/Game');
 
-const game = new Game()
+const game = new Game();
 
-game.start()
+game.start(prototypeQuestions);
 console.log('Your project is running...'); 
