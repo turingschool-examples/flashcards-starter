@@ -4,14 +4,17 @@ const { testData } = require('../src/test-data.js');
 const Game = require('../src/Game');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
+const Card = require('../src/Card');
 
 let game;
+let testCards;
 
 describe('Game', () => {
 
   beforeEach(() => {
+    testCards = testData.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer))
     game = new Game()
-    game.start(testData)
+    game.start(testCards)
   });
 
   it('should be a function', () => {
@@ -27,7 +30,7 @@ describe('Game', () => {
   });
 
   it('should have a collection of cards', () => {
-    expect(game.gameCards).to.deep.equal(testData)
+    expect(game.gameCards).to.deep.equal(testCards)
   });
 
   it('should contain a deck', () => {
@@ -35,14 +38,12 @@ describe('Game', () => {
   });
 
   it('shold have start method that creates cards', () => {
-    game.start(testData)
-    expect(game.gameCards).to.deep.equal(testData);
+    expect(game.gameCards).to.deep.equal(testCards);
   });  
 
   it('should add cards to the deck', () => {
-    const deck = new Deck(testData)
+    const deck = new Deck(testCards)
     deck.countCards()
-    game.start(testData)
     expect(game.gameDeck).to.deep.equal(deck);
   });
 });
