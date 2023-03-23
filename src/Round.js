@@ -30,7 +30,7 @@ class Round {
 
   calculatePercentCorrect() {
     
-    this.percentCorrect = (this.incorrectGuess.length/this.turns * 100).toFixed(0) + '%';
+    this.percentCorrect = 100 - (this.incorrectGuess.length/this.turns * 100).toFixed(0) + '%';
     console.log(this.percentCorrect)
     return this.percentCorrect;
    

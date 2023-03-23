@@ -80,7 +80,7 @@ describe('Round', function() {
     round1.takeTurn(turn2.guess);
     round1.takeTurn(turn3.guess);
 
-    expect(round1.endRound()).to.equal('**Round over!**You answered 33% of the questions correctly!')
+    expect(round1.endRound()).to.equal('**Round over!**You answered 67% of the questions correctly!')
   });
   
 });
