@@ -25,7 +25,7 @@ class Round {
     this.currentCard = this.cards[this.turns];
     // console.log('currentCard', this.currentCard)
     return this.currentTurn.giveFeedback();
-    this.endRound();
+    // this.endRound();
   };
 
   calculatePercentCorrect() {
