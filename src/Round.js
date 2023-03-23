@@ -17,7 +17,7 @@ class Round {
     if (!newTurn.evaluateGuess(guess)){
       this.incorrectGuesses.push(newTurn.card.id);
     };
-    console.log(newTurn.giveFeedback());
+    return(newTurn.giveFeedback());
   }
 
   calculatePercentCorrect() {
