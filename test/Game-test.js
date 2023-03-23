@@ -19,7 +19,9 @@ describe('Game', () => {
         round = new Round(deck);
         game = new Game();
 
+        game.start();
     });
+
     it('should be a function', () => {
         expect(Game).to.be.a('function');
     });
@@ -29,8 +31,14 @@ describe('Game', () => {
     }); 
 
     it('should keep track of current round', () => {
-        expect(game.currentRound).to.equal(round);
+        expect(game.currentRound).to.be.an.instanceof(Round);
     });
 
-    it('')
+    it('should create cards', () => {
+        expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card);
+    });
+
+    it('should put cards in a deck', () => {
+        expect(game.currentRound.deck).to.be.an.instanceof(Deck);
+    });
 })
