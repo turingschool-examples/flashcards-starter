@@ -5,10 +5,16 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 let Turn = require('../src/Turn');
 
-let round;
-let card;
 let deck;
-let turn;
+let round;
+let card1;
+let card2;
+let card3;
+let card4;
+let turn1;
+let turn2;
+let turn3;
+let turn4;
 
 describe('Round', () => {
   
@@ -81,11 +87,12 @@ describe('Round', () => {
     expect(round.incorrectGuesses).to.include(turn2.card.id)
   });
 
-  // it.skip('should create a new Turn instance after guess', () => {
-  //   const guess = "something"
+  it('should create a new Turn instance after guess', () => {
+    const guess = "something"
+    round.takeTurn(guess)
 
-  //   expect(round.makeguess(guess)).to.be.instanceof(Turn);
-  // });
+    expect(round.turn).to.be.instanceof(Turn);
+  });
 
   it('should increase turn count if a guess is incorrect', () => {
     round.takeTurn(turn1.guess);
