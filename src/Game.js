@@ -1,19 +1,28 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
+const Round = require('./Round');
+const Deck = require('./Deck');
+const Card = require('./Card');
+const Turn = require('./Turn');
 
 
 class Game {
   constructor(deck) {
-    this.currentRound = undefined;
-    this.deck = deck
-  }
-  start() {
     const cards = this.createCards(prototypeQuestions);
-    const deck = new Deck(cards);
+    this.currentRound = undefined;
+    //this.deck = deck
+    
+    this.deck = new Deck(cards);
+    
+  }
+  start(deck) {
+    
     this.currentRound = new Round(deck);
     this.printMessage(deck);
     this.printQuestion();
+
+
   }
   createCards(questions) {
     let cards = [];
@@ -41,15 +50,12 @@ class Game {
       util.main(round);
   }
 }
-// const game = new Game();
-// game.start();
-// console.log(game.currentRound);
+const game = new Game();
+game.start(game.deck);
+console.log(game.currentRound);
 
 
-const Round = require('../src/Round');
-const Deck = require('../src/Deck');
-const Card = require('../src/Card');
-const Turn = require('../src/Turn');
+
 
 
 module.exports = Game;

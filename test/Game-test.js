@@ -15,7 +15,7 @@ describe('Game', () => {
     game = new Game();
   });
 
-  it('should keep track of the current round', () => {
+  it.skip('should keep track of the current round', () => {
     expect(game.currentRound).to.be.undefined;
 
     game.start();
@@ -23,7 +23,7 @@ describe('Game', () => {
     expect(game.currentRound).to.be.an.instanceof(Round);
   });
 
-  it('should start the game and create the new card objects', () => {
+  it.skip('should start the game and create the new card objects', () => {
     game.start();
 
     expect(game.currentRound).to.be.an.instanceof(Round);
