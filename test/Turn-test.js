@@ -39,14 +39,14 @@ describe('Turn', function() {
     expect(turn1.evaluateGuess()).to.equal(false);
   });
   it('should give appropriate feedback in correlation with evaluation', function() {
-    turn.giveResult();
+    turn.giveFeedback();
 
-    expect(turn.giveResult()).to.equal('Correct!');
+    expect(turn.giveFeedback()).to.equal('Correct!');
 
     const turn1 = new Turn('array', card);
-    turn1.giveResult();
+    turn1.giveFeedback();
 
-    expect(turn1.giveResult()).to.equal('Incorrect!');
+    expect(turn1.giveFeedback()).to.equal('Incorrect!');
   });
 
 });
