@@ -8,7 +8,6 @@ class Round {
     this.incorrectGuesses = [];
     this.turn;
     this.percentCorrect = 0
-    // console.log(this.deck)
   }
 
   returnCurrentCard() {
@@ -18,13 +17,12 @@ class Round {
   takeTurn(guess) {
     this.turns += 1;
     this.turn = new Turn(guess, this.deck.cards[0])
-    if (this.turn.evaluateGuess()) {
-      this.deck.cards.shift();
-    } else {
+
+    if (!this.turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.deck.cards[0].id);
-      this.deck.cards.shift();
-    } 
+    }  
     
+    this.deck.cards.shift();
     return this.turn.giveFeedback();
   }
 
