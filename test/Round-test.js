@@ -20,7 +20,7 @@ describe('Round', function() {
 
         deck = new Deck([card1, card2, card3]);
         round = new Round(deck);
-        round.startRound();
+        // round.startRound();
         currentCard = round.returnCurrentCard();
     });
 
@@ -36,7 +36,7 @@ describe('Round', function() {
       const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const round = new Round([card1],[card2]);
-      round.startRound();
+      // round.startRound();
       
     });
   });

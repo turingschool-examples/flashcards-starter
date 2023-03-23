@@ -19,6 +19,9 @@ class Game {
   start(deck) {
     
     this.currentRound = new Round(deck);
+    game.currentRound.startRound(game.deck,0); 
+    console.log("Round line 14:"+game.currentRound.currentCard)
+    console.log("game line 21:"+game.deck);
     this.printMessage(deck);
     this.printQuestion();
 
@@ -39,7 +42,7 @@ class Game {
 
   printMessage(deck, round) {
     if (deck) {
-      console.log(`Welcome to FlashCards! You are playing with ${this.countCards()} cards.
+      console.log(`Welcome to FlashCards! You are playing with ${deck.deck.length} cards.
       -----------------------------------------------------------------------`)
     } else {
       console.log('Deck is not defined');
@@ -47,12 +50,12 @@ class Game {
   }
   
   printQuestion(round) {
-      util.main(round);
+      util.main(game.currentRound);
   }
 }
 const game = new Game();
 game.start(game.deck);
-console.log(game.currentRound);
+//console.log(game.currentRound);
 
 
 

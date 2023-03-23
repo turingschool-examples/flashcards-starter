@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 
 const genList = (round) => {
   let card = round.returnCurrentCard();
-  
+  console.log("util card var line 4:"+card);
   let choices = card.answers.map((answer, index) => {
     return {
       key: index,
