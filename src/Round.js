@@ -24,12 +24,12 @@ class Round {
 
     calculatePercentCorrect() {
         let numberCorrect = this.deck.cards.length - this.incorrectGuesses.length;
-        return Math.floor(numberCorrect / this.deck.cards.length) * 100;
+        return Math.floor((numberCorrect / this.deck.cards.length) * 100);
     }
 
     endRound() {
-        let message = `** Round over! ** You answered <${this.calculatePercentCorrect()}>% of the questions correctly!`;
-        // console.log(message);
+        let message = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
+        console.log(message);
         return message;
     }
 }
