@@ -23,7 +23,7 @@ FlashCards is a small game ran from the command line where you can practice your
 <br>
 
 ## Preview of App:
-![app preview](assets/example.gif)
+![app preview](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGYzYjBmYTA4YTliODE3ODRlMTY2MDE0NzUwOWU0MmM0NDc0Yzk4OCZjdD1n/tJ1Cmgq7Xmo8VuShwl/giphy.gif)
 <br>
 <br>
 
