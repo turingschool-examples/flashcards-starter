@@ -1,12 +1,8 @@
 function evaluateGuess(guess, correctAnswer) {
-  return guess === correctAnswer ? true : false;
-}
-
-function giveFeedback(result) {
+  const result = guess === correctAnswer ? true : false;
   return result ? "Correct!" : "Incorrect!";
 }
 
 module.exports = {
-  evaluateGuess,
-  giveFeedback
+  evaluateGuess
 }

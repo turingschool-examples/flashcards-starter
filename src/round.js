@@ -1,28 +1,28 @@
-const { evaluateGuess, giveFeedback } = require('./turn');
+const { evaluateGuess } = require('./turn');
 
 function createRound(deck) {
   return {
     deck: deck.cards,
     currentCard: deck.cards[0],
     turns: 0,
-    incorrectGuesses: 0
+    incorrectGuesses: []
   }
 }
 
 function takeTurn(guess, round) {
   const result = evaluateGuess(guess, round.currentCard.correctAnswer);
   
-  if (!result) {
-    round.incorrectGuesses++;
+  if (result === "Incorrect!") {
+    round.incorrectGuesses.push(round.currentCard);
   }
 
   round.turns++;
   round.currentCard = round.deck[round.turns];
-  return giveFeedback(result);
+  return result;
 }
 
 function calculatePercentCorrect(round) {
-  return (round.turns - round.incorrectGuesses)/round.deck.length * 100;
+  return (round.turns - round.incorrectGuesses.length)/round.deck.length * 100;
 }
 
 function endRound(round) {
