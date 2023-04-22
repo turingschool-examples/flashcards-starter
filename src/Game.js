@@ -2,17 +2,13 @@ const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
-class Game {
-  constructor() {}
-
-  printMessage(deck, round) {
-    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
-  }
-
-  printQuestion(round) {
-      util.main(round);
-  }
+function printMessage(deck) {
+  console.log(`Welcome to FlashCards! You are playing with ${countCards(deck)} cards.
+  -----------------------------------------------------------------------`);
 }
 
-module.exports = Game;
+function printQuestion(round) {
+  util.main(round);
+}
+
+module.exports = { printMessage, printQuestion };
