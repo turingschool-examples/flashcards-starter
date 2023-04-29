@@ -15,7 +15,17 @@ const evaluateGuess = (guess, correctAnswer) => {
  }
 }
 
+const createDeck = (cards) => {
+ return cards
+}
+
+const countCards = (deck) => {
+  return deck.length
+}
+
 module.exports = {
   createCard,
-  evaluateGuess
+  evaluateGuess,
+  createDeck,
+  countCards
 }
