@@ -1,11 +1,4 @@
-const createCard = (id, question, answers, correctAnswer) => {
-  return card = {
-    id,
-    question,
-    answers,
-    correctAnswer
-  };
-};
+const createCard = (id, question, answers, correctAnswer) => card = ({id, question, answers, correctAnswer});
 
 const evaluateGuess = guess => guess === card.correctAnswer ? 'correct!' : 'incorrect!';
 
