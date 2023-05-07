@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards } = require('../src/card');
 const { prototypeData } = require('../src/data');
 
 describe('card', function() {
@@ -34,7 +34,7 @@ describe('turn', function() {
   });
 
   describe('deck', function() {
-    it.skip('should create a deck of cards', function() {
+    it('should create a deck of cards', function() {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -46,7 +46,7 @@ describe('turn', function() {
       expect(deck.cards).to.deep.equal([card1, card2, card3]);
     });
 
-    it.skip('should know how many cards are in the deck', function() {
+    it('should know how many cards are in the deck', function() {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
