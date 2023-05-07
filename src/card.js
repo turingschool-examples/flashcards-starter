@@ -1,5 +1,5 @@
 const createCard = (id, question, answers, correctAnswer) => {
-  return {
+  return card = {
     id,
     question,
     answers,
@@ -7,6 +7,9 @@ const createCard = (id, question, answers, correctAnswer) => {
   };
 };
 
+const evaluateGuess = guess => guess === card.correctAnswer ? 'correct!' : 'incorrect!';
+
 module.exports = {
-  createCard
+  createCard,
+  evaluateGuess
 };
