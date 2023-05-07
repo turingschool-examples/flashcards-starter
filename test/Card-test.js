@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/card');
 const { prototypeData } = require('../src/data');
 
 describe('card', function() {
@@ -61,7 +61,7 @@ describe('turn', function() {
   });
 
   describe('round', function() {
-    it.skip('should hold a deck of cards', function() {
+    it('should hold a deck of cards', function() {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -74,7 +74,7 @@ describe('turn', function() {
       expect(round2.deck).to.deep.equal(deck2);
     });
 
-    it.skip('should start at the first card in the deck', function() {
+    it('should start at the first card in the deck', function() {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -87,21 +87,21 @@ describe('turn', function() {
       expect(round2.currentCard).to.deep.equal(prototypeData[0]);
     });
 
-    it.skip('should start with 0 turns', function() {
+    it('should start with 0 turns', function() {
       const deck = createDeck(prototypeData);
       const round = createRound(deck);
 
       expect(round.turns).to.deep.equal(0);
     });
 
-    it.skip('should start with an empty array of incorrectly guessed cards', function() {
+    it('should start with an empty array of incorrectly guessed cards', function() {
       const deck = createDeck(prototypeData);
       const round = createRound(deck);
 
       expect(round.incorrectGuesses).to.deep.equal([]);
     });
 
-    it.skip('should update the turns count', function () {
+    it('should update the turns count', function () {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -119,7 +119,7 @@ describe('turn', function() {
       expect(round.turns).to.deep.equal(2);
     });
 
-    it.skip('should replace current card with next card', function() {
+    it('should replace current card with next card', function() {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -137,7 +137,7 @@ describe('turn', function() {
       expect(round.currentCard).to.deep.equal(card3);
     });
 
-    it.skip('should store each incorrectly guessed card', function() {
+    it('should store each incorrectly guessed card', function() {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -159,7 +159,7 @@ describe('turn', function() {
       expect(round.incorrectGuesses).to.deep.equal([card1, card2]);
     });
 
-    it.skip('should return feedback whether guess is correct or not', function() {
+    it('should return feedback whether guess is correct or not', function() {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -174,7 +174,7 @@ describe('turn', function() {
       expect(turn2).to.deep.equal('correct!');
     });
 
-    it.skip('should calculate and return the percentage of correct guesses', function() {
+    it('should calculate and return the percentage of correct guesses', function() {
       const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
       const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
       const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -194,7 +194,7 @@ describe('turn', function() {
       expect(percentCorrect2).to.deep.equal(50);
     });
 
-    it.skip('should end round and print correct guess percentage', function() {
+    it('should end round and print correct guess percentage', function() {
       const deck1 = createDeck(prototypeData);
       const round1 = createRound(deck1);
 
@@ -210,7 +210,7 @@ describe('turn', function() {
       const deck2 = createDeck([card1, card2, card3]);
       const round2 = createRound(deck2);
 
-      takeTurn('capybara', round);
+      takeTurn('capybara', round2);
 
       const end2 = endRound(round2);
 
