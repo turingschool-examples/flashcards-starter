@@ -19,8 +19,11 @@ const createDeck = cards => cards;
 
 const countCards = deck => deck.length;
 
-const createRound = () => {
-
+const createRound = (deck) => {
+  let round = {
+    deck: deck
+  }
+  return round;
 }
 
 module.exports = { 
