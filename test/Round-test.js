@@ -6,7 +6,11 @@ const { createDeck } = require('../src/deck');
 const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 const { prototypeData } = require('../src/data');
 
-describe('round', function() {
+describe('createRound', function() {
+  it('should be a function', function() {
+    expect(createRound).to.be.a('function');
+  });
+
   it('should hold a deck of cards', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -45,6 +49,12 @@ describe('round', function() {
     const round = createRound(deck);
 
     expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+});
+
+describe('takeTurn', function() {
+  it('should be a function', function() {
+    expect(takeTurn).to.be.a('function');
   });
 
   it('should update the turns count', function () {
@@ -119,6 +129,12 @@ describe('round', function() {
 
     expect(turn2).to.deep.equal('correct!');
   });
+});
+
+describe('calculatePercentCorrect', function() {
+  it('should be a function', function() {
+    expect(calculatePercentCorrect).to.be.a('function');
+  });
 
   it('should calculate and return the percentage of correct guesses', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -138,6 +154,12 @@ describe('round', function() {
     const percentCorrect2 = calculatePercentCorrect(round);
 
     expect(percentCorrect2).to.deep.equal(50);
+  });
+});
+
+describe('endRound', function() {
+  it('should be a function', function() {
+    expect(endRound).to.be.a('function');
   });
 
   it('should end round and print correct guess percentage', function() {

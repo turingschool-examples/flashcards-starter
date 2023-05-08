@@ -5,7 +5,11 @@ const { createCard } = require('../src/card');
 const { createDeck, countCards } = require('../src/deck');
 const { prototypeData } = require('../src/data');
 
-describe('deck', function() {
+describe('createDeck', function() {
+  it('should be a function', function() {
+    expect(createDeck).to.be.a('function');
+  });
+
   it('should create a deck of cards', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -16,6 +20,12 @@ describe('deck', function() {
     expect(deck.cards[1]).to.deep.equal(card2);
     expect(deck.cards[2]).to.deep.equal(card3);
     expect(deck.cards).to.deep.equal([card1, card2, card3]);
+  });
+});
+
+describe('countCards', function() {
+  it('should be a function', function() {
+    expect(countCards).to.be.a('function');
   });
 
   it('should know how many cards are in the deck', function() {
