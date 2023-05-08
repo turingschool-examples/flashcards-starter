@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const { evaluateGuess } = require('../src/turn');
+const { createCard } = require('../src/card');
 
 describe('evaluateGuess', () => {
   it("should return 'correct!' if the guess is correct", () => {
