@@ -1,4 +1,4 @@
-function createCard(id, question, answers, correctAnswer) {
+const createCard = (id, question, answers, correctAnswer) => {
   let card = {
     id: id,
     question: question,
@@ -8,18 +8,15 @@ function createCard(id, question, answers, correctAnswer) {
   return card;
 };
 
-function evaluateGuess(userGuess, card) {
+const evaluateGuess = (userGuess, card) => {
   if (userGuess === card.correctAnswer) {
     return 'correct!'
   }
   return 'incorrect!'
 };
 
-function createDeck(cards) {
-  return cards;
-}
+const createDeck = cards => cards;
 
-function countCards(deck) {
-  return deck.length;
-}
+const countCards = deck => deck.length;
+
 module.exports = { createCard, evaluateGuess, createDeck, countCards };
