@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard } = require('../src/card');
+const { createCard, evaluateGuess } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -17,3 +17,17 @@ describe('card', function() {
     expect(card.correctAnswer).to.equal('object');
   });  
 });
+
+describe('turn', function() {
+  it('should evaluate if a guess to a flashcard question is correct', function() {
+    const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const result = evaluateGuess('object', card)
+    expect(result).to.equal('correct!')
+  })
+
+  it('should evaluate if a guess to a flashcard question is incorrect', function() {
+    const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const result = evaluateGuess('array', card)
+    expect(result).to.equal('incorrect!')
+  })
+})
