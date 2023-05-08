@@ -1,6 +1,6 @@
 module.exports = {
-  createCard
-}
+  createCard,
+};
 
 function createCard(id, question, answers, correctAnswer) {
   let card = {
@@ -10,4 +10,4 @@ function createCard(id, question, answers, correctAnswer) {
     correctAnswer: correctAnswer
   }
   return card;
-}
+};
