@@ -19,4 +19,14 @@ const createDeck = cards => cards;
 
 const countCards = deck => deck.length;
 
-module.exports = { createCard, evaluateGuess, createDeck, countCards };
+const createRound = () => {
+
+}
+
+module.exports = { 
+  createCard, 
+  evaluateGuess, 
+  createDeck, 
+  countCards, 
+  createRound 
+};

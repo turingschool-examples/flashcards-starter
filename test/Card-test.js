@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound } = require('../src/card');
 
 describe('createCard', () => {
   it('should be a function', () => {
@@ -47,5 +47,16 @@ describe('deck', () => {
     const deck = createDeck([card1]);
     const deckNum = countCards(deck);
     expect(deckNum).to.equal(1);
+  });
+});
+
+describe('round', () => {
+  it('should return an object with a deck property', () => {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck([card1, card2, card3]);
+    round = createRound(deck);
+    expect(round.deck).to.deep.equal([card1, card2, card3]);
   });
 });
