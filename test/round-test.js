@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 const {createDeck} = require('../src/deck')
-const { createRound, takeTurn, calculatePercentageCorrect } = require('../src/round');
+const { createRound, takeTurn, calculatePercentageCorrect, endRound } = require('../src/round');
 
 describe('createRound', function() {
   it('should be a function', function(){
@@ -166,10 +166,10 @@ describe('calculatePercentageCorrect', function() {
 })
 
 describe('endRound', function() {
-  it.skip('should be a function', function(){
+  it('should be a function', function(){
     expect(endRound).to.be.a('function')
   })
-  it.skip('should be able to end a round', function() {
+  it('should be able to end a round', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
     const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap')
