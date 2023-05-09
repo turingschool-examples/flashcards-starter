@@ -111,5 +111,26 @@ describe('takeTurn', () => {
     expect(round1.currentCard).to.equal(card2);
   });
 
-  
+  it('should evaluate the guess and store incorrect guesses in the incorrectGuesses array', () => {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck);
+    userGuess = 'array';    
+    const round1 = takeTurn(userGuess, round);
+    expect(round1.incorrectGuesses.length).to.equal(1);
+    expect(round1.incorrectGuesses[0]).to.equal(1);
+  });
+
+  it('should not add the guess to the incorrectGuesses array if it is correct', () => {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck);
+    userGuess = 'object';    
+    const round1 = takeTurn(userGuess, round);
+    expect(round1.incorrectGuesses.length).to.equal(0);
+  });
 });
