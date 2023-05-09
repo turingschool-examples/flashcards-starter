@@ -1,10 +1,20 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { takeTurn } = require('../src/turn');
+const { evaluateGuess } = require('../src/turn');
 
 describe('turn', function() {
-  it.skip('should be a function', function() {
-    expect(takeTurn).to.be.a('function');
+  it('should be a function', function() {
+    expect(evaluateGuess).to.be.a('function');
   });
+
+  it('should evaluate to correct if the user guess is correct', function() {
+    let guess = 'object';
+    let correctAnswer = 'object';
+    eval = evaluateGuess(guess, correctAnswer);
+
+    expect(eval).to.equal('correct!')
+  });
+
+  
 });
