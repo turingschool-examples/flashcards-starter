@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { evaluateGuess } = require('../src/card');
+const { evaluateGuess } = require('../src/turns');
 
 describe('turns', function() {
   it('should be a function', function() {
@@ -10,15 +10,15 @@ describe('turns', function() {
   
   it('should be able to evaluate as correct if the guess is correct', function(){
     let guess = 'object'
-    let correstAnswer = 'object'
-    evaluation = evaluateGuess(guess, correstAnswer)
+    let correctAnswer = 'object'
+    evaluation = evaluateGuess(guess, correctAnswer)
     expect(evaluation).to.equal('correct!')
   })
   
   it('should be able to evaluate as incorrect if the guess is incorrect', function(){
     let guess = 'object'
-    let correstAnswer = 'array'
-    evaluation = evaluateGuess(guess, correstAnswer)
+    let correctAnswer = 'array'
+    evaluation = evaluateGuess(guess, correctAnswer)
     expect(evaluation).to.equal('incorrect!')
   })
 })
