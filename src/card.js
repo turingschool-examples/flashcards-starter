@@ -8,11 +8,15 @@ const createCard = (id,question,answers,correctAnswer) => {
     return card
 }
 
+const evaluateGuess = (guess,card) => {
 
-
+    if (card.correctAnswer = guess) {
+    return 'correct!'
+    }
+}
 
 
 module.exports = {
 createCard,
-
+evaluateGuess
 }
