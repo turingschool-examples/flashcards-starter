@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards, createRound } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn } = require('../src/card');
 
 describe('createCard', () => {
   it('should be a function', () => {
@@ -96,8 +96,20 @@ describe('takeTurn', () => {
     const deck = createDeck([card1, card2, card3]);
     const round = createRound(deck);    
     const round1 = takeTurn(round);
-    expect(turn.turns).to.equal(1);
+    expect(round1.turns).to.equal(1);
     const round2 = takeTurn(round1);
-    expect(turn.turns).to.equal(2);
+    expect(round2.turns).to.equal(2);
   });
+
+  it('should update the current card', () => {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck);    
+    const round1 = takeTurn(round);
+    expect(round1.currentCard).to.equal(card2);
+  });
+
+  
 });
