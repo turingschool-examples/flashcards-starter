@@ -8,6 +8,7 @@ describe('createDeck', function() {
   it('should be a function', function() {
     expect(createDeck).to.be.a('function')
   })
+  
   it('should create a deck containing all the cards', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
