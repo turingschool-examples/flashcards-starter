@@ -27,7 +27,7 @@ describe('countCards', function() {
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = createDeck([card1, card2, card3]);
-    numberOfCards = countCards(deck)
+    const numberOfCards = countCards(deck)
     expect(numberOfCards).to.be.equal(3)
   })
 })

@@ -6,8 +6,6 @@ function createDeck(cards) {
   return deck
 }
 
-function countCards(deck) {
-  return deck.length
-}
+const countCards = (deck) => deck.length
 
 module.exports = { createDeck, countCards }
