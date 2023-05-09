@@ -2,6 +2,7 @@
 // records if they are correct or incorrect.
 
 const { evaluateGuess } = require("./card");
+const { countCards } = require("./deck");
 
 const createRound = (deck) => {
     var round = {
@@ -24,7 +25,16 @@ const takeTurn = (guess, currentRound, deck) => {
     return answer
 }
 
+const calculatePercentCorrect = (round) => {
+    var turnsTaken = round.turns
+    var wrongGuesses = round.incorrectGuesses.length
+    var percentageWrong = (wrongGuesses/turnsTaken) * 100;
+    var percentageRight = Math.floor(100 - percentageWrong)
+    return percentageRight;
+}
+
 module.exports = { 
     createRound,
     takeTurn,
+    calculatePercentCorrect
 };
