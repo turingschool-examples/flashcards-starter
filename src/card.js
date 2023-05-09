@@ -15,7 +15,20 @@ if (guess === correctAnswer){
 return 'incorrect!'
 }
 
+function createDeck(cards){
+var deck = {
+  cards: cards
+}
+return deck
+}
+
+function countDeck(deck){
+  return deck.cards.length
+}
+
 module.exports = { 
   createCard,
-  evaluateGuess
+  evaluateGuess,
+  createDeck,
+  countDeck,
 };
