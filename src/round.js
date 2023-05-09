@@ -2,4 +2,6 @@ function createRound(deck) {
   
 }
 
-module.exports = {createRound}
+const takeTurn = (guess, round) => {}
+
+module.exports = {createRound, takeTurn}
