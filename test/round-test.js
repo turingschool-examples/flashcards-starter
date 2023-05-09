@@ -2,8 +2,8 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const { createCard } = require('../src/card');
-const { createDeck, countCards } = require('../src/deck');
-const { createRound, takeTurn, calculatePercentCorrect } = require('../src/round');
+const { createDeck } = require('../src/deck');
+const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 
 describe('round', function() {
     it('should return a round', function() {
@@ -94,5 +94,34 @@ describe('calculate percentage correct', function() {
 
         const right = calculatePercentCorrect(round, deck)
         expect(right).to.equal(50)
+    })
+})
+
+describe('end round', function() {
+    it('end the round if you run out of cards', function() {
+        const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+        const card2 = createCard(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'array');
+        const card3 = createCard(3, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
+
+        const deck = createDeck([card1, card2, card3]);
+        const round = createRound(deck)
+        const guess1 = takeTurn('array', round, deck)
+
+        expect(guess1).to.equal('incorrect!')
+        expect(round.incorrectGuesses).to.deep.equal([1])
+
+        const guess2 = takeTurn('array', round, deck)
+
+        expect(guess2).to.equal('correct!')
+        expect(round.incorrectGuesses).to.deep.equal([1])
+
+        const guess3 = takeTurn('sort()', round, deck)
+
+        expect(guess3).to.equal('correct!')
+        expect(round.incorrectGuesses).to.deep.equal([1])
+
+        const end = endRound(round)
+
+        expect(end).to.equal('** Round over! ** You answered 66% of the questions correctly!')
     })
 })
