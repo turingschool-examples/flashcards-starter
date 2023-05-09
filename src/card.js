@@ -30,11 +30,15 @@ const createRound = (deck) => {
 };
 
 const takeTurn = (userGuess, round) => {
+  if (userGuess !== round.currentCard.correctAnswer) {
+    round.incorrectGuesses.push(round.currentCard.id);
+  }
+
   round.turns++;
   round.deck.shift();
   round.currentCard = round.deck[0];
   return round;
-}
+};
 
 module.exports = { 
   createCard, 
