@@ -10,8 +10,11 @@ const createCard = (id,question,answers,correctAnswer) => {
 
 const evaluateGuess = (guess,card) => {
 
-    if (card.correctAnswer = guess) {
-    return 'correct!'
+    if (card.correctAnswer === guess) {
+        console.log(card.correctAnswer)
+     return 'correct!'
+    } else {
+     return 'incorrect!'
     }
 }
 

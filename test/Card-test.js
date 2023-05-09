@@ -25,8 +25,16 @@ describe('guess', function() {
 
   it('should return correct if the guess is correct', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    let guess = 'array'
+    let guess = 'object'
     let evaluate = evaluateGuess(guess,card)
     expect(evaluate).to.deep.equal('correct!')
-  })
+  });
+
+  it('should return incorrect if the guess is correct', function() {
+    const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    let guess = 'array'
+    let evaluate = evaluateGuess(guess,card)
+    expect(evaluate).to.deep.equal('incorrect!')
+  });
+
 });
