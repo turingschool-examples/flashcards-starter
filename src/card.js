@@ -21,7 +21,7 @@ function evaluateGuess(guess, correctAnswer) {
   } else {
     return 'Incorrect';
   }
-}
+}``
 
 module.exports = { 
   createCard,
