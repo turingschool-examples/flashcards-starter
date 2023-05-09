@@ -1,9 +1,16 @@
 const chai = require('chai');
 const expect = chai.expect;
-const {  } = require('../src/turns');
+const { evaluateGuess } = require('../src/turns');
 
 describe('turn', function(){
-    it('dummy test', function(){
-        expect(true).to.equal(true)
+    it('evaluateGuess is a function', function(){
+        expect(evaluateGuess).to.be.a('function');
+    });
+    it('evaluateGuess returns `correct!` if guess and correct answer are the same', function(){
+        let result = evaluateGuess('object', 'object')
+        expect(result).to.equal('object')
+    });
+    it('evaluateGuess returns `incorrect!` if guess and correct answer are different', function(){
+        let result = evaluateGuess('array', 'object')
     });
 });
