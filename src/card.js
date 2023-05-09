@@ -21,7 +21,10 @@ const countCards = deck => deck.length;
 
 const createRound = (deck) => {
   let round = {
-    deck: deck
+    deck: deck,
+    currentCard: deck[0],
+    turns: 0,
+    incorrectGuesses: []
   }
   return round;
 }

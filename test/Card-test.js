@@ -56,7 +56,7 @@ describe('round', () => {
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = createDeck([card1, card2, card3]);
-    round = createRound(deck);
+    const round = createRound(deck);
     expect(round.deck).to.deep.equal([card1, card2, card3]);
   });
   
@@ -65,17 +65,25 @@ describe('round', () => {
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = createDeck([card1, card2, card3]);
-    round = createRound(deck);
+    const round = createRound(deck);
     expect(round.currentCard).to.equal(card1);
   });
   
-  it('should return a turn property that starts as 0', () => {
-    round = createRound();
+  it('should return a turns property that starts as 0', () => {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck);
     expect(round.turns).to.equal(0);
   });
   
   it('should return an incorrectGuesses property', () => {
-    round = createRound();
-    expect(round.incorrectGuesses).to.equal([]);
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck);    
+    expect(round.incorrectGuesses).to.deep.equal([]);
   });
 });
