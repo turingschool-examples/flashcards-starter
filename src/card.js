@@ -11,15 +11,31 @@ const createCard = (id,question,answers,correctAnswer) => {
 const evaluateGuess = (guess,card) => {
 
     if (card.correctAnswer === guess) {
-        console.log(card.correctAnswer)
      return 'correct!'
     } else {
      return 'incorrect!'
     }
 }
 
+const createDeck = (cards) => {
+
+    let deck = {
+        cards: cards
+    } 
+
+    return deck
+}
+
+const countDeck = (deck) => {
+
+    return deck.cards.length
+}
+
+
 
 module.exports = {
 createCard,
-evaluateGuess
+evaluateGuess,
+createDeck,
+countDeck
 }
