@@ -35,4 +35,19 @@ describe('take turn', function() {
         expect(round.currentCard).to.equal(card2)
         expect(round.turns).to.equal(1)
     })
+
+    it('should update incorrect guesses if the guess is wrong', function() {
+        const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+        const card2 = createCard(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'array');
+        const card3 = createCard(3, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
+
+        const deck = createDeck([card1, card2, card3]);
+        const round = createRound(deck)
+        const guess = takeTurn('array', round, deck)
+
+        expect(guess).to.equal('incorrect!')
+        expect(round.currentCard).to.equal(card2)
+        expect(round.turns).to.equal(1)
+        expect(round.incorrectGuesses).to.deep.equal([1])
+    })
 })
