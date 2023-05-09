@@ -8,7 +8,7 @@ describe('turn', function() {
     expect(evaluateGuess).to.be.a('function');
   });
 
-  it.skip('should evaluate if a guess is correct', () => {
+  it('should evaluate if a guess is correct', () => {
     guess = evaluateGuess('object', 'object');
     expect(guess).to.equal('Correct!')
   })
