@@ -29,7 +29,7 @@ const createRound = (deck) => {
   return round;
 };
 
-const takeTurn = (round) => {
+const takeTurn = (userGuess, round) => {
   round.turns++;
   round.deck.shift();
   round.currentCard = round.deck[0];

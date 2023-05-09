@@ -94,10 +94,11 @@ describe('takeTurn', () => {
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = createDeck([card1, card2, card3]);
-    const round = createRound(deck);    
-    const round1 = takeTurn(round);
+    const round = createRound(deck);
+    let userGuess = 'object';    
+    const round1 = takeTurn(userGuess, round);
     expect(round1.turns).to.equal(1);
-    const round2 = takeTurn(round1);
+    const round2 = takeTurn(userGuess, round1);
     expect(round2.turns).to.equal(2);
   });
 
@@ -107,7 +108,8 @@ describe('takeTurn', () => {
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = createDeck([card1, card2, card3]);
     const round = createRound(deck);    
-    const round1 = takeTurn(round);
+    let userGuess = 'object';
+    const round1 = takeTurn(userGuess, round);
     expect(round1.currentCard).to.equal(card2);
   });
 
@@ -117,10 +119,14 @@ describe('takeTurn', () => {
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = createDeck([card1, card2, card3]);
     const round = createRound(deck);
-    userGuess = 'array';    
+    let userGuess = 'array';    
     const round1 = takeTurn(userGuess, round);
     expect(round1.incorrectGuesses.length).to.equal(1);
     expect(round1.incorrectGuesses[0]).to.equal(1);
+    userGuess = 'spleen';
+    const round2 = takeTurn(userGuess, round1)
+    expect(round2.incorrectGuesses.length).to.equal(2);
+    expect(round2.incorrectGuesses[1]).to.equal(14);
   });
 
   it('should not add the guess to the incorrectGuesses array if it is correct', () => {
@@ -129,7 +135,7 @@ describe('takeTurn', () => {
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     const deck = createDeck([card1, card2, card3]);
     const round = createRound(deck);
-    userGuess = 'object';    
+    let userGuess = 'object';    
     const round1 = takeTurn(userGuess, round);
     expect(round1.incorrectGuesses.length).to.equal(0);
   });
