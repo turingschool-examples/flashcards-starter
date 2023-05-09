@@ -52,21 +52,35 @@ describe('createRound', function() {
   })
 
   it('should  have incorrectGuesses property that starts out as empty', function() {
-  const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
-  const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
-  const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap')
-  
-  const deck = createDeck([card1, card2, card3])
-  
-  const round = createRound(deck);
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
+    const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap')
+    
+    const deck = createDeck([card1, card2, card3])
+    
+    const round = createRound(deck);
 
-  expect(round.incorrectGuesses).to.be.equal([])
+    expect(round.incorrectGuesses).to.be.equal([])
   })
 })
 
 describe('takeTurn', function(){
   it('should be a function', function() {
     expect(takeTurn).to.be.a('function')
+  })
+
+  it('should be able to make a correct guess', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
+    const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap')
+    
+    const deck = createDeck([card1, card2, card3])
+    
+    const round = createRound(deck);
+
+    feedback = takeTurn('sea otter', round)
+
+    expect(feedback).to.be.equal('correct!')
   })
 
   
