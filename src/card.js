@@ -15,21 +15,7 @@ const createCard = (id, question, answers, correctAnswer) => ({
   correctAnswer
 });
 
-// function checkForWin(name, winningWord) {
-//   const player = {
-//     name,
-//     winningWord: []
-//   }
-//   return player;
-// }
-
-const checkForWin = (name, winningWord) => ({
-  name,
-  winningWord
-});
-
 
 module.exports = { 
-  createCard,
-  checkForWin
+  createCard
 };
