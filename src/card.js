@@ -16,14 +16,19 @@ return 'incorrect!'
 }
 
 function createDeck(cards){
-var deck = {
-  cards: cards
-}
+var deck = cards
 return deck
 }
 
 function countDeck(deck){
-  return deck.cards.length
+  return deck.length
+}
+
+function createRound(deck){
+  var round = {
+    deck: deck,
+  }
+  return round
 }
 
 module.exports = { 
@@ -31,4 +36,5 @@ module.exports = {
   evaluateGuess,
   createDeck,
   countDeck,
+  createRound,
 };

@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countDeck } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countDeck, createRound } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -42,7 +42,7 @@ describe('create deck', function() {
      ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = createCard(12, 'What is Travis\'s middle name?',
      ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-     expect(createDeck([card1,card2,card3])).to.deep.equal({cards: [card1,card2,card3]})
+     expect(createDeck([card1,card2,card3])).to.deep.equal([card1,card2,card3])
     })
   })
 
@@ -57,4 +57,24 @@ describe('count deck', function() {
    deck = createDeck([card1,card2,card3])
  expect(countDeck(deck)).to.equal(3)
  })
+})
+
+describe('create round', function() {
+ it('should be able to create a round', function(){
+  const card1 = createCard(1, 'What is Robbie\'s favorite animal',
+   ['sea otter', 'pug', 'capybara'], 'sea otter');
+  const card2 = createCard(14, 'What organ is Khalid missing?',
+   ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+  const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?',
+   ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+  const deck = createDeck([card1, card2, card3]);
+
+  const round = createRound(deck);
+
+  expect(round.deck).to.deep.equal([card1, card2, card3])
  })
+})
+
+
+
+// describe
