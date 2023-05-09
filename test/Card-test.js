@@ -59,4 +59,12 @@ describe('round', () => {
     round = createRound(deck);
     expect(round.deck).to.deep.equal([card1, card2, card3]);
   });
+  it('should return a currentCard property that is the first card in the deck', () => {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck([card1, card2, card3]);
+    round = createRound(deck);
+    expect(round.currentCard).to.equal(card1);
+  });
 });
