@@ -18,4 +18,13 @@ describe('card', function() {
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
   });  
+
+  it('should take in different properties', function() {
+    const card2 = createCard(index, question, answers, correctAnswer);
+
+    expect(card2.id).to.equal(index);
+    expect(card2.question).to.equal(question);
+    expect(card2.answers).to.equal(answers);
+    expect(card2.correctAnswer).to.equal(correctAnswer);
+  })
 });
