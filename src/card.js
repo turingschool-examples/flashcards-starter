@@ -8,16 +8,13 @@ let createCard = (id, question, answers, correctAnswer) => {
   return card
 };
 
-
-
 let evaluateGuess = (guess, correctAnswer) => {
-  console.log(correctAnswer.correctAnswer)
   if(correctAnswer.correctAnswer === guess){
     return 'Correct!'
   } else {
     return 'Incorrect!'
   }
-}
+};
 
 module.exports = {
   createCard, 

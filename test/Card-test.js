@@ -34,9 +34,9 @@ describe('evaluateGuess', function(){
   });
 
   it('should evaluate if answer is incorrect', function(){
-    const newCard = createCard(3, 'what?',['cat', 'job', 'car'], 'job')
-    const answer = evaluateGuess('cat', newCard)
-    expect(answer).to.equal('Incorrect!')
+    const newCard = createCard(3, 'what?',['cat', 'job', 'car'], 'job');
+    const answer = evaluateGuess('cat', newCard);
+    expect(answer).to.equal('Incorrect!');
   })
 })
 
