@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 const {createDeck} = require('../src/deck')
-const { createRound, takeTurn } = require('../src/round');
+const { createRound, takeTurn, calculatePercentageCorrect } = require('../src/round');
 
 describe('createRound', function() {
   it('should be a function', function(){
@@ -139,5 +139,42 @@ describe('takeTurn', function(){
     takeTurn('spleen', round)
 
     expect(round.incorrectGuesses).to.be.deep.equal([1, 14])
+  })
+  
+  it('should be able to store incorrectGuesses', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
+    const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap')
+    
+    const deck = createDeck([card1, card2, card3])
+    
+    const round = createRound(deck);
+
+    takeTurn('pug', round)
+    takeTurn('spleen', round)
+
+    expect(round.incorrectGuesses).to.be.deep.equal([1, 14])
+  })
+  
+  
+
+}) 
+
+describe('calculatePercentCorrect', function() {
+  it('should be able to store incorrectGuesses', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
+    const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap')
+      
+    const deck = createDeck([card1, card2, card3])
+      
+    const round = createRound(deck);
+
+    takeTurn('sea otter', round)
+    takeTurn('spleen', round)
+
+    percentage = calculatePercentageCorrect(round)
+
+    expect(percentage).to.be.equal(50)
   })
 })
