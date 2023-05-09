@@ -60,7 +60,7 @@ describe('createRound', function() {
     
     const round = createRound(deck);
 
-    expect(round.incorrectGuesses).to.be.equal([])
+    expect(round.incorrectGuesses).to.be.deep.equal([])
   })
 })
 
@@ -161,6 +161,10 @@ describe('takeTurn', function(){
 }) 
 
 describe('calculatePercentCorrect', function() {
+  it('should be a function', function(){
+    expect(calculatePercentageCorrect).to.be.a('function')
+  })
+  
   it('should be able to store incorrectGuesses', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
@@ -180,6 +184,9 @@ describe('calculatePercentCorrect', function() {
 })
 
 describe('endRound', function() {
+  it('should be a function', function(){
+    expect(endRound).to.be.a('function')
+  })
   it('should be able to end a round', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
