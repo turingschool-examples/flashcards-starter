@@ -15,6 +15,15 @@ const createCard = (id, question, answers, correctAnswer) => ({
   correctAnswer
 });
 
+function evaluateGuess(guess, correctAnswer) {
+  if (guess === correctAnswer) {
+    return 'Correct!';
+  } else {
+    return 'Incorrect';
+  }
+}
+
 module.exports = { 
-  createCard
+  createCard,
+  evaluateGuess
 };
