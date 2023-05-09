@@ -16,5 +16,11 @@ describe('turn', function() {
     expect(eval).to.equal('correct!')
   });
 
-  
+  it('should evaluate to incorrect if the user guess is incorrect', function() {
+    let guess = 'function';
+    let correctAnswer = 'object';
+    eval = evaluateGuess(guess, correctAnswer);
+
+    expect(eval).to.equal('incorrect!');
+  })
 });
