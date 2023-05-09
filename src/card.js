@@ -15,7 +15,6 @@ const createCard = (id, question, answers, correctAnswer) => ({
   correctAnswer
 });
 
-
 module.exports = { 
   createCard
 };
