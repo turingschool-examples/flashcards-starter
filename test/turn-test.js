@@ -13,7 +13,7 @@ describe('turn', function() {
     expect(guess).to.equal('Correct!')
   })
 
-  it.skip('should evaluate if a guess is incorrect', () => {
+  it('should evaluate if a guess is incorrect', () => {
     guess2 = evaluateGuess('object', 'array');
     expect(guess2).to.equal('Incorrect - please try again.')
   })
