@@ -5,6 +5,7 @@ const { createCard } = require('../src/card');
 const { createDeck } = require('../src/deck');
 const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 
+
 describe('round', function() {
     it('should return a round', function() {
         const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -22,12 +23,14 @@ describe('round', function() {
 })
 
 describe('take turn', function() {
+    let card1, card2, card3, deck;
+    beforeEach(() => {
+        card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+        card2 = createCard(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'array');
+        card3 = createCard(3, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
+        deck = createDeck([card1, card2, card3]);   
+    })
     it('should allow user to take a turn', function() {
-        const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-        const card2 = createCard(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'array');
-        const card3 = createCard(3, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
-
-        const deck = createDeck([card1, card2, card3]);
         const round = createRound(deck)
         const guess = takeTurn('object', round, deck)
 
@@ -37,11 +40,6 @@ describe('take turn', function() {
     })
 
     it('should update incorrect guesses if the guess is wrong', function() {
-        const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-        const card2 = createCard(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'array');
-        const card3 = createCard(3, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
-
-        const deck = createDeck([card1, card2, card3]);
         const round = createRound(deck)
         const guess = takeTurn('array', round, deck)
 
@@ -52,11 +50,6 @@ describe('take turn', function() {
     })
 
     it('should update when many turns are taken', function() {
-        const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-        const card2 = createCard(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'array');
-        const card3 = createCard(3, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
-
-        const deck = createDeck([card1, card2, card3]);
         const round = createRound(deck)
         const guess1 = takeTurn('array', round, deck)
 
