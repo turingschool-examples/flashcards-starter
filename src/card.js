@@ -1,12 +1,14 @@
-const createCard = () => {
+const createCard = (index, question, answers, correctAnswer) => {
   const card = {
-    id: 1,
-    question: 'What allows you to define a set of related information using key-value pairs?',
-    answers: ['object', 'array', 'function'],
-    correctAnswer: 'object'
+    id: index,
+    question: question,
+    answers: answers,
+    correctAnswer: correctAnswer
   }
   return card;
 }
+
+
 
 module.exports = { 
   createCard
