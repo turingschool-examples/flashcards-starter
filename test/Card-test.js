@@ -87,3 +87,17 @@ describe('round', () => {
     expect(round.incorrectGuesses).to.deep.equal([]);
   });
 });
+
+describe('takeTurn', () => {
+  it('should update the turn count', () => {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck);    
+    const round1 = takeTurn(round);
+    expect(turn.turns).to.equal(1);
+    const round2 = takeTurn(round1);
+    expect(turn.turns).to.equal(2);
+  });
+});
