@@ -1,8 +1,5 @@
 function createDeck(cards) {
-  let deck = []
-  cards.forEach(card => {
-    deck.push(card)    
-  })
+  let deck = [...cards]
   return deck
 }
 
