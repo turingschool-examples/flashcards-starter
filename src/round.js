@@ -5,7 +5,20 @@ const createRound = (deck) => ({
   incorrectGuesses: []
 })
 
-const takeTurn = (guess, round) => {}
+const takeTurn = (guess, round) => {
+  message = ''
+  if (guess === round.currentCard.correctAnswer) {
+    message = 'correct!'
+  }
+  if (guess !== round.currentCard.correctAnswer) {
+    message = 'incorrect!'
+    round.incorrectGuesses.push(round.currentCard.id)
+  }
+  round.turns++
+  round.currentCard = round.deck[round.deck.indexOf(round.currentCard) + 1]
+  return message
+} 
+
 
 const calculatePercentageCorrect = (round) => {}
 
