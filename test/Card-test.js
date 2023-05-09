@@ -73,4 +73,9 @@ describe('round', () => {
     round = createRound();
     expect(round.turns).to.equal(0);
   });
+  
+  it('should return an incorrectGuesses property', () => {
+    round = createRound();
+    expect(round.incorrectGuesses).to.equal([]);
+  });
 });
