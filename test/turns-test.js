@@ -16,6 +16,9 @@ describe('turns', function() {
   })
   
   it('should be able to evaluate as incorrect if the guess is incorrect', function(){
-
+    let guess = 'object'
+    let correstAnswer = 'array'
+    evaluation = evaluateGuess(guess, correstAnswer)
+    expect(evaluation).to.equal('incorrect!')
   })
 })
