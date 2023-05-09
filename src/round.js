@@ -20,7 +20,7 @@ const takeTurn = (guess, round) => {
 } 
 
 
-const calculatePercentageCorrect = (round) => {}
+const calculatePercentageCorrect = (round) => (round.incorrectGuesses.length / round.turns) * 100
 
 const endRound = (round) => {}
  
