@@ -83,5 +83,17 @@ describe('takeTurn', function(){
     expect(feedback).to.be.equal('correct!')
   })
 
-  
+  it('should be able to make an incorrect guess', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
+    const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap')
+    
+    const deck = createDeck([card1, card2, card3])
+    
+    const round = createRound(deck);
+
+    feedback = takeTurn('pug', round)
+
+    expect(feedback).to.be.equal('incorrect!')
+  })
 })
