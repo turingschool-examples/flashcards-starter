@@ -8,9 +8,7 @@ const createCard = (index, question, answers, correctAnswer) => {
   return card;
 }
 
-
-
 module.exports = { 
   createCard
   
-};
+}; 
