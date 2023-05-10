@@ -1,5 +1,3 @@
-const { evaluateGuess } = require('./turn');
-
 function createRound(deck) {
     return {
         deck,
@@ -31,7 +29,7 @@ function calculatePercentCorrect(round) {
 
 function endRound(round) {
     if (round.turns === round.deck.length) {
-        return `** Round over! ** You answered ${round.deck.length - round.incorrectGuesses.length} of the questions correctly!`
+        return `** Round over! ** You answered ${round.deck.length - round.incorrectGuesses.length} of the questions correctly!`;
     }
 }
 
