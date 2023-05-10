@@ -9,5 +9,5 @@ const createCard = (id, question, answers, correctAnswer) => {
 
 
 module.exports = {
-    createCard
-  };
+  createCard
+};
