@@ -23,8 +23,6 @@ function calculatePercentCorrect(round) {
 }
 
 function endRound(round) {
-    console.log(round.turns)
-    console.log(round.deck.length)
     if (round.turns === round.deck.length) {
         return `** Round over! ** You answered ${round.deck.length - round.incorrectGuesses} of the questions correctly!`
     }
