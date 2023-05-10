@@ -8,13 +8,18 @@ const { dataSub } = require('../src/dataSub');
 
 
 describe('startMock', () => {
+  let round;
+  beforeEach(() => {
+    round = startMock(dataSub);
+  })
   it('should create cards and put them in a deck', () => {
-    const deck = startMock(dataSub);
-    expect(deck.length).to.equal(8);
-    expect(deck[0].id).to.equal(1);
+    expect(round.deck.length).to.equal(8);
+    expect(round.deck[0].id).to.equal(1);
   });
 
   it('should create a new round using the deck', () => {
-
+    expect(round.currentCard.correctAnswer).to.equal('object');
+    expect(round.turns).to.equal(0);
+    expect(round.incorrectGuesses).to.deep.equal([]);
   })
 });
