@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { startMock } = require('../src/start');
+const { startMock } = require('../src/startMock');
 const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round')
 const { dataSub } = require('../src/dataSub');
 
@@ -21,5 +21,5 @@ describe('startMock', () => {
     expect(round.currentCard.correctAnswer).to.equal('object');
     expect(round.turns).to.equal(0);
     expect(round.incorrectGuesses).to.deep.equal([]);
-  })
+  });
 });
