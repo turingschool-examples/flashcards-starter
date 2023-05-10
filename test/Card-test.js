@@ -21,12 +21,22 @@ describe('card', function() {
 describe('turn', function() {
   it('should evaluate if a guess to a flashcard question is correct', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    
+    expect(card.id).to.equal(1);
+    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+
     const result = evaluateGuess('object', card)
     expect(result).to.equal('correct!')
   })
 
   it('should evaluate if a guess to a flashcard question is incorrect', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    
+    expect(card.id).to.equal(1);
+    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+    
     const result = evaluateGuess('array', card)
     expect(result).to.equal('incorrect!')
   })

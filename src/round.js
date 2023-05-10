@@ -1,8 +1,4 @@
-// Your round will be the object that organizes guesses and 
-// records if they are correct or incorrect.
-
 const { evaluateGuess } = require("./card");
-const { countCards } = require("./deck");
 
 const createRound = (deck) => {
     var round = {
@@ -15,13 +11,16 @@ const createRound = (deck) => {
     return round;
 }
 
-const takeTurn = (guess, currentRound, deck) => {
+const takeTurn = (guess, currentRound) => {
     var answer = evaluateGuess(guess, currentRound.currentCard)
     if (answer === 'incorrect!'){
         currentRound.incorrectGuesses.push(currentRound.currentCard.id)
     }
     currentRound.turns += 1;
-    currentRound.currentCard = deck[currentRound.turns]
+    currentRound.currentCard = currentRound.deck[currentRound.turns]
+    if (currentRound.turns >= currentRound.deck.length){
+        currentRound.currentCard = false;
+    }
     return answer
 }
 
@@ -35,7 +34,7 @@ const calculatePercentCorrect = (round) => {
 
 const endRound = (round) => {
     var correct = calculatePercentCorrect(round)
-    return `** Round over! ** You answered ${correct}% of the questions correctly!`
+    console.log(`** Round over! ** You answered ${correct}% of the questions correctly!`)
 }
 
 module.exports = { 
