@@ -29,7 +29,7 @@ describe('createDeck', function() {
 });
 
 describe('countCards', function() {
-    it.skip('should count the number of cards in a deck', function() {
+    it('should count the number of cards in a deck', function() {
         let card1 = {
             "id": 1,
             "question": "What allows you to define a set of related information using key-value pairs?",
