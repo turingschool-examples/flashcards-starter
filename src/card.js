@@ -42,11 +42,17 @@ const takeTurn = (userGuess, round) => {
   return feedback;
 };
 
+const calculatePercentCorrect = round => {
+  const percentCorrect = round.incorrectGuesses.length/round.turns * 100;
+  return `${percentCorrect}%`
+};
+
 module.exports = { 
   createCard, 
   evaluateGuess, 
   createDeck, 
   countCards, 
   createRound,
-  takeTurn 
+  takeTurn,
+  calculatePercentCorrect 
 };
