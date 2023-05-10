@@ -1,8 +1,8 @@
-function createRound(deck, currentCard) {
-  // console.log(deck);
+function createRound(deck, currentCard, turns) {
   const round = {
     deck: deck,
     currentCard: currentCard,
+    turns: turns
   }
   // console.log(round);
   return round;
