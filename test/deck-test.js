@@ -23,5 +23,9 @@ describe('countCards', function() {
     expect(countCards).to.be.a('function');
   });
 
+  it('should be able to count cards', function() {
+    const totalCards = countCards(deck);
+    expect(totalCards).to.equal(3);
+  });
 
-})
+});
