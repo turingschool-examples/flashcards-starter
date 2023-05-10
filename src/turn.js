@@ -1,12 +1,14 @@
-
 const evaluateGuess = (guess, correctAnswer) => {
-    if(guess === correctAnswer){
-     return true;
+  if (guess === correctAnswer) {
+    return 'Correct!'
     } else {
-     return false;
-    };
-   };
-  
-   module.exports = {
-    evaluateGuess
-   }
+    return 'Incorrect!';
+    }; 
+  };
+
+module.exports = {
+  evaluateGuess
+};
+
+
+   
