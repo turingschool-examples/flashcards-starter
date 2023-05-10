@@ -42,9 +42,8 @@ async function main(round) {
     }
 }
 
-module.exports.main = main;
-
 module.exports = {
+  main,
   genList,
   confirmUpdate
 };
