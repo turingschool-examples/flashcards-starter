@@ -1,18 +1,20 @@
+// ROUND, DECK, AND CARD FUNCTIONS //
+
 const createCard = (id, question, answers, correctAnswer) => {
   let card = {
     id: id,
     question: question,
     answers: answers,
     correctAnswer: correctAnswer
-  }
+  };
   return card;
 };
 
 const evaluateGuess = (userGuess, card) => {
   if (userGuess === card.correctAnswer) {
-    return 'correct!'
+    return 'correct!';
   }
-  return 'incorrect!'
+  return 'incorrect!';
 };
 
 const createDeck = cards => {
@@ -21,7 +23,7 @@ const createDeck = cards => {
     deck.push(createCard(card.id, card.question, card.answers, card.correctAnswer));
   })
   return deck;
-}
+};
 
 const countCards = deck => deck.length;
 
@@ -31,7 +33,7 @@ const createRound = (deck) => {
     currentCard: deck[0],
     turns: 0,
     incorrectGuesses: []
-  }
+  };
   return round;
 };
 
@@ -41,7 +43,6 @@ const takeTurn = (userGuess, round) => {
     round.incorrectGuesses.push(round.currentCard.id);
     feedback = 'incorrect!';
   }
-
   round.turns++;
   round.deck.shift();
   round.currentCard = round.deck[0];
@@ -58,9 +59,9 @@ const calculatePercentCorrect = round => {
 
 const endRound = round => {
   const percentCorrect = calculatePercentCorrect(round);
-  round.consoleLogMessage = `** Round over! ** You answered ${percentCorrect} of the questions correctly!`
+  round.consoleLogMessage = `** Round over! ** You answered ${percentCorrect} of the questions correctly!`;
   console.log(round.consoleLogMessage);
-}
+};
 
 module.exports = { 
   createCard, 

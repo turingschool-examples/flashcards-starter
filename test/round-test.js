@@ -1,3 +1,5 @@
+// ROUND, CARD, AND DECK TESTS //
+
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -11,7 +13,6 @@ describe('createCard', () => {
 
   it('should create a card and its properties', () => {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    
     expect(card.id).to.equal(1);
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
@@ -43,6 +44,7 @@ describe('deck', () => {
     const deckNum = countCards(deck);
     expect(deckNum).to.equal(3);
   });
+  
   it('should work with different size decks', () => {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const deck = createDeck([card1]);
