@@ -67,7 +67,6 @@ describe('round', () => {
   });
   
   it('should return a currentCard property that is the first card in the deck', () => {
-    console.log(round.currentCard)
     expect(round.currentCard.id).to.equal(card1.id);
   });
   
@@ -102,7 +101,6 @@ describe('takeTurn', () => {
   it('should update the current card', () => {    
     let userGuess = 'object';
     takeTurn(userGuess, round);
-    console.log(round.currentCard)
     expect(round.currentCard.id).to.equal(card2.id);
   });
 

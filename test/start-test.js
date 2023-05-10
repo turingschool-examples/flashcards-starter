@@ -1,11 +1,9 @@
 const chai = require('chai');
 const expect = chai.expect;
-
 const { startMock } = require('../src/startMock');
-const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round')
 const { dataSub } = require('../src/dataSub');
 
-
+// startMock 
 
 describe('startMock', () => {
   let round;
