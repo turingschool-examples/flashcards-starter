@@ -3,11 +3,16 @@ function createDeck(card1, card2, card3) {
     cards: []
   }
   deck.cards.push(card1, card2, card3);
-  console.log(deck);
+  // console.log(deck);
   return deck;
 }
 
+function countCards(deck) {
+  // console.log(deck.cards.length);
+  return deck.cards.length;
+}
 
 module.exports = { 
-  createDeck
+  createDeck,
+  countCards
 };
