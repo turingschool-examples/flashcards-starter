@@ -1,7 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
 const { subdata } = require("../src/subdata.js");
-
 const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentage, endRound} = require('../src/card');
 
 
@@ -71,7 +70,6 @@ describe('createDeck function', function(){
       correctAnswer: 'Fitzgerald'
     });
   });
-
 }); 
 
 describe('countCards function', function(){
@@ -130,11 +128,9 @@ describe('create takeTurn function', function() {
       const round = createRound(subdata);
     
       const correct = takeTurn('sea otter', round);
-      // expect(takeTurn).to.equal('correct!')
 
-     const incorrect = takeTurn('spleen', round);
+      const incorrect = takeTurn('spleen', round);
       expect(incorrect).to.equal('incorrect!');
-      // takeTurn('spleen', round)
 
       expect(round.turns).to.equal(2);
       expect(round.currentCard).to.deep.equal({
@@ -150,7 +146,7 @@ describe('create takeTurn function', function() {
 describe('calculatePercentage function', function(){
   it('should be a function', () => {
     expect(calculatePercentage).to.be.a('function')
-  })
+  });
 
   it('should calculate the percentage of correct answers',() => {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -165,14 +161,13 @@ describe('calculatePercentage function', function(){
     const percentRight = calculatePercentage(round)
 
     expect(percentRight).to.equal(50)
-  })
-
-})
+  });
+});
 
 describe('endRound function', function(){
   it('should be a function', () => {
     expect(endRound).to.be.a('function')
-  })
+  });
 
   it('should display when round is over and percent correct', () => {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
