@@ -1,4 +1,7 @@
-const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
+const { startMock } = require('../src/start')
+const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round')
+const chai = require('chai');
+const expect = chai.expect;
 const dataSub = [{
   id: 1,
   question: "What allows you to define a set of related information using key-value pairs?",
@@ -44,8 +47,8 @@ const dataSub = [{
 
 describe('startMock', () => {
   it('should create cards and put them in a deck', () => {
-    const deck = startMock(data);
+    const deck = startMock(dataSub);
     expect(deck.length).to.equal(8);
     expect(deck[0].id).to.equal(1);
-  })
-})
+  });
+});
