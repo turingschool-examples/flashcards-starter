@@ -1,13 +1,15 @@
 const { evaluateGuess } = require("./card");
+let startTime;
 
 const createRound = (deck) => {
     var round = {
         deck,
-        currentCard: deck[0],
-        turns: 0,
+        currentCard: deck[28],
+        turns: 28,
         incorrectGuesses: [],
 
     }
+    startTime = new Date();
     return round;
 }
 
@@ -34,7 +36,12 @@ const calculatePercentCorrect = (round) => {
 
 const endRound = (round) => {
     var correct = calculatePercentCorrect(round)
+    const endTime = new Date();
+    const elapsedTime = endTime - startTime;
+    const elapsedMinutes = Math.floor(elapsedTime / (1000 * 60));
+    const elapsedSeconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
     console.log(`** Round over! ** You answered ${correct}% of the questions correctly!`)
+    console.log(`Quiz completed in ${elapsedMinutes} minutes and ${elapsedSeconds} seconds.`);
     return `** Round over! ** You answered ${correct}% of the questions correctly!`
 }
 
