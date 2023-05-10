@@ -18,12 +18,16 @@ function takeTurn(guess, round) {
     return round;
 }
 
-function endRound() {
-    
+function calculatePercentCorrect(round) {
+    return round.incorrectGuesses / round.turns * 100;
 }
 
-function calculatePercentCorrect() {
-    
+function endRound(round) {
+    console.log(round.turns)
+    console.log(round.deck.length)
+    if (round.turns === round.deck.length) {
+        return `** Round over! ** You answered ${round.deck.length - round.incorrectGuesses} of the questions correctly!`
+    }
 }
 
 module.exports = {

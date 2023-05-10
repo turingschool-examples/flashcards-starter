@@ -41,18 +41,26 @@ describe('takeTurn', function() {
     });
 });
 
-describe('endRound', function() {
-    it.skip('should', function() {
-        
-
-        expect().to.equal();
-    });
-});
-
 describe('calculatePercentCorrect', function() {
-    it.skip('should properly calculate the percent of correct guesses', function() {
+    let round = createRound(deck);
+    round = takeTurn('sea otter', round);
+    round = takeTurn('spleen', round);
+
+    it('should properly calculate the percent of correct guesses', function() {
         let percentCorrect = calculatePercentCorrect(round);
 
         expect(percentCorrect).to.equal(50);
+    });
+});
+
+describe('endRound', function() {
+    let round = createRound(deck);
+    round = takeTurn('sea otter', round);
+    round = takeTurn('spleen', round);
+    round = takeTurn('playing with bubble wrap', round);
+    it('should', function() {
+        let endRoundMessage = endRound(round);
+
+        expect(endRoundMessage).to.equal("** Round over! ** You answered 2 of the questions correctly!");
     });
 });
