@@ -43,4 +43,8 @@ describe('create round', function() {
     const round1 = round(deck)
     expect(round1.turns).to.equal(0)
   })
+  it('should have an empty array property that stores incorrect guesses', function() {
+    const round1 = round(deck)
+    expect(round1.incorrectGuesses).to.deep.equal([])
+  })
 });
