@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createDeck } = require('../src/deck');
+const { createDeck, countCards } = require('../src/deck');
 const { createCard } = require('../src/card');
 
 describe('createDeck', function() {
@@ -17,3 +17,11 @@ describe('createDeck', function() {
   expect(deck).to.deep.equal([card1, card2, card3])
   });
 });
+
+describe('countCards', function() {
+  it('should be a function', function() {
+    expect(countCards).to.be.a('function');
+  });
+
+
+})
