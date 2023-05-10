@@ -10,11 +10,11 @@ describe('turn', function() {
   });
 
   it('should evaluate if user guess is correct or incorrect', function() {
-    
-    const correct = evaluateGuess("object", "object");
-    const incorrect = evaluateGuess("array", "object");
+    const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object'); 
+    const correct = evaluateGuess('object', card);
+    const incorrect = evaluateGuess('function', card);
 
-    expect(correct).to.equal("Correct!");
-    expect(incorrect).to.equal("Incorrect");
+    expect(correct).to.equal('Correct!');
+    expect(incorrect).to.equal('Incorrect!');
   });
 });
