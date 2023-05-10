@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
+const { dataSub } = require('../src/dataSub');
 
 describe('createCard', () => {
   it('should be a function', () => {
@@ -66,6 +67,7 @@ describe('round', () => {
   });
   
   it('should return a currentCard property that is the first card in the deck', () => {
+    console.log(round.currentCard)
     expect(round.currentCard).to.equal(card1);
   });
   
@@ -100,6 +102,7 @@ describe('takeTurn', () => {
   it('should update the current card', () => {    
     let userGuess = 'object';
     takeTurn(userGuess, round);
+    console.log(round.currentCard)
     expect(round.currentCard).to.equal(card2);
   });
 

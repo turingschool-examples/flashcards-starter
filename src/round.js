@@ -15,7 +15,13 @@ const evaluateGuess = (userGuess, card) => {
   return 'incorrect!'
 };
 
-const createDeck = cards => cards;
+const createDeck = cards => {
+  const deck = []; 
+  cards.forEach(card => {
+    deck.push(createCard(card.id, card.question, card.answers, card.correctAnswer));
+  })
+  return deck;
+}
 
 const countCards = deck => deck.length;
 
