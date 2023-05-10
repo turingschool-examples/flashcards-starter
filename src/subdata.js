@@ -1,4 +1,4 @@
-const subData = [{
+const subdata = [{
   "id": 1,
   "question": "What is Robbie\'s favorite animal",
   "answers": ['sea otter', 'pug', 'capybara'],
@@ -16,5 +16,5 @@ const subData = [{
 }];
 
 module.exports = {
-  subData,
+  subdata,
 }
