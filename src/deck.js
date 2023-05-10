@@ -3,6 +3,9 @@ const createDeck = (cards) => {
   return deck;
 }
 
+const countCards = (deck) => deck.length
+
 module.exports = {
-  createDeck
+  createDeck,
+  countCards
 }
