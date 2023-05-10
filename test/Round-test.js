@@ -11,8 +11,6 @@ const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['li
 
 const deck = createDeck(card1, card2, card3);
 
-
-
 describe('createRound', function() {
     let round = createRound(deck);
     it('should properly create the round object', function() {
