@@ -43,9 +43,21 @@ const takeTurn = (userGuess, round) => {
 };
 
 const calculatePercentCorrect = round => {
-  const percentCorrect = round.incorrectGuesses.length/round.turns * 100;
-  return `${percentCorrect}%`
+  let wrongAnswers = round.incorrectGuesses.length;
+  
+  if (!round.incorrectGuesses.length) {
+    wrongAnswers = 1;
+  }
+  
+  const percentCorrect = wrongAnswers/round.turns * 100;
+  return `${percentCorrect}%`;
 };
+
+const endRound = round => {
+  const percentCorrect = calculatePercentCorrect(round);
+  round.consoleLogMessage = `** Round over! ** You answered ${percentCorrect} of the questions correctly!`
+  console.log(round.consoleLogMessage);
+}
 
 module.exports = { 
   createCard, 
@@ -54,5 +66,6 @@ module.exports = {
   countCards, 
   createRound,
   takeTurn,
-  calculatePercentCorrect 
+  calculatePercentCorrect,
+  endRound 
 };

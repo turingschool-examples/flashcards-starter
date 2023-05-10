@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/card');
 
 describe('createCard', () => {
   it('should be a function', () => {
@@ -131,25 +131,32 @@ describe('takeTurn', () => {
     const feedback = takeTurn(userGuess, round)
     expect(feedback).to.equal('incorrect!');
   })
-});
 
-describe('calculatePercentCorrect', () => {
-  let card1, card2, card3, deck, round, userGuess;
-  
-  beforeEach(() => {
-    card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-    deck = createDeck([card1, card2, card3]);
-    round = createRound(deck);
+  it('should calculate and return the percentage of correct guesses', () => {
     userGuess = 'object';
     takeTurn(userGuess, round);
     userGuess = 'spleen';
     takeTurn(userGuess, round);
-  });
-
-  it('should calculate and return the percentage of correct guesses', () => {
     const percentCorrect = calculatePercentCorrect(round);
     expect(percentCorrect).to.equal('50%');
   });
+
+  it('should return 100% if there are 0 incorrect guesses', () => {
+    userGuess = 'object';
+    takeTurn(userGuess, round);
+    const percentCorrect = calculatePercentCorrect(round);
+    expect(percentCorrect).to.equal('100%');
+  })
+
+  it('should print a message to the console', () => {
+    userGuess = 'object';
+    takeTurn(userGuess, round);
+    endRound(round);
+    expect(round.consoleLogMessage).to.equal(`** Round over! ** You answered 100% of the questions correctly!`);
+    userGuess = 'spleen';
+    takeTurn(userGuess, round);
+    endRound(round);
+    expect(round.consoleLogMessage).to.equal(`** Round over! ** You answered 50% of the questions correctly!`);
+
+  })
 });
