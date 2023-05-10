@@ -1,4 +1,4 @@
-const mockData = [{
+const animeQuiz = [{
     "id": 1,
     "question": "What anime is Calli's tattoo from?",
     "answers": ["Given", "Seaside Stranger", "Sasaki to Miyano"],
@@ -15,11 +15,11 @@ const mockData = [{
     "correctAnswer": "Team Rocket"
   }, {
     "id": 4,
-    "question": "Who does not skateboard?",
+    "question": "Who cannot ride a skateboard?",
     "answers": ["Reki", "Asta", "Killua"],
     "correctAnswer": "Asta"
   }]
 
 module.exports = {
-mockData 
+    animeQuiz 
 }
