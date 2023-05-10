@@ -25,8 +25,12 @@ function countDeck(deck){
 }
 
 function createRound(deck){
+
   var round = {
     deck: deck,
+    currentCard: deck[0],
+    turns: 0,
+    // incorrectGuesses: [],
   }
   return round
 }
@@ -37,4 +41,5 @@ module.exports = {
   createDeck,
   countDeck,
   createRound,
+  // takeTurn,
 };

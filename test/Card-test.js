@@ -72,6 +72,13 @@ describe('create round', function() {
   const round = createRound(deck);
 
   expect(round.deck).to.deep.equal([card1, card2, card3])
+  expect(round.currentCard).to.deep.equal({
+    id: 1,
+    question: 'What is Robbie\'s favorite animal',
+    answers: ['sea otter', 'pug', 'capybara'],
+    correctAnswer: 'sea otter'
+  })
+  expect(round.turns).to.equal(0)
  })
 })
 
