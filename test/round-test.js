@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 
 describe('createCard', () => {
   it('should be a function', () => {
@@ -144,7 +144,11 @@ describe('takeTurn', () => {
   it('should return 100% if there are 0 incorrect guesses', () => {
     userGuess = 'object';
     takeTurn(userGuess, round);
-    const percentCorrect = calculatePercentCorrect(round);
+    let percentCorrect = calculatePercentCorrect(round);
+    expect(percentCorrect).to.equal('100%');
+    userGuess = 'gallbladder';
+    takeTurn(userGuess, round);
+    percentCorrect = calculatePercentCorrect(round);
     expect(percentCorrect).to.equal('100%');
   })
 
