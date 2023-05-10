@@ -1,35 +1,107 @@
 const chai = require('chai');
 const expect = chai.expect;
 const { } = require('../src/round');
+const { sampleData } = require('../src/sample-data');
+const { createCard } = require('../src/card');
+const { } = require('../src/turns');
+const { createDeck } = require('../src/deck');
 
-/* ROUND
-- Have a deck, curentCard, incorrect guesses and turn property to track those elements
-- takeTurn function should update these elements 
-    - 
-- calculatePrecentCorrect function with round as input calcs how many were guessed correctly and returns as a precent
-- endROund function prints message that round is over and result of calc percent function
-*/
-
-describe('Checks that the deck, currentCard, incorrectGuesses, and Turn variables are all available', function(){
+describe('checks that the deck, currentCard, incorrectGuesses, and Turn variables are all available inside the round', function(){
     it('should have a deck that holds cards', function(){
+        let cards = []
+        for (let i=0; i<3; i++){
+          const card = createCard(sampleData[i].id, sampleData[i].question, sampleData[i].answers, sampleData[i].correctAnswer)
+          cards.push(card)
+        }
+        const deck = createDeck(cards)
+        const round = createRound(deck)
+
+        expect(round.deck).to.deep.equal([sampleData[0], sampleData[1], sampleData[2]])
+
 
     });
     it('should have a current card that is the first card in the deck', function(){
+        let cards = []
+        for (let i=0; i<3; i++){
+          const card = createCard(sampleData[i].id, sampleData[i].question, sampleData[i].answers, sampleData[i].correctAnswer)
+          cards.push(card)
+        }
+        const deck = createDeck(cards)
+        const round = createRound(deck)
+
+        expect(round.currentCard).to.deep.equal(sampleData[0])
 
     });
     it('should have a turns tracker starting at 0', function(){
+        let cards = []
+        for (let i=0; i<3; i++){
+          const card = createCard(sampleData[i].id, sampleData[i].question, sampleData[i].answers, sampleData[i].correctAnswer)
+          cards.push(card)
+        }
+        const deck = createDeck(cards)
+        const round = createRound(deck)
 
+        expect(round.turns).to.equal(0)
     });
     it('should have an empty array to store cards guess wrong', function(){
+        let cards = []
+        for (let i=0; i<3; i++){
+          const card = createCard(sampleData[i].id, sampleData[i].question, sampleData[i].answers, sampleData[i].correctAnswer)
+          cards.push(card)
+        }
+        const deck = createDeck(cards)
+        const round = createRound(deck)
 
+        expect(round.incorrectGuesses).to.deep.equal([])
     });
 });
 describe('Checks takeTurn functionality', function(){
+    it('should update the turn count each time a guess is made', function(){
+        let cards = []
+        for (let i=0; i<3; i++){
+          const card = createCard(sampleData[i].id, sampleData[i].question, sampleData[i].answers, sampleData[i].correctAnswer)
+          cards.push(card)
+        }
+        const deck = createDeck(cards)
+        const round = createRound(deck)
 
+        takeTurn('array', round)
+        expect(round.turns).to.equal(1)
+
+        takeTurn('object', round)
+        takeTurn('method', round)
+        expect(round.turns).to.equal(3)
+    });
+    it('should change the currentCard to the next card in the deck', function(){
+        let cards = []
+        for (let i=0; i<3; i++){
+          const card = createCard(sampleData[i].id, sampleData[i].question, sampleData[i].answers, sampleData[i].correctAnswer)
+          cards.push(card)
+        }
+        const deck = createDeck(cards)
+        const round = createRound(deck)
+
+        takeTurn('iterator', round)
+        expect(round.currentCard).to.deep.equal(sampleData[1])
+
+        takeTurn('method', round)
+        takeTurn('object', round)
+        expect(round.currentCard).to.deep.equal(sampleData[3])
+    });
+    it('guess should be evaluated, if the guess is incorrect the card is stored in the incrrectGuesses array', function(){
+        
+    });
+    it('user should recieve feedback on result of guess', function(){
+
+    });
 });
-describe('Checks calculatePercent functionality', function(){
+describe('checks calculatePercent functionality', function(){
+    it('should calculate the percent of correct guesses made in a round', function(){
 
+    });
 });
-describe('Checks endROund Functionality', function(){
+describe('checks endRound Functionality', function(){
+    it('should return an end of round message and the precent of correct guesses', function(){
 
+    });
 });
