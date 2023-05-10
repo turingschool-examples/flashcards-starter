@@ -7,6 +7,7 @@ const { dataSub } = require('../src/dataSub');
 
 describe('startMock', () => {
   let round;
+  
   beforeEach(() => {
     round = startMock(dataSub);
   });

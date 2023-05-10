@@ -1,6 +1,6 @@
 // MOCK START FUNCTION FOR TESTING //
 
-const { createDeck, createRound } = require('./round')
+const { createDeck, createRound } = require('./round');
 
 const startMock = dataSub => {
   const deck = createDeck(dataSub);

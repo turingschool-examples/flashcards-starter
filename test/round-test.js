@@ -2,7 +2,6 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-
 const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 const { dataSub } = require('../src/dataSub');
 
@@ -27,12 +26,13 @@ describe('evaluateGuess', () => {
     const turn = evaluateGuess(userGuess, card);
     expect(turn).to.equal('correct!');
   });
+
   it("should return 'incorrect!' if the guess is incorrect", () => {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const userGuess = 'array';
     const turn = evaluateGuess(userGuess, card);
     expect(turn).to.equal('incorrect!');
-  })
+  });
 });
 
 describe('deck', () => {
@@ -44,7 +44,7 @@ describe('deck', () => {
     const deckNum = countCards(deck);
     expect(deckNum).to.equal(3);
   });
-  
+
   it('should work with different size decks', () => {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const deck = createDeck([card1]);
@@ -133,7 +133,7 @@ describe('takeTurn', () => {
     let userGuess = 'array'; 
     const feedback = takeTurn(userGuess, round)
     expect(feedback).to.equal('incorrect!');
-  })
+  });
 
   it('should calculate and return the percentage of correct guesses', () => {
     userGuess = 'object';
@@ -153,7 +153,7 @@ describe('takeTurn', () => {
     takeTurn(userGuess, round);
     percentCorrect = calculatePercentCorrect(round);
     expect(percentCorrect).to.equal('100%');
-  })
+  });
 
   it('should print a message to the console', () => {
     userGuess = 'object';
@@ -164,6 +164,5 @@ describe('takeTurn', () => {
     takeTurn(userGuess, round);
     endRound(round);
     expect(round.consoleLogMessage).to.equal(`** Round over! ** You answered 50% of the questions correctly!`);
-
-  })
+  });
 });
