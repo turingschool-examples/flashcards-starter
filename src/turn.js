@@ -1,3 +1,5 @@
+// const { createCard } = require("./card");
+
 const evaluateGuess = (guess, correctAnswer) => {
   if (guess === correctAnswer) {
     return 'Correct!'
@@ -7,5 +9,6 @@ const evaluateGuess = (guess, correctAnswer) => {
 }
 
 module.exports = { 
-  evaluateGuess
+  evaluateGuess,
+  // createCard
 }; 
