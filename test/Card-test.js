@@ -1,7 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countDeck, createRound, takeTurn } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countDeck,
+   createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -9,7 +10,8 @@ describe('card', function() {
   });
 
   it('should create a card and its properties', function() {
-    const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?',
+     ['object', 'array', 'function'], 'object');
     
     expect(card.id).to.equal(1);
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
@@ -106,12 +108,13 @@ describe('take turn', function() {
       answers: ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
       correctAnswer: 'playing with bubble wrap'
     })
-
-    describe('')
-
+    expect(calculatePercentCorrect(round)).to.equal(50)
+    takeTurn('playing with bubble wrap', round)
+    expect(endRound(round)).to.equal(
+      `** Round over! ** You answered 33% of the questions correctly!`)
   })
-})
 
+})
 
 
 // describe

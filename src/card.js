@@ -3,7 +3,7 @@ function createCard(id, question, answers, correctAnswer) {
     id: id,
     question: question,
     answers: answers,
-    correctAnswer: correctAnswer
+    correctAnswer: correctAnswer,
   }
   return card
 }
@@ -45,6 +45,15 @@ function takeTurn(guess, round){
   return result
   }
 
+function calculatePercentCorrect(round){
+  var percentCorrect = Math.round(round.incorrectGuesses.length/round.turns*100)  
+  return percentCorrect
+}
+
+function endRound(round){
+return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
+}
+
 module.exports = { 
   createCard,
   evaluateGuess,
@@ -52,4 +61,6 @@ module.exports = {
   countDeck,
   createRound,
   takeTurn,
+  calculatePercentCorrect,
+  endRound,
 };
