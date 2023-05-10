@@ -21,4 +21,4 @@ describe('evaluateGuess', function() {
     evaluation = evaluateGuess(guess, correctAnswer)
     expect(evaluation).to.equal('Incorrect!')
   })
-})
+});
