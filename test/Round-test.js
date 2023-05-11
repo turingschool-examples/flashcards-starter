@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 const { createDeck } = require('../src/deck');
-const { createRound, takeTurn, endRound, calculatePercentCorrect } = require('../src/round');
+const { createRound, takeTurn, endRound, calculatePercentCorrect, getTimeElapsed } = require('../src/round');
 
 const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -18,6 +18,7 @@ describe('createRound', function() {
         expect(round.currentCard.id).to.equal(1);
         expect(round.turns).to.equal(0);
         expect(round.incorrectGuesses.length).to.equal(0);
+        expect(round.startTime).to.exist;
     });
 });
 
@@ -65,6 +66,7 @@ describe('endRound', function() {
     takeTurn('sea otter', round);
     takeTurn('spleen', round);
     takeTurn('playing with bubble wrap', round);
+    
     it('should', function() {
         let endRoundMessage = endRound(round);
 

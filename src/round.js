@@ -3,7 +3,8 @@ function createRound(deck) {
         deck,
         currentCard: deck[0],
         turns: 0,
-        incorrectGuesses: []
+        incorrectGuesses: [],
+        startTime: Date.now()
     };
 }
 
@@ -33,9 +34,15 @@ function endRound(round) {
     }
 }
 
+function getTimeElapsed(round) {
+    let timeElapsedInSeconds = Math.floor((Date.now() - round.startTime) / 1000);
+    return `Your round took ${timeElapsedInSeconds} seconds to complete`;
+}
+
 module.exports = {
     createRound,
     takeTurn,
     endRound,
-    calculatePercentCorrect
+    calculatePercentCorrect,
+    getTimeElapsed
 }
