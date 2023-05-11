@@ -79,11 +79,19 @@ describe('take turn', function() {
     expect(takeTurn).to.be.a('function');
   });
   it('should update the turns count', function() {
-    takeTurn(round1)
+    // takeTurn(round1)
+    takeTurn('array', round1)
     expect(round1.turns).to.equal(1)
   })
   it('should change currentCard to the next card in the deck', function() {
-    takeTurn(round1)
+    // takeTurn(round1)
+
+    // console.log(turn1)
+    // console.log(round1)
     expect(round1.currentCard).to.deep.equal(card2)
   })
+  it('should evaluate a guess'), function() {
+    evaluateGuess(round1, 'array')
+    expect(turn1).to.deep.equal('Incorrect - please try again.')
+  }
 })

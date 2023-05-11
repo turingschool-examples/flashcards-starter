@@ -1,6 +1,8 @@
 // Your round will be the object that organizes guesses and records if 
 // they are correct or incorrect.
 
+const { evaluateGuess } = require("./turn")
+
 // Your round object should meet the following requirements:
 // [x] deck property that holds onto the deck object
 // [x] currentCard property should start as the first card in the deck
@@ -41,12 +43,17 @@ const round = (deck) => ({
   incorrectGuesses: []
 })
 
-const takeTurn = (round) => {
+const takeTurn = (guess, round) => {
   round.turns += 1
   currentCardIndex += 1
+  evaluateGuess(guess, round)
+  // if (currentGuess === 'Incorrect - please try again.') {
+  //   round.incorrectGuesses.push(currentGuess)
+  // }
 }
 
 module.exports = { 
   round,
-  takeTurn
+  takeTurn,
+  evaluateGuess
 }; 
