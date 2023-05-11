@@ -92,3 +92,19 @@ describe('take turns', function() {
     expect(round.incorrectGuesses).to.be.deep.equal([1, 2]);
   });
 });
+
+describe('calculate percentage', function() {
+  let round, deck, card1, card2, card3;
+
+  beforeEach(function() {
+    card1 = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
+    card3 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
+    deck = createDeck([card1, card2, card3]);
+    round = createRound(deck);
+  });
+
+  it('should be a function', function(){
+    expect(calculatePercentageCorrect).to.be.a('function');
+  });
+});
