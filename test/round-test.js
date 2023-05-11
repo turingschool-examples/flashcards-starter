@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 const { createDeck } = require('../src/deck');
-const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
+const { createRound, takeTurn, calculatePercentCorrect, endRound, stopTimer } = require('../src/round');
 
 
 describe('round', function() {
@@ -91,13 +91,16 @@ describe('calculate percentage correct', function() {
 })
 
 describe('end round', function() {
+    let card1, card2, card3, deck, round;
+    beforeEach(() => {
+        card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+        card2 = createCard(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'array');
+        card3 = createCard(3, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
+    
+        deck = createDeck([card1, card2, card3]);
+        round = createRound(deck)
+    })
     it('should end the round if you run out of cards', function() {
-        const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-        const card2 = createCard(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'array');
-        const card3 = createCard(3, 'What is an example of a mutator method?', ['sort()', 'map()', 'join()'], 'sort()')
-
-        const deck = createDeck([card1, card2, card3]);
-        const round = createRound(deck)
         const guess1 = takeTurn('array', round, deck)
 
         expect(guess1).to.equal('incorrect!')
@@ -116,5 +119,15 @@ describe('end round', function() {
         const end = endRound(round)
 
         expect(end).to.equal('** Round over! ** You answered 66% of the questions correctly!')
+    })
+    it('should show the time it took to complete the quiz in minutes and seconds', function(done) {
+        let endTime;
+
+        setTimeout(() => {
+           endTime = stopTimer(round)
+           console.log(endTime)
+           expect(endTime).to.equal(`Quiz completed in 0 minutes and 1 seconds.`)
+           done();
+        }, 1000)
     })
 })
