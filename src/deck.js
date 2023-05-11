@@ -1,7 +1,6 @@
 
 
-function createDeck(prototypeData){
-  var deck = prototypeData
+function createDeck(deck){
   return deck
 }
 
