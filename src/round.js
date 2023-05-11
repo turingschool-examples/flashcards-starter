@@ -17,6 +17,7 @@ function calculatePercentCorrect(round){
 
 function endRound(round){
   if (round.deck.length = round.turns){
+    console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`)
 return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
 }
 }
