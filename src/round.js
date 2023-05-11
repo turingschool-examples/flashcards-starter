@@ -3,7 +3,8 @@ function createRound(deck) {
     deck: deck,
     currentCard: deck.cards[0],
     turns: 0,
-    incorrectGuesses: []
+    incorrectGuesses: [],
+    percentCorrect: 0
   }
   return round;
 }
@@ -23,12 +24,24 @@ function takeTurn(guess, round) {
   }
   round.turns++;
   round.currentCard = round.deck.cards[round.turns];
-  console.log(round);
+  round.percent = calculatePercentCorrect(round);
   return result;
 }
+
+function calculatePercentCorrect(round) {
+  let averageScore = (round.turns - round.incorrectGuesses.length) / round.turns;
+  let percentScore = Math.round(averageScore * 100);
+  return percentScore;
+}
+
+// function endRound(round) {
+//   console.log(round);
+// }
 
 module.exports = {
   createRound,
   takeTurn,
-  evaluateGuess
+  evaluateGuess,
+  calculatePercentCorrect,
+  endRound
 }

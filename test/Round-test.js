@@ -98,3 +98,53 @@ describe('takeTurn', function() {
   });
 });
 
+describe('calculatePercent', function() {
+  let card1;
+  let card2;
+  let card3;
+  let deck;
+  let round;
+
+  beforeEach(function() {
+    card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    deck = createDeck([card1, card2, card3]);
+    round = createRound(deck);
+  });
+
+  it('shoud be a function', function() {
+    expect(calculatePercentCorrect).to.be.a('function');
+  });
+
+  it('should calculate and return the percentage of correct guesses', function(){
+    takeTurn('sea otter', round);
+    takeTurn('spleen', round);
+    expect(round.percent).to.equal(50);
+  });
+});
+
+// describe('endRound', function() {
+//   let card1;
+//   let card2;
+//   let card3;
+//   let deck;
+//   let round;
+
+//   beforeEach(function() {
+//     card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+//     card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+//     card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+//     deck = createDeck([card1, card2, card3]);
+//     round = createRound(deck);
+//   });
+
+//   it('should be function', function() {
+//     expect(endRound).to.be.a('function')
+//   });
+
+//   it('should print end round message to the console', function() {
+
+//   });
+// });
+
