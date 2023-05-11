@@ -1,6 +1,5 @@
 const { sampleData } = require("./sub-data");
 
-
 let createCard = (id, question, answers, correctAnswer) => {
   let card = {
     id:id, 
@@ -21,12 +20,12 @@ let evaluateGuess = (guess, correctAnswer) => {
 
 let createDeck = data => {return data};
 
-let countDeck = deck => {return deck.length}
+let countDeck = deck => {return deck.length};
   
 let calculatePercentCorrect = (round) => {
   round.percentage = (round.turns - round.incorrectGuesses.length)/round.turns * 100
   return round.percentage
-}
+};
 
 module.exports = {
   createCard, 
@@ -34,4 +33,4 @@ module.exports = {
   createDeck,
   countDeck, 
   calculatePercentCorrect
-}
+};

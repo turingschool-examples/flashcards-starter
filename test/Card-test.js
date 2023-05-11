@@ -4,15 +4,6 @@ const { createCard, evaluateGuess, createDeck, countDeck, calculatePercentCorrec
 const { sampleData } = require('../src/sub-data');
 const { takeTurn, endRound, createRound } = require('../src/round.js');
 
-
-// describe("Tests with beforeEach", function () {
-//   let testRan = 0;
-//    let round = null
-//   beforeEach(function () {
-//     testRan++;
-//    let round = round function 
-//     console.log("Intialising...Test" + testRan);
-//   });
 describe('card', function() {
   it('should be a function', function() {
     expect(createCard).to.be.a('function');
@@ -107,7 +98,6 @@ describe('takeTurn', function(){
 
     const turn2 = takeTurn('function', round)
     expect(turn2).to.equal('Incorrect!')
-
   });
 
   it('should evaluate what turn it is on', function(){
@@ -119,6 +109,7 @@ describe('takeTurn', function(){
     expect(round.turns).to.equal(2)
   })
 });
+
 describe('calculatePercentCorrect', function(){
   it('should be a function', function(){
     expect(calculatePercentCorrect).to.be.a('function');
@@ -148,5 +139,3 @@ describe('endRound', function(){
     expect(roundDone).to.equal('** Round over! ** You answered 50% of the questions correctly!');
 });
   });
-
-// });

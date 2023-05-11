@@ -37,6 +37,7 @@ async function main(round) {
 
     if(!round.currentCard) {
       endRound(round);
+      console.timeEnd("Time")
     } else {
       main(round);
     }
