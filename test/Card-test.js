@@ -4,15 +4,6 @@ const { createCard, evaluateGuess, createDeck, countDeck, calculatePercentCorrec
 const { sampleData } = require('../src/sub-data');
 const { takeTurn, endRound, createRound } = require('../src/round.js');
 
-
-// describe("Tests with beforeEach", function () {
-//   let testRan = 0;
-//    let round = null
-//   beforeEach(function () {
-//     testRan++;
-//    let round = round function 
-//     console.log("Intialising...Test" + testRan);
-//   });
 describe('card', function() {
   it('should be a function', function() {
     expect(createCard).to.be.a('function');
@@ -75,10 +66,10 @@ describe('countDeck', function(){
     const card3 = createCard(3, "What type of prototype method directly modifies the existing array?",["mutator method", "accessor method", "iteration method"],"mutator method");
     const deck = createDeck([card1, card2, card3]);
   
-    let countCards = countDeck(deck)
+    let countCards = countDeck(deck);
   
     expect(countCards).to.equal(3);
-  })
+  });
 });
 
 describe('createRound', function(){
@@ -87,7 +78,7 @@ describe('createRound', function(){
   });
 
   it('should create a round with properties', function(){
-    var round = createRound(sampleData)
+    var round = createRound(sampleData);
     expect(round.deck).to.equal(sampleData);
     expect(round.currentCard).to.equal(sampleData[0]);
     expect(round.turns).to.equal(0);
@@ -99,38 +90,40 @@ describe('takeTurn', function(){
   it('should be a function', function(){
     expect(takeTurn).to.be.a('function');
   });
+
   it('should be able to take a turn and return the result', function(){
-    const round = createRound(sampleData)
+    const round = createRound(sampleData);
 
-    const turn1 = takeTurn('object', round)
-    expect(turn1).to.equal('Correct!')
+    const turn1 = takeTurn('object', round);
+    expect(turn1).to.equal('Correct!');
 
-    const turn2 = takeTurn('function', round)
-    expect(turn2).to.equal('Incorrect!')
-
+    const turn2 = takeTurn('function', round);
+    expect(turn2).to.equal('Incorrect!');
   });
 
   it('should evaluate what turn it is on', function(){
-    const round = createRound(sampleData) 
+    const round = createRound(sampleData); 
     
-    const turn1 = takeTurn('object', round)
-    expect(round.turns).to.equal(1)
-    const turn2 = takeTurn('object', round)
-    expect(round.turns).to.equal(2)
+    const turn1 = takeTurn('object', round);
+    expect(round.turns).to.equal(1);
+
+    const turn2 = takeTurn('object', round);
+    expect(round.turns).to.equal(2);
   })
 });
+
 describe('calculatePercentCorrect', function(){
   it('should be a function', function(){
     expect(calculatePercentCorrect).to.be.a('function');
   });
 
   it('should calculate the percentage of correct answers', function(){
-    const round = createRound(sampleData)
-    const turn1 = takeTurn('object', round)
-    const turn2 = takeTurn('object', round)
+    const round = createRound(sampleData);
+    const turn1 = takeTurn('object', round);
+    const turn2 = takeTurn('object', round);
     const percentageCorrect = calculatePercentCorrect(round);
 
-    expect(percentageCorrect).to.equal(50)
+    expect(percentageCorrect).to.equal(50);
   });
 });
 
@@ -148,5 +141,3 @@ describe('endRound', function(){
     expect(roundDone).to.equal('** Round over! ** You answered 50% of the questions correctly!');
 });
   });
-
-// });

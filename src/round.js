@@ -7,11 +7,9 @@ let createRound = deck => {
     currentCard: deck[0],
     turns: 0,
     incorrectGuesses:[],
-    percentage: 0
   }
   return round
 }
-
 
 const takeTurn = (guess, round) => {
   let evaluate = evaluateGuess(guess, round.currentCard.correctAnswer);
@@ -19,16 +17,12 @@ const takeTurn = (guess, round) => {
       round.incorrectGuesses.push(round.currentCard.id)
    }
     round.turns += 1
-    round.percentage = calculatePercentCorrect(round)
     round.currentCard = round.deck[round.turns]
   return evaluate
 }
 
 let endRound = (round) =>{
-  // if(round.roundOver){
-    console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`);
-    //calculatePercentCorrect(round) interpolated
-  //  console.timeEnd('default')
+  console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`);
   return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
 }
 
