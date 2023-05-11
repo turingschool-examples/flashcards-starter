@@ -17,6 +17,7 @@ function printQuestion(round) {
 }
 
 function start(){
+  console.time('timer')
   const questions = []
   prototypeQuestions.forEach(question => questions.push(createCard(question.id, question.question, question.answers, question.correctAnswer)))
   const deck = createDeck(questions)

@@ -37,7 +37,8 @@ async function main(round) {
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
     if(!round.currentCard) {
-      console.log(endRound(round));
+      console.timeEnd('timer');
+      console.log(endRound(round)) ;
     } else {
       main(round);
     }
