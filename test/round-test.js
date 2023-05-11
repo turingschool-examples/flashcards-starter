@@ -102,9 +102,18 @@ describe('calculate percentage', function() {
     card3 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
     deck = createDeck([card1, card2, card3]);
     round = createRound(deck);
+
+    takeTurn('object', round);
+    takeTurn('function', round);
   });
 
-  it('should be a function', function(){
+  it('should be a function', function() {
     expect(calculatePercentageCorrect).to.be.a('function');
+  });
+
+  it('should be able to calculate the percentage of correct guesses', function() {
+    correctPercentage = calculatePercentageCorrect(round);
+
+    expect(correctPercentage).to.be.equal(50);
   });
 });
