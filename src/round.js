@@ -1,6 +1,7 @@
 const createRound = (deck) => ({
   deck,
-  currentCard: deck[0]
+  currentCard: deck[0],
+  turn: 0
 });
 
 module.exports = {
