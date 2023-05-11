@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { round, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
+const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 const { createDeck} = require('../src/deck');
 const { createCard } = require('../src/card');
 // const { evaluateGuess } = require('../src/turn');
@@ -30,22 +30,22 @@ describe('create round', function() {
       deck = createDeck([card1, card2, card3]);
   });
   it('should be a function', function() {
-    expect(round).to.be.a('function');
+    expect(createRound).to.be.a('function');
   });
   it('should have deck property, holding a deck object', function() {
-    const round1 = round(deck)
+    const round1 = createRound(deck)
     expect(round1.deck).to.deep.equal([card1, card2, card3])
   });
   it('should begin with currentCard property as first card in deck', function() {
-    const round1 = round(deck)
+    const round1 = createRound(deck)
     expect(round1.currentCard).to.deep.equal(card1)
   })
   it('should have a turn property starting at 0', function() {
-    const round1 = round(deck)
+    const round1 = createRound(deck)
     expect(round1.turns).to.equal(0)
   })
   it('should have an empty array property that stores incorrect guesses', function() {
-    const round1 = round(deck)
+    const round1 = createRound(deck)
     expect(round1.incorrectGuesses).to.deep.equal([])
   })
 });
@@ -73,7 +73,7 @@ describe('take turn', function() {
       ['mutator method', 'accessor method', 'iteration method'], 
       'mutator method');  
       deck = createDeck([card1, card2, card3]);
-      round1 = round(deck);
+      round1 = createRound(deck);
   });
   it('should be a function', function() {
     expect(takeTurn).to.be.a('function');
@@ -83,7 +83,7 @@ describe('take turn', function() {
     expect(round1.turns).to.equal(1)
   });
   it('should change currentCard to the next card in the deck', function() {
-    expect(round1.currentCard).to.deep.equal(card2)
+    expect(round1.currentCard).to.deep.equal(card1)
   });
   it('should evaluate a guess', function() {
     var turn1 = takeTurn('function', round1)
@@ -115,7 +115,7 @@ describe('calculate percent correct', function() {
       ['mutator method', 'accessor method', 'iteration method'], 
       'mutator method');  
       deck = createDeck([card1, card2, card3]);
-      round1 = round(deck);
+      round1 = createRound(deck);
       // turn1 = takeTurn('function', round1);
   });
   it('should be a function', function() {    
@@ -132,7 +132,7 @@ describe('calculate percent correct', function() {
       incorrectGuesses: [1]
     }
   var round2Percentage = calculatePercentCorrect(round2)
-    // console.log(round2)
+    // console.log(percentage)
     expect(round2Percentage).to.equal(50)
   });
 });

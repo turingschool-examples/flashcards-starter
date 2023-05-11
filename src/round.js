@@ -36,36 +36,40 @@ const { evaluateGuess } = require("./turn")
 // function calulatePercentCorrect(round)
 
 
-let currentCardIndex = 0
+// let currentCardIndex = 0
 
-const round = (deck) => ({
+const createRound = (deck) => ({
   deck: deck,
-  currentCard: deck[currentCardIndex],
+  currentCard: deck[0],
   turns: 0,
   incorrectGuesses: []
 })
 
 const takeTurn = (guess, round) => {
   round.turns += 1
-  currentCardIndex += 1
+  // currentCardIndex += 1
   var currentGuess = evaluateGuess(guess, round.currentCard.correctAnswer)
   if (currentGuess === 'Incorrect - please try again.') {
     round.incorrectGuesses.push(currentGuess.id)
+  } else {
+    round.deck.shift()
+    round.currentCard = round.deck[0]
   }
   return currentGuess
 }
 
 function calculatePercentCorrect(round) {
-  percentage = round.incorrectGuesses.length / (round.turns) * 100
-  return percentage
+  percentage = (round.turns - round.incorrectGuesses.length) / (round.turns) * 100
+  return parseInt(percentage)
 }
 
 const endRound = round => {
-  return `** Round over! ** You answered ${percentage}% of the questions correctly!`
+  console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`)
+  return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
 }
 
 module.exports = { 
-  round,
+  createRound,
   takeTurn,
   evaluateGuess,
   calculatePercentCorrect,
