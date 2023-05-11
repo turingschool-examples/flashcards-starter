@@ -64,4 +64,16 @@ describe('take turns', function() {
 
     expect(round.turns).to.be.equal(3);
   });
+
+  it('should be able to evaluate if the guess is correct', function() {
+    guessFeedback = takeTurn('object', round);
+
+    expect(guessFeedback).to.be.equal('correct!');
+  });
+
+  it('should be able to evaluate if the guess is incorrect', function() {
+    guessFeedback = takeTurn('function', round);
+
+    expect(guessFeedback).to.be.equal('incorrect!');
+  });
 });
