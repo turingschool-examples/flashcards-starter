@@ -14,9 +14,9 @@ const { evaluateGuess } = require("./turn")
     // When a guess is made:
     // [x] The turns count is updated, regardless of whether the guess is correct or incorrect
     // [x] The next card becomes current card
-    // > Guess is evaluated. Incorrect guesses will be stored (via card’s the id) 
+    // [x] Guess is evaluated. Incorrect guesses will be stored (via card’s the id) 
     //    in an array of incorrectGuesses
-    // > Feedback is returned regarding whether the guess is incorrect or correct
+    // [x] Feedback is returned regarding whether the guess is incorrect or correct
 // * calculatePercentCorrect(round): calculates and returns the percentage of 
 //    correct guesses
 // * endRound(round): prints the following to the console:
@@ -34,6 +34,8 @@ const { evaluateGuess } = require("./turn")
 // const takeTurn = (guess, round)
 
 // function calulatePercentCorrect(round)
+
+
 let currentCardIndex = 0
 
 const round = (deck) => ({
@@ -46,10 +48,11 @@ const round = (deck) => ({
 const takeTurn = (guess, round) => {
   round.turns += 1
   currentCardIndex += 1
-  evaluateGuess(guess, round)
-  // if (currentGuess === 'Incorrect - please try again.') {
-  //   round.incorrectGuesses.push(currentGuess)
-  // }
+  var currentGuess = evaluateGuess(guess, round.currentCard.correctAnswer)
+  if (currentGuess === 'Incorrect - please try again.') {
+    round.incorrectGuesses.push(currentGuess.id)
+  }
+  return currentGuess
 }
 
 module.exports = { 
