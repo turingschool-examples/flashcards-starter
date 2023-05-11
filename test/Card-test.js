@@ -1,8 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
-const { createCard, evaluateGuess, createDeck, countDeck, createRound, calculatePercentCorrect} = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countDeck, calculatePercentCorrect} = require('../src/card');
 const { sampleData } = require('../src/sub-data');
-const { takeTurn, endRound } = require('../round.js');
+const { takeTurn, endRound, createRound } = require('../src/round.js');
 
 
 // describe("Tests with beforeEach", function () {
