@@ -19,7 +19,6 @@ function start(){
   prototypeQuestions.forEach(question => {
     questions.push(createCard(question.id, question.question, question.answers, question.correctAnswer))
   });
-  console.log(questions)
   const deck = createDeck(questions)
   const round = createRound(deck)
   printMessage(deck)

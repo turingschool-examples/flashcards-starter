@@ -23,7 +23,7 @@ let createDeck = data => {return data};
 let countDeck = deck => {return deck.length};
   
 let calculatePercentCorrect = (round) => {
-  round.percentage = (round.turns - round.incorrectGuesses.length)/round.turns * 100
+  round.percentage = Math.round((round.turns - round.incorrectGuesses.length)/round.turns * 100)
   return round.percentage
 };
 
