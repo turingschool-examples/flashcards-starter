@@ -32,4 +32,8 @@ describe('rounds', function () {
       correctAnswer: "object"
     });
   });
+
+  it('should have a turn key with a value of 0', function() {
+    expect(round.turn).to.be.equal(0);
+  })
 });
