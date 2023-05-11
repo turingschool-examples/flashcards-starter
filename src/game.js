@@ -1,4 +1,8 @@
+const { prototype } = require('mocha');
+const { createCard } = require('./card');
 const data = require('./data');
+const { createDeck, countCards } = require('./deck');
+const { round } = require('./round');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
@@ -11,4 +15,22 @@ function printQuestion(round) {
   util.main(round);
 }
 
-module.exports = { printMessage, printQuestion };
+function start() {
+  let cards = []
+  prototypeQuestions.forEach(card => {
+    newCard = createCard(
+      card.id, 
+      card.question, 
+      card.answers, 
+      card.correctAnswer)
+    cards.push(newCard)
+  })
+  deck = createDeck(cards)
+  // console.log(deck)
+  let round = round(deck)
+  printMessage(deck)
+  printQuestion(round)
+  countCards(deck)
+};
+
+module.exports = { printMessage, printQuestion, start };
