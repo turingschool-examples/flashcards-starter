@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 const { createDeck} = require('../src/deck');
-const { createRound, calculatePercentCorrect, endRound } = require('../src/round');
+const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 
 describe('round', function() {
   it('should be a function', function() {
@@ -56,7 +56,6 @@ describe('round', function() {
   });
 
   it('should begin as an empty array and store incorrectly guessed cards during round', function() {
-    // 1 Setup
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -64,9 +63,38 @@ describe('round', function() {
     const currentCard = deck.cards[0];
     const turns = 0;
     const incorrectGuesses = [];
-    // 2 Execution 
     const round = createRound(deck, currentCard, turns, incorrectGuesses);
-    // assertion
+    
     expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+});
+
+describe('takeTurn', function() {
+  it('should be a function', function() {
+    expect(createRound).to.be.a('function');
+  });
+
+  it('should store current card ID in incorrect guesses', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    const deck = createDeck(card1, card2, card3);
+  });
+
+  it('should evaluate if guess is correct or incorrect', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+      const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+      const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+      const deck = createDeck(card1, card2, card3);
+      const currentCard = deck.cards[0];
+      const turns = 0;
+      const incorrectGuesses = [];
+      const round = createRound(deck, currentCard, turns, incorrectGuesses);
+  
+      const correctGuess = takeTurn('sea otter', round);
+      expect(correctGuess).to.equal('Correct!');
+      const incorrectGuess = takeTurn('spleen', round);
+      expect(incorrectGuess).to.equal('Incorrect!');
+  
   });
 });

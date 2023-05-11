@@ -5,10 +5,20 @@ function createRound(deck, currentCard, turns, incorrectGuesses) {
     turns: turns,
     incorrectGuesses: incorrectGuesses
   }
-  // console.log(round);
   return round;
 }
 
+function takeTurn(guess, round) {
+  console.log(guess);
+  console.log(round.currentCard.correctAnswer);
+  if (guess === round.currentCard.correctAnswer) {
+    return 'Correct!'
+  } else {
+    return 'Incorrect!'
+  }
+}
+
 module.exports = {
-  createRound
+  createRound,
+  takeTurn
 }
