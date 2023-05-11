@@ -8,10 +8,8 @@ const { createDeck } = require('../src/deck');
 
 
 describe('take turn', function() {
-  it('should be a function', function (){
-    expect(takeTurn).to.be.a('function')
-  })
-  it('should be able to take a turn', function(){
+  let round
+  beforeEach( function(){
     const card1 = createCard(1, 'What is Robbie\'s favorite animal',
       ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?',
@@ -20,7 +18,12 @@ describe('take turn', function() {
       ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     const deck = createDeck([card1, card2, card3]);
     
-    const round = createRound(deck);
+    round = createRound(deck);
+  })
+  it('should be a function', function (){
+    expect(takeTurn).to.be.a('function')
+  })
+  it('should be able to take a turn', function(){
     const turn1 = takeTurn('sea otter', round)
     expect(turn1).to.equal('correct!')
     const turn2 = takeTurn('spleen', round)
