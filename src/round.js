@@ -7,6 +7,15 @@ const createRound = (deck) => ({
 
 const takeTurn = (guess, round) => {
   round.turns ++
+  feedback = '';
+  console.log(round.currentCard);
+  if(guess === round.currentCard.correctAnswer) {
+    feedback = 'correct!'
+  }
+  if(guess !== round.currentCard.correctAnswer) {
+    feedback = 'incorrect!'
+  }
+  return feedback;
 }
 module.exports = {
   createRound,
