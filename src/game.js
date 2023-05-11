@@ -33,6 +33,5 @@ function start() {
   printQuestion(round)
 }
 
-start()
 
 module.exports = { printMessage, printQuestion, start };
