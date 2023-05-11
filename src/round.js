@@ -10,13 +10,16 @@ const takeTurn = (guess, round) => {
   feedback = '';
   console.log(round.currentCard);
   if(guess === round.currentCard.correctAnswer) {
-    feedback = 'correct!'
+    feedback = 'correct!';
   }
   if(guess !== round.currentCard.correctAnswer) {
-    feedback = 'incorrect!'
+    feedback = 'incorrect!';
+    round.incorrectGuesses.push(round.currentCard.id);
   }
+  round.currentCard = round.deck[round.deck.indexOf(round.currentCard) + 1];
   return feedback;
 }
+
 module.exports = {
   createRound,
   takeTurn
