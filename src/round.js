@@ -6,9 +6,8 @@ const createRound = (deck) => ({
 });
 
 const takeTurn = (guess, round) => {
-  round.turns ++
+  round.turns ++;
   feedback = '';
-  console.log(round.currentCard);
   if(guess === round.currentCard.correctAnswer) {
     feedback = 'correct!';
   }
@@ -18,9 +17,15 @@ const takeTurn = (guess, round) => {
   }
   round.currentCard = round.deck[round.deck.indexOf(round.currentCard) + 1];
   return feedback;
+};
+
+const calculatePercentageCorrect = (round) => {
+  correctPercentage = (round.incorrectGuesses.length / round.turns) * 100;
+  return correctPercentage;
 }
 
 module.exports = {
   createRound,
-  takeTurn
+  takeTurn,
+  calculatePercentageCorrect
 }
