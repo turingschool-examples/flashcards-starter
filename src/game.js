@@ -15,6 +15,7 @@ function printQuestion(round) {
 };
 
 const start = data => {
+  console.time('This game took you');
   const deck = createDeck(data);
   const round = createRound(deck);
   printQuestion(round);

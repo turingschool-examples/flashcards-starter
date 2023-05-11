@@ -61,6 +61,7 @@ const endRound = round => {
   const percentCorrect = calculatePercentCorrect(round);
   round.consoleLogMessage = `** Round over! ** You answered ${percentCorrect} of the questions correctly!`;
   console.log(round.consoleLogMessage);
+  console.timeEnd('This game took you');
 };
 
 module.exports = { 
