@@ -3,8 +3,8 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const { createCard } = require('../src/card');
 const {createDeck, countDeck,} = require('../src/deck');
-const { endRound, createRound, calculatePercentCorrect } = require('../src/round');
-const { evaluateGuess, takeTurn } = require('../src/turn');
+const { createRound } = require('../src/round');
+
 
 
 function printMessage(deck) {
