@@ -1,9 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { round } = require('../src/round');
+const { round, takeTurn } = require('../src/round');
 const { createDeck} = require('../src/deck');
 const { createCard } = require('../src/card');
+const { evaluateGuess } = require('../src/turn');
 
 describe('create round', function() {
   let card1;
@@ -27,7 +28,7 @@ describe('create round', function() {
       ['mutator method', 'accessor method', 'iteration method'], 
       'mutator method');  
       deck = createDeck([card1, card2, card3]);
-      });
+  });
   it('should be a function', function() {
     expect(round).to.be.a('function');
   });
@@ -48,3 +49,41 @@ describe('create round', function() {
     expect(round1.incorrectGuesses).to.deep.equal([])
   })
 });
+
+describe('take turn', function() {
+  let card1;
+  let card2;
+  let card3;
+  let deck;
+  let round1;
+  beforeEach(function() {
+    card1 = createCard(
+      1, 
+      'What allows you to define a set of related information using key-value pairs?',
+      ['object', 'array', 'function'], 
+      'object');
+    card2 = createCard(
+      2, 
+      'What is a comma-separated list of related values?', 
+      ['array', 'object', 'function'], 
+      'array');
+    card3 = createCard(
+      3, 
+      'What type of prototype method directly modifies the existing array?', 
+      ['mutator method', 'accessor method', 'iteration method'], 
+      'mutator method');  
+      deck = createDeck([card1, card2, card3]);
+      round1 = round(deck);
+  });
+  it('should be a function', function() {
+    expect(takeTurn).to.be.a('function');
+  });
+  it('should update the turns count', function() {
+    takeTurn(round1)
+    expect(round1.turns).to.equal(1)
+  })
+  it('should change currentCard to the next card in the deck', function() {
+    takeTurn(round1)
+    expect(round1.currentCard).to.deep.equal(card2)
+  })
+})

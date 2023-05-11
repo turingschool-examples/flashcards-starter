@@ -5,17 +5,16 @@
 // [x] deck property that holds onto the deck object
 // [x] currentCard property should start as the first card in the deck
 // [x] turns property that starts as 0
-// * incorrectGuesses property that starts as an empty array and stores the 
+// [x] incorrectGuesses property that starts as an empty array and stores the 
 //    incorrectly guessed cards during a round
 // * takeTurn(guess, round): updates the turns count, evaluates guesses, 
 //    gives feedback, and stores ids of incorrect guesses
-
-// When a guess is made:
-// * The turns count is updated, regardless of whether the guess is correct or incorrect
-// * The next card becomes current card
-// * Guess is evaluated. Incorrect guesses will be stored (via card’s the id) 
-//    in an array of incorrectGuesses
-// * Feedback is returned regarding whether the guess is incorrect or correct
+    // When a guess is made:
+    // [x] The turns count is updated, regardless of whether the guess is correct or incorrect
+    // [x] The next card becomes current card
+    // > Guess is evaluated. Incorrect guesses will be stored (via card’s the id) 
+    //    in an array of incorrectGuesses
+    // > Feedback is returned regarding whether the guess is incorrect or correct
 // * calculatePercentCorrect(round): calculates and returns the percentage of 
 //    correct guesses
 // * endRound(round): prints the following to the console:
@@ -33,14 +32,21 @@
 // const takeTurn = (guess, round)
 
 // function calulatePercentCorrect(round)
+let currentCardIndex = 0
 
 const round = (deck) => ({
   deck: deck,
-  currentCard: deck[0],
+  currentCard: deck[currentCardIndex],
   turns: 0,
   incorrectGuesses: []
 })
 
+const takeTurn = (round) => {
+  round.turns += 1
+  currentCardIndex += 1
+}
+
 module.exports = { 
-  round
+  round,
+  takeTurn
 }; 
