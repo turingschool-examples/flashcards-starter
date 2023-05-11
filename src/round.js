@@ -60,9 +60,14 @@ function calculatePercentCorrect(round) {
   return percentage
 }
 
+const endRound = round => {
+  return `** Round over! ** You answered ${percentage}% of the questions correctly!`
+}
+
 module.exports = { 
   round,
   takeTurn,
   evaluateGuess,
-  calculatePercentCorrect
+  calculatePercentCorrect,
+  endRound
 }; 

@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { round, takeTurn, calculatePercentCorrect } = require('../src/round');
+const { round, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 const { createDeck} = require('../src/deck');
 const { createCard } = require('../src/card');
 const { evaluateGuess } = require('../src/turn');
@@ -134,5 +134,51 @@ describe('calculate percent correct', function() {
   var round2Percentage = calculatePercentCorrect(round2)
     // console.log(round2)
     expect(round2Percentage).to.equal(50)
+  });
+});
+
+describe('end round', function() {
+  let card1;
+  let card2;
+  let card3;
+  let deck;
+  let round2;
+  let round2Percentage;
+  beforeEach(function() {
+    card1 = createCard(
+      1, 
+      'What allows you to define a set of related information using key-value pairs?',
+      ['object', 'array', 'function'], 
+      'object');
+    card2 = createCard(
+      2, 
+      'What is a comma-separated list of related values?', 
+      ['array', 'object', 'function'], 
+      'array');
+    card3 = createCard(
+      3, 
+      'What type of prototype method directly modifies the existing array?', 
+      ['mutator method', 'accessor method', 'iteration method'], 
+      'mutator method');  
+      deck = createDeck([card1, card2, card3]);
+      // round1 = round(deck);
+    round2 = {
+        deck: deck,
+        currentCard: deck[2],
+        turns: 2,
+        incorrectGuesses: [1]
+      }
+    round2Percentage = calculatePercentCorrect(round2)
+      // turn1 = takeTurn('function', round1);
+  });
+  it('should be a function', function() {    
+    // console.log('the round', round1)
+    // console.log('the deck', deck)
+    // console.log(turn1)
+    expect(calculatePercentCorrect).to.be.a('function');
+  });
+  it('should end a round', function() {
+  var finalMsg = endRound(round2);
+  expect(finalMsg).to.equal('** Round over! ** You answered 50% of the questions correctly!')
   })
 });
