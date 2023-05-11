@@ -23,7 +23,6 @@ const takeTurn = (guess, round) => {
 
 let endRound = (round) =>{
   console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`);
-  //  console.timeEnd('default')
   return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
 }
 
