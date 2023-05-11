@@ -1,24 +1,34 @@
-function createRound(deck, currentCard, turns, incorrectGuesses) {
+function createRound(deck) {
   const round = {
     deck: deck,
-    currentCard: currentCard,
-    turns: turns,
-    incorrectGuesses: incorrectGuesses
+    currentCard: deck.cards[0],
+    turns: 0,
+    incorrectGuesses: []
   }
   return round;
 }
 
-function takeTurn(guess, round) {
-  console.log(guess);
-  console.log(round.currentCard.correctAnswer);
-  if (guess === round.currentCard.correctAnswer) {
-    return 'Correct!'
+function evaluateGuess(guess, card) {
+  if (guess === card.correctAnswer) {
+    return 'Correct!';
   } else {
-    return 'Incorrect!'
+    return 'Incorrect!';
   }
+}
+
+function takeTurn(guess, round) {
+  let result = evaluateGuess(guess, round.currentCard)
+  if (result === 'Incorrect!') {
+    round.incorrectGuesses.push(round.currentCard.id)
+  }
+  round.turns++;
+  round.currentCard = round.deck.cards[round.turns];
+  console.log(round);
+  return result;
 }
 
 module.exports = {
   createRound,
-  takeTurn
+  takeTurn,
+  evaluateGuess
 }
