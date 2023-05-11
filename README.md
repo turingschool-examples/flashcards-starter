@@ -1,58 +1,42 @@
-# FlashCards Starter Kit
+# FlashCards
 
-## Fork This Repo
+### Abstract:
 
-On the top right corner of this page, click the **Fork** button.
+This application runs a game in the console that asks questions about javasript and returns correct or incorrect. There are 30 questions and at the end of the test your time elapsed and percent correct are displayed. You will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards.
 
-## Setup
+### Installation Instruction
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+1. Fork and clone this repo.
+2. Type `cd flashcards` to move into the root directory
+3. run `npm install` to install the library dependencies
+4. Run `code .` to open vs code to access the files
+5. Run `node index.js` to play the game on the console
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
+To verify that it is setup correctly, run `npm test` in your terminal. You should have 18 tests passing.
 
-Once you have cloned the repo, change into the directory and install the library dependencies using the command:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have skipped tests in your `card` test file show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run this file until you are running your `game` file in Iteration 3. Prior to that, you should strive to use TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-**Create all of your feature code files in the `src` directory.** Use the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
+### How to View Your Code in Action
 
 Once you are working through Iteration 3, you will want to run the `node index.js` command in your terminal to run the game.
 
 When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
 
 ![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
+https://benholden010.github.io/coloRandom/
 
----
+### context:
 
-## Test Files Organization
+This project took me 3 days to complete, I am currently in week 1 of mod2 at Turing.
 
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
+### contributors:
 
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `card-test.js`.
+Ben Holden, Turing staff(partially created project).
 
-## Running Your Tests
+### Learning Goals: 
 
-Run your test suite using the command:
+The learning goals of this project were to write unit tests and functions to create a game in the console and to link js files together for seamless interoperability.
 
-```bash
-npm test
-```
+### Wins + Challenges:
+
+Wins: during this challenge all i knew how to do in the beggining was how to read tests, after using my knowledge of how the tests were usually set up i was able to create tests and then write my functions just like it was a blueprint.
+
+challenges: I had no idea how to link together js files until i did some research and tried out new things on my code and i was able to work around all the issues i was having be reading my error messages and slowly getting the files to link with eachother.
