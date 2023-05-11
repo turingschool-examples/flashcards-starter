@@ -6,7 +6,6 @@ const { createRound } = require('../src/round')
 const { createCard } = require('../src/card');
 const { createDeck } = require('../src/deck');
 
-
 describe('take turn', function() {
   let round
   beforeEach( function(){
@@ -17,7 +16,6 @@ describe('take turn', function() {
     const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?',
       ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     const deck = createDeck([card1, card2, card3]);
-    
     round = createRound(deck);
   })
   it('should be a function', function (){
@@ -37,7 +35,6 @@ describe('take turn', function() {
       correctAnswer: 'playing with bubble wrap'
     })
   })
-  
 })
 
 describe('evaluate guess', function() {

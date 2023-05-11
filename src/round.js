@@ -19,7 +19,6 @@ function endRound(round){
 return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
 }
 
-
 module.exports = { 
   createRound,
   calculatePercentCorrect,

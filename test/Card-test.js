@@ -21,14 +21,9 @@ describe('card', function() {
   it('should create a different card and its properties', function() {
     const card2 = createCard(2, 'What is my favorite data type?',
      ['object', 'array', 'function'], 'function');
-     
      expect(card2.id).to.equal(2);
      expect(card2.question).to.equal('What is my favorite data type?');
      expect(card2.answers).to.deep.equal(['object', 'array', 'function']);
      expect(card2.correctAnswer).to.equal('function');
     });  
-  });
-  
-  const card2 = createCard(2, 'What allows you to define a set of related information using key-value pairs?',
-   ['object', 'array', 'function'], 'object');
-// describe
+});

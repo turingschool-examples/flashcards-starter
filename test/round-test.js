@@ -38,8 +38,8 @@ describe('calculate percent correct', function() {
   })
   it('should return 50', function() {
     const round = {
-    turns: 2,
-    incorrectGuesses: [14],
+      turns: 2,
+      incorrectGuesses: [14],
     }
     expect(calculatePercentCorrect(round)).to.equal(50)
   })
@@ -54,7 +54,7 @@ describe('end round', function() {
       deck: [1,2,3],
       turns: 3,
       incorrectGuesses: [14],
-      }
+    }
     expect(endRound(round)).to.equal(
       `** Round over! ** You answered 67% of the questions correctly!`)
   })

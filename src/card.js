@@ -1,4 +1,4 @@
-// const { prototypeData } = require('./data');
+
 
 function createCard(id, question, answers, correctAnswer) {
   let card = {

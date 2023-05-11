@@ -14,7 +14,6 @@ This application runs a game in the console that asks questions about javasript 
 
 To verify that it is setup correctly, run `npm test` in your terminal. You should have 18 tests passing.
 
-
 ### How to View Your Code in Action
 
 Once you are working through Iteration 3, you will want to run the `node index.js` command in your terminal to run the game.

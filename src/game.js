@@ -5,8 +5,6 @@ const { createCard } = require('../src/card');
 const {createDeck, countDeck,} = require('../src/deck');
 const { createRound } = require('../src/round');
 
-
-
 function printMessage(deck) {
   console.log(`Welcome to FlashCards! You are playing with ${countDeck(deck)} cards.
   -----------------------------------------------------------------------`);
