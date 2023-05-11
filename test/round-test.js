@@ -35,5 +35,9 @@ describe('rounds', function () {
 
   it('should have a turn key with a value of 0', function() {
     expect(round.turn).to.be.equal(0);
-  })
+  });
+
+  it('should have a incorrect guesses property that starts with an empty array', function() {
+    expect(round.incorrectGuesses).to.be.deep.equal([]);
+  });
 });
