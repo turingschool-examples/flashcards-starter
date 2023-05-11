@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 const {createDeck} = require('../src/deck');
-const {createRound, takeTurn, calculatePercentageCorrect} = require('../src/round');
+const {createRound, takeTurn, calculatePercentageCorrect, endRound} = require('../src/round');
 
 describe('rounds', function () {
   let round, deck, card1, card2, card3;
@@ -115,5 +115,30 @@ describe('calculate percentage', function() {
     correctPercentage = calculatePercentageCorrect(round);
 
     expect(correctPercentage).to.be.equal(50);
+  });
+});
+
+describe('end round', function() {
+  let round, deck, card1, card2, card3;
+
+  beforeEach(function() {
+    card1 = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+    card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
+    card3 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
+    deck = createDeck([card1, card2, card3]);
+    round = createRound(deck);
+
+    takeTurn('object', round);
+    takeTurn('function', round);
+  });
+
+  it('should be a function', function() {
+    expect(endRound).to.be.a('function');
+  });
+
+  it('should be able to end a round', function() {
+    endMessage = endRound(round);
+
+    expect(endMessage).to.be.equal(`** Round over! ** You answered 50% of the questions correctly!`)
   });
 });
