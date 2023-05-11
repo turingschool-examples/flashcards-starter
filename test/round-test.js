@@ -76,4 +76,19 @@ describe('take turns', function() {
 
     expect(guessFeedback).to.be.equal('incorrect!');
   });
+
+  it('should be able to move onto the next card after a guess', function() {
+    expect(round.currentCard).to.be.deep.equal(card1);
+
+    takeTurn('object', round);
+
+    expect(round.currentCard).to.be.deep.equal(card2);
+  });
+
+  it('should be able to store the cards guessed incorrectly into incorrectGuesses', function() {
+    takeTurn('function', round);
+    takeTurn('object', round);
+
+    expect(round.incorrectGuesses).to.be.deep.equal([1, 2]);
+  });
 });
