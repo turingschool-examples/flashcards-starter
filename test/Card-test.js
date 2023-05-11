@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const { createCard } = require('../src/card');
+const { prototypeData } = require('../src/data');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -9,11 +10,17 @@ describe('card', function() {
   });
 
   it('should create a card and its properties', function() {
-    const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    
-    expect(card.id).to.equal(1);
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
-    expect(card.correctAnswer).to.equal('object');
+    const testsData = prototypeData;
+    const card = createCard(testsData[2].id, testsData[2].question, testsData[2].answers, testsData[2].correctAnswer);
+    // {
+    //   "id": 3,
+    //   "question": "What type of prototype method directly modifies the existing array?",
+    //   "answers": ["mutator method", "accessor method", "iteration method"],
+    //   "correctAnswer": "mutator method"
+    // }
+    expect(card.id).to.equal(3);
+    expect(card.question).to.equal("What type of prototype method directly modifies the existing array?");
+    expect(card.answers).to.deep.equal(["mutator method", "accessor method", "iteration method"]);
+    expect(card.correctAnswer).to.equal("mutator method");
   });  
 });
