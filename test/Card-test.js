@@ -1,15 +1,15 @@
-const chai = require('chai');
+const chai = require("chai");
 const expect = chai.expect;
 
-const { createCard } = require('../src/card');
-const { prototypeData } = require('../src/data');
+const { createCard } = require("../src/card");
+const { prototypeData } = require("../src/data");
 
-describe('card', function() {
-  it('should be a function', function() {
-    expect(createCard).to.be.a('function');
+describe("card", function() {
+  it("should be a function", function() {
+    expect(createCard).to.be.a("function");
   });
 
-  it('should create a card and its properties', function() {
+  it("should create a card and its properties", function() {
     const testsData = prototypeData;
     const card = createCard(testsData[2].id, testsData[2].question, testsData[2].answers, testsData[2].correctAnswer);
     // {
