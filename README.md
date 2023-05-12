@@ -1,58 +1,29 @@
-# FlashCards Starter Kit
+# Flashcards
 
-## Fork This Repo
+## Abstract
+Need to better your knowledge and understanding of different data tpyes and iterator methods? Flashcards will test your knowledge on these things, and you can use it as a studying tool drill in these core concepts.
+## Installation Instructions
+In order to run this application:
+1. Fork the repository
+2. Clone this repository using the SSH key into your local machine
+3. Once the repository is cloned down, run `node index.js` in your terminal on your command line
+## Preview of App
+![Preview](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTdjZDBhODJlZGJiODUyN2E0ZGU5NTFmOWY3Y2JhMDgzOTNkZDQwZiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/d3iTSgXxYXJik3TJNF/giphy.gif)
+## Context
+I am currently on my first week in mod 2 in Turing School of Software and Design. This project took me a total of 12 hours (give or take a few).
+## Contributors
+- Denzel Turambi - [Github](https://github.com/Denzel-Turambi) | [LinkedIn](https://www.linkedin.com/in/denzel-turambi-71a298267/)
+## Learning Goals
+- Contribute code to an partially constructed application
+- Follow spec/prompts to make a working application
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Implement a robust testing suite using TDD
+## Wins + Challenges
+Wins:
+- Learned how to write test suites using Mocha and Chai
 
-On the top right corner of this page, click the **Fork** button.
+Challenges:
+- Writing test suites for the first time
+- using arrow functions for the first time
 
-## Setup
-
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies using the command:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm test` in your terminal. You should have skipped tests in your `card` test file show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run this file until you are running your `game` file in Iteration 3. Prior to that, you should strive to use TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-**Create all of your feature code files in the `src` directory.** Use the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to run the `node index.js` command in your terminal to run the game.
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `card-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
+I overcame these challenges by doing a lot of research and self-teaching, and reaching out to my cohort mates when I needed help
