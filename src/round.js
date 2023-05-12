@@ -24,7 +24,7 @@ function takeTurn(guess, round) {
   }
   round.turns++;
   round.currentCard = round.deck.cards[round.turns];
-  round.percent = calculatePercentCorrect(round);
+  round.percentCorrect = calculatePercentCorrect(round);
   return result;
 }
 
