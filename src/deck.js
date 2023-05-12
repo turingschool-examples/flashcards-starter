@@ -1,9 +1,7 @@
-function createDeck(card1, card2, card3) {
+function createDeck(cards) {
   let deck = {
-    cards: []
+    cards: cards
   }
-  deck.cards.push(card1, card2, card3);
-  // console.log(deck);
   return deck;
 }
 
