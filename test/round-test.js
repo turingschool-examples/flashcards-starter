@@ -4,7 +4,6 @@ const expect = chai.expect;
 const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 const { createDeck} = require('../src/deck');
 const { createCard } = require('../src/card');
-// const { evaluateGuess } = require('../src/turn');
 
 describe('create round', function() {
   let card1;
@@ -97,7 +96,6 @@ describe('calculate percent correct', function() {
   let card3;
   let deck;
   let round1;
-  // let turn1;
   beforeEach(function() {
     card1 = createCard(
       1, 
@@ -116,12 +114,8 @@ describe('calculate percent correct', function() {
       'mutator method');  
       deck = createDeck([card1, card2, card3]);
       round1 = createRound(deck);
-      // turn1 = takeTurn('function', round1);
   });
   it('should be a function', function() {    
-    // console.log('the round', round1)
-    // console.log('the deck', deck)
-    // console.log(turn1)
     expect(calculatePercentCorrect).to.be.a('function');
   });
   it('should calculate the percentage of correct guesses', function() {
@@ -132,7 +126,6 @@ describe('calculate percent correct', function() {
       incorrectGuesses: [1]
     }
   var round2Percentage = calculatePercentCorrect(round2)
-    // console.log(percentage)
     expect(round2Percentage).to.equal(50)
   });
 });
@@ -161,7 +154,6 @@ describe('end round', function() {
       ['mutator method', 'accessor method', 'iteration method'], 
       'mutator method');  
       deck = createDeck([card1, card2, card3]);
-      // round1 = round(deck);
     round2 = {
         deck: deck,
         currentCard: deck[2],
@@ -169,12 +161,8 @@ describe('end round', function() {
         incorrectGuesses: [1]
       }
     round2Percentage = calculatePercentCorrect(round2)
-      // turn1 = takeTurn('function', round1);
   });
   it('should be a function', function() {    
-    // console.log('the round', round1)
-    // console.log('the deck', deck)
-    // console.log(turn1)
     expect(calculatePercentCorrect).to.be.a('function');
   });
   it('should end a round', function() {
