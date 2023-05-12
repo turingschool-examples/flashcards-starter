@@ -32,7 +32,7 @@ const start = (data) => {
   printMessage(deck);
 
   round = createRound(deck);
-  printMessage(round);
+  printQuestion(round);
 };
 
 module.exports = { printMessage, printQuestion, start };
