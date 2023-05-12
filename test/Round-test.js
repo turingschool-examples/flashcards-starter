@@ -124,27 +124,3 @@ describe('calculatePercent', function() {
   });
 });
 
-// describe('endRound', function() {
-//   let card1;
-//   let card2;
-//   let card3;
-//   let deck;
-//   let round;
-
-//   beforeEach(function() {
-//     card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-//     card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-//     card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-//     deck = createDeck([card1, card2, card3]);
-//     round = createRound(deck);
-//   });
-
-//   it('should be function', function() {
-//     expect(endRound).to.be.a('function')
-//   });
-
-//   it('should print end round message to the console', function() {
-
-//   });
-// });
-
