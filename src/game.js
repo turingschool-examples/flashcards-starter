@@ -27,6 +27,12 @@ const start = (data) => {
     newCard = createCard(card.id, card.question, card.answers, card.correctAnswer);
     cards.push(newCard);
   });
+  
+  deck = createDeck(cards);
+  printMessage(deck);
+
+  round = createRound(deck);
+  printMessage(round);
 };
 
 module.exports = { printMessage, printQuestion, start };
