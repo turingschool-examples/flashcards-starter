@@ -3,8 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 const { createDeck } = require('../src/deck');
-const { evaluateGuess } = require('../src/turn')
-const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
+const { createRound, takeTurn, calculatePercentCorrect } = require('../src/round');
 
 describe('round', function() {
   let card1;
