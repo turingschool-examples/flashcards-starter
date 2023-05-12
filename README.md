@@ -6,7 +6,9 @@ Flashcards is a game that is played in the console that tests your knowledge usi
 
 ## The App!
 
-// Gif Here
+![app preview](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTc5ZWE0NTRkZTRkZTdkZjY1NzYxMDk2NWY5MWEzNmRiMWQ2MmVhNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/rlYYseRCjqlmteZh5C/giphy.gif)
+
+
 
 ## Technologies Used
 
