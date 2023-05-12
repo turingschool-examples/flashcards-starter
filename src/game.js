@@ -21,8 +21,12 @@ function printQuestion(round) {
   // printMessage should be invoked 
   // printQuestion should be invoked to kick off our helper functions
 
-const start = () => {
-
-}
+const start = (data) => {
+  cards = [];
+  data.forEach((card) => {
+    newCard = createCard(card.id, card.question, card.answers, card.correctAnswer);
+    cards.push(newCard);
+  });
+};
 
 module.exports = { printMessage, printQuestion, start };
