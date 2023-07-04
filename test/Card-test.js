@@ -49,4 +49,15 @@ describe('deck', function(){
       correctAnswer: "array"
     }])
   })
+
+  it('should know how many cards are in the deck', function() {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
+
+    const deck = createDeck(card1, card2);
+
+    const numberOfCards = countCards(deck);
+
+    expect(numberOfCards).to.equal(2);
+  })
 })
