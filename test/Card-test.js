@@ -36,18 +36,8 @@ describe('deck', function(){
 
     const deck = createDeck(card1, card2);
 
-    expect(deck).to.deep.equal([
-    {
-      id: 1,
-      question: "What allows you to define a set of related information using key-value pairs?",
-      answers: ["object", "array", "function"],
-      correctAnswer: "object"
-    }, {
-      id: 2,
-      question: "What is a comma-separated list of related values?",
-      answers: ["array", "object", "function"],
-      correctAnswer: "array"
-    }])
+    expect(deck).to.be.an('array');
+    expect(deck).to.deep.equal([card1, card2])
   })
 
   it('should take any number of cards', function() {
@@ -72,6 +62,25 @@ describe('deck', function(){
 
     expect(numberOfCards).to.equal(2);
   })
+})
 
- 
+describe('round', function() {
+  it.skip('should be an function', function() {
+    expect(createRound).to.be.an('object');
+  })
+
+  it.skip('should return a round and its properties', function() {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
+
+    const deck = createDeck(card1, card2);
+
+    const round = createRound(deck);
+
+    expect(round).to.be.an('object');
+    expect(round.deck).to.deep.equal(deck);
+    expect(round.currentCard).to.deep.equal(card1);
+    expect(round.turns).to.equal(0);
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  })
 })
