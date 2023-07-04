@@ -26,9 +26,13 @@ function createDeck() {
   return deck;
 }
 
+function countCards(deck) {
+  return deck.length;
+}
+
 module.exports = {
   createCard,
   evaluateGuess,
   createDeck,
-  //countCards
+  countCards
 }
