@@ -1,19 +1,43 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard } = require('../src/card');
+const { createCard, evaluateGuess } = require('../src/card');
 
-describe('card', function() {
-  it.skip('should be a function', function() {
-    expect(createCard).to.be.a('function');
+describe('card', function () {
+  beforeEach('init card', () => {
+    const card = createCard(
+      1,
+      'What allows you to define a set of related information using key-value pairs?',
+      ['object', 'array', 'function'],
+      'object',
+    );
   });
 
-  it.skip('should create a card and its properties', function() {
-    const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    
-    expect(card.id).to.equal(1);
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
-    expect(card.correctAnswer).to.equal('object');
-  });  
+  describe('createCard', () => {
+    it.skip('should be a function', function () {
+      expect(createCard).to.be.a('function');
+    });
+
+    it.skip('should create a card and its properties', function () {
+      expect(card.id).to.equal(1);
+      expect(card.question).to.equal(
+        'What allows you to define a set of related information using key-value pairs?',
+      );
+      expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+      expect(card.correctAnswer).to.equal('object');
+    });
+  });
+
+  describe('evaluateGuess', () => {
+    const correctGuess = evaluateGuess('object', card.correctAnswer);
+    const incorrectGuess = evaluateGuess('array', card.correctAnswer);
+
+    it.skip('should return Correct! if the guess is correct', () => {
+      expect(correctGuess).to.equal('Correct');
+    });
+
+    it.skip('should return Incorrect! if the guess is incorrect', () => {
+      expect(incorrectGuess).to.equal('Incorrect');
+    });
+  });
 });
