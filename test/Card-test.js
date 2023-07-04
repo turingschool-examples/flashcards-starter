@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 const { createCard, evaluateGuess } = require('../src/card');
 
+
 describe('card', function() {
   it('should be a function', function() {
     expect(createCard).to.be.a('function');
@@ -23,5 +24,5 @@ describe('card', function() {
 
     expect(correctGuess).to.equal('Correct!');
     expect(incorrectGuess).to.equal('Incorrect!');
-  })
+  });
 });
