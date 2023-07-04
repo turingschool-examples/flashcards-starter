@@ -15,9 +15,7 @@ function evaluateGuess(guess, answer) {
   }
 }
 
-
-
 module.exports = {
   createCard,
-  evaluateGuess,
+  evaluateGuess
 }
