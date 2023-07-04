@@ -8,7 +8,16 @@ function createCard(id, question, answers, correctAnswer) {
   return card;
 }
 
-
+function evaluateGuess(card, guess, correctAnswer) {
+  console.log('card: ', card)
+  console.log('correctAnswer: ',correctAnswer)
+  console.log('guess: ', guess)
+  if (guess === correctAnswer) {
+    return 'correct!';
+  } else {
+    return 'incorrect!';
+  }
+}
 
 
 
@@ -21,4 +30,5 @@ function createCard(id, question, answers, correctAnswer) {
 
 module.exports = {
   createCard,
+  evaluateGuess,
 }
