@@ -30,9 +30,28 @@ function countCards(deck) {
   return deck.length;
 }
 
+function createRound(deck) {
+  return {
+    deck: deck,
+    currentCard: deck[0],
+    turns: 0,
+    incorrectGuesses: [],
+    takeTurn: function() {
+
+    },
+    calculatePercentageCorrect: function() {
+
+    },
+    endRound: function(){
+
+    }
+  }
+}
+
 module.exports = {
   createCard,
   evaluateGuess,
   createDeck,
-  countCards
+  countCards, 
+  createRound
 }
