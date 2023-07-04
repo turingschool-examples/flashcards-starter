@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -65,11 +65,11 @@ describe('deck', function(){
 })
 
 describe('round', function() {
-  it.skip('should be an function', function() {
-    expect(createRound).to.be.an('object');
+  it('should be an function', function() {
+    expect(createRound).to.be.an('function');
   })
 
-  it.skip('should return a round and its properties', function() {
+  it('should return a round and its properties', function() {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
 
