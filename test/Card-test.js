@@ -115,7 +115,7 @@ describe('turn', function() {
     expect(round.currentCard).to.deep.equal(card2);
   })
 
-  it('should evaluate the guess and add only an incorrect guess to incorrectGuesses', function() {
+  it('should should add the cards id to incorrectGuesses if the guess is incorrect', function() {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
 
@@ -128,7 +128,7 @@ describe('turn', function() {
     round.takeTurn(incorrectGuess, round);
     round.takeTurn(correctGuess, round);
 
-    expect(round.incorrectGuesses).to.deep.equal([card1]);
+    expect(round.incorrectGuesses).to.equal([1]);
   })
 
   it('should determine whether the guess is correct or not', function() {
@@ -137,5 +137,22 @@ describe('turn', function() {
 
     expect(correctResult).to.equal('correct!');
     expect(incorrectResult).to.equal('incorrect!');
+  })
+
+  it('should return feedback regardless of whether the guess is incorrect or not', function() {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
+
+    const deck = createDeck(card1, card2);
+    const round = createRound(deck);
+
+    const incorrectGuess = 'function';
+    const correctGuess = 'array'
+
+    incorrectFeedback = round.takeTurn(incorrectGuess, round);
+    correctFeedback = round.takeTurn(correctGuess, round);
+
+    expect(incorrectFeedback).to.equal('incorrect!');
+    expect(correctFeedback).to.equal('correct!');
   })
 })
