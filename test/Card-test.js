@@ -83,4 +83,17 @@ describe('round', function() {
     expect(round.turns).to.equal(0);
     expect(round.incorrectGuesses).to.deep.equal([]);
   })
+
+  it('should return a round with all of its methods', function() {
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
+
+    const deck = createDeck(card1, card2);
+
+    const round = createRound(deck);
+
+    expect(round.takeTurn).to.be.a('function');
+    expect(round.calculatePercentageCorrect).to.be.a('function');
+    expect(round.endRound).to.be.a('function');
+  })
 })
