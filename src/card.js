@@ -8,8 +8,8 @@ function createCard(id, question, answers, correctAnswer) {
   return card;
 }
 
-function evaluateGuess(card, guess, correctAnswer) {
-  console.log('card: ', card)
+function evaluateGuess(guess, correctAnswer) {
+  // console.log('card: ', card)
   console.log('correctAnswer: ',correctAnswer)
   console.log('guess: ', guess)
   if (guess === correctAnswer) {
@@ -19,6 +19,12 @@ function evaluateGuess(card, guess, correctAnswer) {
   }
 }
 
+////// Iteration 2 /////////
+
+function createDeck(cards) {
+
+  return cards;
+}
 
 
 
@@ -31,4 +37,5 @@ function evaluateGuess(card, guess, correctAnswer) {
 module.exports = {
   createCard,
   evaluateGuess,
+  createDeck,
 }
