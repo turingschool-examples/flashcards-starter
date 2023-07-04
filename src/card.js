@@ -7,20 +7,17 @@ function createCard(id, question, possibleAnswers, correctAnswer) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
+function evaluateGuess(guess, answer) {
+  if (guess === answer) {
+    return 'Correct!'
+  } else {
+    return 'Incorrect!'
+  }
+}
 
 
 
 module.exports = {
   createCard,
+  evaluateGuess,
 }
