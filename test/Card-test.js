@@ -110,7 +110,9 @@ describe('turn', function() {
     const deck = createDeck(card1, card2);
     const round = createRound(deck);
 
+    round.takeTurn('object', round);
 
+    expect(round.currentCard).to.deep.equal(card2);
   })
 
   it('should determine whether the guess is correct or not', function() {
