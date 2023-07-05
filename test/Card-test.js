@@ -1,7 +1,12 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck } = require('../src/card');
+const {
+  createCard,
+  evaluateGuess,
+  createDeck,
+  countCards,
+} = require('../src/card');
 
 describe('card', () => {
   let card, correctGuess, incorrectGuess;
@@ -50,7 +55,7 @@ describe('card', () => {
 });
 
 describe('deck', () => {
-  let card1, card2, card3, deck;
+  let card1, card2, card3, deck, deckCount;
 
   beforeEach('init cards', () => {
     card1 = createCard(
@@ -75,9 +80,15 @@ describe('deck', () => {
     );
 
     deck = createDeck([card1, card2, card3]);
+
+    deckCount = countCards(deck);
   });
 
   it('should be created as an array of card objects', () => {
     expect(deck).to.be.an('array');
+  });
+
+  it('should know how many cards are in the deck', () => {
+    expect(deckCount).to.equal(3);
   });
 });
