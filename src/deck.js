@@ -1,9 +1,5 @@
-function createDeck(cards) {
-  return cards;
-}
+const createDeck = ((cards) => cards)
 
-function countsCards(deck) {
-  return deck.length;
-}
+const countsCards = ((deck) => deck.length)
 
-module.exports = {createDeck, countsCards}
+module.exports = {countsCards, createDeck}

@@ -4,15 +4,27 @@ function createRound(decks) {
     currentCard: decks[0],
     turns: 0,
     incorrectGuess: [],
+    takeTurn(guess, round) {
+      if (guess) {
+        console.log(round.turns)
+        round.turns++
+      }
+    }
   }
 }
+// roundTurns: guess, rounds: takeTurn(guess, ranRounds)
 
-function takeTurn() {
-  
-}
-// console.log(deck.createDeck())
 
-module.exports = {createRound, takeTurn}
+
+// function takeTurn(guess, round) {
+//   // console.log()
+//   if (guess) {
+//     round.turns++ 
+//   }
+// }
+
+
+module.exports = {createRound}
 
 // const chai = require('chai');
 // const expect = chai.expect;

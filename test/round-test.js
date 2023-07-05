@@ -23,7 +23,11 @@ describe('round', function() {
   expect(round.incorrectGuess).to.deep.equal([]);
   });
 
-  it('should start with first card in the deck', function(){
+  it('should start with first card in the deck', function() {
   expect(round.currentCard).to.equal(deck[0]);
   });
+
+  it('should update turns regardless if correct or incorrect', function() {
+    expect(takeTurn(guess, round)).to.equal(round.turns)
+  })
 });
