@@ -1,4 +1,4 @@
-function createCard(questionNum, question, answers, correctAnswer){
+var createCard = (questionNum, question, answers, correctAnswer) => {
   return {
     id: questionNum,
     question: question,
