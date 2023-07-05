@@ -5,7 +5,6 @@ var createCard = (questionNum, question, answers, correctAnswer) => {
     answers: answers,
     correctAnswer: correctAnswer,
   }
-
 }
 
 
