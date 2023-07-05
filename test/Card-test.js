@@ -2,7 +2,7 @@ const cards = require('../src/data')
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess} = require('../src/card');
+const { createCard, evaluateGuess } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -20,10 +20,10 @@ describe('card', function() {
   
   it('should evaluate if a guess is correct or incorrect', function() {
     const correctGuess = evaluateGuess('correct answer', 'correct answer')
-    const wrongGuess = evaluateGuess('correct answer', 'incorrect answer')
+    const incorrectGuess = evaluateGuess('correct answer', 'incorrect answer')
 
     expect(correctGuess).to.equal('Correct!')
-    expect(wrongGuess).to.equal('Incorrect!')
+    expect(incorrectGuess).to.equal('Incorrect!')
   })
   
  
