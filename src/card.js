@@ -5,12 +5,18 @@ var createCard = (questionNum, question, answers, correctAnswer) => {
     answers: answers,
     correctAnswer: correctAnswer,
   }
-
 }
 
-
+let evaluateGuess = ((guess, correctAnswer) => {
+  if(guess === correctAnswer){
+    return 'correct!'
+  } else {
+    return 'incorrect!'
+  }
+}); 
 
 
 module.exports = {
   createCard,
+  evaluateGuess,
 }
