@@ -28,7 +28,8 @@ function calculatePercentageCorrect(round) {
 }
 
 function endRound(round) {
-
+  const percent = calculatePercentageCorrect(round)
+  return `** Round over! ** You answered ${percent} of the questions correctly!`
 }
 
 module.exports = {

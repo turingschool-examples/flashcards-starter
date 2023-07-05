@@ -66,10 +66,10 @@ describe('endRound', function() {
   const round = createRound(deck)
   takeTurn('object', round);
   takeTurn('array', round);
-  takeTurn('iteration method', round)
+  takeTurn('mutator method', round)
   const gameOverMessage = endRound(round)
 
-  it('should print the game over message'. function() {
-    expect.(endMessage).to.equal('** Round over! ** You answered 67% of the questions correctly!')
+  it('should print the end-game message', function () {
+    expect(gameOverMessage).to.equal('** Round over! ** You answered 100% of the questions correctly!');
   })
 })
