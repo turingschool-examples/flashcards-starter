@@ -36,8 +36,17 @@ function createRound(deck) {
     currentCard: deck[0],
     turns: 0,
     incorrectGuesses: [],
-    takeTurn: function() {
+    takeTurn: function(guess) {
+      const result = evaluateGuess(guess, this.currentCard.correctAnswer);
 
+      if(result === 'incorrect!'){
+        this.incorrectGuesses.push(this.currentCard.id);
+      }
+      
+      this.turns++;
+      this.currentCard = deck[this.turns];
+
+      return result;
     },
     calculatePercentageCorrect: function() {
 
