@@ -1,6 +1,7 @@
 const data = require('./data');
 const { createCard } = require('../src/card')
-const { createDeck, createRound, countCards} = require('../src/round')
+const { createDeck, createRound, countCards, startTimer } = require('../src/round')
+
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 
@@ -19,7 +20,9 @@ function startGame() {
   const firstRound = createRound(deck);
   printMessage(deck)
   printQuestion(firstRound)
+  startTimer()
 }
+  
 
 function makeCards(cardsData) {
   var result = []
@@ -34,4 +37,5 @@ function makeCards(cardsData) {
 module.exports = { 
   printMessage, 
   printQuestion, 
-  startGame };
+  startGame,
+ };
