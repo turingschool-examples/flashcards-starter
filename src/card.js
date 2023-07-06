@@ -52,7 +52,7 @@ function createRound(deck) {
       return Math.round(100 - ((this.incorrectGuesses.length / this.turns) * 100));
     },
     endRound: function(){
-
+      return `** Round over! ** You answered ${this.calculatePercentageCorrect()}% of the questions correctly!`
     }
   }
 }
