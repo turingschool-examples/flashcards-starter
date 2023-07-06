@@ -1,4 +1,4 @@
-function createCard(num, question, answers, correctAnswer){
+const createCard = (num, question, answers, correctAnswer) => {
     const card = {
         id: num,
         question: question,
