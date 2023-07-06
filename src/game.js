@@ -24,8 +24,8 @@ function startGame() {
 function makeCards(cardsData) {
   var result = []
   for (let i = 0; i < cardsData.length; i++) {
-    var cardData = cardsData[i];
-    var card = createCard(cardData.id, cardData.question, cardData.answers, cardData.correctAnswer);
+    const cardData = cardsData[i];
+    const card = createCard(cardData.id, cardData.question, cardData.answers, cardData.correctAnswer);
     result.push(card);
   }
   return result
