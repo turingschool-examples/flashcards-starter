@@ -49,7 +49,7 @@ function createRound(deck) {
       return result;
     },
     calculatePercentageCorrect: function() {
-
+      return Math.round(100 - ((this.incorrectGuesses.length / this.turns) * 100));
     },
     endRound: function(){
 
