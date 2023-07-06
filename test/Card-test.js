@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -120,6 +120,27 @@ describe('round', function() {
     var percent = calculatePercentCorrect(round)
 
     expect(percent).to.equal(50)
+  })
+
+  it('should create a function', function() {
+    expect(endRound).to.be.a('function');
+  })
+
+  it('should print ** Round over! ** You answered <>% of the questions correctly!', function() {
+    var deck = createDeck([card1, card2, card3])
+    var round = createRound(deck)
+
+    var turn1 = takeTurn('eggplant', round)
+    var percent = calculatePercentCorrect(round)
+    var endOfRoundInfo = endRound(round)
+    expect(endOfRoundInfo).to.equal('** Round over! ** You answered 0% of the questions correctly!')
+
+    var turn2 = takeTurn('Fitzgerald', round)
+    var percent = calculatePercentCorrect(round)
+    var endOfRoundInfo = endRound(round)
+    expect(endOfRoundInfo).to.equal('** Round over! ** You answered 50% of the questions correctly!')
+
+    
   })
 
 })

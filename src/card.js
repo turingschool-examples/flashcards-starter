@@ -55,6 +55,13 @@ function calculatePercentCorrect(round) {
   return (round.turns - round.incorrectGuesses.length) / round.turns * 100
 }
 
+function endRound(round) {
+  console.log('HERE: ', round)
+  console.log('% correct: ', calculatePercentCorrect(round))
+  console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`)
+  return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
+  
+}
 
 module.exports = {
   createCard,
@@ -64,4 +71,5 @@ module.exports = {
   createRound,
   takeTurn,
   calculatePercentCorrect,
+  endRound,
 }
