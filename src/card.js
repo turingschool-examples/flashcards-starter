@@ -15,11 +15,20 @@ function evaluateGuess(guess, correctAnswer) {
 }
 
 function createDeck(cards) {
-  return [...cards];
+  return cards;
 }
 
 function countCards(cards) {
   return cards.length;
+}
+
+function initRoundController(deck) {
+  return {
+    deck,
+    currentCard: deck[0],
+    turns: 0,
+    incorrectGuesses: [],
+  };
 }
 
 module.exports = {
@@ -27,4 +36,5 @@ module.exports = {
   evaluateGuess,
   createDeck,
   countCards,
+  initRoundController,
 };

@@ -6,6 +6,7 @@ const {
   evaluateGuess,
   createDeck,
   countCards,
+  initRoundController,
 } = require('../src/card');
 
 describe('card', () => {
@@ -90,5 +91,54 @@ describe('deck', () => {
 
   it('should know how many cards are in the deck', () => {
     expect(deckCount).to.equal(3);
+  });
+});
+
+describe('round', () => {
+  let card1, card2, card3, deck, round;
+
+  beforeEach('init round controller', () => {
+    card1 = createCard(
+      1,
+      "What is Robbie's favorite animal",
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter',
+    );
+
+    card2 = createCard(
+      14,
+      'What organ is Khalid missing?',
+      ['spleen', 'appendix', 'gallbladder'],
+      'gallbladder',
+    );
+
+    card3 = createCard(
+      12,
+      "What is Travis's middle name?",
+      ['Lex', 'William', 'Fitzgerald'],
+      'Fitzgerald',
+    );
+
+    deck = createDeck([card1, card2, card3]);
+
+    round = initRoundController(deck);
+
+  });
+
+  it('should contain the deck array', () => {
+    expect(round.deck).to.deep.equal(deck);
+  });
+
+  it('should hold state of current card', () => {
+    expect(round.currentCard).to.deep.equal(deck[0]);
+  });
+
+  it('should initialize turns to 0', () => {
+    expect(round.turns).to.equal(0);
+  });
+
+  it('should contain an incorrectGuesses array', () => {
+    expect(round.incorrectGuesses).to.be.an('array');
+    expect(round.incorrectGuesses).to.be.empty;
   });
 });
