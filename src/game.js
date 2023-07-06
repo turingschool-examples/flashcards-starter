@@ -1,10 +1,10 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
-// const card = require('./card');
+//const card = require('./card');
 const {createCard, createDeck, countCards} = require('./card');
 //const round = require('./round')
-const {createRound} = require('./round')
+const {createRound, endRound, calculatePercentCorrect} = require('./round')
 
 function printMessage(deck) {
   console.log(`Welcome to FlashCards! You are playing with ${countCards(deck)} cards.
@@ -24,7 +24,16 @@ function start() {
   
   printMessage(deck);
   printQuestion(round)
+  
+  if (round.turns === 30) {
+    endRound(round)
+  }  
 }
 
+// function restartGame() {
+//   let score = calculatePercentCorrect(round)
+  
+// }
+// endRound(round)
 
-module.exports = { printMessage, printQuestion, start };
+module.exports = { printMessage, printQuestion, start, restartGame};
