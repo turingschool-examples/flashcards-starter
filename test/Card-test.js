@@ -1,12 +1,14 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+const { createCard, createDeck, countCards } = require('../src/card');
+
 const {
-  createCard,
   evaluateGuess,
-  createDeck,
-  countCards,
-} = require('../src/card');
+} = require('../src/round');
+
+
+/* ----------- CARD ----------- */
 
 describe('card', () => {
   let card, correctGuess, incorrectGuess;
@@ -46,13 +48,15 @@ describe('card', () => {
   });
 
   it('should return Correct! if the guess is correct', () => {
-    expect(correctGuess).to.equal('Correct!');
+    expect(correctGuess).to.equal('correct!');
   });
 
   it('should return Incorrect! if the guess is incorrect', () => {
-    expect(incorrectGuess).to.equal('Incorrect!');
+    expect(incorrectGuess).to.equal('incorrect!');
   });
 });
+
+/* ----------- DECK ----------- */
 
 describe('deck', () => {
   let card1, card2, card3, deck, deckCount;
