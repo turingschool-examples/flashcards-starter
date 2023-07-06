@@ -5,11 +5,11 @@ const { createRound, createDeck, countCards, takeTurn, calculatePercentageCorrec
 
 const cards = require('../src/data')
 const deck = createDeck(cards.prototypeData)
+const round = createRound(deck);
 
 describe('createRound', function() {
   
   it('should create a round object', function () {
-    const round = createRound(deck);
     expect(createRound(deck)).to.be.a('object');
   });
 
@@ -34,14 +34,14 @@ describe('createDeck', function() {
 })
 
 describe('takeTurn', function() {
-  const round = createRound(deck)
   it('should increment turns', function() {
+      const round = createRound(deck)
       takeTurn('whale', round)
       expect(round.turns).to.equal(1)
     })  
 
     it('should push incorrect answer id\'s into incorrectGuesses array', function() {
-
+      takeTurn('cat', round)
       expect(round.incorrectGuesses).to.deep.equal([1])
       })
       
