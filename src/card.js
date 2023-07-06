@@ -31,7 +31,6 @@ function countCards(deck) {
 }
 
 function createRound(deck) {
-  console.log('deck: ',deck)
   const round = {
     deck: deck,
     currentCard: deck[0],
@@ -41,7 +40,16 @@ function createRound(deck) {
   return round
 }
 
-
+function takeTurn(guess, round) {
+  round.turns += 1;
+  round.currentCard = round.deck[round.turns]
+  const feedback = evaluateGuess(guess, round.currentCard.correctAnswer);
+  console.log('feedback: ', feedback)
+  if (feedback === 'incorrect!') {
+    round.incorrectGuesses.push(round.currentCard.id)
+    }
+  return round
+}
 
 
 
@@ -51,5 +59,5 @@ module.exports = {
   createDeck,
   countCards,
   createRound,
-
+  takeTurn,
 }
