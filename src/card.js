@@ -51,6 +51,9 @@ function takeTurn(guess, round) {
   return round
 }
 
+function calculatePercentCorrect(round) {
+  return (round.turns - round.incorrectGuesses.length) / round.turns * 100
+}
 
 
 module.exports = {
@@ -60,4 +63,5 @@ module.exports = {
   countCards,
   createRound,
   takeTurn,
+  calculatePercentCorrect,
 }
