@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const { createCard, createDeck, countCards} = require('../src/card');
-const { evaluateGuess, createRound} = require('../src/round');
+const { evaluateGuess, createRound, calculatePercentageCorrect, takeTurn, endRound} = require('../src/round');
 
 
 
@@ -26,18 +26,18 @@ describe('round', function() {
     expect(round.incorrectGuesses).to.deep.equal([]);
   })
 
-  it('should return a round with all of its methods', function() {
-    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
+  // it('should return a round with all of its methods', function() {
+  //   const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+  //   const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
 
-    const deck = createDeck(card1, card2);
+  //   const deck = createDeck(card1, card2);
 
-    const round = createRound(deck);
+  //   const round = createRound(deck);
 
-    expect(round.takeTurn).to.be.a('function');
-    expect(round.calculatePercentageCorrect).to.be.a('function');
-    expect(round.endRound).to.be.a('function');
-  })
+  //   expect(round.takeTurn).to.be.a('function');
+  //   expect(round.calculatePercentageCorrect).to.be.a('function');
+  //   expect(round.endRound).to.be.a('function');
+  // })
 })
 
 describe('turn', function() {
@@ -50,8 +50,8 @@ describe('turn', function() {
     const correctGuess = 'object';
     const incorrectGuess = 'array';
 
-    round.takeTurn(correctGuess);
-    round.takeTurn(incorrectGuess);
+    takeTurn(correctGuess, round);
+    takeTurn(incorrectGuess, round);
 
     expect(round.turns).to.equal(2);
   })
@@ -63,7 +63,7 @@ describe('turn', function() {
     const deck = createDeck(card1, card2);
     const round = createRound(deck);
 
-    round.takeTurn('object', round);
+    takeTurn('object', round);
 
     expect(round.currentCard).to.deep.equal(card2);
   })
@@ -78,8 +78,8 @@ describe('turn', function() {
     const incorrectGuess = 'function';
     const correctGuess = 'array';
 
-    round.takeTurn(incorrectGuess, round);
-    round.takeTurn(correctGuess, round);
+    takeTurn(incorrectGuess, round);
+    takeTurn(correctGuess, round);
 
     expect(round.incorrectGuesses).to.deep.equal([1]);
   })
@@ -102,8 +102,8 @@ describe('turn', function() {
     const incorrectGuess = 'function';
     const correctGuess = 'array';
 
-    incorrectFeedback = round.takeTurn(incorrectGuess, round);
-    correctFeedback = round.takeTurn(correctGuess, round);
+    incorrectFeedback = takeTurn(incorrectGuess, round);
+    correctFeedback = takeTurn(correctGuess, round);
 
     expect(incorrectFeedback).to.equal('incorrect!');
     expect(correctFeedback).to.equal('correct!');
@@ -121,11 +121,11 @@ describe('turn', function() {
     const correctGuess = 'array';
     const anotherCorrectGuess = 'mutator method';
 
-    round.takeTurn(incorrectGuess);
-    round.takeTurn(correctGuess);
-    round.takeTurn(anotherCorrectGuess);
+    takeTurn(incorrectGuess, round);
+    takeTurn(correctGuess, round);
+    takeTurn(anotherCorrectGuess, round);
 
-    const percentage = round.calculatePercentageCorrect();
+    const percentage = calculatePercentageCorrect(round);
 
     expect(percentage).to.equal(67);
   })
@@ -142,11 +142,11 @@ describe('turn', function() {
     const correctGuess = 'array';
     const anotherCorrectGuess = 'mutator method';
 
-    round.takeTurn(incorrectGuess);
-    round.takeTurn(correctGuess);
-    round.takeTurn(anotherCorrectGuess);
+    takeTurn(incorrectGuess, round);
+    takeTurn(correctGuess, round);
+    takeTurn(anotherCorrectGuess, round);
 
-    const endMessage = round.endRound();
+    const endMessage = endRound(round);
     expect(endMessage).to.deep.equal(`** Round over! ** You answered 67% of the questions correctly!`)
   })
 })

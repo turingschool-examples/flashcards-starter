@@ -1,3 +1,4 @@
+const { createCard } = require('./card');
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
@@ -11,4 +12,20 @@ function printQuestion(round) {
   util.main(round);
 }
 
-module.exports = { printMessage, printQuestion };
+function start() {
+// Creates cards
+// Puts cards in a deck
+// Creates a new round using the deck
+// Invokes printMessage(deck) to display the message in the CLI
+// Invokes printQuestion(round) to kick off our helper functions that allow interaction via the CLI
+}
+
+function initiateDeck() {
+  
+}
+
+module.exports = { 
+  printMessage,
+  printQuestion,
+  start
+};
