@@ -7,11 +7,11 @@ function createCard(id, question, answers, correctAnswer) {
   }
 }
 
-function createDeck() {
+function createDeck(cards) {
   const deck  = [];
-  const args = Array.from(arguments);
+  // const args = Array.from(arguments);
 
-  args.forEach(card => {
+  cards.forEach(card => {
     deck.push(card);  
   });
 

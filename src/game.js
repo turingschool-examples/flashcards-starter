@@ -1,4 +1,5 @@
-const { createCard } = require('./card');
+const { createCard, createDeck, countCards } = require('./card');
+const { evaluateGuess, createRound, calculatePercentageCorrect, takeTurn, endRound} = require('../src/round');
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
@@ -20,8 +21,15 @@ function start() {
 // Invokes printQuestion(round) to kick off our helper functions that allow interaction via the CLI
 }
 
-function initiateDeck() {
-  
+function initiateDeck(data) {
+  const cards =  data.map(element => {
+    let { id, question, answers, correctAnswer} = element;
+    createCard(id, question, answers, correctAnswer);
+    
+  });
+
+  createDeck(cards);
+
 }
 
 module.exports = { 

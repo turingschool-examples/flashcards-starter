@@ -1,10 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, createDeck, countCards} = require('../src/card');
+const { createCard, createDeck} = require('../src/card');
 const { evaluateGuess, createRound, calculatePercentageCorrect, takeTurn, endRound} = require('../src/round');
-
-
 
 describe('round', function() {
   it('should be an function', function() {
@@ -15,7 +13,7 @@ describe('round', function() {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
 
-    const deck = createDeck(card1, card2);
+    const deck = createDeck([card1, card2]);
 
     const round = createRound(deck);
 
@@ -25,19 +23,6 @@ describe('round', function() {
     expect(round.turns).to.equal(0);
     expect(round.incorrectGuesses).to.deep.equal([]);
   })
-
-  // it('should return a round with all of its methods', function() {
-  //   const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-  //   const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
-
-  //   const deck = createDeck(card1, card2);
-
-  //   const round = createRound(deck);
-
-  //   expect(round.takeTurn).to.be.a('function');
-  //   expect(round.calculatePercentageCorrect).to.be.a('function');
-  //   expect(round.endRound).to.be.a('function');
-  // })
 })
 
 describe('turn', function() {
@@ -45,7 +30,7 @@ describe('turn', function() {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
 
-    const deck = createDeck(card1, card2);
+    const deck = createDeck([card1, card2]);
     const round = createRound(deck);
     const correctGuess = 'object';
     const incorrectGuess = 'array';
@@ -60,7 +45,7 @@ describe('turn', function() {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
 
-    const deck = createDeck(card1, card2);
+    const deck = createDeck([card1, card2]);
     const round = createRound(deck);
 
     takeTurn('object', round);
@@ -72,7 +57,7 @@ describe('turn', function() {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
 
-    const deck = createDeck(card1, card2);
+    const deck = createDeck([card1, card2]);
     const round = createRound(deck);
 
     const incorrectGuess = 'function';
@@ -96,7 +81,7 @@ describe('turn', function() {
     const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
 
-    const deck = createDeck(card1, card2);
+    const deck = createDeck([card1, card2]);
     const round = createRound(deck);
 
     const incorrectGuess = 'function';
@@ -114,7 +99,7 @@ describe('turn', function() {
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
     const card3 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
 
-    const deck = createDeck(card1, card2, card3);
+    const deck = createDeck([card1, card2, card3]);
     const round = createRound(deck);
 
     const incorrectGuess = 'function';
@@ -135,7 +120,7 @@ describe('turn', function() {
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"],"array")
     const card3 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
 
-    const deck = createDeck(card1, card2, card3);
+    const deck = createDeck([card1, card2, card3]);
     const round = createRound(deck);
 
     const incorrectGuess = 'function';
