@@ -1,4 +1,9 @@
-const { evaluateGuess} = require('./card');
+const { 
+  createCard, 
+  evaluateGuess, 
+  createDeck,
+  countCards
+} = require('./card');
 
 const createRound = (deck, currentCard = deck[0], turns = 0, incorrectGuesses = []) => {
   return {
@@ -35,10 +40,10 @@ const endRound = (round) => {
 }
 
 module.exports = {
-    //createCard,
+  createCard,
   evaluateGuess,
-    //createDeck,
-    //countCards,
+  createDeck,
+  countCards,
   createRound,
   takeTurn,
   calculatePercentCorrect,

@@ -3,9 +3,7 @@ const expect = chai.expect;
 
 const {
     createCard,
-    //evaluateGuess,
-    createDeck,
-    //countCards,
+    createDeck, 
 } = require('../src/card');
 
 const {
