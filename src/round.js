@@ -10,14 +10,15 @@ function createRound(decks) {
   return rounds;
 }
                                 
-function takeTurn(guess, round) {
-  let correctAnswer = round.currentCard.answer;
-  let result = evaluateGuess(guess, correctAnswer);
+function takeTurn(guess, rounds) {
+  let result = evaluateGuess(guess, rounds.currentCard.correctAnswer);
   if (result === 'Incorrect!') {
-    round.incorrectGuess.push(round.currentCard.id);
+    rounds.incorrectGuess.push(rounds.currentCard.id);
+  } else {
+    result;
   }
-  round.turns++
-  round.currentCard = round.deck[round.turns];
+  rounds.turns++
+  rounds.currentCard = rounds.deck[rounds.turns];
   return result;
 }
 
