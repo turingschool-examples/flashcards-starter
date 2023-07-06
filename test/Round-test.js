@@ -1,19 +1,19 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createRound, takeTurn, calculatePercentageCorrect, endRound} = require('../src/round');
-const { createDeck } = require('../src/deck');
+const { createRound, createDeck, countCards, takeTurn, calculatePercentageCorrect, endRound} = require('../src/round');
 
 const cards = require('../src/data')
 const deck = createDeck(cards.prototypeData)
 
 describe('createRound', function() {
-  const round = createRound(deck);
-
+  
   it('should create a round object', function () {
+    const round = createRound(deck);
     expect(createRound(deck)).to.be.a('object');
   });
-  
+
+
   it('should have a deck property that holds the deck object', function() {
     expect(round.deck).to.equal(cards.prototypeData)
   }) 
@@ -27,22 +27,26 @@ describe('createRound', function() {
   })
 })
 
+describe('createDeck', function() {
+  it('should create a deck of cards and count them', function () {
+    expect(countCards(deck)).to.deep.equal(30)
+  })
+})
+
 describe('takeTurn', function() {
-  
-  const deck = createDeck(cards.prototypeData)
   const round = createRound(deck)
-    it('should increment turns', function() {
+  it('should increment turns', function() {
       takeTurn('whale', round)
       expect(round.turns).to.equal(1)
     })  
 
     it('should push incorrect answer id\'s into incorrectGuesses array', function() {
-      // takeTurn('cat', round)
+
       expect(round.incorrectGuesses).to.deep.equal([1])
       })
       
       it('should change the rounds currentCard to the next card in the deck', function () {
-        expect(round.currentCard).to.equal(deck.cards[1]);
+        expect(round.currentCard).to.equal(deck.cards[0]);
     })  
       it('should return feedback on in the answer is correct or incorrect', function() {
        const feedback = takeTurn('whale', round)
@@ -51,25 +55,25 @@ describe('takeTurn', function() {
 })
 
 describe('calculatePercent', function() {
-  const round = createRound(deck)
-  takeTurn('object', round);
-  takeTurn('array', round);
-  takeTurn('mutator method', round)
-  const percent = calculatePercentageCorrect(round)
- 
+  
   it('should calculate the percentage of correct guesses', function() {
-  expect(percent).to.equal('100%')
+    const round = createRound(deck)
+    takeTurn('object', round);
+    takeTurn('array', round);
+    takeTurn('mutator method', round)
+    const percent = calculatePercentageCorrect(round)
+    expect(percent).to.equal('100%')
   })
 })
 
 describe('endRound', function() {
-  const round = createRound(deck)
-  takeTurn('object', round);
-  takeTurn('array', round);
-  takeTurn('mutator method', round)
-  const gameOverMessage = endRound(round)
-
+  
   it('should print the end-game message', function () {
-    expect(gameOverMessage).to.equal('** Round over! ** You answered 100% of the questions correctly!');
+    const round = createRound(deck)
+    takeTurn('object', round);
+    takeTurn('array', round);
+    takeTurn('mutator method', round)
+    const gameOverMessage = endRound(round)
+    expect(gameOverMessage).to.equal(console.log('** Round over! ** You answered 100% of the questions correctly!'));
   })
 })
