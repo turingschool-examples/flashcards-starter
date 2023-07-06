@@ -9,14 +9,14 @@ function initRoundController(deck) {
 
 function evaluateGuess(guess, correctAnswer) {
   if (guess === correctAnswer) {
-    return 'Correct!';
+    return 'correct!';
   }
-  return 'Incorrect!';
+  return 'incorrect!';
 }
 
 function takeTurn(guess, round) {
   const outcome = evaluateGuess(guess, round.currentCard.correctAnswer);
-  if (outcome === 'Incorrect!') {
+  if (outcome === 'incorrect!') {
     round.incorrectGuesses.push(round.currentCard.id);
   }
   round.turns++;
