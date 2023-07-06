@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createRound, createDeck, countCards, takeTurn, calculatePercentageCorrect, endRound} = require('../src/round');
+const { createRound, createDeck, countCards, takeTurn, calculatePercentageCorrect, endRound } = require('../src/round');
 
 const cards = require('../src/data')
 const deck = createDeck(cards.prototypeData)
