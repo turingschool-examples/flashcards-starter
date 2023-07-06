@@ -1,12 +1,3 @@
-// function createCard(id, question, answers, correctAnswer) {
-//   return {
-//     id: id,
-//     question: question,
-//     answers: answers,
-//     correctAnswer: correctAnswer
-//   };
-// }
-
 const createCard = (id, question, answers, correctAnswer) => {
   return {
     id,
@@ -18,28 +9,52 @@ const createCard = (id, question, answers, correctAnswer) => {
 
 const evaluateGuess = (guess, correctAnswer) => {
   if (guess === correctAnswer) {
-    return true
+    return 'correct!'
   } else {
-    return false
+    return 'incorrect!'
   }
 }
 
 const createDeck = (cards) => {
-    // return array of objects
-    // deck = []
-    // newCard = createCard(cards)
-
-    // deck.push(newCard)
-    // return deck
     return cards
 }
 
 const countCards = deck => deck.length
 
+const createRound = (deck, currentCard = deck[0], turns = 0, incorrectGuesses = []) => {
+  return {
+    deck,
+    currentCard,
+    turns,
+    incorrectGuesses
+  }
+}
+
+const takeTurn = (guess, round) => {
+  const result = evaluateGuess(guess, round.currentCard.correctAnswer)
+
+  if (result === 'incorrect!') {
+    round.incorrectGuesses.push(round.currentCard.id)
+  }
+
+  round.turns++;  
+  round.currentCard = round.deck[round.turns]
+
+  return result     
+}
+
+const calculatePercentCorrect = (round) => {
+  let incorrectGuesses = round.incorrectGuesses.length
+   
+  return (round.turns - incorrectGuesses) / round.turns * 100
+}
 
 module.exports = {
   createCard,
   evaluateGuess, 
   createDeck,
-  countCards
+  countCards,
+  createRound,
+  takeTurn,
+  calculatePercentCorrect
 };
