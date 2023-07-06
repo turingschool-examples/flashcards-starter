@@ -15,23 +15,8 @@ let evaluateGuess = ((guess, correctAnswer) => {
   }
 }); 
 
-const createDeck = (cards) => cards;
-
-const countCards = (deck) => deck.length;
-
-const createRound = (deck) => {
-  return {
-    deck: deck,
-    currentCard: deck[0],
-    turns: 0,
-    incorrectGuesses: []
-  }
-}
 
 module.exports = {
   createCard,
-  evaluateGuess,
-  createDeck,
-  countCards,
-  createRound
+  evaluateGuess
 }
