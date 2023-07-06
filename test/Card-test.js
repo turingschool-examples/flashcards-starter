@@ -8,6 +8,7 @@ const {
   countCards,
   initRoundController,
   takeTurn,
+  calculatePercentCorrect,
 } = require('../src/card');
 
 /* ----------- CARD ----------- */
@@ -220,7 +221,7 @@ describe('taking a turn', () => {
     expect(incorrectGuess).to.equal('Incorrect!');
   });
 
-  it.skip('should calculate the percentage of correct guesses', () => {
+  it('should calculate the percentage of correct guesses', () => {
     takeTurn('sea otter', round); // correct
     takeTurn('appendix', round); // incorrect
 
