@@ -31,10 +31,22 @@ function initRoundController(deck) {
   };
 }
 
+function takeTurn(guess, round) {
+  const outcome = evaluateGuess(guess, round.currentCard.correctAnswer);
+  if (outcome === 'Incorrect!') {
+    round.incorrectGuesses.push(round.currentCard.id);
+  }
+  round.turns++;
+  round.currentCard = round.deck[round.turns];
+
+  return outcome;
+}
+
 module.exports = {
   createCard,
   evaluateGuess,
   createDeck,
   countCards,
   initRoundController,
+  takeTurn,
 };
