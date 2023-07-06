@@ -14,26 +14,24 @@ function printQuestion(round) {
 }
 
 function start() {
-// Creates cards
-// Puts cards in a deck
-// Creates a new round using the deck
-// Invokes printMessage(deck) to display the message in the CLI
-// Invokes printQuestion(round) to kick off our helper functions that allow interaction via the CLI
+  const deck = initiateDeck(prototypeQuestions);
+  const round = createRound(deck);
+  printMessage(deck);
+  printQuestion(round);
 }
 
 function initiateDeck(data) {
   const cards =  data.map(element => {
     let { id, question, answers, correctAnswer} = element;
-    createCard(id, question, answers, correctAnswer);
-    
+    return createCard(id, question, answers, correctAnswer);
   });
 
-  createDeck(cards);
-
+  return createDeck(cards);
 }
 
 module.exports = { 
   printMessage,
   printQuestion,
-  start
+  start, 
+  initiateDeck,
 };
