@@ -1,15 +1,19 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
+const { createCard } = require('../src/card');
+const { createDeck, countCards } = require('../src/deck');
+const { createRound } = require('../src/round');
 
 
 const start = () => {
   const cards = prototypeQuestions.map((element) => 
   createCard(element.id, element.question, element.answers, element.correctAnswer))
   const deck = createDeck(cards)
-  const firstRound = createRound(deck)
+  const round = createRound(deck)
+  round.startTime = new Date()
   printMessage(deck)
-  printQuestion(firstRound)
+  printQuestion(round)
 }
 
 function printMessage(deck) {

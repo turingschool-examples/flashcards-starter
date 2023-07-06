@@ -5,7 +5,8 @@ const createRound = (deck) => {
     deck: deck,
     currentCard: deck[0],
     turns: 0,
-    incorrectGuesses: []
+    incorrectGuesses: [],
+    startTime: null,
   }
   return round
 }
@@ -19,6 +20,7 @@ const takeTurn = (guess, round) => {
   round.turns += 1
   round.currentCard = round.deck[round.turns]
   return feedback
+  
 }
 
 const calculatePercentCorrect = (round) => {
@@ -31,6 +33,12 @@ const endRound = (round) => {
   const percent = calculatePercentCorrect(round)
   const endOfRoundAnnouncement = `** Round over! ** You answered ${percent}% of the questions correctly!`
   console.log(endOfRoundAnnouncement)
+  const endTime = new Date()
+  const duration = endTime - round.startTime
+  const minutes = Math.floor(duration / 60000);
+  const seconds = Math.floor((duration % 60000) / 1000);
+  console.log(`This took you ${minutes} minutes and ${seconds} seconds`);
+
   return endOfRoundAnnouncement
 }
 
