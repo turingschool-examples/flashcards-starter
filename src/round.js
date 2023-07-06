@@ -1,30 +1,33 @@
+const { evaluateGuess } = require('../src/card');
+
 function createRound(decks) {
-  return {
+  let rounds = {
     deck: decks,
     currentCard: decks[0],
     turns: 0,
     incorrectGuess: [],
-    takeTurn(guess, round) {
-      if (guess) {
-        console.log(round.turns)
-        round.turns++
-      }
-    }
   }
+  return rounds;
 }
-// roundTurns: guess, rounds: takeTurn(guess, ranRounds)
 
+function takeTurn(guess, round) {
+  let correctAnswer = round.currentCard.answer;
+  let result = evaluateGuess(guess, correctAnswer);
+  if (result === 'Incorrect!') {
+    round.incorrectGuess.push(round.currentCard.id);
+  }
+  round.turns++
+  round.currentCard = round.deck[round.turns];
+  return result;
+}
 
+function calculatePercentCorrect(round) {
+  let percent = ((round.turns - round.incorrectGuess.length)/round.turns) * 100
+  console.log(round.turns)
+  return percent
+}
 
-// function takeTurn(guess, round) {
-//   // console.log()
-//   if (guess) {
-//     round.turns++ 
-//   }
-// }
-
-
-module.exports = {createRound}
+module.exports = {createRound, takeTurn, calculatePercentCorrect}
 
 // const chai = require('chai');
 // const expect = chai.expect;
