@@ -30,7 +30,7 @@ const takeTurn = (guess, round) => {
 const calculatePercentCorrect = (round) => {
   let incorrectGuesses = round.incorrectGuesses.length
         
-  return ((round.turns - incorrectGuesses) / round.turns * 100).toFixed()
+  return Math.round((round.turns - incorrectGuesses) / round.turns * 100)
 }
 
 const endRound = (round) => {
