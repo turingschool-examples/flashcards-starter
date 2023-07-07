@@ -30,10 +30,5 @@ function start() {
   }  
 }
 
-// function restartGame() {
-//   let score = calculatePercentCorrect(round)
-  
-// }
-// endRound(round)
 
-module.exports = { printMessage, printQuestion, start, restartGame};
+module.exports = { printMessage, printQuestion, start};

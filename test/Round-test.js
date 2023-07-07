@@ -14,29 +14,31 @@ const {
 } = require('../src/round');
 
 describe('round', function () {
+  let card1, card2, card3, deck, round
+  beforeEach(function() {
+    card1 = createCard(
+      1,
+      "What is Robbie's favorite animal",
+      ['sea otter', 'pug', 'capybara'],
+      'sea otter'
+      );
+      card2 = createCard(
+      14,
+      'What organ is Khalid missing?',
+      ['spleen', 'appendix', 'gallbladder'],
+      'gallbladder'
+      );
+      card3 = createCard(
+      12,
+      "What is Travis's favorite stress reliever?",
+      ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
+      'playing with bubble wrap'
+      );
+  
+      deck = createDeck([card1, card2, card3]);
+      round = createRound(deck, card1, 0, []);
+  })
   it('should be an object that organizes guesses and records if they are correct or incorrect', function () {
-    const card1 = createCard(
-    1,
-    "What is Robbie's favorite animal",
-    ['sea otter', 'pug', 'capybara'],
-    'sea otter'
-    );
-    const card2 = createCard(
-    14,
-    'What organ is Khalid missing?',
-    ['spleen', 'appendix', 'gallbladder'],
-    'gallbladder'
-    );
-    const card3 = createCard(
-    12,
-    "What is Travis's favorite stress reliever?",
-    ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
-    'playing with bubble wrap'
-    );
-
-    const deck = createDeck([card1, card2, card3]);
-    const round = createRound(deck, card1, 0, []);
-
     expect(round.deck).to.deep.equal([card1, card2, card3]);
     expect(round.currentCard).to.deep.equal({
     id: 1,
@@ -49,28 +51,6 @@ describe('round', function () {
   });
 
   it('should be able to take turns', function() {
-    const card1 = createCard(
-    1,
-    "What is Robbie's favorite animal",
-    ['sea otter', 'pug', 'capybara'],
-    'sea otter'
-    );
-    const card2 = createCard(
-    14,
-    'What organ is Khalid missing?',
-    ['spleen', 'appendix', 'gallbladder'],
-    'gallbladder'
-    );
-    const card3 = createCard(
-    12,
-    "What is Travis's favorite stress reliever?",
-    ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
-    'playing with bubble wrap'
-    );
-
-    const deck = createDeck([card1, card2, card3]);
-    const round = createRound(deck, card1, 0, []);
-
     expect(takeTurn('sea otter', round)).to.equal('correct!');
     expect(round.turns).to.equal(1);
     expect(round.incorrectGuesses).to.deep.equal([])
@@ -84,28 +64,6 @@ describe('round', function () {
   });
 
   it('should calculatePercentCorrect', function() {
-    const card1 = createCard(
-    1,
-    "What is Robbie's favorite animal",
-    ['sea otter', 'pug', 'capybara'],
-    'sea otter'
-    );
-    const card2 = createCard(
-    14,
-    'What organ is Khalid missing?',
-    ['spleen', 'appendix', 'gallbladder'],
-    'gallbladder'
-    );
-    const card3 = createCard(
-    12,
-    "What is Travis's favorite stress reliever?",
-    ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
-    'playing with bubble wrap'
-    );
-
-    const deck = createDeck([card1, card2, card3]);
-    const round = createRound(deck, card1, 0, []);
-
     takeTurn('sea otter', round)
     takeTurn('spleen', round)
     
@@ -113,28 +71,6 @@ describe('round', function () {
   });  
 
   it('should end the round', function() {
-    const card1 = createCard(
-    1,
-    "What is Robbie's favorite animal",
-    ['sea otter', 'pug', 'capybara'],
-    'sea otter'
-    );
-    const card2 = createCard(
-    14,
-    'What organ is Khalid missing?',
-    ['spleen', 'appendix', 'gallbladder'],
-    'gallbladder'
-    );
-    const card3 = createCard(
-    12,
-    "What is Travis's favorite stress reliever?",
-    ['listening to music', 'watching Netflix', 'playing with bubble wrap'],
-    'playing with bubble wrap'
-    );
-
-    const deck = createDeck([card1, card2, card3]);
-    const round = createRound(deck, card1, 0, []);
-
     takeTurn('sea otter', round)
     takeTurn('spleen', round)
 
