@@ -8,12 +8,13 @@ const { createRound } = require('../src/round');
 
 const start = () => {
   const cards = prototypeQuestions.map((element) => 
-  createCard(element.id, element.question, element.answers, element.correctAnswer))
-  const deck = createDeck(cards)
-  const round = createRound(deck)
-  round.startTime = new Date()
-  printMessage(deck)
-  printQuestion(round)
+  createCard(element.id, element.question, element.answers, element.correctAnswer)
+  );
+  const deck = createDeck(cards);
+  const round = createRound(deck);
+  round.startTime = new Date();
+  printMessage(deck);
+  printQuestion(round);
 }
 
 function printMessage(deck) {

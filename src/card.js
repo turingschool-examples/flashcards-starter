@@ -9,9 +9,9 @@ var createCard = (questionNum, question, answers, correctAnswer) => {
 
 let evaluateGuess = ((guess, correctAnswer) => {
   if(guess === correctAnswer){
-    return 'correct!'
+    return 'correct!';
   } else {
-    return 'incorrect!'
+    return 'incorrect!';
   }
 }); 
 
