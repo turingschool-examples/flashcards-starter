@@ -86,7 +86,6 @@ describe('end the round', function() {
 
   it('should print the end of round announcement with percent correct', function() {
     const round = {turns: 8, incorrectGuesses:[12, 54]} 
-    // const percent = calculatePercentCorrect(round)
     const endGameAnnouncement = endRound(round)
     expect(endGameAnnouncement).to.equal('** Round over! ** You answered 75% of the questions correctly!')  
   });
