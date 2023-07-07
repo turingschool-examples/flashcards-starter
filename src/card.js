@@ -10,8 +10,8 @@ function createCard(id, question, answers, correctAnswer) {
 
 function evaluateGuess(guess, correctAnswer) {
   // console.log('card: ', card)
-  console.log('correctAnswer: ',correctAnswer)
-  console.log('guess: ', guess)
+  // console.log('correctAnswer: ',correctAnswer)
+  // console.log('guess: ', guess)
   if (guess === correctAnswer) {
     return 'correct!';
   } else {
@@ -27,7 +27,7 @@ function createDeck(cards) {
 }
 
 function countCards(deck) {
-  return deck.length
+  return deck.length;
 }
 
 function createRound(deck) {
@@ -37,18 +37,19 @@ function createRound(deck) {
     turns: 0,
     incorrectGuesses:[],
   }
-  return round
+  return round;
 }
 
 function takeTurn(guess, round) {
-  round.turns += 1;
-  round.currentCard = round.deck[round.turns]
+  
   const feedback = evaluateGuess(guess, round.currentCard.correctAnswer);
-  console.log('feedback: ', feedback)
+  // console.log('feedback: ', feedback)
   if (feedback === 'incorrect!') {
     round.incorrectGuesses.push(round.currentCard.id)
     }
-  return round
+  round.turns += 1;
+  round.currentCard = round.deck[round.turns]
+  return feedback;
 }
 
 function calculatePercentCorrect(round) {
@@ -56,8 +57,8 @@ function calculatePercentCorrect(round) {
 }
 
 function endRound(round) {
-  console.log('HERE: ', round)
-  console.log('% correct: ', calculatePercentCorrect(round))
+  // console.log('HERE: ', round)
+  // console.log('% correct: ', calculatePercentCorrect(round))
   console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`)
   return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
   
