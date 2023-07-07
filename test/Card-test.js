@@ -25,11 +25,9 @@ describe('turn', function() {
 
   it('should help evaluate a turn, by evaluating if a guess is correct or not', function() {
     var turn = evaluateGuess('object', 'object');
-
     expect(turn).to.equal('correct!')
 
     var turn2 = evaluateGuess('object', 'array')
-
     expect(turn2).to.equal('incorrect!')
   })
 })
@@ -38,6 +36,7 @@ describe('deck', function() {
   it('should create a function', function() {
     expect(createDeck).to.be.a('function');
   });
+
   it('should be created with an array of card objects', function() {
     var card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     var card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
@@ -46,8 +45,8 @@ describe('deck', function() {
     var deck = createDeck([card1, card2, card3])
     expect(deck).to.equal(deck)
   });
-  it('should know how many cards are in the deck', function() {
 
+  it('should know how many cards are in the deck', function() {
     var card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     var card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
     var card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald')
@@ -61,13 +60,12 @@ describe('round', function() {
   var card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter')
     var card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder')
     var card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald')
+
   it('should create a function', function() {
     expect(createRound).to.be.a('function');
   });
 
   it('should create a round object and its properties', function() {
-    
-
     var deck = createDeck([card1, card2, card3])
     var round = createRound(deck)
     
@@ -80,14 +78,12 @@ describe('round', function() {
   it('should update the turns count, evaluate guesses, give feedback, and store ids of incorrect guesses', function() {
     var deck = createDeck([card1, card2, card3])
     var round = createRound(deck)
-
     var turn1 = takeTurn('guess', round)
 
     expect(round.turns).to.equal(1)
     expect(round.currentCard).to.equal(card2)
 
     var turn2 = takeTurn('eggplant', round)
-
     expect(round.turns).to.equal(2)
     expect(round.currentCard).to.equal(card3)
 
@@ -96,7 +92,6 @@ describe('round', function() {
   it('should store the id of cards with incorrect guesses', function() {
     var deck = createDeck([card1, card2, card3])
     var round = createRound(deck)
-  
     var round1 = takeTurn('airplane', round)
     expect(round1.incorrectGuesses.length).to.equal(1)
 
@@ -118,7 +113,6 @@ describe('round', function() {
     
     var turn1 = takeTurn('Fitzgerald', round)
     var percent = calculatePercentCorrect(round)
-
     expect(percent).to.equal(50)
   })
 
@@ -138,11 +132,6 @@ describe('round', function() {
     var turn2 = takeTurn('Fitzgerald', round)
     var percent = calculatePercentCorrect(round)
     var endOfRoundInfo = endRound(round)
-    expect(endOfRoundInfo).to.equal('** Round over! ** You answered 50% of the questions correctly!')
-
-    
+    expect(endOfRoundInfo).to.equal('** Round over! ** You answered 50% of the questions correctly!') 
   })
-
 })
-
-// (turns - incorrect)/turns * 100 = % correct

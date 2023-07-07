@@ -125,16 +125,16 @@ const prototypeData = [{
 //   "answers": ["true", "false"],
 //   "correctAnswer": "true"
 // }, {
-//   "id": 26,
-//   "question": "shift(), unshift(), pop(), and push() are examples of what type of array property method?",
-//   "answers": ["mutator method", "accessor method", "iteration method"],
-//   "correctAnswer": "mutator method"
-// }, {
-//   "id": 27,
-//   "question": "Accessor methods permanently modify the original array, mutator methods do not.",
-//   "answers": ["true", "false"],
-//   "correctAnswer": "false"
-// }, {
+  "id": 26,
+  "question": "shift(), unshift(), pop(), and push() are examples of what type of array property method?",
+  "answers": ["mutator method", "accessor method", "iteration method"],
+  "correctAnswer": "mutator method"
+}, {
+  "id": 27,
+  "question": "Accessor methods permanently modify the original array, mutator methods do not.",
+  "answers": ["true", "false"],
+  "correctAnswer": "false"
+}, {
   "id": 28,
   "question": "Which prototype method returns an array of an object's property values?",
   "answers": ["Object.keys()", "Object.values()", "Object.assign()"],

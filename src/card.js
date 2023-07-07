@@ -9,9 +9,6 @@ function createCard(id, question, answers, correctAnswer) {
 }
 
 function evaluateGuess(guess, correctAnswer) {
-  // console.log('card: ', card)
-  // console.log('correctAnswer: ',correctAnswer)
-  // console.log('guess: ', guess)
   if (guess === correctAnswer) {
     return 'correct!';
   } else {
@@ -22,7 +19,6 @@ function evaluateGuess(guess, correctAnswer) {
 ////// Iteration 2 /////////
 
 function createDeck(cards) {
-
   return cards;
 }
 
@@ -42,9 +38,7 @@ function createRound(deck) {
 }
 
 function takeTurn(guess, round) {
-  
   const feedback = evaluateGuess(guess, round.currentCard.correctAnswer);
-  // console.log('feedback: ', feedback)
   if (feedback === 'incorrect!') {
     round.incorrectGuesses.push(round.currentCard.id)
     }
@@ -58,8 +52,6 @@ function calculatePercentCorrect(round) {
 }
 
 function endRound(round) {
-  // console.log('HERE: ', round)
-  // console.log('% correct: ', calculatePercentCorrect(round))
   round.endTime = new Date()
   const elapsedTime = round.endTime - round.startTime
   const seconds = Math.floor(elapsedTime / 1000)
