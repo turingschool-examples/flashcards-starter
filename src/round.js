@@ -30,13 +30,13 @@ const takeTurn = (guess, round) => {
 const calculatePercentCorrect = (round) => {
   let incorrectGuesses = round.incorrectGuesses.length
         
-  return (round.turns - incorrectGuesses) / round.turns * 100
+  return ((round.turns - incorrectGuesses) / round.turns * 100).toFixed()
 }
 
 const endRound = (round) => {
-  // console.log(round)
-  percentageCorrect = calculatePercentCorrect(round)
+  let percentageCorrect = calculatePercentCorrect(round)
   console.log(`** Round over! ** You answered ${percentageCorrect}% of the questions correctly!`)
+  return `** Round over! ** You answered ${percentageCorrect}% of the questions correctly!`
 }
 
 module.exports = {
