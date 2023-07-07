@@ -9,21 +9,21 @@ const createCard = (id, question, answers, correctAnswer) => {
 
 const evaluateGuess = (guess, correctAnswer) => {
   if (guess === correctAnswer) {
-    return 'correct!'
+    return 'correct!';
   } else {
-    return 'incorrect!'
+    return 'incorrect!';
   }
-}
+};
 
 const createDeck = (cards) => {
-    return cards
-}
+  return cards;
+};
 
-const countCards = deck => deck.length
+const countCards = (deck) => deck.length;
 
 module.exports = {
   createCard,
-  evaluateGuess, 
+  evaluateGuess,
   createDeck,
-  countCards,
+  countCards
 };

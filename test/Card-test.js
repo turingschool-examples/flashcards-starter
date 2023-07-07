@@ -5,10 +5,7 @@ const {
   createCard,
   evaluateGuess,
   createDeck,
-  countCards,
-  // createRound,
-  // takeTurn,
-  // calculatePercentCorrect
+  countCards
 } = require('../src/card');
 
 describe('card', function () {
@@ -86,9 +83,9 @@ describe('turn', function () {
 });
 
 describe('deck', function () {
-  let card1, card2, card3, deck
+  let card1, card2, card3, deck;
 
-  beforeEach(function() {
+  beforeEach(function () {
     card1 = createCard(
       1,
       "What is Robbie's favorite animal",
@@ -110,7 +107,7 @@ describe('deck', function () {
 
     deck = createDeck([card1, card2, card3]);
   });
-  
+
   it('should create an array of card objects', function () {
     expect(deck[0].id).to.equal(1);
   });
@@ -121,5 +118,3 @@ describe('deck', function () {
     expect(cardsLength).to.equal(3);
   });
 });
-
-
