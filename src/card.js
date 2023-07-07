@@ -36,6 +36,7 @@ function createRound(deck) {
     currentCard: deck[0],
     turns: 0,
     incorrectGuesses:[],
+    startTime: null,
   }
   return round;
 }
@@ -59,10 +60,16 @@ function calculatePercentCorrect(round) {
 function endRound(round) {
   // console.log('HERE: ', round)
   // console.log('% correct: ', calculatePercentCorrect(round))
-  console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`)
-  return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`
-  
+  round.endTime = new Date()
+  const elapsedTime = round.endTime - round.startTime
+  const seconds = Math.floor(elapsedTime / 1000)
+  const minutes = Math.floor(seconds / 60)
+  console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly! It took you ${minutes} minutes and ${seconds} seconds to complete the game.`)
+  return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!  It took you ${minutes} minutes and ${seconds} seconds to complete the game.`
+
 }
+
+
 
 module.exports = {
   createCard,

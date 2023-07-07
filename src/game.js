@@ -14,7 +14,7 @@ function printQuestion(round) {
 }
 
 function start() {
-  console.log('id: ',prototypeQuestions[0].id)
+  // console.log('id: ',prototypeQuestions[0].id)
   
   
   let cards = prototypeQuestions.map(card => {
@@ -28,6 +28,7 @@ function start() {
   let round = createRound(deck)
 
   console.log('round: ', round)
+  round.startTime = new Date();
   printMessage(deck)
   printQuestion(round)
 }
