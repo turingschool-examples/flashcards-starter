@@ -7,6 +7,13 @@ function createCard(id, question, answers, correct) {
   };
   return card;
 }
-// - Parameters (id: number, question: string, possibleAnswers: array of strings, correctAnswer: string
 
-module.exports = { createCard };
+function evaluateGuess(guess, card) {
+  if (card.correctAnswer === guess) {
+    return "correct!";
+  } else {
+    return `incorrect!`;
+  }
+}
+
+module.exports = { createCard, evaluateGuess };

@@ -1,7 +1,7 @@
 const chai = require("chai");
 const expect = chai.expect;
 
-const { createCard } = require("../src/card");
+const { createCard, evaluateGuess } = require("../src/card");
 
 describe("card", function () {
   it("should be a function", function () {
@@ -22,5 +22,36 @@ describe("card", function () {
     );
     expect(card.answers).to.deep.equal(["object", "array", "function"]);
     expect(card.correctAnswer).to.equal("object");
+  });
+  it("evaluate guess should be a function", function () {
+    expect(evaluateGuess).to.be.a("function");
+  });
+
+  it("should evaluate whether a player's guess is correct", function () {
+    const card = createCard(
+      1,
+      "What is Robbie's favorite animal",
+      ["sea otter", "pug", "capybara"],
+      "sea otter"
+    );
+
+    const rightAnswer = evaluateGuess("sea otter", card);
+
+    expect(card.correctAnswer).to.equal("sea otter");
+    expect(rightAnswer).to.equal("correct!");
+  });
+
+  it("should evaluate if a player's guess is incorrect", function () {
+    const card = createCard(
+      1,
+      "What is Robbie's favorite animal",
+      ["sea otter", "pug", "capybara"],
+      "sea otter"
+    );
+
+    const wrongAnswer = evaluateGuess("pug", card);
+
+    expect(card.correctAnswer).not.equal("pug");
+    expect(wrongAnswer).to.equal("incorrect!");
   });
 });
