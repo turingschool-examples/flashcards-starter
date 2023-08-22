@@ -27,9 +27,20 @@ const countCards = (deckObjArr) => {
   return deckObjArr.length;
 }
 
+const createRound = (deck, currentCardIndex = 0, turns = 0, incorrectGuesses = []) => {
+  let round = {
+    deck: deck,
+    currentCardIndex: currentCardIndex,
+    turns: turns,
+    incorrectGuesses: incorrectGuesses
+  }
+  return round;
+}
+
 module.exports = {
   createCard,
   evaluateGuess,
   createDeck,
-  countCards
+  countCards,
+  createRound,
 }
