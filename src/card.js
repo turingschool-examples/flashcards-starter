@@ -16,7 +16,20 @@ const evaluateGuess = (guess, correctAnswer) => {
   }
 }
 
+const createDeck = (cardObjArr) => {
+  let deck = {
+    deck: cardObjArr
+  }
+  return deck.deck;
+}    
+
+const countCards = (deckObjArr) => {
+  return deckObjArr.length;
+}
+
 module.exports = {
   createCard,
-  evaluateGuess
+  evaluateGuess,
+  createDeck,
+  countCards
 }
