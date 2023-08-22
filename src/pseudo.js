@@ -5,38 +5,38 @@
 
 //ITERATION 2
 //=====DECK=========
+//The deck object should be created with an array of card objects.
+//The deck object should know how many cards are in the deck
 /*What - what data do I have?
 //createDeck function
-    //an array of objects
-        //object has question (string), 
-        //answers (array of strings),
-        //correctAnswer (string)
+// deck will be an object with key:value pairs
+    //deck - has the array of cards (card1, card2, card3)
+    //deckLength - gives us the number of cards by determining the length of the cards array
+
 //*Want - what do I want to do with that data?
-    //take the array and create an object of objects
-        //why? - Sarah saw this right away
+    //return the array of cards
+    //return the length of the array of cards
+
 //*How - How will I make this happen?
-    //iterate over the deckArray and create an object of objects
-//*Methods - What methods will I need to make that happen?*/
-//forEach or map?
-//How do I determine which one
+
+//*Methods - What methods will I need to make that happen?
+    //use the .length() to get the array length  */
 
 //========ROUND========
+//The round object should organize guesses
+//and record if the guess was correct or incorrect
+//createRound function - should create an object
+//key:value pairs to include:
+//deck: deckObj
+//currentCard: deckObj.deck[1]
+//turns: 0 (will need to add on to this)
+//incorrectGuesses: [] (starts as empty, fills with id's of cards from incorrect guesses)
+//
 
 //*What - what data do I have?
-//createRound - is this a function?
-//round should be an object
-//organizes guess and records if they are correct or incorrect
-// has a key value pair for the deck object
-
 //*Want - what do I want/need to do with that data?
 //*How - How will I make that happen?
 //*Methods - What methods will I need to make that happen?
-// create round object
-// deck property
-// currentCard property that takes in first card of deck array
-
-// takeTurns property that starts as 0
-// incorrectGuesses to store guesses in array
 
 // takeTurn to increment turns, evaluates guesses, gives feedback and stores id of incorrect guesses
 
