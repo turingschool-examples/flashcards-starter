@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards, createRound, } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -22,14 +22,14 @@ describe('guess', function() {
   it('should evaluate if a guess is correct and return correct', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const guess = 'object';
-    let guessResult = evaluateGuess(guess, card.correctAnswer);
+    let guessResult = evaluateGuess(guess, card);
     expect(guessResult).to.equal('correct');
   });
 
   it('should evaluate if a guess is incorrect and return incorrect', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const guess = 'array' || 'function';
-    let guessResult = evaluateGuess(guess, card.correctAnswer);
+    let guessResult = evaluateGuess(guess, card);
     expect(guessResult).to.equal('incorrect');
   });
 });
@@ -69,5 +69,57 @@ describe('round', function() {
     expect(round.currentCardIndex).to.equal(0);
     expect(round.turns).to.equal(0);
     expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+});
+
+describe('turn', function() {
+  it('should increment turn', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder'); 
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck, 0, 0, []);   
+    
+    const guess = 'sea otter';
+    takeTurn(guess, round);
+
+    expect(round.turns).to.equal(1);
+  });
+
+  it('should store id of incorrect guess', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder'); 
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck, 0, 0, []);   
+    
+    const guess = 'pug';
+    takeTurn(guess, round);
+
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  });
+  
+  it('should move to the next card after each guess', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder'); 
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck, 0, 0, []);   
+    
+    const guess = 'pug';
+    // console.log(round.currentCard)
+    takeTurn(guess, round);
+    // console.log(round.currentCard)
+    expect(round.turns).to.equal(1);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+    expect(round.currentCardIndex).to.equal(1);
+
+    takeTurn(guess, round);
+    // console.log(round.currentCard)
+    expect(round.currentCardIndex).to.equal(2);
+    expect(round.currentCardIndex).to.equal(2);
   });
 });
