@@ -1,7 +1,12 @@
 const chai = require("chai");
 const expect = chai.expect;
 
-const { createCard, evaluateGuess } = require("../src/card");
+const {
+  createCard,
+  evaluateGuess,
+  createDeck,
+  countCards,
+} = require("../src/card");
 
 describe("card", function () {
   it("should be a function", function () {
@@ -53,5 +58,43 @@ describe("card", function () {
 
     expect(card.correctAnswer).not.equal("pug");
     expect(wrongAnswer).to.equal("incorrect!");
+  });
+});
+
+describe("deck", function () {
+  const card1 = createCard(
+    1,
+    "What is Robbie's favorite animal",
+    ["sea otter", "pug", "capybara"],
+    "sea otter"
+  );
+  const card2 = createCard(
+    14,
+    "What organ is Khalid missing?",
+    ["spleen", "appendix", "gallbladder"],
+    "gallbladder"
+  );
+  const card3 = createCard(
+    12,
+    "What is Travis's middle name?",
+    ["Lex", "William", "Fitzgerald"],
+    "Fitzgerald"
+  );
+
+  it("should be a function", function () {
+    expect(createDeck).to.be.a("function");
+  });
+
+  it("should create a deck", function () {
+    const deck = createDeck([card1, card2, card3]);
+
+    expect(deck).to.deep.equal([card1, card2, card3]);
+  });
+
+  it("should count the cards in a deck", function () {
+    const deck = createDeck([card1, card2, card3]);
+
+    const deckCount = countCards(deck);
+    expect(deckCount).to.equal(3);
   });
 });

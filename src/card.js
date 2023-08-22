@@ -16,4 +16,14 @@ function evaluateGuess(guess, card) {
   }
 }
 
-module.exports = { createCard, evaluateGuess };
+function createDeck(cards) {
+  let deck = cards;
+  return deck;
+}
+
+function countCards(deck) {
+  let deckCount = deck.length;
+  return deckCount;
+}
+
+module.exports = { createCard, evaluateGuess, createDeck, countCards };
