@@ -7,8 +7,8 @@ const createCard = (id, question, possibleAnswers, correctAnswer) => {
   }
 }
 
-const evaluateGuess = (guess, answer) => {
-  if (guess === answer) {
+const evaluateGuess = (guess, correctAnswer) => {
+  if (guess === correctAnswer) {
     return 'Correct!'
   } else {
     return 'Incorrect!'

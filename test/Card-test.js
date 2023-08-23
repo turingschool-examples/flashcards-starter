@@ -26,7 +26,6 @@ describe('evaluate guess', function () {
   })
 
   it('should evaluate if a guess is incorrect and should return incorrect if it is', function (){
-    // const card = createCard (2,'What is a comma-separated list of related values?',  ['array', 'object', 'function'], 'array');
     const incorrectGuess = evaluateGuess('correct answer', 'incorrect answer')
 
     expect(incorrectGuess).to.equal('Incorrect!')
