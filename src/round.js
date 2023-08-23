@@ -23,7 +23,6 @@ function takeTurn(guess, round) {
 
   const answer = round.currentCard.correctAnswer;
   if (guess !== answer) {
-    console.log('I am here!')
     round.incorrectGuesses.push(round.currentCard.id)
     
   }
@@ -31,9 +30,14 @@ function takeTurn(guess, round) {
   round.deck.shift();
   round.currentCard = round.deck[0];
  
+  return evaluateGuess(guess, answer)
+  }
     
-
-  
+const calculatePercentCorrect = (round) => {
+  const numberCorrect = round.turns - round.incorrectGuesses.length
+  console.log('round', round.turns)
+  return Math.round((numberCorrect / round.turns) * 100)
+}
 
 
 
@@ -42,5 +46,5 @@ module.exports = {
   countCards,
   createRound,
   takeTurn,
-  calculatePercentCorrect
+  calculatePercentCorrect,
 }
