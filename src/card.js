@@ -72,6 +72,13 @@ const giveFeedback = (guess, result) => {
   }
 }
 
+const calculatePercentCorrect = (roundObj) => {
+  let totalGuesses = roundObj.turns;
+  let correctGuesses = (roundObj.turns - roundObj.incorrectGuesses.length);
+  let correctPercentage = (correctGuesses / totalGuesses) * 100;
+  return Math.floor(correctPercentage);
+}
+
 module.exports = {
   createCard,
   evaluateGuess,
@@ -80,4 +87,5 @@ module.exports = {
   createRound,
   takeTurn,
   giveFeedback,
+  calculatePercentCorrect,
 }

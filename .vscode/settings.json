@@ -1,0 +1,5 @@
+{
+  "turboConsoleLog.delimiterInsideMessage": "",
+  "turboConsoleLog.addSemicolonInTheEnd": true,
+  "turboConsoleLog.logMessagePrefix": ":==="
+}
