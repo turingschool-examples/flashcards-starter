@@ -16,4 +16,5 @@ The flashcards app is a fun console 'game' in which a user can answer flashcards
 - Javascript
 
 ## Setup: 
-- 
+1. Clone this repository, or download the zip file of this repository.
+2. In the terminal, navigate to the directory containing the cloned repository and run `node index.js`.
