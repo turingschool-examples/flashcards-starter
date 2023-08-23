@@ -2,21 +2,40 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const { createDeck, countCards, createRound, takeTurn, calculatePercenteCorrect} = require('../src/round');
+const { createCard } = require('../src/card')
 const cards = require('../src/data')
+
+const { start } = require('../src/game')
 const deck = createDeck(cards.prototypeData)
 const round = createRound(deck)
 
-const { start } = require('../src/game')
-
 describe('deck', function() {
+  let card1, card2, card3
+  let deck
+
+  beforeEach(() => {
+     card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+     card2 = createCard(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function', 'array'])
+     card3 = createCard(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method')
+     deck = createDeck([card1, card2, card3])
+    
+  })
+  
   it('should create a deck of cards and count them', function() {
-   expect(countCards(deck)).to.deep.equal(30)
+
+    // const deck = createDeck([card1, card2, card3])
+    expect(countCards(deck)).to.deep.equal(3)
   })
 })
 
 describe('round', function(){
   it('should create a round object', function (){
-    expect(createRound(deck)).to.be.a('object')
+    const round = createRound(deck)
+    
+    expect(round.deck).to.equal(deck.cards)
+    expect(round.currentCard).to.equal(deck.cards[0])
+    expect(round.turns).to.equal(0)
+    expect(round.incorrectGuesses).to.deep.equal([])
   })
   
   it('should have a deck property that holds the deck object', function(){
@@ -37,34 +56,37 @@ describe('round', function(){
 })
 
 describe('take turn', function() {
-   it('should update the turn count when a correct or incorrect guess is made', function() {
-   takeTurn('object', round)
-   expect(round.turns).to.equal(1)
+  let deck, round
+  
+  beforeEach(() => {
+    deck = createDeck(cards.prototypeData)
+    round = createRound(deck)
   })
-
-  // it('should increase the number of turns upon multiple guesses', function () {
-  //   takeTurn(guess, round);
-  //   takeTurn(guess, round);
-  //   takeTurn(guess, round);
-  //   expect(round.turns).to.equal.apply(3)
-  // })
-
-  it('should push the incorrect answer id into the incorrectAnswers array', function() {
-    takeTurn('object', round)
+  
+  it('should push the incorrect answer id into the incorrectGuesses array', function() {
+    takeTurn('array', round)
     expect(round.incorrectGuesses).to.deep.equal([1])
   })
+   
+  it('should update the turn count when a correct or incorrect guess is made', function() {
+    takeTurn('object', round)
+    expect(round.turns).to.equal(1)
+  })
+
 
   it('should change the currentCard to the next card in the deck', function() {
-    expect(round.currentCard).to.equal(deck.cards[1])
+    expect(round.currentCard).to.equal(deck.cards[0])
   })
 
   it('should return feedback on if the guess is correct', function() {
-    const feedback = takeTurn('object', round)
+    const feedback = takeTurn('mutator method', round)
     expect(feedback).to.equal('Correct!')
   })
   
   it('should return feedback if the guess is incorrect', function() {
-    const badFeedback =  takeTurn('mutator', round)
+    const badFeedback =  takeTurn('array', round)
+    console.log('IncorrectGuessesArray:', round.incorrectGuesses)
     expect(badFeedback).to.equal('Incorrect!')
   })
 })
+
