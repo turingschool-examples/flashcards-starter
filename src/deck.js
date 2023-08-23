@@ -6,7 +6,8 @@ const createDeck = cards => {
   return deck;
 };
 
-const countCards = arrOfCards => {
+const countCards = deck => {
+  // console.log('number of cards', deck.cards.length);
   return deck.cards.length;
 };
 
