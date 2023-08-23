@@ -9,5 +9,4 @@ Install/Setup instructions
 The flashcards app is a fun console 'game' in which a user can interact 
 
 ## Demo: 
-
--[](https://github.com/loganpaulmatheny/flashcards-starter/blob/main/assets/flashcardDemo.gif)
+![](https://github.com/loganpaulmatheny/flashcards-starter/blob/main/assets/flashcardDemo.gif)
