@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, giveFeedback, calculatePercentCorrect, } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, giveFeedback, calculatePercentCorrect, endRound } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -165,5 +165,24 @@ describe('turn', function() {
     const correctPercentage = calculatePercentCorrect(round);
     // console.log(correctPercentage)
     expect(correctPercentage).to.equal(33)
+  });
+
+  it('should print round over to the console', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder'); 
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck, 0, 0, []);  
+
+    let guess = 'capybara';
+    takeTurn(guess, round);
+    guess = 'spleen';
+    takeTurn(guess, round);
+    guess = 'Fitzgerald'
+    takeTurn(guess, round);
+
+    const endRoundMsg = endRound(round);
+    expect(endRoundMsg).to.equal(`** Round over! ** You answered 33% of the questions correctly!`)
   });
 });

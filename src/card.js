@@ -79,6 +79,11 @@ const calculatePercentCorrect = (roundObj) => {
   return Math.floor(correctPercentage);
 }
 
+const endRound = (roundObj) => {
+  let correctPercentage = calculatePercentCorrect(roundObj);
+  return `** Round over! ** You answered ${correctPercentage}% of the questions correctly!`
+}
+
 module.exports = {
   createCard,
   evaluateGuess,
@@ -88,4 +93,5 @@ module.exports = {
   takeTurn,
   giveFeedback,
   calculatePercentCorrect,
+  endRound,
 }
