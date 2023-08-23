@@ -13,7 +13,7 @@ const {
   takeTurn,
   calculatePercentCorrect,
   endRound,
-} = require("../src/game");
+} = require("../src/round");
 describe("round", function () {
   const card1 = createCard(
     1,
