@@ -86,11 +86,7 @@ describe("takeTurn", function () {
 
   const deck = createDeck([card1, card2, card3]);
 
-  // beforeEach(function () {
-  //   const round = createRound(deck);
-  // });
-
-  it("happy path - should update turn count, evaluate guesses, and provide feedback", function () {
+  it("should update turn count, evaluate guesses, and provide feedback", function () {
     const round = createRound(deck);
     const rightAnswer = takeTurn("sea otter", round);
 
@@ -102,7 +98,7 @@ describe("takeTurn", function () {
 
     expect(rightAnswer).to.equal(`correct!`);
   });
-  it("more than one turn is taken", function () {
+  it("should update round object if more than one turn is taken", function () {
     const round = createRound(deck);
     const rightAnswer = takeTurn("sea otter", round);
 
@@ -117,7 +113,7 @@ describe("takeTurn", function () {
     expect(rightAnswer2).to.equal(`correct!`);
   });
 
-  it("sad path - should update turn count, currentCard is updated, id of incorrect guess is stored, and appropriate feedback is provided", function () {
+  it("should update turn count, currentCard is updated, id of incorrect guess is stored, and appropriate feedback is provided", function () {
     const round = createRound(deck);
     const wrongAnswer = takeTurn("pug", round);
 

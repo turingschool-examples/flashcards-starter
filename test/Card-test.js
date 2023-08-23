@@ -43,7 +43,6 @@ describe("card", function () {
 
     const rightAnswer = evaluateGuess("sea otter", card);
 
-    // expect(card.correctAnswer).to.equal("sea otter");
     expect(rightAnswer).to.equal("correct!");
   });
 
@@ -57,7 +56,6 @@ describe("card", function () {
 
     const wrongAnswer = evaluateGuess("pug", card);
 
-    // expect(card.correctAnswer).not.equal("pug");
     expect(wrongAnswer).to.equal("incorrect!");
   });
 });
