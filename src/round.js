@@ -19,25 +19,28 @@ const createRound = (deck) => {
   }
 }
 
-const takeTurn = (guess, round) => {
-  correctAnswer = round.currentCard.correctAnswer;
-  if (guess != correctAnswer) {
+function takeTurn(guess, round) {
+
+  const answer = round.currentCard.correctAnswer;
+  if (guess !== answer) {
+    console.log('I am here!')
     round.incorrectGuesses.push(round.currentCard.id)
+    
   }
-  const currentIndex = round.deck.indexOf(round.currentCard)
-  round.turns++
-  round.deck.shift()
-  round.currentCard = round.deck[0]
-  if(round.currentCard === undefined) {
-    round.currentCard = null
-  } else {
-    round.currentCard
-  }
-  return evaluateGuess(guess, correctAnswer)
-}
+  round.turns++;
+  round.deck.shift();
+  round.currentCard = round.deck[0];
+ 
+    
+
+  
+
+
+
 module.exports = {
   createDeck, 
   countCards,
   createRound,
-  takeTurn
+  takeTurn,
+  calculatePercentCorrect
 }
