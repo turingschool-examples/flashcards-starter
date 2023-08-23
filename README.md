@@ -10,4 +10,4 @@ The flashcards app is a fun console 'game' in which a user can interact
 
 ## Demo: 
 
--[]()
+-[](/src/flashcardDemo.gif)
