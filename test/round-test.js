@@ -84,22 +84,13 @@ describe('round', () => {
     const gameRound = createRound(deck, 0, 0, []);
     const guess = 'pug' || 'capybara';
     takeTurn(guess, gameRound);
+    const percentCorrect = calculatePercentCorrect(gameRound);
 
-    // Capture the console output
-    let consoleOutput = '';
-    const originalConsoleLog = console.log;
-    console.log = output => {
-      consoleOutput += output + '\n';
-    };
-
-    endRound(gameRound);
-
-    // Restore the original console.log function
-    console.log = originalConsoleLog;
+    const endingMessage = endRound(gameRound, percentCorrect);
 
     // Compare the captured output with the expected output
-    expect(consoleOutput).to.equal(
-      `** Round Over! ** You Answered 67% of the questions correctly.\n`
+    expect(endingMessage).to.equal(
+      `** Round Over! ** You Answered ${percentCorrect}% of the questions correctly.`
     );
   });
 });

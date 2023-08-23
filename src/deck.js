@@ -7,7 +7,7 @@ const createDeck = cards => {
 };
 
 const countCards = deck => {
-  console.log('number of cards', deck.cards.length);
+  // console.log('number of cards', deck.cards.length);
   return deck.cards.length;
 };
 
