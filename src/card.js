@@ -7,6 +7,23 @@ function createCard(id, question, answers, correct) {
   };
   return card;
 }
-// - Parameters (id: number, question: string, possibleAnswers: array of strings, correctAnswer: string
 
-module.exports = { createCard };
+function evaluateGuess(guess, card) {
+  if (card.correctAnswer === guess) {
+    return "correct!";
+  } else {
+    return `incorrect!`;
+  }
+}
+
+function createDeck(cards) {
+  let deck = cards;
+  return deck;
+}
+
+function countCards(deck) {
+  let deckCount = deck.length;
+  return deckCount;
+}
+
+module.exports = { createCard, evaluateGuess, createDeck, countCards };
