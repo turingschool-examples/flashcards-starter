@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 const { evaluateGuess } = require('../src/guess');
-const { createDeck, countCards } = require('../src/deck');
+const { createDeck } = require('../src/deck');
 const {
   createRound,
   takeTurn,
@@ -69,13 +69,10 @@ describe('round', () => {
     const gameRound = createRound(deck, 0, 0, []);
     const guess = 'pug' || 'capybara';
     takeTurn(guess, gameRound);
-
     const urCorrect = calculatePercentCorrect(gameRound);
 
     expect(urCorrect).to.equal(67);
   });
-  //haven't answered any questions -> 0
-  //what happens to percent correct
 
   it('should be a function', function () {
     expect(endRound).to.be.a('function');
@@ -86,10 +83,8 @@ describe('round', () => {
     const guess = 'pug' || 'capybara';
     takeTurn(guess, gameRound);
     const percentCorrect = calculatePercentCorrect(gameRound);
-
     const endingMessage = endRound(gameRound, percentCorrect);
 
-    // Compare the captured output with the expected output
     expect(endingMessage).to.equal(
       `** Round Over! ** You Answered ${percentCorrect}% of the questions correctly.`
     );
