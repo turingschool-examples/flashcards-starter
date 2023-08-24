@@ -23,4 +23,4 @@ Google, Turing School Cohorts and Mentors, MDN Documents
 
 ## Preview of App:
 
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
+![](flashcards.gif)
