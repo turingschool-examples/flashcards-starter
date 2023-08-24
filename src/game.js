@@ -1,4 +1,5 @@
 const data = require('./data');
+const { createDeck, countCards } = require('./deck');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 

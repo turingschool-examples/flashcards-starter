@@ -1,51 +1,19 @@
 const { evaluateGuess } = require('../src/guess');
 const { countCards } = require('../src/deck');
 
-//My CODE:
-// const createRound = (
-//   deck,
-//   currentCardIndex = 0,
-//   turns = 0,
-//   incorrectGuesses = []
-// ) => {
-//   let round = {
-//     deck: deck,
-//     currentCardIndex: currentCardIndex, // Make sure this is set correctly
-//     turns: turns,
-//     incorrectGuesses: incorrectGuesses,
-//   };
-//   //set current card
-//   round.currentCard = deck[currentCardIndex];
-
-//   return round;
-// };
-
-//JOHANN's
-// const createRound = (
-//   deck,
-//   currentCardIndex = 0,
-//   turns = 0,
-//   incorrectGuesses = []
-// ) => {
-//   let round = {
-//     deck: deck,
-//     currentCardIndex: currentCardIndex,
-//     turns: turns,
-//     incorrectGuesses: incorrectGuesses,
-//   };
-//   // set current card
-//   round.currentCard = deck[currentCardIndex];
-
-//   return round;
-// };
-
-const createRound = (deck, currentCardIndex, turns, incorrectGuesses) => {
+const createRound = (deck, currentCardIndex = 0, turns, incorrectGuesses) => {
   let round = {
     deck: deck,
-    currentCard: deck.cards[currentCardIndex],
+    currentCardIndex: currentCardIndex,
     turns: turns || 0,
     incorrectGuesses: [] || incorrectGuesses,
   };
+
+  // const cardIndex =
+  round.currentCard = deck.cards[currentCardIndex];
+
+  // console.log('Inside Round Function with index', round);
+
   return round;
 };
 
@@ -59,32 +27,13 @@ const takeTurn = (guess, round) => {
     round.incorrectGuesses.push(round.currentCard.id);
     // console.log(round.currentCard.id);
   }
-  round.currentCardIndex += 1;
+  round.currentCardIndex += 1; //Nan - why?
+  //takeTurn can't access the properties of the round object
+  //so round.currentCard gets the object but have to use round.currentCardIndex to define it
+  round.currentCard = round.deck.cards[round.currentCardIndex];
+
   return feedback;
 };
-
-//JOHANN's
-// const takeTurn = (guess, round) => {
-//   // increment turn
-//   round.turns += 1;
-
-//   let guessResult = evaluateGuess(guess, round.currentCard);
-//   let feedback;
-
-//   if (guessResult === 'incorrect') {
-//     roundObj.incorrectGuesses.push(round.currentCard.id);
-//     feedback = giveFeedback('incorrect');
-//   } else {
-//     feedback = giveFeedback('correct');
-//   }
-
-//   // move to next card
-//   round.currentCardIndex += 1;
-//   // update current card
-//   round.currentCard = round.deck[round.currentCardIndex];
-
-//   return feedback;
-// };
 
 const calculatePercentCorrect = round => {
   const numOfQuestions = countCards(round.deck);

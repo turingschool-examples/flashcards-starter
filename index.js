@@ -1,8 +1,14 @@
 // Import necessary functions and data
-const { createCard } = require('../src/card');
-const { evaluateGuess } = require('../src/guess');
-const { createDeck, countCards } = require('../src/deck');
-const { createRound, printMessage, printQuestion } = require('../src/round'); // You might need other imports here
+const { createCard } = require('./src/card');
+const { evaluateGuess } = require('./src/guess');
+const { createDeck, countCards } = require('./src/deck');
+const {
+  createRound,
+  takeTurn,
+  calculatePercentCorrect,
+  endRound,
+} = require('./src/round'); // You might need other imports here
+const { printMessage, printQuestion } = require('./src/game');
 const { prototypeData } = require('./src/data'); // Make sure the path is correct
 
 // Define the start function
