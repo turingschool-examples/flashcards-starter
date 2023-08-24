@@ -61,24 +61,6 @@ describe('round', () => {
     expect(roundOne.currentCardIndex).to.equal(0);
   });
 
-  // it('should take a turn and update the round when answer is correct ', () => {
-  //   const gameRound = createRound(deck, 0, 0, []);
-  //   const guess = 'sea otter';
-  //   takeTurn(guess, gameRound);
-
-  //   expect(gameRound.turns).to.equal(1);
-  //   expect(gameRound.incorrectGuesses).to.deep.equal([]);
-  // });
-
-  // it('should take a turn and update the round when answer is incorrect ', () => {
-  //   const gameRound = createRound(deck, 0, 0, []);
-  //   const guess = 'pug' || 'capybara';
-  //   takeTurn(guess, gameRound);
-
-  //   expect(gameRound.turns).to.equal(1);
-  //   expect(gameRound.incorrectGuesses).to.deep.equal([1]);
-  // });
-
   it('should be a function', function () {
     expect(calculatePercentCorrect).to.be.a('function');
   });
