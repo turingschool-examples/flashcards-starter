@@ -1,6 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
-const { createCard, evaluateGuess, createDeck, createRound } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, createRound, takeTurn } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -16,6 +16,7 @@ describe('card', function() {
     expect(card.correctAnswer).to.equal('object');
   });  
 });
+
 describe('evaluateGuess', function() {
   it('should be a function', function() {
     expect(evaluateGuess).to.be.a('function');
@@ -48,7 +49,6 @@ describe('deck', function() {
     const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     
     const deck = createDeck([card1, card2, card3]);
-    // countCards(deck);
     expect(deck.length).to.equal(3);
   });
   it('should get the length of the deck', function() {
@@ -60,9 +60,10 @@ describe('deck', function() {
     const round = createRound(deck, 0, 0, []);
 
     expect(round.deck).to.deep.equal([card1, card2, card3]);
-    expect(round.currentCard).to.equal(0);
+    expect(round.currentCard).to.equal(card1);
     expect(round.turns).to.equal(0);
     expect(round.incorrectGuesses).to.deep.equal([]);
+    expect(round.currentCardIndex).to.equal(0);
   });
 });
   
@@ -74,12 +75,37 @@ describe('turn', function() {
 
     const deck = createDeck([card1, card2, card3]);
     const round = createRound(deck, 0, 0, []);
-
+    takeTurn('pug', round);
+  
     expect(round.deck).to.deep.equal([card1, card2, card3]);
     expect(round.deck[0]).to.equal(card1);
-    expect(round.turns).to.equal(0);
-    expect(round.incorrectGuesses).to.deep.equal([]);
+    expect(round.turns).to.equal(1);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 });
-    // const round = createRound(deck, card1, 0, []);
-      
+
+describe('calculatePercentCorrect', function() {
+  it('should calculate and return the percentage of correct guesses', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+    const deck = createDeck([card1, card2, card3]);
+    const round = createRound(deck, 0, 0, []);
+    takeTurn('pug', round);
+    takeTurn('gallbladder', round);
+    takeTurn('Lex', round);
+    const percent = calculatePercentCorrect(round)
+    // (round.deck.length) - (round.incorrectGuesses.length) = correct guesses, divide correct guesses by total guesses, * 100 = percent correct
+    console.log({percent})
+    expect(percent).to.equal("33");
+
+  });
+});
+
+
+
+   
+// Setup - Setup the conditions required to execute the action on your subject
+// Execution - Execute some action on your subject
+// Assertion - Assert that the action you did had the results you expect
