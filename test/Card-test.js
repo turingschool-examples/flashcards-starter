@@ -6,7 +6,6 @@ const { createCard, evaluateGuess } = require('../src/card');
 describe('card', function() {
   it('should be a function', function() {
     expect(createCard).to.be.a('function');
-  });
 
   it('should create a card and its properties', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
@@ -24,3 +23,21 @@ describe('evaluateGuess', function(){
   })
 });
 
+describe('evaluateGuess', function() {
+  it('should be a function', function() {
+    expect(evaluateGuess).to.be.a('function');
+  });
+
+  it('should return correct! for a correct guess', function() {
+    const guess = 'object';
+    const correctAnswer = 'object';
+    expect(evaluateGuess(guess, correctAnswer)).to.equal('correct!');
+  });
+
+  it('should return incorrect! for an incorrect guess', function() {
+    const guess = 'array';
+    const correctAnswer = 'object';
+    expect(evaluateGuess(guess, correctAnswer)).to.equal('incorrect!');
+  });
+});
+});
