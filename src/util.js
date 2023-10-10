@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const { takeTurn, endRound } = require('./round');
+const { takeTurn, endRound } = require('./card');
 
 const genList = (round) => {
   let card = round.currentCard;
@@ -23,7 +23,7 @@ const getRound = (round) => {
 }
 
 const confirmUpdate = (id, round) => {
-  const feedback = takeTurn(id, round);
+  const feedback = takeTurn(round, id);
   return {
     name: 'feedback',
     message: `Your answer of ${id} is ${feedback}`
@@ -31,15 +31,17 @@ const confirmUpdate = (id, round) => {
 }
 
 async function main(round) {
+  if(!round.currentCard) {
+    endRound(round);
+    return; // Exit early from the function if there's no more cards
+  }
+
   const currentRound = await getRound(round);
   const getAnswer = await inquirer.prompt(genList(currentRound));
-  const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
+  await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
 
-    if(!round.currentCard) {
-      endRound(round);
-    } else {
-      main(round);
-    }
+  main(round)
+
 }
 
 module.exports.main = main;
