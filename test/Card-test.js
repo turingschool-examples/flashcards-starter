@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, playerAnswer } = require('../src/card');
+const { createCard, evaluateGuess } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -16,4 +16,15 @@ describe('card', function() {
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
   });  
+});
+
+describe('evaluateGuess', function() {
+  it.skip('should evaluate if the guess is correct', function() {
+    const card = createCard(2, 'What animal is a lion?', ['cow', 'lion', 'duck', 'pigeon'], 'lion');
+    
+  });
+
+  it.skip('should evaluate if the guess is incorrect', function() {
+
+  });
 });
