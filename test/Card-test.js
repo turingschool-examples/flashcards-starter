@@ -30,9 +30,9 @@ describe('evaluateGuess', function() {
     expect(guessAnswer).to.equal('Correct!');
   });
 
-  it.skip('should evaluate if the guess is incorrect', function() {
+  it('should evaluate if the guess is incorrect', function() {
     const card2 = createCard(3, 'How was the 90s surfer', ['sad', 'angry', 'bodacious', 'crass'], 'bodacious');
-    const guessAnswer = evaluateGuess('sad', card2)
-    expect(card2).to.be('Incorrect!');
+    const guessAnswer2 = evaluateGuess('sad', card2)
+    expect(guessAnswer2).to.equal('Incorrect!');
   });
 });
