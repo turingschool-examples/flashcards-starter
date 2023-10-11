@@ -1,10 +1,10 @@
 
 
-function createCard(id, question, answer = [], correctAnswer){
-    card = {
+function createCard(id, question, answers = [], correctAnswer){
+   let card = {
         id,
         question,
-        answer,
+        answers,
         correctAnswer
     }
     return card
