@@ -7,3 +7,7 @@ function createCard(id, question, correctAnswer){
         correctAnswer
     }
 }
+
+function playerAnswer(){
+    
+}
