@@ -19,9 +19,10 @@ describe('card', function() {
 });
 
 describe('evaluateGuess', function() {
-  it.skip('should evaluate if the guess is correct', function() {
+  it('should evaluate if the guess is correct', function() {
     const card = createCard(2, 'What animal is a lion?', ['cow', 'lion', 'duck', 'pigeon'], 'lion');
-    
+
+    expect(card, 'Correct!')
   });
 
   it.skip('should evaluate if the guess is incorrect', function() {
