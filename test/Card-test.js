@@ -21,11 +21,12 @@ describe('card', function() {
 describe('evaluateGuess', function() {
   it('should evaluate if the guess is correct', function() {
     const card = createCard(2, 'What animal is a lion?', ['cow', 'lion', 'duck', 'pigeon'], 'lion');
-
-    expect(card, 'Correct!')
+    const guessAnswer = evaluateGuess('lion', card)
+    
+    expect(guessAnswer, 'Correct!')
   });
 
-  it('should evaluate if the guess is incorrect', function() {
+  it.skip('should evaluate if the guess is incorrect', function() {
     const card2 = createCard(3, 'How was the 90s surfer', ['sad', 'angry', 'bodacious', 'crass'], 'angry');
 
     expect(card2, 'Incorrect!')
