@@ -25,7 +25,9 @@ describe('evaluateGuess', function() {
     expect(card, 'Correct!')
   });
 
-  it.skip('should evaluate if the guess is incorrect', function() {
+  it('should evaluate if the guess is incorrect', function() {
+    const card2 = createCard(3, 'How was the 90s surfer', ['sad', 'angry', 'bodacious', 'crass'], 'angry');
 
+    expect(card2, 'Incorrect!')
   });
 });
