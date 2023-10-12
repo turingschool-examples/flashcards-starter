@@ -46,7 +46,10 @@ const createRound = (deck) => {
 }
 
 function calculatePercentCorrect(round){
-
+    const totalCards = deck.length
+    const correctGuesses = round.turns - round.incorrectGueses.length
+    const percentCorrect = (correctGuesses/ totalCards) * 100
+    return percentCorrect
 }
 
 function endRound(round){
