@@ -26,11 +26,16 @@ const card3 = createCard(3, 'William the Conqueror conquered Britain from which 
 const card4 = createCard(4, 'Which country does France share their longest border?', ['Germany', 'Spain', 'Brazil'], 'Brazil')
 const card5 = createCard(5, 'Which french city shares its name with a U.S. state?', ['Detriot', 'Montpellier', 'Strasbourg'], 'Montpellier')
 
-const round = {
-    deck,
-    currendCard,
-    turns: 0,
-    incorrectGuesses: []
+const createRound = (deck) => {
+    const round = {
+        deck,
+        currendCard,
+        turns: 0,
+        incorrectGuesses: []
+    }
+    function takeTurn(guess,round){
+
+    }
 }
 
 function takeTurn(guess,round){
@@ -57,5 +62,6 @@ module.exports = {
     evaluateGuess,
     takeTurn,
     calculatePercentCorrect,
-    endRound
+    endRound,
+    createRound
   };
