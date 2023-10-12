@@ -1,14 +1,14 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard } = require('../src/card');
+const { createCard, evaluateGuess } = require('../src/card');
 
-describe('card', function() {
-  it.skip('should be a function', function() {
+describe('Card', function() {
+  it('should be a function', function() {
     expect(createCard).to.be.a('function');
   });
 
-  it.skip('should create a card and its properties', function() {
+  it('should create a card and its properties', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     
     expect(card.id).to.equal(1);
@@ -16,4 +16,15 @@ describe('card', function() {
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
   });  
+});
+
+describe('Guess check', function() {
+  it('should grade a guess', function() {
+    const card = createCard(2, 'What is one of the 7 wonders of the world?', ['Colossus of Rhodes', 'Tower of London', 'Mt. Rainier'], 'Colossus of Rhodes');
+    const correctGuess = evaluateGuess('Colossus of Rhodes', card.correctAnswer);
+    const incorrectGuess = evaluateGuess('Mt. Rainier', 'Colossus of Rhodes');
+
+    expect(correctGuess).to.deep.equal('correct!');
+    expect(incorrectGuess).to.deep.equal('incorrect!');
+  });
 });
