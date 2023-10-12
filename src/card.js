@@ -20,7 +20,7 @@ function evaluateGuess(guess, card){
 
 const deck = createDeck([card1, card2, card3, card4, card5])
 
-const card1 = createCard(1, 'Which french river sound amuesing?', ['Seine', 'Meuse', 'Marne'], 'Meuse');
+const card1 = createCard(1, 'Which french river sounds amusing?', ['Seine', 'Meuse', 'Marne'], 'Meuse');
 const card2 = createCard(2, 'What is the southern most french mountain range?', ['Champagne', 'Jura', 'Pyrenees'], 'Pyrenees');
 const card3 = createCard(3, 'William the Conqueror conquered Britain from which french region?', ['Normady', 'Burgundy', 'Brittany'], 'Normandy');
 const card4 = createCard(4, 'Which country does France share their longest border?', ['Germany', 'Spain', 'Brazil'], 'Brazil')
