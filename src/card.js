@@ -53,7 +53,9 @@ function calculatePercentCorrect(round){
 }
 
 function endRound(round){
-
+    const percentCorrect = round.calculatePercentCorrect()
+    //??
+    return round
 }
 // const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 // const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
