@@ -28,13 +28,14 @@ const card5 = createCard(5, 'Which french city shares its name with a U.S. state
 
 const createRound = (deck) => {
     const round = {
-        deck,
-        currendCard,
+        deck: deck,
+        currentCard: deck[0],
         turns: 0,
         incorrectGuesses: []
     }
-    function takeTurn(guess,round){
-
+    function takeTurn(guess){
+        round.turns++
+        round.currentCard = deck[round.turns]
     }
 }
 
