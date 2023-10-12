@@ -36,11 +36,13 @@ const createRound = (deck) => {
     function takeTurn(guess){
         round.turns++
         round.currentCard = deck[round.turns]
+        if(guess !== round.deck[2]){
+            round.incorrectGuesses.push(round.currentCard.id)
+            //Score--
+        } else {
+            //Score++
+        }
     }
-}
-
-function takeTurn(guess,round){
-
 }
 
 function calculatePercentCorrect(round){
