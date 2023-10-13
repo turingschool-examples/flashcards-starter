@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards } = require('../src/card');
+const { createCard, evaluateGuess, createDeck, countCards, calculatePercentCorrect, endRound } = require('../src/card');
 
 describe('Card', function() {
   it('should be a function', function() {
@@ -77,5 +77,66 @@ describe('Count', function(){
     const newDeck = createDeck(data);
     const deckLength = countCards(newDeck)
     expect(deckLength).to.deep.equal(3);
+  });
+});
+
+describe('Percent', function() {
+  it('should return a non-negative value', function() {
+    const badResult = {
+      deck: [{
+        "id": 28,
+        "question": "Which prototype method returns an array of an object's property values?",
+        "answers": ["Object.keys()", "Object.values()", "Object.assign()"],
+        "correctAnswer": "Object.values()"
+      }, {
+        "id": 29,
+        "question": "map() takes in two optional arguments: the index of the current element, and the array that map was called upon",
+        "answers": ["true", "false"],
+        "correctAnswer": "true"
+      }, {
+        "id": 30,
+        "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
+        "answers": ["prototype method", "object", "callback function"],
+        "correctAnswer": "prototype method"
+      }],
+      currentCard: {
+        "id": 30,
+        "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
+        "answers": ["prototype method", "object", "callback function"],
+        "correctAnswer": "prototype method"
+      },
+      turns: 3,
+      incorrectGuesses: [28, 29, 30]
+  }
+    const badRound = calculatePercentCorrect(badResult.deck, badResult);
+    const goodResult = {
+      deck: [{
+        "id": 28,
+        "question": "Which prototype method returns an array of an object's property values?",
+        "answers": ["Object.keys()", "Object.values()", "Object.assign()"],
+        "correctAnswer": "Object.values()"
+      }, {
+        "id": 29,
+        "question": "map() takes in two optional arguments: the index of the current element, and the array that map was called upon",
+        "answers": ["true", "false"],
+        "correctAnswer": "true"
+      }, {
+        "id": 30,
+        "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
+        "answers": ["prototype method", "object", "callback function"],
+        "correctAnswer": "prototype method"
+      }],
+      currentCard: {
+        "id": 30,
+        "question": "What type of methods are functions that allow you to manipulate the value of a particular data type or class?",
+        "answers": ["prototype method", "object", "callback function"],
+        "correctAnswer": "prototype method"
+      },
+      turns: 3,
+      incorrectGuesses: []
+  }
+    const goodRound = calculatePercentCorrect(goodResult.deck, goodResult);
+    expect(badRound).to.deep.equal('0%');
+    expect(goodRound).to.deep.equal('100%')
   });
 });
