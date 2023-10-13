@@ -36,38 +36,29 @@ const createRound = (deck) => {
         currentCard: deck[0],
         turns: 0,
         incorrectGuesses: []
-    }
-    function takeTurn(guess){
-        round.turns++
-        round.currentCard = deck[round.turns]
-        if(guess !== round.deck[2]){
+        takeTurn(guess) {
+            round.turns++
+            round.currentCard = deck[round.turns]
+         const result = evaluateGuess(guess, round.currentCard)
+         if(result === 'Incorrect'){
             round.incorrectGuesses.push(round.currentCard.id)
-            //Score--
-        } else {
-            //Score++
+        }
+        return result
+    }
+
+    calculatePercentCorrect(round){
+        const totalCards = deck.length
+        const correctGuesses = round.turns - round.incorrectGueses.length
+        const percentCorrect = (correctGuesses / totalCards) * 100
+        return percentCorrect
+        }
+
+    endRound(round){
+    const percentCorrect = round.calculatePercentCorrect()
         }
     }
-}
-
-function calculatePercentCorrect(round){
-    const totalCards = deck.length
-    const correctGuesses = round.turns - round.incorrectGueses.length
-    const percentCorrect = (correctGuesses/ totalCards) * 100
-    return percentCorrect
-}
-
-function endRound(round){
-    const percentCorrect = round.calculatePercentCorrect()
-    //??
     return round
 }
-// const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-// const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-// const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-// const deck = createDeck([card1, card2, card3]);
-
-// countCards(deck);
 
 module.exports = {
     createCard,
