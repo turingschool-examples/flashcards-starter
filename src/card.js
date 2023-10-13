@@ -1,6 +1,3 @@
-// each card has an id, a question, possible answers, and a correct answer
-// evaluateGuess() function returns either correct or incorrect
-
 const { prototypeData } = require("./data")
 
 function createCard(id, question, answers, correctAnswer) {
@@ -19,8 +16,6 @@ function evaluateGuess(guess, correctAnswer) {
     return "incorrect!"
   }
 }
-
-
 
 function createDeck(prototypeData) {
   const deck = []
