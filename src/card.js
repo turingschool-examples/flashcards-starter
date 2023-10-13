@@ -53,6 +53,17 @@ function takeTurn(round, guess) {
     }
     return result
 }
+
+function calculatePercentCorrect(round) {
+    const totalCards = round.deck.length
+    const correctGuesses = round.turns - round.incorrectGuesses.length
+    const percentCorrect = (correctGuesses / totalCards) * 100
+    return percentCorrect
+}
+
+function endRound(round){
+    const percentCorrect = round.calculatePercentCorrect()
+}
 //         takeTurn(guess) {
 //             round.turns++
 //             round.currentCard = deck[round.turns]
