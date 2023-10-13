@@ -63,30 +63,8 @@ function calculatePercentCorrect(round) {
 
 function endRound(round){
     const percentCorrect = round.calculatePercentCorrect()
+    return `The round has ended with ${percentCorrect}% questioned answered correctly.`
 }
-//         takeTurn(guess) {
-//             round.turns++
-//             round.currentCard = deck[round.turns]
-//          const result = evaluateGuess(guess, round.currentCard)
-//          if(result === 'Incorrect'){
-//             round.incorrectGuesses.push(round.currentCard.id)
-//         }
-//         return result
-//     }
-
-//     calculatePercentCorrect(round){
-//         const totalCards = deck.length
-//         const correctGuesses = round.turns - round.incorrectGueses.length
-//         const percentCorrect = (correctGuesses / totalCards) * 100
-//         return percentCorrect
-//         }
-
-//     endRound(round){
-//     const percentCorrect = round.calculatePercentCorrect()
-//         }
-//     }
-//     return round
-// }
 
 module.exports = {
     createCard,
