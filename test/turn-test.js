@@ -3,31 +3,26 @@ const expect = chai.expect;
 
 const { evaluateGuess } = require('../src/turn');
 
-describe('turn', function() {
+describe('evaluateGuess', function() {
   it('should be a function', function() {
     expect(evaluateGuess).to.be.a('function');
   });
 
-  it('should declare correct if user is correct', function() {
-    // SETUP
-    const guess = "potato"
-    const correctAnswer = "potato"
-    //EXECUTION
+  it('should declare correct if user guess is correct', function() {
+    const guess = "potato";
+    const correctAnswer = "potato";
+
     const turnOutcome = evaluateGuess(guess, correctAnswer);
-    //ASSERTION
-    expect(turnOutcome).to.equal("Correct!")
+
+    expect(turnOutcome).to.equal("Correct!");
   });  
 
-  it('should declare incorrect if user is incorrect', function() {
-    // SETUP
-    const guess = "potato"
-    const correctAnswer = "tomato"
-    //EXECUTION
+  it('should declare incorrect if user guess is incorrect', function() {
+    const guess = "potato";
+    const correctAnswer = "tomato";
+
     const turnOutcome = evaluateGuess(guess, correctAnswer);
-    //ASSERTION
-    expect(turnOutcome).to.equal("Incorrect!")
+
+    expect(turnOutcome).to.equal("Incorrect!");
   });  
 });
-
-/* may need another test that makes the user re-input their guess if it
-does not match one of the elements in the card.answers array */

@@ -1,8 +1,8 @@
 function evaluateGuess(guess, correctAnswer) {
   if (guess === correctAnswer) {
-    return "Correct!"
+    return "Correct!";
   } else {
-    return "Incorrect!"
+    return "Incorrect!";
   }
 }
 
