@@ -15,7 +15,7 @@ describe('turn', function() {
     //EXECUTION
     const turnOutcome = evaluateGuess(guess, correctAnswer);
     //ASSERTION
-    expect(turnOutcome).to.be("Correct!")
+    expect(turnOutcome).to.equal("Correct!")
   });  
 
   it('should declare incorrect if user is incorrect', function() {
@@ -25,7 +25,7 @@ describe('turn', function() {
     //EXECUTION
     const turnOutcome = evaluateGuess(guess, correctAnswer);
     //ASSERTION
-    expect(turnOutcome).to.be("Incorrect!")
+    expect(turnOutcome).to.equal("Incorrect!")
   });  
 });
 
