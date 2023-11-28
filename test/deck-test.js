@@ -28,7 +28,7 @@ describe('countCards', function() {
     expect(countCards).to.be.a('function');
   });
 
-  it('should calculate the number of cards in a deck', function() {
+  it('should calculate the total number of cards in a deck', function() {
     //SETUP
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -38,6 +38,6 @@ describe('countCards', function() {
     //EXECUTION
     const cardCount = countCards(deck);
     //ASSERTION
-    expect(cardCount).to.equal('3');
+    expect(cardCount).to.equal(3);
   });  
 });
