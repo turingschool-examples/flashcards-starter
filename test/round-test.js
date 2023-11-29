@@ -103,7 +103,7 @@ describe('takeTurn', function() {
   // }); 
 
 describe('calculatePercentCorrect', function() {
-  let card1, card2, card3, deck, round, guess1, guess2;
+  let card1, card2, card3, deck, round, guess1, guess2, guess3;
   beforeEach(function () {
     card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     card2 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
@@ -130,7 +130,33 @@ describe('calculatePercentCorrect', function() {
   });  
 });
 
+describe('endRound', function() {
+  let card1, card2, card3, deck, round, guess1, guess2, guess3;
+  beforeEach(function () {
+    card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    card2 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
+    card3 = createCard(17, 'What does the reduce() method take in?', ['callback function and initializer', 'callback function and current element', 'callback function and accumulator'], 'callback function and initializer');
+    deck = createDeck([card1, card2, card3]);
+    round = createRound(deck);
+    guess1 = 'object';
+    guess2 = 'mutator method';
+    guess3 = 'callback function and initializer';
+  });
+  
+  it('should be a function', function() {
+    expect(endRound).to.be.a('function');
+  });
 
+  it('should declare end of round message and percent correct', function() {
+    const firstTurn = takeTurn(guess1, round);
+    const secondTurn = takeTurn(guess2, round);
+    const thirdTurn = takeTurn(guess3, round);
+
+    const endRoundMessage = endRound(round);
+
+    expect(endRound(round)).to.equal(`** Round over! ** You answered 66.67% of the questions correctly!`);
+  });  
+});
 
 
 
@@ -140,7 +166,7 @@ describe('calculatePercentCorrect', function() {
 
 
 // describe('', function() {
-//   it.skip('', function() {
+//   it.skip('should be a function', function() {
 //     expect().to.be.a('function');
 //   });
 
