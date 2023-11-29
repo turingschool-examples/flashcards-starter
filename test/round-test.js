@@ -102,7 +102,31 @@ describe('takeTurn', function() {
   //   expect(firstTurn).to.equal('Incorrect!');
   // }); 
 
+describe('calculatePercentCorrect', function() {
+  let card1, card2, card3, deck, round, guess1, guess2;
+  beforeEach(function () {
+    card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    card2 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
+    card3 = createCard(17, 'What does the reduce() method take in?', ['callback function and initializer', 'callback function and current element', 'callback function and accumulator'], 'callback function and initializer');
+    deck = createDeck([card1, card2, card3]);
+    round = createRound(deck);
+    guess1 = 'object';
+    guess2 = 'mutator method';
+  });
+  
+  it('should be a function', function() {
+    expect(calculatePercentCorrect).to.be.a('function');
+  });
 
+  it('should calculate the percentage of correct guesses', function() {
+    const firstTurn = takeTurn(guess1, round);
+    const secondTurn = takeTurn(guess2, round);
+
+    const percentCorrect = calculatePercentCorrect(round);
+
+    expect(calculatePercentCorrect(round)).to.equal(50);
+  });  
+});
 
 
 
