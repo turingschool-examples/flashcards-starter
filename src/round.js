@@ -22,14 +22,13 @@ function takeTurn(guess, round) {
 }
 
 function calculatePercentCorrect(round) {
-  //divide length of incorrect guesses array over # of turns *100 to figure out percent incorrect
-  //subtract that number from 100 to get percent correct
   const percentIncorrect = (round.incorrectGuesses.length / round.turns) * 100
   return 100 - Number(percentIncorrect.toFixed(2));
 }
 
-function endRound() {
-
+function endRound(round) {
+  const percentCorrect = calculatePercentCorrect(round)
+  return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`
 }
 
 module.exports = {
