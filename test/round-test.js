@@ -1,43 +1,73 @@
 const chai = require("chai");
 const expect = chai.expect;
+const { createRound, takeTurn, endRound } = require("../src/card.js");
 
-const { createCard, createDeck, createRound } = require("../src/card");
-
-describe('createRound', function () {
-    it('should be a function', function() {
-        expect(createRound).to.be.a('function');
-      });
-
-    it('should create a round with initial properties', function () {
-      const card1 = createCard(1, 'Question 1', ['A', 'B', 'C'], 'A');
-      const card2 = createCard(2, 'Question 2', ['A', 'B', 'C'], 'C');
-      const deck = createDeck([card1, card2]);
-  
-      const round = createRound(deck);
-  
-      expect(round.deck).to.deep.equal(deck);
-      expect(round.currentCard).to.equal(card1);
-      expect(round.turns).to.equal(0);
-      expect(round.incorrectGuesses).to.be.an('array').that.is.empty;
-      expect(round).to.have.property('takeTurn').to.be.a('function');
-      expect(round).to.have.property('calculatePercentCorrect').to.be.a('function');
-      expect(round).to.have.property('endRound').to.be.a('function');
-    });
-  
-
-    it('should handle an empty deck', function () {
-      const emptyDeck = createDeck([]);
-      const round = createRound(emptyDeck);
-  
-      expect(round.currentCard).to.be.undefined;
-    });
-  
-    it('should handle a deck with one card', function () {
-      const card1 = createCard(1, 'Question 1', ['A', 'B', 'C'], 'A');
-      const singleCardDeck = createDeck([card1]);
-      const round = createRound(singleCardDeck);
-  
-      expect(round.currentCard).to.equal(card1);
-    });
-  
+describe("createRound", function () {
+  it("should be a function", function () {
+    expect(createRound).to.be.a("function");
   });
+
+  it("should create a round object with correct properties", function () {
+    const card1 = { id: 1, correctAnswer: "A" };
+    const card2 = { id: 2, correctAnswer: "B" };
+    const deck = { cards: [card1, card2] };
+
+    const round = createRound(deck);
+
+    expect(round.deck).to.equal(deck);
+    expect(round.currentCard).to.equal(card1);
+    expect(round.turns).to.equal(0);
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+});
+
+describe("takeTurn", function () {
+  it("should be a function", function () {
+    expect(takeTurn).to.be.a("function");
+  });
+  it("should correctly evaluate a correct guess", function () {
+    const card1 = { id: 1, correctAnswer: "A" };
+    const card2 = { id: 2, correctAnswer: "B" };
+    const deck = { cards: [card1, card2] };
+    const round = createRound(deck);
+
+    const result = takeTurn("A", round);
+
+    expect(result).to.equal("correct!");
+    expect(round.currentCard).to.equal(card2);
+    expect(round.turns).to.equal(1);
+    expect(round.incorrectGuesses).to.deep.equal([]);
+  });
+
+  it("should correctly evaluate an incorrect guess", function () {
+    const card1 = { id: 1, correctAnswer: "A" };
+    const card2 = { id: 2, correctAnswer: "B" };
+    const deck = { cards: [card1, card2] };
+    const round = createRound(deck);
+
+    const result = takeTurn("B", round);
+
+    expect(result).to.equal("incorrect!");
+    expect(round.currentCard).to.equal(card2);
+    expect(round.turns).to.equal(1);
+    expect(round.incorrectGuesses).to.deep.equal([1]);
+  });
+});
+
+describe("endRound", function () {
+  it("should be a function", function () {
+    expect(endRound).to.be.a("function");
+  });
+  it("should return the correct message", function () {
+    const round = {
+      turns: 4,
+      incorrectGuesses: [1, 2],
+    };
+
+    const result = endRound(round);
+
+    expect(result).to.equal(
+      `** Round over! ** You answered 50% of the questions correctly!`
+    );
+  });
+});
