@@ -18,17 +18,7 @@ function printQuestion(round) {
 }
 
 function startGame() {
-  const deck = prototypeData.map(card => {
-    return createCard(card)
-  })
-  // for (var i = 0; i < prototypeData.length; i++) {
-  //   deck.push(createCard(prototypeData[i]))
-  // }
-  console.log(deck)
-  // createRound
-  // printMessage
-  // printQuestion
+
 }
-console.log(startGame())
 
 module.exports = { printMessage, printQuestion, startGame };
