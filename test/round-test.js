@@ -37,32 +37,6 @@ describe('takeTurn', function() {
     expect(takeTurn).to.be.a('function');
   });
 
-  // it('should declare correct if user guess is correct', function() {
-  //   const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  //   const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //   const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-  //   const deck = createDeck([card1, card2, card3]);
-  //   const round = createRound(deck);
-  //   const guess = 'sea otter';
-
-  //   const firstTurn = takeTurn(guess, round);
-
-  //   expect(firstTurn).to.equal('Correct!');
-  // });  
-
-  // it('should declare incorrect if user guess is incorrect', function() {
-  //   const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  //   const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //   const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-  //   const deck = createDeck([card1, card2, card3]);
-  //   const round = createRound(deck);
-  //   const guess = 'pug';
-
-  //   const firstTurn = takeTurn(guess, round);
-
-  //   expect(firstTurn).to.equal('Incorrect!');
-  // }); 
-
   it('should update the round and its properties after each turn', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -99,6 +73,34 @@ describe('takeTurn', function() {
 });  
   
 
+
+
+
+  // it('should declare correct if user guess is correct', function() {
+  //   const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+  //   const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+  //   const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+  //   const deck = createDeck([card1, card2, card3]);
+  //   const round = createRound(deck);
+  //   const guess = 'sea otter';
+
+  //   const firstTurn = takeTurn(guess, round);
+
+  //   expect(firstTurn).to.equal('Correct!');
+  // });  
+
+  // it('should declare incorrect if user guess is incorrect', function() {
+  //   const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+  //   const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+  //   const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+  //   const deck = createDeck([card1, card2, card3]);
+  //   const round = createRound(deck);
+  //   const guess = 'pug';
+
+  //   const firstTurn = takeTurn(guess, round);
+
+  //   expect(firstTurn).to.equal('Incorrect!');
+  // }); 
 
 
 
