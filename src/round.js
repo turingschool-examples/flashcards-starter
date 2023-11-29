@@ -25,7 +25,7 @@ function calculatePercentCorrect(round) {
   //divide length of incorrect guesses array over # of turns *100 to figure out percent incorrect
   //subtract that number from 100 to get percent correct
   const percentIncorrect = (round.incorrectGuesses.length / round.turns) * 100
-  return 100 - percentIncorrect;
+  return 100 - Number(percentIncorrect.toFixed(2));
 }
 
 function endRound() {

@@ -112,6 +112,7 @@ describe('calculatePercentCorrect', function() {
     round = createRound(deck);
     guess1 = 'object';
     guess2 = 'mutator method';
+    guess3 = 'callback function and initializer';
   });
   
   it('should be a function', function() {
@@ -121,10 +122,11 @@ describe('calculatePercentCorrect', function() {
   it('should calculate the percentage of correct guesses', function() {
     const firstTurn = takeTurn(guess1, round);
     const secondTurn = takeTurn(guess2, round);
+    const thirdTurn = takeTurn(guess3, round);
 
     const percentCorrect = calculatePercentCorrect(round);
 
-    expect(calculatePercentCorrect(round)).to.equal(50);
+    expect(calculatePercentCorrect(round)).to.equal(66.67);
   });  
 });
 
