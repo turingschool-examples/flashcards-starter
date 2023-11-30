@@ -16,13 +16,11 @@ function printQuestion(round) {
   util.main(round);
 }
 
-
 function start() {
   const deck = createDeck(prototypeQuestions);
   const round = createRound(deck);
   printMessage(deck);
   printQuestion(round);
-
 }
 
 module.exports = { printMessage, printQuestion, start };
