@@ -18,7 +18,7 @@ function printQuestion(round) {
 function start() {
   const deck = createDeck(prototypeQuestions)
   const round = createRound(deck)
-  
+
   printMessage(deck)
   printQuestion(round)
 

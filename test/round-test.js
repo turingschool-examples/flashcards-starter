@@ -126,7 +126,7 @@ describe("calculatePercentageCorrect function", () => {
 
         const result = calculatePercentageCorrect(round)
 
-        expect(result).to.equal(.33)
+        expect(result).to.equal(33.33)
     })
 })
 
@@ -145,9 +145,8 @@ describe("endRound function", () => {
         takeTurn(wrongGuess, round)
         takeTurn(correctGuess, round)
 
-        const percentCorrect = calculatePercentageCorrect(round)
-        const result = endRound(percentCorrect)
+        const result = endRound(round)
 
-        expect(result).to.equal("** Round over! ** You answered 33% of the questions correctly!")
+        expect(result).to.equal("** Round over! ** You answered 33.33% of the questions correctly!")
     })
 })

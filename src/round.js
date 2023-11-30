@@ -22,22 +22,20 @@ const takeTurn = (guess, round) => {
     round.turns += 1
     round.currentCard = round.deck[round.turns]
 
-    // if (round.turns === numCards) {
-    //     const percentageCorrect = calculatePercentageCorrect(round)
-    //     console.log(resultofGuess);
-    //     console.log(endRound(percentageCorrect))
-
-    // }
     return resultofGuess
 }
 
 const calculatePercentageCorrect = (round) => {
-    const percentageCorrect = (round.deck.length - round.incorrectGuesses.length) / (round.deck.length) * 100
+    const deckLength = round.deck.length
+    const incorrectGuessesLength = round.incorrectGuesses.length
+    const percentageCorrect = ((deckLength - incorrectGuessesLength) / deckLength) * 100
+
     return Number(percentageCorrect.toFixed(2))
 }
 
 function endRound(round) {
-    
+    const percentCorrect = calculatePercentageCorrect(round)
+
     console.log(`** Round over! ** You answered ${calculatePercentageCorrect(round)}% of the questions correctly!`);
     return `** Round over! ** You answered ${calculatePercentageCorrect(round)}% of the questions correctly!`;
 }
