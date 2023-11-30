@@ -1,27 +1,33 @@
-const createCard = (id, question, answers, correctAnswer) => {
-  return (card = {
+function createCard(id, question, answers, correctAnswer) {
+  const card = {
     id: id,
     question: question,
     answers: answers,
     correctAnswer: correctAnswer,
-  });
-};
+  };
+  return card;
+}
 
-const evaluateGuess = (guest, correctAnswer) => {
-  if (guest === correctAnswer) {
+function evaluateGuess(guess, correctAnswer) {
+  if (guess === correctAnswer) {
     return "correct!";
   } else {
     return "incorrect!";
   }
-};
+}
 
-const createDeck = (cards) => {
-  return cards;
-};
+function createDeck(cards) {
+  return {
+    cards: cards,
+    count: function () {
+      return cards.length;
+    },
+  };
+}
 
-const countCards = (deck) => {
-  return deck.length;
-};
+function countCards(deck) {
+  return deck.count();
+}
 
 function createRound(deck) {
   return {
@@ -55,7 +61,9 @@ function calculatePercentCorrect(round) {
 
 function endRound(round) {
   const percentCorrect = calculatePercentCorrect(round);
-  return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`;
+  console.log(
+    `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`
+  );
 }
 
 module.exports = {
@@ -65,5 +73,6 @@ module.exports = {
   countCards,
   createRound,
   takeTurn,
+  calculatePercentCorrect,
   endRound,
 };

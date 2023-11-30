@@ -30,7 +30,7 @@ describe("createDeck", function () {
 
     const deck = createDeck([card1, card2, card3]);
 
-    expect(deck).to.deep.equal([card1, card2, card3]);
+    expect(deck.cards).to.deep.equal([card1, card2, card3]);
   });
 });
 
@@ -59,6 +59,6 @@ describe("countCards", function () {
       "Fitzgerald"
     );
     const deck = createDeck([card1, card2, card3]);
-    expect(deck.length).to.equal(3);
+    expect(deck.cards.length).to.equal(3);
   });
 });
