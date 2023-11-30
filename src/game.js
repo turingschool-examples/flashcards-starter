@@ -17,7 +17,6 @@ function start() {
   const round = createRound(deck);
   printMessage(deck);
   printQuestion(round);
-  endRound(round);
 }
 
 function printMessage(deck) {
