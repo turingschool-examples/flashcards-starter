@@ -10,13 +10,13 @@ describe('deck', function () {
   });
 
   it('should create an array of card objects', function () {
-    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const card2 = createCard(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method')
-    const card3 = createCard(11, 'Which iteration method returns a new array with all elements that match a given condition?', ['filter()', 'find()', 'map()'], 'filter()')
+    const testCard1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const testCard2 = createCard(3, 'What type of prototype method directly modifies the existing array?', ['mutator method', 'accessor method', 'iteration method'], 'mutator method')
+    const testCard3 = createCard(11, 'Which iteration method returns a new array with all elements that match a given condition?', ['filter()', 'find()', 'map()'], 'filter()')
 
-    const deck = createDeck([card1, card2, card3]);
+    const testDeck = createDeck([testCard1, testCard2, testCard3]);
 
-    expect(deck).to.deep.equal([{
+    expect(testDeck).to.deep.equal([{
       "id": 1,
       "question": "What allows you to define a set of related information using key-value pairs?",
       "answers": ["object", "array", "function"],
