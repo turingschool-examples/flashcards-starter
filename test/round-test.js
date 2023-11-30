@@ -154,17 +154,3 @@ describe('endRound', function() {
 
 
 
-
-
-
-// describe('', function() {
-//   it.skip('should be a function', function() {
-//     expect().to.be.a('function');
-//   });
-
-//   it.skip('should...', function() {
-//     //SETUP
-//     //EXECUTION
-//     //ASSERTION
-//   });  
-// });
