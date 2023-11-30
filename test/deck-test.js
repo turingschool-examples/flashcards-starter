@@ -17,9 +17,13 @@ describe('createDeck', function() {
 
     const deck = createDeck(cards);
 
-    expect(deck[0].id).to.equal(1);
-    expect(deck[1].correctAnswer).to.equal('gallbladder');
-    expect(deck[2].answers).to.deep.equal(['Lex', 'William', 'Fitzgerald']);
+    expect(deck).to.deep.equal(
+      [
+        {id: 1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'},
+        {id: 14, question: 'What organ is Khalid missing?', answers: ['spleen', 'appendix', 'gallbladder'], correctAnswer: 'gallbladder'},
+        {id: 12, question: 'What is Travis\'s middle name?', answers: ['Lex', 'William', 'Fitzgerald'], correctAnswer: 'Fitzgerald'}
+      ]
+    );
   });  
 });
 
