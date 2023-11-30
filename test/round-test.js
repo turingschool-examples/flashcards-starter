@@ -112,13 +112,13 @@ describe('calculatePercentCorrect', function() {
   });
 
   it('should calculate the percentage of correct guesses', function() {
-    const firstTurn = takeTurn(guess1, round);
-    const secondTurn = takeTurn(guess2, round);
-    const thirdTurn = takeTurn(guess3, round);
+    takeTurn(guess1, round);
+    takeTurn(guess2, round);
+    takeTurn(guess3, round);
 
     const percentCorrect = calculatePercentCorrect(round);
 
-    expect(calculatePercentCorrect(round)).to.equal(66.67);
+    expect(percentCorrect).to.equal(66.67);
   });  
 });
 
