@@ -16,6 +16,7 @@ describe('createRound', function() {
     const card2 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
     const card3 = createCard(17, 'What does the reduce() method take in?', ['callback function and initializer', 'callback function and current element', 'callback function and accumulator'], 'callback function and initializer');
     const deck = createDeck([card1, card2, card3]);
+    
     const round = createRound(deck);
 
     expect(round.deck).to.deep.equal(
@@ -36,7 +37,7 @@ describe('createRound', function() {
 });
 
 describe('takeTurn', function() {
-  let card1, card2, card3, deck, round;
+  let card1, card2, card3, deck, round, guess1, guess2;
   beforeEach(function () {
     card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     card2 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
@@ -49,13 +50,28 @@ describe('takeTurn', function() {
     expect(takeTurn).to.be.a('function');
   });
 
+  it('should declare correct if user guess is correct', function() {
+    const correctGuess = 'object';
+    
+    const turn = takeTurn(correctGuess, round);
+
+    expect(turn).to.equal('Correct!');
+  });  
+
+  it('should declare incorrect if user guess is incorrect', function() {
+    const incorrectGuess = 'array';
+    
+    const turn = takeTurn(incorrectGuess, round);
+
+    expect(turn).to.equal('Incorrect!');
+  });  
+
   it('should update the round and its properties after each turn', function() {
-    const guess1 = 'object';
-    const guess2 = 'mutator method';
+    const firstGuess = 'object';
+    const secondGuess = 'mutator method';
+    
+    takeTurn(firstGuess, round);
 
-    const firstTurn = takeTurn(guess1, round);
-
-    expect(firstTurn).to.equal("Correct!");
     expect(round.turns).to.equal(1);
     expect(round.incorrectGuesses).to.deep.equal([]);
     expect(round.currentCard).to.deep.equal({
@@ -65,9 +81,8 @@ describe('takeTurn', function() {
            correctAnswer: 'iteration method'
          });
 
-    const secondTurn = takeTurn(guess2, round);
+    takeTurn(secondGuess, round);
 
-    expect(secondTurn).to.equal("Incorrect!");
     expect(round.turns).to.equal(2);
     expect(round.incorrectGuesses).to.deep.equal([5]);
     expect(round.currentCard).to.deep.equal({
@@ -79,32 +94,6 @@ describe('takeTurn', function() {
   });  
 });  
   
-  // it('should declare correct if user guess is correct', function() {
-  //   const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  //   const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //   const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-  //   const deck = createDeck([card1, card2, card3]);
-  //   const round = createRound(deck);
-  //   const guess = 'sea otter';
-
-  //   const firstTurn = takeTurn(guess, round);
-
-  //   expect(firstTurn).to.equal('Correct!');
-  // });  
-
-  // it('should declare incorrect if user guess is incorrect', function() {
-  //   const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  //   const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //   const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-  //   const deck = createDeck([card1, card2, card3]);
-  //   const round = createRound(deck);
-  //   const guess = 'pug';
-
-  //   const firstTurn = takeTurn(guess, round);
-
-  //   expect(firstTurn).to.equal('Incorrect!');
-  // }); 
-
 describe('calculatePercentCorrect', function() {
   let card1, card2, card3, deck, round, guess1, guess2, guess3;
   beforeEach(function () {
