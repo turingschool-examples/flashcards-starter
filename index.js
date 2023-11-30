@@ -1,3 +1,8 @@
 // This is where your project starts.
+console.log('Your project is running...');
+// startGame.js
 
-console.log('Your project is running...'); 
+function start() {
+
+}
+start();
