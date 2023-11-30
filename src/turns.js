@@ -1,6 +1,7 @@
 const evaluateGuess = (guess, correctAnswer) => {
     if (guess) {
-        if (guess.toLowerCase() === correctAnswer) {
+        guess = guess.toLowerCase()
+        if (guess == correctAnswer) {
             return `Correct!`
         } else {
             return `Incorrect!`

@@ -22,9 +22,7 @@ describe("deck functions", () => {
         const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
         const deck = createDeck([card1, card2, card3]);
         const cardCount = countCards(deck)
-
+    
         expect(cardCount).to.equal(3)
-
-        
     })
 })

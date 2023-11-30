@@ -2,7 +2,7 @@ const chai = require ('chai');
 const expect = chai.expect;
 const { evaluateGuess } = require('../src/turns.js')
 
-describe("evaluateGuess()", () => {
+describe("evaluateGuess function", () => {
     it("Should evaluate if a guess to a flashcard is correct.", () => {
         const result = evaluateGuess("object", "array")
 
@@ -17,7 +17,7 @@ describe("evaluateGuess()", () => {
 
     it("Should not matter if a guess uppercase or lowercase.", () => {
         const result1 = evaluateGuess("Array", "array") 
-        const result2 = evaluateGuess("aRRay", "array") 
+        const result2 = evaluateGuess("fitzGerald", "fitzgerald")
 
         expect(result1).to.equal("Correct!")
         expect(result2).to.equal("Correct!")
@@ -30,13 +30,4 @@ describe("evaluateGuess()", () => {
        
         expect(result).to.equal("Please choose an answer")
     })
-
-    // it("Should convert guess to a string type.", () => {
-    //     let guess = 2
-    //     let correctAnswer = "object"
-    //     const result = evaluateGuess(guess, correctAnswer) 
-       
-    //     expect(typeof(guess)).to.equal("number")
-    // })
-
 })
