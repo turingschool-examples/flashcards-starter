@@ -140,13 +140,13 @@ describe('endRound', function() {
   });
 
   it('should declare end of round message and percent correct', function() {
-    const firstTurn = takeTurn(guess1, round);
-    const secondTurn = takeTurn(guess2, round);
-    const thirdTurn = takeTurn(guess3, round);
+    takeTurn(guess1, round);
+    takeTurn(guess2, round);
+    takeTurn(guess3, round);
 
     const endRoundMessage = endRound(round);
 
-    expect(endRound(round)).to.equal(`** Round over! ** You answered 66.67% of the questions correctly!`);
+    expect(endRoundMessage).to.equal(`** Round over! ** You answered 66.67% of the questions correctly!`);
   });  
 });
 
