@@ -1,15 +1,23 @@
 const data = require("./data");
 const prototypeQuestions = data.prototypeData;
 const util = require("./util");
-const { countCards, createDeck, createRound } = require("./card");
-
+const {
+  createCard,
+  countCards,
+  createDeck,
+  createRound,
+  endRound,
+} = require("./card");
 
 function start() {
-  const cards = prototypeQuestions;
+  const cards = prototypeQuestions.map((data) => {
+    return createCard(data.id, data.question, data.answers, data.correctAnswer);
+  });
   const deck = createDeck(cards);
   const round = createRound(deck);
   printMessage(deck);
   printQuestion(round);
+  endRound(round);
 }
 
 function printMessage(deck) {

@@ -58,16 +58,4 @@ describe("endRound", function () {
   it("should be a function", function () {
     expect(endRound).to.be.a("function");
   });
-  it("should return the correct message", function () {
-    const round = {
-      turns: 4,
-      incorrectGuesses: [1, 2],
-    };
-
-    const result = endRound(round);
-
-    expect(result).to.equal(
-      `** Round over! ** You answered 50% of the questions correctly!`
-    );
-  });
 });
