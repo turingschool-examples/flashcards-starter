@@ -24,22 +24,18 @@ describe('turn', function () {
   });
 
   it('should return "Correct" if correct answer', function () {
-    // set up
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    // execution
+    
     const result = evaluateGuess('object', card.correctAnswer)
-    // assertion
+   
     expect(result).to.equal('Correct');
-
   });
 
   it('should return "Incorrect" if incorrect answer', function () {
-    // set up
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    // execution
+  
     const result = evaluateGuess('array', card.correctAnswer)
-    // assertion
+   
     expect(result).to.equal('Incorrect');
-
   });
 });

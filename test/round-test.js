@@ -17,17 +17,13 @@ describe('round', function () {
     testDeck = createDeck([testCard1, testCard2, testCard3]);
 
     testRound = createRound(testDeck);
-
   });
 
-
   it('should create a round object with deck property', function () {
-
     expect(testRound.deck).to.deep.equal([testCard1, testCard2, testCard3]);
   });
 
   it('should create a currentCard property that has a default value of the first card in the deck', function () {
-
     expect(testRound.currentCard).to.deep.equal({
       "id": 1,
       "question": "What allows you to define a set of related information using key-value pairs?",
@@ -37,15 +33,11 @@ describe('round', function () {
   });
 
   it('should create a turns property that starts at 0', function () {
-
     expect(testRound.turns).to.equal(0);
-
   });
 
   it('should create an incorrectGuesses property that starts as an empty array', function () {
-
     expect(testRound.incorrectGuesses).to.deep.equal([]);
-
   });
 });
 
@@ -59,21 +51,20 @@ describe('take turn', function () {
     testDeck = createDeck([testCard1, testCard2, testCard3]);
 
     testRound = createRound(testDeck);
-
   });
 
   it('should update the turns count when a guess is made', function () {
-
     const testGuess1 = 'guess';
-    takeTurn(testGuess1, testRound);
-    expect(testRound.turns).to.equal(1);
 
+    takeTurn(testGuess1, testRound);
+
+    expect(testRound.turns).to.equal(1);
   });
 
   it('should update the current card to the next card in the deck', function () {
-
     const testGuess2 = 'guess2';
     const testGuess3 = 'guess3';
+
     takeTurn(testGuess2, testRound);
     takeTurn(testGuess3, testRound);
 
@@ -86,10 +77,10 @@ describe('take turn', function () {
   });
 
   it('should evaluate whether a guess is correct and store incorrect guesses into an array', function () {
-
     const testGuess4 = 'guess4';
     const testGuess5 = 'guess5';
     const correctGuess = 'filter()';
+
     takeTurn(testGuess4, testRound);
     takeTurn(testGuess5, testRound);
     takeTurn(correctGuess, testRound);
@@ -109,7 +100,6 @@ describe('take turn', function () {
     expect(testTurn1).to.equal('Incorrect');
     expect(testTurn2).to.equal('Incorrect');
     expect(testTurn3).to.equal('Correct');
-
   });
 
   describe('calculate percent correct', function () {
@@ -153,7 +143,6 @@ describe('end round', function () {
 
   });
   it('should signify end of round by printing a message to console', function () {
-
     const testGuess4 = 'guess4';
     const testGuess5 = 'guess5';
     const correctGuess = 'filter()';
@@ -163,6 +152,7 @@ describe('end round', function () {
     takeTurn(correctGuess, testRound);
     
     const endRoundMessage = endRound(testRound);
+
     expect(endRoundMessage).to.equal(`** Round over! ** You answered 33.33% of the questions correctly`)
   });
 });

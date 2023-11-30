@@ -12,14 +12,11 @@ function createRound(deck) {
 
 function takeTurn(guess, round) {
   const result = evaluateGuess(guess, round.currentCard.correctAnswer)
-
   if (result === 'Incorrect') {
     round.incorrectGuesses.push(round.currentCard.id);
   }
-
   round.turns++;
   round.currentCard = round.deck[round.turns];
-
   return result;
 }
 
