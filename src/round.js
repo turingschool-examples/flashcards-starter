@@ -28,8 +28,8 @@ function calculatePercentCorrect(round) {
 
 function endRound(round) {
   const percentCorrect = calculatePercentCorrect(round);
-  const endRoundMessage = `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`
-  console.log(endRoundMessage)
+  const endRoundMessage = `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`;
+  console.log(endRoundMessage);
   return endRoundMessage;
 }
 
