@@ -1,11 +1,14 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createDeck } = require('../src/deck.js');
 const { createCard } = require('../src/card.js');
+const { evaluateGuess } = require('../src/turn.js');
+const { createDeck } = require('../src/deck.js');
 const { createRound } = require('../src/round.js');
 const { takeTurn } = require('../src/round.js');
-const { evaluateGuess } = require('../src/turn.js');
+const { calculatePercentCorrect } = require('../src/round.js');
+const { showRoundResult } = require('../src/round.js');
+
 
 describe('round', function() {
   it('should be a function', function() {
@@ -124,7 +127,7 @@ describe('round', function() {
     expect(evaluateGuess('pug', round.currentCard.correctAnswer)).to.deep.equal('incorrect!');
   });
 
-  it.skip('should calculate and return percentage of correct guesses', function() {
+  it('should calculate and return percentage of correct guesses', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -134,22 +137,19 @@ describe('round', function() {
     round.turns = 12;
     round.incorrectGuesses = ['answer1', 'answer2', 'answer3'];
 
-    expect(round.calculatePercentCorrect()).to.equal(75);
+    expect(calculatePercentCorrect(round)).to.equal(75);
   });
 
-  it.skip('should notify player when the round is over', function() {
+  it('should notify player when the round is over', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
     const deck = createDeck([card1, card2, card3]);
     const round = createRound(deck);
 
-    round.takeTurn('answer');
-    round.takeTurn('another answer');
-    round.takeTurn('answer3');
-
     round.turns = 12;
+    round.incorrectGuesses = ['answer1', 'answer2', 'answer3'];
 
-    expect(round.endRound()).to.equal('** Round over! ** You answered 75% of the questions correctly!');
+    expect(showRoundResult(round)).to.equal('** Round over! ** You answered 75% of the questions correctly!');
   });
 });
