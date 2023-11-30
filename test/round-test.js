@@ -12,19 +12,23 @@ describe('createRound', function() {
   });
 
   it('should create a round and its properties', function() {
-    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    const card1 = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    const card2 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
+    const card3 = createCard(17, 'What does the reduce() method take in?', ['callback function and initializer', 'callback function and current element', 'callback function and accumulator'], 'callback function and initializer');
     const deck = createDeck([card1, card2, card3]);
-
     const round = createRound(deck);
 
-    expect(round.deck).to.deep.equal([card1, card2, card3]);
+    expect(round.deck).to.deep.equal(
+      [
+        {id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object'},
+        {id: 5, question: 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', answers: ['mutator method', 'accessor method', 'iteration method'], correctAnswer: 'iteration method'},
+        {id: 17, question: 'What does the reduce() method take in?', answers: ['callback function and initializer', 'callback function and current element', 'callback function and accumulator'], correctAnswer: 'callback function and initializer'}
+      ]);
     expect(round.currentCard).to.deep.equal({
            id: 1,
-           question: 'What is Robbie\'s favorite animal',
-           answers: ['sea otter', 'pug', 'capybara'],
-           correctAnswer: 'sea otter'
+           question: 'What allows you to define a set of related information using key-value pairs?',
+           answers: ['object', 'array', 'function'],
+           correctAnswer: 'object'
          });
     expect(round.turns).to.equal(0);
     expect(round.incorrectGuesses).to.deep.equal([]);
