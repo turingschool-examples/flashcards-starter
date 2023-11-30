@@ -1,7 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/card');
+const { createCard } = require('../src/card');
+const { createDeck } = require('../src/deck');
+const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
+
 const { beforeEach } = require('mocha');
 
 describe('round', function () {
