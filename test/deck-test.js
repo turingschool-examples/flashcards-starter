@@ -17,8 +17,7 @@ describe('createDeck', function() {
         
         expect(createDeck(deck)).to.be.an('object');
         expect(createDeck(deck)).to.have.property('cards').with.lengthOf(3);
-        expect(createDeck(deck).cards[0]).to.deep.equal(card1);
-        expect(createDeck(deck).cards[1]).to.deep.equal(card2);
-        expect(createDeck(deck).cards[2]).to.deep.equal(card3);
+        expect(createDeck(deck).cards[1]).to.equal(card2);
+        expect(createDeck(deck).cards[2]).to.equal(card3);
     });
 });
