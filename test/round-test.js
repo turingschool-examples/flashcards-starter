@@ -15,7 +15,7 @@ describe('round functions', function () {
         card3 = createCard(10, "Which iteration method returns the first array element where the callback function returns true", ["find()", "filter()", "forEach()"], "find()");
         deck = [card1, card2, card3]
         round = createRound(deck)
-    });
+    }); 
 
   describe('createRound', function () {
     it('should create a round', function () {

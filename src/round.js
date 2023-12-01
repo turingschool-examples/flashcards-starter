@@ -11,7 +11,7 @@ function createRound(deck, card, turns, incorrectGuesses) {
 function takeTurn(round) {
     round.turns++;
     const currentCard = round.currentCard;
-
+    
 // if the user guess = correct answer the guess is correct
 //  else the guess is incorrect .. add the card to incorrect guesses
 // give user feedback 
