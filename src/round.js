@@ -1,4 +1,4 @@
-const { evaluateGuess } = require('../src/turn.js');
+const { evaluateGuess } = require('../src/turn');
 
 function createRound(deck) {
   return {
@@ -24,7 +24,7 @@ function calculatePercentCorrect(round) {
   return percentageCorrect;
 };
 
-function showRoundResult(round) {
+function endRound(round) {
   console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`);
   return(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`);
 }
@@ -33,5 +33,5 @@ module.exports = {
   createRound,
   takeTurn,
   calculatePercentCorrect,
-  showRoundResult
+  endRound
 };
