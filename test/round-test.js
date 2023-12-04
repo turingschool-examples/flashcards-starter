@@ -1,13 +1,13 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard } = require('./src/card.js');
-const { evaluateGuess } = require('./src/turn.js');
-const { createDeck } = require('./src/deck.js');
-const { createRound } = require('./src/round.js');
-const { takeTurn } = require('./src/round.js');
-const { calculatePercentCorrect } = require('./src/round.js');
-const { showRoundResult } = require('./src/round.js');
+const { createCard } = require('../src/card.js');
+const { evaluateGuess } = require('../src/turn.js');
+const { createDeck } = require('../src/deck.js');
+const { createRound } = require('../src/round.js');
+const { takeTurn } = require('../src/round.js');
+const { calculatePercentCorrect } = require('../src/round.js');
+const { showRoundResult } = require('../src/round.js');
 
 
 describe('round', function() {

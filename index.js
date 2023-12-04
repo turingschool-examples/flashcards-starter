@@ -1,8 +1,7 @@
-const { createCard } = require ('./src/card');
-const { createDeck, countCards } = require ('./src/deck');
-const { createRound, takeTurn, calculatePercentCorrect, endRound } = require ('./src/round');
-const { prototypeData } = require ( './src/data');
-const { printMessage, printQuestion } = require ('./src/game');
+const { createDeck } = require ('../src/deck');
+const { createRound, takeTurn, calculatePercentCorrect, endRound } = require ('../src/round');
+const { prototypeData } = require ( '../src/data');
+const { printMessage, printQuestion } = require ('../src/game');
 
 function start() {
   const deck = createDeck(prototypeData);
