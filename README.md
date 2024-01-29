@@ -56,3 +56,34 @@ Run your test suite using the command:
 ```bash
 npm test
 ```
+
+_____________________________________________________  
+# README  
+______________________________________________________  
+
+# Flashcards
+
+### Abstract:
+
+
+### Installation Instructions:
+
+
+### Preview of App:
+
+
+### Context:
+
+
+### Contributors:
+Asher Spurr: https://github.com/AsherSpurr
+
+### Learning Goals:
+
+
+### Wins + Challenges:
+#### Wins:
+
+#### Challenges:
+
+
