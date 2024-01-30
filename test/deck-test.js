@@ -22,6 +22,12 @@ describe('Create Deck', function() {
         expect(deck).to.deep.equal([card1, card2, card3]);
         expect(deck[0].id).to.equal(1);
     });
+
+    it.skip('should not add duplicate cards', function() {
+        let deck = createDeck([card1, card2, card3, card2]);
+
+        expect(deck).to.deep.equal([card1, card2, card3]);
+    })
 });
 
 describe('Count Cards', function() {
