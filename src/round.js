@@ -20,12 +20,25 @@ function createRound(deckArray) {
     return newRound
 };
 
+function takeTurn(guess, round) {
+    let evaluation = evaluateGuess(guess, round.currentCard);
+    // console.log('guess:', guess)
+    if (evaluation === 'Incorrect!') {
+        console.log(round.currentCard.id)
+        console.log('type of current card id:', typeof (round.currentCard.id))
+        round.incorrectGuesses.push(round.currentCard.id)
+        console.log(round.incorrectGuesses[0])
+        console.log(typeof (round.incorrectGuesses[0]))
+    }
+    return evaluation
+};
+
 
 
 module.exports = {
     evaluateGuess,
     createRound,
-    // takeTurn,
+    takeTurn,
     // calculatePercentCorrect,
     // endRound
-}
+};
