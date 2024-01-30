@@ -4,34 +4,35 @@ const expect = chai.expect;
 const { evaluateGuess } = require('../src/turn');
 
 describe('Turn', function(){
-    it.skip('should be a function', function() {
+    let card1;
+    beforeEach(() => {
+        card1 = ({
+            id: 1,
+            question: `What is Bellamy's favorite snack?`,
+            answers: ['club crackers', 'babybel cheese', 'blueberries'],
+            correctAnswer: 'club crackers'
+        });
+    });
+
+    it('should be a function', function() {
         expect(evaluateGuess).to.be.a('function');
     });
 
-    it.skip('should give feedback if guess is correct', function() {
-        let card;
-        beforeEach(() => {
-            card = {
-                id: 1,
-                question: `What is Bellamy's favorite snack?`,
-                answers: ['club crackers', 'babybel cheese', 'blueberries'],
-                correctAnswer: 'club crackers'
-            };
-        });
+    it('should give feedback if guess is correct', function() {
         let guess = 'club crackers';
         
-        expect(evaluateGuess(guess, 'club crackers')).to.equal('Correct!');
+        expect(evaluateGuess(guess, card1)).to.equal('Correct!');
     });
 
-    it.skip('should give feedback if guess is incorrect', function() {
+    it('should give feedback if guess is incorrect', function() {
         let guess = 'babybel cheese';
 
-        expect(evaluateGuess(guess, 'club crackers')).to.equal('Incorrect!');
+        expect(evaluateGuess(guess, card1)).to.equal('Incorrect!');
     });
 
-    it.skip('should notify user if invalid answer is guessed', function() {
+    it('should notify user if invalid answer is guessed', function() {
         let guess = 'caviar';
 
-        expect(evaluateGuess(guess, 'club crackers')).to.equal('Please choose a valid option!');
+        expect(evaluateGuess(guess, card1)).to.equal('Please choose a valid option!');
     });
 })
