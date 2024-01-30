@@ -57,13 +57,6 @@ describe('Round', function() {
     });
     
     describe('Take Turn', function() {
-        let turn1, turn2, turn3;
-        beforeEach(() => {
-            turn1 = takeTurn('sea otter', round);
-            turn2 = takeTurn('spleen', round);
-            turn3 = takeTurn(null, round);
-        });
-
         it('should return feedback if the guess for the round is correct', function() {
             let turn = takeTurn('sea otter', round);
 
@@ -83,22 +76,32 @@ describe('Round', function() {
             expect(round.incorrectGuesses).to.deep.equal([1]);
         });
 
-        it.skip('should return feedback if the guess is invalid', function() {
-            
-            expect(turn3).to.equal('Please choose a valid option!');
+        it('should return feedback if the guess is invalid', function() {
+            let invalidTurn = takeTurn(null, round);
+
+            expect(invalidTurn).to.equal('Please choose a valid option!');
         });
 
-        it.skip('should count turns', function() {
+        it('should count turns', function() {
+            takeTurn('sea otter', round);
+            takeTurn('spleen', round);
 
-            expect(round.turns).to.equal(3);
-        });
-
-        it.skip('should only count the turn if a valid answer choice is guessed', function() {
             expect(round.turns).to.equal(2);
         });
 
+        it.skip('should only count the turn if a valid answer choice is guessed', function() {
+            takeTurn('sea otter', round);
+            takeTurn(null, round);
+
+            expect(round.turns).to.equal(1);
+            expect(round.incorrectGuesses).to.deep.equal([])
+        });
+
         it.skip('should set the next card in the deck as the current card after a turn', function() {
-            let turn4 = takeTurn('Lex', round);
+           let turn1 = takeTurn('sea otter', round);
+           let turn2 = takeTurn('spleen', round);
+           let invalidTurn = takeTurn(null, round);
+           let turn3 = takeTurn('Lex', round);
 
             expect(round.currentCard).to.deep.equal({
                 id: 3,
@@ -107,8 +110,9 @@ describe('Round', function() {
                 correctAnswer: 'club crackers'
               });
             // expect(round.currentCard).to.deep.equal(card4)
-            expect(turn4).to.equal('Incorrect!');
+            expect(turn3).to.equal('Incorrect!');
             expect(round.turns).to.equal(3)
+            expect(round.incorrectGuesses).to.deep.equal([14, 12])
         });
     });
     
@@ -118,8 +122,9 @@ describe('Round', function() {
             turn1 = takeTurn('sea otter', round);
             turn2 = takeTurn('spleen', round);
             invalidTurn = takeTurn(null, round);
-            turn3 = takeTurn('club crackers', round);
-            turn4 = takeTurn('Lex', round);
+            turn3 = takeTurn('Lex', round);
+            turn4 = takeTurn('club crackers', round);
+    
         });
 
         it.skip('should return the percentage of correct guesses', function() {
