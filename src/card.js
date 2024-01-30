@@ -15,15 +15,14 @@ function evaluateGuess(guess, correctAnswer) {
     }
 }
 
-function countCards(card1, card2, card3, card4, card5) {
-    var deck = []
-    var cards = [card1, card2, card3, card4, card5]
-    for (i = 0; i < cards.length; i++) {
-        if (cards[i]) {
-            deck.push(cards[i])
+function countCards(cards) {
+    var deck = [];
+    cards.forEach((card) => {
+        if (card) {
+            deck.push(card);
         }
-    }
-    return deck
+    });
+    return deck;
 }
 
 module.exports = {

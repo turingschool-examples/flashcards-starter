@@ -43,7 +43,6 @@ describe('card', function() {
 
     expect(deck.length).to.deep.equal(3)
   });
-
   it('should count more the cards in a deck', function() {
     const card1 = createCard(2, 'What is Jasmine\'s favorite color', ['blue', 'green', 'purple'], 'green');
     const card2 = createCard(15, 'What city was Alex born in?', ['New York', 'London', 'Tokyo'], 'London');
