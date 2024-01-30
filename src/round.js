@@ -13,5 +13,6 @@ module.exports = {
     evaluateGuess,
     // createRound,
     // takeTurn,
-    // calculatePercentCorrect
+    // calculatePercentCorrect,
+    // endRound
 }
