@@ -104,7 +104,19 @@ describe('Round', function() {
     });
     
     describe('Calculate Percent Correct', function() {
-    
+        let turn1, turn2, invalidTurn, turn3, turn4;
+        beforeEach(() => {
+            turn1 = takeTurn('sea otter', round);
+            turn2 = takeTurn('spleen', round);
+            invalidTurn = takeTurn(null, round);
+            turn3 = takeTurn('club crackers', round);
+            turn4 = takeTurn('Lex', round);
+        });
+
+        it.skip('should return the percentage of correct guesses', function() {
+            
+            expect((calculate(round))).to.equal(50);
+        });
     });
     
     describe('End Round', function() {
