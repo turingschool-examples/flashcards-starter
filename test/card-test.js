@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const { createCard } = require('../src/card');
 
-describe('card', function() {
+describe('Card', function() {
   it('should be a function', function() {
     expect(createCard).to.be.a('function');
   });
@@ -15,5 +15,14 @@ describe('card', function() {
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
-  });  
+  }); 
+  
+  it('should create a different card with different properties', function() {
+    const card = createCard(2, `What is Bellamy's favorite snack?`, ['club crackers', 'babybel cheese', 'blueberries'], 'club crackers');
+
+    expect(card.id).to.equal(2);
+    expect(card.question).to.equal(`What is Bellamy's favorite snack?`);
+    expect(card.answers).to.deep.equal(['club crackers', 'babybel cheese', 'blueberries']);
+    expect(card.correctAnswer).to.equal('club crackers')
+  });
 });
