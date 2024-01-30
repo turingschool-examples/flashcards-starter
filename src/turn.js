@@ -1,11 +1,13 @@
-function evaluateGuess(guess, correctAnswer) {
-    let correct = guess === correctAnswer ? true : false
-    if (correct) {
+function evaluateGuess(guess, cardObject) {
+    let correct = guess === cardObject.correctAnswer ? true : false
+    if (!cardObject.answers.includes(guess)) {
+        return 'Please choose a valid option!'
+    } else if (correct) {
         return 'Correct!'
-    } else if (!correct) {
+    } else {
         return 'Incorrect!'
     }
-}
+};
 
 module.exports = {
     evaluateGuess
