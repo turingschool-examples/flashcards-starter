@@ -33,10 +33,12 @@ describe('Count Cards', function() {
     });
 
     it.skip('should be a function', function() {
-
+        expect(countCards).to.be.a('function');
     });
 
     it.skip('should return the length of the deck array', function() {
+        let deck = createDeck([card1, card2, card3]);
 
+        expect(countCards(deck)).to.equal(3);
     });
 });
