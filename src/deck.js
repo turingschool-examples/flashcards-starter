@@ -1,11 +1,11 @@
 function createDeck(cardsArray) {
-    let deck = [];
+    let newDeck = [];
     cardsArray.forEach((card) => {
-        if (!deck.includes(card)) {
-            deck.push(card)
+        if (!newDeck.includes(card)) {
+            newDeck.push(card)
         };
     });
-    return deck
+    return newDeck
 };
 
 function countCards(deckArray) {
