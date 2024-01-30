@@ -10,5 +10,8 @@ function evaluateGuess(guess, cardObject) {
 };
 
 module.exports = {
-    evaluateGuess
+    evaluateGuess,
+    // createRound,
+    // takeTurn,
+    // calculatePercentCorrect
 }
