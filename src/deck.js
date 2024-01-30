@@ -1,5 +1,9 @@
-function createDeck() {
-
+function createDeck(cards) {
+    return cards
 }
 
-module.exports = { createDeck }
+function countCards(deck) {
+    return deck.length
+}
+
+module.exports = { createDeck, countCards }
