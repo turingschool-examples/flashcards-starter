@@ -16,17 +16,21 @@ function evaluateGuess(guess, correctAnswer) {
 }
 
 function countCards(cards) {
-    var deck = [];
-    cards.forEach((card) => {
-        if (card) {
-            deck.push(card);
-        }
-    });
-    return deck;
+    return cards
+}
+
+function createRound(deck) {
+    return {
+        deck: deck,
+        currentCard: deck[0],
+        turns: 0,
+        incorrectGuesses: []
+    }
 }
 
 module.exports = {
     createCard,
     evaluateGuess,
-    countCards
+    countCards,
+    createRound
 }
