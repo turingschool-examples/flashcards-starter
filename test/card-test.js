@@ -23,7 +23,7 @@ describe('guess', function() {
     expect(evaluateGuess).to.be.a('function');
   });
 
-  it('should identify whether answer is correct', function() {
+  it('should evaluate whether an answer is correct', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const guess1 = 'object';
     const guess2 = 'banana';
