@@ -12,8 +12,8 @@ describe('Round', function() {
         card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
         card4 = createCard(3, 'What is Bellamy\'s favorite snack?', ['club crackers', 'babybel cheese', 'blueberries'], 'club crackers');
-        // deck = createDeck([card1, card2, card3]);
-        // round = createRound(deck);
+        deck = createDeck([card1, card2, card3]);
+        round = createRound(deck);
     });
 
     describe('Evaluate Guess', function(){
@@ -42,7 +42,7 @@ describe('Round', function() {
     });
     
     describe('Create Round', function() {
-        it.skip('should create a round and its properties', function() {
+        it('should create a round and its properties', function() {
     
             expect(round.deck).to.deep.equal([card1, card2, card3]);
             expect(round.currentCard).to.deep.equal({
@@ -64,24 +64,33 @@ describe('Round', function() {
             turn3 = takeTurn(null, round);
         });
 
-        it.skip('should return feedback if the guess for the round is correct', function() {
+        it('should return feedback if the guess for the round is correct', function() {
+            let turn = takeTurn('sea otter', round);
 
-            expect(turn1).to.equal('Correct!');
+            expect(turn).to.equal('Correct!');
         });
         
-        it.skip('should return feedback if the guess for the round is incorrect', function() {
-            
-            expect(turn2).to.equal('Incorrect!');
+        it('should return feedback if the guess for the round is incorrect', function() {
+            let turn = takeTurn('pug', round);
+
+            expect(turn).to.equal('Incorrect!');
         });
 
-        it.skip('should record incorrect guesses', function() {
+        it('should record incorrect guesses', function() {
+            let turn = takeTurn('capybara', round);
 
-            expect(round.incorrectGuesses).to.equal([14]);
+            expect(turn).to.equal('Incorrect!')
+            expect(round.incorrectGuesses).to.deep.equal([1]);
         });
 
         it.skip('should return feedback if the guess is invalid', function() {
             
             expect(turn3).to.equal('Please choose a valid option!');
+        });
+
+        it.skip('should count turns', function() {
+
+            expect(round.turns).to.equal(3);
         });
 
         it.skip('should only count the turn if a valid answer choice is guessed', function() {
