@@ -20,17 +20,24 @@ function countCards(cards) {
 }
 
 function createRound(deck) {
-    return {
+    var currentDeck = {
         deck: deck,
         currentCard: deck[0],
         turns: 0,
         incorrectGuesses: []
     }
+    currentDeck.currentCard = deck[currentDeck.turns]
+    return currentDeck
+}
+
+function takeTurn(round) {
+    round.turns++
 }
 
 module.exports = {
     createCard,
     evaluateGuess,
     countCards,
-    createRound
+    createRound,
+    takeTurn
 }

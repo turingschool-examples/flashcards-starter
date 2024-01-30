@@ -5,7 +5,8 @@ const {
   createCard, 
   evaluateGuess,
   countCards,
-  createRound
+  createRound,
+  takeTurn
 } = require('../src/card');
 
 describe('card', function() {
@@ -45,17 +46,6 @@ describe('card', function() {
     expect(deck.length).to.deep.equal(3)
   });
 
-  it('should count more the cards in a deck', function() {
-    const card1 = createCard(2, 'What is Jasmine\'s favorite color', ['blue', 'green', 'purple'], 'green');
-    const card2 = createCard(15, 'What city was Alex born in?', ['New York', 'London', 'Tokyo'], 'London');
-    const card3 = createCard(13, 'What sport does Mia play?', ['soccer', 'basketball', 'tennis'], 'tennis');
-    const card4 = createCard(3, 'What is Marco\'s favorite cuisine?', ['Italian', 'Mexican', 'Japanese'], 'Japanese');
-    const card5 = createCard(16, 'Which instrument does Sara play?', ['piano', 'violin', 'guitar'], 'piano');
-    const deck = countCards([card1, card2, card3, card4, card5]);
-
-    expect(deck.length).to.deep.equal(5)
-  });
-
   it('should create a round to organize guesses and records', function() {
     const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -64,12 +54,26 @@ describe('card', function() {
     const deck = countCards([card1, card2, card3]);
 
     const round = createRound(deck);
-    console.log(round)
+    // console.log(round)
 
     expect(round.deck).to.be.an('array')
     expect(round.currentCard.id).to.equal(1)
     expect(round.turns).to.equal(0)
     expect(round.incorrectGuesses).to.deep.equal([])
   });
+
+  it('should update the turn count', function() {
+    const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    
+    const deck = countCards([card1, card2, card3]);
+
+    const round = createRound(deck);
+
+    takeTurn(round)
+
+    expect(round.turns).to.equal(1)
+  })
 
 });
