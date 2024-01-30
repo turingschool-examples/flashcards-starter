@@ -10,11 +10,21 @@ function evaluateGuess(guess, cardObject) {
     }
 };
 
+function createRound(deckArray) {
+    let newRound = {
+        deck: deckArray,
+        currentCard: deckArray[0],
+        turns: 0,
+        incorrectGuesses: []
+    };
+    return newRound
+};
+
 
 
 module.exports = {
     evaluateGuess,
-    // createRound,
+    createRound,
     // takeTurn,
     // calculatePercentCorrect,
     // endRound
