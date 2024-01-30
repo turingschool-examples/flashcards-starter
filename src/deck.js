@@ -1,7 +1,6 @@
 function createDeck(cardsArray) {
     let deck = [];
     cardsArray.forEach((card) => {
-        // console.log(deck.includes(card))
         if (!deck.includes(card)) {
             deck.push(card)
         };
@@ -9,7 +8,11 @@ function createDeck(cardsArray) {
     return deck
 };
 
+function countCards(deckArray) {
+    return deckArray.length
+};
+
 module.exports = {
     createDeck,
-    // countCards,
+    countCards,
 }
