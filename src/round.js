@@ -1,6 +1,7 @@
 function evaluateGuess(guess, cardObject) {
-    let correct = guess === cardObject.correctAnswer ? true : false
-    if (!cardObject.answers.includes(guess)) {
+    let valid = cardObject.answers.includes(guess);
+    let correct = guess === cardObject.correctAnswer ? true : false;
+    if (!valid) {
         return 'Please choose a valid option!'
     } else if (correct) {
         return 'Correct!'
@@ -8,6 +9,8 @@ function evaluateGuess(guess, cardObject) {
         return 'Incorrect!'
     }
 };
+
+
 
 module.exports = {
     evaluateGuess,
