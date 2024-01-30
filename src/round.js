@@ -3,15 +3,20 @@ function createRound(deck) {
         deck: deck,
         currentCard: deck[0],
         turns: 0,
-        incorrectGuesses: []
+        incorrectGuesses: [],
+        message: ''
     }
 
     return newRound;
 }
 
+function takeTurn(guess, round) {
+round.message = evaluateGuess(guess, round.currentCard.correctAnswer);
+}
+
 module.exports = {
     createRound,
-    // takeTurn,
+    takeTurn,
     // calculatePercentCorrect,
     // endRound
 }
