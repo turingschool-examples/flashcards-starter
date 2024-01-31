@@ -134,4 +134,4 @@ describe('percent', function() {
         takeTurn(rightGuess3, round)
         expect(calculatePercentCorrect(round)).to.equal(67);
     });
-})
+});
