@@ -15,4 +15,4 @@ function countCards(deckArray) {
 module.exports = {
     createDeck,
     countCards,
-}
+};
