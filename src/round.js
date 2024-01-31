@@ -27,8 +27,10 @@ function calculatePercentCorrect(round) {
 }
 
 function endRound(round) {
+    const wins = round.turns - round.incorrectGuesses.length
+    const percentageWon = Math.round((wins/round.turns) * 100)
     if(round.turns === round.deck.length) {
-        return `** Round over! ** You answered <>% of the questions correctly!`
+        console.log(`** Round over! ** You answered ${percentageWon}% of the questions correctly!`)
     }
 }
 
