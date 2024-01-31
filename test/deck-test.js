@@ -15,6 +15,7 @@ describe('deck', function() {
         var deck = createDeck([card1, card2])
         expect(deck[0]).to.deep.equal(card1)
         expect(deck[1]).to.deep.equal(card2)
+        expect(deck).to.deep.equal([card1, card2])
     })
 
     it('should count the number of cards in a deck', function() {

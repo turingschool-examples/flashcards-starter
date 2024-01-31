@@ -63,8 +63,8 @@ it('should give message', function() {
         const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
         
-        const deck = createDeck([card1, card2, card3]);
-        const round = createRound(deck);
+        var deck = createDeck([card1, card2, card3]);
+        var round = createRound(deck);
         var turn = takeTurn('sea otter', round)  
         var message = trackGuess('sea otter', round)
         expect(message).to.equal('correct!')
@@ -104,7 +104,6 @@ describe('round', function() {
         const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
         const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         const card3 = createCard(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-        
         const deck = createDeck([card1, card2, card3]);
         const round = createRound(deck);
         var turn = takeTurn('sea otter', round)  
