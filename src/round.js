@@ -1,3 +1,5 @@
+const { countCards } = require("./deck");
+
 function evaluateGuess(guess, cardObject) {
     let valid = cardObject.answers.includes(guess);
     let correct = guess === cardObject.correctAnswer ? true : false;
@@ -29,17 +31,25 @@ function takeTurn(guess, round) {
     };
     if (evaluation !== 'Please choose a valid option!') {
         round.turns++;
-        // round.deck.shift()
         round.deck.push(round.deck.shift());
         round.currentCard = round.deck[0];
     };
 
-    console.log('deck array [0]: ', round.deck[0] )
-    console.log('round deck after shift:', round.deck)
-    console.log('current card: ', round.currentCard) /*why is the current card not updating?*/ 
-    console.log('round object: ', round)
+    // console.log('deck array [0]: ', round.deck[0] )
+    // console.log('round deck after shift:', round.deck)
+    // console.log('current card: ', round.currentCard) /*why is the current card not updating?*/ 
+    // console.log('round object: ', round)
     
     return evaluation
+};
+
+function calculatePercentCorrect(round) {
+    let totalCards = countCards(round.deck);
+    let rawScore = (totalCards - round.incorrectGuesses.length) / totalCards;
+    let percentage = rawScore * 100;
+    // console.log(totalCards)
+    // console.log(percentage)
+    return percentage    
 };
 
 
@@ -48,6 +58,6 @@ module.exports = {
     evaluateGuess,
     createRound,
     takeTurn,
-    // calculatePercentCorrect,
+    calculatePercentCorrect,
     // endRound
 };
