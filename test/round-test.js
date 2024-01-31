@@ -122,7 +122,7 @@ describe('Round', function() {
 
         it.skip('should return the percentage of correct guesses', function() {
             
-            expect((calculate(round))).to.equal(50);
+            expect((calculatePercentCorrect(round))).to.equal(50);
         });
     });
     
