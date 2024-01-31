@@ -34,11 +34,11 @@ describe('turn', function() {
         const rightGuess = 'sea otter';
         const wrongGuess = 'spleen';
 
-        const round2 = takeTurn(rightGuess, round);
-        const round3 = takeTurn(wrongGuess, round2);
+        takeTurn(rightGuess, round);
+        expect(round.turns).to.equal(1);
 
-        expect(round2.turns).to.equal(1);
-        expect(round3.turns).to.equal(2);
+        takeTurn(wrongGuess, round);
+        expect(round.turns).to.equal(2);
     });
 
     it('should update current card', function() {
@@ -50,13 +50,13 @@ describe('turn', function() {
         const round = createRound(deck);
 
         const rightGuess = 'sea otter';
-        const wrongGuess = 'spleen';
+        const wrongGuess2 = 'spleen';
 
-        const round2 = takeTurn(rightGuess, round);
-        const round3 = takeTurn(wrongGuess, round2);
+        takeTurn(rightGuess, round);
+        expect(round.currentCard).to.equal(card2);
 
-        expect(round2.currentCard).to.equal(card2);
-        expect(round3.currentCard).to.equal(card3);
+        takeTurn(wrongGuess2, round);
+        expect(round.currentCard).to.equal(card3);
     })
 
     it('should store incorrect guesses', function() {
@@ -69,15 +69,16 @@ describe('turn', function() {
 
         const wrongGuess1 = 'pug';
         const wrongGuess2 = 'spleen';
-        const rightGuess = 'Fitzgerald';
+        const rightGuess3 = 'Fitzgerald';
 
-        const badResult = takeTurn(wrongGuess1, round);
-        const badResultAgain = takeTurn(wrongGuess2, badResult);
-        const goodResult = takeTurn(rightGuess, badResultAgain)
+        takeTurn(wrongGuess1, round);
+        expect(round.incorrectGuesses).to.deep.equal([1]);
 
-        expect(badResult.incorrectGuesses).to.deep.equal(['pug']);
-        expect(badResultAgain.incorrectGuesses).to.deep.equal(['pug', 'spleen']);
-        expect(goodResult.incorrectGuesses).to.deep.equal(['pug', 'spleen']);
+        takeTurn(wrongGuess2, round);
+        expect(round.incorrectGuesses).to.deep.equal([1, 14]);
+
+        takeTurn(rightGuess3, round)
+        expect(round.incorrectGuesses).to.deep.equal([1, 14]);
     });
 
     it('should give feedback on correct answer', function() {
@@ -92,7 +93,7 @@ describe('turn', function() {
 
         const goodResult = takeTurn(guess, round);
 
-        expect(goodResult.message).to.equal('correct!');
+        expect(goodResult).to.equal('correct!');
     });
 
     it('should give feedback on incorrect answer', function() {
@@ -107,7 +108,7 @@ describe('turn', function() {
 
         const badResult = takeTurn(guess, round)
 
-        expect(badResult.message).to.equal('incorrect');
+        expect(badResult).to.equal('incorrect!');
     });
 
 });
