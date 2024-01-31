@@ -120,14 +120,24 @@ describe('Round', function() {
     
         });
 
-        it.skip('should return the percentage of correct guesses', function() {
+        it('should return the percentage of correct guesses', function() {
             
             expect((calculatePercentCorrect(round))).to.equal(50);
         });
     });
     
     describe('End Round', function() {
-        it.skip('should print the percentage of correct answers', function() {
+        let turn1, turn2, invalidTurn, turn3, turn4;
+        beforeEach(() => {
+            turn1 = takeTurn('sea otter', round);
+            turn2 = takeTurn('spleen', round);
+            invalidTurn = takeTurn(null, round);
+            turn3 = takeTurn('Lex', round);
+            turn4 = takeTurn('club crackers', round);
+    
+        });
+        
+        it('should print the percentage of correct answers to the console', function() {
 
             expect((endRound(round))).to.equal('**Round over!** You answered 50% of the questions correctly!');
         });
