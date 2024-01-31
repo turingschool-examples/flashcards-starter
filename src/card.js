@@ -1,6 +1,3 @@
-const data = require('./data');
-const prototypeQuestions = data.prototypeData;
-
 function createCard(id, question, answers, correctAnswer) {
   return {
     id,
@@ -8,8 +5,8 @@ function createCard(id, question, answers, correctAnswer) {
     answers,
     correctAnswer
   }
-}
+};
 
 module.exports = {
     createCard
-}
+};
