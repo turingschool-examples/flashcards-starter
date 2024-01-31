@@ -12,8 +12,8 @@ describe('Round', function() {
         card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
         card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
         card4 = createCard(3, 'What is Bellamy\'s favorite snack?', ['club crackers', 'babybel cheese', 'blueberries'], 'club crackers');
-        // deck = createDeck([card1, card2, card3, card4]);
-        // round = createRound(deck);
+        deck = createDeck([card1, card2, card3, card4]);
+        round = createRound(deck);
     });
 
     describe('Evaluate Guess', function(){
@@ -43,8 +43,8 @@ describe('Round', function() {
     
     describe('Create Round', function() {
         it('should create a round and its properties', function() {
-            let deck = createDeck([card1, card2, card3, card4]);
-            let round = createRound(deck);
+            // let deck = createDeck([card1, card2, card3, card4]);
+            // let round = createRound(deck);
 
             expect(round.deck).to.deep.equal([card1, card2, card3, card4]);
             expect(round.currentCard).to.deep.equal({
@@ -60,24 +60,24 @@ describe('Round', function() {
     
     describe('Take Turn', function() {
         it('should return feedback if the guess for the round is correct', function() {
-            let deck = createDeck([card1, card2, card3, card4]);
-            let round = createRound(deck);
+            // let deck = createDeck([card1, card2, card3, card4]);
+            // let round = createRound(deck);
             let turn = takeTurn('sea otter', round);
 
             expect(turn).to.equal('Correct!');
         });
         
         it('should return feedback if the guess for the round is incorrect', function() {
-            let deck = createDeck([card1, card2, card3, card4]);
-            let round = createRound(deck);
+            // let deck = createDeck([card1, card2, card3, card4]);
+            // let round = createRound(deck);
             let turn = takeTurn('pug', round);
 
             expect(turn).to.equal('Incorrect!');
         });
 
         it('should record incorrect guesses', function() {
-            let deck = createDeck([card1, card2, card3, card4]);
-            let round = createRound(deck);
+            // let deck = createDeck([card1, card2, card3, card4]);
+            // let round = createRound(deck);
             let turn = takeTurn('capybara', round);
 
             expect(turn).to.equal('Incorrect!')
@@ -85,24 +85,24 @@ describe('Round', function() {
         });
 
         it('should return feedback if the guess is invalid', function() {
-            let deck = createDeck([card1, card2, card3, card4]);
-            let round = createRound(deck);
+            // let deck = createDeck([card1, card2, card3, card4]);
+            // let round = createRound(deck);
             let invalidTurn = takeTurn(null, round);
 
             expect(invalidTurn).to.equal('Please choose a valid option!');
         });
 
         it('should count turns', function() {
-            let deck = createDeck([card1, card2, card3, card4]);
-            let round = createRound(deck);
+            // let deck = createDeck([card1, card2, card3, card4]);
+            // let round = createRound(deck);
             takeTurn('sea otter', round);
 
             expect(round.turns).to.equal(1);
         });
 
         it('should only count the turn if a valid answer choice is guessed', function() {
-            let deck = createDeck([card1, card2, card3, card4]);
-            let round = createRound(deck);
+            // let deck = createDeck([card1, card2, card3, card4]);
+            // let round = createRound(deck);
             takeTurn('sea otter', round);
             takeTurn(null, round);
 
@@ -111,22 +111,16 @@ describe('Round', function() {
         });
 
         it('should set the next card in the deck as the current card after a turn', function() {
-            let deck = createDeck([card1, card2, card3, card4]);
-            let round = createRound(deck);
+            // let deck = createDeck([card1, card2, card3, card4]);
+            // let round = createRound(deck);
             let turn1 = takeTurn('sea otter', round);
             let turn2 = takeTurn('spleen', round);
             let invalidTurn = takeTurn(null, round);
             let turn3 = takeTurn('Lex', round);
 
-            // expect(round.currentCard).to.deep.equal(card4)
+            expect(round.currentCard).to.deep.equal(card4)
             expect(turn3).to.equal('Incorrect!');
             expect(round.turns).to.equal(3);
-            expect(round.currentCard).to.deep.equal({
-                id: 3,
-                question: 'What is Bellamy\'s favorite snack?',
-                answers: ['club crackers', 'babybel cheese', 'blueberries'],
-                correctAnswer: 'club crackers'
-              });
             expect(round.incorrectGuesses).to.deep.equal([14, 12])
         });
     });
