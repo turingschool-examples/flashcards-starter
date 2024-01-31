@@ -78,7 +78,7 @@ describe('percentCorrect', function() {
         var turn = takeTurn('sea otter', round)  
         var turn = takeTurn('spleen', round)  
         var percentCorrect = calculatePercentCorrect(round);
-        expect(percentCorrect.correctPercent).to.equal(50)
+        expect(percentCorrect).to.equal(50)
     })
 
 })
