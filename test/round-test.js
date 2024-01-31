@@ -31,11 +31,11 @@ describe('turn', function() {
         const deck = createDeck([card1, card2, card3]);
         const round = createRound(deck);
 
-        const guess1 = 'sea otter';
-        const guess2 = 'spleen';
+        const rightGuess = 'sea otter';
+        const wrongGuess = 'spleen';
 
-        const round2 = takeTurn(guess1, round);
-        const round3 = takeTurn(guess2, round2);
+        const round2 = takeTurn(rightGuess, round);
+        const round3 = takeTurn(wrongGuess, round2);
 
         expect(round2.turns).to.equal(1);
         expect(round3.turns).to.equal(2);
@@ -49,29 +49,11 @@ describe('turn', function() {
         const deck = createDeck([card1, card2, card3]);
         const round = createRound(deck);
 
-        const guess1 = 'sea otter';
-        const guess2 = 'spleen';
+        const rightGuess = 'sea otter';
+        const wrongGuess = 'spleen';
 
-        const round2 = takeTurn(guess1, round);
-        const round3 = takeTurn(guess2, round2);
-
-        expect(round2.currentCard).to.equal(card2);
-        expect(round3.currentCard).to.equal(card3);
-    })
-
-    it('should update current card', function() {
-        const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-        const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-        const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-
-        const deck = createDeck([card1, card2, card3]);
-        const round = createRound(deck);
-
-        const guess1 = 'sea otter';
-        const guess2 = 'spleen';
-
-        const round2 = takeTurn(guess1, round);
-        const round3 = takeTurn(guess2, round2);
+        const round2 = takeTurn(rightGuess, round);
+        const round3 = takeTurn(wrongGuess, round2);
 
         expect(round2.currentCard).to.equal(card2);
         expect(round3.currentCard).to.equal(card3);
@@ -85,14 +67,17 @@ describe('turn', function() {
         const deck = createDeck([card1, card2, card3]);
         const round = createRound(deck);
 
-        const guess1 = 'pug';
-        const guess2 = 'spleen';
+        const wrongGuess1 = 'pug';
+        const wrongGuess2 = 'spleen';
+        const rightGuess = 'Fitzgerald';
 
-        const badResult = takeTurn(guess1, round);
-        const badResultAgain = takeTurn(guess2, round);
+        const badResult = takeTurn(wrongGuess1, round);
+        const badResultAgain = takeTurn(wrongGuess2, badResult);
+        const goodResult = takeTurn(rightGuess, badResultAgain)
 
         expect(badResult.incorrectGuesses).to.deep.equal(['pug']);
         expect(badResultAgain.incorrectGuesses).to.deep.equal(['pug', 'spleen']);
+        expect(goodResult.incorrectGuesses).to.deep.equal(['pug', 'spleen']);
     });
 
     it('should give feedback on correct answer', function() {
