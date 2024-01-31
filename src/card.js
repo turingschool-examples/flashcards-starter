@@ -7,10 +7,11 @@ function createCard(id, question, answers, correctAnswer) {
     }
 }
 
-function evaluateGuess(guess, correctAnswer) {
+function evaluateGuess(guess, correctAnswer, round) {
     if (guess === correctAnswer) {
         return 'correct!'
     } else {
+        incorrectGuessID(round)
         return 'incorrect!'
     }
 }
@@ -26,13 +27,29 @@ function createRound(deck) {
         turns: 0,
         incorrectGuesses: []
     }
-    currentDeck.currentCard = deck[currentDeck.turns]
     return currentDeck
 }
 
-function takeTurn(round) {
-    round.turns++
+function takeTurn(round, guess) {
+    var result = evaluateGuess(guess, round.currentCard.correctAnswer, round);
+    increaseTurn(round);
+    return result;
 }
+
+function increaseTurn(round) {
+    round.turns++;
+    if (round.turns < round.deck.length) {
+        round.currentCard = round.deck[round.turns];
+    }
+}
+
+function incorrectGuessID(round) {
+    if (round) {
+    round.incorrectGuesses.push(round.currentCard.id);
+    }
+}
+
+
 
 module.exports = {
     createCard,
