@@ -1,9 +1,9 @@
 function createDeck(cards) {
-    return cards
+    return cards;
 }
 
 function countCards(deck) {
-    return deck.length
+    return deck.length;
 }
 
 module.exports = { createDeck, countCards }

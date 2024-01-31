@@ -9,16 +9,16 @@ describe('guess', function() {
     });
 
     it('should return correct if the guess is the same as the correct answer', function() {
-        const correctAnswer = 'bear'
-        const newGuess = evaluateGuess('bear', correctAnswer)
+        var correctAnswer = 'bear';
+        var newGuess = evaluateGuess('bear', correctAnswer);
 
-        expect(newGuess).to.equal('Correct!')
+        expect(newGuess).to.equal('Correct!');
     });
 
     it('should return incorrect if the guess is not the same as the correct answer', function() {
-        const correctAnswer = 'bear'
-        const newGuess = evaluateGuess('seal', correctAnswer)
+        var correctAnswer = 'bear';
+        var newGuess = evaluateGuess('seal', correctAnswer);
 
-        expect(newGuess).to.equal('Incorrect!')
+        expect(newGuess).to.equal('Incorrect!');
     });
 });

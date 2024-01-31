@@ -17,21 +17,20 @@ function takeTurn(guess, round) {
         round.incorrectGuesses.push(round.currentCard.id);
         round.currentCard = round.deck[round.turns];
         return 'Incorrect!';
-    };
-};
-
-function calculatePercentCorrect(round) {
-    const wins = round.turns - round.incorrectGuesses.length
-    const percentageWon = Math.round((wins/round.turns) * 100)
-    return percentageWon
-}
-
-function endRound(round) {
-    const wins = round.turns - round.incorrectGuesses.length
-    const percentageWon = Math.round((wins/round.turns) * 100)
-    if(round.turns === round.deck.length) {
-        console.log(`** Round over! ** You answered ${percentageWon}% of the questions correctly!`)
     }
 }
 
-module.exports = { createRound, takeTurn, calculatePercentCorrect, endRound }
+function calculatePercentCorrect(round) {
+    const wins = round.turns - round.incorrectGuesses.length;
+    const percentageWon = Math.round((wins/round.turns) * 100);
+    return percentageWon;
+}
+
+function endRound(round) {
+    if(round.turns === round.deck.length) {
+        console.log(`** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`);
+        return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`;
+    }
+}
+
+module.exports = { createRound, takeTurn, calculatePercentCorrect, endRound };
