@@ -24,34 +24,30 @@ function createRound(deckArray) {
 
 function takeTurn(guess, round) {
     let evaluation = evaluateGuess(guess, round.currentCard);
-    // console.log('guess:', guess);
-    // console.log('current card: ',round.currentCard);
     if (evaluation === 'Incorrect!') {
         round.incorrectGuesses.push(round.currentCard.id)
     };
     if (evaluation !== 'Please choose a valid option!') {
-        round.turns++;
-        round.deck.push(round.deck.shift());
-        round.currentCard = round.deck[0];
+        round.turns++
+        round.deck.push(round.deck.shift())
+        round.currentCard = round.deck[0]
     };
-
-    // console.log('deck array [0]: ', round.deck[0] )
-    // console.log('round deck after shift:', round.deck)
-    // console.log('current card: ', round.currentCard) /*why is the current card not updating?*/ 
-    // console.log('round object: ', round)
-    
     return evaluation
 };
 
 function calculatePercentCorrect(round) {
     let totalCards = countCards(round.deck);
     let rawScore = (totalCards - round.incorrectGuesses.length) / totalCards;
-    let percentage = rawScore * 100;
-    // console.log(totalCards)
-    // console.log(percentage)
+    let percentage = Math.round(rawScore * 100);
     return percentage    
 };
 
+function endRound(round) {
+    let percentage = calculatePercentCorrect(round);
+    let message = `**Round over!** You answered ${percentage}% of the questions correctly!`;
+    console.log(message);
+    return message
+};
 
 
 module.exports = {
@@ -59,5 +55,5 @@ module.exports = {
     createRound,
     takeTurn,
     calculatePercentCorrect,
-    // endRound
+    endRound
 };
