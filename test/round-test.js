@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createRound, takeTurn, calculatePercentCorrect } = require('../src/round');
+const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 const { createCard } = require('../src/card');
 const { createDeck, countCards } = require('../src/deck');
 
@@ -41,7 +41,7 @@ describe('takeTurn', function() {
 
         expect(round.turns).to.equal(1);
         const turn2 = takeTurn(34, round);
-        expect(round.turns).to.equal(2)
+        expect(round.turns).to.equal(2);
     });
 
     it('should change to the next card', function() {
@@ -120,5 +120,24 @@ describe('calculatePercent', function() {
 describe('endRound', function() {
     it('should be a function', function() {
         expect(endRound).to.be.a('function');
+    });
+
+    it('should return round over if all cards in the deck are done', function() {
+        const card1 = createCard(1, 'What is Cory\'s middle name', ['Lee', 'Stan', 'Stanley'], 'Lee');
+        const card2 = createCard(3, 'How old is Cory', [40, 34, 30], 34);
+        const card3 = createCard(17, 'Where does Cory live', ['Denver', 'London', 'New York'], 'Denver');
+
+        const deck = createDeck([card1, card2, card3]);
+        const round = createRound(deck);
+        const turn1 = takeTurn('Stan', round);
+        const turn2 = takeTurn(30, round);
+        const end1 = endRound(round);
+        
+        expect(end1).to.equal();
+
+        const turn3 = takeTurn('Denver', round);
+        const end2 = endRound(round);
+
+        expect(end2).to.equal('** Round over! ** You answered <>% of the questions correctly!');
     });
 });

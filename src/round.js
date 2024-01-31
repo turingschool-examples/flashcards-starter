@@ -27,7 +27,9 @@ function calculatePercentCorrect(round) {
 }
 
 function endRound(round) {
-    
+    if(round.turns === round.deck.length) {
+        return `** Round over! ** You answered <>% of the questions correctly!`
+    }
 }
 
-module.exports = { createRound, takeTurn, calculatePercentCorrect }
+module.exports = { createRound, takeTurn, calculatePercentCorrect, endRound }
