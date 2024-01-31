@@ -22,9 +22,16 @@ function takeTurn(guess, round) {
     return message;
 }
 
+function calculatePercentCorrect(round) {
+    percentIncorrect = Math.round((round.incorrectGuesses.length / round.turns) * 100);
+    percentCorrect = 100 - percentIncorrect;
+    
+    return percentCorrect;
+}
+
 module.exports = {
     createRound,
     takeTurn,
-    // calculatePercentCorrect,
+    calculatePercentCorrect,
     // endRound
 }
