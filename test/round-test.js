@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const {createCard} = require('../src/card');
-const {createDeck} = require('../src/deck');
+const {createDeck, countCards} = require('../src/deck');
 const {evaluateGuess, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 
 describe('Round', function() {
@@ -43,8 +43,6 @@ describe('Round', function() {
     
     describe('Create Round', function() {
         it('should create a round and its properties', function() {
-            // let deck = createDeck([card1, card2, card3, card4]);
-            // let round = createRound(deck);
 
             expect(round.deck).to.deep.equal([card1, card2, card3, card4]);
             expect(round.currentCard).to.deep.equal({
@@ -60,24 +58,18 @@ describe('Round', function() {
     
     describe('Take Turn', function() {
         it('should return feedback if the guess for the round is correct', function() {
-            // let deck = createDeck([card1, card2, card3, card4]);
-            // let round = createRound(deck);
             let turn = takeTurn('sea otter', round);
 
             expect(turn).to.equal('Correct!');
         });
         
         it('should return feedback if the guess for the round is incorrect', function() {
-            // let deck = createDeck([card1, card2, card3, card4]);
-            // let round = createRound(deck);
             let turn = takeTurn('pug', round);
 
             expect(turn).to.equal('Incorrect!');
         });
 
         it('should record incorrect guesses', function() {
-            // let deck = createDeck([card1, card2, card3, card4]);
-            // let round = createRound(deck);
             let turn = takeTurn('capybara', round);
 
             expect(turn).to.equal('Incorrect!')
@@ -85,24 +77,18 @@ describe('Round', function() {
         });
 
         it('should return feedback if the guess is invalid', function() {
-            // let deck = createDeck([card1, card2, card3, card4]);
-            // let round = createRound(deck);
             let invalidTurn = takeTurn(null, round);
 
             expect(invalidTurn).to.equal('Please choose a valid option!');
         });
 
         it('should count turns', function() {
-            // let deck = createDeck([card1, card2, card3, card4]);
-            // let round = createRound(deck);
             takeTurn('sea otter', round);
 
             expect(round.turns).to.equal(1);
         });
 
         it('should only count the turn if a valid answer choice is guessed', function() {
-            // let deck = createDeck([card1, card2, card3, card4]);
-            // let round = createRound(deck);
             takeTurn('sea otter', round);
             takeTurn(null, round);
 
@@ -111,8 +97,6 @@ describe('Round', function() {
         });
 
         it('should set the next card in the deck as the current card after a turn', function() {
-            // let deck = createDeck([card1, card2, card3, card4]);
-            // let round = createRound(deck);
             let turn1 = takeTurn('sea otter', round);
             let turn2 = takeTurn('spleen', round);
             let invalidTurn = takeTurn(null, round);
@@ -143,6 +127,10 @@ describe('Round', function() {
     });
     
     describe('End Round', function() {
+        it.skip('should print the percentage of correct answers', function() {
+
+            expect((endRound(round))).to.equal('**Round over!** You answered 50% of the questions correctly!');
+        });
     
     });
 });
