@@ -42,7 +42,7 @@ describe('turn', function(){
     expect(takeTurn).to.be.a('function')
     })
 
-    it('should give message', function() {
+    it('should return correct if guess is correct', function() {
     expect(takeTurn('sea otter', round)).to.equal('correct!')
     })
 
@@ -55,6 +55,12 @@ describe('turn', function(){
     expect(takeTurn('sea otter', round)).to.equal('correct!')
     expect(takeTurn('spleen', round) ).to.equal('incorrect!')
     expect(round.incorrectGuesses).to.deep.equal([14])
+    })
+
+    it('should increase number of turns with each question', function() {
+    expect(takeTurn('sea otter', round)).to.equal('correct!')
+    expect(takeTurn('spleen', round) ).to.equal('incorrect!')
+    expect(round.turns).to.equal(2)
     })
 });
 
