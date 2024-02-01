@@ -1,4 +1,4 @@
-const { createCard, evaluateGuess } = require('../src/card');
+const { evaluateGuess } = require('../src/card');
 
 function createRound(deck) {
     const newRound = {
@@ -6,6 +6,7 @@ function createRound(deck) {
         currentCard: deck[0],
         turns: 0,
         incorrectGuesses: [],
+        startTime: Date.now()
     }
 
     return newRound;
@@ -30,7 +31,16 @@ function calculatePercentCorrect(round) {
 }
 
 function endRound(round) {
-    console.log(`**Round Over!** You answered ${calculatePercentCorrect(round)}% of the questions correctly!`)
+    endTime = Date.now()
+    elapsedTime = Math.round((endTime - round.startTime) / 1000);
+    console.log('')
+    console.log('🌼🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼  Round Over! 🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼')
+    console.log('')
+    console.log(`    🧠 You answered ${calculatePercentCorrect(round)}% of the questions correctly!`)
+    console.log(`    ⏱️  And the game took you ${elapsedTime} seconds to play.`)
+    console.log('')
+    console.log('🌼🌷🌼🌷🌼🌷🌼🌷🌼  Thanks for Playing! 🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼')
+    console.log('')
 }
 
 module.exports = {
