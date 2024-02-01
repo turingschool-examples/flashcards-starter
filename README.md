@@ -16,7 +16,7 @@ This project was the inagural project for a new "inning" in the Turing program. 
 https://github.com/kelleyej
 
 ## Learning Goals:
-The learning goals for this project were to get an introduction into implementing a testing suite using test driven development. 
+The learning goals for this project were to get an introduction into implementing a testing suite using test driven development. I used JavaScript, Mocha, and Chai technologies. 
 
 ## Wins + Challenges: 
 Some wins with this project included getting hands-on experience/practice with implementing testing suites and using beforeEach for the first time. A challenge during this project was figuring how to initiate the game via the terminal. 
