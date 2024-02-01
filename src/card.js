@@ -16,52 +16,6 @@ function evaluateGuess(guess, card){
     }
 }
 
-function createDeck(allCards){
-    var deck = allCards;  
-    return deck; 
- }
-
- function countCards(deck) {
-  var num = deck.map(card => card.id).length;
-    return num; 
- }
-
- function createRound(deck, card, turns){
-    let round = {
-        deck: deck, 
-        card: card, 
-        turns: turns || 0, 
-        incorrectGuesses: []
-    }
-    return round; 
- }
-
- function takeTurns(round){
-    round.turns++
-    return round; 
- }
-
- function changeCard(round){
-    round.card.id++;
-    return round; 
- }
-
- function incorrectGuess(guess, round){
-if(guess === round.card.correctAnswer){
-    round.incorrectGuesses.push(round.card.id)
-   
-}
- return round; 
- }
-
-module.exports = { createCard,
-                    evaluateGuess,
-                    createDeck,
-                    countCards,
-                    createRound,
-                    takeTurns,
-                    changeCard,
-                    incorrectGuess
-                 }
+module.exports = { createCard, evaluateGuess }
 
                 
