@@ -7,7 +7,7 @@ I built a flashcard question and answer game that is played strictly through the
 To use this feature, you can head to my GitHub page, clone the repository, open it in the terminal, and run node index.js to start game play! 
 
 ## Preview of App:
-(![screenshot of flashcard game](FLASHCARD.png))
+![screenshot of flashcard game](FLASHCARD.png)
 
 ## Context:
 This project was the inagural project for a new "inning" in the Turing program. I am six weeks into the program. I had four days to complete the project. 
