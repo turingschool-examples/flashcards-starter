@@ -24,20 +24,31 @@ function takeTurn(guess, round) {
 }
 
 function calculatePercentCorrect(round) {
-    percentIncorrect = Math.round((round.incorrectGuesses.length / round.turns) * 100);
-    percentCorrect = 100 - percentIncorrect;
+    const percentIncorrect = Math.round((round.incorrectGuesses.length / round.turns) * 100);
+    const percentCorrect = 100 - percentIncorrect;
     
     return percentCorrect;
 }
 
 function endRound(round) {
-    endTime = Date.now()
-    elapsedTime = Math.round((endTime - round.startTime) / 1000);
+    const endTime = Date.now()
+    let elapsedTime = Math.round((endTime - round.startTime) / 1000);
+    let timeString = `${elapsedTime}`;
+
+    if (elapsedTime > 59) {
+        if (elapsedTime < 120) {
+            timeString = `${Math.floor(elapsedTime / 60)} minute and ${elapsedTime % 60} seconds`
+        }
+        else {
+            timeString = `${Math.floor(elapsedTime / 60)} minutes and ${elapsedTime % 60} seconds`
+        }
+    }
+
     console.log('')
     console.log('🌼🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼  Round Over! 🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼')
     console.log('')
     console.log(`    🧠 You answered ${calculatePercentCorrect(round)}% of the questions correctly!`)
-    console.log(`    ⏱️  And the game took you ${elapsedTime} seconds to play.`)
+    console.log(`    ⏱️  And the game took you ${timeString} seconds to play.`)
     console.log('')
     console.log('🌼🌷🌼🌷🌼🌷🌼🌷🌼  Thanks for Playing! 🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼🌷🌼')
     console.log('')

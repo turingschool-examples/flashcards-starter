@@ -1,7 +1,5 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
-// const data = require('./sample-data');
-// const prototypeQuestions = data.sampleData;
 const util = require('./util');
 
 const { createDeck, countCards} = require('../src/deck');
