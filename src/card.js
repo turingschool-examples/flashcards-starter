@@ -9,7 +9,6 @@ function createCard(id, question, answers, correctAnswer) {
 }
 
 function evaluateGuess(guess, correctAnswer) {
-  // convert both guess and correctAnswer to lowercase
   const formattedGuess = String(guess).toLowerCase();
   const formattedCorrectAnswer = String(correctAnswer).toLowerCase();
 
@@ -58,7 +57,7 @@ function createRound(deck) {
 
       currentCardIndex++;
 
-      // this will check if we've just answered the last card
+      // this check if we've just answered the last card
       if (currentCardIndex >= this.deck.length) {
         this.endRound();
       }
