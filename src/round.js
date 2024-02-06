@@ -1,6 +1,6 @@
 const { evaluateGuess } = require('../src/card');
 
-function createRound(deck) {
+function createRound(deck, index) {
     const newRound = {
         deck: deck,
         currentCard: deck[0],
@@ -35,13 +35,10 @@ function endRound(round) {
     let elapsedTime = Math.round((endTime - round.startTime) / 1000);
     let timeString = `${elapsedTime}`;
 
-    if (elapsedTime > 59) {
-        if (elapsedTime < 120) {
-            timeString = `${Math.floor(elapsedTime / 60)} minute and ${elapsedTime % 60} seconds`
-        }
-        else {
-            timeString = `${Math.floor(elapsedTime / 60)} minutes and ${elapsedTime % 60} seconds`
-        }
+    if (elapsedTime > 59 && elapsedTime < 120) {
+            timeString = `${Math.floor(elapsedTime / 60)} minute and ${elapsedTime % 60}`
+     } else if (elapsedTime > 119) {
+            timeString = `${Math.floor(elapsedTime / 60)} minutes and ${elapsedTime % 60}`
     }
 
     console.log('')
