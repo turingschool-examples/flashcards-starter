@@ -22,8 +22,20 @@ deck.push(...cards)
 return deck
 }
 
+function createRound(deck){
+var round = {
+    deck:deck,
+    turns:0,
+    currentCard:deck[0],
+    incorrectGuesses:[]
+
+}
+return round
+}
+
 module.exports = {
     createCard,
     evaluateGuess,
-    createDeck
+    createDeck,
+    createRound
 }
