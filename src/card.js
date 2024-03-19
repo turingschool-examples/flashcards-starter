@@ -16,8 +16,10 @@ function evaluateGuess(guess,card){
 }
 }
 
-function createDeck(){
-
+function createDeck(...cards){
+var deck = []
+deck.push(...cards)
+return deck
 }
 
 module.exports = {
