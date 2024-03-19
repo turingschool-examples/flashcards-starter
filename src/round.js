@@ -26,7 +26,9 @@ function calculatePercentCorrect(round) {
 
 function endRound(round) {
   const percentage = calculatePercentCorrect(round);
-  return `** Round over! ** You answered ${percentage}% of the questions correctly!`;
+  const message = `** Round over! ** You answered ${percentage}% of the questions correctly!`;
+  console.log(message);
+  return message;
 }
 
 module.exports = {
