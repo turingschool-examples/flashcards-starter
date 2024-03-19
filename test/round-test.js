@@ -8,6 +8,7 @@ const {
   takeTurn,
   calculatePercentCorrect,
   endRound,
+  resetRound,
 } = require("../src/round");
 
 describe("round", () => {
@@ -127,6 +128,23 @@ describe("round", () => {
       expect(endRound(round)).to.equal(
         "** Round over! ** You answered 50% of the questions correctly!"
       );
+    });
+  });
+
+  describe("Review material", () => {
+    it("Will reset round to redo material (#1)", () => {
+      const round = createRound(deck);
+      takeTurn("Charles", round);
+      takeTurn("25", round);
+      takeTurn("Bruce Wayne", round);
+      expect(resetRound(round)).to.deep.equal(createRound(deck));
+    });
+
+    it("Will reset round to redo material (#2)", () => {
+      const round = createRound(deck);
+      takeTurn("Charles", round);
+      takeTurn("25", round);
+      expect(resetRound(round)).to.deep.equal(createRound(deck));
     });
   });
 });

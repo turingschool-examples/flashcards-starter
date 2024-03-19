@@ -31,9 +31,14 @@ function endRound(round) {
   return message;
 }
 
+function resetRound(round) {
+  return createRound(round.deck);
+}
+
 module.exports = {
   createRound,
   takeTurn,
   calculatePercentCorrect,
   endRound,
+  resetRound,
 };
