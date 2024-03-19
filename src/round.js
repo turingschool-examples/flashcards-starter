@@ -24,8 +24,14 @@ function calculatePercentCorrect(round) {
   return Math.floor(percentage * 100);
 }
 
+function endRound(round) {
+  const percentage = calculatePercentCorrect(round);
+  return `** Round over! ** You answered ${percentage}% of the questions correctly!`;
+}
+
 module.exports = {
   createRound,
   takeTurn,
   calculatePercentCorrect,
+  endRound,
 };

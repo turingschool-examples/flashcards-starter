@@ -7,6 +7,7 @@ const {
   createRound,
   takeTurn,
   calculatePercentCorrect,
+  endRound,
 } = require("../src/round");
 
 describe("round", () => {
@@ -105,6 +106,27 @@ describe("round", () => {
       takeTurn("Bruce Wayne", round);
       const percentage = calculatePercentCorrect(round);
       expect(percentage).to.equal(66);
+    });
+  });
+
+  describe("End round", () => {
+    it("End round message (#1)", () => {
+      const round = createRound(deck);
+      takeTurn("Charles", round);
+      takeTurn("25", round);
+      takeTurn("Bruce Wayne", round);
+      expect(endRound(round)).to.equal(
+        "** Round over! ** You answered 66% of the questions correctly!"
+      );
+    });
+
+    it("End round message (#2)", () => {
+      const round = createRound(deck);
+      takeTurn("Charles", round);
+      takeTurn("25", round);
+      expect(endRound(round)).to.equal(
+        "** Round over! ** You answered 50% of the questions correctly!"
+      );
     });
   });
 });
