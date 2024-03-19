@@ -4,7 +4,7 @@ const expect = chai.expect;
 const { createCard } = require('../src/card');
 
 describe('card', function() {
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     expect(createCard).to.be.a('function');
   });
 
