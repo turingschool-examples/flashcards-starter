@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard,evaluateGuess} = require('../src/card');
+const { createCard,evaluateGuess,createDeck} = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -33,4 +33,24 @@ it('should be able to evaluate if a guess is incorrect',function(){
   const turn = evaluateGuess ('array',card);
   expect(turn).to.equal('incorrect')
 })
+})
+
+describe('deck', function(){
+it('should be a function',function(){
+  expect(createDeck).to.be.a('function')
+});
+it('should have multiple cards', function(){
+  const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+const deck = createDeck([card1, card2, card3]);
+
+expect(deck).to.deep.equal([{id:1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'],correctAnswer: 'sea otter'},{id:14, question:'What organ is Khalid missing?', answers: ['spleen', 'appendix', 'gallbladder'], correctAnswer: 'gallbladder'},
+{id:12, question:'What is Travis\'s middle name?', answers:['Lex', 'William', 'Fitzgerald'], correctAnswer:'Fitzgerald'}])
+
+})
+
+
+
+
 })

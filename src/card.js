@@ -16,7 +16,12 @@ function evaluateGuess(guess,card){
 }
 }
 
+function createDeck(){
+
+}
+
 module.exports = {
     createCard,
-    evaluateGuess
+    evaluateGuess,
+    createDeck
 }
