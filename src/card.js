@@ -9,7 +9,7 @@ return card
 }
 
 
-
 module.exports = {
-    createCard
+    createCard,
+    evaluateGuess
 }
