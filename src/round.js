@@ -18,7 +18,14 @@ function takeTurn(guess, round) {
   return evaluation;
 }
 
+function calculatePercentCorrect(round) {
+  const percentage =
+    (round.turns - round.incorrectGuesses.length) / round.turns;
+  return Math.floor(percentage * 100);
+}
+
 module.exports = {
   createRound,
   takeTurn,
+  calculatePercentCorrect,
 };
