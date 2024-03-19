@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard,evaluateGuess,createDeck,createRound} = require('../src/card');
+const { createCard,evaluateGuess,createDeck,createRound,takeTurns} = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -63,9 +63,17 @@ describe('round', function(){
     const deck = createDeck(card1, card2, card3);
 
     const round = createRound(deck);
+    
     expect(round.deck).to.deep.equal(deck);
     expect(round.turns).to.equal(0);
     expect(round.currentCard).to.equal(deck[0])
     expect(round.incorrectGuesses).to.deep.equal([])
   })
+})
+
+describe('take turns',function(){
+  it('should be a function',function(){
+    expect(takeTurns).to.be.a('function')
+  });
+
 })

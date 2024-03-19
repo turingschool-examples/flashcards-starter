@@ -33,9 +33,15 @@ var round = {
 return round
 }
 
+function takeTurns(){
+    
+}
+
+
 module.exports = {
     createCard,
     evaluateGuess,
     createDeck,
-    createRound
+    createRound,
+    takeTurns
 }
