@@ -45,17 +45,20 @@ async function main(round) {
   nextTurn(round);
 }
 
-const nextTurn = (round) => {
+function nextTurn(round) {
   if (!round.currentCard) {
-    if (calculatePercentCorrect(round) >= 90) {
-      endRound(round);
-    } else {
+    if (calculatePercentCorrect(round) < 90) {
+      console.log(
+        `You failed to go over 90% of the answers correct. Retrying ...`
+      );
       resetRound(round);
       main(round);
+    } else {
+      endRound(round);
     }
   } else {
     main(round);
   }
-};
+}
 
 module.exports.main = main;
