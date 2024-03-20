@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, takeTurn } = require('../src/card');
+const { createCard, evaluateGuess } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -18,19 +18,19 @@ describe('card', function() {
   });  
 });
 
-describe('take turn', () =>{
-  it.skip('should be a function',() => {
-    expect(takeTurn).to.be.a('function');
+describe('evaluateGuess', () =>{
+  it('should be a function',() => {
+    expect(evaluateGuess).to.be.a('function');
   });
 
-  it.skip('should evaluate a guess as correct or false', () => {
+  it('should evaluate a guess as correct or false', () => {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const guess = 1
     const guess1 = 0
-    const evaluation = takeTurn(card.answers[guess], card.correctAnswer)
-    const evaluation1 = takeTurn(card.answers[guess1], card.correctAnswer)
+    const evaluation = evaluateGuess(card.answers[guess], card.correctAnswer)
+    const evaluation1 = evaluateGuess(card.answers[guess1], card.correctAnswer)
 
-    expect(evaluation).to.equal(false)
-    expect(evaluation1).to.equal(true)
+    expect(evaluation).to.equal('incorrect!')
+    expect(evaluation1).to.equal('correct!')
   });
 });
