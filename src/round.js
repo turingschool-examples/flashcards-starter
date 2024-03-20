@@ -1,9 +1,9 @@
 class round{
-    constructor(deck){
+    constructor(deck = [null]){
         this.deck = deck
         this.currentCard = this.deck[0]
         this.turns = 0
-        this.incorrectGuesses = []
+        this.incorrectGuesses = [null]
     };
 };
 function takeTurn(guess, round){
