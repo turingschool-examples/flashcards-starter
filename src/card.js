@@ -8,7 +8,13 @@ const createCard = ( id, question, answers, correctAnswer) => {
     return card
 }
 
-
+const evaluateGuess = (guess, correctAnswer) => {
+    if (guess === correctAnswer){
+        return 'correct';
+    } else {
+        return 'incorrect'
+    }
+}
 
 
 
@@ -27,5 +33,6 @@ const createCard = ( id, question, answers, correctAnswer) => {
 
 
 module.exports ={
-    createCard
+    createCard,
+    evaluateGuess
 };
