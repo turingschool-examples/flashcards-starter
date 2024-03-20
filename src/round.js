@@ -1,4 +1,5 @@
 const { evaluateGuess } = require("./turn");
+const { startTimer } = require("./timer");
 
 function createRound(deck) {
   return {
@@ -6,6 +7,7 @@ function createRound(deck) {
     currentCard: deck[0],
     turns: 0,
     incorrectGuesses: [],
+    startTimer: startTimer(),
   };
 }
 

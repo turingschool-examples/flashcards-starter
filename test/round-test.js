@@ -36,12 +36,17 @@ describe("round", () => {
   describe("Round", () => {
     it("make a round", () => {
       const round = createRound(deck);
-      expect(round).to.deep.equal({
+      expect(round).to.deep.include({
         deck: deck,
         currentCard: deck[0],
         turns: 0,
         incorrectGuesses: [],
       });
+    });
+
+    it("round will have a timer start", () => {
+      const round = createRound(deck);
+      expect(round).to.have.property("startTimer");
     });
   });
 
