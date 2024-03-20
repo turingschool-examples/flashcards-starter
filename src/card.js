@@ -40,11 +40,16 @@ function takeTurns(guess, round) {
     round.currentCard = round.deck[round.turns]
 }
 
+function calculatePercentCorrect(round){
+
+}
+
 
 module.exports = {
     createCard,
     evaluateGuess,
     createDeck,
     createRound,
-    takeTurns
+    takeTurns,
+    calculatePercentCorrect
 }

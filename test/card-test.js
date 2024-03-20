@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard,evaluateGuess,createDeck,createRound,takeTurns} = require('../src/card');
+const { createCard,evaluateGuess,createDeck,createRound,takeTurns,calculatePercentCorrect} = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -120,6 +120,13 @@ it('should evaluate if a guess is wrong and store it in an array',function(){
   expect(round.incorrectGuesses).to.deep.equal([round.deck[0].id]);
 
 })
+it('should calculate percentage of correct guesses', function() {
+  takeTurns('sea otter', round); 
+  takeTurns('appendix', round);
+  takeTurns('playing with bubble wrap', round); 
+  expect(calculatePercentCorrect(round)).to.equal(66.67);
+});
+
 
 })
 
@@ -129,12 +136,7 @@ it('should evaluate if a guess is wrong and store it in an array',function(){
 
 
 
-//   it('should calculate percentage of correct guesses', function() {
-//     takeTurns('sea otter', round); // Correct guess
-//     takeTurns('appendix', round); // Incorrect guess
-//     takeTurns('playing with bubble wrap', round); // Correct guess
-//     expect(calculatePercentCorrect(round)).to.equal(66.67); // 2 out of 3 correct
-//   });
+
 
 //   it('should print correct message when ending round', function() {
 //     takeTurns('sea otter', round); // Correct guess
