@@ -28,3 +28,24 @@ describe('round & constructor.', ()=>{
         expect(newRound.deck).to.deep.equal(deck)
     });
 });
+
+describe('takeTurn', () => {
+    it.skip('should increment round instance turn counter by 1',()=>{
+
+    });
+    it.skip('should queue up the next card for the following turn', ()=>{
+
+    });
+    it.skip('should evaluate a given guess and store incorrect guesses in the proper array of the round instance',()=>{
+
+    });
+    it.skip('should remove the placeholder null value when storing incorrect guesses', ()=>{
+
+    });
+    it.skip('incorrect guesses should remain default if guess is correct',()=>{
+
+    });
+    it.skip('should display evaluation feedback in the console',()=>{
+        
+    });
+});
