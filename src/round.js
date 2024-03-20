@@ -32,7 +32,6 @@ function endRound(round) {
 }
 
 function resetRound(round) {
-  console.log("Reseting round");
   round.turns = 0;
   round.currentCard = round.deck[round.turns];
   round.incorrectGuesses = [];
