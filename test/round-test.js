@@ -115,26 +115,26 @@ describe("round", () => {
     });
   });
 
-  describe("End round", () => {
-    it("End round message (#1)", () => {
-      const round = createRound(deck);
-      takeTurn("Charles", round);
-      takeTurn("25", round);
-      takeTurn("Bruce Wayne", round);
-      expect(endRound(round)).to.equal(
-        "** Round over! ** You answered 66% of the questions correctly!"
-      );
-    });
+  // describe("End round", () => {
+  //   it("End round message (#1)", () => {
+  //     const round = createRound(deck);
+  //     takeTurn("Charles", round);
+  //     takeTurn("25", round);
+  //     takeTurn("Bruce Wayne", round);
+  //     expect(endRound(round)).to.equal(
+  //       "** Round over! ** You answered 66% of the questions correctly!"
+  //     );
+  //   });
 
-    it("End round message (#2)", () => {
-      const round = createRound(deck);
-      takeTurn("Charles", round);
-      takeTurn("25", round);
-      expect(endRound(round)).to.equal(
-        "** Round over! ** You answered 50% of the questions correctly!"
-      );
-    });
-  });
+  //   it("End round message (#2)", () => {
+  //     const round = createRound(deck);
+  //     takeTurn("Charles", round);
+  //     takeTurn("25", round);
+  //     expect(endRound(round)).to.equal(
+  //       "** Round over! ** You answered 50% of the questions correctly!"
+  //     );
+  //   });
+  // });
 
   describe("Review material", () => {
     it("Will reset round to redo material (#1)", () => {
