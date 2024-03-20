@@ -1,5 +1,5 @@
 const { evaluateGuess } = require("./turn");
-const { startTimer } = require("./timer");
+const { startTimer, endTimer, convertTimerToString } = require("./timer");
 
 function createRound(deck) {
   return {
@@ -28,7 +28,9 @@ function calculatePercentCorrect(round) {
 
 function endRound(round) {
   const percentage = calculatePercentCorrect(round);
-  const message = `** Round over! ** You answered ${percentage}% of the questions correctly!`;
+  const timer = convertTimerToString(endTimer(round.startTimer));
+  const message = `** Round over! ** You answered ${percentage}% of the questions correctly! You took ${timer} to complete the game.`;
+
   console.log(message);
   return message;
 }
