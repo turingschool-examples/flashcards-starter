@@ -47,6 +47,9 @@ function calculatePercentCorrect(round) {
     return Math.ceil(percentage);
    }
    
+   function endRound(round) {
+    const percentCorrect = calculatePercentCorrect(round);
+    return `** Round over! ** You answered ${percentCorrect}% of the questions correctly!`}
 
 module.exports = {
     createCard,
@@ -54,5 +57,6 @@ module.exports = {
     createDeck,
     createRound,
     takeTurns,
-    calculatePercentCorrect
+    calculatePercentCorrect,
+    endRound
 }
