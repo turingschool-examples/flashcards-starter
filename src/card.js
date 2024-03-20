@@ -40,10 +40,13 @@ function takeTurns(guess, round) {
     round.currentCard = round.deck[round.turns]
 }
 
-function calculatePercentCorrect(round){
-
-}
-
+function calculatePercentCorrect(round) {
+    const totalTurns = round.turns;
+    const correctTurns = totalTurns - round.incorrectGuesses.length;
+    const percentage = (correctTurns / totalTurns) * 100;
+    return Math.ceil(percentage);
+   }
+   
 
 module.exports = {
     createCard,

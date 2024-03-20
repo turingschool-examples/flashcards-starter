@@ -124,7 +124,7 @@ it('should calculate percentage of correct guesses', function() {
   takeTurns('sea otter', round); 
   takeTurns('appendix', round);
   takeTurns('playing with bubble wrap', round); 
-  expect(calculatePercentCorrect(round)).to.equal(66.67);
+  expect(calculatePercentCorrect(round)).to.equal(67);
 });
 
 
