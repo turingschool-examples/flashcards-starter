@@ -16,25 +16,28 @@ function evaluateGuess(guess,card){
 }
 }
 
-function createDeck(...cards){
-var deck = []
-deck.push(...cards)
+function createDeck(cards){
+var deck = cards
 return deck
 }
 
 function createRound(deck){
 var round = {
     deck:deck,
-    turns:0,
     currentCard:deck[0],
+    turns:0,
     incorrectGuesses:[]
 
 }
 return round
 }
 
-function takeTurns(){
-    
+function takeTurns(guess, round) {
+    round.turns += 1;
+    if (evaluateGuess(guess,round.currentCard) === 'incorrect'){
+        round.incorrectGuesses.push(round.currentCard.id)
+    }
+    round.currentCard = round.deck[round.turns]
 }
 
 
