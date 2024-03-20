@@ -34,4 +34,4 @@ function convertTimerToString(timeMS) {
   return displayString;
 }
 
-module.exports = { convertTimerToString };
+module.exports = { startTimer, endTimer, convertTimerToString };
