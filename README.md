@@ -1,58 +1,49 @@
-# FlashCards Starter Kit
+# Flashcards
 
-## Fork This Repo
+![Mocha](https://img.shields.io/badge/-mocha-%238D6748?style=for-the-badge&logo=mocha&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-On the top right corner of this page, click the **Fork** button.
+## 📝 Description
 
-## Setup
+This is a flashcard game that runs through the CLI. You will be quizzed about various topics related to Javascript and are graded at the end. The main learning goal of this project was practicing Test Driven Development to develop applications. Through working through this, I realized that not every part of the application can, nor should, be tested. This project uses Mocha, Chai, Node.js, npm, and Javascript.
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+## 🛠️ Installation
 
-```bash
-git clone [remote-address] [what you want to name the repo]
-```
-
-Once you have cloned the repo, change into the directory and install the library dependencies using the command:
-
-```bash
+```shell
+git clone git@github.com:KojinKuro/flashcards-starter.git
 npm install
+npm run test
+node index.js
 ```
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have skipped tests in your `card` test file show up.
+## 👀 Preview
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+![Gif of Application](https://i.ibb.co/f2NzrrG/Kapture-2024-03-19-at-19-31-51.gif)
 
-```bash
-Your project is running...
-```
+## ✨ Feature
 
-*Note that you will not need to you run this file until you are running your `game` file in Iteration 3. Prior to that, you should strive to use TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+- Play flashcards
+- Get a time for how fast you completed the game
+- Grades player
+- Keyboard controls
 
+## 🔍 Context
 
-## Where to Add Your Code
+This project was created during my 8th week of a 28 week program at Turing School of Software and Design. This project developed by myself and took around 5 hours to complete. The largest part of my time was spent planning and writing tests.
 
-**Create all of your feature code files in the `src` directory.** Use the `module.exports` and `require` syntax to share code across files.
+## 🎓 Learning Goals
 
-## How to View Your Code in Action
+The main goals of this project was to focus on implementing a program following Functional Programming, and adding Test Driven Development.
 
-Once you are working through Iteration 3, you will want to run the `node index.js` command in your terminal to run the game.
+## 🚀 Future Roadmap
 
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
+- Add a way to add custom cards easier to the game
+- Create a report card for how well the player did and how tries each question took
+- Allow users to only review wrong cards instead of resetting everything.
+- Allow users to pick which kind of cards to chose from at the start
 
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
+## 👏 Credits
 
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `card-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
+- [Charles Kwang](https://github.com/KojinKuro)
