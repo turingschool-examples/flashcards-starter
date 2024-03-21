@@ -1,5 +1,5 @@
-const { createDeck, countCards } = require("../src/deck");
-const { createCard, evaluateGuess } = require("../src/card");
+// const { createDeck, countCards } = require("../src/deck");
+const { evaluateGuess } = require("../src/card");
 
 function createRound(deck) {
   let round = {

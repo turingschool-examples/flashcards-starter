@@ -15,8 +15,8 @@ function printQuestion(round) {
   util.main(round);
 }
 
-function start() {
-  const deck = createDeck(prototypeData);
+function start(deck) {
+  createDeck(deck);
   const round = createRound(deck);
   printMessage(deck);
   printQuestion(round);
