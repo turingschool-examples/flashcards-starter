@@ -35,26 +35,29 @@ describe('takeTurn', () => {
     const card3 = createCard('e','test card 2',['test','evil test','good test'],'evil test');
 
     const deck = createDeck([card1,card2,card3]);
-    
-    const newRound = round(deck)
-    it.skip('should increment round instance turn counter by 1',()=>{
-        
+    it('should increment round instance turn counter by 1',()=>{
+        const newRound = round(deck);
+        const nextRound = takeTurn(newRound)[0];
+        expect(nextRound.turns).to.equal(1);
     });
-    it.skip('should queue up the next card for the following turn', ()=>{
-
+    it('should queue up the next card for the following turn', ()=>{
+        let newRound = round(deck);
+        newRound = takeTurn(newRound)[0];
+        let nextRound = takeTurn(newRound)[0];
+       
+        expect(newRound.currentCard).to.deep.equals(deck[1])
+        expect(nextRound.currentCard).to.deep.equals(deck[2])
     });
-    it.skip('should evaluate a given guess and store incorrect guesses in the proper array of the round instance',()=>{
-
+    it('should evaluate a given guess and store incorrect guesses in the proper array of the round instance',()=>{
+        const newResults = takeTurn(round(deck), 'wrong')
+        expect(newResults[0].incorrectGuesses[0]).to.equals('wrong')
     });
-    it.skip('should display evaluation feedback in the console',()=>{
-
+    it('should display evaluation feedback in the console',()=>{
+        const newResults = takeTurn(round(deck))
+        expect(newResults[1]).to.equal('incorrect!')
     });
-    it.skip('incorrect guesses should remain default if guess is correct',()=>{
-
+    it('incorrect guesses should remain default if guess is correct',()=>{
+        const newResults = takeTurn(round(deck), 'test')
+        expect(newResults[0].incorrectGuesses).to.deep.equal([null])
     });
-    it.skip('should remove the placeholder null value when storing incorrect guesses', ()=>{
-
-    });
-
-
 });
