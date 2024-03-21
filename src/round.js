@@ -8,19 +8,22 @@ function round(deck = [null]){
         incorrectGuesses : [null]
     };
 };
-function takeTurn(guess, round){
-    const turnCard = createCard(round.currentCard);
-    round.turns += 1;
-    round.currentCard = round.deck[round.turns];
+function takeTurn(round, guess = null){
+    const roundCopy = {...round}
+    const turnCard = roundCopy.currentCard;
+    roundCopy.turns += 1;
+    roundCopy.currentCard = roundCopy.deck[roundCopy.turns];
     const judgement = evaluateGuess(guess, turnCard.correctAnswer);
+    
     console.log(judgement);
     if (judgement === 'incorrect!'){
-        if (round.incorrectGuesses[0] === null){
-            round.incorrectGuesses = []
+        if (roundCopy.incorrectGuesses[0] === null){
+            roundCopy.incorrectGuesses = []
         };
-        round.incorrectGuesses.push(guess)
+        roundCopy.incorrectGuesses.push(guess)
     };
-    return round
+    const toReturn = [roundCopy, judgement]
+    return toReturn
 };
 function calculatePercentCorrect(round){
 };
@@ -33,3 +36,12 @@ module.exports = {
     calculatePercentCorrect,
     endRound
 };
+
+const card1 = createCard(1,'test card 1',['test','evil test','good test'],'test');
+const card2 = createCard(60,'test card 3',['test','evil test','good test'],'good test');
+const card3 = createCard('e','test card 2',['test','evil test','good test'],'evil test');
+
+const deck = createDeck([card1,card2,card3]);
+
+let newRound = round(deck);
+newRound = takeTurn(newRound);
