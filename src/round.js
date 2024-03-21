@@ -1,12 +1,26 @@
-const createRound = (deck,currentCard, turns, incorrectGuess) => {
+const { evaluateGuess } = require("./card")
+
+const createRound = (deck) => {
     let round = {
         deck,
-        currentCard,
-        turns,
-        incorrectGuess
     }
-    console.log('round',round)
+    round.currentCard = round.deck[0]
+    round.turns = 0
+    round.incorrectGuess = []
     return round
+}
+const takeTurn = (guess, round) =>{
+     if(guess === round.currentCard.correctAnswer){
+        round.turns+=1
+        round.currentCard = round.deck[1]
+        return 'correct'
+    } else {
+        round.incorrectGuess.push(round.currentCard.id)
+        round.turns+=1
+        round.currentCard = round.deck[1]
+        return 'incorrect'
+    }
+
 }
 
 
@@ -17,8 +31,8 @@ const createRound = (deck,currentCard, turns, incorrectGuess) => {
 
 
 module.exports ={
-    createRound
-    //takeTurn,
+    createRound,
+    takeTurn,
     //calculatePercentCorrect,
     //endRound
 }

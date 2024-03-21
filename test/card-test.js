@@ -4,11 +4,11 @@ const { createCard, evaluateGuess } = require('../src/card');
 const { it, describe } = require('mocha');
 
 describe('card', function() {
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     expect(createCard).to.be.a('function');
   });
 
-  it.skip('should create a card and its properties', function() {
+  it('should create a card and its properties', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     
     expect(card.id).to.equal(1);
@@ -16,7 +16,7 @@ describe('card', function() {
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
   }); 
-  it.skip('should create a different card', function() {
+  it('should create a different card', function() {
     const card = createCard(2, 'What is a comma-separated list of related values?', ["array", "object", "function"], 'array')
 
     expect(card.id).to.equal(2);
@@ -26,10 +26,10 @@ describe('card', function() {
   })
 });
 describe('turn', function() {
-  it.skip('should be a function', function(){
+  it('should be a function', function(){
     expect(evaluateGuess).to.be.a('function')
   });
-  it.skip('should evaluate the correct answer', function(){
+  it('should evaluate the correct answer', function(){
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const guess = 'object'
     const correctAnswer = card.correctAnswer
@@ -40,7 +40,7 @@ describe('turn', function() {
     //we expect the function to equal to a string
   });
 
-  it.skip('should evaluate the incorrect answer', function(){
+  it('should evaluate the incorrect answer', function(){
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const guess = 'array'
     const correctAnswer = card.correctAnswer
@@ -49,7 +49,7 @@ describe('turn', function() {
 
     expect(result).to.equal('incorrect')
   });
-  it.skip('should evaluate the a different incorrect answer', function(){
+  it('should evaluate the a different incorrect answer', function(){
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const guess = 'function'
     const correctAnswer = card.correctAnswer
