@@ -1,13 +1,13 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard, evaluateGuess, createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/card');
+const { createCard, evaluateGuess,} = require('../src/card');
+const { createDeck, countCards, createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round')
 
 describe('card', function() {
   it('should be a function', function() {
     expect(createCard).to.be.a('function');
   });
-
   it('should create a card and its properties', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     
@@ -15,7 +15,7 @@ describe('card', function() {
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
-  });  
+  }); 
 });
 
 describe('turn', function() {
@@ -40,13 +40,13 @@ describe('deck', function() {
   it('should be a function', function(){
     expect(createDeck).to.be.a('function')
   })
-  it('should return an object', function(){
+  it('should return an array', function(){
     const card1 = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object")
     const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array")
     const card3 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method")
     const cards = [card1, card2, card3]
     const result = createDeck(cards)
-    expect(result).to.be.an('object')
+    expect(result).to.be.an('array')
   })
   it('should count cards in the deck', function() {
     const card1 = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object")
@@ -63,9 +63,17 @@ describe('rounds', function() {
     expect(createRound).to.be.a('function')
   })
   it('should create an object', function() {
-    const round = createRound(deck, 3, 0, [])
+    const round = createRound(deck)
     expect(round).to.be.an('object')
   })
+  it('current card should start as the first card in the deck', function() {
+    const round = createRound(deck)
+    expect(round.currentCard).to.equal(deck[0])
+  })
+   it('should initialize turns to 0', function() {
+    const round = createRound(deck);
+    expect(round.turns).to.equal(0);
+  });
 })
 
 describe('takeTurn', function(){
@@ -125,7 +133,7 @@ describe('calculatePercentCorrect', function() {
           turns: 10,
           incorrectGuesses: [3, 5, 7]
       };
-      expect(calculatePercentCorrect(round)).to.equal(70); // 7 out of 10 turns are correct
+      expect(calculatePercentCorrect(round)).to.equal(70); 
   });
   it('should return 0% when no turns are made', function() {
       const round = {
