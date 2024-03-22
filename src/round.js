@@ -1,15 +1,14 @@
-const {createDeck, countCards} = require('./deck')
-const {createCard, evaluateGuess} = require('./card')
-function round(deck = [null]){
+const {evaluateGuess} = require('./card')
+function round(deck){
     return {
         deck,
         currentCard : deck[0],
         turns : 0,
-        incorrectGuesses : [null]
+        incorrectGuesses : []
     };
 };
-function takeTurn(round, guess = null){
-    const roundCopy = {...round}
+function takeTurn(guess, roundCopy){
+    // const roundCopy = {...round}
     const turnCard = roundCopy.currentCard;
     roundCopy.turns += 1;
     roundCopy.currentCard = roundCopy.deck[roundCopy.turns];
@@ -20,11 +19,12 @@ function takeTurn(round, guess = null){
         };
         roundCopy.incorrectGuesses.push(guess)
     };
-    const toReturn = [roundCopy, judgement]
-    return toReturn
+    // const toReturn = [roundCopy, judgement]
+    // return toReturn
+    return judgement
 };
-function calculatePercentCorrect(round){
-    const roundCopy = {...round}
+function calculatePercentCorrect(roundCopy){
+    // const roundCopy = {...round}
     if(roundCopy.turns===0 || roundCopy.deck == [null]){
         return 'Error: no guesses to calculate, perhaps the deck was not properly initialized?'
     }
@@ -38,9 +38,10 @@ function calculatePercentCorrect(round){
     
 };
 function endRound(round){
-    if(round.result !== undefined){
-    return `** Round over! ** You answered ${round.result} of the questions correctly!`
-    };
+    // if(round.result !== undefined){
+    let result = calculatePercentCorrect(round)
+    console.log( `** Round over! ** You answered ${result} of the questions correctly!`)
+    // };
 };
 
 module.exports = {
