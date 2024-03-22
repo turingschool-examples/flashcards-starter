@@ -29,15 +29,18 @@ function calculatePercentCorrect(round){
         return 'Error: no guesses to calculate, perhaps the deck was not properly initialized?'
     }
     if(roundCopy.incorrectGuesses[0]===null){
-        return '%100';
+        return '100%';
     } else  {       
         let ratio = ((roundCopy.turns-roundCopy.incorrectGuesses.length) / roundCopy.turns)*100;
-        ratio = `%${Math.trunc(ratio)}`
+        ratio = `${Math.trunc(ratio)}%`
         return ratio
     };
     
 };
 function endRound(round){
+    if(round.result !== undefined){
+    return `** Round over! ** You answered ${round.result} of the questions correctly!`
+    };
 };
 
 module.exports = {
