@@ -1,6 +1,6 @@
 const data = require('./data');
 const { createDeck, countCards } = require('./deck');
-const { round, calculatePercentCorrect } = require('./round');
+const { round } = require('./round');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 function start(){
