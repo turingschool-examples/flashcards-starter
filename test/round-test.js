@@ -102,24 +102,45 @@ describe('percent calculation', function(){
 
         expect(percent).to.equal('66.7')
     });
-    // it.skip('count how many incorrect guesses', function () {
+    it('should calculate a different percent', function () {
+        const card1 = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+        const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
+        const card3 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
 
-    // });
-    // it.skip('calculate percent', function () {
+        const deck = createDeck([card1, card2, card3]);
 
-    // })
+        const round = createRound(deck)
+
+        const play1 = takeTurn('object', round)
+        const play2 = takeTurn('array', round)
+        const play3 = takeTurn('mutator method', round)
+
+        const percent = calculatePercentCorrect(round)
+
+        expect(percent).to.equal('100.0')
+    });
 });
-// describe('percent calculation', function(){
-//     it.skip('should be a function', function () {
-//         expect(endRound).to.be.a('function')
-//     });
-//     it.skip('should be a function', function () {
+describe('game end', function(){
+    it('should be a function', function () {
+        expect(endRound).to.be.a('function')
+    });
+    it('should print round over ', function () {
+        const card1 = createCard(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
+        const card2 = createCard(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
+        const card3 = createCard(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
 
-//     });
-//     it.skip('should be a function', function () {
+        const deck = createDeck([card1, card2, card3]);
 
-//     });
-//     it.skip('should be a function', function () {
+        const round = createRound(deck)
 
-//     })
-// })
+        const play1 = takeTurn('object', round)
+        const play2 = takeTurn('array', round)
+        const play3 = takeTurn('mutator method', round)
+
+        const percent = calculatePercentCorrect(round)
+
+        const endGame = endRound(round)
+
+        expect(endGame).to.equal(`** Round over! ** You answered ${percent}% of the questions correctly!`)
+    });
+})

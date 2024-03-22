@@ -22,16 +22,19 @@ const takeTurn = (guess, round) =>{
     }
 
 }
-
  const calculatePercentCorrect = (round) =>{
     let numberOfWins = (round.deck.length - round.incorrectGuess.length)
     let winRatio = numberOfWins / round.deck.length
     let winPercent = winRatio * 100
-    
+
     return winPercent.toFixed(1)
  }
-
-
+const endRound = (round) =>{
+    let endGame = round.deck.length    
+    if (round.turns === endGame){
+        return `** Round over! ** You answered ${calculatePercentCorrect(round)}% of the questions correctly!` 
+    }
+}
 
 
 
@@ -40,5 +43,5 @@ module.exports ={
     createRound,
     takeTurn,
     calculatePercentCorrect,
-    //endRound
+    endRound
 }
