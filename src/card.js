@@ -4,9 +4,7 @@ function createCard(id = 1, questionString, answersArray, answerString){
         question : questionString,
         answers : answersArray,
         correctAnswer : answerString,
-        
     };
-   
 };
 
 function evaluateGuess(guessString, answerString){
