@@ -12,18 +12,24 @@ const createRound = (deck) => {
 const takeTurn = (guess, round) =>{
      if(guess === round.currentCard.correctAnswer){
         round.turns+=1
-        round.currentCard = round.deck[1]
+        round.currentCard = round.deck[round.currentCard.id]
         return 'correct'
     } else {
         round.incorrectGuess.push(round.currentCard.id)
         round.turns+=1
-        round.currentCard = round.deck[1]
+        round.currentCard = round.deck[round.currentCard.id]
         return 'incorrect'
     }
 
 }
 
-
+ const calculatePercentCorrect = (round) =>{
+    let numberOfWins = (round.deck.length - round.incorrectGuess.length)
+    let winRatio = numberOfWins / round.deck.length
+    let winPercent = winRatio * 100
+    
+    return winPercent.toFixed(1)
+ }
 
 
 
@@ -33,6 +39,6 @@ const takeTurn = (guess, round) =>{
 module.exports ={
     createRound,
     takeTurn,
-    //calculatePercentCorrect,
+    calculatePercentCorrect,
     //endRound
 }
