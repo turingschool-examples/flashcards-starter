@@ -52,12 +52,43 @@ describe('takeTurn', () => {
         const newResults = takeTurn(round(deck), 'wrong')
         expect(newResults[0].incorrectGuesses[0]).to.equals('wrong')
     });
-    it('should display evaluation feedback in the console',()=>{
+    it('should return evaluation feedback as a string',()=>{
         const newResults = takeTurn(round(deck))
         expect(newResults[1]).to.equal('incorrect!')
     });
-    it('incorrect guesses should remain default if guess is correct',()=>{
-        const newResults = takeTurn(round(deck), 'test')
+    it('incorrect guesses should remain default if guess is correct and no incorrect guesses have been made.',()=>{
+        let newResults = takeTurn(round(deck), 'test');
+        newResults = takeTurn(newResults[0],'good test');
+        newResults = takeTurn(newResults[0],'evil test');
         expect(newResults[0].incorrectGuesses).to.deep.equal([null])
+    });
+});
+
+describe('calculatePercentCorrect', () => {
+    const card1 = createCard(1,'test card 1',['test','evil test','good test'],'test');
+    const card2 = createCard(60,'test card 3',['test','evil test','good test'],'good test');
+    const card3 = createCard('e','test card 2',['test','evil test','good test'],'evil test');
+
+    const deck = createDeck([card1,card2,card3]);
+    it('should be a function.', ()=>{
+        expect(calculatePercentCorrect).to.be.a('function');
+    });
+    it('should calculate the ratio of correct and incorrect guesses as a percentage', ()=>{
+        let cumulativeRounds = takeTurn(round(deck), 'test')
+        cumulativeRounds = takeTurn(cumulativeRounds[0], 'good test')
+        let alternateRounds = takeTurn(cumulativeRounds[0],'i don\'t know!')
+        cumulativeRounds = takeTurn(cumulativeRounds[0],'evil test')
+        
+        const cumulativeResults = calculatePercentCorrect(cumulativeRounds[0])
+        const alternateResults = calculatePercentCorrect(alternateRounds[0])
+
+        expect(cumulativeResults).to.equal('%100')
+        expect(alternateResults).to.equal('%66')
+    });
+    it('should return an error message if the round ends with no turns taken', ()=>{
+        const errorResult = calculatePercentCorrect(round(deck))
+        const errorResult_1 = calculatePercentCorrect(round())
+        expect(errorResult).to.equal('Error: no guesses to calculate, perhaps the deck was not properly initialized?')
+        expect(errorResult_1).to.equal('Error: no guesses to calculate, perhaps the deck was not properly initialized?')
     });
 });
