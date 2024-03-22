@@ -3,18 +3,18 @@ function createCard(id = 1, questionString, answersArray, answerString){
         id,
         question : questionString,
         answers : answersArray,
-        correctAnswer : answerString
+        correctAnswer : answerString,
     };
 };
 
-function takeTurn(guessString, answerString){
+function evaluateGuess(guessString, answerString){
     if (guessString === answerString){
-        return true
+        return 'correct!'
     } else {
-        return false
+        return 'incorrect!'
     }
 }
 module.exports = {
     createCard,
-    takeTurn
+    evaluateGuess
 }
