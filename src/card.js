@@ -1,4 +1,4 @@
-function createCard(id = 1, questionString, answersArray, answerString){
+function createCard(id, questionString, answersArray, answerString){
     return {
         id,
         question : questionString,

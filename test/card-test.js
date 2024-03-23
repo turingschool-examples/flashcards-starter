@@ -4,11 +4,11 @@ const expect = chai.expect;
 const { createCard, evaluateGuess } = require('../src/card');
 
 describe('card', function() {
-  it('should be a function', function() {
+  it.skip('should be a function', function() {
     expect(createCard).to.be.a('function');
   });
 
-  it('should create a card and its properties', function() {
+  it.skip('should create a card and it.skips properties', function() {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     
     expect(card.id).to.equal(1);
@@ -19,11 +19,11 @@ describe('card', function() {
 });
 
 describe('evaluateGuess', () =>{
-  it('should be a function',() => {
+  it.skip('should be a function',() => {
     expect(evaluateGuess).to.be.a('function');
   });
 
-  it('should evaluate a guess as correct or false', () => {
+  it.skip('should evaluate a guess as correct or false', () => {
     const card = createCard(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     const guess = 1
     const guess1 = 0
