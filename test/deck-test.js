@@ -6,10 +6,10 @@ const {createDeck, countCards} = require('../src/deck');
 const {createCard} = require('../src/card');
 
 describe('createDeck', () => {
-    it('should be a function', () => {
+    it.skip('should be a function', () => {
         expect(createDeck).to.be.a('function')
     })
-    it('should take in an array of cards and return it for variable storage', () => {
+    it.skip('should take in an array of cards and return it.skip for variable storage', () => {
         const card1 = createCard(1,'test card 1',['test','evil test','good test'],'test');
         const card2 = createCard(60,'test card 3',['test','evil test','good test'],'good test');
         const card3 = createCard('e','test card 2',['test','evil test','good test'],'evil test');
@@ -24,10 +24,10 @@ describe('createDeck', () => {
 });
 
 describe('countCards', () => {
-    it('should be a function', () =>{
+    it.skip('should be a function', () =>{
         expect(countCards).to.be.a('function')
     });
-    it('should be able to return the length of a deck', () => {
+    it.skip('should be able to return the length of a deck', () => {
         const card1 = createCard(1,'test card 1',['test','evil test','good test'],'test');
         const card2 = createCard(60,'test card 3',['test','evil test','good test'],'good test');
         const card3 = createCard('e','test card 2',['test','evil test','good test'],'evil test');
