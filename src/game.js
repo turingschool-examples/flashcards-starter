@@ -6,9 +6,8 @@ const util = require('./util');
 function start(){
   const deck = createDeck(prototypeQuestions)
   const newRound = round(deck)
-  console.log(deck)
   printMessage(newRound.deck)
-  let results = printQuestion(newRound)
+  printQuestion(newRound)
 
 };
 function printMessage(deck) {
