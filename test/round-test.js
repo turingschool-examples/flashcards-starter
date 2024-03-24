@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 const {createDeck, countCards} = require('../src/deck');
 const {createCard, evaluateGuess} = require('../src/card');
-const {round, takeTurn, calculatePercentCorrect, endRound} = require('../src/round');
+const {round, takeTurn, calculatePercentCorrect, endRound, calculateTime} = require('../src/round');
 
 describe('round & constructor.', ()=>{
     it.skip('should be afunction', () => {
@@ -117,3 +117,13 @@ describe('endRound',()=>{
         expect(resultMessage).to.equal(undefined);
     });
 });
+
+describe('calculateTime', () => {
+    it.skip('should take in a time in two time in ms and return a string with the time in minutes and seconds',() =>{
+        const startTime = 0
+        const completeTime = 100000
+        const totalTime = calculateTime(startTime,completeTime)
+        expect(totalTime).to.equal(`1 minutes and 40 seconds`)
+    })
+
+})

@@ -4,7 +4,8 @@ function round(deck){
         deck,
         currentCard : deck[0],
         turns : 0,
-        incorrectGuesses : []
+        incorrectGuesses : [],
+        startTimer : Date.now()
     };
 };
 function takeTurn(guess, round){
@@ -24,13 +25,23 @@ function calculatePercentCorrect(round){
         return ratio
 };
 function endRound(round){
+    const completeTime = Date.now()
+    const totalTime = calculateTime(round.startTimer,completeTime)
     let result = calculatePercentCorrect(round)
     console.log( `** Round over! ** You answered ${result} of the questions correctly!`)
+    console.log( `You completed this deck in ${totalTime}.`)
+};
+function calculateTime(start,complete){
+    const totalTime = (complete - start)/1000
+    const totalTimeMinutes = Math.trunc(totalTime/60)
+    const totalTimeSeconds = Math.trunc(totalTime%60)
+    return `${totalTimeMinutes} minutes and ${totalTimeSeconds} seconds`
 };
 
 module.exports = {
     round,
     takeTurn,
     calculatePercentCorrect,
-    endRound
+    endRound,
+    calculateTime
 };
