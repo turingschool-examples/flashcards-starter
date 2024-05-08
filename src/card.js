@@ -10,15 +10,17 @@ function createCard(id, question, answers, correctAnswer){
 
 function evaluateGuess(guess, correctAnswer){
     if(guess === correctAnswer){
-        console.log(`correct!`) 
+        // console.log(`correct!`) 
         return 'correct!'
     } else {
-        console.log('incorrect!') 
+        // console.log('incorrect!') 
         return 'incorrect!'
     }
 }
 
+
 module.exports = {
     createCard,
     evaluateGuess,
+
 }
