@@ -1,4 +1,4 @@
-function createCard(id, question, answers, correctAnswer){
+function createCard(id, question, answers, correctAnswer) {
     let card = {
         id: id,
         question: question,
@@ -8,8 +8,8 @@ function createCard(id, question, answers, correctAnswer){
     return card
 }
 
-function evaluateGuess(guess, correctAnswer){
-    if(guess === correctAnswer){
+function evaluateGuess(guess, correctAnswer) {
+    if (guess === correctAnswer) {
         // console.log(`correct!`) 
         return 'correct!'
     } else {

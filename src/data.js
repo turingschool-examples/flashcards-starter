@@ -153,5 +153,5 @@ const prototypeData = [{
 /* eslint-enable */
 
 module.exports = {
-  prototypeData 
+  prototypeData
 }

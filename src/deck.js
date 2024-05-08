@@ -2,8 +2,7 @@ function createDeck(cards) {
     return cards
 }
 
-
-function countCards(deck){
+function countCards(deck) {
     return deck.length
 }
 
