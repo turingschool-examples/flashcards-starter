@@ -4,7 +4,8 @@
   "description": "OOP Flashcards Application",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "watch": "mocha --watch 'test/*.js'"
   },
   "keywords": [
     "javascript",
